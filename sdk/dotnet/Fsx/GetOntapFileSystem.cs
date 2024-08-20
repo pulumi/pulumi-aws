@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
         /// <summary>
-        /// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        /// DNS name for the file system.
         /// </summary>
         public readonly string DnsName;
         /// <summary>

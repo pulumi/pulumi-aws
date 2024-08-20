@@ -190,7 +190,7 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpcConnection(String name) {
+    public VpcConnection(java.lang.String name) {
         this(name, VpcConnectionArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpcConnection(String name, VpcConnectionArgs args) {
+    public VpcConnection(java.lang.String name, VpcConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +207,22 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpcConnection(String name, VpcConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/vpcConnection:VpcConnection", name, args == null ? VpcConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VpcConnection(java.lang.String name, VpcConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:msk/vpcConnection:VpcConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpcConnection(String name, Output<String> id, @Nullable VpcConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/vpcConnection:VpcConnection", name, state, makeResourceOptions(options, id));
+    private VpcConnection(java.lang.String name, Output<java.lang.String> id, @Nullable VpcConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:msk/vpcConnection:VpcConnection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcConnectionArgs makeArgs(VpcConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcConnectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +238,7 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpcConnection get(String name, Output<String> id, @Nullable VpcConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpcConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpcConnection(name, id, state, options);
     }
 }

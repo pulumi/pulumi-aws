@@ -334,9 +334,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> databaseVpcEndpointService() {
         return this.databaseVpcEndpointService;
     }
+    /**
+     * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     @Export(name="endpointManagement", refs={String.class}, tree="[0]")
     private Output<String> endpointManagement;
 
+    /**
+     * @return Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     public Output<String> endpointManagement() {
         return this.endpointManagement;
     }
@@ -389,22 +397,30 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.lastUpdateds;
     }
     /**
-     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     @Export(name="loggingConfiguration", refs={EnvironmentLoggingConfiguration.class}, tree="[0]")
     private Output<EnvironmentLoggingConfiguration> loggingConfiguration;
 
     /**
-     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+     * @return The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
     public Output<EnvironmentLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
+    /**
+     * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Export(name="maxWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxWebservers;
 
+    /**
+     * @return The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Output<Integer> maxWebservers() {
         return this.maxWebservers;
     }
@@ -422,9 +438,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<Integer> maxWorkers() {
         return this.maxWorkers;
     }
+    /**
+     * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     @Export(name="minWebservers", refs={Integer.class}, tree="[0]")
     private Output<Integer> minWebservers;
 
+    /**
+     * @return The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+     * 
+     */
     public Output<Integer> minWebservers() {
         return this.minWebservers;
     }
@@ -457,14 +481,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     @Export(name="networkConfiguration", refs={EnvironmentNetworkConfiguration.class}, tree="[0]")
     private Output<EnvironmentNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+     * @return Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
     public Output<EnvironmentNetworkConfiguration> networkConfiguration() {
@@ -703,7 +727,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Environment(String name) {
+    public Environment(java.lang.String name) {
         this(name, EnvironmentArgs.Empty);
     }
     /**
@@ -711,7 +735,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Environment(String name, EnvironmentArgs args) {
+    public Environment(java.lang.String name, EnvironmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -720,15 +744,22 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Environment(String name, EnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mwaa/environment:Environment", name, args == null ? EnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Environment(java.lang.String name, EnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mwaa/environment:Environment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Environment(String name, Output<String> id, @Nullable EnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mwaa/environment:Environment", name, state, makeResourceOptions(options, id));
+    private Environment(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mwaa/environment:Environment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EnvironmentArgs makeArgs(EnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -747,7 +778,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Environment get(String name, Output<String> id, @Nullable EnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Environment get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Environment(name, id, state, options);
     }
 }

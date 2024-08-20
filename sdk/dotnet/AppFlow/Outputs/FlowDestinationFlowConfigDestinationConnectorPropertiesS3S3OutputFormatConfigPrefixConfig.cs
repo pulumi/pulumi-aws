@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? PrefixFormat;
         /// <summary>
+        /// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+        /// </summary>
+        public readonly ImmutableArray<string> PrefixHierarchies;
+        /// <summary>
         /// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         /// </summary>
         public readonly string? PrefixType;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.AppFlow.Outputs
         private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig(
             string? prefixFormat,
 
+            ImmutableArray<string> prefixHierarchies,
+
             string? prefixType)
         {
             PrefixFormat = prefixFormat;
+            PrefixHierarchies = prefixHierarchies;
             PrefixType = prefixType;
         }
     }

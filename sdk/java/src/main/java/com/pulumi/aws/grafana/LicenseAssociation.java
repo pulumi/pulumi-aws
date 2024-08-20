@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -108,6 +109,20 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
         return this.freeTrialExpiration;
     }
     /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    @Export(name="grafanaToken", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> grafanaToken;
+
+    /**
+     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    public Output<Optional<String>> grafanaToken() {
+        return Codegen.optional(this.grafanaToken);
+    }
+    /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
@@ -154,7 +169,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LicenseAssociation(String name) {
+    public LicenseAssociation(java.lang.String name) {
         this(name, LicenseAssociationArgs.Empty);
     }
     /**
@@ -162,7 +177,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LicenseAssociation(String name, LicenseAssociationArgs args) {
+    public LicenseAssociation(java.lang.String name, LicenseAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,15 +186,22 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LicenseAssociation(String name, LicenseAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/licenseAssociation:LicenseAssociation", name, args == null ? LicenseAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LicenseAssociation(java.lang.String name, LicenseAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/licenseAssociation:LicenseAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LicenseAssociation(String name, Output<String> id, @Nullable LicenseAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:grafana/licenseAssociation:LicenseAssociation", name, state, makeResourceOptions(options, id));
+    private LicenseAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:grafana/licenseAssociation:LicenseAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LicenseAssociationArgs makeArgs(LicenseAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicenseAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +217,7 @@ public class LicenseAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LicenseAssociation get(String name, Output<String> id, @Nullable LicenseAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LicenseAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LicenseAssociation(name, id, state, options);
     }
 }

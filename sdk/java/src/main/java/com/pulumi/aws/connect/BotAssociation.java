@@ -190,7 +190,7 @@ public class BotAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BotAssociation(String name) {
+    public BotAssociation(java.lang.String name) {
         this(name, BotAssociationArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class BotAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BotAssociation(String name, BotAssociationArgs args) {
+    public BotAssociation(java.lang.String name, BotAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +207,22 @@ public class BotAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BotAssociation(String name, BotAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/botAssociation:BotAssociation", name, args == null ? BotAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BotAssociation(java.lang.String name, BotAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/botAssociation:BotAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BotAssociation(String name, Output<String> id, @Nullable BotAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/botAssociation:BotAssociation", name, state, makeResourceOptions(options, id));
+    private BotAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable BotAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/botAssociation:BotAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BotAssociationArgs makeArgs(BotAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BotAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +238,7 @@ public class BotAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BotAssociation get(String name, Output<String> id, @Nullable BotAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BotAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable BotAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BotAssociation(name, id, state, options);
     }
 }

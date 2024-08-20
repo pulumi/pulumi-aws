@@ -40,16 +40,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new User("test", UserArgs.builder()
  *             .userId("testUserId")
  *             .userName("default")
- *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
  *             .engine("REDIS")
  *             .passwords("password123456789")
  *             .build());
@@ -60,8 +60,8 @@ import javax.annotation.Nullable;
  *             .userIds(test.userId())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -174,7 +174,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserGroup(String name) {
+    public UserGroup(java.lang.String name) {
         this(name, UserGroupArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserGroup(String name, UserGroupArgs args) {
+    public UserGroup(java.lang.String name, UserGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,15 +191,22 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserGroup(String name, UserGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/userGroup:UserGroup", name, args == null ? UserGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserGroup(java.lang.String name, UserGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/userGroup:UserGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserGroup(String name, Output<String> id, @Nullable UserGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/userGroup:UserGroup", name, state, makeResourceOptions(options, id));
+    private UserGroup(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/userGroup:UserGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserGroupArgs makeArgs(UserGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +222,7 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserGroup get(String name, Output<String> id, @Nullable UserGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserGroup(name, id, state, options);
     }
 }

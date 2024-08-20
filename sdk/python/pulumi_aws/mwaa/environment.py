@@ -50,14 +50,17 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
-        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
+        :param pulumi.Input[str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[str] name: The name of the Apache Airflow Environment
         :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
@@ -146,7 +149,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Input['EnvironmentNetworkConfigurationArgs']:
         """
-        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -193,6 +196,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="endpointManagement")
     def endpoint_management(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        """
         return pulumi.get(self, "endpoint_management")
 
     @endpoint_management.setter
@@ -227,7 +233,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
         """
-        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -238,6 +244,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="maxWebservers")
     def max_webservers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "max_webservers")
 
     @max_webservers.setter
@@ -259,6 +268,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="minWebservers")
     def min_webservers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "min_webservers")
 
     @min_webservers.setter
@@ -456,14 +468,17 @@ class _EnvironmentState:
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] database_vpc_endpoint_service: The VPC endpoint for the environment's Amazon RDS database
                * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        :param pulumi.Input[str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[str] name: The name of the Apache Airflow Environment
-        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
@@ -629,6 +644,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="endpointManagement")
     def endpoint_management(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        """
         return pulumi.get(self, "endpoint_management")
 
     @endpoint_management.setter
@@ -684,7 +702,7 @@ class _EnvironmentState:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']]:
         """
-        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -695,6 +713,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="maxWebservers")
     def max_webservers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "max_webservers")
 
     @max_webservers.setter
@@ -716,6 +737,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="minWebservers")
     def min_webservers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "min_webservers")
 
     @min_webservers.setter
@@ -750,7 +774,7 @@ class _EnvironmentState:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']]:
         """
-        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -1001,8 +1025,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1022,8 +1046,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1040,31 +1064,31 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
-                "dagProcessingLogs": {
+                "dag_processing_logs": {
                     "enabled": True,
-                    "logLevel": "DEBUG",
+                    "log_level": "DEBUG",
                 },
-                "schedulerLogs": {
+                "scheduler_logs": {
                     "enabled": True,
-                    "logLevel": "INFO",
+                    "log_level": "INFO",
                 },
-                "taskLogs": {
+                "task_logs": {
                     "enabled": True,
-                    "logLevel": "WARNING",
+                    "log_level": "WARNING",
                 },
-                "webserverLogs": {
+                "webserver_logs": {
                     "enabled": True,
-                    "logLevel": "ERROR",
+                    "log_level": "ERROR",
                 },
-                "workerLogs": {
+                "worker_logs": {
                     "enabled": True,
-                    "logLevel": "CRITICAL",
+                    "log_level": "CRITICAL",
                 },
             },
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1080,8 +1104,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
@@ -1103,14 +1127,17 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         :param pulumi.Input[str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[str] name: The name of the Apache Airflow Environment
-        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
@@ -1147,8 +1174,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1168,8 +1195,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1186,31 +1213,31 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
-                "dagProcessingLogs": {
+                "dag_processing_logs": {
                     "enabled": True,
-                    "logLevel": "DEBUG",
+                    "log_level": "DEBUG",
                 },
-                "schedulerLogs": {
+                "scheduler_logs": {
                     "enabled": True,
-                    "logLevel": "INFO",
+                    "log_level": "INFO",
                 },
-                "taskLogs": {
+                "task_logs": {
                     "enabled": True,
-                    "logLevel": "WARNING",
+                    "log_level": "WARNING",
                 },
-                "webserverLogs": {
+                "webserver_logs": {
                     "enabled": True,
-                    "logLevel": "ERROR",
+                    "log_level": "ERROR",
                 },
-                "workerLogs": {
+                "worker_logs": {
                     "enabled": True,
-                    "logLevel": "CRITICAL",
+                    "log_level": "CRITICAL",
                 },
             },
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
@@ -1226,8 +1253,8 @@ class Environment(pulumi.CustomResource):
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
             network_configuration={
-                "securityGroupIds": [example_aws_security_group["id"]],
-                "subnetIds": [__item["id"] for __item in private],
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
             },
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
@@ -1395,14 +1422,17 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] database_vpc_endpoint_service: The VPC endpoint for the environment's Amazon RDS database
                * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
+        :param pulumi.Input[str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[str] environment_class: Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
-        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
+        :param pulumi.Input[int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
+        :param pulumi.Input[int] min_webservers: The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
         :param pulumi.Input[int] min_workers: The minimum number of workers that you want to run in your environment. Will be `1` by default.
         :param pulumi.Input[str] name: The name of the Apache Airflow Environment
-        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         :param pulumi.Input[str] plugins_s3_object_version: The plugins.zip file version you want to use.
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
@@ -1512,6 +1542,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointManagement")
     def endpoint_management(self) -> pulumi.Output[str]:
+        """
+        Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        """
         return pulumi.get(self, "endpoint_management")
 
     @property
@@ -1547,13 +1580,16 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.EnvironmentLoggingConfiguration']:
         """
-        The Apache Airflow logs you want to send to Amazon CloudWatch Logs.
+        The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         """
         return pulumi.get(self, "logging_configuration")
 
     @property
     @pulumi.getter(name="maxWebservers")
     def max_webservers(self) -> pulumi.Output[int]:
+        """
+        The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "max_webservers")
 
     @property
@@ -1567,6 +1603,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="minWebservers")
     def min_webservers(self) -> pulumi.Output[int]:
+        """
+        The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5`. Will be `2` by default.
+        """
         return pulumi.get(self, "min_webservers")
 
     @property
@@ -1589,7 +1628,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output['outputs.EnvironmentNetworkConfiguration']:
         """
-        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See Network configuration below for details.
+        Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         """
         return pulumi.get(self, "network_configuration")
 

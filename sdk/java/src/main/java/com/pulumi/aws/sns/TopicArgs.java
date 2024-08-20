@@ -124,14 +124,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */
     @Import(name="fifoTopic")
     private @Nullable Output<Boolean> fifoTopic;
 
     /**
-     * @return Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+     * @return Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> fifoTopic() {
@@ -621,7 +621,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fifoTopic Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+         * @param fifoTopic Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
          * 
          * @return builder
          * 
@@ -632,7 +632,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fifoTopic Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+         * @param fifoTopic Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
          * 
          * @return builder
          * 

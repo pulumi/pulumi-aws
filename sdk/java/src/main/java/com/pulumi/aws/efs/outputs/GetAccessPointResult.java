@@ -11,7 +11,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccessPointResult {
@@ -51,7 +50,7 @@ public final class GetAccessPointResult {
      * @return Key-value mapping of resource tags.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
 
     private GetAccessPointResult() {}
     public String accessPointId() {
@@ -107,7 +106,7 @@ public final class GetAccessPointResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -127,7 +126,7 @@ public final class GetAccessPointResult {
         private String ownerId;
         private List<GetAccessPointPosixUser> posixUsers;
         private List<GetAccessPointRootDirectory> rootDirectories;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetAccessPointResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -213,8 +212,10 @@ public final class GetAccessPointResult {
             return rootDirectories(List.of(rootDirectories));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccessPointResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

@@ -192,7 +192,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ParameterGroup(String name) {
+    public ParameterGroup(java.lang.String name) {
         this(name, ParameterGroupArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ParameterGroup(String name, ParameterGroupArgs args) {
+    public ParameterGroup(java.lang.String name, ParameterGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,15 +209,22 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ParameterGroup(String name, ParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/parameterGroup:ParameterGroup", name, args == null ? ParameterGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ParameterGroup(java.lang.String name, ParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/parameterGroup:ParameterGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ParameterGroup(String name, Output<String> id, @Nullable ParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/parameterGroup:ParameterGroup", name, state, makeResourceOptions(options, id));
+    private ParameterGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/parameterGroup:ParameterGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ParameterGroupArgs makeArgs(ParameterGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ParameterGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +240,7 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ParameterGroup get(String name, Output<String> id, @Nullable ParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ParameterGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ParameterGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ParameterGroup(name, id, state, options);
     }
 }

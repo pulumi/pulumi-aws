@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
         [Output("netmaskLength")]
-        public Output<int?> NetmaskLength { get; private set; } = null!;
+        public Output<int> NetmaskLength { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the resource.

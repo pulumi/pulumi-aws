@@ -128,13 +128,13 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
      * 
      */
     @Import(name="throughput")
-    private @Nullable Output<String> throughput;
+    private @Nullable Output<Integer> throughput;
 
     /**
      * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
-    public Optional<Output<String>> throughput() {
+    public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
 
@@ -338,7 +338,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
          * @return builder
          * 
          */
-        public Builder throughput(@Nullable Output<String> throughput) {
+        public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
@@ -349,7 +349,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
          * @return builder
          * 
          */
-        public Builder throughput(String throughput) {
+        public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }
 

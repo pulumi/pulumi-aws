@@ -86,6 +86,8 @@ type EventBus struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrOutput `pulumi:"eventSourceName"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -130,6 +132,8 @@ type eventBusState struct {
 	Arn *string `pulumi:"arn"`
 	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName *string `pulumi:"eventSourceName"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -145,6 +149,8 @@ type EventBusState struct {
 	Arn pulumi.StringPtrInput
 	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrInput
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +168,8 @@ func (EventBusState) ElementType() reflect.Type {
 type eventBusArgs struct {
 	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName *string `pulumi:"eventSourceName"`
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -172,6 +180,8 @@ type eventBusArgs struct {
 type EventBusArgs struct {
 	// The partner event source that the new event bus will be matched with. Must match `name`.
 	EventSourceName pulumi.StringPtrInput
+	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -273,6 +283,11 @@ func (o EventBusOutput) Arn() pulumi.StringOutput {
 // The partner event source that the new event bus will be matched with. Must match `name`.
 func (o EventBusOutput) EventSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.EventSourceName }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+func (o EventBusOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventBus) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.

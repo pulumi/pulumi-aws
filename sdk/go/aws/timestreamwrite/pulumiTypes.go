@@ -980,6 +980,654 @@ func (o TableSchemaCompositePartitionKeyPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetTableMagneticStoreWriteProperty struct {
+	// Flag that is set based on if magnetic store writes are enabled.
+	EnableMagneticStoreWrites bool `pulumi:"enableMagneticStoreWrites"`
+	// Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
+	MagneticStoreRejectedDataLocations []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation `pulumi:"magneticStoreRejectedDataLocations"`
+}
+
+// GetTableMagneticStoreWritePropertyInput is an input type that accepts GetTableMagneticStoreWritePropertyArgs and GetTableMagneticStoreWritePropertyOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyInput` via:
+//
+//	GetTableMagneticStoreWritePropertyArgs{...}
+type GetTableMagneticStoreWritePropertyInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyOutput() GetTableMagneticStoreWritePropertyOutput
+	ToGetTableMagneticStoreWritePropertyOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyOutput
+}
+
+type GetTableMagneticStoreWritePropertyArgs struct {
+	// Flag that is set based on if magnetic store writes are enabled.
+	EnableMagneticStoreWrites pulumi.BoolInput `pulumi:"enableMagneticStoreWrites"`
+	// Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
+	MagneticStoreRejectedDataLocations GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayInput `pulumi:"magneticStoreRejectedDataLocations"`
+}
+
+func (GetTableMagneticStoreWritePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWriteProperty)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyArgs) ToGetTableMagneticStoreWritePropertyOutput() GetTableMagneticStoreWritePropertyOutput {
+	return i.ToGetTableMagneticStoreWritePropertyOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyArgs) ToGetTableMagneticStoreWritePropertyOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyOutput)
+}
+
+// GetTableMagneticStoreWritePropertyArrayInput is an input type that accepts GetTableMagneticStoreWritePropertyArray and GetTableMagneticStoreWritePropertyArrayOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyArrayInput` via:
+//
+//	GetTableMagneticStoreWritePropertyArray{ GetTableMagneticStoreWritePropertyArgs{...} }
+type GetTableMagneticStoreWritePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyArrayOutput() GetTableMagneticStoreWritePropertyArrayOutput
+	ToGetTableMagneticStoreWritePropertyArrayOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyArrayOutput
+}
+
+type GetTableMagneticStoreWritePropertyArray []GetTableMagneticStoreWritePropertyInput
+
+func (GetTableMagneticStoreWritePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWriteProperty)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyArray) ToGetTableMagneticStoreWritePropertyArrayOutput() GetTableMagneticStoreWritePropertyArrayOutput {
+	return i.ToGetTableMagneticStoreWritePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyArray) ToGetTableMagneticStoreWritePropertyArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyArrayOutput)
+}
+
+type GetTableMagneticStoreWritePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWriteProperty)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyOutput) ToGetTableMagneticStoreWritePropertyOutput() GetTableMagneticStoreWritePropertyOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyOutput) ToGetTableMagneticStoreWritePropertyOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyOutput {
+	return o
+}
+
+// Flag that is set based on if magnetic store writes are enabled.
+func (o GetTableMagneticStoreWritePropertyOutput) EnableMagneticStoreWrites() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWriteProperty) bool { return v.EnableMagneticStoreWrites }).(pulumi.BoolOutput)
+}
+
+// Object containing the following attributes to describe error reports for records rejected during magnetic store writes.
+func (o GetTableMagneticStoreWritePropertyOutput) MagneticStoreRejectedDataLocations() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWriteProperty) []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation {
+		return v.MagneticStoreRejectedDataLocations
+	}).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput)
+}
+
+type GetTableMagneticStoreWritePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWriteProperty)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyArrayOutput) ToGetTableMagneticStoreWritePropertyArrayOutput() GetTableMagneticStoreWritePropertyArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyArrayOutput) ToGetTableMagneticStoreWritePropertyArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyArrayOutput) Index(i pulumi.IntInput) GetTableMagneticStoreWritePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableMagneticStoreWriteProperty {
+		return vs[0].([]GetTableMagneticStoreWriteProperty)[vs[1].(int)]
+	}).(GetTableMagneticStoreWritePropertyOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation struct {
+	// Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
+	S3Configurations []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration `pulumi:"s3Configurations"`
+}
+
+// GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationInput is an input type that accepts GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs and GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationInput` via:
+//
+//	GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs{...}
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs struct {
+	// Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
+	S3Configurations GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayInput `pulumi:"s3Configurations"`
+}
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput {
+	return i.ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput)
+}
+
+// GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayInput is an input type that accepts GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray and GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayInput` via:
+//
+//	GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray{ GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs{...} }
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationInput
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput {
+	return i.ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput {
+	return o
+}
+
+// Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput) S3Configurations() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation) []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration {
+		return v.S3Configurations
+	}).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput) Index(i pulumi.IntInput) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation {
+		return vs[0].([]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocation)[vs[1].(int)]
+	}).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration struct {
+	// Name of S3 bucket.
+	BucketName       string `pulumi:"bucketName"`
+	EncryptionOption string `pulumi:"encryptionOption"`
+	// AWS KMS key ID for S3 location with AWS maanged key.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Object key preview for S3 location.
+	ObjectKeyPrefix string `pulumi:"objectKeyPrefix"`
+}
+
+// GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationInput is an input type that accepts GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs and GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationInput` via:
+//
+//	GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs{...}
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs struct {
+	// Name of S3 bucket.
+	BucketName       pulumi.StringInput `pulumi:"bucketName"`
+	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
+	// AWS KMS key ID for S3 location with AWS maanged key.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// Object key preview for S3 location.
+	ObjectKeyPrefix pulumi.StringInput `pulumi:"objectKeyPrefix"`
+}
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput {
+	return i.ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput)
+}
+
+// GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayInput is an input type that accepts GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray and GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayInput` via:
+//
+//	GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray{ GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs{...} }
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput
+	ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutputWithContext(context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray []GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationInput
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration)(nil)).Elem()
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput {
+	return i.ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput {
+	return o
+}
+
+// Name of S3 bucket.
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) EncryptionOption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
+		return v.EncryptionOption
+	}).(pulumi.StringOutput)
+}
+
+// AWS KMS key ID for S3 location with AWS maanged key.
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
+		return v.KmsKeyId
+	}).(pulumi.StringOutput)
+}
+
+// Object key preview for S3 location.
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringOutput)
+}
+
+type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration)(nil)).Elem()
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput() GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput) ToGetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutputWithContext(ctx context.Context) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput {
+	return o
+}
+
+func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput) Index(i pulumi.IntInput) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration {
+		return vs[0].([]GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration)[vs[1].(int)]
+	}).(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput)
+}
+
+type GetTableRetentionProperty struct {
+	// Duration in days in which the data must be stored in magnetic store.
+	MagneticStoreRetentionPeriodInDays int `pulumi:"magneticStoreRetentionPeriodInDays"`
+	// Duration in hours in which the data must be stored in memory store.
+	MemoryStoreRetentionPeriodInHours int `pulumi:"memoryStoreRetentionPeriodInHours"`
+}
+
+// GetTableRetentionPropertyInput is an input type that accepts GetTableRetentionPropertyArgs and GetTableRetentionPropertyOutput values.
+// You can construct a concrete instance of `GetTableRetentionPropertyInput` via:
+//
+//	GetTableRetentionPropertyArgs{...}
+type GetTableRetentionPropertyInput interface {
+	pulumi.Input
+
+	ToGetTableRetentionPropertyOutput() GetTableRetentionPropertyOutput
+	ToGetTableRetentionPropertyOutputWithContext(context.Context) GetTableRetentionPropertyOutput
+}
+
+type GetTableRetentionPropertyArgs struct {
+	// Duration in days in which the data must be stored in magnetic store.
+	MagneticStoreRetentionPeriodInDays pulumi.IntInput `pulumi:"magneticStoreRetentionPeriodInDays"`
+	// Duration in hours in which the data must be stored in memory store.
+	MemoryStoreRetentionPeriodInHours pulumi.IntInput `pulumi:"memoryStoreRetentionPeriodInHours"`
+}
+
+func (GetTableRetentionPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableRetentionProperty)(nil)).Elem()
+}
+
+func (i GetTableRetentionPropertyArgs) ToGetTableRetentionPropertyOutput() GetTableRetentionPropertyOutput {
+	return i.ToGetTableRetentionPropertyOutputWithContext(context.Background())
+}
+
+func (i GetTableRetentionPropertyArgs) ToGetTableRetentionPropertyOutputWithContext(ctx context.Context) GetTableRetentionPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableRetentionPropertyOutput)
+}
+
+// GetTableRetentionPropertyArrayInput is an input type that accepts GetTableRetentionPropertyArray and GetTableRetentionPropertyArrayOutput values.
+// You can construct a concrete instance of `GetTableRetentionPropertyArrayInput` via:
+//
+//	GetTableRetentionPropertyArray{ GetTableRetentionPropertyArgs{...} }
+type GetTableRetentionPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetTableRetentionPropertyArrayOutput() GetTableRetentionPropertyArrayOutput
+	ToGetTableRetentionPropertyArrayOutputWithContext(context.Context) GetTableRetentionPropertyArrayOutput
+}
+
+type GetTableRetentionPropertyArray []GetTableRetentionPropertyInput
+
+func (GetTableRetentionPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableRetentionProperty)(nil)).Elem()
+}
+
+func (i GetTableRetentionPropertyArray) ToGetTableRetentionPropertyArrayOutput() GetTableRetentionPropertyArrayOutput {
+	return i.ToGetTableRetentionPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableRetentionPropertyArray) ToGetTableRetentionPropertyArrayOutputWithContext(ctx context.Context) GetTableRetentionPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableRetentionPropertyArrayOutput)
+}
+
+type GetTableRetentionPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetTableRetentionPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableRetentionProperty)(nil)).Elem()
+}
+
+func (o GetTableRetentionPropertyOutput) ToGetTableRetentionPropertyOutput() GetTableRetentionPropertyOutput {
+	return o
+}
+
+func (o GetTableRetentionPropertyOutput) ToGetTableRetentionPropertyOutputWithContext(ctx context.Context) GetTableRetentionPropertyOutput {
+	return o
+}
+
+// Duration in days in which the data must be stored in magnetic store.
+func (o GetTableRetentionPropertyOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableRetentionProperty) int { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// Duration in hours in which the data must be stored in memory store.
+func (o GetTableRetentionPropertyOutput) MemoryStoreRetentionPeriodInHours() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTableRetentionProperty) int { return v.MemoryStoreRetentionPeriodInHours }).(pulumi.IntOutput)
+}
+
+type GetTableRetentionPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableRetentionPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableRetentionProperty)(nil)).Elem()
+}
+
+func (o GetTableRetentionPropertyArrayOutput) ToGetTableRetentionPropertyArrayOutput() GetTableRetentionPropertyArrayOutput {
+	return o
+}
+
+func (o GetTableRetentionPropertyArrayOutput) ToGetTableRetentionPropertyArrayOutputWithContext(ctx context.Context) GetTableRetentionPropertyArrayOutput {
+	return o
+}
+
+func (o GetTableRetentionPropertyArrayOutput) Index(i pulumi.IntInput) GetTableRetentionPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableRetentionProperty {
+		return vs[0].([]GetTableRetentionProperty)[vs[1].(int)]
+	}).(GetTableRetentionPropertyOutput)
+}
+
+type GetTableSchema struct {
+	CompositePartitionKeys []GetTableSchemaCompositePartitionKey `pulumi:"compositePartitionKeys"`
+}
+
+// GetTableSchemaInput is an input type that accepts GetTableSchemaArgs and GetTableSchemaOutput values.
+// You can construct a concrete instance of `GetTableSchemaInput` via:
+//
+//	GetTableSchemaArgs{...}
+type GetTableSchemaInput interface {
+	pulumi.Input
+
+	ToGetTableSchemaOutput() GetTableSchemaOutput
+	ToGetTableSchemaOutputWithContext(context.Context) GetTableSchemaOutput
+}
+
+type GetTableSchemaArgs struct {
+	CompositePartitionKeys GetTableSchemaCompositePartitionKeyArrayInput `pulumi:"compositePartitionKeys"`
+}
+
+func (GetTableSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableSchema)(nil)).Elem()
+}
+
+func (i GetTableSchemaArgs) ToGetTableSchemaOutput() GetTableSchemaOutput {
+	return i.ToGetTableSchemaOutputWithContext(context.Background())
+}
+
+func (i GetTableSchemaArgs) ToGetTableSchemaOutputWithContext(ctx context.Context) GetTableSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableSchemaOutput)
+}
+
+// GetTableSchemaArrayInput is an input type that accepts GetTableSchemaArray and GetTableSchemaArrayOutput values.
+// You can construct a concrete instance of `GetTableSchemaArrayInput` via:
+//
+//	GetTableSchemaArray{ GetTableSchemaArgs{...} }
+type GetTableSchemaArrayInput interface {
+	pulumi.Input
+
+	ToGetTableSchemaArrayOutput() GetTableSchemaArrayOutput
+	ToGetTableSchemaArrayOutputWithContext(context.Context) GetTableSchemaArrayOutput
+}
+
+type GetTableSchemaArray []GetTableSchemaInput
+
+func (GetTableSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableSchema)(nil)).Elem()
+}
+
+func (i GetTableSchemaArray) ToGetTableSchemaArrayOutput() GetTableSchemaArrayOutput {
+	return i.ToGetTableSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableSchemaArray) ToGetTableSchemaArrayOutputWithContext(ctx context.Context) GetTableSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableSchemaArrayOutput)
+}
+
+type GetTableSchemaOutput struct{ *pulumi.OutputState }
+
+func (GetTableSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableSchema)(nil)).Elem()
+}
+
+func (o GetTableSchemaOutput) ToGetTableSchemaOutput() GetTableSchemaOutput {
+	return o
+}
+
+func (o GetTableSchemaOutput) ToGetTableSchemaOutputWithContext(ctx context.Context) GetTableSchemaOutput {
+	return o
+}
+
+func (o GetTableSchemaOutput) CompositePartitionKeys() GetTableSchemaCompositePartitionKeyArrayOutput {
+	return o.ApplyT(func(v GetTableSchema) []GetTableSchemaCompositePartitionKey { return v.CompositePartitionKeys }).(GetTableSchemaCompositePartitionKeyArrayOutput)
+}
+
+type GetTableSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableSchema)(nil)).Elem()
+}
+
+func (o GetTableSchemaArrayOutput) ToGetTableSchemaArrayOutput() GetTableSchemaArrayOutput {
+	return o
+}
+
+func (o GetTableSchemaArrayOutput) ToGetTableSchemaArrayOutputWithContext(ctx context.Context) GetTableSchemaArrayOutput {
+	return o
+}
+
+func (o GetTableSchemaArrayOutput) Index(i pulumi.IntInput) GetTableSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableSchema {
+		return vs[0].([]GetTableSchema)[vs[1].(int)]
+	}).(GetTableSchemaOutput)
+}
+
+type GetTableSchemaCompositePartitionKey struct {
+	EnforcementInRecord string `pulumi:"enforcementInRecord"`
+	// Name of the Timestream table.
+	Name string `pulumi:"name"`
+	// Type of partition key.
+	Type string `pulumi:"type"`
+}
+
+// GetTableSchemaCompositePartitionKeyInput is an input type that accepts GetTableSchemaCompositePartitionKeyArgs and GetTableSchemaCompositePartitionKeyOutput values.
+// You can construct a concrete instance of `GetTableSchemaCompositePartitionKeyInput` via:
+//
+//	GetTableSchemaCompositePartitionKeyArgs{...}
+type GetTableSchemaCompositePartitionKeyInput interface {
+	pulumi.Input
+
+	ToGetTableSchemaCompositePartitionKeyOutput() GetTableSchemaCompositePartitionKeyOutput
+	ToGetTableSchemaCompositePartitionKeyOutputWithContext(context.Context) GetTableSchemaCompositePartitionKeyOutput
+}
+
+type GetTableSchemaCompositePartitionKeyArgs struct {
+	EnforcementInRecord pulumi.StringInput `pulumi:"enforcementInRecord"`
+	// Name of the Timestream table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of partition key.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetTableSchemaCompositePartitionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (i GetTableSchemaCompositePartitionKeyArgs) ToGetTableSchemaCompositePartitionKeyOutput() GetTableSchemaCompositePartitionKeyOutput {
+	return i.ToGetTableSchemaCompositePartitionKeyOutputWithContext(context.Background())
+}
+
+func (i GetTableSchemaCompositePartitionKeyArgs) ToGetTableSchemaCompositePartitionKeyOutputWithContext(ctx context.Context) GetTableSchemaCompositePartitionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableSchemaCompositePartitionKeyOutput)
+}
+
+// GetTableSchemaCompositePartitionKeyArrayInput is an input type that accepts GetTableSchemaCompositePartitionKeyArray and GetTableSchemaCompositePartitionKeyArrayOutput values.
+// You can construct a concrete instance of `GetTableSchemaCompositePartitionKeyArrayInput` via:
+//
+//	GetTableSchemaCompositePartitionKeyArray{ GetTableSchemaCompositePartitionKeyArgs{...} }
+type GetTableSchemaCompositePartitionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetTableSchemaCompositePartitionKeyArrayOutput() GetTableSchemaCompositePartitionKeyArrayOutput
+	ToGetTableSchemaCompositePartitionKeyArrayOutputWithContext(context.Context) GetTableSchemaCompositePartitionKeyArrayOutput
+}
+
+type GetTableSchemaCompositePartitionKeyArray []GetTableSchemaCompositePartitionKeyInput
+
+func (GetTableSchemaCompositePartitionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (i GetTableSchemaCompositePartitionKeyArray) ToGetTableSchemaCompositePartitionKeyArrayOutput() GetTableSchemaCompositePartitionKeyArrayOutput {
+	return i.ToGetTableSchemaCompositePartitionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableSchemaCompositePartitionKeyArray) ToGetTableSchemaCompositePartitionKeyArrayOutputWithContext(ctx context.Context) GetTableSchemaCompositePartitionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableSchemaCompositePartitionKeyArrayOutput)
+}
+
+type GetTableSchemaCompositePartitionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetTableSchemaCompositePartitionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (o GetTableSchemaCompositePartitionKeyOutput) ToGetTableSchemaCompositePartitionKeyOutput() GetTableSchemaCompositePartitionKeyOutput {
+	return o
+}
+
+func (o GetTableSchemaCompositePartitionKeyOutput) ToGetTableSchemaCompositePartitionKeyOutputWithContext(ctx context.Context) GetTableSchemaCompositePartitionKeyOutput {
+	return o
+}
+
+func (o GetTableSchemaCompositePartitionKeyOutput) EnforcementInRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableSchemaCompositePartitionKey) string { return v.EnforcementInRecord }).(pulumi.StringOutput)
+}
+
+// Name of the Timestream table.
+func (o GetTableSchemaCompositePartitionKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableSchemaCompositePartitionKey) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of partition key.
+func (o GetTableSchemaCompositePartitionKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableSchemaCompositePartitionKey) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTableSchemaCompositePartitionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableSchemaCompositePartitionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableSchemaCompositePartitionKey)(nil)).Elem()
+}
+
+func (o GetTableSchemaCompositePartitionKeyArrayOutput) ToGetTableSchemaCompositePartitionKeyArrayOutput() GetTableSchemaCompositePartitionKeyArrayOutput {
+	return o
+}
+
+func (o GetTableSchemaCompositePartitionKeyArrayOutput) ToGetTableSchemaCompositePartitionKeyArrayOutputWithContext(ctx context.Context) GetTableSchemaCompositePartitionKeyArrayOutput {
+	return o
+}
+
+func (o GetTableSchemaCompositePartitionKeyArrayOutput) Index(i pulumi.IntInput) GetTableSchemaCompositePartitionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableSchemaCompositePartitionKey {
+		return vs[0].([]GetTableSchemaCompositePartitionKey)[vs[1].(int)]
+	}).(GetTableSchemaCompositePartitionKeyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMagneticStoreWritePropertiesInput)(nil)).Elem(), TableMagneticStoreWritePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMagneticStoreWritePropertiesPtrInput)(nil)).Elem(), TableMagneticStoreWritePropertiesArgs{})
@@ -993,6 +1641,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaPtrInput)(nil)).Elem(), TableSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaCompositePartitionKeyInput)(nil)).Elem(), TableSchemaCompositePartitionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaCompositePartitionKeyPtrInput)(nil)).Elem(), TableSchemaCompositePartitionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyArrayInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayInput)(nil)).Elem(), GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableRetentionPropertyInput)(nil)).Elem(), GetTableRetentionPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableRetentionPropertyArrayInput)(nil)).Elem(), GetTableRetentionPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableSchemaInput)(nil)).Elem(), GetTableSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableSchemaArrayInput)(nil)).Elem(), GetTableSchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableSchemaCompositePartitionKeyInput)(nil)).Elem(), GetTableSchemaCompositePartitionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableSchemaCompositePartitionKeyArrayInput)(nil)).Elem(), GetTableSchemaCompositePartitionKeyArray{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesOutput{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput{})
@@ -1005,4 +1665,16 @@ func init() {
 	pulumi.RegisterOutputType(TableSchemaPtrOutput{})
 	pulumi.RegisterOutputType(TableSchemaCompositePartitionKeyOutput{})
 	pulumi.RegisterOutputType(TableSchemaCompositePartitionKeyPtrOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTableRetentionPropertyOutput{})
+	pulumi.RegisterOutputType(GetTableRetentionPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetTableSchemaOutput{})
+	pulumi.RegisterOutputType(GetTableSchemaArrayOutput{})
+	pulumi.RegisterOutputType(GetTableSchemaCompositePartitionKeyOutput{})
+	pulumi.RegisterOutputType(GetTableSchemaCompositePartitionKeyArrayOutput{})
 }

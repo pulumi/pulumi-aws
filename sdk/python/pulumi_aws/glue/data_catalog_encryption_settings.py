@@ -115,14 +115,14 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
-            "connectionPasswordEncryption": {
-                "awsKmsKeyId": test["arn"],
-                "returnConnectionPasswordEncrypted": True,
+            "connection_password_encryption": {
+                "aws_kms_key_id": test["arn"],
+                "return_connection_password_encrypted": True,
             },
-            "encryptionAtRest": {
-                "catalogEncryptionMode": "SSE-KMS",
-                "catalogEncryptionServiceRole": role["test"]["arn"],
-                "sseAwsKmsKeyId": test["arn"],
+            "encryption_at_rest": {
+                "catalog_encryption_mode": "SSE-KMS",
+                "catalog_encryption_service_role": role["test"]["arn"],
+                "sse_aws_kms_key_id": test["arn"],
             },
         })
         ```
@@ -156,14 +156,14 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
-            "connectionPasswordEncryption": {
-                "awsKmsKeyId": test["arn"],
-                "returnConnectionPasswordEncrypted": True,
+            "connection_password_encryption": {
+                "aws_kms_key_id": test["arn"],
+                "return_connection_password_encrypted": True,
             },
-            "encryptionAtRest": {
-                "catalogEncryptionMode": "SSE-KMS",
-                "catalogEncryptionServiceRole": role["test"]["arn"],
-                "sseAwsKmsKeyId": test["arn"],
+            "encryption_at_rest": {
+                "catalog_encryption_mode": "SSE-KMS",
+                "catalog_encryption_service_role": role["test"]["arn"],
+                "sse_aws_kms_key_id": test["arn"],
             },
         })
         ```

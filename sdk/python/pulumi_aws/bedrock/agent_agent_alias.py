@@ -34,7 +34,7 @@ class AgentAgentAliasArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_alias_name", agent_alias_name)
@@ -90,7 +90,7 @@ class AgentAgentAliasArgs:
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
         """
-        Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         """
         return pulumi.get(self, "routing_configurations")
 
@@ -141,7 +141,7 @@ class _AgentAgentAliasState:
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -233,7 +233,7 @@ class _AgentAgentAliasState:
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentAliasRoutingConfigurationArgs']]]]:
         """
-        Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         """
         return pulumi.get(self, "routing_configurations")
 
@@ -308,7 +308,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -406,7 +406,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -471,7 +471,7 @@ class AgentAgentAlias(pulumi.CustomResource):
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentAliasRoutingConfiguration']]:
         """
-        Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         """
         return pulumi.get(self, "routing_configurations")
 

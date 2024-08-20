@@ -26,13 +26,15 @@ class ImagePipelineArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 execution_role: Optional[pulumi.Input[str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -40,6 +42,7 @@ class ImagePipelineArgs:
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
@@ -49,6 +52,7 @@ class ImagePipelineArgs:
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
         if container_recipe_arn is not None:
@@ -59,6 +63,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
             pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
         if image_recipe_arn is not None:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
@@ -73,6 +79,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workflows is not None:
+            pulumi.set(__self__, "workflows", workflows)
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
@@ -133,6 +141,18 @@ class ImagePipelineArgs:
     @enhanced_image_metadata_enabled.setter
     def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
 
     @property
     @pulumi.getter(name="imageRecipeArn")
@@ -220,6 +240,18 @@ class ImagePipelineArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]:
+        """
+        Configuration block with the workflow configuration. Detailed below.
+        """
+        return pulumi.get(self, "workflows")
+
+    @workflows.setter
+    def workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]):
+        pulumi.set(self, "workflows", value)
+
 
 @pulumi.input_type
 class _ImagePipelineState:
@@ -233,6 +265,7 @@ class _ImagePipelineState:
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 execution_role: Optional[pulumi.Input[str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
@@ -242,7 +275,8 @@ class _ImagePipelineState:
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]] = None):
         """
         Input properties used for looking up and filtering ImagePipeline resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image pipeline.
@@ -254,6 +288,7 @@ class _ImagePipelineState:
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
@@ -266,6 +301,7 @@ class _ImagePipelineState:
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -285,6 +321,8 @@ class _ImagePipelineState:
             pulumi.set(__self__, "distribution_configuration_arn", distribution_configuration_arn)
         if enhanced_image_metadata_enabled is not None:
             pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
         if image_recipe_arn is not None:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
@@ -308,6 +346,8 @@ class _ImagePipelineState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if workflows is not None:
+            pulumi.set(__self__, "workflows", workflows)
 
     @property
     @pulumi.getter
@@ -416,6 +456,18 @@ class _ImagePipelineState:
     @enhanced_image_metadata_enabled.setter
     def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enhanced_image_metadata_enabled", value)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
 
     @property
     @pulumi.getter(name="imageRecipeArn")
@@ -540,6 +592,18 @@ class _ImagePipelineState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter
+    def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]:
+        """
+        Configuration block with the workflow configuration. Detailed below.
+        """
+        return pulumi.get(self, "workflows")
+
+    @workflows.setter
+    def workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowArgs']]]]):
+        pulumi.set(self, "workflows", value)
+
 
 class ImagePipeline(pulumi.CustomResource):
     @overload
@@ -550,6 +614,7 @@ class ImagePipeline(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 execution_role: Optional[pulumi.Input[str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
@@ -558,6 +623,7 @@ class ImagePipeline(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Image Builder Image Pipeline.
@@ -573,7 +639,7 @@ class ImagePipeline(pulumi.CustomResource):
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
             schedule={
-                "scheduleExpression": "cron(0 0 * * ? *)",
+                "schedule_expression": "cron(0 0 * * ? *)",
             })
         ```
 
@@ -591,6 +657,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
@@ -601,6 +668,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         ...
     @overload
@@ -622,7 +690,7 @@ class ImagePipeline(pulumi.CustomResource):
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
             schedule={
-                "scheduleExpression": "cron(0 0 * * ? *)",
+                "schedule_expression": "cron(0 0 * * ? *)",
             })
         ```
 
@@ -653,6 +721,7 @@ class ImagePipeline(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+                 execution_role: Optional[pulumi.Input[str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
@@ -661,6 +730,7 @@ class ImagePipeline(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -674,6 +744,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+            __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
@@ -684,6 +755,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workflows"] = workflows
             __props__.__dict__["arn"] = None
             __props__.__dict__["date_created"] = None
             __props__.__dict__["date_last_run"] = None
@@ -710,6 +782,7 @@ class ImagePipeline(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
+            execution_role: Optional[pulumi.Input[str]] = None,
             image_recipe_arn: Optional[pulumi.Input[str]] = None,
             image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
             image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
@@ -719,7 +792,8 @@ class ImagePipeline(pulumi.CustomResource):
             schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ImagePipeline':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]]] = None) -> 'ImagePipeline':
         """
         Get an existing ImagePipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -736,6 +810,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the image pipeline.
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
+        :param pulumi.Input[str] execution_role: Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
@@ -748,6 +823,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowArgs', 'ImagePipelineWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -762,6 +838,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
         __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
+        __props__.__dict__["execution_role"] = execution_role
         __props__.__dict__["image_recipe_arn"] = image_recipe_arn
         __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
         __props__.__dict__["image_tests_configuration"] = image_tests_configuration
@@ -772,6 +849,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["workflows"] = workflows
         return ImagePipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -845,6 +923,14 @@ class ImagePipeline(pulumi.CustomResource):
         Whether additional information about the image being created is collected. Defaults to `true`.
         """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        """
+        return pulumi.get(self, "execution_role")
 
     @property
     @pulumi.getter(name="imageRecipeArn")
@@ -928,4 +1014,12 @@ class ImagePipeline(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def workflows(self) -> pulumi.Output[Sequence['outputs.ImagePipelineWorkflow']]:
+        """
+        Configuration block with the workflow configuration. Detailed below.
+        """
+        return pulumi.get(self, "workflows")
 

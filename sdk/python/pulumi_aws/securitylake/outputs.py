@@ -833,8 +833,8 @@ class SubscriberSource(dict):
                  aws_log_source_resource: Optional['outputs.SubscriberSourceAwsLogSourceResource'] = None,
                  custom_log_source_resource: Optional['outputs.SubscriberSourceCustomLogSourceResource'] = None):
         """
-        :param 'SubscriberSourceAwsLogSourceResourceArgs' aws_log_source_resource: Amazon Security Lake supports log and event collection for natively supported AWS services.
-        :param 'SubscriberSourceCustomLogSourceResourceArgs' custom_log_source_resource: Amazon Security Lake supports custom source types.
+        :param 'SubscriberSourceAwsLogSourceResourceArgs' aws_log_source_resource: Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
+        :param 'SubscriberSourceCustomLogSourceResourceArgs' custom_log_source_resource: Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
         """
         if aws_log_source_resource is not None:
             pulumi.set(__self__, "aws_log_source_resource", aws_log_source_resource)
@@ -845,7 +845,7 @@ class SubscriberSource(dict):
     @pulumi.getter(name="awsLogSourceResource")
     def aws_log_source_resource(self) -> Optional['outputs.SubscriberSourceAwsLogSourceResource']:
         """
-        Amazon Security Lake supports log and event collection for natively supported AWS services.
+        Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
         """
         return pulumi.get(self, "aws_log_source_resource")
 
@@ -853,7 +853,7 @@ class SubscriberSource(dict):
     @pulumi.getter(name="customLogSourceResource")
     def custom_log_source_resource(self) -> Optional['outputs.SubscriberSourceCustomLogSourceResource']:
         """
-        Amazon Security Lake supports custom source types.
+        Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
         """
         return pulumi.get(self, "custom_log_source_resource")
 
@@ -883,8 +883,8 @@ class SubscriberSourceAwsLogSourceResource(dict):
                  source_name: str,
                  source_version: Optional[str] = None):
         """
-        :param str source_name: The name for a third-party custom source. This must be a Regionally unique value.
-        :param str source_version: The version for a third-party custom source. This must be a Regionally unique value.
+        :param str source_name: Provides data expiration details of Amazon Security Lake object.
+        :param str source_version: Provides data storage transition details of Amazon Security Lake object.
         """
         pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
@@ -894,7 +894,7 @@ class SubscriberSourceAwsLogSourceResource(dict):
     @pulumi.getter(name="sourceName")
     def source_name(self) -> str:
         """
-        The name for a third-party custom source. This must be a Regionally unique value.
+        Provides data expiration details of Amazon Security Lake object.
         """
         return pulumi.get(self, "source_name")
 
@@ -902,7 +902,7 @@ class SubscriberSourceAwsLogSourceResource(dict):
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[str]:
         """
-        The version for a third-party custom source. This must be a Regionally unique value.
+        Provides data storage transition details of Amazon Security Lake object.
         """
         return pulumi.get(self, "source_version")
 
@@ -935,7 +935,8 @@ class SubscriberSourceCustomLogSourceResource(dict):
                  source_version: Optional[str] = None):
         """
         :param str source_name: The name for a third-party custom source. This must be a Regionally unique value.
-        :param Sequence['SubscriberSourceCustomLogSourceResourceAttributeArgs'] attributes: The attributes of a third-party custom source.
+        :param Sequence['SubscriberSourceCustomLogSourceResourceAttributeArgs'] attributes: The attributes of the third-party custom source. See `attributes` Block below.
+        :param Sequence['SubscriberSourceCustomLogSourceResourceProviderArgs'] providers: The details of the log provider for the third-party custom source. See `provider` Block below.
         :param str source_version: The version for a third-party custom source. This must be a Regionally unique value.
         """
         pulumi.set(__self__, "source_name", source_name)
@@ -958,13 +959,16 @@ class SubscriberSourceCustomLogSourceResource(dict):
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceAttribute']]:
         """
-        The attributes of a third-party custom source.
+        The attributes of the third-party custom source. See `attributes` Block below.
         """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
     def providers(self) -> Optional[Sequence['outputs.SubscriberSourceCustomLogSourceResourceProvider']]:
+        """
+        The details of the log provider for the third-party custom source. See `provider` Block below.
+        """
         return pulumi.get(self, "providers")
 
     @property

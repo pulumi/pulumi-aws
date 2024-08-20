@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetLinkResult',
@@ -26,7 +27,7 @@ class GetLinkResult:
     """
     A collection of values returned by getLink.
     """
-    def __init__(__self__, arn=None, id=None, label=None, label_template=None, link_id=None, link_identifier=None, resource_types=None, sink_arn=None, tags=None):
+    def __init__(__self__, arn=None, id=None, label=None, label_template=None, link_configurations=None, link_id=None, link_identifier=None, resource_types=None, sink_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetLinkResult:
         if label_template and not isinstance(label_template, str):
             raise TypeError("Expected argument 'label_template' to be a str")
         pulumi.set(__self__, "label_template", label_template)
+        if link_configurations and not isinstance(link_configurations, list):
+            raise TypeError("Expected argument 'link_configurations' to be a list")
+        pulumi.set(__self__, "link_configurations", link_configurations)
         if link_id and not isinstance(link_id, str):
             raise TypeError("Expected argument 'link_id' to be a str")
         pulumi.set(__self__, "link_id", link_id)
@@ -88,6 +92,14 @@ class GetLinkResult:
         return pulumi.get(self, "label_template")
 
     @property
+    @pulumi.getter(name="linkConfigurations")
+    def link_configurations(self) -> Sequence['outputs.GetLinkLinkConfigurationResult']:
+        """
+        Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        """
+        return pulumi.get(self, "link_configurations")
+
+    @property
     @pulumi.getter(name="linkId")
     def link_id(self) -> str:
         """
@@ -132,6 +144,7 @@ class AwaitableGetLinkResult(GetLinkResult):
             id=self.id,
             label=self.label,
             label_template=self.label_template,
+            link_configurations=self.link_configurations,
             link_id=self.link_id,
             link_identifier=self.link_identifier,
             resource_types=self.resource_types,
@@ -170,6 +183,7 @@ def get_link(link_identifier: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         label=pulumi.get(__ret__, 'label'),
         label_template=pulumi.get(__ret__, 'label_template'),
+        link_configurations=pulumi.get(__ret__, 'link_configurations'),
         link_id=pulumi.get(__ret__, 'link_id'),
         link_identifier=pulumi.get(__ret__, 'link_identifier'),
         resource_types=pulumi.get(__ret__, 'resource_types'),

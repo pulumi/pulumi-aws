@@ -26,13 +26,16 @@ class GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
-    def __init__(__self__, arn=None, id=None, name=None):
+    def __init__(__self__, arn=None, id=None, kms_key_identifier=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_identifier and not isinstance(kms_key_identifier, str):
+            raise TypeError("Expected argument 'kms_key_identifier' to be a str")
+        pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetEventBusResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyIdentifier")
+    def kms_key_identifier(self) -> str:
+        """
+        The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+        """
+        return pulumi.get(self, "kms_key_identifier")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -67,6 +78,7 @@ class AwaitableGetEventBusResult(GetEventBusResult):
         return GetEventBusResult(
             arn=self.arn,
             id=self.id,
+            kms_key_identifier=self.kms_key_identifier,
             name=self.name)
 
 
@@ -97,6 +109,7 @@ def get_event_bus(name: Optional[str] = None,
     return AwaitableGetEventBusResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'))
 
 

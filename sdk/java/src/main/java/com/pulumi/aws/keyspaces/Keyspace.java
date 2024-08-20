@@ -135,7 +135,7 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Keyspace(String name) {
+    public Keyspace(java.lang.String name) {
         this(name, KeyspaceArgs.Empty);
     }
     /**
@@ -143,7 +143,7 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Keyspace(String name, @Nullable KeyspaceArgs args) {
+    public Keyspace(java.lang.String name, @Nullable KeyspaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -152,15 +152,22 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Keyspace(String name, @Nullable KeyspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:keyspaces/keyspace:Keyspace", name, args == null ? KeyspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Keyspace(java.lang.String name, @Nullable KeyspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:keyspaces/keyspace:Keyspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Keyspace(String name, Output<String> id, @Nullable KeyspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:keyspaces/keyspace:Keyspace", name, state, makeResourceOptions(options, id));
+    private Keyspace(java.lang.String name, Output<java.lang.String> id, @Nullable KeyspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:keyspaces/keyspace:Keyspace", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static KeyspaceArgs makeArgs(@Nullable KeyspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KeyspaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -176,7 +183,7 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Keyspace get(String name, Output<String> id, @Nullable KeyspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Keyspace get(java.lang.String name, Output<java.lang.String> id, @Nullable KeyspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Keyspace(name, id, state, options);
     }
 }

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FastSnapshotRestore{}
 	case "aws:ebs/snapshot:Snapshot":
 		r = &Snapshot{}
+	case "aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess":
+		r = &SnapshotBlockPublicAccess{}
 	case "aws:ebs/snapshotCopy:SnapshotCopy":
 		r = &SnapshotCopy{}
 	case "aws:ebs/snapshotImport:SnapshotImport":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ebs/snapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ebs/snapshotBlockPublicAccess",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

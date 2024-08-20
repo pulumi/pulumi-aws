@@ -27,13 +27,16 @@ class GetDataLakeSettingsResult:
     """
     A collection of values returned by getDataLakeSettings.
     """
-    def __init__(__self__, admins=None, allow_external_data_filtering=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, read_only_admins=None, trusted_resource_owners=None):
+    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, read_only_admins=None, trusted_resource_owners=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
         if allow_external_data_filtering and not isinstance(allow_external_data_filtering, bool):
             raise TypeError("Expected argument 'allow_external_data_filtering' to be a bool")
         pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+        if allow_full_table_external_data_access and not isinstance(allow_full_table_external_data_access, bool):
+            raise TypeError("Expected argument 'allow_full_table_external_data_access' to be a bool")
+        pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
         if authorized_session_tag_value_lists and not isinstance(authorized_session_tag_value_lists, list):
             raise TypeError("Expected argument 'authorized_session_tag_value_lists' to be a list")
         pulumi.set(__self__, "authorized_session_tag_value_lists", authorized_session_tag_value_lists)
@@ -74,6 +77,14 @@ class GetDataLakeSettingsResult:
         Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         """
         return pulumi.get(self, "allow_external_data_filtering")
+
+    @property
+    @pulumi.getter(name="allowFullTableExternalDataAccess")
+    def allow_full_table_external_data_access(self) -> bool:
+        """
+        Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+        """
+        return pulumi.get(self, "allow_full_table_external_data_access")
 
     @property
     @pulumi.getter(name="authorizedSessionTagValueLists")
@@ -145,6 +156,7 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
         return GetDataLakeSettingsResult(
             admins=self.admins,
             allow_external_data_filtering=self.allow_external_data_filtering,
+            allow_full_table_external_data_access=self.allow_full_table_external_data_access,
             authorized_session_tag_value_lists=self.authorized_session_tag_value_lists,
             catalog_id=self.catalog_id,
             create_database_default_permissions=self.create_database_default_permissions,
@@ -180,6 +192,7 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
     return AwaitableGetDataLakeSettingsResult(
         admins=pulumi.get(__ret__, 'admins'),
         allow_external_data_filtering=pulumi.get(__ret__, 'allow_external_data_filtering'),
+        allow_full_table_external_data_access=pulumi.get(__ret__, 'allow_full_table_external_data_access'),
         authorized_session_tag_value_lists=pulumi.get(__ret__, 'authorized_session_tag_value_lists'),
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         create_database_default_permissions=pulumi.get(__ret__, 'create_database_default_permissions'),

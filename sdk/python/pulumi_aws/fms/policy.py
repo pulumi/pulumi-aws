@@ -30,6 +30,7 @@ class PolicyArgs:
                  include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -66,6 +67,8 @@ class PolicyArgs:
             pulumi.set(__self__, "name", name)
         if remediation_enabled is not None:
             pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        if resource_set_ids is not None:
+            pulumi.set(__self__, "resource_set_ids", resource_set_ids)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -184,6 +187,15 @@ class PolicyArgs:
         pulumi.set(self, "remediation_enabled", value)
 
     @property
+    @pulumi.getter(name="resourceSetIds")
+    def resource_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_set_ids")
+
+    @resource_set_ids.setter
+    def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_set_ids", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -245,6 +257,7 @@ class _PolicyState:
                  name: Optional[pulumi.Input[str]] = None,
                  policy_update_token: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -289,6 +302,8 @@ class _PolicyState:
             pulumi.set(__self__, "policy_update_token", policy_update_token)
         if remediation_enabled is not None:
             pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        if resource_set_ids is not None:
+            pulumi.set(__self__, "resource_set_ids", resource_set_ids)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -423,6 +438,15 @@ class _PolicyState:
         pulumi.set(self, "remediation_enabled", value)
 
     @property
+    @pulumi.getter(name="resourceSetIds")
+    def resource_set_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_set_ids")
+
+    @resource_set_ids.setter
+    def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_set_ids", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -509,6 +533,7 @@ class Policy(pulumi.CustomResource):
                  include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -537,18 +562,18 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
-                "managedServiceData": pulumi.Output.json_dumps({
+                "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "ruleGroups": [{
+                    "rule_groups": [{
                         "id": example_rule_group.id,
-                        "overrideAction": {
+                        "override_action": {
                             "type": "COUNT",
                         },
                     }],
-                    "defaultAction": {
+                    "default_action": {
                         "type": "BLOCK",
                     },
-                    "overrideCustomerWebACLAssociation": False,
+                    "override_customer_web_aclassociation": False,
                 }),
             },
             tags={
@@ -608,18 +633,18 @@ class Policy(pulumi.CustomResource):
             resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
             security_service_policy_data={
                 "type": "WAF",
-                "managedServiceData": pulumi.Output.json_dumps({
+                "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "ruleGroups": [{
+                    "rule_groups": [{
                         "id": example_rule_group.id,
-                        "overrideAction": {
+                        "override_action": {
                             "type": "COUNT",
                         },
                     }],
-                    "defaultAction": {
+                    "default_action": {
                         "type": "BLOCK",
                     },
-                    "overrideCustomerWebACLAssociation": False,
+                    "override_customer_web_aclassociation": False,
                 }),
             },
             tags={
@@ -658,6 +683,7 @@ class Policy(pulumi.CustomResource):
                  include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -682,6 +708,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["include_map"] = include_map
             __props__.__dict__["name"] = name
             __props__.__dict__["remediation_enabled"] = remediation_enabled
+            __props__.__dict__["resource_set_ids"] = resource_set_ids
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_lists"] = resource_type_lists
@@ -712,6 +739,7 @@ class Policy(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             policy_update_token: Optional[pulumi.Input[str]] = None,
             remediation_enabled: Optional[pulumi.Input[bool]] = None,
+            resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -755,6 +783,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_update_token"] = policy_update_token
         __props__.__dict__["remediation_enabled"] = remediation_enabled
+        __props__.__dict__["resource_set_ids"] = resource_set_ids
         __props__.__dict__["resource_tags"] = resource_tags
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["resource_type_lists"] = resource_type_lists
@@ -839,6 +868,11 @@ class Policy(pulumi.CustomResource):
         A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         """
         return pulumi.get(self, "remediation_enabled")
+
+    @property
+    @pulumi.getter(name="resourceSetIds")
+    def resource_set_ids(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "resource_set_ids")
 
     @property
     @pulumi.getter(name="resourceTags")

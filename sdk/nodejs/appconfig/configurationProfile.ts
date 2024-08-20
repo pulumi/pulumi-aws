@@ -92,7 +92,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     public readonly locationUri!: pulumi.Output<string>;
     /**
-     * Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface ConfigurationProfileState {
      */
     locationUri?: pulumi.Input<string>;
     /**
-     * Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface ConfigurationProfileArgs {
      */
     locationUri: pulumi.Input<string>;
     /**
-     * Name for the configuration profile. Must be between 1 and 64 characters in length.
+     * Name for the configuration profile. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
     /**

@@ -260,7 +260,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workspace(String name) {
+    public Workspace(java.lang.String name) {
         this(name, WorkspaceArgs.Empty);
     }
     /**
@@ -268,7 +268,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workspace(String name, @Nullable WorkspaceArgs args) {
+    public Workspace(java.lang.String name, @Nullable WorkspaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -277,15 +277,22 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workspace(String name, @Nullable WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amp/workspace:Workspace", name, args == null ? WorkspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workspace(java.lang.String name, @Nullable WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amp/workspace:Workspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workspace(String name, Output<String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amp/workspace:Workspace", name, state, makeResourceOptions(options, id));
+    private Workspace(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amp/workspace:Workspace", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkspaceArgs makeArgs(@Nullable WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -301,7 +308,7 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workspace get(String name, Output<String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workspace get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workspace(name, id, state, options);
     }
 }

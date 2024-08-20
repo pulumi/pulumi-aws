@@ -519,6 +519,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("databrew")]
+        public Input<string>? Databrew { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("dataexchange")]
         public Input<string>? Dataexchange { get; set; }
 
@@ -809,6 +815,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("glue")]
         public Input<string>? Glue { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("gluedatabrew")]
+        public Input<string>? Gluedatabrew { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
@@ -1337,6 +1349,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("rekognition")]
         public Input<string>? Rekognition { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("resiliencehub")]
+        public Input<string>? Resiliencehub { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

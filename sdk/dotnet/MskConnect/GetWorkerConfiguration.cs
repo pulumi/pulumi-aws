@@ -69,6 +69,18 @@ namespace Pulumi.Aws.MskConnect
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetWorkerConfigurationArgs()
         {
         }
@@ -82,6 +94,18 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetWorkerConfigurationInvokeArgs()
         {
@@ -114,6 +138,10 @@ namespace Pulumi.Aws.MskConnect
         /// contents of connect-distributed.properties file.
         /// </summary>
         public readonly string PropertiesFileContent;
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetWorkerConfigurationResult(
@@ -127,7 +155,9 @@ namespace Pulumi.Aws.MskConnect
 
             string name,
 
-            string propertiesFileContent)
+            string propertiesFileContent,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Description = description;
@@ -135,6 +165,7 @@ namespace Pulumi.Aws.MskConnect
             LatestRevision = latestRevision;
             Name = name;
             PropertiesFileContent = propertiesFileContent;
+            Tags = tags;
         }
     }
 }

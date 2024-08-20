@@ -263,6 +263,13 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
+    @Import(name="primaryIpv6")
+    private @Nullable Output<String> primaryIpv6;
+
+    public Optional<Output<String>> primaryIpv6() {
+        return Optional.ofNullable(this.primaryIpv6);
+    }
+
     /**
      * The primary private IPv4 address.
      * 
@@ -327,6 +334,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         this.ipv6Prefixes = $.ipv6Prefixes;
         this.networkCardIndex = $.networkCardIndex;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.primaryIpv6 = $.primaryIpv6;
         this.privateIpAddress = $.privateIpAddress;
         this.securityGroups = $.securityGroups;
         this.subnetId = $.subnetId;
@@ -730,6 +738,15 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        public Builder primaryIpv6(@Nullable Output<String> primaryIpv6) {
+            $.primaryIpv6 = primaryIpv6;
+            return this;
+        }
+
+        public Builder primaryIpv6(String primaryIpv6) {
+            return primaryIpv6(Output.of(primaryIpv6));
         }
 
         /**

@@ -26,7 +26,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
  * ```
  * 
+ * @deprecated
+ * This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead
+ * 
  */
+@Deprecated /* This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead */
 @ResourceType(type="aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")
 public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
     /**
@@ -100,7 +104,7 @@ public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MatchmakingRuleSet(String name) {
+    public MatchmakingRuleSet(java.lang.String name) {
         this(name, MatchmakingRuleSetArgs.Empty);
     }
     /**
@@ -108,7 +112,7 @@ public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MatchmakingRuleSet(String name, MatchmakingRuleSetArgs args) {
+    public MatchmakingRuleSet(java.lang.String name, MatchmakingRuleSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,15 +121,22 @@ public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MatchmakingRuleSet(String name, MatchmakingRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, args == null ? MatchmakingRuleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MatchmakingRuleSet(java.lang.String name, MatchmakingRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MatchmakingRuleSet(String name, Output<String> id, @Nullable MatchmakingRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, state, makeResourceOptions(options, id));
+    private MatchmakingRuleSet(java.lang.String name, Output<java.lang.String> id, @Nullable MatchmakingRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MatchmakingRuleSetArgs makeArgs(MatchmakingRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MatchmakingRuleSetArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -141,7 +152,7 @@ public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MatchmakingRuleSet get(String name, Output<String> id, @Nullable MatchmakingRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MatchmakingRuleSet get(java.lang.String name, Output<java.lang.String> id, @Nullable MatchmakingRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MatchmakingRuleSet(name, id, state, options);
     }
 }

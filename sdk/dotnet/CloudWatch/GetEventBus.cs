@@ -105,6 +105,10 @@ namespace Pulumi.Aws.CloudWatch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+        /// </summary>
+        public readonly string KmsKeyIdentifier;
         public readonly string Name;
 
         [OutputConstructor]
@@ -113,10 +117,13 @@ namespace Pulumi.Aws.CloudWatch
 
             string id,
 
+            string kmsKeyIdentifier,
+
             string name)
         {
             Arn = arn;
             Id = id;
+            KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;
         }
     }

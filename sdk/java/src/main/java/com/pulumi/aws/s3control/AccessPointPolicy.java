@@ -145,7 +145,7 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessPointPolicy(String name) {
+    public AccessPointPolicy(java.lang.String name) {
         this(name, AccessPointPolicyArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessPointPolicy(String name, AccessPointPolicyArgs args) {
+    public AccessPointPolicy(java.lang.String name, AccessPointPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,15 +162,22 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessPointPolicy(String name, AccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, args == null ? AccessPointPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessPointPolicy(java.lang.String name, AccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessPointPolicy(String name, Output<String> id, @Nullable AccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, state, makeResourceOptions(options, id));
+    private AccessPointPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3control/accessPointPolicy:AccessPointPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessPointPolicyArgs makeArgs(AccessPointPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessPointPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +193,7 @@ public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessPointPolicy get(String name, Output<String> id, @Nullable AccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessPointPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPointPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessPointPolicy(name, id, state, options);
     }
 }

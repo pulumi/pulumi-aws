@@ -178,6 +178,16 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly syncCompliance!: pulumi.Output<string | undefined>;
     /**
+     * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
@@ -216,6 +226,8 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = state ? state.syncCompliance : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = state ? state.waitForSuccessTimeoutSeconds : undefined;
         } else {
@@ -233,10 +245,12 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Association.__pulumiType, name, resourceInputs, opts);
@@ -310,6 +324,16 @@ export interface AssociationState {
      */
     syncCompliance?: pulumi.Input<string>;
     /**
+     * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
@@ -379,6 +403,10 @@ export interface AssociationArgs {
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      */
     syncCompliance?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */

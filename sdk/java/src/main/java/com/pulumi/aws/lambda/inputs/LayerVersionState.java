@@ -263,9 +263,17 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.skipDestroy);
     }
 
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
+    /**
+     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * 
+     */
     public Optional<Output<String>> sourceCodeHash() {
         return Optional.ofNullable(this.sourceCodeHash);
     }
@@ -702,11 +710,23 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
             return skipDestroy(Output.of(skipDestroy));
         }
 
+        /**
+         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeHash(@Nullable Output<String> sourceCodeHash) {
             $.sourceCodeHash = sourceCodeHash;
             return this;
         }
 
+        /**
+         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceCodeHash(String sourceCodeHash) {
             return sourceCodeHash(Output.of(sourceCodeHash));
         }

@@ -145,9 +145,9 @@ import (
 //			}
 //			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
 //				Bucket: gdBucket.ID(),
-//				Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
 //					return &bucketPol.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

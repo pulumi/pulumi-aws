@@ -141,7 +141,7 @@ class CertificateValidation(pulumi.CustomResource):
             "name": dvo.resource_record_name,
             "record": dvo.resource_record_value,
             "type": dvo.resource_record_type,
-        } for dvo in resolved_outputs["domain_validation_options"]}))
+        } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example_certificate.arn,
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
@@ -181,7 +181,7 @@ class CertificateValidation(pulumi.CustomResource):
             "record": dvo.resource_record_value,
             "type": dvo.resource_record_type,
             "zoneId": example_org.zone_id if dvo.domain_name == "example.org" else example_com.zone_id,
-        } for dvo in resolved_outputs["domain_validation_options"]}))
+        } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example.arn,
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
@@ -251,7 +251,7 @@ class CertificateValidation(pulumi.CustomResource):
             "name": dvo.resource_record_name,
             "record": dvo.resource_record_value,
             "type": dvo.resource_record_type,
-        } for dvo in resolved_outputs["domain_validation_options"]}))
+        } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example_certificate.arn,
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))
@@ -291,7 +291,7 @@ class CertificateValidation(pulumi.CustomResource):
             "record": dvo.resource_record_value,
             "type": dvo.resource_record_type,
             "zoneId": example_org.zone_id if dvo.domain_name == "example.org" else example_com.zone_id,
-        } for dvo in resolved_outputs["domain_validation_options"]}))
+        } for dvo in resolved_outputs['domain_validation_options']}))
         example_certificate_validation = aws.acm.CertificateValidation("example",
             certificate_arn=example.arn,
             validation_record_fqdns=example_record.apply(lambda example_record: [record.fqdn for record in example_record]))

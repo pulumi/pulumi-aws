@@ -65,14 +65,14 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+     * @return Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
     public Output<String> protocol() {
@@ -220,7 +220,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+         * @param protocol Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol Protocol for the listener. Supported values are `HTTP` or `HTTPS`
+         * @param protocol Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
          * 
          * @return builder
          * 

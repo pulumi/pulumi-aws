@@ -9,6 +9,7 @@ import com.pulumi.aws.alb.inputs.TargetGroupState;
 import com.pulumi.aws.alb.outputs.TargetGroupHealthCheck;
 import com.pulumi.aws.alb.outputs.TargetGroupStickiness;
 import com.pulumi.aws.alb.outputs.TargetGroupTargetFailover;
+import com.pulumi.aws.alb.outputs.TargetGroupTargetGroupHealth;
 import com.pulumi.aws.alb.outputs.TargetGroupTargetHealthState;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -227,6 +228,57 @@ import javax.annotation.Nullable;
  *             .vpcId(main.id())
  *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
  *                 .enableUnhealthyConnectionTermination(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Target group with health requirements
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.TargetGroupArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthDnsFailoverArgs;
+ * import com.pulumi.aws.lb.inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
+ *             .name("tf-example-lb-nlb-tg")
+ *             .port(80)
+ *             .protocol("TCP")
+ *             .vpcId(main.id())
+ *             .targetGroupHealth(TargetGroupTargetGroupHealthArgs.builder()
+ *                 .dnsFailover(TargetGroupTargetGroupHealthDnsFailoverArgs.builder()
+ *                     .minimumHealthyTargetsCount("1")
+ *                     .minimumHealthyTargetsPercentage("off")
+ *                     .build())
+ *                 .unhealthyStateRouting(TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.builder()
+ *                     .minimumHealthyTargetsCount("1")
+ *                     .minimumHealthyTargetsPercentage("off")
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -580,6 +632,20 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.targetFailovers;
     }
     /**
+     * Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    @Export(name="targetGroupHealth", refs={TargetGroupTargetGroupHealth.class}, tree="[0]")
+    private Output<TargetGroupTargetGroupHealth> targetGroupHealth;
+
+    /**
+     * @return Target health requirements block. See target_group_health for more information.
+     * 
+     */
+    public Output<TargetGroupTargetGroupHealth> targetGroupHealth() {
+        return this.targetGroupHealth;
+    }
+    /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
@@ -646,7 +712,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TargetGroup(String name) {
+    public TargetGroup(java.lang.String name) {
         this(name, TargetGroupArgs.Empty);
     }
     /**
@@ -654,7 +720,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TargetGroup(String name, @Nullable TargetGroupArgs args) {
+    public TargetGroup(java.lang.String name, @Nullable TargetGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -663,15 +729,22 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TargetGroup(String name, @Nullable TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:alb/targetGroup:TargetGroup", name, args == null ? TargetGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TargetGroup(java.lang.String name, @Nullable TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:alb/targetGroup:TargetGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TargetGroup(String name, Output<String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:alb/targetGroup:TargetGroup", name, state, makeResourceOptions(options, id));
+    private TargetGroup(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:alb/targetGroup:TargetGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TargetGroupArgs makeArgs(@Nullable TargetGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TargetGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -690,7 +763,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TargetGroup get(String name, Output<String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TargetGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TargetGroup(name, id, state, options);
     }
 }

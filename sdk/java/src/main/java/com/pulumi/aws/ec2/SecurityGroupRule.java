@@ -18,13 +18,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a security group rule resource. Represents a single `ingress` or
- * `egress` group rule, which can be added to external Security Groups.
+ * Provides a security group rule resource. Represents a single `ingress` or `egress` group rule, which can be added to external Security Groups.
  * 
- * &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
- * `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
- * The `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules.
- * You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+ * &gt; **NOTE:** Avoid using the `aws.ec2.SecurityGroupRule` resource, as it struggles with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
+ * 
+ * !&gt; **WARNING:** You should not use the `aws.ec2.SecurityGroupRule` resource in conjunction with `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources or with an `aws.ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
  * 
  * &gt; **NOTE:** Setting `protocol = &#34;all&#34;` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
  * 
@@ -415,7 +413,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityGroupRule(String name) {
+    public SecurityGroupRule(java.lang.String name) {
         this(name, SecurityGroupRuleArgs.Empty);
     }
     /**
@@ -423,7 +421,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityGroupRule(String name, SecurityGroupRuleArgs args) {
+    public SecurityGroupRule(java.lang.String name, SecurityGroupRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -432,15 +430,22 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityGroupRule(String name, SecurityGroupRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/securityGroupRule:SecurityGroupRule", name, args == null ? SecurityGroupRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityGroupRule(java.lang.String name, SecurityGroupRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/securityGroupRule:SecurityGroupRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityGroupRule(String name, Output<String> id, @Nullable SecurityGroupRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/securityGroupRule:SecurityGroupRule", name, state, makeResourceOptions(options, id));
+    private SecurityGroupRule(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/securityGroupRule:SecurityGroupRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityGroupRuleArgs makeArgs(SecurityGroupRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityGroupRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -456,7 +461,7 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityGroupRule get(String name, Output<String> id, @Nullable SecurityGroupRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityGroupRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityGroupRule(name, id, state, options);
     }
 }

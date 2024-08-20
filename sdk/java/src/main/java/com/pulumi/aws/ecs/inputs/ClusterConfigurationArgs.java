@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationArgs;
+import com.pulumi.aws.ecs.inputs.ClusterConfigurationManagedStorageConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -16,24 +17,40 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
     public static final ClusterConfigurationArgs Empty = new ClusterConfigurationArgs();
 
     /**
-     * The details of the execute command configuration. Detailed below.
+     * Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
     @Import(name="executeCommandConfiguration")
     private @Nullable Output<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration;
 
     /**
-     * @return The details of the execute command configuration. Detailed below.
+     * @return Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
     public Optional<Output<ClusterConfigurationExecuteCommandConfigurationArgs>> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
     }
 
+    /**
+     * Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * 
+     */
+    @Import(name="managedStorageConfiguration")
+    private @Nullable Output<ClusterConfigurationManagedStorageConfigurationArgs> managedStorageConfiguration;
+
+    /**
+     * @return Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * 
+     */
+    public Optional<Output<ClusterConfigurationManagedStorageConfigurationArgs>> managedStorageConfiguration() {
+        return Optional.ofNullable(this.managedStorageConfiguration);
+    }
+
     private ClusterConfigurationArgs() {}
 
     private ClusterConfigurationArgs(ClusterConfigurationArgs $) {
         this.executeCommandConfiguration = $.executeCommandConfiguration;
+        this.managedStorageConfiguration = $.managedStorageConfiguration;
     }
 
     public static Builder builder() {
@@ -55,7 +72,7 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param executeCommandConfiguration The details of the execute command configuration. Detailed below.
+         * @param executeCommandConfiguration Details of the execute command configuration. See `execute_command_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -66,13 +83,34 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param executeCommandConfiguration The details of the execute command configuration. Detailed below.
+         * @param executeCommandConfiguration Details of the execute command configuration. See `execute_command_configuration` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs executeCommandConfiguration) {
             return executeCommandConfiguration(Output.of(executeCommandConfiguration));
+        }
+
+        /**
+         * @param managedStorageConfiguration Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedStorageConfiguration(@Nullable Output<ClusterConfigurationManagedStorageConfigurationArgs> managedStorageConfiguration) {
+            $.managedStorageConfiguration = managedStorageConfiguration;
+            return this;
+        }
+
+        /**
+         * @param managedStorageConfiguration Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedStorageConfiguration(ClusterConfigurationManagedStorageConfigurationArgs managedStorageConfiguration) {
+            return managedStorageConfiguration(Output.of(managedStorageConfiguration));
         }
 
         public ClusterConfigurationArgs build() {

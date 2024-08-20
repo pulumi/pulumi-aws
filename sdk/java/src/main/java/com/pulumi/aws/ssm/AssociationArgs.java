@@ -225,6 +225,21 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
@@ -274,6 +289,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         this.parameters = $.parameters;
         this.scheduleExpression = $.scheduleExpression;
         this.syncCompliance = $.syncCompliance;
+        this.tags = $.tags;
         this.targets = $.targets;
         this.waitForSuccessTimeoutSeconds = $.waitForSuccessTimeoutSeconds;
     }
@@ -575,6 +591,27 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder syncCompliance(String syncCompliance) {
             return syncCompliance(Output.of(syncCompliance));
+        }
+
+        /**
+         * @param tags A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         /**

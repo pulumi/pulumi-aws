@@ -159,6 +159,20 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
+     * List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+     * 
+     */
+    @Export(name="deleteOptions", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> deleteOptions;
+
+    /**
+     * @return List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
+     * 
+     */
+    public Output<Optional<List<String>>> deleteOptions() {
+        return Codegen.optional(this.deleteOptions);
+    }
+    /**
      * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      * 
      */
@@ -173,14 +187,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.deploymentType;
     }
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
      * 
      */
     @Export(name="diskIopsConfiguration", refs={OpenZfsFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
      * 
      */
     public Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
@@ -227,6 +241,20 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> endpointIpAddressRange() {
         return this.endpointIpAddressRange;
+    }
+    /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> finalBackupTags() {
+        return Codegen.optional(this.finalBackupTags);
     }
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -285,14 +313,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preferredSubnetId);
     }
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
     @Export(name="rootVolumeConfiguration", refs={OpenZfsFileSystemRootVolumeConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
     public Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration() {
@@ -431,12 +459,16 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
     /**
      * Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> throughputCapacity() {
@@ -475,7 +507,7 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OpenZfsFileSystem(String name) {
+    public OpenZfsFileSystem(java.lang.String name) {
         this(name, OpenZfsFileSystemArgs.Empty);
     }
     /**
@@ -483,7 +515,7 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OpenZfsFileSystem(String name, OpenZfsFileSystemArgs args) {
+    public OpenZfsFileSystem(java.lang.String name, OpenZfsFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -492,15 +524,22 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OpenZfsFileSystem(String name, OpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, args == null ? OpenZfsFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OpenZfsFileSystem(java.lang.String name, OpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OpenZfsFileSystem(String name, Output<String> id, @Nullable OpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, state, makeResourceOptions(options, id));
+    private OpenZfsFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable OpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OpenZfsFileSystemArgs makeArgs(OpenZfsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OpenZfsFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -516,7 +555,7 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OpenZfsFileSystem get(String name, Output<String> id, @Nullable OpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OpenZfsFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable OpenZfsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OpenZfsFileSystem(name, id, state, options);
     }
 }

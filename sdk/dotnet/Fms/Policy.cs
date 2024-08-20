@@ -138,6 +138,9 @@ namespace Pulumi.Aws.Fms
         [Output("remediationEnabled")]
         public Output<bool?> RemediationEnabled { get; private set; } = null!;
 
+        [Output("resourceSetIds")]
+        public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
+
         /// <summary>
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         /// </summary>
@@ -268,6 +271,14 @@ namespace Pulumi.Aws.Fms
         [Input("remediationEnabled")]
         public Input<bool>? RemediationEnabled { get; set; }
 
+        [Input("resourceSetIds")]
+        private InputList<string>? _resourceSetIds;
+        public InputList<string> ResourceSetIds
+        {
+            get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
+            set => _resourceSetIds = value;
+        }
+
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
 
@@ -380,6 +391,14 @@ namespace Pulumi.Aws.Fms
         /// </summary>
         [Input("remediationEnabled")]
         public Input<bool>? RemediationEnabled { get; set; }
+
+        [Input("resourceSetIds")]
+        private InputList<string>? _resourceSetIds;
+        public InputList<string> ResourceSetIds
+        {
+            get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
+            set => _resourceSetIds = value;
+        }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class JobDefinitionEksPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        /// Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         /// </summary>
         [Input("podProperties", required: true)]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesArgs> PodProperties { get; set; } = null!;

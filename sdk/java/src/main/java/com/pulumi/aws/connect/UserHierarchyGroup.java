@@ -254,7 +254,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserHierarchyGroup(String name) {
+    public UserHierarchyGroup(java.lang.String name) {
         this(name, UserHierarchyGroupArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserHierarchyGroup(String name, UserHierarchyGroupArgs args) {
+    public UserHierarchyGroup(java.lang.String name, UserHierarchyGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,15 +271,22 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserHierarchyGroup(String name, UserHierarchyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, args == null ? UserHierarchyGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserHierarchyGroup(java.lang.String name, UserHierarchyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserHierarchyGroup(String name, Output<String> id, @Nullable UserHierarchyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, state, makeResourceOptions(options, id));
+    private UserHierarchyGroup(java.lang.String name, Output<java.lang.String> id, @Nullable UserHierarchyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/userHierarchyGroup:UserHierarchyGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserHierarchyGroupArgs makeArgs(UserHierarchyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserHierarchyGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -295,7 +302,7 @@ public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserHierarchyGroup get(String name, Output<String> id, @Nullable UserHierarchyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserHierarchyGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable UserHierarchyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserHierarchyGroup(name, id, state, options);
     }
 }

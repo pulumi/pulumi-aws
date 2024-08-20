@@ -14,7 +14,7 @@ import (
 
 // Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
 //
-// > **NOTE:** S3 Buckets only support a single notification configuration. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. See the example "Trigger multiple Lambda functions" for an option.
+// > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
 //
 // > This resource cannot be used with S3 directory buckets.
 //
@@ -74,9 +74,9 @@ import (
 //			}, nil)
 //			topicTopic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 //				Name: pulumi.String("s3-event-notification-topic"),
-//				Policy: topic.ApplyT(func(topic iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(topic.ApplyT(func(topic iam.GetPolicyDocumentResult) (*string, error) {
 //					return &topic.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -156,9 +156,9 @@ import (
 //			}, nil)
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
-//				Policy: queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
 //					return &queue.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -454,9 +454,9 @@ import (
 //			}, nil)
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
-//				Policy: queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
 //					return &queue.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

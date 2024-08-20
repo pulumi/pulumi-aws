@@ -684,6 +684,112 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 	}).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput)
 }
 
+type RepositoryCreationTemplateEncryptionConfiguration struct {
+	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	EncryptionType *string `pulumi:"encryptionType"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArgs and RepositoryCreationTemplateEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationInput` via:
+//
+//	RepositoryCreationTemplateEncryptionConfigurationArgs{...}
+type RepositoryCreationTemplateEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
+	// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (RepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArgs) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+// RepositoryCreationTemplateEncryptionConfigurationArrayInput is an input type that accepts RepositoryCreationTemplateEncryptionConfigurationArray and RepositoryCreationTemplateEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `RepositoryCreationTemplateEncryptionConfigurationArrayInput` via:
+//
+//	RepositoryCreationTemplateEncryptionConfigurationArray{ RepositoryCreationTemplateEncryptionConfigurationArgs{...} }
+type RepositoryCreationTemplateEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput
+	ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArray []RepositoryCreationTemplateEncryptionConfigurationInput
+
+func (RepositoryCreationTemplateEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArray) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return i.ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryCreationTemplateEncryptionConfigurationArray) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateEncryptionConfigurationArrayOutput)
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutput() RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) ToRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+// The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+func (o RepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RepositoryCreationTemplateEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type RepositoryCreationTemplateEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutput() RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) RepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o RepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) RepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryCreationTemplateEncryptionConfiguration {
+		return vs[0].([]RepositoryCreationTemplateEncryptionConfiguration)[vs[1].(int)]
+	}).(RepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
 type RepositoryEncryptionConfiguration struct {
 	// The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -932,7 +1038,7 @@ type GetLifecyclePolicyDocumentRule struct {
 	Action *GetLifecyclePolicyDocumentRuleAction `pulumi:"action"`
 	// Describes the purpose of a rule within a lifecycle policy.
 	Description *string `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
 	Priority int `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
 	Selection *GetLifecyclePolicyDocumentRuleSelection `pulumi:"selection"`
@@ -954,7 +1060,7 @@ type GetLifecyclePolicyDocumentRuleArgs struct {
 	Action GetLifecyclePolicyDocumentRuleActionPtrInput `pulumi:"action"`
 	// Describes the purpose of a rule within a lifecycle policy.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+	// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Collects parameters describing the selection criteria for the ECR lifecycle policy:
 	Selection GetLifecyclePolicyDocumentRuleSelectionPtrInput `pulumi:"selection"`
@@ -1021,7 +1127,7 @@ func (o GetLifecyclePolicyDocumentRuleOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+// Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
 func (o GetLifecyclePolicyDocumentRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRule) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -1189,17 +1295,17 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOu
 }
 
 type GetLifecyclePolicyDocumentRuleSelection struct {
-	// Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+	// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
 	CountNumber int `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+	// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType string `pulumi:"countType"`
 	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 	CountUnit *string `pulumi:"countUnit"`
-	// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 	TagPatternLists []string `pulumi:"tagPatternLists"`
-	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists []string `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
 	TagStatus string `pulumi:"tagStatus"`
 }
 
@@ -1215,17 +1321,17 @@ type GetLifecyclePolicyDocumentRuleSelectionInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleSelectionArgs struct {
-	// Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+	// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
 	CountNumber pulumi.IntInput `pulumi:"countNumber"`
-	// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+	// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 	CountType pulumi.StringInput `pulumi:"countType"`
 	// Specify a count unit of days to indicate that as the unit of time, in addition to `countNumber`, which is the number of days.
 	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
-	// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+	// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 	TagPatternLists pulumi.StringArrayInput `pulumi:"tagPatternLists"`
-	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+	// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 	TagPrefixLists pulumi.StringArrayInput `pulumi:"tagPrefixLists"`
-	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+	// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
 	TagStatus pulumi.StringInput `pulumi:"tagStatus"`
 }
 
@@ -1306,12 +1412,12 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) ToGetLifecyclePolicyDocum
 	}).(GetLifecyclePolicyDocumentRuleSelectionPtrOutput)
 }
 
-// Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) int { return v.CountNumber }).(pulumi.IntOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.CountType }).(pulumi.StringOutput)
 }
@@ -1321,17 +1427,17 @@ func (o GetLifecyclePolicyDocumentRuleSelectionOutput) CountUnit() pulumi.String
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
 }
 
-// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPatternLists }).(pulumi.StringArrayOutput)
 }
 
-// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) []string { return v.TagPrefixLists }).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionOutput) TagStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleSelection) string { return v.TagStatus }).(pulumi.StringOutput)
 }
@@ -1360,7 +1466,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) Elem() GetLifecyclePol
 	}).(GetLifecyclePolicyDocumentRuleSelectionOutput)
 }
 
-// Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+// Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *int {
 		if v == nil {
@@ -1370,7 +1476,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountNumber() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+// Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -1390,7 +1496,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) CountUnit() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+// You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
 		if v == nil {
@@ -1400,7 +1506,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPatternLists() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+// You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) []string {
 		if v == nil {
@@ -1410,7 +1516,7 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagPrefixLists() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+// Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
 func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleSelection) *string {
 		if v == nil {
@@ -1418,6 +1524,112 @@ func (o GetLifecyclePolicyDocumentRuleSelectionPtrOutput) TagStatus() pulumi.Str
 		}
 		return &v.TagStatus
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetRepositoryCreationTemplateEncryptionConfiguration struct {
+	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+	EncryptionType string `pulumi:"encryptionType"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey string `pulumi:"kmsKey"`
+}
+
+// GetRepositoryCreationTemplateEncryptionConfigurationInput is an input type that accepts GetRepositoryCreationTemplateEncryptionConfigurationArgs and GetRepositoryCreationTemplateEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `GetRepositoryCreationTemplateEncryptionConfigurationInput` via:
+//
+//	GetRepositoryCreationTemplateEncryptionConfigurationArgs{...}
+type GetRepositoryCreationTemplateEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput
+	ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArgs struct {
+	// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
+}
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArgs) ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return i.ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArgs) ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCreationTemplateEncryptionConfigurationOutput)
+}
+
+// GetRepositoryCreationTemplateEncryptionConfigurationArrayInput is an input type that accepts GetRepositoryCreationTemplateEncryptionConfigurationArray and GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetRepositoryCreationTemplateEncryptionConfigurationArrayInput` via:
+//
+//	GetRepositoryCreationTemplateEncryptionConfigurationArray{ GetRepositoryCreationTemplateEncryptionConfigurationArgs{...} }
+type GetRepositoryCreationTemplateEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput
+	ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArray []GetRepositoryCreationTemplateEncryptionConfigurationInput
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArray) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return i.ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRepositoryCreationTemplateEncryptionConfigurationArray) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput)
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationOutput() GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return o
+}
+
+// Encryption type to use for any created repositories, either `AES256` or `KMS`.
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+// If `encryptionType` is `KMS`, the ARN of the KMS key used.
+func (o GetRepositoryCreationTemplateEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryCreationTemplateEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
+}
+
+type GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRepositoryCreationTemplateEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutput() GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) ToGetRepositoryCreationTemplateEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetRepositoryCreationTemplateEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRepositoryCreationTemplateEncryptionConfiguration {
+		return vs[0].([]GetRepositoryCreationTemplateEncryptionConfiguration)[vs[1].(int)]
+	}).(GetRepositoryCreationTemplateEncryptionConfigurationOutput)
 }
 
 type GetRepositoryEncryptionConfiguration struct {
@@ -1636,6 +1848,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCreationTemplateEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryCreationTemplateEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
@@ -1646,6 +1860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleActionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLifecyclePolicyDocumentRuleSelectionPtrInput)(nil)).Elem(), GetLifecyclePolicyDocumentRuleSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryCreationTemplateEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryCreationTemplateEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
@@ -1662,6 +1878,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RepositoryCreationTemplateEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})
@@ -1672,6 +1890,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionOutput{})
 	pulumi.RegisterOutputType(GetLifecyclePolicyDocumentRuleSelectionPtrOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetRepositoryCreationTemplateEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(GetRepositoryEncryptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoryImageScanningConfigurationOutput{})

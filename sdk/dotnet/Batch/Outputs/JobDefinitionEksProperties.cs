@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksProperties
     {
         /// <summary>
-        /// The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        /// Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodProperties PodProperties;
 

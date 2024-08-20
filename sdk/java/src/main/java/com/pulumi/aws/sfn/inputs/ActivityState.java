@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sfn.inputs;
 
+import com.pulumi.aws.sfn.inputs.ActivityEncryptionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -29,6 +30,21 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> creationDate() {
         return Optional.ofNullable(this.creationDate);
+    }
+
+    /**
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<ActivityEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * 
+     */
+    public Optional<Output<ActivityEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -88,6 +104,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
 
     private ActivityState(ActivityState $) {
         this.creationDate = $.creationDate;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.name = $.name;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -130,6 +147,27 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder creationDate(String creationDate) {
             return creationDate(Output.of(creationDate));
+        }
+
+        /**
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<ActivityEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(ActivityEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**

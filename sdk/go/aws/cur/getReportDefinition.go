@@ -56,6 +56,8 @@ func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArg
 type LookupReportDefinitionArgs struct {
 	// Name of the report definition to match.
 	ReportName string `pulumi:"reportName"`
+	// Map of key-value pairs assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getReportDefinition.
@@ -81,6 +83,8 @@ type LookupReportDefinitionResult struct {
 	S3Prefix string `pulumi:"s3Prefix"`
 	// Region of customer S3 bucket.
 	S3Region string `pulumi:"s3Region"`
+	// Map of key-value pairs assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// Frequency on which report data are measured and displayed.
 	TimeUnit string `pulumi:"timeUnit"`
 }
@@ -102,6 +106,8 @@ func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefiniti
 type LookupReportDefinitionOutputArgs struct {
 	// Name of the report definition to match.
 	ReportName pulumi.StringInput `pulumi:"reportName"`
+	// Map of key-value pairs assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupReportDefinitionOutputArgs) ElementType() reflect.Type {
@@ -175,6 +181,11 @@ func (o LookupReportDefinitionResultOutput) S3Prefix() pulumi.StringOutput {
 // Region of customer S3 bucket.
 func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Region }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs assigned to the resource.
+func (o LookupReportDefinitionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Frequency on which report data are measured and displayed.

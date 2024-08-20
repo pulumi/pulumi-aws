@@ -190,7 +190,7 @@ public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PermissionsBoundaryAttachment(String name) {
+    public PermissionsBoundaryAttachment(java.lang.String name) {
         this(name, PermissionsBoundaryAttachmentArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PermissionsBoundaryAttachment(String name, PermissionsBoundaryAttachmentArgs args) {
+    public PermissionsBoundaryAttachment(java.lang.String name, PermissionsBoundaryAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +207,22 @@ public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PermissionsBoundaryAttachment(String name, PermissionsBoundaryAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, args == null ? PermissionsBoundaryAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PermissionsBoundaryAttachment(java.lang.String name, PermissionsBoundaryAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PermissionsBoundaryAttachment(String name, Output<String> id, @Nullable PermissionsBoundaryAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, state, makeResourceOptions(options, id));
+    private PermissionsBoundaryAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionsBoundaryAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PermissionsBoundaryAttachmentArgs makeArgs(PermissionsBoundaryAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PermissionsBoundaryAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +238,7 @@ public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PermissionsBoundaryAttachment get(String name, Output<String> id, @Nullable PermissionsBoundaryAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PermissionsBoundaryAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable PermissionsBoundaryAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PermissionsBoundaryAttachment(name, id, state, options);
     }
 }

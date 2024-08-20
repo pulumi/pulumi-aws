@@ -127,7 +127,7 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContainerPolicy(String name) {
+    public ContainerPolicy(java.lang.String name) {
         this(name, ContainerPolicyArgs.Empty);
     }
     /**
@@ -135,7 +135,7 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContainerPolicy(String name, ContainerPolicyArgs args) {
+    public ContainerPolicy(java.lang.String name, ContainerPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -144,15 +144,22 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContainerPolicy(String name, ContainerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mediastore/containerPolicy:ContainerPolicy", name, args == null ? ContainerPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ContainerPolicy(java.lang.String name, ContainerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mediastore/containerPolicy:ContainerPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContainerPolicy(String name, Output<String> id, @Nullable ContainerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mediastore/containerPolicy:ContainerPolicy", name, state, makeResourceOptions(options, id));
+    private ContainerPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ContainerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mediastore/containerPolicy:ContainerPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ContainerPolicyArgs makeArgs(ContainerPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContainerPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -168,7 +175,7 @@ public class ContainerPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContainerPolicy get(String name, Output<String> id, @Nullable ContainerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContainerPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ContainerPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContainerPolicy(name, id, state, options);
     }
 }

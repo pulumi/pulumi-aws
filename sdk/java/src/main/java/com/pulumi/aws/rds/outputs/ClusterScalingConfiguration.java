@@ -29,6 +29,11 @@ public final class ClusterScalingConfiguration {
      */
     private @Nullable Integer minCapacity;
     /**
+     * @return Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+     * 
+     */
+    private @Nullable Integer secondsBeforeTimeout;
+    /**
      * @return Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
      * 
      */
@@ -62,6 +67,13 @@ public final class ClusterScalingConfiguration {
         return Optional.ofNullable(this.minCapacity);
     }
     /**
+     * @return Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+     * 
+     */
+    public Optional<Integer> secondsBeforeTimeout() {
+        return Optional.ofNullable(this.secondsBeforeTimeout);
+    }
+    /**
      * @return Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
      * 
      */
@@ -88,6 +100,7 @@ public final class ClusterScalingConfiguration {
         private @Nullable Boolean autoPause;
         private @Nullable Integer maxCapacity;
         private @Nullable Integer minCapacity;
+        private @Nullable Integer secondsBeforeTimeout;
         private @Nullable Integer secondsUntilAutoPause;
         private @Nullable String timeoutAction;
         public Builder() {}
@@ -96,6 +109,7 @@ public final class ClusterScalingConfiguration {
     	      this.autoPause = defaults.autoPause;
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
+    	      this.secondsBeforeTimeout = defaults.secondsBeforeTimeout;
     	      this.secondsUntilAutoPause = defaults.secondsUntilAutoPause;
     	      this.timeoutAction = defaults.timeoutAction;
         }
@@ -119,6 +133,12 @@ public final class ClusterScalingConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder secondsBeforeTimeout(@Nullable Integer secondsBeforeTimeout) {
+
+            this.secondsBeforeTimeout = secondsBeforeTimeout;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondsUntilAutoPause(@Nullable Integer secondsUntilAutoPause) {
 
             this.secondsUntilAutoPause = secondsUntilAutoPause;
@@ -135,6 +155,7 @@ public final class ClusterScalingConfiguration {
             _resultValue.autoPause = autoPause;
             _resultValue.maxCapacity = maxCapacity;
             _resultValue.minCapacity = minCapacity;
+            _resultValue.secondsBeforeTimeout = secondsBeforeTimeout;
             _resultValue.secondsUntilAutoPause = secondsUntilAutoPause;
             _resultValue.timeoutAction = timeoutAction;
             return _resultValue;

@@ -86,7 +86,7 @@ export class OntapVolume extends pulumi.CustomResource {
     }
 
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      */
     public readonly aggregateConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
@@ -105,6 +105,10 @@ export class OntapVolume extends pulumi.CustomResource {
      * Describes the file system for the volume, e.g. `fs-12345679`
      */
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * A map of tags to apply to the volume's final backup.
+     */
+    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      */
@@ -138,7 +142,7 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      */
     public readonly snaplockConfiguration!: pulumi.Output<outputs.fsx.OntapVolumeSnaplockConfiguration | undefined>;
     /**
@@ -151,6 +155,8 @@ export class OntapVolume extends pulumi.CustomResource {
     public readonly storageEfficiencyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
+     *
+     * The following arguments are optional:
      */
     public readonly storageVirtualMachineId!: pulumi.Output<string>;
     /**
@@ -164,7 +170,7 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */
     public readonly tieringPolicy!: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
     /**
@@ -198,6 +204,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["bypassSnaplockEnterpriseRetention"] = state ? state.bypassSnaplockEnterpriseRetention : undefined;
             resourceInputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
             resourceInputs["flexcacheEndpointType"] = state ? state.flexcacheEndpointType : undefined;
             resourceInputs["junctionPath"] = state ? state.junctionPath : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -224,6 +231,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["aggregateConfiguration"] = args ? args.aggregateConfiguration : undefined;
             resourceInputs["bypassSnaplockEnterpriseRetention"] = args ? args.bypassSnaplockEnterpriseRetention : undefined;
             resourceInputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
+            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
             resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ontapVolumeType"] = args ? args.ontapVolumeType : undefined;
@@ -255,7 +263,7 @@ export class OntapVolume extends pulumi.CustomResource {
  */
 export interface OntapVolumeState {
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      */
     aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
     /**
@@ -274,6 +282,10 @@ export interface OntapVolumeState {
      * Describes the file system for the volume, e.g. `fs-12345679`
      */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * A map of tags to apply to the volume's final backup.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      */
@@ -307,7 +319,7 @@ export interface OntapVolumeState {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      */
     snaplockConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfiguration>;
     /**
@@ -320,6 +332,8 @@ export interface OntapVolumeState {
     storageEfficiencyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
+     *
+     * The following arguments are optional:
      */
     storageVirtualMachineId?: pulumi.Input<string>;
     /**
@@ -333,7 +347,7 @@ export interface OntapVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
     /**
@@ -355,7 +369,7 @@ export interface OntapVolumeState {
  */
 export interface OntapVolumeArgs {
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      */
     aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration>;
     /**
@@ -366,6 +380,10 @@ export interface OntapVolumeArgs {
      * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
      */
     copyTagsToBackups?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to apply to the volume's final backup.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      */
@@ -395,7 +413,7 @@ export interface OntapVolumeArgs {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      */
     snaplockConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfiguration>;
     /**
@@ -408,6 +426,8 @@ export interface OntapVolumeArgs {
     storageEfficiencyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
+     *
+     * The following arguments are optional:
      */
     storageVirtualMachineId: pulumi.Input<string>;
     /**
@@ -415,7 +435,7 @@ export interface OntapVolumeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      */
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
     /**

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appsync.GraphQLApiArgs;
 import com.pulumi.aws.appsync.inputs.GraphQLApiState;
 import com.pulumi.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProvider;
+import com.pulumi.aws.appsync.outputs.GraphQLApiEnhancedMetricsConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiLambdaAuthorizerConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiLogConfig;
 import com.pulumi.aws.appsync.outputs.GraphQLApiOpenidConnectConfig;
@@ -68,6 +69,20 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.authenticationType;
     }
     /**
+     * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    @Export(name="enhancedMetricsConfig", refs={GraphQLApiEnhancedMetricsConfig.class}, tree="[0]")
+    private Output</* @Nullable */ GraphQLApiEnhancedMetricsConfig> enhancedMetricsConfig;
+
+    /**
+     * @return Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+     * 
+     */
+    public Output<Optional<GraphQLApiEnhancedMetricsConfig>> enhancedMetricsConfig() {
+        return Codegen.optional(this.enhancedMetricsConfig);
+    }
+    /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      * 
      */
@@ -112,12 +127,16 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
      * User-supplied name for the GraphSQL API.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return User-supplied name for the GraphSQL API.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -276,7 +295,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GraphQLApi(String name) {
+    public GraphQLApi(java.lang.String name) {
         this(name, GraphQLApiArgs.Empty);
     }
     /**
@@ -284,7 +303,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GraphQLApi(String name, GraphQLApiArgs args) {
+    public GraphQLApi(java.lang.String name, GraphQLApiArgs args) {
         this(name, args, null);
     }
     /**
@@ -293,15 +312,22 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GraphQLApi(String name, GraphQLApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/graphQLApi:GraphQLApi", name, args == null ? GraphQLApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GraphQLApi(java.lang.String name, GraphQLApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/graphQLApi:GraphQLApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GraphQLApi(String name, Output<String> id, @Nullable GraphQLApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appsync/graphQLApi:GraphQLApi", name, state, makeResourceOptions(options, id));
+    private GraphQLApi(java.lang.String name, Output<java.lang.String> id, @Nullable GraphQLApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appsync/graphQLApi:GraphQLApi", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GraphQLApiArgs makeArgs(GraphQLApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GraphQLApiArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -317,7 +343,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GraphQLApi get(String name, Output<String> id, @Nullable GraphQLApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GraphQLApi get(java.lang.String name, Output<java.lang.String> id, @Nullable GraphQLApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GraphQLApi(name, id, state, options);
     }
 }

@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -63,6 +64,11 @@ public final class GetReportDefinitionResult {
      * 
      */
     private String s3Region;
+    /**
+     * @return Map of key-value pairs assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
     /**
      * @return Frequency on which report data are measured and displayed.
      * 
@@ -144,6 +150,13 @@ public final class GetReportDefinitionResult {
         return this.s3Region;
     }
     /**
+     * @return Map of key-value pairs assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Frequency on which report data are measured and displayed.
      * 
      */
@@ -171,6 +184,7 @@ public final class GetReportDefinitionResult {
         private String s3Bucket;
         private String s3Prefix;
         private String s3Region;
+        private Map<String,String> tags;
         private String timeUnit;
         public Builder() {}
         public Builder(GetReportDefinitionResult defaults) {
@@ -186,6 +200,7 @@ public final class GetReportDefinitionResult {
     	      this.s3Bucket = defaults.s3Bucket;
     	      this.s3Prefix = defaults.s3Prefix;
     	      this.s3Region = defaults.s3Region;
+    	      this.tags = defaults.tags;
     	      this.timeUnit = defaults.timeUnit;
         }
 
@@ -284,6 +299,14 @@ public final class GetReportDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetReportDefinitionResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timeUnit(String timeUnit) {
             if (timeUnit == null) {
               throw new MissingRequiredPropertyException("GetReportDefinitionResult", "timeUnit");
@@ -304,6 +327,7 @@ public final class GetReportDefinitionResult {
             _resultValue.s3Bucket = s3Bucket;
             _resultValue.s3Prefix = s3Prefix;
             _resultValue.s3Region = s3Region;
+            _resultValue.tags = tags;
             _resultValue.timeUnit = timeUnit;
             return _resultValue;
         }

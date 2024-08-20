@@ -14,6 +14,10 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
     public sealed class CrossAccountAttachmentResource
     {
         /// <summary>
+        /// IP address range, in CIDR format, that is specified as resource.
+        /// </summary>
+        public readonly string? CidrBlock;
+        /// <summary>
         /// The endpoint ID for the endpoint that is specified as a AWS resource.
         /// </summary>
         public readonly string? EndpointId;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private CrossAccountAttachmentResource(
+            string? cidrBlock,
+
             string? endpointId,
 
             string? region)
         {
+            CidrBlock = cidrBlock;
             EndpointId = endpointId;
             Region = region;
         }

@@ -217,7 +217,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertificateAuthorityCertificate(String name) {
+    public CertificateAuthorityCertificate(java.lang.String name) {
         this(name, CertificateAuthorityCertificateArgs.Empty);
     }
     /**
@@ -225,7 +225,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertificateAuthorityCertificate(String name, CertificateAuthorityCertificateArgs args) {
+    public CertificateAuthorityCertificate(java.lang.String name, CertificateAuthorityCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -234,15 +234,22 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertificateAuthorityCertificate(String name, CertificateAuthorityCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate", name, args == null ? CertificateAuthorityCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CertificateAuthorityCertificate(java.lang.String name, CertificateAuthorityCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CertificateAuthorityCertificate(String name, Output<String> id, @Nullable CertificateAuthorityCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate", name, state, makeResourceOptions(options, id));
+    private CertificateAuthorityCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateAuthorityCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CertificateAuthorityCertificateArgs makeArgs(CertificateAuthorityCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateAuthorityCertificateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -258,7 +265,7 @@ public class CertificateAuthorityCertificate extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CertificateAuthorityCertificate get(String name, Output<String> id, @Nullable CertificateAuthorityCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CertificateAuthorityCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateAuthorityCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CertificateAuthorityCertificate(name, id, state, options);
     }
 }

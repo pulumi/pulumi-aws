@@ -40,6 +40,11 @@ export const getRepository: typeof import("./getRepository").getRepository = nul
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
+export { GetRepositoryCreationTemplateArgs, GetRepositoryCreationTemplateResult, GetRepositoryCreationTemplateOutputArgs } from "./getRepositoryCreationTemplate";
+export const getRepositoryCreationTemplate: typeof import("./getRepositoryCreationTemplate").getRepositoryCreationTemplate = null as any;
+export const getRepositoryCreationTemplateOutput: typeof import("./getRepositoryCreationTemplate").getRepositoryCreationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryCreationTemplate","getRepositoryCreationTemplateOutput"], () => require("./getRepositoryCreationTemplate"));
+
 export { LifecyclePolicyArgs, LifecyclePolicyState } from "./lifecyclePolicy";
 export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
@@ -71,6 +76,11 @@ export type Repository = import("./repository").Repository;
 export const Repository: typeof import("./repository").Repository = null as any;
 utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
+export { RepositoryCreationTemplateArgs, RepositoryCreationTemplateState } from "./repositoryCreationTemplate";
+export type RepositoryCreationTemplate = import("./repositoryCreationTemplate").RepositoryCreationTemplate;
+export const RepositoryCreationTemplate: typeof import("./repositoryCreationTemplate").RepositoryCreationTemplate = null as any;
+utilities.lazyLoad(exports, ["RepositoryCreationTemplate"], () => require("./repositoryCreationTemplate"));
+
 export { RepositoryPolicyArgs, RepositoryPolicyState } from "./repositoryPolicy";
 export type RepositoryPolicy = import("./repositoryPolicy").RepositoryPolicy;
 export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPolicy = null as any;
@@ -93,6 +103,8 @@ const _module = {
                 return new ReplicationConfiguration(name, <any>undefined, { urn })
             case "aws:ecr/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
+            case "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate":
+                return new RepositoryCreationTemplate(name, <any>undefined, { urn })
             case "aws:ecr/repositoryPolicy:RepositoryPolicy":
                 return new RepositoryPolicy(name, <any>undefined, { urn })
             default:
@@ -106,4 +118,5 @@ pulumi.runtime.registerResourceModule("aws", "ecr/registryPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/registryScanningConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/replicationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/repository", _module)
+pulumi.runtime.registerResourceModule("aws", "ecr/repositoryCreationTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/repositoryPolicy", _module)

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -37,6 +38,11 @@ public final class GetCustomPluginResult {
      * 
      */
     private String state;
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetCustomPluginResult() {}
     /**
@@ -77,6 +83,13 @@ public final class GetCustomPluginResult {
     public String state() {
         return this.state;
     }
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -93,6 +106,7 @@ public final class GetCustomPluginResult {
         private Integer latestRevision;
         private String name;
         private String state;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetCustomPluginResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,6 +116,7 @@ public final class GetCustomPluginResult {
     	      this.latestRevision = defaults.latestRevision;
     	      this.name = defaults.name;
     	      this.state = defaults.state;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -152,6 +167,14 @@ public final class GetCustomPluginResult {
             this.state = state;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCustomPluginResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetCustomPluginResult build() {
             final var _resultValue = new GetCustomPluginResult();
             _resultValue.arn = arn;
@@ -160,6 +183,7 @@ public final class GetCustomPluginResult {
             _resultValue.latestRevision = latestRevision;
             _resultValue.name = name;
             _resultValue.state = state;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

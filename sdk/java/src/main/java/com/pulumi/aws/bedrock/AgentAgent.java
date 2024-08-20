@@ -287,18 +287,32 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.prepareAgent;
     }
     /**
-     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     @Export(name="promptOverrideConfigurations", refs={List.class,AgentAgentPromptOverrideConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations;
 
     /**
-     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+     * @return Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
     public Output<List<AgentAgentPromptOverrideConfiguration>> promptOverrideConfigurations() {
         return this.promptOverrideConfigurations;
+    }
+    /**
+     * Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    @Export(name="skipResourceInUseCheck", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> skipResourceInUseCheck;
+
+    /**
+     * @return Whether the in-use check is skipped when deleting the agent.
+     * 
+     */
+    public Output<Boolean> skipResourceInUseCheck() {
+        return this.skipResourceInUseCheck;
     }
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -343,7 +357,7 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AgentAgent(String name) {
+    public AgentAgent(java.lang.String name) {
         this(name, AgentAgentArgs.Empty);
     }
     /**
@@ -351,7 +365,7 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentAgent(String name, AgentAgentArgs args) {
+    public AgentAgent(java.lang.String name, AgentAgentArgs args) {
         this(name, args, null);
     }
     /**
@@ -360,15 +374,22 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentAgent(String name, AgentAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgent:AgentAgent", name, args == null ? AgentAgentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AgentAgent(java.lang.String name, AgentAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgent:AgentAgent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AgentAgent(String name, Output<String> id, @Nullable AgentAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgent:AgentAgent", name, state, makeResourceOptions(options, id));
+    private AgentAgent(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgent:AgentAgent", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AgentAgentArgs makeArgs(AgentAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentAgentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -384,7 +405,7 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AgentAgent get(String name, Output<String> id, @Nullable AgentAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AgentAgent get(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AgentAgent(name, id, state, options);
     }
 }

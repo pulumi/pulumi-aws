@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -144,12 +145,44 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
     public Output<String> propertiesFileContent() {
         return this.propertiesFileContent;
     }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
 
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkerConfiguration(String name) {
+    public WorkerConfiguration(java.lang.String name) {
         this(name, WorkerConfigurationArgs.Empty);
     }
     /**
@@ -157,7 +190,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkerConfiguration(String name, WorkerConfigurationArgs args) {
+    public WorkerConfiguration(java.lang.String name, WorkerConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,15 +199,22 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkerConfiguration(String name, WorkerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mskconnect/workerConfiguration:WorkerConfiguration", name, args == null ? WorkerConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WorkerConfiguration(java.lang.String name, WorkerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mskconnect/workerConfiguration:WorkerConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkerConfiguration(String name, Output<String> id, @Nullable WorkerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:mskconnect/workerConfiguration:WorkerConfiguration", name, state, makeResourceOptions(options, id));
+    private WorkerConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable WorkerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:mskconnect/workerConfiguration:WorkerConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkerConfigurationArgs makeArgs(WorkerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkerConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -190,7 +230,7 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkerConfiguration get(String name, Output<String> id, @Nullable WorkerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkerConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkerConfiguration(name, id, state, options);
     }
 }

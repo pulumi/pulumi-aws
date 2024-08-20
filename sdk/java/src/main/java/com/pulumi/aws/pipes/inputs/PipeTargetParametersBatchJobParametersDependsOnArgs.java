@@ -15,16 +15,32 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
 
     public static final PipeTargetParametersBatchJobParametersDependsOnArgs Empty = new PipeTargetParametersBatchJobParametersDependsOnArgs();
 
+    /**
+     * The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * 
+     */
     @Import(name="jobId")
     private @Nullable Output<String> jobId;
 
+    /**
+     * @return The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * 
+     */
     public Optional<Output<String>> jobId() {
         return Optional.ofNullable(this.jobId);
     }
 
+    /**
+     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * 
+     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
+    /**
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * 
+     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -54,20 +70,44 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
             $ = new PipeTargetParametersBatchJobParametersDependsOnArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param jobId The job ID of the AWS Batch job that&#39;s associated with this dependency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobId(@Nullable Output<String> jobId) {
             $.jobId = jobId;
             return this;
         }
 
+        /**
+         * @param jobId The job ID of the AWS Batch job that&#39;s associated with this dependency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobId(String jobId) {
             return jobId(Output.of(jobId));
         }
 
+        /**
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

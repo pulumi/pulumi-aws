@@ -4116,6 +4116,181 @@ func (o WebhookFilterGroupFilterArrayOutput) Index(i pulumi.IntInput) WebhookFil
 	}).(WebhookFilterGroupFilterOutput)
 }
 
+type WebhookScopeConfiguration struct {
+	// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+	Domain *string `pulumi:"domain"`
+	// The name of either the enterprise or organization.
+	Name string `pulumi:"name"`
+	// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+	Scope string `pulumi:"scope"`
+}
+
+// WebhookScopeConfigurationInput is an input type that accepts WebhookScopeConfigurationArgs and WebhookScopeConfigurationOutput values.
+// You can construct a concrete instance of `WebhookScopeConfigurationInput` via:
+//
+//	WebhookScopeConfigurationArgs{...}
+type WebhookScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToWebhookScopeConfigurationOutput() WebhookScopeConfigurationOutput
+	ToWebhookScopeConfigurationOutputWithContext(context.Context) WebhookScopeConfigurationOutput
+}
+
+type WebhookScopeConfigurationArgs struct {
+	// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// The name of either the enterprise or organization.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (WebhookScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookScopeConfiguration)(nil)).Elem()
+}
+
+func (i WebhookScopeConfigurationArgs) ToWebhookScopeConfigurationOutput() WebhookScopeConfigurationOutput {
+	return i.ToWebhookScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebhookScopeConfigurationArgs) ToWebhookScopeConfigurationOutputWithContext(ctx context.Context) WebhookScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookScopeConfigurationOutput)
+}
+
+func (i WebhookScopeConfigurationArgs) ToWebhookScopeConfigurationPtrOutput() WebhookScopeConfigurationPtrOutput {
+	return i.ToWebhookScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebhookScopeConfigurationArgs) ToWebhookScopeConfigurationPtrOutputWithContext(ctx context.Context) WebhookScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookScopeConfigurationOutput).ToWebhookScopeConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebhookScopeConfigurationPtrInput is an input type that accepts WebhookScopeConfigurationArgs, WebhookScopeConfigurationPtr and WebhookScopeConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebhookScopeConfigurationPtrInput` via:
+//
+//	        WebhookScopeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebhookScopeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebhookScopeConfigurationPtrOutput() WebhookScopeConfigurationPtrOutput
+	ToWebhookScopeConfigurationPtrOutputWithContext(context.Context) WebhookScopeConfigurationPtrOutput
+}
+
+type webhookScopeConfigurationPtrType WebhookScopeConfigurationArgs
+
+func WebhookScopeConfigurationPtr(v *WebhookScopeConfigurationArgs) WebhookScopeConfigurationPtrInput {
+	return (*webhookScopeConfigurationPtrType)(v)
+}
+
+func (*webhookScopeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookScopeConfiguration)(nil)).Elem()
+}
+
+func (i *webhookScopeConfigurationPtrType) ToWebhookScopeConfigurationPtrOutput() WebhookScopeConfigurationPtrOutput {
+	return i.ToWebhookScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webhookScopeConfigurationPtrType) ToWebhookScopeConfigurationPtrOutputWithContext(ctx context.Context) WebhookScopeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookScopeConfigurationPtrOutput)
+}
+
+type WebhookScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebhookScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookScopeConfiguration)(nil)).Elem()
+}
+
+func (o WebhookScopeConfigurationOutput) ToWebhookScopeConfigurationOutput() WebhookScopeConfigurationOutput {
+	return o
+}
+
+func (o WebhookScopeConfigurationOutput) ToWebhookScopeConfigurationOutputWithContext(ctx context.Context) WebhookScopeConfigurationOutput {
+	return o
+}
+
+func (o WebhookScopeConfigurationOutput) ToWebhookScopeConfigurationPtrOutput() WebhookScopeConfigurationPtrOutput {
+	return o.ToWebhookScopeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookScopeConfigurationOutput) ToWebhookScopeConfigurationPtrOutputWithContext(ctx context.Context) WebhookScopeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookScopeConfiguration) *WebhookScopeConfiguration {
+		return &v
+	}).(WebhookScopeConfigurationPtrOutput)
+}
+
+// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+func (o WebhookScopeConfigurationOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookScopeConfiguration) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The name of either the enterprise or organization.
+func (o WebhookScopeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookScopeConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+func (o WebhookScopeConfigurationOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookScopeConfiguration) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type WebhookScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookScopeConfiguration)(nil)).Elem()
+}
+
+func (o WebhookScopeConfigurationPtrOutput) ToWebhookScopeConfigurationPtrOutput() WebhookScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookScopeConfigurationPtrOutput) ToWebhookScopeConfigurationPtrOutputWithContext(ctx context.Context) WebhookScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o WebhookScopeConfigurationPtrOutput) Elem() WebhookScopeConfigurationOutput {
+	return o.ApplyT(func(v *WebhookScopeConfiguration) WebhookScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookScopeConfiguration
+		return ret
+	}).(WebhookScopeConfigurationOutput)
+}
+
+// The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+func (o WebhookScopeConfigurationPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of either the enterprise or organization.
+func (o WebhookScopeConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+func (o WebhookScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookScopeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsPtrInput)(nil)).Elem(), ProjectArtifactsArgs{})
@@ -4165,6 +4340,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupArrayInput)(nil)).Elem(), WebhookFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterInput)(nil)).Elem(), WebhookFilterGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterArrayInput)(nil)).Elem(), WebhookFilterGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationPtrInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectBuildBatchConfigOutput{})
@@ -4213,4 +4390,6 @@ func init() {
 	pulumi.RegisterOutputType(WebhookFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterOutput{})
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterArrayOutput{})
+	pulumi.RegisterOutputType(WebhookScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(WebhookScopeConfigurationPtrOutput{})
 }

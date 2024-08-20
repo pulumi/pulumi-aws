@@ -1396,7 +1396,7 @@ if not MYPY:
         """
         delimiter: NotRequired[pulumi.Input[str]]
         """
-        The delimiter used in the Csv to separate columns.
+        The delimiter used in the CSV to separate columns.
         """
         disable_value_trimming: NotRequired[pulumi.Input[bool]]
         """
@@ -1411,6 +1411,9 @@ if not MYPY:
         A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         """
         serde: NotRequired[pulumi.Input[str]]
+        """
+        The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        """
 elif False:
     ClassifierCsvClassifierArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1431,10 +1434,11 @@ class ClassifierCsvClassifierArgs:
         :param pulumi.Input[str] contains_header: Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         :param pulumi.Input[bool] custom_datatype_configured: Enables the custom datatype to be configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_datatypes: A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
-        :param pulumi.Input[str] delimiter: The delimiter used in the Csv to separate columns.
+        :param pulumi.Input[str] delimiter: The delimiter used in the CSV to separate columns.
         :param pulumi.Input[bool] disable_value_trimming: Specifies whether to trim column values.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: A list of strings representing column names.
         :param pulumi.Input[str] quote_symbol: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        :param pulumi.Input[str] serde: The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
         """
         if allow_single_column is not None:
             pulumi.set(__self__, "allow_single_column", allow_single_column)
@@ -1507,7 +1511,7 @@ class ClassifierCsvClassifierArgs:
     @pulumi.getter
     def delimiter(self) -> Optional[pulumi.Input[str]]:
         """
-        The delimiter used in the Csv to separate columns.
+        The delimiter used in the CSV to separate columns.
         """
         return pulumi.get(self, "delimiter")
 
@@ -1554,6 +1558,9 @@ class ClassifierCsvClassifierArgs:
     @property
     @pulumi.getter
     def serde(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        """
         return pulumi.get(self, "serde")
 
     @serde.setter
@@ -3708,7 +3715,13 @@ if not MYPY:
     class PartitionStorageDescriptorColumnArgsDict(TypedDict):
         name: pulumi.Input[str]
         comment: NotRequired[pulumi.Input[str]]
+        """
+        Free-form text comment.
+        """
         type: NotRequired[pulumi.Input[str]]
+        """
+        The datatype of data in the Column.
+        """
 elif False:
     PartitionStorageDescriptorColumnArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3718,6 +3731,10 @@ class PartitionStorageDescriptorColumnArgs:
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] comment: Free-form text comment.
+        :param pulumi.Input[str] type: The datatype of data in the Column.
+        """
         pulumi.set(__self__, "name", name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -3736,6 +3753,9 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Free-form text comment.
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -3745,6 +3765,9 @@ class PartitionStorageDescriptorColumnArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The datatype of data in the Column.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

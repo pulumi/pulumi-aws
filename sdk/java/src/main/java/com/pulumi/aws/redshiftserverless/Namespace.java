@@ -281,7 +281,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Namespace(String name) {
+    public Namespace(java.lang.String name) {
         this(name, NamespaceArgs.Empty);
     }
     /**
@@ -289,7 +289,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Namespace(String name, NamespaceArgs args) {
+    public Namespace(java.lang.String name, NamespaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -298,15 +298,22 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Namespace(String name, NamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/namespace:Namespace", name, args == null ? NamespaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Namespace(java.lang.String name, NamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/namespace:Namespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Namespace(String name, Output<String> id, @Nullable NamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshiftserverless/namespace:Namespace", name, state, makeResourceOptions(options, id));
+    private Namespace(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshiftserverless/namespace:Namespace", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static NamespaceArgs makeArgs(NamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -326,7 +333,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Namespace get(String name, Output<String> id, @Nullable NamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Namespace get(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Namespace(name, id, state, options);
     }
 }

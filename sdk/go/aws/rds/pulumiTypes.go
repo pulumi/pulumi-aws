@@ -256,7 +256,9 @@ type ClusterRestoreToPointInTime struct {
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType *string `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
+	SourceClusterIdentifier *string `pulumi:"sourceClusterIdentifier"`
+	// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+	SourceClusterResourceId *string `pulumi:"sourceClusterResourceId"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 }
@@ -279,7 +281,9 @@ type ClusterRestoreToPointInTimeArgs struct {
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
+	SourceClusterIdentifier pulumi.StringPtrInput `pulumi:"sourceClusterIdentifier"`
+	// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+	SourceClusterResourceId pulumi.StringPtrInput `pulumi:"sourceClusterResourceId"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
 }
@@ -373,8 +377,13 @@ func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput 
 }
 
 // Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.SourceClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.SourceClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
@@ -433,7 +442,17 @@ func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.S
 		if v == nil {
 			return nil
 		}
-		return &v.SourceClusterIdentifier
+		return v.SourceClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceClusterResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -448,11 +467,18 @@ func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.B
 }
 
 type ClusterS3Import struct {
-	BucketName          string  `pulumi:"bucketName"`
-	BucketPrefix        *string `pulumi:"bucketPrefix"`
-	IngestionRole       string  `pulumi:"ingestionRole"`
-	SourceEngine        string  `pulumi:"sourceEngine"`
-	SourceEngineVersion string  `pulumi:"sourceEngineVersion"`
+	// Bucket name where your backup is stored
+	BucketName string `pulumi:"bucketName"`
+	// Can be blank, but is the path to your backup
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// Role applied to load the data.
+	IngestionRole string `pulumi:"ingestionRole"`
+	// Source engine for the backup
+	SourceEngine string `pulumi:"sourceEngine"`
+	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
 // ClusterS3ImportInput is an input type that accepts ClusterS3ImportArgs and ClusterS3ImportOutput values.
@@ -467,11 +493,18 @@ type ClusterS3ImportInput interface {
 }
 
 type ClusterS3ImportArgs struct {
-	BucketName          pulumi.StringInput    `pulumi:"bucketName"`
-	BucketPrefix        pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	IngestionRole       pulumi.StringInput    `pulumi:"ingestionRole"`
-	SourceEngine        pulumi.StringInput    `pulumi:"sourceEngine"`
-	SourceEngineVersion pulumi.StringInput    `pulumi:"sourceEngineVersion"`
+	// Bucket name where your backup is stored
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Can be blank, but is the path to your backup
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// Role applied to load the data.
+	IngestionRole pulumi.StringInput `pulumi:"ingestionRole"`
+	// Source engine for the backup
+	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
+	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
 func (ClusterS3ImportArgs) ElementType() reflect.Type {
@@ -551,22 +584,29 @@ func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutputWithContext(ctx context
 	}).(ClusterS3ImportPtrOutput)
 }
 
+// Bucket name where your backup is stored
 func (o ClusterS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Can be blank, but is the path to your backup
 func (o ClusterS3ImportOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Role applied to load the data.
 func (o ClusterS3ImportOutput) IngestionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
 }
 
+// Source engine for the backup
 func (o ClusterS3ImportOutput) SourceEngine() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
 }
 
+// Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -595,6 +635,7 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 	}).(ClusterS3ImportOutput)
 }
 
+// Bucket name where your backup is stored
 func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -604,6 +645,7 @@ func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Can be blank, but is the path to your backup
 func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -613,6 +655,7 @@ func (o ClusterS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Role applied to load the data.
 func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -622,6 +665,7 @@ func (o ClusterS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Source engine for the backup
 func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -631,6 +675,9 @@ func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -647,6 +694,8 @@ type ClusterScalingConfiguration struct {
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity *int `pulumi:"minCapacity"`
+	// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+	SecondsBeforeTimeout *int `pulumi:"secondsBeforeTimeout"`
 	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
@@ -671,6 +720,8 @@ type ClusterScalingConfigurationArgs struct {
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
 	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
+	// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+	SecondsBeforeTimeout pulumi.IntPtrInput `pulumi:"secondsBeforeTimeout"`
 	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
@@ -769,6 +820,11 @@ func (o ClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
+// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+func (o ClusterScalingConfigurationOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsBeforeTimeout }).(pulumi.IntPtrOutput)
+}
+
 // Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
@@ -830,6 +886,16 @@ func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput 
 			return nil
 		}
 		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+func (o ClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsBeforeTimeout
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1887,11 +1953,18 @@ func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.
 }
 
 type InstanceS3Import struct {
-	BucketName          string  `pulumi:"bucketName"`
-	BucketPrefix        *string `pulumi:"bucketPrefix"`
-	IngestionRole       string  `pulumi:"ingestionRole"`
-	SourceEngine        string  `pulumi:"sourceEngine"`
-	SourceEngineVersion string  `pulumi:"sourceEngineVersion"`
+	// The bucket name where your backup is stored
+	BucketName string `pulumi:"bucketName"`
+	// Can be blank, but is the path to your backup
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// Role applied to load the data.
+	IngestionRole string `pulumi:"ingestionRole"`
+	// Source engine for the backup
+	SourceEngine string `pulumi:"sourceEngine"`
+	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
 // InstanceS3ImportInput is an input type that accepts InstanceS3ImportArgs and InstanceS3ImportOutput values.
@@ -1906,11 +1979,18 @@ type InstanceS3ImportInput interface {
 }
 
 type InstanceS3ImportArgs struct {
-	BucketName          pulumi.StringInput    `pulumi:"bucketName"`
-	BucketPrefix        pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	IngestionRole       pulumi.StringInput    `pulumi:"ingestionRole"`
-	SourceEngine        pulumi.StringInput    `pulumi:"sourceEngine"`
-	SourceEngineVersion pulumi.StringInput    `pulumi:"sourceEngineVersion"`
+	// The bucket name where your backup is stored
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Can be blank, but is the path to your backup
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// Role applied to load the data.
+	IngestionRole pulumi.StringInput `pulumi:"ingestionRole"`
+	// Source engine for the backup
+	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
+	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
 func (InstanceS3ImportArgs) ElementType() reflect.Type {
@@ -1990,22 +2070,29 @@ func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutputWithContext(ctx conte
 	}).(InstanceS3ImportPtrOutput)
 }
 
+// The bucket name where your backup is stored
 func (o InstanceS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Can be blank, but is the path to your backup
 func (o InstanceS3ImportOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Role applied to load the data.
 func (o InstanceS3ImportOutput) IngestionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
 }
 
+// Source engine for the backup
 func (o InstanceS3ImportOutput) SourceEngine() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
 }
 
+// Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -2034,6 +2121,7 @@ func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
 	}).(InstanceS3ImportOutput)
 }
 
+// The bucket name where your backup is stored
 func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2043,6 +2131,7 @@ func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Can be blank, but is the path to your backup
 func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2052,6 +2141,7 @@ func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Role applied to load the data.
 func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2061,6 +2151,7 @@ func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Source engine for the backup
 func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2070,12 +2161,171 @@ func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.SourceEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// IntegrationTimeoutsInput is an input type that accepts IntegrationTimeoutsArgs and IntegrationTimeoutsOutput values.
+// You can construct a concrete instance of `IntegrationTimeoutsInput` via:
+//
+//	IntegrationTimeoutsArgs{...}
+type IntegrationTimeoutsInput interface {
+	pulumi.Input
+
+	ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput
+	ToIntegrationTimeoutsOutputWithContext(context.Context) IntegrationTimeoutsOutput
+}
+
+type IntegrationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (IntegrationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTimeouts)(nil)).Elem()
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput {
+	return i.ToIntegrationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsOutputWithContext(ctx context.Context) IntegrationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsOutput)
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return i.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationTimeoutsArgs) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsOutput).ToIntegrationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IntegrationTimeoutsPtrInput is an input type that accepts IntegrationTimeoutsArgs, IntegrationTimeoutsPtr and IntegrationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IntegrationTimeoutsPtrInput` via:
+//
+//	        IntegrationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput
+	ToIntegrationTimeoutsPtrOutputWithContext(context.Context) IntegrationTimeoutsPtrOutput
+}
+
+type integrationTimeoutsPtrType IntegrationTimeoutsArgs
+
+func IntegrationTimeoutsPtr(v *IntegrationTimeoutsArgs) IntegrationTimeoutsPtrInput {
+	return (*integrationTimeoutsPtrType)(v)
+}
+
+func (*integrationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTimeouts)(nil)).Elem()
+}
+
+func (i *integrationTimeoutsPtrType) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return i.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationTimeoutsPtrType) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTimeoutsPtrOutput)
+}
+
+type IntegrationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTimeouts)(nil)).Elem()
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsOutput() IntegrationTimeoutsOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsOutputWithContext(ctx context.Context) IntegrationTimeoutsOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return o.ToIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationTimeoutsOutput) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTimeouts) *IntegrationTimeouts {
+		return &v
+	}).(IntegrationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IntegrationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IntegrationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationTimeouts)(nil)).Elem()
+}
+
+func (o IntegrationTimeoutsPtrOutput) ToIntegrationTimeoutsPtrOutput() IntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsPtrOutput) ToIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) IntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o IntegrationTimeoutsPtrOutput) Elem() IntegrationTimeoutsOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) IntegrationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationTimeouts
+		return ret
+	}).(IntegrationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IntegrationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IntegrationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3611,6 +3861,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportPtrInput)(nil)).Elem(), InstanceS3ImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTimeoutsPtrInput)(nil)).Elem(), IntegrationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionInput)(nil)).Elem(), OptionGroupOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionArrayInput)(nil)).Elem(), OptionGroupOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionOptionSettingInput)(nil)).Elem(), OptionGroupOptionOptionSettingArgs{})
@@ -3661,6 +3913,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportOutput{})
 	pulumi.RegisterOutputType(InstanceS3ImportPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTimeoutsOutput{})
+	pulumi.RegisterOutputType(IntegrationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionOptionSettingOutput{})

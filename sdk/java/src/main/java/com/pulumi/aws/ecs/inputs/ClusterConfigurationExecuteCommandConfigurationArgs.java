@@ -17,14 +17,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
     public static final ClusterConfigurationExecuteCommandConfigurationArgs Empty = new ClusterConfigurationExecuteCommandConfigurationArgs();
 
     /**
-     * The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+     * @return AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -32,14 +32,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
     }
 
     /**
-     * The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+     * Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+     * @return Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
      * 
      */
     public Optional<Output<ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs>> logConfiguration() {
@@ -47,14 +47,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
     }
 
     /**
-     * The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+     * Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
      * 
      */
     @Import(name="logging")
     private @Nullable Output<String> logging;
 
     /**
-     * @return The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+     * @return Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
      * 
      */
     public Optional<Output<String>> logging() {
@@ -88,7 +88,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param kmsKeyId The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * @param kmsKeyId AWS Key Management Service key ID to encrypt the data between the local client and the container.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param logConfiguration The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+         * @param logConfiguration Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param logConfiguration The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+         * @param logConfiguration Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param logging The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+         * @param logging Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationArgs extends c
         }
 
         /**
-         * @param logging The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+         * @param logging Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
          * 
          * @return builder
          * 

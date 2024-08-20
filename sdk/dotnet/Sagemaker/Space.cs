@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> HomeEfsFileSystemUid { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of ownership settings. See Ownership Settings below.
+        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
         [Output("ownershipSettings")]
         public Output<Outputs.SpaceOwnershipSettings?> OwnershipSettings { get; private set; } = null!;
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> SpaceName { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of space settings. See Space Settings below.
+        /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
         [Output("spaceSettings")]
         public Output<Outputs.SpaceSpaceSettings?> SpaceSettings { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
         [Output("spaceSharingSettings")]
         public Output<Outputs.SpaceSpaceSharingSettings?> SpaceSharingSettings { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// A collection of ownership settings. See Ownership Settings below.
+        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsArgs>? OwnershipSettings { get; set; }
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> SpaceName { get; set; } = null!;
 
         /// <summary>
-        /// A collection of space settings. See Space Settings below.
+        /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsArgs>? SpaceSettings { get; set; }
 
         /// <summary>
-        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsArgs>? SpaceSharingSettings { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? HomeEfsFileSystemUid { get; set; }
 
         /// <summary>
-        /// A collection of ownership settings. See Ownership Settings below.
+        /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
         [Input("ownershipSettings")]
         public Input<Inputs.SpaceOwnershipSettingsGetArgs>? OwnershipSettings { get; set; }
@@ -249,13 +249,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? SpaceName { get; set; }
 
         /// <summary>
-        /// A collection of space settings. See Space Settings below.
+        /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
         [Input("spaceSettings")]
         public Input<Inputs.SpaceSpaceSettingsGetArgs>? SpaceSettings { get; set; }
 
         /// <summary>
-        /// A collection of space sharing settings. See Space Sharing Settings below.
+        /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
         [Input("spaceSharingSettings")]
         public Input<Inputs.SpaceSpaceSharingSettingsGetArgs>? SpaceSharingSettings { get; set; }

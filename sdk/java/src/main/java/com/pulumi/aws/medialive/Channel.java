@@ -371,7 +371,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Channel(String name) {
+    public Channel(java.lang.String name) {
         this(name, ChannelArgs.Empty);
     }
     /**
@@ -379,7 +379,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Channel(String name, ChannelArgs args) {
+    public Channel(java.lang.String name, ChannelArgs args) {
         this(name, args, null);
     }
     /**
@@ -388,15 +388,22 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Channel(String name, ChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/channel:Channel", name, args == null ? ChannelArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Channel(java.lang.String name, ChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/channel:Channel", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Channel(String name, Output<String> id, @Nullable ChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:medialive/channel:Channel", name, state, makeResourceOptions(options, id));
+    private Channel(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:medialive/channel:Channel", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ChannelArgs makeArgs(ChannelArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -412,7 +419,7 @@ public class Channel extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Channel get(String name, Output<String> id, @Nullable ChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Channel get(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Channel(name, id, state, options);
     }
 }

@@ -10,7 +10,6 @@ export const Runtime = {
     Java17: "java17",
     Java21: "java21",
     Java8AL2: "java8.al2",
-    NodeJS16dX: "nodejs16.x",
     NodeJS18dX: "nodejs18.x",
     NodeJS20dX: "nodejs20.x",
     CustomAL2: "provided.al2",
@@ -53,6 +52,10 @@ export const Runtime = {
      * @deprecated This runtime is now deprecated
      */
     NodeJS14dX: "nodejs14.x",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
+    NodeJS16dX: "nodejs16.x",
     /**
      * @deprecated This runtime is now deprecated
      */

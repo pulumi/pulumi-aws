@@ -332,13 +332,13 @@ class Connector(pulumi.CustomResource):
             access_role=test["arn"],
             as2_config={
                 "compression": "DISABLED",
-                "encryptionAlgorithm": "AWS128_CBC",
-                "messageSubject": "For Connector",
-                "localProfileId": local["profileId"],
-                "mdnResponse": "NONE",
-                "mdnSigningAlgorithm": "NONE",
-                "partnerProfileId": partner["profileId"],
-                "signingAlgorithm": "NONE",
+                "encryption_algorithm": "AWS128_CBC",
+                "message_subject": "For Connector",
+                "local_profile_id": local["profileId"],
+                "mdn_response": "NONE",
+                "mdn_signing_algorithm": "NONE",
+                "partner_profile_id": partner["profileId"],
+                "signing_algorithm": "NONE",
             },
             url="http://www.test.com")
         ```
@@ -352,8 +352,8 @@ class Connector(pulumi.CustomResource):
         example = aws.transfer.Connector("example",
             access_role=test["arn"],
             sftp_config={
-                "trustedHostKeys": ["ssh-rsa AAAAB3NYourKeysHere"],
-                "userSecretId": example_aws_secretsmanager_secret["id"],
+                "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
+                "user_secret_id": example_aws_secretsmanager_secret["id"],
             },
             url="sftp://test.com")
         ```
@@ -397,13 +397,13 @@ class Connector(pulumi.CustomResource):
             access_role=test["arn"],
             as2_config={
                 "compression": "DISABLED",
-                "encryptionAlgorithm": "AWS128_CBC",
-                "messageSubject": "For Connector",
-                "localProfileId": local["profileId"],
-                "mdnResponse": "NONE",
-                "mdnSigningAlgorithm": "NONE",
-                "partnerProfileId": partner["profileId"],
-                "signingAlgorithm": "NONE",
+                "encryption_algorithm": "AWS128_CBC",
+                "message_subject": "For Connector",
+                "local_profile_id": local["profileId"],
+                "mdn_response": "NONE",
+                "mdn_signing_algorithm": "NONE",
+                "partner_profile_id": partner["profileId"],
+                "signing_algorithm": "NONE",
             },
             url="http://www.test.com")
         ```
@@ -417,8 +417,8 @@ class Connector(pulumi.CustomResource):
         example = aws.transfer.Connector("example",
             access_role=test["arn"],
             sftp_config={
-                "trustedHostKeys": ["ssh-rsa AAAAB3NYourKeysHere"],
-                "userSecretId": example_aws_secretsmanager_secret["id"],
+                "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
+                "user_secret_id": example_aws_secretsmanager_secret["id"],
             },
             url="sftp://test.com")
         ```

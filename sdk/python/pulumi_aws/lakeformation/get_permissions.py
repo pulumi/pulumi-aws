@@ -204,7 +204,7 @@ def get_permissions(catalog_id: Optional[str] = None,
     test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
         database={
             "name": test_aws_glue_catalog_database["name"],
-            "catalogId": "110376042874",
+            "catalog_id": "110376042874",
         })
     ```
 
@@ -216,7 +216,7 @@ def get_permissions(catalog_id: Optional[str] = None,
 
     test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
         lf_tag_policy={
-            "resourceType": "DATABASE",
+            "resource_type": "DATABASE",
             "expressions": [
                 {
                     "key": "Team",
@@ -319,7 +319,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
         database={
             "name": test_aws_glue_catalog_database["name"],
-            "catalogId": "110376042874",
+            "catalog_id": "110376042874",
         })
     ```
 
@@ -331,7 +331,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
 
     test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
         lf_tag_policy={
-            "resourceType": "DATABASE",
+            "resource_type": "DATABASE",
             "expressions": [
                 {
                     "key": "Team",

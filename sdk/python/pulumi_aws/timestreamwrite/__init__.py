@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .database import *
+from .get_database import *
+from .get_table import *
 from .table import *
 from ._inputs import *
 from . import outputs

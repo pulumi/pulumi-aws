@@ -35,6 +35,16 @@ export type WorkspaceSamlConfiguration = import("./workspaceSamlConfiguration").
 export const WorkspaceSamlConfiguration: typeof import("./workspaceSamlConfiguration").WorkspaceSamlConfiguration = null as any;
 utilities.lazyLoad(exports, ["WorkspaceSamlConfiguration"], () => require("./workspaceSamlConfiguration"));
 
+export { WorkspaceServiceAccountArgs, WorkspaceServiceAccountState } from "./workspaceServiceAccount";
+export type WorkspaceServiceAccount = import("./workspaceServiceAccount").WorkspaceServiceAccount;
+export const WorkspaceServiceAccount: typeof import("./workspaceServiceAccount").WorkspaceServiceAccount = null as any;
+utilities.lazyLoad(exports, ["WorkspaceServiceAccount"], () => require("./workspaceServiceAccount"));
+
+export { WorkspaceServiceAccountTokenArgs, WorkspaceServiceAccountTokenState } from "./workspaceServiceAccountToken";
+export type WorkspaceServiceAccountToken = import("./workspaceServiceAccountToken").WorkspaceServiceAccountToken;
+export const WorkspaceServiceAccountToken: typeof import("./workspaceServiceAccountToken").WorkspaceServiceAccountToken = null as any;
+utilities.lazyLoad(exports, ["WorkspaceServiceAccountToken"], () => require("./workspaceServiceAccountToken"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -50,6 +60,10 @@ const _module = {
                 return new WorkspaceApiKey(name, <any>undefined, { urn })
             case "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration":
                 return new WorkspaceSamlConfiguration(name, <any>undefined, { urn })
+            case "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount":
+                return new WorkspaceServiceAccount(name, <any>undefined, { urn })
+            case "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken":
+                return new WorkspaceServiceAccountToken(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -60,3 +74,5 @@ pulumi.runtime.registerResourceModule("aws", "grafana/roleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "grafana/workspace", _module)
 pulumi.runtime.registerResourceModule("aws", "grafana/workspaceApiKey", _module)
 pulumi.runtime.registerResourceModule("aws", "grafana/workspaceSamlConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "grafana/workspaceServiceAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "grafana/workspaceServiceAccountToken", _module)

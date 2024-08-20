@@ -101,7 +101,7 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnapshotCreateVolumePermission(String name) {
+    public SnapshotCreateVolumePermission(java.lang.String name) {
         this(name, SnapshotCreateVolumePermissionArgs.Empty);
     }
     /**
@@ -109,7 +109,7 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnapshotCreateVolumePermission(String name, SnapshotCreateVolumePermissionArgs args) {
+    public SnapshotCreateVolumePermission(java.lang.String name, SnapshotCreateVolumePermissionArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,15 +118,22 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnapshotCreateVolumePermission(String name, SnapshotCreateVolumePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, args == null ? SnapshotCreateVolumePermissionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SnapshotCreateVolumePermission(java.lang.String name, SnapshotCreateVolumePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnapshotCreateVolumePermission(String name, Output<String> id, @Nullable SnapshotCreateVolumePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, state, makeResourceOptions(options, id));
+    private SnapshotCreateVolumePermission(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCreateVolumePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SnapshotCreateVolumePermissionArgs makeArgs(SnapshotCreateVolumePermissionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotCreateVolumePermissionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -142,7 +149,7 @@ public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnapshotCreateVolumePermission get(String name, Output<String> id, @Nullable SnapshotCreateVolumePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnapshotCreateVolumePermission get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCreateVolumePermissionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnapshotCreateVolumePermission(name, id, state, options);
     }
 }

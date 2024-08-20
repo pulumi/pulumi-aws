@@ -73,7 +73,7 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     import pulumi_aws as aws
 
     current = aws.iam.get_account_alias()
-    pulumi.export("accountId", current.account_alias)
+    pulumi.export("accountAlias", current.account_alias)
     ```
     """
     __args__ = dict()
@@ -98,7 +98,7 @@ def get_account_alias_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     import pulumi_aws as aws
 
     current = aws.iam.get_account_alias()
-    pulumi.export("accountId", current.account_alias)
+    pulumi.export("accountAlias", current.account_alias)
     ```
     """
     ...

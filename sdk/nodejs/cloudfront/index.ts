@@ -55,6 +55,11 @@ export const getLogDeliveryCanonicalUserId: typeof import("./getLogDeliveryCanon
 export const getLogDeliveryCanonicalUserIdOutput: typeof import("./getLogDeliveryCanonicalUserId").getLogDeliveryCanonicalUserIdOutput = null as any;
 utilities.lazyLoad(exports, ["getLogDeliveryCanonicalUserId","getLogDeliveryCanonicalUserIdOutput"], () => require("./getLogDeliveryCanonicalUserId"));
 
+export { GetOriginAccessControlArgs, GetOriginAccessControlResult, GetOriginAccessControlOutputArgs } from "./getOriginAccessControl";
+export const getOriginAccessControl: typeof import("./getOriginAccessControl").getOriginAccessControl = null as any;
+export const getOriginAccessControlOutput: typeof import("./getOriginAccessControl").getOriginAccessControlOutput = null as any;
+utilities.lazyLoad(exports, ["getOriginAccessControl","getOriginAccessControlOutput"], () => require("./getOriginAccessControl"));
+
 export { GetOriginAccessIdentitiesArgs, GetOriginAccessIdentitiesResult, GetOriginAccessIdentitiesOutputArgs } from "./getOriginAccessIdentities";
 export const getOriginAccessIdentities: typeof import("./getOriginAccessIdentities").getOriginAccessIdentities = null as any;
 export const getOriginAccessIdentitiesOutput: typeof import("./getOriginAccessIdentities").getOriginAccessIdentitiesOutput = null as any;

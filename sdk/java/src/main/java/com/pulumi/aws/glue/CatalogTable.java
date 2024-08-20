@@ -384,7 +384,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CatalogTable(String name) {
+    public CatalogTable(java.lang.String name) {
         this(name, CatalogTableArgs.Empty);
     }
     /**
@@ -392,7 +392,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CatalogTable(String name, CatalogTableArgs args) {
+    public CatalogTable(java.lang.String name, CatalogTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -401,15 +401,22 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CatalogTable(String name, CatalogTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/catalogTable:CatalogTable", name, args == null ? CatalogTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CatalogTable(java.lang.String name, CatalogTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/catalogTable:CatalogTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CatalogTable(String name, Output<String> id, @Nullable CatalogTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/catalogTable:CatalogTable", name, state, makeResourceOptions(options, id));
+    private CatalogTable(java.lang.String name, Output<java.lang.String> id, @Nullable CatalogTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/catalogTable:CatalogTable", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CatalogTableArgs makeArgs(CatalogTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CatalogTableArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -425,7 +432,7 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CatalogTable get(String name, Output<String> id, @Nullable CatalogTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CatalogTable get(java.lang.String name, Output<java.lang.String> id, @Nullable CatalogTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CatalogTable(name, id, state, options);
     }
 }

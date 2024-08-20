@@ -1624,14 +1624,45 @@ class DefaultNetworkAclEgressArgs:
 if not MYPY:
     class DefaultNetworkAclIngressArgsDict(TypedDict):
         action: pulumi.Input[str]
+        """
+        The action to take.
+        """
         from_port: pulumi.Input[int]
+        """
+        The from port to match.
+        """
         protocol: pulumi.Input[str]
+        """
+        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+        """
         rule_no: pulumi.Input[int]
+        """
+        The rule number. Used for ordering.
+        """
         to_port: pulumi.Input[int]
+        """
+        The to port to match.
+
+        The following arguments are optional:
+        """
         cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block to match. This must be a valid network mask.
+        """
         icmp_code: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type code to be used. Default 0.
+        """
         icmp_type: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type to be used. Default 0.
+        """
         ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+        """
 elif False:
     DefaultNetworkAclIngressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1647,6 +1678,21 @@ class DefaultNetworkAclIngressArgs:
                  icmp_code: Optional[pulumi.Input[int]] = None,
                  icmp_type: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action to take.
+        :param pulumi.Input[int] from_port: The from port to match.
+        :param pulumi.Input[str] protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+        :param pulumi.Input[int] rule_no: The rule number. Used for ordering.
+        :param pulumi.Input[int] to_port: The to port to match.
+               
+               The following arguments are optional:
+        :param pulumi.Input[str] cidr_block: The CIDR block to match. This must be a valid network mask.
+        :param pulumi.Input[int] icmp_code: The ICMP type code to be used. Default 0.
+        :param pulumi.Input[int] icmp_type: The ICMP type to be used. Default 0.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
+               
+               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -1664,6 +1710,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The action to take.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -1673,6 +1722,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
+        """
+        The from port to match.
+        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -1682,6 +1734,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
+        """
+        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -1691,6 +1746,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="ruleNo")
     def rule_no(self) -> pulumi.Input[int]:
+        """
+        The rule number. Used for ordering.
+        """
         return pulumi.get(self, "rule_no")
 
     @rule_no.setter
@@ -1700,6 +1758,11 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
+        """
+        The to port to match.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -1709,6 +1772,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CIDR block to match. This must be a valid network mask.
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -1718,6 +1784,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ICMP type code to be used. Default 0.
+        """
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
@@ -1727,6 +1796,9 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ICMP type to be used. Default 0.
+        """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
@@ -1736,6 +1808,11 @@ class DefaultNetworkAclIngressArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -2199,17 +2276,41 @@ class DefaultSecurityGroupEgressArgs:
 if not MYPY:
     class DefaultSecurityGroupIngressArgsDict(TypedDict):
         from_port: pulumi.Input[int]
+        """
+        Start port (or ICMP type number if protocol is `icmp`)
+        """
         protocol: pulumi.Input[str]
+        """
+        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
         to_port: pulumi.Input[int]
+        """
+        End range port (or ICMP code if protocol is `icmp`).
+        """
         cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CIDR blocks.
+        """
         description: NotRequired[pulumi.Input[str]]
         """
         Description of the security group.
         """
         ipv6_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPv6 CIDR blocks.
+        """
         prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of prefix list IDs (for allowing access to VPC endpoints)
+        """
         security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        """
         self: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the security group itself will be added as a source to this egress rule.
+        """
 elif False:
     DefaultSecurityGroupIngressArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2226,7 +2327,15 @@ class DefaultSecurityGroupIngressArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[int] from_port: Start port (or ICMP type number if protocol is `icmp`)
+        :param pulumi.Input[str] protocol: Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        :param pulumi.Input[int] to_port: End range port (or ICMP code if protocol is `icmp`).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks.
         :param pulumi.Input[str] description: Description of the security group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_list_ids: List of prefix list IDs (for allowing access to VPC endpoints)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        :param pulumi.Input[bool] self: Whether the security group itself will be added as a source to this egress rule.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -2247,6 +2356,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
+        """
+        Start port (or ICMP type number if protocol is `icmp`)
+        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -2256,6 +2368,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -2265,6 +2380,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
+        """
+        End range port (or ICMP code if protocol is `icmp`).
+        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -2274,6 +2392,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of CIDR blocks.
+        """
         return pulumi.get(self, "cidr_blocks")
 
     @cidr_blocks.setter
@@ -2295,6 +2416,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IPv6 CIDR blocks.
+        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @ipv6_cidr_blocks.setter
@@ -2304,6 +2428,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="prefixListIds")
     def prefix_list_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of prefix list IDs (for allowing access to VPC endpoints)
+        """
         return pulumi.get(self, "prefix_list_ids")
 
     @prefix_list_ids.setter
@@ -2313,6 +2440,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -2322,6 +2452,9 @@ class DefaultSecurityGroupIngressArgs:
     @property
     @pulumi.getter
     def self(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the security group itself will be added as a source to this egress rule.
+        """
         return pulumi.get(self, "self")
 
     @self.setter
@@ -4868,7 +5001,7 @@ if not MYPY:
     class InstanceInstanceMarketOptionsArgsDict(TypedDict):
         market_type: NotRequired[pulumi.Input[str]]
         """
-        Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         """
         spot_options: NotRequired[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgsDict']]
         """
@@ -4883,7 +5016,7 @@ class InstanceInstanceMarketOptionsArgs:
                  market_type: Optional[pulumi.Input[str]] = None,
                  spot_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']] = None):
         """
-        :param pulumi.Input[str] market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        :param pulumi.Input[str] market_type: Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
@@ -4895,7 +5028,7 @@ class InstanceInstanceMarketOptionsArgs:
     @pulumi.getter(name="marketType")
     def market_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
         """
         return pulumi.get(self, "market_type")
 
@@ -8231,6 +8364,7 @@ if not MYPY:
         """
         The ID of the network interface to attach.
         """
+        primary_ipv6: NotRequired[pulumi.Input[str]]
         private_ip_address: NotRequired[pulumi.Input[str]]
         """
         The primary private IPv4 address.
@@ -8265,6 +8399,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
+                 primary_ipv6: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -8324,6 +8459,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if primary_ipv6 is not None:
+            pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if security_groups is not None:
@@ -8525,6 +8662,15 @@ class LaunchTemplateNetworkInterfaceArgs:
     @network_interface_id.setter
     def network_interface_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_ipv6")
+
+    @primary_ipv6.setter
+    def primary_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_ipv6", value)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -15399,6 +15545,9 @@ class NetworkInterfaceAttachmentArgs:
 if not MYPY:
     class PeeringConnectionOptionsAccepterArgsDict(TypedDict):
         allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
 elif False:
     PeeringConnectionOptionsAccepterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -15406,12 +15555,18 @@ elif False:
 class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -15422,6 +15577,9 @@ class PeeringConnectionOptionsAccepterArgs:
 if not MYPY:
     class PeeringConnectionOptionsRequesterArgsDict(TypedDict):
         allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
 elif False:
     PeeringConnectionOptionsRequesterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -15429,12 +15587,18 @@ elif False:
 class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -16132,8 +16296,14 @@ if not MYPY:
     class SpotFleetRequestLaunchSpecificationArgsDict(TypedDict):
         ami: pulumi.Input[str]
         instance_type: pulumi.Input[str]
+        """
+        The type of instance to request.
+        """
         associate_public_ip_address: NotRequired[pulumi.Input[bool]]
         availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The availability zone in which to place the request.
+        """
         ebs_block_devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict']]]]
         ebs_optimized: NotRequired[pulumi.Input[bool]]
         ephemeral_block_devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict']]]]
@@ -16149,6 +16319,9 @@ if not MYPY:
         The maximum bid price per unit hour.
         """
         subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The subnet in which to launch the requested instance.
+        """
         tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -16156,6 +16329,9 @@ if not MYPY:
         user_data: NotRequired[pulumi.Input[str]]
         vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         weighted_capacity: NotRequired[pulumi.Input[str]]
+        """
+        The capacity added to the fleet by a fulfilled request.
+        """
 elif False:
     SpotFleetRequestLaunchSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -16183,8 +16359,12 @@ class SpotFleetRequestLaunchSpecificationArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] instance_type: The type of instance to request.
+        :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
+        :param pulumi.Input[str] subnet_id: The subnet in which to launch the requested instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] weighted_capacity: The capacity added to the fleet by a fulfilled request.
         """
         pulumi.set(__self__, "ami", ami)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -16237,6 +16417,9 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
+        """
+        The type of instance to request.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -16255,6 +16438,9 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability zone in which to place the request.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -16366,6 +16552,9 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet in which to launch the requested instance.
+        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -16405,6 +16594,9 @@ class SpotFleetRequestLaunchSpecificationArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The capacity added to the fleet by a fulfilled request.
+        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -19804,6 +19996,10 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
 if not MYPY:
     class VpcPeeringConnectionAccepterArgsDict(TypedDict):
         allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Allow a local VPC to resolve public DNS hostnames to
+        private IP addresses when queried from instances in the peer VPC.
+        """
 elif False:
     VpcPeeringConnectionAccepterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19811,12 +20007,20 @@ elif False:
 class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
+               private IP addresses when queried from instances in the peer VPC.
+        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow a local VPC to resolve public DNS hostnames to
+        private IP addresses when queried from instances in the peer VPC.
+        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter
@@ -19897,6 +20101,10 @@ class VpcPeeringConnectionAccepterRequesterArgs:
 if not MYPY:
     class VpcPeeringConnectionRequesterArgsDict(TypedDict):
         allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Allow a local VPC to resolve public DNS hostnames to
+        private IP addresses when queried from instances in the peer VPC.
+        """
 elif False:
     VpcPeeringConnectionRequesterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19904,12 +20112,20 @@ elif False:
 class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
+               private IP addresses when queried from instances in the peer VPC.
+        """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow a local VPC to resolve public DNS hostnames to
+        private IP addresses when queried from instances in the peer VPC.
+        """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
     @allow_remote_vpc_dns_resolution.setter

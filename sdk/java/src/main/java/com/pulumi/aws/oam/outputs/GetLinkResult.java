@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.oam.outputs;
 
+import com.pulumi.aws.oam.outputs.GetLinkLinkConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -32,6 +33,11 @@ public final class GetLinkResult {
      * 
      */
     private String labelTemplate;
+    /**
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    private List<GetLinkLinkConfiguration> linkConfigurations;
     /**
      * @return ID string that AWS generated as part of the link ARN.
      * 
@@ -80,6 +86,13 @@ public final class GetLinkResult {
         return this.labelTemplate;
     }
     /**
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    public List<GetLinkLinkConfiguration> linkConfigurations() {
+        return this.linkConfigurations;
+    }
+    /**
      * @return ID string that AWS generated as part of the link ARN.
      * 
      */
@@ -120,6 +133,7 @@ public final class GetLinkResult {
         private String id;
         private String label;
         private String labelTemplate;
+        private List<GetLinkLinkConfiguration> linkConfigurations;
         private String linkId;
         private String linkIdentifier;
         private List<String> resourceTypes;
@@ -132,6 +146,7 @@ public final class GetLinkResult {
     	      this.id = defaults.id;
     	      this.label = defaults.label;
     	      this.labelTemplate = defaults.labelTemplate;
+    	      this.linkConfigurations = defaults.linkConfigurations;
     	      this.linkId = defaults.linkId;
     	      this.linkIdentifier = defaults.linkIdentifier;
     	      this.resourceTypes = defaults.resourceTypes;
@@ -170,6 +185,17 @@ public final class GetLinkResult {
             }
             this.labelTemplate = labelTemplate;
             return this;
+        }
+        @CustomType.Setter
+        public Builder linkConfigurations(List<GetLinkLinkConfiguration> linkConfigurations) {
+            if (linkConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetLinkResult", "linkConfigurations");
+            }
+            this.linkConfigurations = linkConfigurations;
+            return this;
+        }
+        public Builder linkConfigurations(GetLinkLinkConfiguration... linkConfigurations) {
+            return linkConfigurations(List.of(linkConfigurations));
         }
         @CustomType.Setter
         public Builder linkId(String linkId) {
@@ -220,6 +246,7 @@ public final class GetLinkResult {
             _resultValue.id = id;
             _resultValue.label = label;
             _resultValue.labelTemplate = labelTemplate;
+            _resultValue.linkConfigurations = linkConfigurations;
             _resultValue.linkId = linkId;
             _resultValue.linkIdentifier = linkIdentifier;
             _resultValue.resourceTypes = resourceTypes;

@@ -240,6 +240,10 @@ export class Cluster extends pulumi.CustomResource {
      * ARN of the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
@@ -305,6 +309,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     public readonly version!: pulumi.Output<string>;
@@ -330,6 +338,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootstrapSelfManagedAddons"] = state ? state.bootstrapSelfManagedAddons : undefined;
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
@@ -347,6 +356,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
@@ -358,6 +368,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcConfig'");
             }
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
+            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
@@ -366,6 +377,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -396,6 +408,10 @@ export interface ClusterState {
      * ARN of the cluster.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
@@ -461,6 +477,10 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
     version?: pulumi.Input<string>;
@@ -480,6 +500,10 @@ export interface ClusterArgs {
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -509,6 +533,10 @@ export interface ClusterArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+     */
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicy>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */

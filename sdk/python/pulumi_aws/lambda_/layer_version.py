@@ -44,6 +44,7 @@ class LayerVersionArgs:
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
         pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
@@ -192,6 +193,9 @@ class LayerVersionArgs:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -241,6 +245,7 @@ class _LayerVersionState:
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -480,6 +485,9 @@ class _LayerVersionState:
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @source_code_hash.setter
@@ -580,6 +588,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         """
         ...
     @overload
@@ -735,6 +744,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -896,6 +906,9 @@ class LayerVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[str]:
+        """
+        Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        """
         return pulumi.get(self, "source_code_hash")
 
     @property

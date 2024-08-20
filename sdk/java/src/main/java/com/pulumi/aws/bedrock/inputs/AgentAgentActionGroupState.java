@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
+import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -19,14 +20,18 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     public static final AgentAgentActionGroupState Empty = new AgentAgentActionGroupState();
 
     /**
-     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="actionGroupExecutor")
     private @Nullable Output<AgentAgentActionGroupActionGroupExecutorArgs> actionGroupExecutor;
 
     /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<AgentAgentActionGroupActionGroupExecutorArgs>> actionGroupExecutor() {
@@ -109,18 +114,14 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-     * 
-     * The following arguments are optional:
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
     @Import(name="apiSchema")
     private @Nullable Output<AgentAgentActionGroupApiSchemaArgs> apiSchema;
 
     /**
-     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-     * 
-     * The following arguments are optional:
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
     public Optional<Output<AgentAgentActionGroupApiSchemaArgs>> apiSchema() {
@@ -140,6 +141,25 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Describes the function schema for the action group.
+     * Each function represents an action in an action group.
+     * See `function_schema` Block for details.
+     * 
+     */
+    @Import(name="functionSchema")
+    private @Nullable Output<AgentAgentActionGroupFunctionSchemaArgs> functionSchema;
+
+    /**
+     * @return Describes the function schema for the action group.
+     * Each function represents an action in an action group.
+     * See `function_schema` Block for details.
+     * 
+     */
+    public Optional<Output<AgentAgentActionGroupFunctionSchemaArgs>> functionSchema() {
+        return Optional.ofNullable(this.functionSchema);
     }
 
     /**
@@ -183,6 +203,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         this.agentVersion = $.agentVersion;
         this.apiSchema = $.apiSchema;
         this.description = $.description;
+        this.functionSchema = $.functionSchema;
         this.parentActionGroupSignature = $.parentActionGroupSignature;
         this.skipResourceInUseCheck = $.skipResourceInUseCheck;
     }
@@ -206,7 +227,9 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -217,7 +240,9 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+         * @param actionGroupExecutor ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -332,9 +357,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-         * 
-         * The following arguments are optional:
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
          * 
          * @return builder
          * 
@@ -345,9 +368,7 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-         * 
-         * The following arguments are optional:
+         * @param apiSchema Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
          * 
          * @return builder
          * 
@@ -375,6 +396,31 @@ public final class AgentAgentActionGroupState extends com.pulumi.resources.Resou
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param functionSchema Describes the function schema for the action group.
+         * Each function represents an action in an action group.
+         * See `function_schema` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionSchema(@Nullable Output<AgentAgentActionGroupFunctionSchemaArgs> functionSchema) {
+            $.functionSchema = functionSchema;
+            return this;
+        }
+
+        /**
+         * @param functionSchema Describes the function schema for the action group.
+         * Each function represents an action in an action group.
+         * See `function_schema` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder functionSchema(AgentAgentActionGroupFunctionSchemaArgs functionSchema) {
+            return functionSchema(Output.of(functionSchema));
         }
 
         /**

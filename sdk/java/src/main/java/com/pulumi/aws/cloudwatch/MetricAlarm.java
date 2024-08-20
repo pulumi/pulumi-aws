@@ -679,7 +679,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MetricAlarm(String name) {
+    public MetricAlarm(java.lang.String name) {
         this(name, MetricAlarmArgs.Empty);
     }
     /**
@@ -687,7 +687,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MetricAlarm(String name, MetricAlarmArgs args) {
+    public MetricAlarm(java.lang.String name, MetricAlarmArgs args) {
         this(name, args, null);
     }
     /**
@@ -696,15 +696,22 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MetricAlarm(String name, MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/metricAlarm:MetricAlarm", name, args == null ? MetricAlarmArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MetricAlarm(java.lang.String name, MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/metricAlarm:MetricAlarm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MetricAlarm(String name, Output<String> id, @Nullable MetricAlarmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudwatch/metricAlarm:MetricAlarm", name, state, makeResourceOptions(options, id));
+    private MetricAlarm(java.lang.String name, Output<java.lang.String> id, @Nullable MetricAlarmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudwatch/metricAlarm:MetricAlarm", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MetricAlarmArgs makeArgs(MetricAlarmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetricAlarmArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -720,7 +727,7 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MetricAlarm get(String name, Output<String> id, @Nullable MetricAlarmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MetricAlarm get(java.lang.String name, Output<java.lang.String> id, @Nullable MetricAlarmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MetricAlarm(name, id, state, options);
     }
 }

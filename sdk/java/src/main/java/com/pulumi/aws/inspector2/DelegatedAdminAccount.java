@@ -101,7 +101,7 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DelegatedAdminAccount(String name) {
+    public DelegatedAdminAccount(java.lang.String name) {
         this(name, DelegatedAdminAccountArgs.Empty);
     }
     /**
@@ -109,7 +109,7 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DelegatedAdminAccount(String name, DelegatedAdminAccountArgs args) {
+    public DelegatedAdminAccount(java.lang.String name, DelegatedAdminAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,15 +118,22 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DelegatedAdminAccount(String name, DelegatedAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, args == null ? DelegatedAdminAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DelegatedAdminAccount(java.lang.String name, DelegatedAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DelegatedAdminAccount(String name, Output<String> id, @Nullable DelegatedAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, state, makeResourceOptions(options, id));
+    private DelegatedAdminAccount(java.lang.String name, Output<java.lang.String> id, @Nullable DelegatedAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DelegatedAdminAccountArgs makeArgs(DelegatedAdminAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DelegatedAdminAccountArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -142,7 +149,7 @@ public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DelegatedAdminAccount get(String name, Output<String> id, @Nullable DelegatedAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DelegatedAdminAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable DelegatedAdminAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DelegatedAdminAccount(name, id, state, options);
     }
 }

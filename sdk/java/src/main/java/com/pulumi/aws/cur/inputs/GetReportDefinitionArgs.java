@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +32,26 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
         return this.reportName;
     }
 
+    /**
+     * Map of key-value pairs assigned to the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Map of key-value pairs assigned to the resource.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetReportDefinitionArgs() {}
 
     private GetReportDefinitionArgs(GetReportDefinitionArgs $) {
         this.reportName = $.reportName;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class GetReportDefinitionArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder reportName(String reportName) {
             return reportName(Output.of(reportName));
+        }
+
+        /**
+         * @param tags Map of key-value pairs assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Map of key-value pairs assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GetReportDefinitionArgs build() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.oam;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.oam.LinkArgs;
 import com.pulumi.aws.oam.inputs.LinkState;
+import com.pulumi.aws.oam.outputs.LinkLinkConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -51,6 +52,94 @@ import javax.annotation.Nullable;
  *             .resourceTypes("AWS::CloudWatch::Metric")
  *             .sinkIdentifier(test.id())
  *             .tags(Map.of("Env", "prod"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Log Group Filtering
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.oam.Link;
+ * import com.pulumi.aws.oam.LinkArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationLogGroupConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Link("example", LinkArgs.builder()
+ *             .labelTemplate("$AccountName")
+ *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
+ *                 .logGroupConfiguration(LinkLinkConfigurationLogGroupConfigurationArgs.builder()
+ *                     .filter("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'")
+ *                     .build())
+ *                 .build())
+ *             .resourceTypes("AWS::Logs::LogGroup")
+ *             .sinkIdentifier(test.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Metric Filtering
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.oam.Link;
+ * import com.pulumi.aws.oam.LinkArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationMetricConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Link("example", LinkArgs.builder()
+ *             .labelTemplate("$AccountName")
+ *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
+ *                 .metricConfiguration(LinkLinkConfigurationMetricConfigurationArgs.builder()
+ *                     .filter("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')")
+ *                     .build())
+ *                 .build())
+ *             .resourceTypes("AWS::CloudWatch::Metric")
+ *             .sinkIdentifier(test.id())
  *             .build());
  * 
  *     }
@@ -111,6 +200,20 @@ public class Link extends com.pulumi.resources.CustomResource {
      */
     public Output<String> labelTemplate() {
         return this.labelTemplate;
+    }
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    @Export(name="linkConfiguration", refs={LinkLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ LinkLinkConfiguration> linkConfiguration;
+
+    /**
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    public Output<Optional<LinkLinkConfiguration>> linkConfiguration() {
+        return Codegen.optional(this.linkConfiguration);
     }
     /**
      * ID string that AWS generated as part of the link ARN.
@@ -203,7 +306,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Link(String name) {
+    public Link(java.lang.String name) {
         this(name, LinkArgs.Empty);
     }
     /**
@@ -211,7 +314,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Link(String name, LinkArgs args) {
+    public Link(java.lang.String name, LinkArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,15 +323,22 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Link(String name, LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:oam/link:Link", name, args == null ? LinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Link(java.lang.String name, LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:oam/link:Link", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Link(String name, Output<String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:oam/link:Link", name, state, makeResourceOptions(options, id));
+    private Link(java.lang.String name, Output<java.lang.String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:oam/link:Link", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkArgs makeArgs(LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +354,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Link get(String name, Output<String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Link get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Link(name, id, state, options);
     }
 }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeSecret
     {
+        /// <summary>
+        /// Whether the secret or the secret's keys must be defined.
+        /// </summary>
         public readonly bool? Optional;
+        /// <summary>
+        /// Name of the secret. The name must be allowed as a DNS subdomain name.
+        /// </summary>
         public readonly string SecretName;
 
         [OutputConstructor]

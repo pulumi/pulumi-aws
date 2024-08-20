@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ClusterServiceConnectDefaults
     {
         /// <summary>
-        /// The ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+        /// ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
         /// </summary>
         public readonly string Namespace;
 

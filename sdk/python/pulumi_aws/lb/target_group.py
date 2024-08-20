@@ -40,6 +40,7 @@ class TargetGroupArgs:
                  stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
+                 target_group_health: Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -67,6 +68,7 @@ class TargetGroupArgs:
         :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input['TargetGroupTargetGroupHealthArgs'] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
                See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -119,6 +121,8 @@ class TargetGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if target_failovers is not None:
             pulumi.set(__self__, "target_failovers", target_failovers)
+        if target_group_health is not None:
+            pulumi.set(__self__, "target_group_health", target_group_health)
         if target_health_states is not None:
             pulumi.set(__self__, "target_health_states", target_health_states)
         if target_type is not None:
@@ -358,6 +362,18 @@ class TargetGroupArgs:
         pulumi.set(self, "target_failovers", value)
 
     @property
+    @pulumi.getter(name="targetGroupHealth")
+    def target_group_health(self) -> Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]:
+        """
+        Target health requirements block. See target_group_health for more information.
+        """
+        return pulumi.get(self, "target_group_health")
+
+    @target_group_health.setter
+    def target_group_health(self, value: Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]):
+        pulumi.set(self, "target_group_health", value)
+
+    @property
     @pulumi.getter(name="targetHealthStates")
     def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
         """
@@ -430,6 +446,7 @@ class _TargetGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
+                 target_group_health: Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -461,6 +478,7 @@ class _TargetGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input['TargetGroupTargetGroupHealthArgs'] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
                See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -524,6 +542,8 @@ class _TargetGroupState:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_failovers is not None:
             pulumi.set(__self__, "target_failovers", target_failovers)
+        if target_group_health is not None:
+            pulumi.set(__self__, "target_group_health", target_group_health)
         if target_health_states is not None:
             pulumi.set(__self__, "target_health_states", target_health_states)
         if target_type is not None:
@@ -812,6 +832,18 @@ class _TargetGroupState:
         pulumi.set(self, "target_failovers", value)
 
     @property
+    @pulumi.getter(name="targetGroupHealth")
+    def target_group_health(self) -> Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]:
+        """
+        Target health requirements block. See target_group_health for more information.
+        """
+        return pulumi.get(self, "target_group_health")
+
+    @target_group_health.setter
+    def target_group_health(self, value: Optional[pulumi.Input['TargetGroupTargetGroupHealthArgs']]):
+        pulumi.set(self, "target_group_health", value)
+
+    @property
     @pulumi.getter(name="targetHealthStates")
     def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
         """
@@ -882,6 +914,7 @@ class TargetGroup(pulumi.CustomResource):
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
+                 target_group_health: Optional[pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -959,8 +992,31 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
+        ```
+
+        ### Target group with health requirements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        tcp_example = aws.lb.TargetGroup("tcp-example",
+            name="tf-example-lb-nlb-tg",
+            port=80,
+            protocol="TCP",
+            vpc_id=main["id"],
+            target_group_health={
+                "dns_failover": {
+                    "minimum_healthy_targets_count": "1",
+                    "minimum_healthy_targets_percentage": "off",
+                },
+                "unhealthy_state_routing": {
+                    "minimum_healthy_targets_count": 1,
+                    "minimum_healthy_targets_percentage": "off",
+                },
+            })
         ```
 
         ## Import
@@ -995,6 +1051,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
                See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -1088,8 +1145,31 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"],
             target_health_states=[{
-                "enableUnhealthyConnectionTermination": False,
+                "enable_unhealthy_connection_termination": False,
             }])
+        ```
+
+        ### Target group with health requirements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        tcp_example = aws.lb.TargetGroup("tcp-example",
+            name="tf-example-lb-nlb-tg",
+            port=80,
+            protocol="TCP",
+            vpc_id=main["id"],
+            target_group_health={
+                "dns_failover": {
+                    "minimum_healthy_targets_count": "1",
+                    "minimum_healthy_targets_percentage": "off",
+                },
+                "unhealthy_state_routing": {
+                    "minimum_healthy_targets_count": 1,
+                    "minimum_healthy_targets_percentage": "off",
+                },
+            })
         ```
 
         ## Import
@@ -1134,6 +1214,7 @@ class TargetGroup(pulumi.CustomResource):
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
+                 target_group_health: Optional[pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -1165,6 +1246,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["stickiness"] = stickiness
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_failovers"] = target_failovers
+            __props__.__dict__["target_group_health"] = target_group_health
             __props__.__dict__["target_health_states"] = target_health_states
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["vpc_id"] = vpc_id
@@ -1207,6 +1289,7 @@ class TargetGroup(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
+            target_group_health: Optional[pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']]] = None,
             target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
             target_type: Optional[pulumi.Input[str]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'TargetGroup':
@@ -1243,6 +1326,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Union['TargetGroupTargetGroupHealthArgs', 'TargetGroupTargetGroupHealthArgsDict']] target_group_health: Target health requirements block. See target_group_health for more information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
                See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values.
@@ -1284,6 +1368,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_failovers"] = target_failovers
+        __props__.__dict__["target_group_health"] = target_group_health
         __props__.__dict__["target_health_states"] = target_health_states
         __props__.__dict__["target_type"] = target_type
         __props__.__dict__["vpc_id"] = vpc_id
@@ -1476,6 +1561,14 @@ class TargetGroup(pulumi.CustomResource):
         Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         """
         return pulumi.get(self, "target_failovers")
+
+    @property
+    @pulumi.getter(name="targetGroupHealth")
+    def target_group_health(self) -> pulumi.Output['outputs.TargetGroupTargetGroupHealth']:
+        """
+        Target health requirements block. See target_group_health for more information.
+        """
+        return pulumi.get(self, "target_group_health")
 
     @property
     @pulumi.getter(name="targetHealthStates")

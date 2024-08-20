@@ -244,14 +244,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dbSubnetGroupName;
     }
     /**
-     * A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
     /**
-     * @return A value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+     * @return A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> deletionProtection() {
@@ -586,7 +586,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Cluster(String name) {
+    public Cluster(java.lang.String name) {
         this(name, ClusterArgs.Empty);
     }
     /**
@@ -594,7 +594,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Cluster(String name, @Nullable ClusterArgs args) {
+    public Cluster(java.lang.String name, @Nullable ClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -603,15 +603,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Cluster(String name, @Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Cluster(java.lang.String name, @Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:docdb/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:docdb/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    private Cluster(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:docdb/cluster:Cluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterArgs makeArgs(@Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -630,7 +637,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Cluster get(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Cluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Cluster(name, id, state, options);
     }
 }

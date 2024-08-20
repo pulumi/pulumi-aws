@@ -194,7 +194,7 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LicenseGrantAccepter(String name) {
+    public LicenseGrantAccepter(java.lang.String name) {
         this(name, LicenseGrantAccepterArgs.Empty);
     }
     /**
@@ -202,7 +202,7 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LicenseGrantAccepter(String name, LicenseGrantAccepterArgs args) {
+    public LicenseGrantAccepter(java.lang.String name, LicenseGrantAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -211,15 +211,22 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LicenseGrantAccepter(String name, LicenseGrantAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, args == null ? LicenseGrantAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LicenseGrantAccepter(java.lang.String name, LicenseGrantAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LicenseGrantAccepter(String name, Output<String> id, @Nullable LicenseGrantAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, state, makeResourceOptions(options, id));
+    private LicenseGrantAccepter(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseGrantAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LicenseGrantAccepterArgs makeArgs(LicenseGrantAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicenseGrantAccepterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -235,7 +242,7 @@ public class LicenseGrantAccepter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LicenseGrantAccepter get(String name, Output<String> id, @Nullable LicenseGrantAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LicenseGrantAccepter get(java.lang.String name, Output<java.lang.String> id, @Nullable LicenseGrantAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LicenseGrantAccepter(name, id, state, options);
     }
 }

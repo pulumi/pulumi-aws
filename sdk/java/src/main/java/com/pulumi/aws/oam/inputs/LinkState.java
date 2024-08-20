@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.oam.inputs;
 
+import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -60,6 +61,21 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> labelTemplate() {
         return Optional.ofNullable(this.labelTemplate);
+    }
+
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    @Import(name="linkConfiguration")
+    private @Nullable Output<LinkLinkConfigurationArgs> linkConfiguration;
+
+    /**
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    public Optional<Output<LinkLinkConfigurationArgs>> linkConfiguration() {
+        return Optional.ofNullable(this.linkConfiguration);
     }
 
     /**
@@ -166,6 +182,7 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.label = $.label;
         this.labelTemplate = $.labelTemplate;
+        this.linkConfiguration = $.linkConfiguration;
         this.linkId = $.linkId;
         this.resourceTypes = $.resourceTypes;
         this.sinkArn = $.sinkArn;
@@ -253,6 +270,27 @@ public final class LinkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder labelTemplate(String labelTemplate) {
             return labelTemplate(Output.of(labelTemplate));
+        }
+
+        /**
+         * @param linkConfiguration Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linkConfiguration(@Nullable Output<LinkLinkConfigurationArgs> linkConfiguration) {
+            $.linkConfiguration = linkConfiguration;
+            return this;
+        }
+
+        /**
+         * @param linkConfiguration Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder linkConfiguration(LinkLinkConfigurationArgs linkConfiguration) {
+            return linkConfiguration(Output.of(linkConfiguration));
         }
 
         /**

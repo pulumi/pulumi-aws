@@ -36,14 +36,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The execute command configuration for the cluster. Detailed below.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ClusterConfigurationArgs> configuration;
 
     /**
-     * @return The execute command configuration for the cluster. Detailed below.
+     * @return Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     public Optional<Output<ClusterConfigurationArgs>> configuration() {
@@ -53,6 +53,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -60,20 +62,22 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * Configures a default Service Connect namespace. Detailed below.
+     * Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
     @Import(name="serviceConnectDefaults")
     private @Nullable Output<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults;
 
     /**
-     * @return Configures a default Service Connect namespace. Detailed below.
+     * @return Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
     public Optional<Output<ClusterServiceConnectDefaultsArgs>> serviceConnectDefaults() {
@@ -81,14 +85,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
     @Import(name="settings")
     private @Nullable Output<List<ClusterSettingArgs>> settings;
 
     /**
-     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
     public Optional<Output<List<ClusterSettingArgs>>> settings() {
@@ -185,7 +189,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The execute command configuration for the cluster. Detailed below.
+         * @param configuration Execute command configuration for the cluster. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +200,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The execute command configuration for the cluster. Detailed below.
+         * @param configuration Execute command configuration for the cluster. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -207,6 +211,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -219,6 +225,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -227,7 +235,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
+         * @param serviceConnectDefaults Default Service Connect namespace. See `service_connect_defaults` Block for details.
          * 
          * @return builder
          * 
@@ -238,7 +246,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
+         * @param serviceConnectDefaults Default Service Connect namespace. See `service_connect_defaults` Block for details.
          * 
          * @return builder
          * 
@@ -248,7 +256,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
          * 
          * @return builder
          * 
@@ -259,7 +267,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
          * 
          * @return builder
          * 
@@ -269,7 +277,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
          * 
          * @return builder
          * 

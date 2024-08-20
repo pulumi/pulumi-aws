@@ -295,7 +295,7 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicationConfigurationTemplate(String name) {
+    public ReplicationConfigurationTemplate(java.lang.String name) {
         this(name, ReplicationConfigurationTemplateArgs.Empty);
     }
     /**
@@ -303,7 +303,7 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationConfigurationTemplate(String name, ReplicationConfigurationTemplateArgs args) {
+    public ReplicationConfigurationTemplate(java.lang.String name, ReplicationConfigurationTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -312,15 +312,22 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationConfigurationTemplate(String name, ReplicationConfigurationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, args == null ? ReplicationConfigurationTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicationConfigurationTemplate(java.lang.String name, ReplicationConfigurationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicationConfigurationTemplate(String name, Output<String> id, @Nullable ReplicationConfigurationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, state, makeResourceOptions(options, id));
+    private ReplicationConfigurationTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationConfigurationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicationConfigurationTemplateArgs makeArgs(ReplicationConfigurationTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationConfigurationTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -336,7 +343,7 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicationConfigurationTemplate get(String name, Output<String> id, @Nullable ReplicationConfigurationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicationConfigurationTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationConfigurationTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicationConfigurationTemplate(name, id, state, options);
     }
 }

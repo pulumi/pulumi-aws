@@ -22,6 +22,7 @@ __all__ = [
     'ClusterConfiguration',
     'ClusterConfigurationExecuteCommandConfiguration',
     'ClusterConfigurationExecuteCommandConfigurationLogConfiguration',
+    'ClusterConfigurationManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSetting',
     'ServiceAlarms',
@@ -305,6 +306,8 @@ class ClusterConfiguration(dict):
         suggest = None
         if key == "executeCommandConfiguration":
             suggest = "execute_command_configuration"
+        elif key == "managedStorageConfiguration":
+            suggest = "managed_storage_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -318,20 +321,32 @@ class ClusterConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 execute_command_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfiguration'] = None):
+                 execute_command_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfiguration'] = None,
+                 managed_storage_configuration: Optional['outputs.ClusterConfigurationManagedStorageConfiguration'] = None):
         """
-        :param 'ClusterConfigurationExecuteCommandConfigurationArgs' execute_command_configuration: The details of the execute command configuration. Detailed below.
+        :param 'ClusterConfigurationExecuteCommandConfigurationArgs' execute_command_configuration: Details of the execute command configuration. See `execute_command_configuration` Block for details.
+        :param 'ClusterConfigurationManagedStorageConfigurationArgs' managed_storage_configuration: Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+        if managed_storage_configuration is not None:
+            pulumi.set(__self__, "managed_storage_configuration", managed_storage_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
     def execute_command_configuration(self) -> Optional['outputs.ClusterConfigurationExecuteCommandConfiguration']:
         """
-        The details of the execute command configuration. Detailed below.
+        Details of the execute command configuration. See `execute_command_configuration` Block for details.
         """
         return pulumi.get(self, "execute_command_configuration")
+
+    @property
+    @pulumi.getter(name="managedStorageConfiguration")
+    def managed_storage_configuration(self) -> Optional['outputs.ClusterConfigurationManagedStorageConfiguration']:
+        """
+        Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+        """
+        return pulumi.get(self, "managed_storage_configuration")
 
 
 @pulumi.output_type
@@ -360,9 +375,9 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
                  log_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration'] = None,
                  logging: Optional[str] = None):
         """
-        :param str kms_key_id: The AWS Key Management Service key ID to encrypt the data between the local client and the container.
-        :param 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs' log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
-        :param str logging: The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+        :param str kms_key_id: AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        :param 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs' log_configuration: Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
+        :param str logging: Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -375,7 +390,7 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        AWS Key Management Service key ID to encrypt the data between the local client and the container.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -383,7 +398,7 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration']:
         """
-        The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -391,7 +406,7 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
     @pulumi.getter
     def logging(self) -> Optional[str]:
         """
-        The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+        Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
         """
         return pulumi.get(self, "logging")
 
@@ -430,11 +445,11 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
                  s3_bucket_name: Optional[str] = None,
                  s3_key_prefix: Optional[str] = None):
         """
-        :param bool cloud_watch_encryption_enabled: Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+        :param bool cloud_watch_encryption_enabled: Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
         :param str cloud_watch_log_group_name: The name of the CloudWatch log group to send logs to.
-        :param bool s3_bucket_encryption_enabled: Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
-        :param str s3_bucket_name: The name of the S3 bucket to send logs to.
-        :param str s3_key_prefix: An optional folder in the S3 bucket to place logs in.
+        :param bool s3_bucket_encryption_enabled: Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+        :param str s3_bucket_name: Name of the S3 bucket to send logs to.
+        :param str s3_key_prefix: Optional folder in the S3 bucket to place logs in.
         """
         if cloud_watch_encryption_enabled is not None:
             pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
@@ -451,7 +466,7 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
     @pulumi.getter(name="cloudWatchEncryptionEnabled")
     def cloud_watch_encryption_enabled(self) -> Optional[bool]:
         """
-        Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+        Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
         """
         return pulumi.get(self, "cloud_watch_encryption_enabled")
 
@@ -467,7 +482,7 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
     @pulumi.getter(name="s3BucketEncryptionEnabled")
     def s3_bucket_encryption_enabled(self) -> Optional[bool]:
         """
-        Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+        Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
         """
         return pulumi.get(self, "s3_bucket_encryption_enabled")
 
@@ -475,7 +490,7 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[str]:
         """
-        The name of the S3 bucket to send logs to.
+        Name of the S3 bucket to send logs to.
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -483,9 +498,59 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[str]:
         """
-        An optional folder in the S3 bucket to place logs in.
+        Optional folder in the S3 bucket to place logs in.
         """
         return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class ClusterConfigurationManagedStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fargateEphemeralStorageKmsKeyId":
+            suggest = "fargate_ephemeral_storage_kms_key_id"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterConfigurationManagedStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterConfigurationManagedStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterConfigurationManagedStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fargate_ephemeral_storage_kms_key_id: Optional[str] = None,
+                 kms_key_id: Optional[str] = None):
+        """
+        :param str fargate_ephemeral_storage_kms_key_id: AWS Key Management Service key ID for the Fargate ephemeral storage.
+        :param str kms_key_id: AWS Key Management Service key ID to encrypt the managed storage.
+        """
+        if fargate_ephemeral_storage_kms_key_id is not None:
+            pulumi.set(__self__, "fargate_ephemeral_storage_kms_key_id", fargate_ephemeral_storage_kms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="fargateEphemeralStorageKmsKeyId")
+    def fargate_ephemeral_storage_kms_key_id(self) -> Optional[str]:
+        """
+        AWS Key Management Service key ID for the Fargate ephemeral storage.
+        """
+        return pulumi.get(self, "fargate_ephemeral_storage_kms_key_id")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        AWS Key Management Service key ID to encrypt the managed storage.
+        """
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type
@@ -493,7 +558,7 @@ class ClusterServiceConnectDefaults(dict):
     def __init__(__self__, *,
                  namespace: str):
         """
-        :param str namespace: The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+        :param str namespace: ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -501,7 +566,7 @@ class ClusterServiceConnectDefaults(dict):
     @pulumi.getter
     def namespace(self) -> str:
         """
-        The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+        ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
         """
         return pulumi.get(self, "namespace")
 
@@ -513,7 +578,7 @@ class ClusterSetting(dict):
                  value: str):
         """
         :param str name: Name of the setting to manage. Valid values: `containerInsights`.
-        :param str value: The value to assign to the setting. Valid values are `enabled` and `disabled`.
+        :param str value: Value to assign to the setting. Valid values: `enabled`, `disabled`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -530,7 +595,7 @@ class ClusterSetting(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value to assign to the setting. Valid values are `enabled` and `disabled`.
+        Value to assign to the setting. Valid values: `enabled`, `disabled`.
         """
         return pulumi.get(self, "value")
 
@@ -1546,7 +1611,7 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
                  kms_key_id: Optional[str] = None,
                  size_in_gb: Optional[int] = None,
                  snapshot_id: Optional[str] = None,
-                 throughput: Optional[str] = None,
+                 throughput: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
         :param str role_arn: Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
@@ -1556,7 +1621,7 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
         :param str kms_key_id: Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
         :param int size_in_gb: Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
         :param str snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
-        :param str throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
+        :param int throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         :param str volume_type: Volume type.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1635,7 +1700,7 @@ class ServiceVolumeConfigurationManagedEbsVolume(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> Optional[str]:
+    def throughput(self) -> Optional[int]:
         """
         Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         """

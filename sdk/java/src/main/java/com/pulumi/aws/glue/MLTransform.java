@@ -389,7 +389,7 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MLTransform(String name) {
+    public MLTransform(java.lang.String name) {
         this(name, MLTransformArgs.Empty);
     }
     /**
@@ -397,7 +397,7 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MLTransform(String name, MLTransformArgs args) {
+    public MLTransform(java.lang.String name, MLTransformArgs args) {
         this(name, args, null);
     }
     /**
@@ -406,15 +406,22 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MLTransform(String name, MLTransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/mLTransform:MLTransform", name, args == null ? MLTransformArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MLTransform(java.lang.String name, MLTransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/mLTransform:MLTransform", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MLTransform(String name, Output<String> id, @Nullable MLTransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:glue/mLTransform:MLTransform", name, state, makeResourceOptions(options, id));
+    private MLTransform(java.lang.String name, Output<java.lang.String> id, @Nullable MLTransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:glue/mLTransform:MLTransform", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MLTransformArgs makeArgs(MLTransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MLTransformArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -430,7 +437,7 @@ public class MLTransform extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MLTransform get(String name, Output<String> id, @Nullable MLTransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MLTransform get(java.lang.String name, Output<java.lang.String> id, @Nullable MLTransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MLTransform(name, id, state, options);
     }
 }

@@ -144,7 +144,7 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AggregateAuthorization(String name) {
+    public AggregateAuthorization(java.lang.String name) {
         this(name, AggregateAuthorizationArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AggregateAuthorization(String name, AggregateAuthorizationArgs args) {
+    public AggregateAuthorization(java.lang.String name, AggregateAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,15 +161,22 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AggregateAuthorization(String name, AggregateAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args == null ? AggregateAuthorizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AggregateAuthorization(java.lang.String name, AggregateAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AggregateAuthorization(String name, Output<String> id, @Nullable AggregateAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, state, makeResourceOptions(options, id));
+    private AggregateAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable AggregateAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AggregateAuthorizationArgs makeArgs(AggregateAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AggregateAuthorizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -185,7 +192,7 @@ public class AggregateAuthorization extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AggregateAuthorization get(String name, Output<String> id, @Nullable AggregateAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AggregateAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable AggregateAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AggregateAuthorization(name, id, state, options);
     }
 }

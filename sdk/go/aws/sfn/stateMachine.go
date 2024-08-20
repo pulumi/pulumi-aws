@@ -36,7 +36,7 @@ import (
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -48,7 +48,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -93,7 +93,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -127,7 +127,7 @@ import (
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
 //				Publish: pulumi.Bool(true),
 //				Type:    pulumi.String("EXPRESS"),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -139,7 +139,7 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //			})
 //			if err != nil {
@@ -173,7 +173,7 @@ import (
 //			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
 //				Name:    pulumi.String("my-state-machine"),
 //				RoleArn: pulumi.Any(iamForSfn.Arn),
-//				Definition: pulumi.String(fmt.Sprintf(`{
+//				Definition: pulumi.Sprintf(`{
 //	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
 //	  "StartAt": "HelloWorld",
 //	  "States": {
@@ -185,12 +185,63 @@ import (
 //	  }
 //	}
 //
-// `, lambda.Arn)),
+// `, lambda.Arn),
 //
 //				LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-//					LogDestination:       pulumi.String(fmt.Sprintf("%v:*", logGroupForSfn.Arn)),
+//					LogDestination:       pulumi.Sprintf("%v:*", logGroupForSfn.Arn),
 //					IncludeExecutionData: pulumi.Bool(true),
 //					Level:                pulumi.String("ERROR"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Encryption
+//
+// > *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// ...
+//			_, err := sfn.NewStateMachine(ctx, "sfn_state_machine", &sfn.StateMachineArgs{
+//				Name:    pulumi.String("my-state-machine"),
+//				RoleArn: pulumi.Any(iamForSfn.Arn),
+//				Definition: pulumi.Sprintf(`{
+//	  "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//	  "StartAt": "HelloWorld",
+//	  "States": {
+//	    "HelloWorld": {
+//	      "Type": "Task",
+//	      "Resource": "%v",
+//	      "End": true
+//	    }
+//	  }
+//	}
+//
+// `, lambda.Arn),
+//
+//				EncryptionConfiguration: &sfn.StateMachineEncryptionConfigurationArgs{
+//					KmsKeyId:                     pulumi.Any(kmsKeyForSfn.Arn),
+//					Type:                         pulumi.String("CUSTOMER_MANAGED_KMS_KEY"),
+//					KmsDataKeyReusePeriodSeconds: pulumi.Int(900),
 //				},
 //			})
 //			if err != nil {
@@ -219,6 +270,8 @@ type StateMachine struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition  pulumi.StringOutput `pulumi:"definition"`
 	Description pulumi.StringOutput `pulumi:"description"`
+	// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+	EncryptionConfiguration StateMachineEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationOutput `pulumi:"loggingConfiguration"`
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -290,6 +343,8 @@ type stateMachineState struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition  *string `pulumi:"definition"`
 	Description *string `pulumi:"description"`
+	// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+	EncryptionConfiguration *StateMachineEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -326,6 +381,8 @@ type StateMachineState struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition  pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
+	// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+	EncryptionConfiguration StateMachineEncryptionConfigurationPtrInput
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -361,6 +418,8 @@ func (StateMachineState) ElementType() reflect.Type {
 type stateMachineArgs struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition string `pulumi:"definition"`
+	// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+	EncryptionConfiguration *StateMachineEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -383,6 +442,8 @@ type stateMachineArgs struct {
 type StateMachineArgs struct {
 	// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
 	Definition pulumi.StringInput
+	// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+	EncryptionConfiguration StateMachineEncryptionConfigurationPtrInput
 	// Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
 	// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
@@ -505,6 +566,11 @@ func (o StateMachineOutput) Definition() pulumi.StringOutput {
 
 func (o StateMachineOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+func (o StateMachineOutput) EncryptionConfiguration() StateMachineEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachineEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(StateMachineEncryptionConfigurationOutput)
 }
 
 // Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.

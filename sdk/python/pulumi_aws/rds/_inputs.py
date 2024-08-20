@@ -42,6 +42,8 @@ __all__ = [
     'InstanceRestoreToPointInTimeArgsDict',
     'InstanceS3ImportArgs',
     'InstanceS3ImportArgsDict',
+    'IntegrationTimeoutsArgs',
+    'IntegrationTimeoutsArgsDict',
     'OptionGroupOptionArgs',
     'OptionGroupOptionArgsDict',
     'OptionGroupOptionOptionSettingArgs',
@@ -214,10 +216,6 @@ class ClusterParameterGroupParameterArgs:
 
 if not MYPY:
     class ClusterRestoreToPointInTimeArgsDict(TypedDict):
-        source_cluster_identifier: pulumi.Input[str]
-        """
-        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-        """
         restore_to_time: NotRequired[pulumi.Input[str]]
         """
         Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
@@ -226,6 +224,14 @@ if not MYPY:
         """
         Type of restore to be performed.
         Valid options are `full-copy` (default) and `copy-on-write`.
+        """
+        source_cluster_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+        """
+        source_cluster_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
         """
         use_latest_restorable_time: NotRequired[pulumi.Input[bool]]
         """
@@ -237,36 +243,29 @@ elif False:
 @pulumi.input_type
 class ClusterRestoreToPointInTimeArgs:
     def __init__(__self__, *,
-                 source_cluster_identifier: pulumi.Input[str],
                  restore_to_time: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
+                 source_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 source_cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         :param pulumi.Input[str] restore_to_time: Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
         :param pulumi.Input[str] restore_type: Type of restore to be performed.
                Valid options are `full-copy` (default) and `copy-on-write`.
+        :param pulumi.Input[str] source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+        :param pulumi.Input[str] source_cluster_resource_id: Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
         :param pulumi.Input[bool] use_latest_restorable_time: Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
         """
-        pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
         if restore_to_time is not None:
             pulumi.set(__self__, "restore_to_time", restore_to_time)
         if restore_type is not None:
             pulumi.set(__self__, "restore_type", restore_type)
+        if source_cluster_identifier is not None:
+            pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
+        if source_cluster_resource_id is not None:
+            pulumi.set(__self__, "source_cluster_resource_id", source_cluster_resource_id)
         if use_latest_restorable_time is not None:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
-
-    @property
-    @pulumi.getter(name="sourceClusterIdentifier")
-    def source_cluster_identifier(self) -> pulumi.Input[str]:
-        """
-        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-        """
-        return pulumi.get(self, "source_cluster_identifier")
-
-    @source_cluster_identifier.setter
-    def source_cluster_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_cluster_identifier", value)
 
     @property
     @pulumi.getter(name="restoreToTime")
@@ -294,6 +293,30 @@ class ClusterRestoreToPointInTimeArgs:
         pulumi.set(self, "restore_type", value)
 
     @property
+    @pulumi.getter(name="sourceClusterIdentifier")
+    def source_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+        """
+        return pulumi.get(self, "source_cluster_identifier")
+
+    @source_cluster_identifier.setter
+    def source_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="sourceClusterResourceId")
+    def source_cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+        """
+        return pulumi.get(self, "source_cluster_resource_id")
+
+    @source_cluster_resource_id.setter
+    def source_cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_cluster_resource_id", value)
+
+    @property
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -309,10 +332,27 @@ class ClusterRestoreToPointInTimeArgs:
 if not MYPY:
     class ClusterS3ImportArgsDict(TypedDict):
         bucket_name: pulumi.Input[str]
+        """
+        Bucket name where your backup is stored
+        """
         ingestion_role: pulumi.Input[str]
+        """
+        Role applied to load the data.
+        """
         source_engine: pulumi.Input[str]
+        """
+        Source engine for the backup
+        """
         source_engine_version: pulumi.Input[str]
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        """
         bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Can be blank, but is the path to your backup
+        """
 elif False:
     ClusterS3ImportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -324,6 +364,15 @@ class ClusterS3ImportArgs:
                  source_engine: pulumi.Input[str],
                  source_engine_version: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: Bucket name where your backup is stored
+        :param pulumi.Input[str] ingestion_role: Role applied to load the data.
+        :param pulumi.Input[str] source_engine: Source engine for the backup
+        :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -334,6 +383,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        Bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -343,6 +395,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> pulumi.Input[str]:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @ingestion_role.setter
@@ -352,6 +407,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> pulumi.Input[str]:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @source_engine.setter
@@ -361,6 +419,11 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> pulumi.Input[str]:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+        """
         return pulumi.get(self, "source_engine_version")
 
     @source_engine_version.setter
@@ -370,6 +433,9 @@ class ClusterS3ImportArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -391,6 +457,10 @@ if not MYPY:
         """
         Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
+        seconds_before_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+        """
         seconds_until_auto_pause: NotRequired[pulumi.Input[int]]
         """
         Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
@@ -408,12 +478,14 @@ class ClusterScalingConfigurationArgs:
                  auto_pause: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None,
+                 seconds_before_timeout: Optional[pulumi.Input[int]] = None,
                  seconds_until_auto_pause: Optional[pulumi.Input[int]] = None,
                  timeout_action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] auto_pause: Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
         :param pulumi.Input[int] max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         :param pulumi.Input[int] min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        :param pulumi.Input[int] seconds_before_timeout: Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
         :param pulumi.Input[int] seconds_until_auto_pause: Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         :param pulumi.Input[str] timeout_action: Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
@@ -423,6 +495,8 @@ class ClusterScalingConfigurationArgs:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+        if seconds_before_timeout is not None:
+            pulumi.set(__self__, "seconds_before_timeout", seconds_before_timeout)
         if seconds_until_auto_pause is not None:
             pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
         if timeout_action is not None:
@@ -463,6 +537,18 @@ class ClusterScalingConfigurationArgs:
     @min_capacity.setter
     def min_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_capacity", value)
+
+    @property
+    @pulumi.getter(name="secondsBeforeTimeout")
+    def seconds_before_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+        """
+        return pulumi.get(self, "seconds_before_timeout")
+
+    @seconds_before_timeout.setter
+    def seconds_before_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "seconds_before_timeout", value)
 
     @property
     @pulumi.getter(name="secondsUntilAutoPause")
@@ -961,10 +1047,27 @@ class InstanceRestoreToPointInTimeArgs:
 if not MYPY:
     class InstanceS3ImportArgsDict(TypedDict):
         bucket_name: pulumi.Input[str]
+        """
+        The bucket name where your backup is stored
+        """
         ingestion_role: pulumi.Input[str]
+        """
+        Role applied to load the data.
+        """
         source_engine: pulumi.Input[str]
+        """
+        Source engine for the backup
+        """
         source_engine_version: pulumi.Input[str]
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        """
         bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Can be blank, but is the path to your backup
+        """
 elif False:
     InstanceS3ImportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -976,6 +1079,15 @@ class InstanceS3ImportArgs:
                  source_engine: pulumi.Input[str],
                  source_engine_version: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_name: The bucket name where your backup is stored
+        :param pulumi.Input[str] ingestion_role: Role applied to load the data.
+        :param pulumi.Input[str] source_engine: Source engine for the backup
+        :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
+        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
         pulumi.set(__self__, "source_engine", source_engine)
@@ -986,6 +1098,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
+        """
+        The bucket name where your backup is stored
+        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -995,6 +1110,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="ingestionRole")
     def ingestion_role(self) -> pulumi.Input[str]:
+        """
+        Role applied to load the data.
+        """
         return pulumi.get(self, "ingestion_role")
 
     @ingestion_role.setter
@@ -1004,6 +1122,9 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> pulumi.Input[str]:
+        """
+        Source engine for the backup
+        """
         return pulumi.get(self, "source_engine")
 
     @source_engine.setter
@@ -1013,6 +1134,11 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> pulumi.Input[str]:
+        """
+        Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        """
         return pulumi.get(self, "source_engine_version")
 
     @source_engine_version.setter
@@ -1022,11 +1148,66 @@ class InstanceS3ImportArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be blank, but is the path to your backup
+        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
     def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_prefix", value)
+
+
+if not MYPY:
+    class IntegrationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    IntegrationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 
 if not MYPY:

@@ -21,7 +21,6 @@ import java.util.StringJoiner;
         Java17("java17"),
         Java21("java21"),
         Java8AL2("java8.al2"),
-        NodeJS16dX("nodejs16.x"),
         NodeJS18dX("nodejs18.x"),
         NodeJS20dX("nodejs20.x"),
         CustomAL2("provided.al2"),
@@ -85,6 +84,12 @@ import java.util.StringJoiner;
          * This runtime is now deprecated
          */
         @Deprecated /* This runtime is now deprecated */
+        NodeJS16dX("nodejs16.x"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
         Custom("provided"),
         /**
          * @deprecated
@@ -129,7 +134,7 @@ import java.util.StringJoiner;
         }
 
         @Override
-        public String toString() {
+        public java.lang.String toString() {
             return new StringJoiner(", ", "Runtime[", "]")
                 .add("value='" + this.value + "'")
                 .toString();

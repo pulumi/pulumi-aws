@@ -21,10 +21,10 @@ index 7c33a2aae0..3c17d64604 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 6415ce2355..c80c01b8d1 100644
+index 5435b50317..1e888e3ae9 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -435,8 +435,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -114,7 +114,7 @@ index e8e1a272eb..a4a1625554 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/ec2/ec2_instance_connect_endpoint.go b/internal/service/ec2/ec2_instance_connect_endpoint.go
-index 90273f5fb2..7eb040c4e2 100644
+index 0d83e03d8b..69f1612f75 100644
 --- a/internal/service/ec2/ec2_instance_connect_endpoint.go
 +++ b/internal/service/ec2/ec2_instance_connect_endpoint.go
 @@ -118,7 +118,7 @@ func (r *instanceConnectEndpointResource) Schema(ctx context.Context, req resour
@@ -127,10 +127,10 @@ index 90273f5fb2..7eb040c4e2 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index 9d5de83433..f9d99d2663 100644
+index a707a1277b..cd8d6dfd54 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
-@@ -226,7 +226,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
+@@ -228,7 +228,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -140,10 +140,10 @@ index 9d5de83433..f9d99d2663 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index 95c069c72f..bb4bcf390e 100644
+index dc959ccd7e..1d0f2caaa0 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
-@@ -82,7 +82,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
+@@ -83,7 +83,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
  				Required:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -153,7 +153,7 @@ index 95c069c72f..bb4bcf390e 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index ecec56b129..637bbc3595 100644
+index 44577f9026..53692013d0 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
 @@ -123,7 +123,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ

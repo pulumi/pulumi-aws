@@ -21,6 +21,8 @@ type GraphQLApi struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
+	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrOutput `pulumi:"enhancedMetricsConfig"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrOutput `pulumi:"introspectionConfig"`
 	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
@@ -28,6 +30,8 @@ type GraphQLApi struct {
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
 	// User-supplied name for the GraphSQL API.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrOutput `pulumi:"openidConnectConfig"`
@@ -94,6 +98,8 @@ type graphQLApiState struct {
 	Arn *string `pulumi:"arn"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType *string `pulumi:"authenticationType"`
+	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+	EnhancedMetricsConfig *GraphQLApiEnhancedMetricsConfig `pulumi:"enhancedMetricsConfig"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig *string `pulumi:"introspectionConfig"`
 	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
@@ -101,6 +107,8 @@ type graphQLApiState struct {
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
 	// User-supplied name for the GraphSQL API.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
@@ -135,6 +143,8 @@ type GraphQLApiState struct {
 	Arn pulumi.StringPtrInput
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringPtrInput
+	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrInput
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrInput
 	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
@@ -142,6 +152,8 @@ type GraphQLApiState struct {
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
 	// User-supplied name for the GraphSQL API.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
@@ -178,6 +190,8 @@ type graphQLApiArgs struct {
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
+	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+	EnhancedMetricsConfig *GraphQLApiEnhancedMetricsConfig `pulumi:"enhancedMetricsConfig"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig *string `pulumi:"introspectionConfig"`
 	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
@@ -185,6 +199,8 @@ type graphQLApiArgs struct {
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
 	// User-supplied name for the GraphSQL API.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
@@ -212,6 +228,8 @@ type GraphQLApiArgs struct {
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput
+	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+	EnhancedMetricsConfig GraphQLApiEnhancedMetricsConfigPtrInput
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrInput
 	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
@@ -219,6 +237,8 @@ type GraphQLApiArgs struct {
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
 	// User-supplied name for the GraphSQL API.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
@@ -344,6 +364,11 @@ func (o GraphQLApiOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
+// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
+func (o GraphQLApiOutput) EnhancedMetricsConfig() GraphQLApiEnhancedMetricsConfigPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApiEnhancedMetricsConfigPtrOutput { return v.EnhancedMetricsConfig }).(GraphQLApiEnhancedMetricsConfigPtrOutput)
+}
+
 // Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 func (o GraphQLApiOutput) IntrospectionConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.IntrospectionConfig }).(pulumi.StringPtrOutput)
@@ -360,6 +385,8 @@ func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 }
 
 // User-supplied name for the GraphSQL API.
+//
+// The following arguments are optional:
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

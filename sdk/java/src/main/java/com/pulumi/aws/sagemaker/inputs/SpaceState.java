@@ -65,14 +65,14 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of ownership settings. See Ownership Settings below.
+     * A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
     @Import(name="ownershipSettings")
     private @Nullable Output<SpaceOwnershipSettingsArgs> ownershipSettings;
 
     /**
-     * @return A collection of ownership settings. See Ownership Settings below.
+     * @return A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
     public Optional<Output<SpaceOwnershipSettingsArgs>> ownershipSettings() {
@@ -110,14 +110,14 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of space settings. See Space Settings below.
+     * A collection of space settings. See `space_settings` Block below.
      * 
      */
     @Import(name="spaceSettings")
     private @Nullable Output<SpaceSpaceSettingsArgs> spaceSettings;
 
     /**
-     * @return A collection of space settings. See Space Settings below.
+     * @return A collection of space settings. See `space_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSettingsArgs>> spaceSettings() {
@@ -125,14 +125,14 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of space sharing settings. See Space Sharing Settings below.
+     * A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
     @Import(name="spaceSharingSettings")
     private @Nullable Output<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
 
     /**
-     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * @return A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
     public Optional<Output<SpaceSpaceSharingSettingsArgs>> spaceSharingSettings() {
@@ -290,7 +290,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * @param ownershipSettings A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ownershipSettings A collection of ownership settings. See Ownership Settings below.
+         * @param ownershipSettings A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceSettings A collection of space settings. See Space Settings below.
+         * @param spaceSettings A collection of space settings. See `space_settings` Block below.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceSettings A collection of space settings. See Space Settings below.
+         * @param spaceSettings A collection of space settings. See `space_settings` Block below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * @param spaceSharingSettings A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spaceSharingSettings A collection of space sharing settings. See Space Sharing Settings below.
+         * @param spaceSharingSettings A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
          * 
          * @return builder
          * 

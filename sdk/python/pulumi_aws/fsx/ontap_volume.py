@@ -25,6 +25,7 @@ class OntapVolumeArgs:
                  aggregate_configuration: Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']] = None,
                  bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[str]] = None,
@@ -42,9 +43,12 @@ class OntapVolumeArgs:
         """
         The set of arguments for constructing a OntapVolume resource.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
-        :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+               
+               The following arguments are optional:
+        :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         :param pulumi.Input[bool] bypass_snaplock_enterprise_retention: Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the volume's final backup.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
@@ -52,11 +56,11 @@ class OntapVolumeArgs:
         :param pulumi.Input[str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         :param pulumi.Input[str] snapshot_policy: Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
@@ -67,6 +71,8 @@ class OntapVolumeArgs:
             pulumi.set(__self__, "bypass_snaplock_enterprise_retention", bypass_snaplock_enterprise_retention)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if final_backup_tags is not None:
+            pulumi.set(__self__, "final_backup_tags", final_backup_tags)
         if junction_path is not None:
             pulumi.set(__self__, "junction_path", junction_path)
         if name is not None:
@@ -101,6 +107,8 @@ class OntapVolumeArgs:
     def storage_virtual_machine_id(self) -> pulumi.Input[str]:
         """
         Specifies the storage virtual machine in which to create the volume.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_virtual_machine_id")
 
@@ -112,7 +120,7 @@ class OntapVolumeArgs:
     @pulumi.getter(name="aggregateConfiguration")
     def aggregate_configuration(self) -> Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]:
         """
-        The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         """
         return pulumi.get(self, "aggregate_configuration")
 
@@ -143,6 +151,18 @@ class OntapVolumeArgs:
     @copy_tags_to_backups.setter
     def copy_tags_to_backups(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_backups", value)
+
+    @property
+    @pulumi.getter(name="finalBackupTags")
+    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to apply to the volume's final backup.
+        """
+        return pulumi.get(self, "final_backup_tags")
+
+    @final_backup_tags.setter
+    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "final_backup_tags", value)
 
     @property
     @pulumi.getter(name="junctionPath")
@@ -232,7 +252,7 @@ class OntapVolumeArgs:
     @pulumi.getter(name="snaplockConfiguration")
     def snaplock_configuration(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]:
         """
-        The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         """
         return pulumi.get(self, "snaplock_configuration")
 
@@ -280,7 +300,7 @@ class OntapVolumeArgs:
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]:
         """
-        The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         """
         return pulumi.get(self, "tiering_policy")
 
@@ -321,6 +341,7 @@ class _OntapVolumeState:
                  bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
+                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  flexcache_endpoint_type: Optional[pulumi.Input[str]] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -341,11 +362,12 @@ class _OntapVolumeState:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OntapVolume resources.
-        :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         :param pulumi.Input[str] arn: Amazon Resource Name of the volune.
         :param pulumi.Input[bool] bypass_snaplock_enterprise_retention: Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         :param pulumi.Input[str] file_system_id: Describes the file system for the volume, e.g. `fs-12345679`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the volume's final backup.
         :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -354,13 +376,15 @@ class _OntapVolumeState:
         :param pulumi.Input[str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         :param pulumi.Input[str] snapshot_policy: Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         :param pulumi.Input[str] uuid: The Volume's UUID (universally unique identifier).
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
@@ -375,6 +399,8 @@ class _OntapVolumeState:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if file_system_id is not None:
             pulumi.set(__self__, "file_system_id", file_system_id)
+        if final_backup_tags is not None:
+            pulumi.set(__self__, "final_backup_tags", final_backup_tags)
         if flexcache_endpoint_type is not None:
             pulumi.set(__self__, "flexcache_endpoint_type", flexcache_endpoint_type)
         if junction_path is not None:
@@ -419,7 +445,7 @@ class _OntapVolumeState:
     @pulumi.getter(name="aggregateConfiguration")
     def aggregate_configuration(self) -> Optional[pulumi.Input['OntapVolumeAggregateConfigurationArgs']]:
         """
-        The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         """
         return pulumi.get(self, "aggregate_configuration")
 
@@ -474,6 +500,18 @@ class _OntapVolumeState:
     @file_system_id.setter
     def file_system_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="finalBackupTags")
+    def final_backup_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to apply to the volume's final backup.
+        """
+        return pulumi.get(self, "final_backup_tags")
+
+    @final_backup_tags.setter
+    def final_backup_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "final_backup_tags", value)
 
     @property
     @pulumi.getter(name="flexcacheEndpointType")
@@ -575,7 +613,7 @@ class _OntapVolumeState:
     @pulumi.getter(name="snaplockConfiguration")
     def snaplock_configuration(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationArgs']]:
         """
-        The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         """
         return pulumi.get(self, "snaplock_configuration")
 
@@ -612,6 +650,8 @@ class _OntapVolumeState:
     def storage_virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage virtual machine in which to create the volume.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_virtual_machine_id")
 
@@ -648,7 +688,7 @@ class _OntapVolumeState:
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]:
         """
-        The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         """
         return pulumi.get(self, "tiering_policy")
 
@@ -701,6 +741,7 @@ class OntapVolume(pulumi.CustomResource):
                  aggregate_configuration: Optional[pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
                  bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[str]] = None,
@@ -753,7 +794,7 @@ class OntapVolume(pulumi.CustomResource):
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy={
                 "name": "AUTO",
-                "coolingPeriod": 31,
+                "cooling_period": 31,
             })
         ```
 
@@ -767,9 +808,10 @@ class OntapVolume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         :param pulumi.Input[bool] bypass_snaplock_enterprise_retention: Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the volume's final backup.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
@@ -777,12 +819,14 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        :param pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         :param pulumi.Input[str] snapshot_policy: Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        :param pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
@@ -828,7 +872,7 @@ class OntapVolume(pulumi.CustomResource):
             storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
             tiering_policy={
                 "name": "AUTO",
-                "coolingPeriod": 31,
+                "cooling_period": 31,
             })
         ```
 
@@ -858,6 +902,7 @@ class OntapVolume(pulumi.CustomResource):
                  aggregate_configuration: Optional[pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']]] = None,
                  bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+                 final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[str]] = None,
@@ -885,6 +930,7 @@ class OntapVolume(pulumi.CustomResource):
             __props__.__dict__["aggregate_configuration"] = aggregate_configuration
             __props__.__dict__["bypass_snaplock_enterprise_retention"] = bypass_snaplock_enterprise_retention
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
+            __props__.__dict__["final_backup_tags"] = final_backup_tags
             __props__.__dict__["junction_path"] = junction_path
             __props__.__dict__["name"] = name
             __props__.__dict__["ontap_volume_type"] = ontap_volume_type
@@ -922,6 +968,7 @@ class OntapVolume(pulumi.CustomResource):
             bypass_snaplock_enterprise_retention: Optional[pulumi.Input[bool]] = None,
             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
             file_system_id: Optional[pulumi.Input[str]] = None,
+            final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             flexcache_endpoint_type: Optional[pulumi.Input[str]] = None,
             junction_path: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -947,11 +994,12 @@ class OntapVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         :param pulumi.Input[str] arn: Amazon Resource Name of the volune.
         :param pulumi.Input[bool] bypass_snaplock_enterprise_retention: Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         :param pulumi.Input[str] file_system_id: Describes the file system for the volume, e.g. `fs-12345679`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the volume's final backup.
         :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -960,13 +1008,15 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        :param pulumi.Input[Union['OntapVolumeSnaplockConfigurationArgs', 'OntapVolumeSnaplockConfigurationArgsDict']] snaplock_configuration: The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         :param pulumi.Input[str] snapshot_policy: Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        :param pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         :param pulumi.Input[str] uuid: The Volume's UUID (universally unique identifier).
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
@@ -980,6 +1030,7 @@ class OntapVolume(pulumi.CustomResource):
         __props__.__dict__["bypass_snaplock_enterprise_retention"] = bypass_snaplock_enterprise_retention
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["file_system_id"] = file_system_id
+        __props__.__dict__["final_backup_tags"] = final_backup_tags
         __props__.__dict__["flexcache_endpoint_type"] = flexcache_endpoint_type
         __props__.__dict__["junction_path"] = junction_path
         __props__.__dict__["name"] = name
@@ -1004,7 +1055,7 @@ class OntapVolume(pulumi.CustomResource):
     @pulumi.getter(name="aggregateConfiguration")
     def aggregate_configuration(self) -> pulumi.Output[Optional['outputs.OntapVolumeAggregateConfiguration']]:
         """
-        The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+        The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         """
         return pulumi.get(self, "aggregate_configuration")
 
@@ -1039,6 +1090,14 @@ class OntapVolume(pulumi.CustomResource):
         Describes the file system for the volume, e.g. `fs-12345679`
         """
         return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter(name="finalBackupTags")
+    def final_backup_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to apply to the volume's final backup.
+        """
+        return pulumi.get(self, "final_backup_tags")
 
     @property
     @pulumi.getter(name="flexcacheEndpointType")
@@ -1108,7 +1167,7 @@ class OntapVolume(pulumi.CustomResource):
     @pulumi.getter(name="snaplockConfiguration")
     def snaplock_configuration(self) -> pulumi.Output[Optional['outputs.OntapVolumeSnaplockConfiguration']]:
         """
-        The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+        The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         """
         return pulumi.get(self, "snaplock_configuration")
 
@@ -1133,6 +1192,8 @@ class OntapVolume(pulumi.CustomResource):
     def storage_virtual_machine_id(self) -> pulumi.Output[str]:
         """
         Specifies the storage virtual machine in which to create the volume.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "storage_virtual_machine_id")
 
@@ -1157,7 +1218,7 @@ class OntapVolume(pulumi.CustomResource):
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> pulumi.Output[Optional['outputs.OntapVolumeTieringPolicy']]:
         """
-        The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+        The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         """
         return pulumi.get(self, "tiering_policy")
 

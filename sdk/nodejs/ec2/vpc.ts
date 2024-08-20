@@ -165,7 +165,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
      */
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface VpcState {
      */
     ipv6IpamPoolId?: pulumi.Input<string>;
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
      */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
@@ -401,7 +401,7 @@ export interface VpcArgs {
      */
     ipv6IpamPoolId?: pulumi.Input<string>;
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values are from `44` to `60` in increments of 4.
      */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**

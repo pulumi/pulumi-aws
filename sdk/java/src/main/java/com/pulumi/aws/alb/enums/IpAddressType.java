@@ -25,7 +25,7 @@ import java.util.StringJoiner;
         }
 
         @Override
-        public String toString() {
+        public java.lang.String toString() {
             return new StringJoiner(", ", "IpAddressType[", "]")
                 .add("value='" + this.value + "'")
                 .toString();

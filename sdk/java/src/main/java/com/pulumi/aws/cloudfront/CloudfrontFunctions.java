@@ -12,6 +12,8 @@ import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
 import com.pulumi.aws.cloudfront.inputs.GetFunctionPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
 import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdPlainArgs;
+import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
+import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentitiesPlainArgs;
 import com.pulumi.aws.cloudfront.inputs.GetOriginAccessIdentityArgs;
@@ -26,6 +28,7 @@ import com.pulumi.aws.cloudfront.outputs.GetCachePolicyResult;
 import com.pulumi.aws.cloudfront.outputs.GetDistributionResult;
 import com.pulumi.aws.cloudfront.outputs.GetFunctionResult;
 import com.pulumi.aws.cloudfront.outputs.GetLogDeliveryCanonicalUserIdResult;
+import com.pulumi.aws.cloudfront.outputs.GetOriginAccessControlResult;
 import com.pulumi.aws.cloudfront.outputs.GetOriginAccessIdentitiesResult;
 import com.pulumi.aws.cloudfront.outputs.GetOriginAccessIdentityResult;
 import com.pulumi.aws.cloudfront.outputs.GetOriginRequestPolicyResult;
@@ -1245,6 +1248,182 @@ public final class CloudfrontFunctions {
      */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", TypeShape.of(GetLogDeliveryCanonicalUserIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access control config.
+     * 
+     * ## Example Usage
+     * 
+     * The below example retrieves a CloudFront origin access control config.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
+     *             .id("E2T5VTFBZJ3BJB")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOriginAccessControlResult> getOriginAccessControl(GetOriginAccessControlArgs args) {
+        return getOriginAccessControl(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access control config.
+     * 
+     * ## Example Usage
+     * 
+     * The below example retrieves a CloudFront origin access control config.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
+     *             .id("E2T5VTFBZJ3BJB")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOriginAccessControlResult> getOriginAccessControlPlain(GetOriginAccessControlPlainArgs args) {
+        return getOriginAccessControlPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access control config.
+     * 
+     * ## Example Usage
+     * 
+     * The below example retrieves a CloudFront origin access control config.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
+     *             .id("E2T5VTFBZJ3BJB")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOriginAccessControlResult> getOriginAccessControl(GetOriginAccessControlArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", TypeShape.of(GetOriginAccessControlResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to retrieve information for an Amazon CloudFront origin access control config.
+     * 
+     * ## Example Usage
+     * 
+     * The below example retrieves a CloudFront origin access control config.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetOriginAccessControlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CloudfrontFunctions.getOriginAccessControl(GetOriginAccessControlArgs.builder()
+     *             .id("E2T5VTFBZJ3BJB")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOriginAccessControlResult> getOriginAccessControlPlain(GetOriginAccessControlPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", TypeShape.of(GetOriginAccessControlResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.

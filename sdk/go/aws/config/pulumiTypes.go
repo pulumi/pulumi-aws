@@ -238,7 +238,7 @@ func (o AssumeRoleWithWebIdentityOutput) WebIdentityTokenFile() pulumi.StringPtr
 }
 
 type DefaultTags struct {
-	// Resource tags to default across all resources
+	// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -254,7 +254,7 @@ type DefaultTagsInput interface {
 }
 
 type DefaultTagsArgs struct {
-	// Resource tags to default across all resources
+	// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -284,7 +284,7 @@ func (o DefaultTagsOutput) ToDefaultTagsOutputWithContext(ctx context.Context) D
 	return o
 }
 
-// Resource tags to default across all resources
+// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
 func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v DefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -459,6 +459,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Databasemigrationservice *string `pulumi:"databasemigrationservice"`
 	// Use this to override the default service endpoint URL
+	Databrew *string `pulumi:"databrew"`
+	// Use this to override the default service endpoint URL
 	Dataexchange *string `pulumi:"dataexchange"`
 	// Use this to override the default service endpoint URL
 	Datapipeline *string `pulumi:"datapipeline"`
@@ -556,6 +558,8 @@ type Endpoints struct {
 	Globalaccelerator *string `pulumi:"globalaccelerator"`
 	// Use this to override the default service endpoint URL
 	Glue *string `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Gluedatabrew *string `pulumi:"gluedatabrew"`
 	// Use this to override the default service endpoint URL
 	Grafana *string `pulumi:"grafana"`
 	// Use this to override the default service endpoint URL
@@ -732,6 +736,8 @@ type Endpoints struct {
 	Redshiftserverless *string `pulumi:"redshiftserverless"`
 	// Use this to override the default service endpoint URL
 	Rekognition *string `pulumi:"rekognition"`
+	// Use this to override the default service endpoint URL
+	Resiliencehub *string `pulumi:"resiliencehub"`
 	// Use this to override the default service endpoint URL
 	Resourceexplorer2 *string `pulumi:"resourceexplorer2"`
 	// Use this to override the default service endpoint URL
@@ -1043,6 +1049,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Databasemigrationservice pulumi.StringPtrInput `pulumi:"databasemigrationservice"`
 	// Use this to override the default service endpoint URL
+	Databrew pulumi.StringPtrInput `pulumi:"databrew"`
+	// Use this to override the default service endpoint URL
 	Dataexchange pulumi.StringPtrInput `pulumi:"dataexchange"`
 	// Use this to override the default service endpoint URL
 	Datapipeline pulumi.StringPtrInput `pulumi:"datapipeline"`
@@ -1140,6 +1148,8 @@ type EndpointsArgs struct {
 	Globalaccelerator pulumi.StringPtrInput `pulumi:"globalaccelerator"`
 	// Use this to override the default service endpoint URL
 	Glue pulumi.StringPtrInput `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Gluedatabrew pulumi.StringPtrInput `pulumi:"gluedatabrew"`
 	// Use this to override the default service endpoint URL
 	Grafana pulumi.StringPtrInput `pulumi:"grafana"`
 	// Use this to override the default service endpoint URL
@@ -1316,6 +1326,8 @@ type EndpointsArgs struct {
 	Redshiftserverless pulumi.StringPtrInput `pulumi:"redshiftserverless"`
 	// Use this to override the default service endpoint URL
 	Rekognition pulumi.StringPtrInput `pulumi:"rekognition"`
+	// Use this to override the default service endpoint URL
+	Resiliencehub pulumi.StringPtrInput `pulumi:"resiliencehub"`
 	// Use this to override the default service endpoint URL
 	Resourceexplorer2 pulumi.StringPtrInput `pulumi:"resourceexplorer2"`
 	// Use this to override the default service endpoint URL
@@ -1918,6 +1930,11 @@ func (o EndpointsOutput) Databasemigrationservice() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Databrew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Databrew }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Dataexchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Dataexchange }).(pulumi.StringPtrOutput)
 }
@@ -2160,6 +2177,11 @@ func (o EndpointsOutput) Globalaccelerator() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Glue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Glue }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Gluedatabrew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Gluedatabrew }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -2603,6 +2625,11 @@ func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Resiliencehub() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Resiliencehub }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Resourceexplorer2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Resourceexplorer2 }).(pulumi.StringPtrOutput)
 }
@@ -2943,9 +2970,9 @@ func (o EndpointsArrayOutput) Index(i pulumi.IntInput) EndpointsOutput {
 }
 
 type IgnoreTags struct {
-	// Resource tag key prefixes to ignore across all resources.
+	// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 	KeyPrefixes []string `pulumi:"keyPrefixes"`
-	// Resource tag keys to ignore across all resources.
+	// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 	Keys []string `pulumi:"keys"`
 }
 
@@ -2961,9 +2988,9 @@ type IgnoreTagsInput interface {
 }
 
 type IgnoreTagsArgs struct {
-	// Resource tag key prefixes to ignore across all resources.
+	// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 	KeyPrefixes pulumi.StringArrayInput `pulumi:"keyPrefixes"`
-	// Resource tag keys to ignore across all resources.
+	// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 	Keys pulumi.StringArrayInput `pulumi:"keys"`
 }
 
@@ -2993,12 +3020,12 @@ func (o IgnoreTagsOutput) ToIgnoreTagsOutputWithContext(ctx context.Context) Ign
 	return o
 }
 
-// Resource tag key prefixes to ignore across all resources.
+// Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
 func (o IgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
 
-// Resource tag keys to ignore across all resources.
+// Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
 func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IgnoreTags) []string { return v.Keys }).(pulumi.StringArrayOutput)
 }

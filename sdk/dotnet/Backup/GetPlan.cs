@@ -131,6 +131,10 @@ namespace Pulumi.Aws.Backup
         public readonly string Name;
         public readonly string PlanId;
         /// <summary>
+        /// Rules of a backup plan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPlanRuleResult> Rules;
+        /// <summary>
         /// Metadata that you can assign to help organize the plans you create.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -149,6 +153,8 @@ namespace Pulumi.Aws.Backup
 
             string planId,
 
+            ImmutableArray<Outputs.GetPlanRuleResult> rules,
+
             ImmutableDictionary<string, string> tags,
 
             string version)
@@ -157,6 +163,7 @@ namespace Pulumi.Aws.Backup
             Id = id;
             Name = name;
             PlanId = planId;
+            Rules = rules;
             Tags = tags;
             Version = version;
         }

@@ -144,7 +144,7 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketAccessKey(String name) {
+    public BucketAccessKey(java.lang.String name) {
         this(name, BucketAccessKeyArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketAccessKey(String name, BucketAccessKeyArgs args) {
+    public BucketAccessKey(java.lang.String name, BucketAccessKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,15 +161,22 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketAccessKey(String name, BucketAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucketAccessKey:BucketAccessKey", name, args == null ? BucketAccessKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketAccessKey(java.lang.String name, BucketAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/bucketAccessKey:BucketAccessKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketAccessKey(String name, Output<String> id, @Nullable BucketAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lightsail/bucketAccessKey:BucketAccessKey", name, state, makeResourceOptions(options, id));
+    private BucketAccessKey(java.lang.String name, Output<java.lang.String> id, @Nullable BucketAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lightsail/bucketAccessKey:BucketAccessKey", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketAccessKeyArgs makeArgs(BucketAccessKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketAccessKeyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -185,7 +192,7 @@ public class BucketAccessKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketAccessKey get(String name, Output<String> id, @Nullable BucketAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketAccessKey get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketAccessKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketAccessKey(name, id, state, options);
     }
 }

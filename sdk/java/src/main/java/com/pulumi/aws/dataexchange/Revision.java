@@ -157,7 +157,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Revision(String name) {
+    public Revision(java.lang.String name) {
         this(name, RevisionArgs.Empty);
     }
     /**
@@ -165,7 +165,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Revision(String name, RevisionArgs args) {
+    public Revision(java.lang.String name, RevisionArgs args) {
         this(name, args, null);
     }
     /**
@@ -174,15 +174,22 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Revision(String name, RevisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dataexchange/revision:Revision", name, args == null ? RevisionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Revision(java.lang.String name, RevisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dataexchange/revision:Revision", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Revision(String name, Output<String> id, @Nullable RevisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:dataexchange/revision:Revision", name, state, makeResourceOptions(options, id));
+    private Revision(java.lang.String name, Output<java.lang.String> id, @Nullable RevisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:dataexchange/revision:Revision", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RevisionArgs makeArgs(RevisionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RevisionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -198,7 +205,7 @@ public class Revision extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Revision get(String name, Output<String> id, @Nullable RevisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Revision get(java.lang.String name, Output<java.lang.String> id, @Nullable RevisionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Revision(name, id, state, options);
     }
 }

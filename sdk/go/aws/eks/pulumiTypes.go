@@ -172,7 +172,7 @@ func (o AccessPolicyAssociationAccessScopePtrOutput) Type() pulumi.StringPtrOutp
 type ClusterAccessConfig struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode *string `pulumi:"authenticationMode"`
-	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+	// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
 	BootstrapClusterCreatorAdminPermissions *bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
@@ -190,7 +190,7 @@ type ClusterAccessConfigInput interface {
 type ClusterAccessConfigArgs struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
-	// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+	// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
 	BootstrapClusterCreatorAdminPermissions pulumi.BoolPtrInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
@@ -276,7 +276,7 @@ func (o ClusterAccessConfigOutput) AuthenticationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterAccessConfig) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
 func (o ClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterAccessConfig) *bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolPtrOutput)
 }
@@ -315,7 +315,7 @@ func (o ClusterAccessConfigPtrOutput) AuthenticationMode() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
 func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterAccessConfig) *bool {
 		if v == nil {
@@ -1540,6 +1540,143 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.S
 			return nil
 		}
 		return &v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradePolicy struct {
+	// Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+	SupportType *string `pulumi:"supportType"`
+}
+
+// ClusterUpgradePolicyInput is an input type that accepts ClusterUpgradePolicyArgs and ClusterUpgradePolicyOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyInput` via:
+//
+//	ClusterUpgradePolicyArgs{...}
+type ClusterUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput
+	ToClusterUpgradePolicyOutputWithContext(context.Context) ClusterUpgradePolicyOutput
+}
+
+type ClusterUpgradePolicyArgs struct {
+	// Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+	SupportType pulumi.StringPtrInput `pulumi:"supportType"`
+}
+
+func (ClusterUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
+	return i.ToClusterUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput)
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyArgs) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyOutput).ToClusterUpgradePolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterUpgradePolicyPtrInput is an input type that accepts ClusterUpgradePolicyArgs, ClusterUpgradePolicyPtr and ClusterUpgradePolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyPtrInput` via:
+//
+//	        ClusterUpgradePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterUpgradePolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput
+	ToClusterUpgradePolicyPtrOutputWithContext(context.Context) ClusterUpgradePolicyPtrOutput
+}
+
+type clusterUpgradePolicyPtrType ClusterUpgradePolicyArgs
+
+func ClusterUpgradePolicyPtr(v *ClusterUpgradePolicyArgs) ClusterUpgradePolicyPtrInput {
+	return (*clusterUpgradePolicyPtrType)(v)
+}
+
+func (*clusterUpgradePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return i.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradePolicyPtrType) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyPtrOutput)
+}
+
+type ClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutput() ClusterUpgradePolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyOutputWithContext(ctx context.Context) ClusterUpgradePolicyOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return o.ToClusterUpgradePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradePolicyOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicy) *ClusterUpgradePolicy {
+		return &v
+	}).(ClusterUpgradePolicyPtrOutput)
+}
+
+// Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+func (o ClusterUpgradePolicyOutput) SupportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicy) *string { return v.SupportType }).(pulumi.StringPtrOutput)
+}
+
+type ClusterUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutput() ClusterUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyPtrOutput) ToClusterUpgradePolicyPtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyPtrOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyPtrOutput) Elem() ClusterUpgradePolicyOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) ClusterUpgradePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUpgradePolicy
+		return ret
+	}).(ClusterUpgradePolicyOutput)
+}
+
+// Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+func (o ClusterUpgradePolicyPtrOutput) SupportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3159,6 +3296,8 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtr
 type GetClusterAccessConfig struct {
 	// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode string `pulumi:"authenticationMode"`
+	// Default to `true`.
+	BootstrapClusterCreatorAdminPermissions bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
 // GetClusterAccessConfigInput is an input type that accepts GetClusterAccessConfigArgs and GetClusterAccessConfigOutput values.
@@ -3175,6 +3314,8 @@ type GetClusterAccessConfigInput interface {
 type GetClusterAccessConfigArgs struct {
 	// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode pulumi.StringInput `pulumi:"authenticationMode"`
+	// Default to `true`.
+	BootstrapClusterCreatorAdminPermissions pulumi.BoolInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
 }
 
 func (GetClusterAccessConfigArgs) ElementType() reflect.Type {
@@ -3231,6 +3372,11 @@ func (o GetClusterAccessConfigOutput) ToGetClusterAccessConfigOutputWithContext(
 // Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 func (o GetClusterAccessConfigOutput) AuthenticationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterAccessConfig) string { return v.AuthenticationMode }).(pulumi.StringOutput)
+}
+
+// Default to `true`.
+func (o GetClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterAccessConfig) bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolOutput)
 }
 
 type GetClusterAccessConfigArrayOutput struct{ *pulumi.OutputState }
@@ -3871,6 +4017,103 @@ func (o GetClusterOutpostConfigControlPlanePlacementArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterOutpostConfigControlPlanePlacement {
 		return vs[0].([]GetClusterOutpostConfigControlPlanePlacement)[vs[1].(int)]
 	}).(GetClusterOutpostConfigControlPlanePlacementOutput)
+}
+
+type GetClusterUpgradePolicy struct {
+	// (Optional) Support type to use for the cluster.
+	SupportType string `pulumi:"supportType"`
+}
+
+// GetClusterUpgradePolicyInput is an input type that accepts GetClusterUpgradePolicyArgs and GetClusterUpgradePolicyOutput values.
+// You can construct a concrete instance of `GetClusterUpgradePolicyInput` via:
+//
+//	GetClusterUpgradePolicyArgs{...}
+type GetClusterUpgradePolicyInput interface {
+	pulumi.Input
+
+	ToGetClusterUpgradePolicyOutput() GetClusterUpgradePolicyOutput
+	ToGetClusterUpgradePolicyOutputWithContext(context.Context) GetClusterUpgradePolicyOutput
+}
+
+type GetClusterUpgradePolicyArgs struct {
+	// (Optional) Support type to use for the cluster.
+	SupportType pulumi.StringInput `pulumi:"supportType"`
+}
+
+func (GetClusterUpgradePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i GetClusterUpgradePolicyArgs) ToGetClusterUpgradePolicyOutput() GetClusterUpgradePolicyOutput {
+	return i.ToGetClusterUpgradePolicyOutputWithContext(context.Background())
+}
+
+func (i GetClusterUpgradePolicyArgs) ToGetClusterUpgradePolicyOutputWithContext(ctx context.Context) GetClusterUpgradePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterUpgradePolicyOutput)
+}
+
+// GetClusterUpgradePolicyArrayInput is an input type that accepts GetClusterUpgradePolicyArray and GetClusterUpgradePolicyArrayOutput values.
+// You can construct a concrete instance of `GetClusterUpgradePolicyArrayInput` via:
+//
+//	GetClusterUpgradePolicyArray{ GetClusterUpgradePolicyArgs{...} }
+type GetClusterUpgradePolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterUpgradePolicyArrayOutput() GetClusterUpgradePolicyArrayOutput
+	ToGetClusterUpgradePolicyArrayOutputWithContext(context.Context) GetClusterUpgradePolicyArrayOutput
+}
+
+type GetClusterUpgradePolicyArray []GetClusterUpgradePolicyInput
+
+func (GetClusterUpgradePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (i GetClusterUpgradePolicyArray) ToGetClusterUpgradePolicyArrayOutput() GetClusterUpgradePolicyArrayOutput {
+	return i.ToGetClusterUpgradePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterUpgradePolicyArray) ToGetClusterUpgradePolicyArrayOutputWithContext(ctx context.Context) GetClusterUpgradePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterUpgradePolicyArrayOutput)
+}
+
+type GetClusterUpgradePolicyOutput struct{ *pulumi.OutputState }
+
+func (GetClusterUpgradePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o GetClusterUpgradePolicyOutput) ToGetClusterUpgradePolicyOutput() GetClusterUpgradePolicyOutput {
+	return o
+}
+
+func (o GetClusterUpgradePolicyOutput) ToGetClusterUpgradePolicyOutputWithContext(ctx context.Context) GetClusterUpgradePolicyOutput {
+	return o
+}
+
+// (Optional) Support type to use for the cluster.
+func (o GetClusterUpgradePolicyOutput) SupportType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterUpgradePolicy) string { return v.SupportType }).(pulumi.StringOutput)
+}
+
+type GetClusterUpgradePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterUpgradePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterUpgradePolicy)(nil)).Elem()
+}
+
+func (o GetClusterUpgradePolicyArrayOutput) ToGetClusterUpgradePolicyArrayOutput() GetClusterUpgradePolicyArrayOutput {
+	return o
+}
+
+func (o GetClusterUpgradePolicyArrayOutput) ToGetClusterUpgradePolicyArrayOutputWithContext(ctx context.Context) GetClusterUpgradePolicyArrayOutput {
+	return o
+}
+
+func (o GetClusterUpgradePolicyArrayOutput) Index(i pulumi.IntInput) GetClusterUpgradePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterUpgradePolicy {
+		return vs[0].([]GetClusterUpgradePolicy)[vs[1].(int)]
+	}).(GetClusterUpgradePolicyOutput)
 }
 
 type GetClusterVpcConfig struct {
@@ -4655,6 +4898,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementPtrInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyPtrInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorInput)(nil)).Elem(), FargateProfileSelectorArgs{})
@@ -4689,6 +4934,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigArrayInput)(nil)).Elem(), GetClusterOutpostConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementArrayInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyInput)(nil)).Elem(), GetClusterUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyArrayInput)(nil)).Elem(), GetClusterUpgradePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupLaunchTemplateInput)(nil)).Elem(), GetNodeGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupLaunchTemplateArrayInput)(nil)).Elem(), GetNodeGroupLaunchTemplateArray{})
@@ -4723,6 +4970,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
@@ -4757,6 +5006,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterOutpostConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterUpgradePolicyOutput{})
+	pulumi.RegisterOutputType(GetClusterUpgradePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupLaunchTemplateArrayOutput{})

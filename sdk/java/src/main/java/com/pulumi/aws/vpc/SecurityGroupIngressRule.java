@@ -21,10 +21,9 @@ import javax.annotation.Nullable;
  * 
  * When specifying an inbound rule for your security group in a VPC, the configuration must include a source for the traffic.
  * 
- * &gt; **NOTE on Security Groups and Security Group Rules:** this provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or
- * `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
- * The `aws.vpc.SecurityGroupIngressRule` resource has been added to address these limitations and should be used for all new security group rules.
- * You should not use the `aws.vpc.SecurityGroupIngressRule` resource in conjunction with an `aws.ec2.SecurityGroup` resource with in-line rules or with `aws.ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+ * &gt; **NOTE:** Using `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources is the current best practice. Avoid using the `aws.ec2.SecurityGroupRule` resource and the `ingress` and `egress` arguments of the `aws.ec2.SecurityGroup` resource for configuring in-line rules, as they struggle with managing multiple CIDR blocks, and tags and descriptions due to the historical lack of unique IDs.
+ * 
+ * !&gt; **WARNING:** You should not use the `aws.vpc.SecurityGroupEgressRule` and `aws.vpc.SecurityGroupIngressRule` resources in conjunction with the `aws.ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `aws.ec2.SecurityGroup`) or the `aws.ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
  * 
  * ## Example Usage
  * 
@@ -276,7 +275,7 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityGroupIngressRule(String name) {
+    public SecurityGroupIngressRule(java.lang.String name) {
         this(name, SecurityGroupIngressRuleArgs.Empty);
     }
     /**
@@ -284,7 +283,7 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityGroupIngressRule(String name, SecurityGroupIngressRuleArgs args) {
+    public SecurityGroupIngressRule(java.lang.String name, SecurityGroupIngressRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -293,15 +292,22 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityGroupIngressRule(String name, SecurityGroupIngressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, args == null ? SecurityGroupIngressRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityGroupIngressRule(java.lang.String name, SecurityGroupIngressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityGroupIngressRule(String name, Output<String> id, @Nullable SecurityGroupIngressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, state, makeResourceOptions(options, id));
+    private SecurityGroupIngressRule(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupIngressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityGroupIngressRuleArgs makeArgs(SecurityGroupIngressRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityGroupIngressRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -317,7 +323,7 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityGroupIngressRule get(String name, Output<String> id, @Nullable SecurityGroupIngressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityGroupIngressRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityGroupIngressRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityGroupIngressRule(name, id, state, options);
     }
 }

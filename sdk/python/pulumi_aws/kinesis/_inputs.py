@@ -139,6 +139,8 @@ __all__ = [
     'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgsDict',
     'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs',
     'FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs',
+    'FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgsDict',
     'FirehoseDeliveryStreamKinesisSourceConfigurationArgs',
     'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict',
     'FirehoseDeliveryStreamMskSourceConfigurationArgs',
@@ -197,6 +199,8 @@ __all__ = [
     'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgsDict',
     'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs',
     'FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict',
+    'FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs',
+    'FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgsDict',
     'FirehoseDeliveryStreamServerSideEncryptionArgs',
     'FirehoseDeliveryStreamServerSideEncryptionArgsDict',
     'FirehoseDeliveryStreamSnowflakeConfigurationArgs',
@@ -213,6 +217,8 @@ __all__ = [
     'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgsDict',
     'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs',
     'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict',
+    'FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs',
+    'FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgsDict',
     'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs',
     'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgsDict',
     'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs',
@@ -231,6 +237,8 @@ __all__ = [
     'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgsDict',
     'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs',
     'FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict',
+    'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs',
+    'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgsDict',
     'StreamStreamModeDetailsArgs',
     'StreamStreamModeDetailsArgsDict',
 ]
@@ -2778,11 +2786,17 @@ class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs:
 if not MYPY:
     class FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         custom_time_zone: NotRequired[pulumi.Input[str]]
         """
         The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
@@ -2796,12 +2810,22 @@ if not MYPY:
         The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
         """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         file_extension: NotRequired[pulumi.Input[str]]
         """
         The file extension to override the default file extension (for example, `.json`).
         """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         processing_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgsDict']]
         """
         The data processing configuration.  See `processing_configuration` block below for details.
@@ -2837,10 +2861,16 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
                  s3_backup_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
         :param pulumi.Input[str] custom_time_zone: The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs'] data_format_conversion_configuration: Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs'] dynamic_partitioning_configuration: The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         :param pulumi.Input[str] file_extension: The file extension to override the default file extension (for example, `.json`).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  See `processing_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
@@ -2879,6 +2909,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -2924,6 +2957,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -2969,6 +3005,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -2990,6 +3029,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -2999,6 +3042,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -4166,14 +4212,30 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
 if not MYPY:
     class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
 elif False:
     FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4189,6 +4251,14 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -4209,6 +4279,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -4254,6 +4327,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -4263,6 +4339,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -4272,6 +4351,10 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -4281,6 +4364,9 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -4410,6 +4496,10 @@ if not MYPY:
         """
         Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         """
+        secrets_manager_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgsDict']]
+        """
+        The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        """
 elif False:
     FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4427,7 +4517,8 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
                  request_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs']] = None,
                  retry_duration: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs']] = None):
         """
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See `s3_configuration` block below for details.
         :param pulumi.Input[str] url: The HTTP endpoint URL to which Kinesis Firehose sends your data.
@@ -4441,6 +4532,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
         :param pulumi.Input[int] retry_duration: Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
         :param pulumi.Input[str] role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs'] secrets_manager_configuration: The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "url", url)
@@ -4464,6 +4556,8 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
             pulumi.set(__self__, "role_arn", role_arn)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -4608,6 +4702,18 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs']]:
+        """
+        The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+        """
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
 
 
 if not MYPY:
@@ -5209,6 +5315,78 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLo
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_stream_name", value)
+
+
+if not MYPY:
+    class FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the role the stream assumes.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+elif False:
+    FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables the Secrets Manager configuration.
+        :param pulumi.Input[str] role_arn: The ARN of the role the stream assumes.
+        :param pulumi.Input[str] secret_arn: The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role the stream assumes.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 if not MYPY:
@@ -7120,10 +7298,6 @@ if not MYPY:
         """
         The name of the table in the redshift cluster that the s3 bucket will copy to.
         """
-        password: pulumi.Input[str]
-        """
-        The password for the username above.
-        """
         role_arn: pulumi.Input[str]
         """
         The arn of the role the stream assumes.
@@ -7131,10 +7305,6 @@ if not MYPY:
         s3_configuration: pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgsDict']
         """
         The S3 Configuration. See s3_configuration below for details.
-        """
-        username: pulumi.Input[str]
-        """
-        The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
         """
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgsDict']]
         """
@@ -7148,6 +7318,10 @@ if not MYPY:
         """
         The data table columns that will be targeted by the copy command.
         """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+        """
         processing_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgsDict']]
         """
         The data processing configuration.  See `processing_configuration` block below for details.
@@ -7159,10 +7333,16 @@ if not MYPY:
         s3_backup_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict']]
         """
         The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
         """
         s3_backup_mode: NotRequired[pulumi.Input[str]]
         """
         The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        """
+        secrets_manager_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgsDict']]
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
         """
 elif False:
     FirehoseDeliveryStreamRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -7172,44 +7352,46 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
     def __init__(__self__, *,
                  cluster_jdbcurl: pulumi.Input[str],
                  data_table_name: pulumi.Input[str],
-                 password: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs'],
-                 username: pulumi.Input[str],
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  copy_options: Optional[pulumi.Input[str]] = None,
                  data_table_columns: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs']] = None,
                  retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs']] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_jdbcurl: The jdbcurl of the redshift cluster.
         :param pulumi.Input[str] data_table_name: The name of the table in the redshift cluster that the s3 bucket will copy to.
-        :param pulumi.Input[str] password: The password for the username above.
         :param pulumi.Input[str] role_arn: The arn of the role the stream assumes.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See s3_configuration below for details.
-        :param pulumi.Input[str] username: The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] copy_options: Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
         :param pulumi.Input[str] data_table_columns: The data table columns that will be targeted by the copy command.
+        :param pulumi.Input[str] password: The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  See `processing_configuration` block below for details.
         :param pulumi.Input[int] retry_duration: The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs'] s3_backup_configuration: The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+               `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
         :param pulumi.Input[str] s3_backup_mode: The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        :param pulumi.Input[str] username: The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
         """
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
         pulumi.set(__self__, "data_table_name", data_table_name)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
-        pulumi.set(__self__, "username", username)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if copy_options is not None:
             pulumi.set(__self__, "copy_options", copy_options)
         if data_table_columns is not None:
             pulumi.set(__self__, "data_table_columns", data_table_columns)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_duration is not None:
@@ -7218,6 +7400,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
             pulumi.set(__self__, "s3_backup_configuration", s3_backup_configuration)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="clusterJdbcurl")
@@ -7244,18 +7430,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
         pulumi.set(self, "data_table_name", value)
 
     @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password for the username above.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
@@ -7278,18 +7452,6 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
     @s3_configuration.setter
     def s3_configuration(self, value: pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -7328,6 +7490,18 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
         pulumi.set(self, "data_table_columns", value)
 
     @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs']]:
         """
@@ -7356,6 +7530,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
     def s3_backup_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs']]:
         """
         The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
         """
         return pulumi.get(self, "s3_backup_configuration")
 
@@ -7374,6 +7549,27 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgs:
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 if not MYPY:
@@ -7610,14 +7806,30 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
 if not MYPY:
     class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        The ARN of the S3 bucket
+        """
         role_arn: pulumi.Input[str]
         buffering_interval: NotRequired[pulumi.Input[int]]
         buffering_size: NotRequired[pulumi.Input[int]]
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]
         compression_format: NotRequired[pulumi.Input[str]]
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         error_output_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
 elif False:
     FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7633,6 +7845,14 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: The ARN of the S3 bucket
+        :param pulumi.Input[str] compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        :param pulumi.Input[str] error_output_prefix: Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        :param pulumi.Input[str] kms_key_arn: Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+               be used.
+        :param pulumi.Input[str] prefix: The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_interval is not None:
@@ -7653,6 +7873,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the S3 bucket
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -7698,6 +7921,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="compressionFormat")
     def compression_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+        """
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
@@ -7707,6 +7933,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="errorOutputPrefix")
     def error_output_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+        """
         return pulumi.get(self, "error_output_prefix")
 
     @error_output_prefix.setter
@@ -7716,6 +7945,10 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+        be used.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -7725,6 +7958,9 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -8073,6 +8309,78 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggin
 
 
 if not MYPY:
+    class FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the role the stream assumes.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+elif False:
+    FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables the Secrets Manager configuration.
+        :param pulumi.Input[str] role_arn: The ARN of the role the stream assumes.
+        :param pulumi.Input[str] secret_arn: The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role the stream assumes.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+if not MYPY:
     class FirehoseDeliveryStreamServerSideEncryptionArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -8154,10 +8462,6 @@ if not MYPY:
         """
         The Snowflake database name.
         """
-        private_key: pulumi.Input[str]
-        """
-        The private key for authentication.
-        """
         role_arn: pulumi.Input[str]
         """
         The ARN of the IAM role.
@@ -8173,10 +8477,6 @@ if not MYPY:
         table: pulumi.Input[str]
         """
         The Snowflake table name.
-        """
-        user: pulumi.Input[str]
-        """
-        The user for authentication.
         """
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgsDict']]
         """
@@ -8198,6 +8498,10 @@ if not MYPY:
         """
         The name of the metadata column.
         """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        """
         processing_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgsDict']]
         """
         The processing configuration. See `processing_configuration` block below for details.
@@ -8210,6 +8514,10 @@ if not MYPY:
         """
         The S3 backup mode.
         """
+        secrets_manager_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgsDict']]
+        """
+        The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        """
         snowflake_role_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgsDict']]
         """
         The configuration for Snowflake role.
@@ -8217,6 +8525,10 @@ if not MYPY:
         snowflake_vpc_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgsDict']]
         """
         The VPC configuration for Snowflake.
+        """
+        user: NotRequired[pulumi.Input[str]]
+        """
+        The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
         """
 elif False:
     FirehoseDeliveryStreamSnowflakeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -8226,50 +8538,50 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
     def __init__(__self__, *,
                  account_url: pulumi.Input[str],
                  database: pulumi.Input[str],
-                 private_key: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs'],
                  schema: pulumi.Input[str],
                  table: pulumi.Input[str],
-                 user: pulumi.Input[str],
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  content_column_name: Optional[pulumi.Input[str]] = None,
                  data_loading_option: Optional[pulumi.Input[str]] = None,
                  key_passphrase: Optional[pulumi.Input[str]] = None,
                  metadata_column_name: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs']] = None,
                  retry_duration: Optional[pulumi.Input[int]] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs']] = None,
                  snowflake_role_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs']] = None,
-                 snowflake_vpc_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs']] = None):
+                 snowflake_vpc_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs']] = None,
+                 user: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] account_url: The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
         :param pulumi.Input[str] database: The Snowflake database name.
-        :param pulumi.Input[str] private_key: The private key for authentication.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs'] s3_configuration: The S3 configuration. See `s3_configuration` block below for details.
         :param pulumi.Input[str] schema: The Snowflake schema name.
         :param pulumi.Input[str] table: The Snowflake table name.
-        :param pulumi.Input[str] user: The user for authentication.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] content_column_name: The name of the content column.
         :param pulumi.Input[str] data_loading_option: The data loading option.
         :param pulumi.Input[str] key_passphrase: The passphrase for the private key.
         :param pulumi.Input[str] metadata_column_name: The name of the metadata column.
+        :param pulumi.Input[str] private_key: The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs'] processing_configuration: The processing configuration. See `processing_configuration` block below for details.
         :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: The S3 backup mode.
+        :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs'] secrets_manager_configuration: The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs'] snowflake_role_configuration: The configuration for Snowflake role.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs'] snowflake_vpc_configuration: The VPC configuration for Snowflake.
+        :param pulumi.Input[str] user: The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
         """
         pulumi.set(__self__, "account_url", account_url)
         pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "private_key", private_key)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "user", user)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if content_column_name is not None:
@@ -8280,16 +8592,22 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
             pulumi.set(__self__, "key_passphrase", key_passphrase)
         if metadata_column_name is not None:
             pulumi.set(__self__, "metadata_column_name", metadata_column_name)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_duration is not None:
             pulumi.set(__self__, "retry_duration", retry_duration)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
         if snowflake_role_configuration is not None:
             pulumi.set(__self__, "snowflake_role_configuration", snowflake_role_configuration)
         if snowflake_vpc_configuration is not None:
             pulumi.set(__self__, "snowflake_vpc_configuration", snowflake_vpc_configuration)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -8314,18 +8632,6 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
     @database.setter
     def database(self, value: pulumi.Input[str]):
         pulumi.set(self, "database", value)
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Input[str]:
-        """
-        The private key for authentication.
-        """
-        return pulumi.get(self, "private_key")
-
-    @private_key.setter
-    def private_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "private_key", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -8374,18 +8680,6 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
     @table.setter
     def table(self, value: pulumi.Input[str]):
         pulumi.set(self, "table", value)
-
-    @property
-    @pulumi.getter
-    def user(self) -> pulumi.Input[str]:
-        """
-        The user for authentication.
-        """
-        return pulumi.get(self, "user")
-
-    @user.setter
-    def user(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user", value)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -8448,6 +8742,18 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
         pulumi.set(self, "metadata_column_name", value)
 
     @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs']]:
         """
@@ -8484,6 +8790,18 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
         pulumi.set(self, "s3_backup_mode", value)
 
     @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs']]:
+        """
+        The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
+        """
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
+
+    @property
     @pulumi.getter(name="snowflakeRoleConfiguration")
     def snowflake_role_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs']]:
         """
@@ -8506,6 +8824,18 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
     @snowflake_vpc_configuration.setter
     def snowflake_vpc_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs']]):
         pulumi.set(self, "snowflake_vpc_configuration", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 if not MYPY:
@@ -9008,6 +9338,78 @@ class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggi
 
 
 if not MYPY:
+    class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the role the stream assumes.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+elif False:
+    FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables the Secrets Manager configuration.
+        :param pulumi.Input[str] role_arn: The ARN of the role the stream assumes.
+        :param pulumi.Input[str] secret_arn: The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role the stream assumes.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+if not MYPY:
     class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgsDict(TypedDict):
         enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -9096,10 +9498,6 @@ if not MYPY:
         """
         The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         """
-        hec_token: pulumi.Input[str]
-        """
-        The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        """
         s3_configuration: pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgsDict']
         """
         The S3 Configuration. See `s3_configuration` block below for details.
@@ -9124,6 +9522,10 @@ if not MYPY:
         """
         The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
         """
+        hec_token: NotRequired[pulumi.Input[str]]
+        """
+        The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+        """
         processing_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgsDict']]
         """
         The data processing configuration.  See `processing_configuration` block below for details.
@@ -9135,7 +9537,9 @@ if not MYPY:
         s3_backup_mode: NotRequired[pulumi.Input[str]]
         """
         Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
         """
+        secrets_manager_configuration: NotRequired[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgsDict']]
 elif False:
     FirehoseDeliveryStreamSplunkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9143,31 +9547,32 @@ elif False:
 class FirehoseDeliveryStreamSplunkConfigurationArgs:
     def __init__(__self__, *,
                  hec_endpoint: pulumi.Input[str],
-                 hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs'],
                  buffering_interval: Optional[pulumi.Input[int]] = None,
                  buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  hec_acknowledgment_timeout: Optional[pulumi.Input[int]] = None,
                  hec_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 hec_token: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs']] = None,
                  retry_duration: Optional[pulumi.Input[int]] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
-        :param pulumi.Input[str] hec_token: The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs'] s3_configuration: The S3 Configuration. See `s3_configuration` block below for details.
         :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
         :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[int] hec_acknowledgment_timeout: The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         :param pulumi.Input[str] hec_endpoint_type: The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+        :param pulumi.Input[str] hec_token: The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs'] processing_configuration: The data processing configuration.  See `processing_configuration` block below for details.
         :param pulumi.Input[int] retry_duration: After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
         :param pulumi.Input[str] s3_backup_mode: Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+               `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
         """
         pulumi.set(__self__, "hec_endpoint", hec_endpoint)
-        pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_interval is not None:
             pulumi.set(__self__, "buffering_interval", buffering_interval)
@@ -9179,12 +9584,16 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
             pulumi.set(__self__, "hec_acknowledgment_timeout", hec_acknowledgment_timeout)
         if hec_endpoint_type is not None:
             pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
+        if hec_token is not None:
+            pulumi.set(__self__, "hec_token", hec_token)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_duration is not None:
             pulumi.set(__self__, "retry_duration", retry_duration)
         if s3_backup_mode is not None:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if secrets_manager_configuration is not None:
+            pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
 
     @property
     @pulumi.getter(name="hecEndpoint")
@@ -9197,18 +9606,6 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
     @hec_endpoint.setter
     def hec_endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "hec_endpoint", value)
-
-    @property
-    @pulumi.getter(name="hecToken")
-    def hec_token(self) -> pulumi.Input[str]:
-        """
-        The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        """
-        return pulumi.get(self, "hec_token")
-
-    @hec_token.setter
-    def hec_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "hec_token", value)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -9283,6 +9680,18 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
         pulumi.set(self, "hec_endpoint_type", value)
 
     @property
+    @pulumi.getter(name="hecToken")
+    def hec_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
+        """
+        return pulumi.get(self, "hec_token")
+
+    @hec_token.setter
+    def hec_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hec_token", value)
+
+    @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs']]:
         """
@@ -9311,12 +9720,22 @@ class FirehoseDeliveryStreamSplunkConfigurationArgs:
     def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+        `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
         """
         return pulumi.get(self, "s3_backup_mode")
 
     @s3_backup_mode.setter
     def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs']]:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs']]):
+        pulumi.set(self, "secrets_manager_configuration", value)
 
 
 if not MYPY:
@@ -9816,6 +10235,78 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingO
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_stream_name", value)
+
+
+if not MYPY:
+    class FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the role the stream assumes.
+        """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+elif False:
+    FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Enables or disables the Secrets Manager configuration.
+        :param pulumi.Input[str] role_arn: The ARN of the role the stream assumes.
+        :param pulumi.Input[str] secret_arn: The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the Secrets Manager configuration.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role the stream assumes.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 if not MYPY:

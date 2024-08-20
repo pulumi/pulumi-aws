@@ -20,6 +20,11 @@ public final class GetEventBusResult {
      * 
      */
     private String id;
+    /**
+     * @return The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     * 
+     */
+    private String kmsKeyIdentifier;
     private String name;
 
     private GetEventBusResult() {}
@@ -37,6 +42,13 @@ public final class GetEventBusResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     * 
+     */
+    public String kmsKeyIdentifier() {
+        return this.kmsKeyIdentifier;
+    }
     public String name() {
         return this.name;
     }
@@ -52,12 +64,14 @@ public final class GetEventBusResult {
     public static final class Builder {
         private String arn;
         private String id;
+        private String kmsKeyIdentifier;
         private String name;
         public Builder() {}
         public Builder(GetEventBusResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
+    	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.name = defaults.name;
         }
 
@@ -78,6 +92,14 @@ public final class GetEventBusResult {
             return this;
         }
         @CustomType.Setter
+        public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
+            if (kmsKeyIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetEventBusResult", "kmsKeyIdentifier");
+            }
+            this.kmsKeyIdentifier = kmsKeyIdentifier;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetEventBusResult", "name");
@@ -89,6 +111,7 @@ public final class GetEventBusResult {
             final var _resultValue = new GetEventBusResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
+            _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.name = name;
             return _resultValue;
         }

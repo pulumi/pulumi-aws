@@ -15,6 +15,10 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
      * 
      */
     private String name;
+    /**
+     * @return The value of the custom header.
+     * 
+     */
     private String value;
 
     private RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader() {}
@@ -25,6 +29,10 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The value of the custom header.
+     * 
+     */
     public String value() {
         return this.value;
     }

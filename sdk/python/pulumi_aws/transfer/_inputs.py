@@ -218,13 +218,37 @@ class AccessPosixProfileArgs:
 if not MYPY:
     class ConnectorAs2ConfigArgsDict(TypedDict):
         compression: pulumi.Input[str]
+        """
+        Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        """
         encryption_algorithm: pulumi.Input[str]
+        """
+        The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        """
         local_profile_id: pulumi.Input[str]
+        """
+        The unique identifier for the AS2 local profile.
+        """
         mdn_response: pulumi.Input[str]
+        """
+        Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        """
         partner_profile_id: pulumi.Input[str]
+        """
+        The unique identifier for the AS2 partner profile.
+        """
         signing_algorithm: pulumi.Input[str]
+        """
+        The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        """
         mdn_signing_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        """
         message_subject: NotRequired[pulumi.Input[str]]
+        """
+        Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        """
 elif False:
     ConnectorAs2ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -239,6 +263,16 @@ class ConnectorAs2ConfigArgs:
                  signing_algorithm: pulumi.Input[str],
                  mdn_signing_algorithm: Optional[pulumi.Input[str]] = None,
                  message_subject: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] compression: Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        :param pulumi.Input[str] encryption_algorithm: The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        :param pulumi.Input[str] local_profile_id: The unique identifier for the AS2 local profile.
+        :param pulumi.Input[str] mdn_response: Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        :param pulumi.Input[str] partner_profile_id: The unique identifier for the AS2 partner profile.
+        :param pulumi.Input[str] signing_algorithm: The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        :param pulumi.Input[str] mdn_signing_algorithm: The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        :param pulumi.Input[str] message_subject: Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        """
         pulumi.set(__self__, "compression", compression)
         pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
         pulumi.set(__self__, "local_profile_id", local_profile_id)
@@ -253,6 +287,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter
     def compression(self) -> pulumi.Input[str]:
+        """
+        Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+        """
         return pulumi.get(self, "compression")
 
     @compression.setter
@@ -262,6 +299,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="encryptionAlgorithm")
     def encryption_algorithm(self) -> pulumi.Input[str]:
+        """
+        The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+        """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
@@ -271,6 +311,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="localProfileId")
     def local_profile_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the AS2 local profile.
+        """
         return pulumi.get(self, "local_profile_id")
 
     @local_profile_id.setter
@@ -280,6 +323,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="mdnResponse")
     def mdn_response(self) -> pulumi.Input[str]:
+        """
+        Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+        """
         return pulumi.get(self, "mdn_response")
 
     @mdn_response.setter
@@ -289,6 +335,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="partnerProfileId")
     def partner_profile_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier for the AS2 partner profile.
+        """
         return pulumi.get(self, "partner_profile_id")
 
     @partner_profile_id.setter
@@ -298,6 +347,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Input[str]:
+        """
+        The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+        """
         return pulumi.get(self, "signing_algorithm")
 
     @signing_algorithm.setter
@@ -307,6 +359,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="mdnSigningAlgorithm")
     def mdn_signing_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+        """
         return pulumi.get(self, "mdn_signing_algorithm")
 
     @mdn_signing_algorithm.setter
@@ -316,6 +371,9 @@ class ConnectorAs2ConfigArgs:
     @property
     @pulumi.getter(name="messageSubject")
     def message_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+        """
         return pulumi.get(self, "message_subject")
 
     @message_subject.setter
@@ -326,7 +384,13 @@ class ConnectorAs2ConfigArgs:
 if not MYPY:
     class ConnectorSftpConfigArgsDict(TypedDict):
         trusted_host_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+        """
         user_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        """
 elif False:
     ConnectorSftpConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -335,6 +399,10 @@ class ConnectorSftpConfigArgs:
     def __init__(__self__, *,
                  trusted_host_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_secret_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_host_keys: A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+        :param pulumi.Input[str] user_secret_id: The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        """
         if trusted_host_keys is not None:
             pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
@@ -343,6 +411,9 @@ class ConnectorSftpConfigArgs:
     @property
     @pulumi.getter(name="trustedHostKeys")
     def trusted_host_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+        """
         return pulumi.get(self, "trusted_host_keys")
 
     @trusted_host_keys.setter
@@ -352,6 +423,9 @@ class ConnectorSftpConfigArgs:
     @property
     @pulumi.getter(name="userSecretId")
     def user_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        """
         return pulumi.get(self, "user_secret_id")
 
     @user_secret_id.setter
@@ -605,11 +679,11 @@ if not MYPY:
     class ServerWorkflowDetailsArgsDict(TypedDict):
         on_partial_upload: NotRequired[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgsDict']]
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         """
         on_upload: NotRequired[pulumi.Input['ServerWorkflowDetailsOnUploadArgsDict']]
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
 elif False:
     ServerWorkflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -620,8 +694,8 @@ class ServerWorkflowDetailsArgs:
                  on_partial_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']] = None,
                  on_upload: Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']] = None):
         """
-        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
-        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs'] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
+        :param pulumi.Input['ServerWorkflowDetailsOnUploadArgs'] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -632,7 +706,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onPartialUpload")
     def on_partial_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnPartialUploadArgs']]:
         """
-        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` block below for details.
+        A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         """
         return pulumi.get(self, "on_partial_upload")
 
@@ -644,7 +718,7 @@ class ServerWorkflowDetailsArgs:
     @pulumi.getter(name="onUpload")
     def on_upload(self) -> Optional[pulumi.Input['ServerWorkflowDetailsOnUploadArgs']]:
         """
-        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` block below for details.
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         """
         return pulumi.get(self, "on_upload")
 
@@ -904,10 +978,25 @@ if not MYPY:
     class WorkflowOnExceptionStepArgsDict(TypedDict):
         type: pulumi.Input[str]
         copy_step_details: NotRequired[pulumi.Input['WorkflowOnExceptionStepCopyStepDetailsArgsDict']]
+        """
+        Details for a step that performs a file copy. See Copy Step Details below.
+        """
         custom_step_details: NotRequired[pulumi.Input['WorkflowOnExceptionStepCustomStepDetailsArgsDict']]
+        """
+        Details for a step that invokes a lambda function.
+        """
         decrypt_step_details: NotRequired[pulumi.Input['WorkflowOnExceptionStepDecryptStepDetailsArgsDict']]
+        """
+        Details for a step that decrypts the file.
+        """
         delete_step_details: NotRequired[pulumi.Input['WorkflowOnExceptionStepDeleteStepDetailsArgsDict']]
+        """
+        Details for a step that deletes the file.
+        """
         tag_step_details: NotRequired[pulumi.Input['WorkflowOnExceptionStepTagStepDetailsArgsDict']]
+        """
+        Details for a step that creates one or more tags.
+        """
 elif False:
     WorkflowOnExceptionStepArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -920,6 +1009,13 @@ class WorkflowOnExceptionStepArgs:
                  decrypt_step_details: Optional[pulumi.Input['WorkflowOnExceptionStepDecryptStepDetailsArgs']] = None,
                  delete_step_details: Optional[pulumi.Input['WorkflowOnExceptionStepDeleteStepDetailsArgs']] = None,
                  tag_step_details: Optional[pulumi.Input['WorkflowOnExceptionStepTagStepDetailsArgs']] = None):
+        """
+        :param pulumi.Input['WorkflowOnExceptionStepCopyStepDetailsArgs'] copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
+        :param pulumi.Input['WorkflowOnExceptionStepCustomStepDetailsArgs'] custom_step_details: Details for a step that invokes a lambda function.
+        :param pulumi.Input['WorkflowOnExceptionStepDecryptStepDetailsArgs'] decrypt_step_details: Details for a step that decrypts the file.
+        :param pulumi.Input['WorkflowOnExceptionStepDeleteStepDetailsArgs'] delete_step_details: Details for a step that deletes the file.
+        :param pulumi.Input['WorkflowOnExceptionStepTagStepDetailsArgs'] tag_step_details: Details for a step that creates one or more tags.
+        """
         pulumi.set(__self__, "type", type)
         if copy_step_details is not None:
             pulumi.set(__self__, "copy_step_details", copy_step_details)
@@ -944,6 +1040,9 @@ class WorkflowOnExceptionStepArgs:
     @property
     @pulumi.getter(name="copyStepDetails")
     def copy_step_details(self) -> Optional[pulumi.Input['WorkflowOnExceptionStepCopyStepDetailsArgs']]:
+        """
+        Details for a step that performs a file copy. See Copy Step Details below.
+        """
         return pulumi.get(self, "copy_step_details")
 
     @copy_step_details.setter
@@ -953,6 +1052,9 @@ class WorkflowOnExceptionStepArgs:
     @property
     @pulumi.getter(name="customStepDetails")
     def custom_step_details(self) -> Optional[pulumi.Input['WorkflowOnExceptionStepCustomStepDetailsArgs']]:
+        """
+        Details for a step that invokes a lambda function.
+        """
         return pulumi.get(self, "custom_step_details")
 
     @custom_step_details.setter
@@ -962,6 +1064,9 @@ class WorkflowOnExceptionStepArgs:
     @property
     @pulumi.getter(name="decryptStepDetails")
     def decrypt_step_details(self) -> Optional[pulumi.Input['WorkflowOnExceptionStepDecryptStepDetailsArgs']]:
+        """
+        Details for a step that decrypts the file.
+        """
         return pulumi.get(self, "decrypt_step_details")
 
     @decrypt_step_details.setter
@@ -971,6 +1076,9 @@ class WorkflowOnExceptionStepArgs:
     @property
     @pulumi.getter(name="deleteStepDetails")
     def delete_step_details(self) -> Optional[pulumi.Input['WorkflowOnExceptionStepDeleteStepDetailsArgs']]:
+        """
+        Details for a step that deletes the file.
+        """
         return pulumi.get(self, "delete_step_details")
 
     @delete_step_details.setter
@@ -980,6 +1088,9 @@ class WorkflowOnExceptionStepArgs:
     @property
     @pulumi.getter(name="tagStepDetails")
     def tag_step_details(self) -> Optional[pulumi.Input['WorkflowOnExceptionStepTagStepDetailsArgs']]:
+        """
+        Details for a step that creates one or more tags.
+        """
         return pulumi.get(self, "tag_step_details")
 
     @tag_step_details.setter
@@ -1722,6 +1833,9 @@ if not MYPY:
     class WorkflowOnExceptionStepTagStepDetailsTagArgsDict(TypedDict):
         key: pulumi.Input[str]
         value: pulumi.Input[str]
+        """
+        The value that corresponds to the key.
+        """
 elif False:
     WorkflowOnExceptionStepTagStepDetailsTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1730,6 +1844,9 @@ class WorkflowOnExceptionStepTagStepDetailsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] value: The value that corresponds to the key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -1745,6 +1862,9 @@ class WorkflowOnExceptionStepTagStepDetailsTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value that corresponds to the key.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1756,10 +1876,25 @@ if not MYPY:
     class WorkflowStepArgsDict(TypedDict):
         type: pulumi.Input[str]
         copy_step_details: NotRequired[pulumi.Input['WorkflowStepCopyStepDetailsArgsDict']]
+        """
+        Details for a step that performs a file copy. See Copy Step Details below.
+        """
         custom_step_details: NotRequired[pulumi.Input['WorkflowStepCustomStepDetailsArgsDict']]
+        """
+        Details for a step that invokes a lambda function.
+        """
         decrypt_step_details: NotRequired[pulumi.Input['WorkflowStepDecryptStepDetailsArgsDict']]
+        """
+        Details for a step that decrypts the file.
+        """
         delete_step_details: NotRequired[pulumi.Input['WorkflowStepDeleteStepDetailsArgsDict']]
+        """
+        Details for a step that deletes the file.
+        """
         tag_step_details: NotRequired[pulumi.Input['WorkflowStepTagStepDetailsArgsDict']]
+        """
+        Details for a step that creates one or more tags.
+        """
 elif False:
     WorkflowStepArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1772,6 +1907,13 @@ class WorkflowStepArgs:
                  decrypt_step_details: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsArgs']] = None,
                  delete_step_details: Optional[pulumi.Input['WorkflowStepDeleteStepDetailsArgs']] = None,
                  tag_step_details: Optional[pulumi.Input['WorkflowStepTagStepDetailsArgs']] = None):
+        """
+        :param pulumi.Input['WorkflowStepCopyStepDetailsArgs'] copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
+        :param pulumi.Input['WorkflowStepCustomStepDetailsArgs'] custom_step_details: Details for a step that invokes a lambda function.
+        :param pulumi.Input['WorkflowStepDecryptStepDetailsArgs'] decrypt_step_details: Details for a step that decrypts the file.
+        :param pulumi.Input['WorkflowStepDeleteStepDetailsArgs'] delete_step_details: Details for a step that deletes the file.
+        :param pulumi.Input['WorkflowStepTagStepDetailsArgs'] tag_step_details: Details for a step that creates one or more tags.
+        """
         pulumi.set(__self__, "type", type)
         if copy_step_details is not None:
             pulumi.set(__self__, "copy_step_details", copy_step_details)
@@ -1796,6 +1938,9 @@ class WorkflowStepArgs:
     @property
     @pulumi.getter(name="copyStepDetails")
     def copy_step_details(self) -> Optional[pulumi.Input['WorkflowStepCopyStepDetailsArgs']]:
+        """
+        Details for a step that performs a file copy. See Copy Step Details below.
+        """
         return pulumi.get(self, "copy_step_details")
 
     @copy_step_details.setter
@@ -1805,6 +1950,9 @@ class WorkflowStepArgs:
     @property
     @pulumi.getter(name="customStepDetails")
     def custom_step_details(self) -> Optional[pulumi.Input['WorkflowStepCustomStepDetailsArgs']]:
+        """
+        Details for a step that invokes a lambda function.
+        """
         return pulumi.get(self, "custom_step_details")
 
     @custom_step_details.setter
@@ -1814,6 +1962,9 @@ class WorkflowStepArgs:
     @property
     @pulumi.getter(name="decryptStepDetails")
     def decrypt_step_details(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsArgs']]:
+        """
+        Details for a step that decrypts the file.
+        """
         return pulumi.get(self, "decrypt_step_details")
 
     @decrypt_step_details.setter
@@ -1823,6 +1974,9 @@ class WorkflowStepArgs:
     @property
     @pulumi.getter(name="deleteStepDetails")
     def delete_step_details(self) -> Optional[pulumi.Input['WorkflowStepDeleteStepDetailsArgs']]:
+        """
+        Details for a step that deletes the file.
+        """
         return pulumi.get(self, "delete_step_details")
 
     @delete_step_details.setter
@@ -1832,6 +1986,9 @@ class WorkflowStepArgs:
     @property
     @pulumi.getter(name="tagStepDetails")
     def tag_step_details(self) -> Optional[pulumi.Input['WorkflowStepTagStepDetailsArgs']]:
+        """
+        Details for a step that creates one or more tags.
+        """
         return pulumi.get(self, "tag_step_details")
 
     @tag_step_details.setter
@@ -2574,6 +2731,9 @@ if not MYPY:
     class WorkflowStepTagStepDetailsTagArgsDict(TypedDict):
         key: pulumi.Input[str]
         value: pulumi.Input[str]
+        """
+        The value that corresponds to the key.
+        """
 elif False:
     WorkflowStepTagStepDetailsTagArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2582,6 +2742,9 @@ class WorkflowStepTagStepDetailsTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] value: The value that corresponds to the key.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -2597,6 +2760,9 @@ class WorkflowStepTagStepDetailsTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value that corresponds to the key.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -19,14 +19,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionArgs Empty = new ConnectionArgs();
 
     /**
-     * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+     * @return ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -34,14 +34,18 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of key-value pairs used as parameters for this connection.
+     * Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+     * 
+     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     @Import(name="connectionProperties")
     private @Nullable Output<Map<String,String>> connectionProperties;
 
     /**
-     * @return A map of key-value pairs used as parameters for this connection.
+     * @return Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+     * 
+     * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
     public Optional<Output<Map<String,String>>> connectionProperties() {
@@ -49,14 +53,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+     * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     @Import(name="connectionType")
     private @Nullable Output<String> connectionType;
 
     /**
-     * @return The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+     * @return Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
     public Optional<Output<String>> connectionType() {
@@ -79,14 +83,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of criteria that can be used in selecting this connection.
+     * List of criteria that can be used in selecting this connection.
      * 
      */
     @Import(name="matchCriterias")
     private @Nullable Output<List<String>> matchCriterias;
 
     /**
-     * @return A list of criteria that can be used in selecting this connection.
+     * @return List of criteria that can be used in selecting this connection.
      * 
      */
     public Optional<Output<List<String>>> matchCriterias() {
@@ -94,14 +98,18 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the connection.
+     * Name of the connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the connection.
+     * @return Name of the connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +117,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
     @Import(name="physicalConnectionRequirements")
     private @Nullable Output<ConnectionPhysicalConnectionRequirementsArgs> physicalConnectionRequirements;
 
     /**
-     * @return A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
     public Optional<Output<ConnectionPhysicalConnectionRequirementsArgs>> physicalConnectionRequirements() {
@@ -170,7 +178,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+         * @param catalogId ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -181,7 +189,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalogId The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+         * @param catalogId ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
          * 
          * @return builder
          * 
@@ -191,7 +199,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionProperties A map of key-value pairs used as parameters for this connection.
+         * @param connectionProperties Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+         * 
+         * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
          * 
          * @return builder
          * 
@@ -202,7 +212,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionProperties A map of key-value pairs used as parameters for this connection.
+         * @param connectionProperties Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+         * 
+         * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
          * 
          * @return builder
          * 
@@ -212,7 +224,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 
@@ -223,7 +235,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectionType The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+         * @param connectionType Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
          * 
          * @return builder
          * 
@@ -254,7 +266,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param matchCriterias A list of criteria that can be used in selecting this connection.
+         * @param matchCriterias List of criteria that can be used in selecting this connection.
          * 
          * @return builder
          * 
@@ -265,7 +277,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param matchCriterias A list of criteria that can be used in selecting this connection.
+         * @param matchCriterias List of criteria that can be used in selecting this connection.
          * 
          * @return builder
          * 
@@ -275,7 +287,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param matchCriterias A list of criteria that can be used in selecting this connection.
+         * @param matchCriterias List of criteria that can be used in selecting this connection.
          * 
          * @return builder
          * 
@@ -285,7 +297,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the connection.
+         * @param name Name of the connection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -296,7 +310,9 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the connection.
+         * @param name Name of the connection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -306,7 +322,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalConnectionRequirements A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
          * 
          * @return builder
          * 
@@ -317,7 +333,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalConnectionRequirements A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+         * @param physicalConnectionRequirements Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
          * 
          * @return builder
          * 

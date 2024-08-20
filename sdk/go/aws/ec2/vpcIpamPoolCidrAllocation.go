@@ -157,7 +157,7 @@ type VpcIpamPoolCidrAllocation struct {
 	// The ID of the pool to which you want to assign a CIDR.
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	NetmaskLength pulumi.IntOutput `pulumi:"netmaskLength"`
 	// The ID of the resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The owner of the resource.
@@ -381,8 +381,8 @@ func (o VpcIpamPoolCidrAllocationOutput) IpamPoolId() pulumi.StringOutput {
 }
 
 // The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntOutput { return v.NetmaskLength }).(pulumi.IntOutput)
 }
 
 // The ID of the resource.

@@ -51,14 +51,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
      * 
      */
     @Import(name="nfsExports")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs> nfsExports;
 
     /**
-     * @return NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+     * @return NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs>> nfsExports() {
@@ -96,14 +96,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
      * 
      */
     @Import(name="userAndGroupQuotas")
     private @Nullable Output<List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>> userAndGroupQuotas;
 
     /**
-     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+     * @return Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
      * 
      */
     public Optional<Output<List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs>>> userAndGroupQuotas() {
@@ -182,7 +182,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * @param nfsExports NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * @param userAndGroupQuotas Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
          * 
          * @return builder
          * 

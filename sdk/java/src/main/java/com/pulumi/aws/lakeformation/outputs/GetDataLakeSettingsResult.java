@@ -27,6 +27,11 @@ public final class GetDataLakeSettingsResult {
      */
     private Boolean allowExternalDataFiltering;
     /**
+     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+     * 
+     */
+    private Boolean allowFullTableExternalDataAccess;
+    /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
      */
@@ -77,6 +82,13 @@ public final class GetDataLakeSettingsResult {
      */
     public Boolean allowExternalDataFiltering() {
         return this.allowExternalDataFiltering;
+    }
+    /**
+     * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+     * 
+     */
+    public Boolean allowFullTableExternalDataAccess() {
+        return this.allowFullTableExternalDataAccess;
     }
     /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
@@ -142,6 +154,7 @@ public final class GetDataLakeSettingsResult {
     public static final class Builder {
         private List<String> admins;
         private Boolean allowExternalDataFiltering;
+        private Boolean allowFullTableExternalDataAccess;
         private List<String> authorizedSessionTagValueLists;
         private @Nullable String catalogId;
         private List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
@@ -155,6 +168,7 @@ public final class GetDataLakeSettingsResult {
     	      Objects.requireNonNull(defaults);
     	      this.admins = defaults.admins;
     	      this.allowExternalDataFiltering = defaults.allowExternalDataFiltering;
+    	      this.allowFullTableExternalDataAccess = defaults.allowFullTableExternalDataAccess;
     	      this.authorizedSessionTagValueLists = defaults.authorizedSessionTagValueLists;
     	      this.catalogId = defaults.catalogId;
     	      this.createDatabaseDefaultPermissions = defaults.createDatabaseDefaultPermissions;
@@ -182,6 +196,14 @@ public final class GetDataLakeSettingsResult {
               throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "allowExternalDataFiltering");
             }
             this.allowExternalDataFiltering = allowExternalDataFiltering;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder allowFullTableExternalDataAccess(Boolean allowFullTableExternalDataAccess) {
+            if (allowFullTableExternalDataAccess == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "allowFullTableExternalDataAccess");
+            }
+            this.allowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
             return this;
         }
         @CustomType.Setter
@@ -268,6 +290,7 @@ public final class GetDataLakeSettingsResult {
             final var _resultValue = new GetDataLakeSettingsResult();
             _resultValue.admins = admins;
             _resultValue.allowExternalDataFiltering = allowExternalDataFiltering;
+            _resultValue.allowFullTableExternalDataAccess = allowFullTableExternalDataAccess;
             _resultValue.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
             _resultValue.catalogId = catalogId;
             _resultValue.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;

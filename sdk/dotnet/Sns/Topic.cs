@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Sns
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
         [Output("fifoTopic")]
         public Output<bool?> FifoTopic { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
         [Input("fifoTopic")]
         public Input<bool>? FifoTopic { get; set; }
@@ -583,7 +583,7 @@ namespace Pulumi.Aws.Sns
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        /// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
         /// </summary>
         [Input("fifoTopic")]
         public Input<bool>? FifoTopic { get; set; }

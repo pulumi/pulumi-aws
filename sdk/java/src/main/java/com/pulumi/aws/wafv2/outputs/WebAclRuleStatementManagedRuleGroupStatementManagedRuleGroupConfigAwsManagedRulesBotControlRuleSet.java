@@ -5,11 +5,19 @@ package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
+    /**
+     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean enableMachineLearning;
     /**
      * @return The inspection level to use for the Bot Control rule group.
      * 
@@ -17,6 +25,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private String inspectionLevel;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet() {}
+    /**
+     * @return Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> enableMachineLearning() {
+        return Optional.ofNullable(this.enableMachineLearning);
+    }
     /**
      * @return The inspection level to use for the Bot Control rule group.
      * 
@@ -34,13 +49,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean enableMachineLearning;
         private String inspectionLevel;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enableMachineLearning = defaults.enableMachineLearning;
     	      this.inspectionLevel = defaults.inspectionLevel;
         }
 
+        @CustomType.Setter
+        public Builder enableMachineLearning(@Nullable Boolean enableMachineLearning) {
+
+            this.enableMachineLearning = enableMachineLearning;
+            return this;
+        }
         @CustomType.Setter
         public Builder inspectionLevel(String inspectionLevel) {
             if (inspectionLevel == null) {
@@ -51,6 +74,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet build() {
             final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet();
+            _resultValue.enableMachineLearning = enableMachineLearning;
             _resultValue.inspectionLevel = inspectionLevel;
             return _resultValue;
         }

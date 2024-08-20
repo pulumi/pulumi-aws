@@ -730,7 +730,7 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CoreNetwork(String name) {
+    public CoreNetwork(java.lang.String name) {
         this(name, CoreNetworkArgs.Empty);
     }
     /**
@@ -738,7 +738,7 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CoreNetwork(String name, CoreNetworkArgs args) {
+    public CoreNetwork(java.lang.String name, CoreNetworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -747,15 +747,22 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CoreNetwork(String name, CoreNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/coreNetwork:CoreNetwork", name, args == null ? CoreNetworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public CoreNetwork(java.lang.String name, CoreNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/coreNetwork:CoreNetwork", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CoreNetwork(String name, Output<String> id, @Nullable CoreNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/coreNetwork:CoreNetwork", name, state, makeResourceOptions(options, id));
+    private CoreNetwork(java.lang.String name, Output<java.lang.String> id, @Nullable CoreNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/coreNetwork:CoreNetwork", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static CoreNetworkArgs makeArgs(CoreNetworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CoreNetworkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -771,7 +778,7 @@ public class CoreNetwork extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CoreNetwork get(String name, Output<String> id, @Nullable CoreNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CoreNetwork get(java.lang.String name, Output<java.lang.String> id, @Nullable CoreNetworkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CoreNetwork(name, id, state, options);
     }
 }

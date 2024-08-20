@@ -27,6 +27,7 @@ export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cur/getReportDefinition:getReportDefinition", {
         "reportName": args.reportName,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetReportDefinitionArgs {
      * Name of the report definition to match.
      */
     reportName: string;
+    /**
+     * Map of key-value pairs assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -86,6 +91,10 @@ export interface GetReportDefinitionResult {
      */
     readonly s3Region: string;
     /**
+     * Map of key-value pairs assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * Frequency on which report data are measured and displayed.
      */
     readonly timeUnit: string;
@@ -120,4 +129,8 @@ export interface GetReportDefinitionOutputArgs {
      * Name of the report definition to match.
      */
     reportName: pulumi.Input<string>;
+    /**
+     * Map of key-value pairs assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

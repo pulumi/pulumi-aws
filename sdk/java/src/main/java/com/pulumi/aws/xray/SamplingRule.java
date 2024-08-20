@@ -296,7 +296,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SamplingRule(String name) {
+    public SamplingRule(java.lang.String name) {
         this(name, SamplingRuleArgs.Empty);
     }
     /**
@@ -304,7 +304,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SamplingRule(String name, SamplingRuleArgs args) {
+    public SamplingRule(java.lang.String name, SamplingRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -313,15 +313,22 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SamplingRule(String name, SamplingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:xray/samplingRule:SamplingRule", name, args == null ? SamplingRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SamplingRule(java.lang.String name, SamplingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:xray/samplingRule:SamplingRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SamplingRule(String name, Output<String> id, @Nullable SamplingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:xray/samplingRule:SamplingRule", name, state, makeResourceOptions(options, id));
+    private SamplingRule(java.lang.String name, Output<java.lang.String> id, @Nullable SamplingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:xray/samplingRule:SamplingRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SamplingRuleArgs makeArgs(SamplingRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SamplingRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -337,7 +344,7 @@ public class SamplingRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SamplingRule get(String name, Output<String> id, @Nullable SamplingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SamplingRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SamplingRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SamplingRule(name, id, state, options);
     }
 }

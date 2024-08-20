@@ -263,7 +263,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }
@@ -304,7 +304,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }
@@ -345,7 +345,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }
@@ -386,7 +386,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }
@@ -427,7 +427,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }
@@ -468,7 +468,7 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var current = IamFunctions.getAccountAlias();
      * 
-     *         ctx.export("accountId", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
+     *         ctx.export("accountAlias", current.applyValue(getAccountAliasResult -> getAccountAliasResult.accountAlias()));
      *     }
      * }
      * }

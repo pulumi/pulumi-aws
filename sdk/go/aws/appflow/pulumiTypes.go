@@ -670,7 +670,8 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude struct {
-	ApiKey    string `pulumi:"apiKey"`
+	ApiKey string `pulumi:"apiKey"`
+	// The Secret Access Key portion of the credentials.
 	SecretKey string `pulumi:"secretKey"`
 }
 
@@ -686,7 +687,8 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs struct {
-	ApiKey    pulumi.StringInput `pulumi:"apiKey"`
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
+	// The Secret Access Key portion of the credentials.
 	SecretKey pulumi.StringInput `pulumi:"secretKey"`
 }
 
@@ -773,6 +775,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	}).(pulumi.StringOutput)
 }
 
+// The Secret Access Key portion of the credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput) SecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude) string {
 		return v.SecretKey
@@ -812,6 +815,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Secret Access Key portion of the credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude) *string {
 		if v == nil {
@@ -822,11 +826,15 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector struct {
-	ApiKey             *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey `pulumi:"apiKey"`
-	AuthenticationType string                                                                                  `pulumi:"authenticationType"`
-	Basic              *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic  `pulumi:"basic"`
-	Custom             *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom `pulumi:"custom"`
-	Oauth2             *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 `pulumi:"oauth2"`
+	ApiKey *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey `pulumi:"apiKey"`
+	// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Basic credentials that are required for the authentication of the user.
+	Basic *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic `pulumi:"basic"`
+	// If the connector uses the custom authentication mechanism, this holds the required credentials.
+	Custom *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom `pulumi:"custom"`
+	// OAuth 2.0 credentials required for the authentication of the user.
+	Oauth2 *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 `pulumi:"oauth2"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput values.
@@ -841,11 +849,15 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs struct {
-	ApiKey             ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput `pulumi:"apiKey"`
-	AuthenticationType pulumi.StringInput                                                                             `pulumi:"authenticationType"`
-	Basic              ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput  `pulumi:"basic"`
-	Custom             ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput `pulumi:"custom"`
-	Oauth2             ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput `pulumi:"oauth2"`
+	ApiKey ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrInput `pulumi:"apiKey"`
+	// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Basic credentials that are required for the authentication of the user.
+	Basic ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrInput `pulumi:"basic"`
+	// If the connector uses the custom authentication mechanism, this holds the required credentials.
+	Custom ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrInput `pulumi:"custom"`
+	// OAuth 2.0 credentials required for the authentication of the user.
+	Oauth2 ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrInput `pulumi:"oauth2"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs) ElementType() reflect.Type {
@@ -931,24 +943,28 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput)
 }
 
+// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) string {
 		return v.AuthenticationType
 	}).(pulumi.StringOutput)
 }
 
+// Basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) Basic() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
 		return v.Basic
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput)
 }
 
+// If the connector uses the custom authentication mechanism, this holds the required credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) Custom() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
 		return v.Custom
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
+// OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) Oauth2() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 		return v.Oauth2
@@ -988,6 +1004,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput)
 }
 
+// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *string {
 		if v == nil {
@@ -997,6 +1014,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Basic() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
 		if v == nil {
@@ -1006,6 +1024,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput)
 }
 
+// If the connector uses the custom authentication mechanism, this holds the required credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Custom() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
 		if v == nil {
@@ -1015,6 +1034,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
+// OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Oauth2() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 		if v == nil {
@@ -1329,8 +1349,10 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom struct {
-	CredentialsMap           map[string]string `pulumi:"credentialsMap"`
-	CustomAuthenticationType string            `pulumi:"customAuthenticationType"`
+	// A map that holds custom authentication credentials.
+	CredentialsMap map[string]string `pulumi:"credentialsMap"`
+	// The custom authentication type that the connector uses.
+	CustomAuthenticationType string `pulumi:"customAuthenticationType"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput values.
@@ -1345,8 +1367,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs struct {
-	CredentialsMap           pulumi.StringMapInput `pulumi:"credentialsMap"`
-	CustomAuthenticationType pulumi.StringInput    `pulumi:"customAuthenticationType"`
+	// A map that holds custom authentication credentials.
+	CredentialsMap pulumi.StringMapInput `pulumi:"credentialsMap"`
+	// The custom authentication type that the connector uses.
+	CustomAuthenticationType pulumi.StringInput `pulumi:"customAuthenticationType"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs) ElementType() reflect.Type {
@@ -1426,12 +1450,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
+// A map that holds custom authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput) CredentialsMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom) map[string]string {
 		return v.CredentialsMap
 	}).(pulumi.StringMapOutput)
 }
 
+// The custom authentication type that the connector uses.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput) CustomAuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom) string {
 		return v.CustomAuthenticationType
@@ -1462,6 +1488,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput)
 }
 
+// A map that holds custom authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput) CredentialsMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom) map[string]string {
 		if v == nil {
@@ -1471,6 +1498,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	}).(pulumi.StringMapOutput)
 }
 
+// The custom authentication type that the connector uses.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput) CustomAuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom) *string {
 		if v == nil {
@@ -1844,7 +1872,8 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog struct {
-	ApiKey         string `pulumi:"apiKey"`
+	ApiKey string `pulumi:"apiKey"`
+	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey string `pulumi:"applicationKey"`
 }
 
@@ -1860,7 +1889,8 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs struct {
-	ApiKey         pulumi.StringInput `pulumi:"apiKey"`
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
+	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey pulumi.StringInput `pulumi:"applicationKey"`
 }
 
@@ -1947,6 +1977,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	}).(pulumi.StringOutput)
 }
 
+// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput) ApplicationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog) string {
 		return v.ApplicationKey
@@ -1986,6 +2017,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	}).(pulumi.StringPtrOutput)
 }
 
+// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput) ApplicationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog) *string {
 		if v == nil {
@@ -1996,6 +2028,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace struct {
+	// The API tokens used by Dynatrace API to authenticate various API calls.
 	ApiToken string `pulumi:"apiToken"`
 }
 
@@ -2011,6 +2044,7 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs struct {
+	// The API tokens used by Dynatrace API to authenticate various API calls.
 	ApiToken pulumi.StringInput `pulumi:"apiToken"`
 }
 
@@ -2091,6 +2125,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput)
 }
 
+// The API tokens used by Dynatrace API to authenticate various API calls.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput) ApiToken() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace) string {
 		return v.ApiToken
@@ -2121,6 +2156,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput)
 }
 
+// The API tokens used by Dynatrace API to authenticate various API calls.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace) *string {
 		if v == nil {
@@ -2823,10 +2859,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus struct {
-	AccessKeyId     string `pulumi:"accessKeyId"`
-	Datakey         string `pulumi:"datakey"`
+	// The Access Key portion of the credentials.
+	AccessKeyId string `pulumi:"accessKeyId"`
+	// Encryption keys used to encrypt data.
+	Datakey string `pulumi:"datakey"`
+	// The secret key used to sign requests.
 	SecretAccessKey string `pulumi:"secretAccessKey"`
-	UserId          string `pulumi:"userId"`
+	// Identifier for the user.
+	UserId string `pulumi:"userId"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput values.
@@ -2841,10 +2881,14 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs struct {
-	AccessKeyId     pulumi.StringInput `pulumi:"accessKeyId"`
-	Datakey         pulumi.StringInput `pulumi:"datakey"`
+	// The Access Key portion of the credentials.
+	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	// Encryption keys used to encrypt data.
+	Datakey pulumi.StringInput `pulumi:"datakey"`
+	// The secret key used to sign requests.
 	SecretAccessKey pulumi.StringInput `pulumi:"secretAccessKey"`
-	UserId          pulumi.StringInput `pulumi:"userId"`
+	// Identifier for the user.
+	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs) ElementType() reflect.Type {
@@ -2924,24 +2968,28 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput)
 }
 
+// The Access Key portion of the credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) AccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.AccessKeyId
 	}).(pulumi.StringOutput)
 }
 
+// Encryption keys used to encrypt data.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) Datakey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.Datakey
 	}).(pulumi.StringOutput)
 }
 
+// The secret key used to sign requests.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) SecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.SecretAccessKey
 	}).(pulumi.StringOutput)
 }
 
+// Identifier for the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) string {
 		return v.UserId
@@ -2972,6 +3020,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput)
 }
 
+// The Access Key portion of the credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -2981,6 +3030,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringPtrOutput)
 }
 
+// Encryption keys used to encrypt data.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) Datakey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -2990,6 +3040,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringPtrOutput)
 }
 
+// The secret key used to sign requests.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -2999,6 +3050,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier for the user.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *string {
 		if v == nil {
@@ -3507,12 +3559,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce struct {
-	AccessToken          *string                                                                                  `pulumi:"accessToken"`
-	ClientCredentialsArn *string                                                                                  `pulumi:"clientCredentialsArn"`
-	JwtToken             *string                                                                                  `pulumi:"jwtToken"`
-	Oauth2GrantType      *string                                                                                  `pulumi:"oauth2GrantType"`
-	OauthRequest         *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest `pulumi:"oauthRequest"`
-	RefreshToken         *string                                                                                  `pulumi:"refreshToken"`
+	AccessToken *string `pulumi:"accessToken"`
+	// The secret manager ARN, which contains the client ID and client secret of the connected app.
+	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken        *string                                                                                  `pulumi:"jwtToken"`
+	Oauth2GrantType *string                                                                                  `pulumi:"oauth2GrantType"`
+	OauthRequest    *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest `pulumi:"oauthRequest"`
+	RefreshToken    *string                                                                                  `pulumi:"refreshToken"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput values.
@@ -3527,12 +3581,14 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs struct {
-	AccessToken          pulumi.StringPtrInput                                                                           `pulumi:"accessToken"`
-	ClientCredentialsArn pulumi.StringPtrInput                                                                           `pulumi:"clientCredentialsArn"`
-	JwtToken             pulumi.StringPtrInput                                                                           `pulumi:"jwtToken"`
-	Oauth2GrantType      pulumi.StringPtrInput                                                                           `pulumi:"oauth2GrantType"`
-	OauthRequest         ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput `pulumi:"oauthRequest"`
-	RefreshToken         pulumi.StringPtrInput                                                                           `pulumi:"refreshToken"`
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// The secret manager ARN, which contains the client ID and client secret of the connected app.
+	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken        pulumi.StringPtrInput                                                                           `pulumi:"jwtToken"`
+	Oauth2GrantType pulumi.StringPtrInput                                                                           `pulumi:"oauth2GrantType"`
+	OauthRequest    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput `pulumi:"oauthRequest"`
+	RefreshToken    pulumi.StringPtrInput                                                                           `pulumi:"refreshToken"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs) ElementType() reflect.Type {
@@ -3618,12 +3674,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The secret manager ARN, which contains the client ID and client secret of the connected app.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		return v.ClientCredentialsArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// A JSON web token (JWT) that authorizes access to Salesforce records.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) JwtToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		return v.JwtToken
@@ -3681,6 +3739,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The secret manager ARN, which contains the client ID and client secret of the connected app.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		if v == nil {
@@ -3690,6 +3749,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
+// A JSON web token (JWT) that authorizes access to Salesforce records.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) JwtToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		if v == nil {
@@ -3887,8 +3947,10 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData struct {
+	// The SAPOData basic authentication credentials.
 	BasicAuthCredentials *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials `pulumi:"basicAuthCredentials"`
-	OauthCredentials     *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials     `pulumi:"oauthCredentials"`
+	// The SAPOData OAuth type authentication credentials.
+	OauthCredentials *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials `pulumi:"oauthCredentials"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs and ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput values.
@@ -3903,8 +3965,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataIn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs struct {
+	// The SAPOData basic authentication credentials.
 	BasicAuthCredentials ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrInput `pulumi:"basicAuthCredentials"`
-	OauthCredentials     ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrInput     `pulumi:"oauthCredentials"`
+	// The SAPOData OAuth type authentication credentials.
+	OauthCredentials ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrInput `pulumi:"oauthCredentials"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs) ElementType() reflect.Type {
@@ -3984,12 +4048,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput)
 }
 
+// The SAPOData basic authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput) BasicAuthCredentials() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
 		return v.BasicAuthCredentials
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput)
 }
 
+// The SAPOData OAuth type authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput) OauthCredentials() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
 		return v.OauthCredentials
@@ -4020,6 +4086,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput)
 }
 
+// The SAPOData basic authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput) BasicAuthCredentials() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
 		if v == nil {
@@ -4029,6 +4096,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput)
 }
 
+// The SAPOData OAuth type authentication credentials.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput) OauthCredentials() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
 		if v == nil {
@@ -5972,15 +6040,18 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
+	// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
 	Amplitude *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector `pulumi:"customConnector"`
 	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-	Dynatrace       *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace       `pulumi:"dynatrace"`
+	Dynatrace *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace `pulumi:"dynatrace"`
+	// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
 	GoogleAnalytics *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics `pulumi:"googleAnalytics"`
-	Honeycode       *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode       `pulumi:"honeycode"`
+	// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+	Honeycode *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus `pulumi:"inforNexus"`
 	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
@@ -5993,11 +6064,13 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileProperties struct {
 	SapoData *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow `pulumi:"serviceNow"`
-	Singular   *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular   `pulumi:"singular"`
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	Singular *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular `pulumi:"singular"`
 	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-	Snowflake  *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake  `pulumi:"snowflake"`
+	Snowflake *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake `pulumi:"snowflake"`
+	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro `pulumi:"trendmicro"`
 	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva `pulumi:"veeva"`
@@ -6017,15 +6090,18 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInput inter
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs struct {
+	// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
 	Amplitude ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrInput `pulumi:"amplitude"`
 	// The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
 	CustomConnector ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrInput `pulumi:"customConnector"`
 	// Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
 	Datadog ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrInput `pulumi:"datadog"`
 	// The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-	Dynatrace       ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput       `pulumi:"dynatrace"`
+	Dynatrace ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrInput `pulumi:"dynatrace"`
+	// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
 	GoogleAnalytics ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrInput `pulumi:"googleAnalytics"`
-	Honeycode       ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput       `pulumi:"honeycode"`
+	// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+	Honeycode ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrInput `pulumi:"honeycode"`
 	// The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
 	InforNexus ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrInput `pulumi:"inforNexus"`
 	// Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
@@ -6038,11 +6114,13 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs struct
 	SapoData ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrInput `pulumi:"sapoData"`
 	// The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
 	ServiceNow ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrInput `pulumi:"serviceNow"`
-	Singular   ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput   `pulumi:"singular"`
+	// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+	Singular ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrInput `pulumi:"singular"`
 	// Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
 	Slack ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrInput `pulumi:"slack"`
 	// The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-	Snowflake  ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput  `pulumi:"snowflake"`
+	Snowflake ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrInput `pulumi:"snowflake"`
+	// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 	Trendmicro ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrInput `pulumi:"trendmicro"`
 	// Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
 	Veeva ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrInput `pulumi:"veeva"`
@@ -6127,6 +6205,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput)
 }
 
+// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Amplitude() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude {
 		return v.Amplitude
@@ -6154,12 +6233,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput)
 }
 
+// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) GoogleAnalytics() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics {
 		return v.GoogleAnalytics
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput)
 }
 
+// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Honeycode() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode {
 		return v.Honeycode
@@ -6208,6 +6289,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
 		return v.Singular
@@ -6228,6 +6310,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput)
 }
 
+// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) Trendmicro() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro {
 		return v.Trendmicro
@@ -6272,6 +6355,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput)
 }
 
+// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Amplitude() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude {
 		if v == nil {
@@ -6311,6 +6395,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput)
 }
 
+// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) GoogleAnalytics() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics {
 		if v == nil {
@@ -6320,6 +6405,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput)
 }
 
+// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Honeycode() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode {
 		if v == nil {
@@ -6389,6 +6475,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
+// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Singular() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
 		if v == nil {
@@ -6418,6 +6505,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput)
 }
 
+// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Trendmicro() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro {
 		if v == nil {
@@ -6566,8 +6654,10 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitud
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector struct {
-	Oauth2Properties  *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties `pulumi:"oauth2Properties"`
-	ProfileProperties map[string]string                                                                                `pulumi:"profileProperties"`
+	// The OAuth 2.0 properties required for OAuth 2.0 authentication.
+	Oauth2Properties *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties `pulumi:"oauth2Properties"`
+	// A map of properties that are required to create a profile for the custom connector.
+	ProfileProperties map[string]string `pulumi:"profileProperties"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput values.
@@ -6582,8 +6672,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConne
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs struct {
-	Oauth2Properties  ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrInput `pulumi:"oauth2Properties"`
-	ProfileProperties pulumi.StringMapInput                                                                                   `pulumi:"profileProperties"`
+	// The OAuth 2.0 properties required for OAuth 2.0 authentication.
+	Oauth2Properties ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrInput `pulumi:"oauth2Properties"`
+	// A map of properties that are required to create a profile for the custom connector.
+	ProfileProperties pulumi.StringMapInput `pulumi:"profileProperties"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs) ElementType() reflect.Type {
@@ -6663,12 +6755,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput)
 }
 
+// The OAuth 2.0 properties required for OAuth 2.0 authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput) Oauth2Properties() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
 		return v.Oauth2Properties
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput)
 }
 
+// A map of properties that are required to create a profile for the custom connector.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput) ProfileProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector) map[string]string {
 		return v.ProfileProperties
@@ -6699,6 +6793,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput)
 }
 
+// The OAuth 2.0 properties required for OAuth 2.0 authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput) Oauth2Properties() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
 		if v == nil {
@@ -6708,6 +6803,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput)
 }
 
+// A map of properties that are required to create a profile for the custom connector.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput) ProfileProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector) map[string]string {
 		if v == nil {
@@ -6718,8 +6814,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties struct {
-	Oauth2GrantType          string            `pulumi:"oauth2GrantType"`
-	TokenUrl                 string            `pulumi:"tokenUrl"`
+	Oauth2GrantType string `pulumi:"oauth2GrantType"`
+	TokenUrl        string `pulumi:"tokenUrl"`
+	// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
 	TokenUrlCustomProperties map[string]string `pulumi:"tokenUrlCustomProperties"`
 }
 
@@ -6735,8 +6832,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConne
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs struct {
-	Oauth2GrantType          pulumi.StringInput    `pulumi:"oauth2GrantType"`
-	TokenUrl                 pulumi.StringInput    `pulumi:"tokenUrl"`
+	Oauth2GrantType pulumi.StringInput `pulumi:"oauth2GrantType"`
+	TokenUrl        pulumi.StringInput `pulumi:"tokenUrl"`
+	// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
 	TokenUrlCustomProperties pulumi.StringMapInput `pulumi:"tokenUrlCustomProperties"`
 }
 
@@ -6829,6 +6927,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	}).(pulumi.StringOutput)
 }
 
+// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput) TokenUrlCustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties) map[string]string {
 		return v.TokenUrlCustomProperties
@@ -6877,6 +6976,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput) TokenUrlCustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties) map[string]string {
 		if v == nil {
@@ -7663,13 +7763,18 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoP
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift struct {
-	BucketName        string  `pulumi:"bucketName"`
-	BucketPrefix      *string `pulumi:"bucketPrefix"`
+	BucketName   string  `pulumi:"bucketName"`
+	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// The unique ID that's assigned to an Amazon Redshift cluster.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	DataApiRoleArn    *string `pulumi:"dataApiRoleArn"`
-	DatabaseName      *string `pulumi:"databaseName"`
-	DatabaseUrl       *string `pulumi:"databaseUrl"`
-	RoleArn           string  `pulumi:"roleArn"`
+	// ARN of the IAM role that permits AppFlow to access the database through Data API.
+	DataApiRoleArn *string `pulumi:"dataApiRoleArn"`
+	// The name of an Amazon Redshift database.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The JDBC URL of the Amazon Redshift cluster.
+	DatabaseUrl *string `pulumi:"databaseUrl"`
+	// ARN of the IAM role.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput values.
@@ -7684,13 +7789,18 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs struct {
-	BucketName        pulumi.StringInput    `pulumi:"bucketName"`
-	BucketPrefix      pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
+	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// The unique ID that's assigned to an Amazon Redshift cluster.
 	ClusterIdentifier pulumi.StringPtrInput `pulumi:"clusterIdentifier"`
-	DataApiRoleArn    pulumi.StringPtrInput `pulumi:"dataApiRoleArn"`
-	DatabaseName      pulumi.StringPtrInput `pulumi:"databaseName"`
-	DatabaseUrl       pulumi.StringPtrInput `pulumi:"databaseUrl"`
-	RoleArn           pulumi.StringInput    `pulumi:"roleArn"`
+	// ARN of the IAM role that permits AppFlow to access the database through Data API.
+	DataApiRoleArn pulumi.StringPtrInput `pulumi:"dataApiRoleArn"`
+	// The name of an Amazon Redshift database.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The JDBC URL of the Amazon Redshift cluster.
+	DatabaseUrl pulumi.StringPtrInput `pulumi:"databaseUrl"`
+	// ARN of the IAM role.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs) ElementType() reflect.Type {
@@ -7782,30 +7892,35 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique ID that's assigned to an Amazon Redshift cluster.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		return v.ClusterIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the IAM role that permits AppFlow to access the database through Data API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DataApiRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		return v.DataApiRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of an Amazon Redshift database.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		return v.DatabaseName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) DatabaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		return v.DatabaseUrl
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the IAM role.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) string {
 		return v.RoleArn
@@ -7854,6 +7969,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique ID that's assigned to an Amazon Redshift cluster.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -7863,6 +7979,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the IAM role that permits AppFlow to access the database through Data API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) DataApiRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -7872,6 +7989,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of an Amazon Redshift database.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -7881,6 +7999,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) DatabaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -7890,6 +8009,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	}).(pulumi.StringPtrOutput)
 }
 
+// ARN of the IAM role.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *string {
 		if v == nil {
@@ -7900,8 +8020,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce struct {
-	InstanceUrl          *string `pulumi:"instanceUrl"`
-	IsSandboxEnvironment *bool   `pulumi:"isSandboxEnvironment"`
+	InstanceUrl *string `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a sandbox or production environment.
+	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput values.
@@ -7916,8 +8037,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceI
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs struct {
-	InstanceUrl          pulumi.StringPtrInput `pulumi:"instanceUrl"`
-	IsSandboxEnvironment pulumi.BoolPtrInput   `pulumi:"isSandboxEnvironment"`
+	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a sandbox or production environment.
+	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs) ElementType() reflect.Type {
@@ -8003,6 +8125,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the connector profile applies to a sandbox or production environment.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce) *bool {
 		return v.IsSandboxEnvironment
@@ -8042,6 +8165,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the connector profile applies to a sandbox or production environment.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce) *bool {
 		if v == nil {
@@ -8052,13 +8176,19 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData struct {
-	ApplicationHostUrl     string                                                                                   `pulumi:"applicationHostUrl"`
-	ApplicationServicePath string                                                                                   `pulumi:"applicationServicePath"`
-	ClientNumber           string                                                                                   `pulumi:"clientNumber"`
-	LogonLanguage          *string                                                                                  `pulumi:"logonLanguage"`
-	OauthProperties        *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties `pulumi:"oauthProperties"`
-	PortNumber             int                                                                                      `pulumi:"portNumber"`
-	PrivateLinkServiceName *string                                                                                  `pulumi:"privateLinkServiceName"`
+	// The location of the SAPOData resource.
+	ApplicationHostUrl string `pulumi:"applicationHostUrl"`
+	// The application path to catalog service.
+	ApplicationServicePath string `pulumi:"applicationServicePath"`
+	// The client number for the client creating the connection.
+	ClientNumber string `pulumi:"clientNumber"`
+	// The logon language of SAPOData instance.
+	LogonLanguage *string `pulumi:"logonLanguage"`
+	// The SAPOData OAuth properties required for OAuth type authentication.
+	OauthProperties *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties `pulumi:"oauthProperties"`
+	// The port number of the SAPOData instance.
+	PortNumber             int     `pulumi:"portNumber"`
+	PrivateLinkServiceName *string `pulumi:"privateLinkServiceName"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput values.
@@ -8073,13 +8203,19 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataInp
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs struct {
-	ApplicationHostUrl     pulumi.StringInput                                                                              `pulumi:"applicationHostUrl"`
-	ApplicationServicePath pulumi.StringInput                                                                              `pulumi:"applicationServicePath"`
-	ClientNumber           pulumi.StringInput                                                                              `pulumi:"clientNumber"`
-	LogonLanguage          pulumi.StringPtrInput                                                                           `pulumi:"logonLanguage"`
-	OauthProperties        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrInput `pulumi:"oauthProperties"`
-	PortNumber             pulumi.IntInput                                                                                 `pulumi:"portNumber"`
-	PrivateLinkServiceName pulumi.StringPtrInput                                                                           `pulumi:"privateLinkServiceName"`
+	// The location of the SAPOData resource.
+	ApplicationHostUrl pulumi.StringInput `pulumi:"applicationHostUrl"`
+	// The application path to catalog service.
+	ApplicationServicePath pulumi.StringInput `pulumi:"applicationServicePath"`
+	// The client number for the client creating the connection.
+	ClientNumber pulumi.StringInput `pulumi:"clientNumber"`
+	// The logon language of SAPOData instance.
+	LogonLanguage pulumi.StringPtrInput `pulumi:"logonLanguage"`
+	// The SAPOData OAuth properties required for OAuth type authentication.
+	OauthProperties ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrInput `pulumi:"oauthProperties"`
+	// The port number of the SAPOData instance.
+	PortNumber             pulumi.IntInput       `pulumi:"portNumber"`
+	PrivateLinkServiceName pulumi.StringPtrInput `pulumi:"privateLinkServiceName"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs) ElementType() reflect.Type {
@@ -8159,36 +8295,42 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput)
 }
 
+// The location of the SAPOData resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) ApplicationHostUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) string {
 		return v.ApplicationHostUrl
 	}).(pulumi.StringOutput)
 }
 
+// The application path to catalog service.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) ApplicationServicePath() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) string {
 		return v.ApplicationServicePath
 	}).(pulumi.StringOutput)
 }
 
+// The client number for the client creating the connection.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) ClientNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) string {
 		return v.ClientNumber
 	}).(pulumi.StringOutput)
 }
 
+// The logon language of SAPOData instance.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) LogonLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *string {
 		return v.LogonLanguage
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SAPOData OAuth properties required for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) OauthProperties() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
 		return v.OauthProperties
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput)
 }
 
+// The port number of the SAPOData instance.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) PortNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) int {
 		return v.PortNumber
@@ -8225,6 +8367,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput)
 }
 
+// The location of the SAPOData resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) ApplicationHostUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *string {
 		if v == nil {
@@ -8234,6 +8377,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The application path to catalog service.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) ApplicationServicePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *string {
 		if v == nil {
@@ -8243,6 +8387,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The client number for the client creating the connection.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) ClientNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *string {
 		if v == nil {
@@ -8252,6 +8397,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The logon language of SAPOData instance.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) LogonLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *string {
 		if v == nil {
@@ -8261,6 +8407,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SAPOData OAuth properties required for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) OauthProperties() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
 		if v == nil {
@@ -8270,6 +8417,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput)
 }
 
+// The port number of the SAPOData instance.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) PortNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *int {
 		if v == nil {
@@ -8289,7 +8437,9 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties struct {
-	AuthCodeUrl string   `pulumi:"authCodeUrl"`
+	// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+	AuthCodeUrl string `pulumi:"authCodeUrl"`
+	// The OAuth scopes required for OAuth type authentication.
 	OauthScopes []string `pulumi:"oauthScopes"`
 	TokenUrl    string   `pulumi:"tokenUrl"`
 }
@@ -8306,7 +8456,9 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOau
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs struct {
-	AuthCodeUrl pulumi.StringInput      `pulumi:"authCodeUrl"`
+	// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+	AuthCodeUrl pulumi.StringInput `pulumi:"authCodeUrl"`
+	// The OAuth scopes required for OAuth type authentication.
 	OauthScopes pulumi.StringArrayInput `pulumi:"oauthScopes"`
 	TokenUrl    pulumi.StringInput      `pulumi:"tokenUrl"`
 }
@@ -8388,12 +8540,14 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput)
 }
 
+// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput) AuthCodeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties) string {
 		return v.AuthCodeUrl
 	}).(pulumi.StringOutput)
 }
 
+// The OAuth scopes required for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties) []string {
 		return v.OauthScopes
@@ -8430,6 +8584,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput)
 }
 
+// The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput) AuthCodeUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties) *string {
 		if v == nil {
@@ -8439,6 +8594,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OAuth scopes required for OAuth type authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties) []string {
 		if v == nil {
@@ -8846,13 +9002,17 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtr
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake struct {
+	// The name of the account.
 	AccountName            *string `pulumi:"accountName"`
 	BucketName             string  `pulumi:"bucketName"`
 	BucketPrefix           *string `pulumi:"bucketPrefix"`
 	PrivateLinkServiceName *string `pulumi:"privateLinkServiceName"`
-	Region                 *string `pulumi:"region"`
-	Stage                  string  `pulumi:"stage"`
-	Warehouse              string  `pulumi:"warehouse"`
+	// AWS Region of the Snowflake account.
+	Region *string `pulumi:"region"`
+	// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+	Stage string `pulumi:"stage"`
+	// The name of the Snowflake warehouse.
+	Warehouse string `pulumi:"warehouse"`
 }
 
 // ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeInput is an input type that accepts ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs and ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput values.
@@ -8867,13 +9027,17 @@ type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeIn
 }
 
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs struct {
+	// The name of the account.
 	AccountName            pulumi.StringPtrInput `pulumi:"accountName"`
 	BucketName             pulumi.StringInput    `pulumi:"bucketName"`
 	BucketPrefix           pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	PrivateLinkServiceName pulumi.StringPtrInput `pulumi:"privateLinkServiceName"`
-	Region                 pulumi.StringPtrInput `pulumi:"region"`
-	Stage                  pulumi.StringInput    `pulumi:"stage"`
-	Warehouse              pulumi.StringInput    `pulumi:"warehouse"`
+	// AWS Region of the Snowflake account.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// The name of the Snowflake warehouse.
+	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs) ElementType() reflect.Type {
@@ -8953,6 +9117,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput)
 }
 
+// The name of the account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		return v.AccountName
@@ -8977,18 +9142,21 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Region of the Snowflake account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) string {
 		return v.Stage
 	}).(pulumi.StringOutput)
 }
 
+// The name of the Snowflake warehouse.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) string {
 		return v.Warehouse
@@ -9019,6 +9187,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput)
 }
 
+// The name of the account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -9055,6 +9224,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS Region of the Snowflake account.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -9064,6 +9234,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
+// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -9073,6 +9244,7 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the Snowflake warehouse.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *string {
 		if v == nil {
@@ -10164,7 +10336,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles struct {
-	DomainName     string  `pulumi:"domainName"`
+	// Unique name of the Amazon Connect Customer Profiles domain.
+	DomainName string `pulumi:"domainName"`
+	// Object specified in the Amazon Connect Customer Profiles flow destination.
 	ObjectTypeName *string `pulumi:"objectTypeName"`
 }
 
@@ -10180,7 +10354,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesInpu
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs struct {
-	DomainName     pulumi.StringInput    `pulumi:"domainName"`
+	// Unique name of the Amazon Connect Customer Profiles domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Object specified in the Amazon Connect Customer Profiles flow destination.
 	ObjectTypeName pulumi.StringPtrInput `pulumi:"objectTypeName"`
 }
 
@@ -10261,12 +10437,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesO
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput)
 }
 
+// Unique name of the Amazon Connect Customer Profiles domain.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) string {
 		return v.DomainName
 	}).(pulumi.StringOutput)
 }
 
+// Object specified in the Amazon Connect Customer Profiles flow destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		return v.ObjectTypeName
@@ -10297,6 +10475,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput)
 }
 
+// Unique name of the Amazon Connect Customer Profiles domain.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		if v == nil {
@@ -10306,6 +10485,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Object specified in the Amazon Connect Customer Profiles flow destination.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *string {
 		if v == nil {
@@ -12319,6 +12499,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType *string `pulumi:"prefixType"`
 }
@@ -12337,6 +12519,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringPtrInput `pulumi:"prefixType"`
 }
@@ -12425,6 +12609,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
+}
+
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) *string {
@@ -12464,6 +12655,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 		}
 		return v.PrefixFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
 }
 
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
@@ -12842,9 +13043,10 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData struct {
-	ErrorHandlingConfig           *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig           `pulumi:"errorHandlingConfig"`
-	IdFieldNames                  []string                                                                                      `pulumi:"idFieldNames"`
-	ObjectPath                    string                                                                                        `pulumi:"objectPath"`
+	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	IdFieldNames        []string                                                                            `pulumi:"idFieldNames"`
+	ObjectPath          string                                                                              `pulumi:"objectPath"`
+	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 	SuccessResponseHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
 	WriteOperationType            *string                                                                                       `pulumi:"writeOperationType"`
 }
@@ -12861,9 +13063,10 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs struct {
-	ErrorHandlingConfig           FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput           `pulumi:"errorHandlingConfig"`
-	IdFieldNames                  pulumi.StringArrayInput                                                                              `pulumi:"idFieldNames"`
-	ObjectPath                    pulumi.StringInput                                                                                   `pulumi:"objectPath"`
+	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	IdFieldNames        pulumi.StringArrayInput                                                                    `pulumi:"idFieldNames"`
+	ObjectPath          pulumi.StringInput                                                                         `pulumi:"objectPath"`
+	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 	SuccessResponseHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
 	WriteOperationType            pulumi.StringPtrInput                                                                                `pulumi:"writeOperationType"`
 }
@@ -12961,6 +13164,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) O
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
 
+// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) SuccessResponseHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
 		return v.SuccessResponseHandlingConfig
@@ -13024,6 +13228,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) SuccessResponseHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
 		if v == nil {
@@ -14236,6 +14441,8 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType string `pulumi:"prefixType"`
 }
@@ -14254,6 +14461,8 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs struct {
 	// Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
+	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringInput `pulumi:"prefixType"`
 }
@@ -14342,6 +14551,13 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
+}
+
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) PrefixType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) string {
@@ -14381,6 +14597,16 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 		}
 		return v.PrefixFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixHierarchies
+	}).(pulumi.StringArrayOutput)
 }
 
 // Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
@@ -14756,6 +14982,314 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FlowMetadataCatalogConfig struct {
+	GlueDataCatalog *FlowMetadataCatalogConfigGlueDataCatalog `pulumi:"glueDataCatalog"`
+}
+
+// FlowMetadataCatalogConfigInput is an input type that accepts FlowMetadataCatalogConfigArgs and FlowMetadataCatalogConfigOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigInput` via:
+//
+//	FlowMetadataCatalogConfigArgs{...}
+type FlowMetadataCatalogConfigInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput
+	ToFlowMetadataCatalogConfigOutputWithContext(context.Context) FlowMetadataCatalogConfigOutput
+}
+
+type FlowMetadataCatalogConfigArgs struct {
+	GlueDataCatalog FlowMetadataCatalogConfigGlueDataCatalogPtrInput `pulumi:"glueDataCatalog"`
+}
+
+func (FlowMetadataCatalogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return i.ToFlowMetadataCatalogConfigOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput)
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput).ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataCatalogConfigPtrInput is an input type that accepts FlowMetadataCatalogConfigArgs, FlowMetadataCatalogConfigPtr and FlowMetadataCatalogConfigPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigPtrInput` via:
+//
+//	        FlowMetadataCatalogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataCatalogConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput
+	ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Context) FlowMetadataCatalogConfigPtrOutput
+}
+
+type flowMetadataCatalogConfigPtrType FlowMetadataCatalogConfigArgs
+
+func FlowMetadataCatalogConfigPtr(v *FlowMetadataCatalogConfigArgs) FlowMetadataCatalogConfigPtrInput {
+	return (*flowMetadataCatalogConfigPtrType)(v)
+}
+
+func (*flowMetadataCatalogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+type FlowMetadataCatalogConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataCatalogConfig) *FlowMetadataCatalogConfig {
+		return &v
+	}).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+func (o FlowMetadataCatalogConfigOutput) GlueDataCatalog() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfig) *FlowMetadataCatalogConfigGlueDataCatalog { return v.GlueDataCatalog }).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) Elem() FlowMetadataCatalogConfigOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) FlowMetadataCatalogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataCatalogConfig
+		return ret
+	}).(FlowMetadataCatalogConfigOutput)
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) GlueDataCatalog() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) *FlowMetadataCatalogConfigGlueDataCatalog {
+		if v == nil {
+			return nil
+		}
+		return v.GlueDataCatalog
+	}).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalog struct {
+	// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+	DatabaseName string `pulumi:"databaseName"`
+	// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+	RoleArn string `pulumi:"roleArn"`
+	// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+	TablePrefix string `pulumi:"tablePrefix"`
+}
+
+// FlowMetadataCatalogConfigGlueDataCatalogInput is an input type that accepts FlowMetadataCatalogConfigGlueDataCatalogArgs and FlowMetadataCatalogConfigGlueDataCatalogOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigGlueDataCatalogInput` via:
+//
+//	FlowMetadataCatalogConfigGlueDataCatalogArgs{...}
+type FlowMetadataCatalogConfigGlueDataCatalogInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput
+	ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogArgs struct {
+	// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+	TablePrefix pulumi.StringInput `pulumi:"tablePrefix"`
+}
+
+func (FlowMetadataCatalogConfigGlueDataCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogOutput)
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigGlueDataCatalogArgs) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogOutput).ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataCatalogConfigGlueDataCatalogPtrInput is an input type that accepts FlowMetadataCatalogConfigGlueDataCatalogArgs, FlowMetadataCatalogConfigGlueDataCatalogPtr and FlowMetadataCatalogConfigGlueDataCatalogPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigGlueDataCatalogPtrInput` via:
+//
+//	        FlowMetadataCatalogConfigGlueDataCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataCatalogConfigGlueDataCatalogPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput
+	ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput
+}
+
+type flowMetadataCatalogConfigGlueDataCatalogPtrType FlowMetadataCatalogConfigGlueDataCatalogArgs
+
+func FlowMetadataCatalogConfigGlueDataCatalogPtr(v *FlowMetadataCatalogConfigGlueDataCatalogArgs) FlowMetadataCatalogConfigGlueDataCatalogPtrInput {
+	return (*flowMetadataCatalogConfigGlueDataCatalogPtrType)(v)
+}
+
+func (*flowMetadataCatalogConfigGlueDataCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (i *flowMetadataCatalogConfigGlueDataCatalogPtrType) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return i.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataCatalogConfigGlueDataCatalogPtrType) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigGlueDataCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogOutput() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataCatalogConfigGlueDataCatalog) *FlowMetadataCatalogConfigGlueDataCatalog {
+		return &v
+	}).(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput)
+}
+
+// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+func (o FlowMetadataCatalogConfigGlueDataCatalogOutput) TablePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfigGlueDataCatalog) string { return v.TablePrefix }).(pulumi.StringOutput)
+}
+
+type FlowMetadataCatalogConfigGlueDataCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfigGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutput() FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) ToFlowMetadataCatalogConfigGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) Elem() FlowMetadataCatalogConfigGlueDataCatalogOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) FlowMetadataCatalogConfigGlueDataCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataCatalogConfigGlueDataCatalog
+		return ret
+	}).(FlowMetadataCatalogConfigGlueDataCatalogOutput)
+}
+
+// The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A naming prefix for each Data Catalog table that Amazon AppFlow creates
+func (o FlowMetadataCatalogConfigGlueDataCatalogPtrOutput) TablePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfigGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TablePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlowSourceFlowConfig struct {
 	// API version that the destination connector uses.
 	ApiVersion *string `pulumi:"apiVersion"`
@@ -15116,8 +15650,10 @@ type FlowSourceFlowConfigSourceConnectorProperties struct {
 	// Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
 	CustomConnector *FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector `pulumi:"customConnector"`
 	// Information that is required for querying Datadog. See Generic Source Properties for more details.
-	Datadog         *FlowSourceFlowConfigSourceConnectorPropertiesDatadog         `pulumi:"datadog"`
-	Dynatrace       *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace       `pulumi:"dynatrace"`
+	Datadog *FlowSourceFlowConfigSourceConnectorPropertiesDatadog `pulumi:"datadog"`
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	Dynatrace *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace `pulumi:"dynatrace"`
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics `pulumi:"googleAnalytics"`
 	// Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
 	InforNexus *FlowSourceFlowConfigSourceConnectorPropertiesInforNexus `pulumi:"inforNexus"`
@@ -15134,7 +15670,8 @@ type FlowSourceFlowConfigSourceConnectorProperties struct {
 	// Information that is required for querying Singular. See Generic Source Properties for more details.
 	Singular *FlowSourceFlowConfigSourceConnectorPropertiesSingular `pulumi:"singular"`
 	// Information that is required for querying Slack. See Generic Source Properties for more details.
-	Slack      *FlowSourceFlowConfigSourceConnectorPropertiesSlack      `pulumi:"slack"`
+	Slack *FlowSourceFlowConfigSourceConnectorPropertiesSlack `pulumi:"slack"`
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro `pulumi:"trendmicro"`
 	// Information that is required for querying Veeva. See Veeva Source Properties for more details.
 	Veeva *FlowSourceFlowConfigSourceConnectorPropertiesVeeva `pulumi:"veeva"`
@@ -15159,8 +15696,10 @@ type FlowSourceFlowConfigSourceConnectorPropertiesArgs struct {
 	// Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
 	CustomConnector FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrInput `pulumi:"customConnector"`
 	// Information that is required for querying Datadog. See Generic Source Properties for more details.
-	Datadog         FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput         `pulumi:"datadog"`
-	Dynatrace       FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput       `pulumi:"dynatrace"`
+	Datadog FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrInput `pulumi:"datadog"`
+	// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+	Dynatrace FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrInput `pulumi:"dynatrace"`
+	// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 	GoogleAnalytics FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrInput `pulumi:"googleAnalytics"`
 	// Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
 	InforNexus FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrInput `pulumi:"inforNexus"`
@@ -15177,7 +15716,8 @@ type FlowSourceFlowConfigSourceConnectorPropertiesArgs struct {
 	// Information that is required for querying Singular. See Generic Source Properties for more details.
 	Singular FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrInput `pulumi:"singular"`
 	// Information that is required for querying Slack. See Generic Source Properties for more details.
-	Slack      FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput      `pulumi:"slack"`
+	Slack FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrInput `pulumi:"slack"`
+	// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 	Trendmicro FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrInput `pulumi:"trendmicro"`
 	// Information that is required for querying Veeva. See Veeva Source Properties for more details.
 	Veeva FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrInput `pulumi:"veeva"`
@@ -15283,12 +15823,14 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Datadog() FlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
+// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Dynatrace() FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
 		return v.Dynatrace
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
+// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) GoogleAnalytics() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
 		return v.GoogleAnalytics
@@ -15351,6 +15893,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Slack() FlowSourceF
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
+// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) Trendmicro() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
 		return v.Trendmicro
@@ -15425,6 +15968,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Datadog() FlowSo
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
+// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Dynatrace() FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
 		if v == nil {
@@ -15434,6 +15978,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Dynatrace() Flow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
+// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
 		if v == nil {
@@ -15523,6 +16068,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Slack() FlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
+// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Trendmicro() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
 		if v == nil {
@@ -16501,8 +17047,9 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Object() 
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
-	BucketName          string                                                              `pulumi:"bucketName"`
-	BucketPrefix        string                                                              `pulumi:"bucketPrefix"`
+	BucketName   string `pulumi:"bucketName"`
+	BucketPrefix string `pulumi:"bucketPrefix"`
+	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig `pulumi:"s3InputFormatConfig"`
 }
 
@@ -16518,8 +17065,9 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3Input interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3Args struct {
-	BucketName          pulumi.StringInput                                                         `pulumi:"bucketName"`
-	BucketPrefix        pulumi.StringInput                                                         `pulumi:"bucketPrefix"`
+	BucketName   pulumi.StringInput `pulumi:"bucketName"`
+	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
+	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput `pulumi:"s3InputFormatConfig"`
 }
 
@@ -16608,6 +17156,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pu
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
+// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) S3InputFormatConfig() FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig {
 		return v.S3InputFormatConfig
@@ -16656,6 +17205,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketPrefix()
 	}).(pulumi.StringPtrOutput)
 }
 
+// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) S3InputFormatConfig() FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3) *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig {
 		if v == nil {
@@ -16805,9 +17355,11 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforce struct {
-	EnableDynamicFieldUpdate *bool  `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    *bool  `pulumi:"includeDeletedRecords"`
-	Object                   string `pulumi:"object"`
+	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
+	// Whether Amazon AppFlow includes deleted files in the flow run.
+	IncludeDeletedRecords *bool  `pulumi:"includeDeletedRecords"`
+	Object                string `pulumi:"object"`
 }
 
 // FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs and FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput values.
@@ -16822,9 +17374,11 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs struct {
+	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	Object                   pulumi.StringInput  `pulumi:"object"`
+	// Whether Amazon AppFlow includes deleted files in the flow run.
+	IncludeDeletedRecords pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
+	Object                pulumi.StringInput  `pulumi:"object"`
 }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs) ElementType() reflect.Type {
@@ -16904,12 +17458,14 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
+// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		return v.EnableDynamicFieldUpdate
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon AppFlow includes deleted files in the flow run.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool { return v.IncludeDeletedRecords }).(pulumi.BoolPtrOutput)
 }
@@ -16942,6 +17498,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Elem()
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput)
 }
 
+// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		if v == nil {
@@ -16951,6 +17508,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Enable
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon AppFlow includes deleted files in the flow run.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
 		if v == nil {
@@ -17635,11 +18193,15 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) Object
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesVeeva struct {
-	DocumentType       *string `pulumi:"documentType"`
-	IncludeAllVersions *bool   `pulumi:"includeAllVersions"`
-	IncludeRenditions  *bool   `pulumi:"includeRenditions"`
-	IncludeSourceFiles *bool   `pulumi:"includeSourceFiles"`
-	Object             string  `pulumi:"object"`
+	// Document type specified in the Veeva document extract flow.
+	DocumentType *string `pulumi:"documentType"`
+	// Boolean value to include All Versions of files in Veeva document extract flow.
+	IncludeAllVersions *bool `pulumi:"includeAllVersions"`
+	// Boolean value to include file renditions in Veeva document extract flow.
+	IncludeRenditions *bool `pulumi:"includeRenditions"`
+	// Boolean value to include source files in Veeva document extract flow.
+	IncludeSourceFiles *bool  `pulumi:"includeSourceFiles"`
+	Object             string `pulumi:"object"`
 }
 
 // FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs and FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput values.
@@ -17654,11 +18216,15 @@ type FlowSourceFlowConfigSourceConnectorPropertiesVeevaInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs struct {
-	DocumentType       pulumi.StringPtrInput `pulumi:"documentType"`
-	IncludeAllVersions pulumi.BoolPtrInput   `pulumi:"includeAllVersions"`
-	IncludeRenditions  pulumi.BoolPtrInput   `pulumi:"includeRenditions"`
-	IncludeSourceFiles pulumi.BoolPtrInput   `pulumi:"includeSourceFiles"`
-	Object             pulumi.StringInput    `pulumi:"object"`
+	// Document type specified in the Veeva document extract flow.
+	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
+	// Boolean value to include All Versions of files in Veeva document extract flow.
+	IncludeAllVersions pulumi.BoolPtrInput `pulumi:"includeAllVersions"`
+	// Boolean value to include file renditions in Veeva document extract flow.
+	IncludeRenditions pulumi.BoolPtrInput `pulumi:"includeRenditions"`
+	// Boolean value to include source files in Veeva document extract flow.
+	IncludeSourceFiles pulumi.BoolPtrInput `pulumi:"includeSourceFiles"`
+	Object             pulumi.StringInput  `pulumi:"object"`
 }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs) ElementType() reflect.Type {
@@ -17738,18 +18304,22 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) ToFlowSourceFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
 }
 
+// Document type specified in the Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to include All Versions of files in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool { return v.IncludeAllVersions }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean value to include file renditions in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) IncludeRenditions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool { return v.IncludeRenditions }).(pulumi.BoolPtrOutput)
 }
 
+// Boolean value to include source files in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool { return v.IncludeSourceFiles }).(pulumi.BoolPtrOutput)
 }
@@ -17782,6 +18352,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) Elem() Flow
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput)
 }
 
+// Document type specified in the Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *string {
 		if v == nil {
@@ -17791,6 +18362,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) DocumentTyp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Boolean value to include All Versions of files in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool {
 		if v == nil {
@@ -17800,6 +18372,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeAllV
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Boolean value to include file renditions in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeRenditions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool {
 		if v == nil {
@@ -17809,6 +18382,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeRend
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Boolean value to include source files in Veeva document extract flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *bool {
 		if v == nil {
@@ -19039,6 +19613,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput)(nil)).Elem(), FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalogInput)(nil)).Elem(), FlowMetadataCatalogConfigGlueDataCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigGlueDataCatalogPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigGlueDataCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigPtrInput)(nil)).Elem(), FlowSourceFlowConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigIncrementalPullConfigInput)(nil)).Elem(), FlowSourceFlowConfigIncrementalPullConfigArgs{})
@@ -19260,6 +19838,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput{})
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput{})
 	pulumi.RegisterOutputType(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigGlueDataCatalogOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigGlueDataCatalogPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigIncrementalPullConfigOutput{})

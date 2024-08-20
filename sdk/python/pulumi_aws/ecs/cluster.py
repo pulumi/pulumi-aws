@@ -28,10 +28,12 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if configuration is not None:
@@ -49,7 +51,7 @@ class ClusterArgs:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
         """
-        The execute command configuration for the cluster. Detailed below.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -62,6 +64,8 @@ class ClusterArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -73,7 +77,7 @@ class ClusterArgs:
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
         """
-        Configures a default Service Connect namespace. Detailed below.
+        Default Service Connect namespace. See `service_connect_defaults` Block for details.
         """
         return pulumi.get(self, "service_connect_defaults")
 
@@ -85,7 +89,7 @@ class ClusterArgs:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
         """
-        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         """
         return pulumi.get(self, "settings")
 
@@ -119,10 +123,12 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -160,7 +166,7 @@ class _ClusterState:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
         """
-        The execute command configuration for the cluster. Detailed below.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -173,6 +179,8 @@ class _ClusterState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -184,7 +192,7 @@ class _ClusterState:
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
         """
-        Configures a default Service Connect namespace. Detailed below.
+        Default Service Connect namespace. See `service_connect_defaults` Block for details.
         """
         return pulumi.get(self, "service_connect_defaults")
 
@@ -196,7 +204,7 @@ class _ClusterState:
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
         """
-        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         """
         return pulumi.get(self, "settings")
 
@@ -258,7 +266,7 @@ class Cluster(pulumi.CustomResource):
             }])
         ```
 
-        ### Example with Log Configuration
+        ### Execute Command Configuration with Override Logging
 
         ```python
         import pulumi
@@ -271,20 +279,91 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "executeCommandConfiguration": {
-                    "kmsKeyId": example.arn,
+                "execute_command_configuration": {
+                    "kms_key_id": example.arn,
                     "logging": "OVERRIDE",
-                    "logConfiguration": {
-                        "cloudWatchEncryptionEnabled": True,
-                        "cloudWatchLogGroupName": example_log_group.name,
+                    "log_configuration": {
+                        "cloud_watch_encryption_enabled": True,
+                        "cloud_watch_log_group_name": example_log_group.name,
                     },
                 },
             })
         ```
 
+        ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
+            policy=json.dumps({
+                "Id": "ECSClusterFargatePolicy",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "*",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow generate data key access for Fargate tasks.",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "fargate.amazonaws.com",
+                        },
+                        "Action": ["kms:GenerateDataKeyWithoutPlaintext"],
+                        "Condition": {
+                            "StringEquals": {
+                                "kms:EncryptionContext:aws:ecs:clusterAccount": [current.account_id],
+                                "kms:EncryptionContext:aws:ecs:clusterName": ["example"],
+                            },
+                        },
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow grant creation permission for Fargate tasks.",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "fargate.amazonaws.com",
+                        },
+                        "Action": ["kms:CreateGrant"],
+                        "Condition": {
+                            "StringEquals": {
+                                "kms:EncryptionContext:aws:ecs:clusterAccount": [current.account_id],
+                                "kms:EncryptionContext:aws:ecs:clusterName": ["example"],
+                            },
+                            "ForAllValues:StringEquals": {
+                                "kms:GrantOperations": ["Decrypt"],
+                            },
+                        },
+                        "Resource": "*",
+                    },
+                ],
+                "Version": "2012-10-17",
+            }))
+        test = aws.ecs.Cluster("test",
+            name="example",
+            configuration={
+                "managed_storage_configuration": {
+                    "fargate_ephemeral_storage_kms_key_id": example.id,
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
+        ```
+
         ## Import
 
-        Using `pulumi import`, import ECS clusters using the `name`. For example:
+        Using `pulumi import`, import ECS clusters using the cluster name. For example:
 
         ```sh
         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -292,10 +371,12 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -321,7 +402,7 @@ class Cluster(pulumi.CustomResource):
             }])
         ```
 
-        ### Example with Log Configuration
+        ### Execute Command Configuration with Override Logging
 
         ```python
         import pulumi
@@ -334,20 +415,91 @@ class Cluster(pulumi.CustomResource):
         test = aws.ecs.Cluster("test",
             name="example",
             configuration={
-                "executeCommandConfiguration": {
-                    "kmsKeyId": example.arn,
+                "execute_command_configuration": {
+                    "kms_key_id": example.arn,
                     "logging": "OVERRIDE",
-                    "logConfiguration": {
-                        "cloudWatchEncryptionEnabled": True,
-                        "cloudWatchLogGroupName": example_log_group.name,
+                    "log_configuration": {
+                        "cloud_watch_encryption_enabled": True,
+                        "cloud_watch_log_group_name": example_log_group.name,
                     },
                 },
             })
         ```
 
+        ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        example = aws.kms.Key("example",
+            description="example",
+            deletion_window_in_days=7)
+        example_key_policy = aws.kms.KeyPolicy("example",
+            key_id=example.id,
+            policy=json.dumps({
+                "Id": "ECSClusterFargatePolicy",
+                "Statement": [
+                    {
+                        "Sid": "Enable IAM User Permissions",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "AWS": "*",
+                        },
+                        "Action": "kms:*",
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow generate data key access for Fargate tasks.",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "fargate.amazonaws.com",
+                        },
+                        "Action": ["kms:GenerateDataKeyWithoutPlaintext"],
+                        "Condition": {
+                            "StringEquals": {
+                                "kms:EncryptionContext:aws:ecs:clusterAccount": [current.account_id],
+                                "kms:EncryptionContext:aws:ecs:clusterName": ["example"],
+                            },
+                        },
+                        "Resource": "*",
+                    },
+                    {
+                        "Sid": "Allow grant creation permission for Fargate tasks.",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "fargate.amazonaws.com",
+                        },
+                        "Action": ["kms:CreateGrant"],
+                        "Condition": {
+                            "StringEquals": {
+                                "kms:EncryptionContext:aws:ecs:clusterAccount": [current.account_id],
+                                "kms:EncryptionContext:aws:ecs:clusterName": ["example"],
+                            },
+                            "ForAllValues:StringEquals": {
+                                "kms:GrantOperations": ["Decrypt"],
+                            },
+                        },
+                        "Resource": "*",
+                    },
+                ],
+                "Version": "2012-10-17",
+            }))
+        test = aws.ecs.Cluster("test",
+            name="example",
+            configuration={
+                "managed_storage_configuration": {
+                    "fargate_ephemeral_storage_kms_key_id": example.id,
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
+        ```
+
         ## Import
 
-        Using `pulumi import`, import ECS clusters using the `name`. For example:
+        Using `pulumi import`, import ECS clusters using the cluster name. For example:
 
         ```sh
         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -414,10 +566,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: Execute command configuration for the cluster. See `configuration` Block for details.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']] service_connect_defaults: Default Service Connect namespace. See `service_connect_defaults` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingArgs', 'ClusterSettingArgsDict']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -446,7 +600,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.ClusterConfiguration']]:
         """
-        The execute command configuration for the cluster. Detailed below.
+        Execute command configuration for the cluster. See `configuration` Block for details.
         """
         return pulumi.get(self, "configuration")
 
@@ -455,6 +609,8 @@ class Cluster(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -462,7 +618,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> pulumi.Output[Optional['outputs.ClusterServiceConnectDefaults']]:
         """
-        Configures a default Service Connect namespace. Detailed below.
+        Default Service Connect namespace. See `service_connect_defaults` Block for details.
         """
         return pulumi.get(self, "service_connect_defaults")
 
@@ -470,7 +626,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[Sequence['outputs.ClusterSetting']]:
         """
-        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         """
         return pulumi.get(self, "settings")
 

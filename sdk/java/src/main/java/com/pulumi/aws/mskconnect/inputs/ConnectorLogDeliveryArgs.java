@@ -15,14 +15,14 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
     public static final ConnectorLogDeliveryArgs Empty = new ConnectorLogDeliveryArgs();
 
     /**
-     * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+     * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
      * 
      */
     @Import(name="workerLogDelivery", required=true)
     private Output<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery;
 
     /**
-     * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+     * @return The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
      * 
      */
     public Output<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery() {
@@ -54,7 +54,7 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ConnectorLogDeliveryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * @param workerLogDelivery The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
          * 
          * @return builder
          * 

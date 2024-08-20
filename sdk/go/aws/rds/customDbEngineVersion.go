@@ -93,7 +93,7 @@ import (
 //				EngineVersion:                         pulumi.String("19.cdb_cev1"),
 //				KmsKeyId:                              example.Arn,
 //				Filename:                              pulumi.String("manifest_1915_GI.json"),
-//				ManifestHash:                          invokeFilebase64sha256.Result,
+//				ManifestHash:                          pulumi.String(invokeFilebase64sha256.Result),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //					"Key":  pulumi.String("value"),

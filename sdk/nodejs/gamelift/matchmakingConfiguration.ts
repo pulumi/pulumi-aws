@@ -17,6 +17,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
  * ```
+ *
+ * @deprecated This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead
  */
 export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
@@ -29,6 +31,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MatchmakingConfigurationState, opts?: pulumi.CustomResourceOptions): MatchmakingConfiguration {
+        pulumi.log.warn("MatchmakingConfiguration is deprecated: This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead")
         return new MatchmakingConfiguration(name, <any>state, { ...opts, id: id });
     }
 
@@ -129,8 +132,11 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead */
     constructor(name: string, args: MatchmakingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead */
     constructor(name: string, argsOrState?: MatchmakingConfigurationArgs | MatchmakingConfigurationState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MatchmakingConfiguration is deprecated: This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

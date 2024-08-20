@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
     public sealed class ConnectorLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+        /// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
         /// </summary>
         [Input("workerLogDelivery", required: true)]
         public Input<Inputs.ConnectorLogDeliveryWorkerLogDeliveryArgs> WorkerLogDelivery { get; set; } = null!;

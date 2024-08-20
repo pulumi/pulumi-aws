@@ -218,7 +218,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BucketIntelligentTieringConfiguration(String name) {
+    public BucketIntelligentTieringConfiguration(java.lang.String name) {
         this(name, BucketIntelligentTieringConfigurationArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BucketIntelligentTieringConfiguration(String name, BucketIntelligentTieringConfigurationArgs args) {
+    public BucketIntelligentTieringConfiguration(java.lang.String name, BucketIntelligentTieringConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,15 +235,22 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BucketIntelligentTieringConfiguration(String name, BucketIntelligentTieringConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", name, args == null ? BucketIntelligentTieringConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BucketIntelligentTieringConfiguration(java.lang.String name, BucketIntelligentTieringConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BucketIntelligentTieringConfiguration(String name, Output<String> id, @Nullable BucketIntelligentTieringConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", name, state, makeResourceOptions(options, id));
+    private BucketIntelligentTieringConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable BucketIntelligentTieringConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BucketIntelligentTieringConfigurationArgs makeArgs(BucketIntelligentTieringConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BucketIntelligentTieringConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +266,7 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BucketIntelligentTieringConfiguration get(String name, Output<String> id, @Nullable BucketIntelligentTieringConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BucketIntelligentTieringConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable BucketIntelligentTieringConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BucketIntelligentTieringConfiguration(name, id, state, options);
     }
 }

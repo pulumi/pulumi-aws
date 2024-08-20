@@ -370,7 +370,7 @@ if not MYPY:
     class ProviderDefaultTagsArgsDict(TypedDict):
         tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
 elif False:
     ProviderDefaultTagsArgsDict: TypeAlias = Mapping[str, Any]
@@ -380,7 +380,7 @@ class ProviderDefaultTagsArgs:
     def __init__(__self__, *,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags to default across all resources
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -389,7 +389,7 @@ class ProviderDefaultTagsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         return pulumi.get(self, "tags")
 
@@ -736,6 +736,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        databrew: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         dataexchange: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -929,6 +933,10 @@ if not MYPY:
         Use this to override the default service endpoint URL
         """
         glue: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        gluedatabrew: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
         """
@@ -1284,6 +1292,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        resiliencehub: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         resourceexplorer2: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1630,6 +1642,7 @@ class ProviderEndpointArgs:
                  customerprofiles: Optional[pulumi.Input[str]] = None,
                  databasemigration: Optional[pulumi.Input[str]] = None,
                  databasemigrationservice: Optional[pulumi.Input[str]] = None,
+                 databrew: Optional[pulumi.Input[str]] = None,
                  dataexchange: Optional[pulumi.Input[str]] = None,
                  datapipeline: Optional[pulumi.Input[str]] = None,
                  datasync: Optional[pulumi.Input[str]] = None,
@@ -1679,6 +1692,7 @@ class ProviderEndpointArgs:
                  glacier: Optional[pulumi.Input[str]] = None,
                  globalaccelerator: Optional[pulumi.Input[str]] = None,
                  glue: Optional[pulumi.Input[str]] = None,
+                 gluedatabrew: Optional[pulumi.Input[str]] = None,
                  grafana: Optional[pulumi.Input[str]] = None,
                  greengrass: Optional[pulumi.Input[str]] = None,
                  groundstation: Optional[pulumi.Input[str]] = None,
@@ -1767,6 +1781,7 @@ class ProviderEndpointArgs:
                  redshiftdataapiservice: Optional[pulumi.Input[str]] = None,
                  redshiftserverless: Optional[pulumi.Input[str]] = None,
                  rekognition: Optional[pulumi.Input[str]] = None,
+                 resiliencehub: Optional[pulumi.Input[str]] = None,
                  resourceexplorer2: Optional[pulumi.Input[str]] = None,
                  resourcegroups: Optional[pulumi.Input[str]] = None,
                  resourcegroupstagging: Optional[pulumi.Input[str]] = None,
@@ -1916,6 +1931,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] customerprofiles: Use this to override the default service endpoint URL
         :param pulumi.Input[str] databasemigration: Use this to override the default service endpoint URL
         :param pulumi.Input[str] databasemigrationservice: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] databrew: Use this to override the default service endpoint URL
         :param pulumi.Input[str] dataexchange: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datapipeline: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datasync: Use this to override the default service endpoint URL
@@ -1965,6 +1981,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] glacier: Use this to override the default service endpoint URL
         :param pulumi.Input[str] globalaccelerator: Use this to override the default service endpoint URL
         :param pulumi.Input[str] glue: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] gluedatabrew: Use this to override the default service endpoint URL
         :param pulumi.Input[str] grafana: Use this to override the default service endpoint URL
         :param pulumi.Input[str] greengrass: Use this to override the default service endpoint URL
         :param pulumi.Input[str] groundstation: Use this to override the default service endpoint URL
@@ -2053,6 +2070,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] redshiftdataapiservice: Use this to override the default service endpoint URL
         :param pulumi.Input[str] redshiftserverless: Use this to override the default service endpoint URL
         :param pulumi.Input[str] rekognition: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] resiliencehub: Use this to override the default service endpoint URL
         :param pulumi.Input[str] resourceexplorer2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] resourcegroups: Use this to override the default service endpoint URL
         :param pulumi.Input[str] resourcegroupstagging: Use this to override the default service endpoint URL
@@ -2286,6 +2304,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
             pulumi.set(__self__, "databasemigrationservice", databasemigrationservice)
+        if databrew is not None:
+            pulumi.set(__self__, "databrew", databrew)
         if dataexchange is not None:
             pulumi.set(__self__, "dataexchange", dataexchange)
         if datapipeline is not None:
@@ -2384,6 +2404,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "globalaccelerator", globalaccelerator)
         if glue is not None:
             pulumi.set(__self__, "glue", glue)
+        if gluedatabrew is not None:
+            pulumi.set(__self__, "gluedatabrew", gluedatabrew)
         if grafana is not None:
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
@@ -2560,6 +2582,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
         if rekognition is not None:
             pulumi.set(__self__, "rekognition", rekognition)
+        if resiliencehub is not None:
+            pulumi.set(__self__, "resiliencehub", resiliencehub)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -3699,6 +3723,18 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def databrew(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "databrew")
+
+    @databrew.setter
+    def databrew(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "databrew", value)
+
+    @property
+    @pulumi.getter
     def dataexchange(self) -> Optional[pulumi.Input[str]]:
         """
         Use this to override the default service endpoint URL
@@ -4284,6 +4320,18 @@ class ProviderEndpointArgs:
     @glue.setter
     def glue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "glue", value)
+
+    @property
+    @pulumi.getter
+    def gluedatabrew(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "gluedatabrew")
+
+    @gluedatabrew.setter
+    def gluedatabrew(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gluedatabrew", value)
 
     @property
     @pulumi.getter
@@ -5343,6 +5391,18 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def resiliencehub(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "resiliencehub")
+
+    @resiliencehub.setter
+    def resiliencehub(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resiliencehub", value)
+
+    @property
+    @pulumi.getter
     def resourceexplorer2(self) -> Optional[pulumi.Input[str]]:
         """
         Use this to override the default service endpoint URL
@@ -6114,11 +6174,11 @@ if not MYPY:
     class ProviderIgnoreTagsArgsDict(TypedDict):
         key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
 elif False:
     ProviderIgnoreTagsArgsDict: TypeAlias = Mapping[str, Any]
@@ -6129,8 +6189,8 @@ class ProviderIgnoreTagsArgs:
                  key_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_prefixes: Resource tag key prefixes to ignore across all resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Resource tag keys to ignore across all resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_prefixes: Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
@@ -6141,7 +6201,7 @@ class ProviderIgnoreTagsArgs:
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         return pulumi.get(self, "key_prefixes")
 
@@ -6153,7 +6213,7 @@ class ProviderIgnoreTagsArgs:
     @pulumi.getter
     def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         return pulumi.get(self, "keys")
 

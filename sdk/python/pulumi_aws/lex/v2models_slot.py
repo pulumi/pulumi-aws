@@ -30,6 +30,7 @@ class V2modelsSlotArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
+                 sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None,
                  value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
         """
@@ -43,6 +44,7 @@ class V2modelsSlotArgs:
         :param pulumi.Input[str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
         :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
@@ -61,6 +63,8 @@ class V2modelsSlotArgs:
             pulumi.set(__self__, "obfuscation_settings", obfuscation_settings)
         if slot_type_id is not None:
             pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if sub_slot_settings is not None:
+            pulumi.set(__self__, "sub_slot_settings", sub_slot_settings)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if value_elicitation_setting is not None:
@@ -175,6 +179,18 @@ class V2modelsSlotArgs:
         pulumi.set(self, "slot_type_id", value)
 
     @property
+    @pulumi.getter(name="subSlotSettings")
+    def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
+        """
+        Specifications for the constituent sub slots and the expression for the composite slot.
+        """
+        return pulumi.get(self, "sub_slot_settings")
+
+    @sub_slot_settings.setter
+    def sub_slot_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]):
+        pulumi.set(self, "sub_slot_settings", value)
+
+    @property
     @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
@@ -211,6 +227,7 @@ class _V2modelsSlotState:
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]] = None,
                  slot_id: Optional[pulumi.Input[str]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
+                 sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None,
                  value_elicitation_setting: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']] = None):
         """
@@ -225,6 +242,7 @@ class _V2modelsSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
         :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
@@ -249,6 +267,8 @@ class _V2modelsSlotState:
             pulumi.set(__self__, "slot_id", slot_id)
         if slot_type_id is not None:
             pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if sub_slot_settings is not None:
+            pulumi.set(__self__, "sub_slot_settings", sub_slot_settings)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if value_elicitation_setting is not None:
@@ -375,6 +395,18 @@ class _V2modelsSlotState:
         pulumi.set(self, "slot_type_id", value)
 
     @property
+    @pulumi.getter(name="subSlotSettings")
+    def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
+        """
+        Specifications for the constituent sub slots and the expression for the composite slot.
+        """
+        return pulumi.get(self, "sub_slot_settings")
+
+    @sub_slot_settings.setter
+    def sub_slot_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]):
+        pulumi.set(self, "sub_slot_settings", value)
+
+    @property
     @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
@@ -412,6 +444,7 @@ class V2modelsSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
+                 sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
                  value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
@@ -453,6 +486,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
         :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
@@ -514,6 +548,7 @@ class V2modelsSlot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
+                 sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
                  value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
@@ -542,6 +577,7 @@ class V2modelsSlot(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["obfuscation_settings"] = obfuscation_settings
             __props__.__dict__["slot_type_id"] = slot_type_id
+            __props__.__dict__["sub_slot_settings"] = sub_slot_settings
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["value_elicitation_setting"] = value_elicitation_setting
             __props__.__dict__["slot_id"] = None
@@ -565,6 +601,7 @@ class V2modelsSlot(pulumi.CustomResource):
             obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
             slot_id: Optional[pulumi.Input[str]] = None,
             slot_type_id: Optional[pulumi.Input[str]] = None,
+            sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
             value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None) -> 'V2modelsSlot':
         """
@@ -584,6 +621,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
         :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
@@ -602,6 +640,7 @@ class V2modelsSlot(pulumi.CustomResource):
         __props__.__dict__["obfuscation_settings"] = obfuscation_settings
         __props__.__dict__["slot_id"] = slot_id
         __props__.__dict__["slot_type_id"] = slot_type_id
+        __props__.__dict__["sub_slot_settings"] = sub_slot_settings
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["value_elicitation_setting"] = value_elicitation_setting
         return V2modelsSlot(resource_name, opts=opts, __props__=__props__)
@@ -680,11 +719,19 @@ class V2modelsSlot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slotTypeId")
-    def slot_type_id(self) -> pulumi.Output[Optional[str]]:
+    def slot_type_id(self) -> pulumi.Output[str]:
         """
         Unique identifier for the slot type associated with this slot.
         """
         return pulumi.get(self, "slot_type_id")
+
+    @property
+    @pulumi.getter(name="subSlotSettings")
+    def sub_slot_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotSubSlotSetting']]]:
+        """
+        Specifications for the constituent sub slots and the expression for the composite slot.
+        """
+        return pulumi.get(self, "sub_slot_settings")
 
     @property
     @pulumi.getter

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The lower limit of the port range. This must be less than or equal to the `to_port`.
+        /// </summary>
         [Input("fromPort", required: true)]
         public Input<int> FromPort { get; set; } = null!;
 
+        /// <summary>
+        /// The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;
 

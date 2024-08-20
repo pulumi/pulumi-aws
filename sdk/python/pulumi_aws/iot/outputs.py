@@ -1019,6 +1019,8 @@ class TopicRuleCloudwatchLog(dict):
             suggest = "log_group_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchLog. Access the value via the '{suggest}' property getter instead.")
@@ -1033,13 +1035,17 @@ class TopicRuleCloudwatchLog(dict):
 
     def __init__(__self__, *,
                  log_group_name: str,
-                 role_arn: str):
+                 role_arn: str,
+                 batch_mode: Optional[bool] = None):
         """
         :param str log_group_name: The CloudWatch log group name.
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param bool batch_mode: The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -1056,6 +1062,14 @@ class TopicRuleCloudwatchLog(dict):
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
 
 
 @pulumi.output_type
@@ -1822,6 +1836,8 @@ class TopicRuleErrorActionCloudwatchLogs(dict):
             suggest = "log_group_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
@@ -1836,13 +1852,17 @@ class TopicRuleErrorActionCloudwatchLogs(dict):
 
     def __init__(__self__, *,
                  log_group_name: str,
-                 role_arn: str):
+                 role_arn: str,
+                 batch_mode: Optional[bool] = None):
         """
         :param str log_group_name: The CloudWatch log group name.
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param bool batch_mode: The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -1859,6 +1879,14 @@ class TopicRuleErrorActionCloudwatchLogs(dict):
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
 
 
 @pulumi.output_type

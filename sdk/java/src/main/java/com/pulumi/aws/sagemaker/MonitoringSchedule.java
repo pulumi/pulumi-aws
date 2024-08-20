@@ -151,7 +151,7 @@ public class MonitoringSchedule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MonitoringSchedule(String name) {
+    public MonitoringSchedule(java.lang.String name) {
         this(name, MonitoringScheduleArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class MonitoringSchedule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MonitoringSchedule(String name, MonitoringScheduleArgs args) {
+    public MonitoringSchedule(java.lang.String name, MonitoringScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class MonitoringSchedule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MonitoringSchedule(String name, MonitoringScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, args == null ? MonitoringScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public MonitoringSchedule(java.lang.String name, MonitoringScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MonitoringSchedule(String name, Output<String> id, @Nullable MonitoringScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, state, makeResourceOptions(options, id));
+    private MonitoringSchedule(java.lang.String name, Output<java.lang.String> id, @Nullable MonitoringScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static MonitoringScheduleArgs makeArgs(MonitoringScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitoringScheduleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class MonitoringSchedule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MonitoringSchedule get(String name, Output<String> id, @Nullable MonitoringScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MonitoringSchedule get(java.lang.String name, Output<java.lang.String> id, @Nullable MonitoringScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MonitoringSchedule(name, id, state, options);
     }
 }

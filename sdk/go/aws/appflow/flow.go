@@ -195,6 +195,8 @@ type Flow struct {
 	FlowStatus pulumi.StringOutput `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
+	// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+	MetadataCatalogConfig FlowMetadataCatalogConfigOutput `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -263,6 +265,8 @@ type flowState struct {
 	FlowStatus *string `pulumi:"flowStatus"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
+	// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name *string `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -290,6 +294,8 @@ type FlowState struct {
 	FlowStatus pulumi.StringPtrInput
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
+	// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Name of the flow.
 	Name pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -317,6 +323,8 @@ type flowArgs struct {
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
+	// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Name of the flow.
 	Name *string `pulumi:"name"`
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -337,6 +345,8 @@ type FlowArgs struct {
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
 	// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 	KmsArn pulumi.StringPtrInput
+	// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Name of the flow.
 	Name pulumi.StringPtrInput
 	// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -459,6 +469,11 @@ func (o FlowOutput) FlowStatus() pulumi.StringOutput {
 // ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
 func (o FlowOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
+}
+
+// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+func (o FlowOutput) MetadataCatalogConfig() FlowMetadataCatalogConfigOutput {
+	return o.ApplyT(func(v *Flow) FlowMetadataCatalogConfigOutput { return v.MetadataCatalogConfig }).(FlowMetadataCatalogConfigOutput)
 }
 
 // Name of the flow.

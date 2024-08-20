@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainersEnv
     {
         /// <summary>
-        /// Specifies the name of the job definition.
+        /// Name of the job definition.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the environment variable.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

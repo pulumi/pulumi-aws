@@ -243,8 +243,8 @@ import (
 // domain = param
 // }
 // example, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-// Tags: interface{}{
-// Name: vpc,
+// Tags: pulumi.StringMap{
+// "Name": vpc,
 // },
 // }, nil);
 // if err != nil {
@@ -275,7 +275,7 @@ import (
 // return err
 // }
 // exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-// Name: pulumi.String(fmt.Sprintf("%v-opensearch-%v", vpc, domain)),
+// Name: pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
 // Description: pulumi.String("Managed by Pulumi"),
 // VpcId: pulumi.String(example.Id),
 // Ingress: ec2.SecurityGroupIngressArray{

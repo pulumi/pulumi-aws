@@ -31,6 +31,21 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
     }
 
     /**
+     * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    @Import(name="grafanaToken")
+    private @Nullable Output<String> grafanaToken;
+
+    /**
+     * @return A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+     * 
+     */
+    public Optional<Output<String>> grafanaToken() {
+        return Optional.ofNullable(this.grafanaToken);
+    }
+
+    /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
@@ -79,6 +94,7 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
 
     private LicenseAssociationState(LicenseAssociationState $) {
         this.freeTrialExpiration = $.freeTrialExpiration;
+        this.grafanaToken = $.grafanaToken;
         this.licenseExpiration = $.licenseExpiration;
         this.licenseType = $.licenseType;
         this.workspaceId = $.workspaceId;
@@ -121,6 +137,27 @@ public final class LicenseAssociationState extends com.pulumi.resources.Resource
          */
         public Builder freeTrialExpiration(String freeTrialExpiration) {
             return freeTrialExpiration(Output.of(freeTrialExpiration));
+        }
+
+        /**
+         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaToken(@Nullable Output<String> grafanaToken) {
+            $.grafanaToken = grafanaToken;
+            return this;
+        }
+
+        /**
+         * @param grafanaToken A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaToken(String grafanaToken) {
+            return grafanaToken(Output.of(grafanaToken));
         }
 
         /**

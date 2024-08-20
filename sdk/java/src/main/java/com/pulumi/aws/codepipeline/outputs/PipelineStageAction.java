@@ -70,6 +70,7 @@ public final class PipelineStageAction {
      * 
      */
     private @Nullable Integer runOrder;
+    private @Nullable Integer timeoutInMinutes;
     /**
      * @return A string that identifies the action type.
      * 
@@ -154,6 +155,9 @@ public final class PipelineStageAction {
     public Optional<Integer> runOrder() {
         return Optional.ofNullable(this.runOrder);
     }
+    public Optional<Integer> timeoutInMinutes() {
+        return Optional.ofNullable(this.timeoutInMinutes);
+    }
     /**
      * @return A string that identifies the action type.
      * 
@@ -182,6 +186,7 @@ public final class PipelineStageAction {
         private @Nullable String region;
         private @Nullable String roleArn;
         private @Nullable Integer runOrder;
+        private @Nullable Integer timeoutInMinutes;
         private String version;
         public Builder() {}
         public Builder(PipelineStageAction defaults) {
@@ -197,6 +202,7 @@ public final class PipelineStageAction {
     	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.runOrder = defaults.runOrder;
+    	      this.timeoutInMinutes = defaults.timeoutInMinutes;
     	      this.version = defaults.version;
         }
 
@@ -281,6 +287,12 @@ public final class PipelineStageAction {
             return this;
         }
         @CustomType.Setter
+        public Builder timeoutInMinutes(@Nullable Integer timeoutInMinutes) {
+
+            this.timeoutInMinutes = timeoutInMinutes;
+            return this;
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("PipelineStageAction", "version");
@@ -301,6 +313,7 @@ public final class PipelineStageAction {
             _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.runOrder = runOrder;
+            _resultValue.timeoutInMinutes = timeoutInMinutes;
             _resultValue.version = version;
             return _resultValue;
         }

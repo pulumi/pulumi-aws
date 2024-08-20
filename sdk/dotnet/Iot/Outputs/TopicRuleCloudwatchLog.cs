@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleCloudwatchLog
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// The CloudWatch log group name.
         /// </summary>
         public readonly string LogGroupName;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private TopicRuleCloudwatchLog(
+            bool? batchMode,
+
             string logGroupName,
 
             string roleArn)
         {
+            BatchMode = batchMode;
             LogGroupName = logGroupName;
             RoleArn = roleArn;
         }

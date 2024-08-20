@@ -444,19 +444,18 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) TlsPolicy() pulumi.StringPtrOu
 }
 
 type ConfigurationSetEventDestinationEventDestination struct {
-	// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-	Enabled *bool `pulumi:"enabled"`
-	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+	Enabled                *bool                                                                   `pulumi:"enabled"`
+	EventBridgeDestination *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination `pulumi:"eventBridgeDestination"`
+	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-	//
-	// The following arguments are optional:
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
-	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+	// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination *ConfigurationSetEventDestinationEventDestinationPinpointDestination `pulumi:"pinpointDestination"`
-	// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination *ConfigurationSetEventDestinationEventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -472,19 +471,18 @@ type ConfigurationSetEventDestinationEventDestinationInput interface {
 }
 
 type ConfigurationSetEventDestinationEventDestinationArgs struct {
-	// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+	// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 	CloudWatchDestination ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
 	// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+	Enabled                pulumi.BoolPtrInput                                                            `pulumi:"enabled"`
+	EventBridgeDestination ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput `pulumi:"eventBridgeDestination"`
+	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-	//
-	// The following arguments are optional:
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
-	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+	// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput `pulumi:"pinpointDestination"`
-	// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
 }
 
@@ -565,7 +563,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
 }
 
-// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
 		return v.CloudWatchDestination
@@ -577,7 +575,13 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+		return v.EventBridgeDestination
+	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
 		return v.KinesisFirehoseDestination
@@ -585,20 +589,18 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseD
 }
 
 // An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-//
-// The following arguments are optional:
 func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		return v.PinpointDestination
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
 		return v.SnsDestination
@@ -629,7 +631,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() Config
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-// An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+// An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
 		if v == nil {
@@ -649,7 +651,16 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) EventBridgeDestination() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgeDestination
+	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
 		if v == nil {
@@ -660,8 +671,6 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFireho
 }
 
 // An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-//
-// The following arguments are optional:
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
 		if v == nil {
@@ -671,7 +680,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEvent
 	}).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		if v == nil {
@@ -681,7 +690,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDesti
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-// An object that defines an Amazon SNS destination for email events. See snsDestination below.
+// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestination() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationSnsDestination {
 		if v == nil {
@@ -692,7 +701,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestinatio
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestination struct {
-	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 	DimensionConfigurations []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration `pulumi:"dimensionConfigurations"`
 }
 
@@ -708,7 +717,7 @@ type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationInput 
 }
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs struct {
-	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+	// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 	DimensionConfigurations ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
 }
 
@@ -789,7 +798,7 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOut
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
 		return v.DimensionConfigurations
@@ -820,7 +829,7 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput)
 }
 
-// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
 		if v == nil {
@@ -949,6 +958,145 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
 		return vs[0].([]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration)[vs[1].(int)]
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestination struct {
+	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs and ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationInput` via:
+//
+//	ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput
+}
+
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput).ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs, ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtr and ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput` via:
+//
+//	        ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationEventBridgeDestinationPtrType ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationEventBridgeDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationEventBridgeDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationEventBridgeDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationEventBridgeDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) string {
+		return v.EventBusArn
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestinationEventBridgeDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestinationEventBridgeDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+func (o ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestinationEventBridgeDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventBusArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination struct {
@@ -3881,6 +4029,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationPinpointDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs{})
@@ -3937,6 +4087,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput{})

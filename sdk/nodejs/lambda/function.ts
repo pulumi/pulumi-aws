@@ -405,6 +405,9 @@ export class Function extends pulumi.CustomResource {
      * Snap start settings block. Detailed below.
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     public readonly sourceCodeHash!: pulumi.Output<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -703,6 +706,9 @@ export interface FunctionState {
      * Snap start settings block. Detailed below.
      */
     snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Size in bytes of the function .zip file.
@@ -858,6 +864,9 @@ export interface FunctionArgs {
      * Snap start settings block. Detailed below.
      */
     snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStart>;
+    /**
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+     */
     sourceCodeHash?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

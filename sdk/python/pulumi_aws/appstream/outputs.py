@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'DirectoryConfigServiceAccountCredentials',
@@ -27,6 +28,10 @@ __all__ = [
     'StackStorageConnector',
     'StackStreamingExperienceSettings',
     'StackUserSetting',
+    'GetImageApplicationResult',
+    'GetImageApplicationIconS3LocationResult',
+    'GetImageImagePermissionResult',
+    'GetImageStateChangeReasonResult',
 ]
 
 @pulumi.output_type
@@ -648,5 +653,258 @@ class StackUserSetting(dict):
         Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "permission")
+
+
+@pulumi.output_type
+class GetImageApplicationResult(dict):
+    def __init__(__self__, *,
+                 app_block_arn: str,
+                 arn: str,
+                 created_time: str,
+                 description: str,
+                 display_name: str,
+                 enabled: bool,
+                 icon_s3_locations: Sequence['outputs.GetImageApplicationIconS3LocationResult'],
+                 icon_url: str,
+                 instance_families: Sequence[str],
+                 launch_parameters: str,
+                 launch_path: str,
+                 metadata: Mapping[str, str],
+                 name: str,
+                 platforms: Sequence[str],
+                 working_directory: str):
+        """
+        :param str app_block_arn: The app block ARN of the application.
+        :param str arn: Arn of the image being searched for. Cannot be used with name_regex or name.
+        :param str created_time: Time at which this image was created.
+        :param str description: Description of image.
+        :param str display_name: Image name to display.
+        :param bool enabled: Bool based on if the application is enabled.
+        :param Sequence['GetImageApplicationIconS3LocationArgs'] icon_s3_locations: A list named icon_s3_location that contains the following:
+        :param str icon_url: URL of the application icon. This URL may be time-limited.
+        :param Sequence[str] instance_families: List of the instance families of the application.
+        :param str launch_parameters: Arguments that are passed to the application at it's launch.
+        :param str launch_path: Path to the application's excecutable in the instance.
+        :param Mapping[str, str] metadata: String to string map that contains additional attributes used to describe the application.
+               * `Name` - Name of the application.
+        :param str name: Name of the image being searched for. Cannot be used with name_regex or arn.
+        :param Sequence[str] platforms: Array of strings describing the platforms on which the application can run.
+               Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+        :param str working_directory: Working directory for the application.
+        """
+        pulumi.set(__self__, "app_block_arn", app_block_arn)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "icon_s3_locations", icon_s3_locations)
+        pulumi.set(__self__, "icon_url", icon_url)
+        pulumi.set(__self__, "instance_families", instance_families)
+        pulumi.set(__self__, "launch_parameters", launch_parameters)
+        pulumi.set(__self__, "launch_path", launch_path)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "platforms", platforms)
+        pulumi.set(__self__, "working_directory", working_directory)
+
+    @property
+    @pulumi.getter(name="appBlockArn")
+    def app_block_arn(self) -> str:
+        """
+        The app block ARN of the application.
+        """
+        return pulumi.get(self, "app_block_arn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Arn of the image being searched for. Cannot be used with name_regex or name.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        """
+        Time at which this image was created.
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of image.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        Image name to display.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Bool based on if the application is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="iconS3Locations")
+    def icon_s3_locations(self) -> Sequence['outputs.GetImageApplicationIconS3LocationResult']:
+        """
+        A list named icon_s3_location that contains the following:
+        """
+        return pulumi.get(self, "icon_s3_locations")
+
+    @property
+    @pulumi.getter(name="iconUrl")
+    def icon_url(self) -> str:
+        """
+        URL of the application icon. This URL may be time-limited.
+        """
+        return pulumi.get(self, "icon_url")
+
+    @property
+    @pulumi.getter(name="instanceFamilies")
+    def instance_families(self) -> Sequence[str]:
+        """
+        List of the instance families of the application.
+        """
+        return pulumi.get(self, "instance_families")
+
+    @property
+    @pulumi.getter(name="launchParameters")
+    def launch_parameters(self) -> str:
+        """
+        Arguments that are passed to the application at it's launch.
+        """
+        return pulumi.get(self, "launch_parameters")
+
+    @property
+    @pulumi.getter(name="launchPath")
+    def launch_path(self) -> str:
+        """
+        Path to the application's excecutable in the instance.
+        """
+        return pulumi.get(self, "launch_path")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Mapping[str, str]:
+        """
+        String to string map that contains additional attributes used to describe the application.
+        * `Name` - Name of the application.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the image being searched for. Cannot be used with name_regex or arn.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def platforms(self) -> Sequence[str]:
+        """
+        Array of strings describing the platforms on which the application can run.
+        Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+        """
+        return pulumi.get(self, "platforms")
+
+    @property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> str:
+        """
+        Working directory for the application.
+        """
+        return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class GetImageApplicationIconS3LocationResult(dict):
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_key: str):
+        """
+        :param str s3_bucket: S3 bucket of the S3 object.
+        :param str s3_key: S3 key of the S3 object.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        """
+        S3 bucket of the S3 object.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        """
+        S3 key of the S3 object.
+        """
+        return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class GetImageImagePermissionResult(dict):
+    def __init__(__self__, *,
+                 allow_fleet: bool,
+                 allow_image_builder: bool):
+        """
+        :param bool allow_fleet: Boolean indicating if the image can be used for a fleet.
+        :param bool allow_image_builder: indicated whether the image can be used for an image builder.
+        """
+        pulumi.set(__self__, "allow_fleet", allow_fleet)
+        pulumi.set(__self__, "allow_image_builder", allow_image_builder)
+
+    @property
+    @pulumi.getter(name="allowFleet")
+    def allow_fleet(self) -> bool:
+        """
+        Boolean indicating if the image can be used for a fleet.
+        """
+        return pulumi.get(self, "allow_fleet")
+
+    @property
+    @pulumi.getter(name="allowImageBuilder")
+    def allow_image_builder(self) -> bool:
+        """
+        indicated whether the image can be used for an image builder.
+        """
+        return pulumi.get(self, "allow_image_builder")
+
+
+@pulumi.output_type
+class GetImageStateChangeReasonResult(dict):
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        return pulumi.get(self, "message")
 
 

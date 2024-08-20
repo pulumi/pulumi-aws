@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? AppType { get; set; }
 
         /// <summary>
-        /// The Code Editor application settings. See Code Editor App Settings below.
+        /// The Code Editor application settings. See `code_editor_app_settings` Block below.
         /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.SpaceSpaceSettingsCustomFileSystemArgs>? _customFileSystems;
 
         /// <summary>
-        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `custom_file_system` Block below.
         /// </summary>
         public InputList<Inputs.SpaceSpaceSettingsCustomFileSystemArgs> CustomFileSystems
         {
@@ -37,23 +37,26 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
-        /// The Jupyter server's app settings. See Jupyter Server App Settings below.
+        /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
         /// <summary>
-        /// The kernel gateway app settings. See Kernel Gateway App Settings below.
+        /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
+        /// <summary>
+        /// The storage settings. See `space_storage_settings` Block below.
+        /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.SpaceSpaceSettingsSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
 

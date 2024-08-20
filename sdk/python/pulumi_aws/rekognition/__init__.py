@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .collection import *
 from .project import *
+from .stream_processor import *
 from ._inputs import *
 from . import outputs

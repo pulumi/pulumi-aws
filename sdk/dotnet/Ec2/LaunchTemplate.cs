@@ -68,14 +68,14 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
         [Output("disableApiStop")]
         public Output<bool?> DisableApiStop { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Output("disableApiTermination")]
         public Output<bool?> DisableApiTermination { get; private set; } = null!;
@@ -363,14 +363,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
         [Input("disableApiStop")]
         public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }
@@ -656,14 +656,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
         [Input("disableApiStop")]
         public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
-        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+        /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
         [Input("disableApiTermination")]
         public Input<bool>? DisableApiTermination { get; set; }

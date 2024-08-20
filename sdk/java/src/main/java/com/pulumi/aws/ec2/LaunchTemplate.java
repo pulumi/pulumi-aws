@@ -154,14 +154,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
     @Export(name="disableApiStop", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableApiStop;
 
     /**
-     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
     public Output<Optional<Boolean>> disableApiStop() {
@@ -169,7 +169,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     }
     /**
      * If `true`, enables [EC2 Instance
-     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
     @Export(name="disableApiTermination", refs={Boolean.class}, tree="[0]")
@@ -177,7 +177,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return If `true`, enables [EC2 Instance
-     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+     * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
     public Output<Optional<Boolean>> disableApiTermination() {
@@ -638,7 +638,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LaunchTemplate(String name) {
+    public LaunchTemplate(java.lang.String name) {
         this(name, LaunchTemplateArgs.Empty);
     }
     /**
@@ -646,7 +646,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LaunchTemplate(String name, @Nullable LaunchTemplateArgs args) {
+    public LaunchTemplate(java.lang.String name, @Nullable LaunchTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -655,15 +655,22 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LaunchTemplate(String name, @Nullable LaunchTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/launchTemplate:LaunchTemplate", name, args == null ? LaunchTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LaunchTemplate(java.lang.String name, @Nullable LaunchTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/launchTemplate:LaunchTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LaunchTemplate(String name, Output<String> id, @Nullable LaunchTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/launchTemplate:LaunchTemplate", name, state, makeResourceOptions(options, id));
+    private LaunchTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable LaunchTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/launchTemplate:LaunchTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LaunchTemplateArgs makeArgs(@Nullable LaunchTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LaunchTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -679,7 +686,7 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LaunchTemplate get(String name, Output<String> id, @Nullable LaunchTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LaunchTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable LaunchTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LaunchTemplate(name, id, state, options);
     }
 }

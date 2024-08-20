@@ -100,7 +100,7 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DedicatedIpAssignment(String name) {
+    public DedicatedIpAssignment(java.lang.String name) {
         this(name, DedicatedIpAssignmentArgs.Empty);
     }
     /**
@@ -108,7 +108,7 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DedicatedIpAssignment(String name, DedicatedIpAssignmentArgs args) {
+    public DedicatedIpAssignment(java.lang.String name, DedicatedIpAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,15 +117,22 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DedicatedIpAssignment(String name, DedicatedIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, args == null ? DedicatedIpAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DedicatedIpAssignment(java.lang.String name, DedicatedIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DedicatedIpAssignment(String name, Output<String> id, @Nullable DedicatedIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, state, makeResourceOptions(options, id));
+    private DedicatedIpAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DedicatedIpAssignmentArgs makeArgs(DedicatedIpAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DedicatedIpAssignmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -141,7 +148,7 @@ public class DedicatedIpAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DedicatedIpAssignment get(String name, Output<String> id, @Nullable DedicatedIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DedicatedIpAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedIpAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DedicatedIpAssignment(name, id, state, options);
     }
 }

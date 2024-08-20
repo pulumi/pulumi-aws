@@ -133,7 +133,7 @@ public class OrganizationConfigurationFeature extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationConfigurationFeature(String name) {
+    public OrganizationConfigurationFeature(java.lang.String name) {
         this(name, OrganizationConfigurationFeatureArgs.Empty);
     }
     /**
@@ -141,7 +141,7 @@ public class OrganizationConfigurationFeature extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationConfigurationFeature(String name, OrganizationConfigurationFeatureArgs args) {
+    public OrganizationConfigurationFeature(java.lang.String name, OrganizationConfigurationFeatureArgs args) {
         this(name, args, null);
     }
     /**
@@ -150,15 +150,22 @@ public class OrganizationConfigurationFeature extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationConfigurationFeature(String name, OrganizationConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, args == null ? OrganizationConfigurationFeatureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationConfigurationFeature(java.lang.String name, OrganizationConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationConfigurationFeature(String name, Output<String> id, @Nullable OrganizationConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, state, makeResourceOptions(options, id));
+    private OrganizationConfigurationFeature(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationConfigurationFeatureArgs makeArgs(OrganizationConfigurationFeatureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationConfigurationFeatureArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -174,7 +181,7 @@ public class OrganizationConfigurationFeature extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationConfigurationFeature get(String name, Output<String> id, @Nullable OrganizationConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationConfigurationFeature get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationConfigurationFeatureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationConfigurationFeature(name, id, state, options);
     }
 }

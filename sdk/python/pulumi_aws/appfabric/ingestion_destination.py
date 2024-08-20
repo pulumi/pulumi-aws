@@ -279,16 +279,16 @@ class IngestionDestination(pulumi.CustomResource):
             app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
             ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
-                "auditLog": {
+                "audit_log": {
                     "format": "json",
                     "schema": "raw",
                 },
             },
             destination_configuration={
-                "auditLog": {
+                "audit_log": {
                     "destination": {
-                        "s3Bucket": {
-                            "bucketName": example_aws_s3_bucket["bucket"],
+                        "s3_bucket": {
+                            "bucket_name": example_aws_s3_bucket["bucket"],
                         },
                     },
                 },
@@ -324,16 +324,16 @@ class IngestionDestination(pulumi.CustomResource):
             app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
             ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
-                "auditLog": {
+                "audit_log": {
                     "format": "json",
                     "schema": "raw",
                 },
             },
             destination_configuration={
-                "auditLog": {
+                "audit_log": {
                     "destination": {
-                        "s3Bucket": {
-                            "bucketName": example_aws_s3_bucket["bucket"],
+                        "s3_bucket": {
+                            "bucket_name": example_aws_s3_bucket["bucket"],
                         },
                     },
                 },

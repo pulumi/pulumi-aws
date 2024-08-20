@@ -14,13 +14,35 @@ namespace Pulumi.Aws.CloudFormation.Outputs
     public sealed class StackSetInstanceDeploymentTargets
     {
         /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+        /// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+        /// </summary>
+        public readonly string? AccountFilterType;
+        /// <summary>
+        /// List of accounts to deploy stack set updates.
+        /// </summary>
+        public readonly ImmutableArray<string> Accounts;
+        /// <summary>
+        /// S3 URL of the file containing the list of accounts.
+        /// </summary>
+        public readonly string? AccountsUrl;
+        /// <summary>
+        /// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitIds;
 
         [OutputConstructor]
-        private StackSetInstanceDeploymentTargets(ImmutableArray<string> organizationalUnitIds)
+        private StackSetInstanceDeploymentTargets(
+            string? accountFilterType,
+
+            ImmutableArray<string> accounts,
+
+            string? accountsUrl,
+
+            ImmutableArray<string> organizationalUnitIds)
         {
+            AccountFilterType = accountFilterType;
+            Accounts = accounts;
+            AccountsUrl = accountsUrl;
             OrganizationalUnitIds = organizationalUnitIds;
         }
     }

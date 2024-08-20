@@ -20,14 +20,14 @@ public final class ClassifierState extends com.pulumi.resources.ResourceArgs {
     public static final ClassifierState Empty = new ClassifierState();
 
     /**
-     * A classifier for Csv content. Defined below.
+     * A classifier for CSV content. Defined below.
      * 
      */
     @Import(name="csvClassifier")
     private @Nullable Output<ClassifierCsvClassifierArgs> csvClassifier;
 
     /**
-     * @return A classifier for Csv content. Defined below.
+     * @return A classifier for CSV content. Defined below.
      * 
      */
     public Optional<Output<ClassifierCsvClassifierArgs>> csvClassifier() {
@@ -123,7 +123,7 @@ public final class ClassifierState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvClassifier A classifier for Csv content. Defined below.
+         * @param csvClassifier A classifier for CSV content. Defined below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ClassifierState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param csvClassifier A classifier for Csv content. Defined below.
+         * @param csvClassifier A classifier for CSV content. Defined below.
          * 
          * @return builder
          * 

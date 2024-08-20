@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
+    ///         Name = "example",
     ///         ConnectionProperties = 
     ///         {
     ///             { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -55,12 +55,12 @@ namespace Pulumi.Aws.Glue
     /// 
     ///     var exampleConnection = new Aws.Glue.Connection("example", new()
     ///     {
+    ///         Name = "example",
     ///         ConnectionProperties = 
     ///         {
     ///             { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
     ///             { "SECRET_ID", example.Apply(getSecretResult =&gt; getSecretResult.Name) },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -80,13 +80,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Connection("example", new()
     ///     {
+    ///         Name = "example",
     ///         ConnectionProperties = 
     ///         {
     ///             { "JDBC_CONNECTION_URL", $"jdbc:mysql://{exampleAwsRdsCluster.Endpoint}/exampledatabase" },
     ///             { "PASSWORD", "examplepassword" },
     ///             { "USERNAME", "exampleusername" },
     ///         },
-    ///         Name = "example",
     ///         PhysicalConnectionRequirements = new Aws.Glue.Inputs.ConnectionPhysicalConnectionRequirementsArgs
     ///         {
     ///             AvailabilityZone = exampleAwsSubnet.AvailabilityZone,
@@ -118,8 +118,9 @@ namespace Pulumi.Aws.Glue
     ///         Name = "example-secret",
     ///     });
     /// 
-    ///     var exampleConnector = new Aws.Glue.Connection("example_connector", new()
+    ///     var example1 = new Aws.Glue.Connection("example1", new()
     ///     {
+    ///         Name = "example1",
     ///         ConnectionType = "CUSTOM",
     ///         ConnectionProperties = 
     ///         {
@@ -128,7 +129,6 @@ namespace Pulumi.Aws.Glue
     ///             { "CONNECTOR_URL", "s3://example/snowflake-jdbc.jar" },
     ///             { "JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&amp;password=${password}\"],\",\"]" },
     ///         },
-    ///         Name = "example_connector",
     ///         MatchCriterias = new[]
     ///         {
     ///             "template-connection",
@@ -136,8 +136,9 @@ namespace Pulumi.Aws.Glue
     ///     });
     /// 
     ///     // Reference the connector using match_criteria with the connector created above.
-    ///     var exampleConnection = new Aws.Glue.Connection("example_connection", new()
+    ///     var example2 = new Aws.Glue.Connection("example2", new()
     ///     {
+    ///         Name = "example2",
     ///         ConnectionType = "CUSTOM",
     ///         ConnectionProperties = 
     ///         {
@@ -147,11 +148,255 @@ namespace Pulumi.Aws.Glue
     ///             { "JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&amp;password=${password}" },
     ///             { "SECRET_ID", example.Apply(getSecretResult =&gt; getSecretResult.Name) },
     ///         },
-    ///         Name = "example",
     ///         MatchCriterias = new[]
     ///         {
     ///             "Connection",
-    ///             exampleConnector.Name,
+    ///             example1.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Azure Cosmos Connection
+    /// 
+    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azurecosmos).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["username"] = "exampleusername",
+    ///             ["password"] = "examplepassword",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "AZURECOSMOS",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["secretId"] = example.Name,
+    ///                 ["spark.cosmos.accountEndpoint"] = "https://exampledbaccount.documents.azure.com:443/",
+    ///             })) },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Azure SQL Connection
+    /// 
+    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-azuresql).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["username"] = "exampleusername",
+    ///             ["password"] = "examplepassword",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "AZURECOSMOS",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["secretId"] = example.Name,
+    ///                 ["url"] = "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
+    ///             })) },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Google BigQuery Connection
+    /// 
+    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["credentials"] = Std.Base64encode.Invoke(new()
+    ///             {
+    ///                 Input = @"{
+    ///   ""type"": ""service_account"",
+    ///   ""project_id"": ""example-project"",
+    ///   ""private_key_id"": ""example-key"",
+    ///   ""private_key"": ""-----BEGIN RSA PRIVATE KEY-----\nREDACTED\n-----END RSA PRIVATE KEY-----"",
+    ///   ""client_email"": ""example-project@appspot.gserviceaccount.com"",
+    ///   ""client_id"": example-client"",
+    ///   ""auth_uri"": ""https://accounts.google.com/o/oauth2/auth"",
+    ///   ""token_uri"": ""https://oauth2.googleapis.com/token"",
+    ///   ""auth_provider_x509_cert_url"": ""https://www.googleapis.com/oauth2/v1/certs"",
+    ///   ""client_x509_cert_url"": ""https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com"",
+    ///   ""universe_domain"": ""googleapis.com""
+    /// }
+    /// ",
+    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "BIGQUERY",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["secretId"] = example.Name,
+    ///             })) },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### OpenSearch Service Connection
+    /// 
+    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["opensearch.net.http.auth.user"] = "exampleusername",
+    ///             ["opensearch.net.http.auth.pass"] = "examplepassword",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "OPENSEARCH",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["secretId"] = example.Name,
+    ///                 ["opensearch.nodes"] = "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
+    ///                 ["opensearch.port"] = "443",
+    ///                 ["opensearch.aws.sigv4.region"] = "us-east-1",
+    ///                 ["opensearch.nodes.wan.only"] = "true",
+    ///                 ["opensearch.aws.sigv4.enabled"] = "true",
+    ///             })) },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Snowflake Connection
+    /// 
+    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-snowflake).
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
+    ///     {
+    ///         SecretId = example.Id,
+    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["sfUser"] = "exampleusername",
+    ///             ["sfPassword"] = "examplepassword",
+    ///         }),
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ConnectionType = "SNOWFLAKE",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["secretId"] = example.Name,
+    ///                 ["sfRole"] = "EXAMPLEETLROLE",
+    ///                 ["sfUrl"] = "exampleorg-exampleconnection.snowflakecomputing.com",
+    ///             })) },
     ///         },
     ///     });
     /// 
@@ -170,25 +415,27 @@ namespace Pulumi.Aws.Glue
     public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Glue Connection.
+        /// ARN of the Glue Connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Output("catalogId")]
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of key-value pairs used as parameters for this connection.
+        /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+        /// 
+        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         [Output("connectionProperties")]
         public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Output("connectionType")]
         public Output<string?> ConnectionType { get; private set; } = null!;
@@ -200,19 +447,21 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A list of criteria that can be used in selecting this connection.
+        /// List of criteria that can be used in selecting this connection.
         /// </summary>
         [Output("matchCriterias")]
         public Output<ImmutableArray<string>> MatchCriterias { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
         [Output("physicalConnectionRequirements")]
         public Output<Outputs.ConnectionPhysicalConnectionRequirements?> PhysicalConnectionRequirements { get; private set; } = null!;
@@ -280,7 +529,7 @@ namespace Pulumi.Aws.Glue
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -289,7 +538,9 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _connectionProperties;
 
         /// <summary>
-        /// A map of key-value pairs used as parameters for this connection.
+        /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+        /// 
+        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         public InputMap<string> ConnectionProperties
         {
@@ -302,7 +553,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -317,7 +568,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _matchCriterias;
 
         /// <summary>
-        /// A list of criteria that can be used in selecting this connection.
+        /// List of criteria that can be used in selecting this connection.
         /// </summary>
         public InputList<string> MatchCriterias
         {
@@ -326,13 +577,15 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsArgs>? PhysicalConnectionRequirements { get; set; }
@@ -358,13 +611,13 @@ namespace Pulumi.Aws.Glue
     public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Glue Connection.
+        /// ARN of the Glue Connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
@@ -373,7 +626,9 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _connectionProperties;
 
         /// <summary>
-        /// A map of key-value pairs used as parameters for this connection.
+        /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
+        /// 
+        /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
         public InputMap<string> ConnectionProperties
         {
@@ -386,7 +641,7 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The type of the connection. Supported are: `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, and `NETWORK`. Defaults to `JDBC`.
+        /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
         [Input("connectionType")]
         public Input<string>? ConnectionType { get; set; }
@@ -401,7 +656,7 @@ namespace Pulumi.Aws.Glue
         private InputList<string>? _matchCriterias;
 
         /// <summary>
-        /// A list of criteria that can be used in selecting this connection.
+        /// List of criteria that can be used in selecting this connection.
         /// </summary>
         public InputList<string> MatchCriterias
         {
@@ -410,13 +665,15 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
-        /// The name of the connection.
+        /// Name of the connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsGetArgs>? PhysicalConnectionRequirements { get; set; }

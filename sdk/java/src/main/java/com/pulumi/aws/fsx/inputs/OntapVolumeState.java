@@ -22,14 +22,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     public static final OntapVolumeState Empty = new OntapVolumeState();
 
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
      * 
      */
     @Import(name="aggregateConfiguration")
     private @Nullable Output<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
      * 
      */
     public Optional<Output<OntapVolumeAggregateConfigurationArgs>> aggregateConfiguration() {
@@ -94,6 +94,21 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
+    }
+
+    /**
+     * A map of tags to apply to the volume&#39;s final backup.
+     * 
+     */
+    @Import(name="finalBackupTags")
+    private @Nullable Output<Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the volume&#39;s final backup.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> finalBackupTags() {
+        return Optional.ofNullable(this.finalBackupTags);
     }
 
     /**
@@ -217,14 +232,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
      * 
      */
     @Import(name="snaplockConfiguration")
     private @Nullable Output<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationArgs>> snaplockConfiguration() {
@@ -264,12 +279,16 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the storage virtual machine in which to create the volume.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="storageVirtualMachineId")
     private @Nullable Output<String> storageVirtualMachineId;
 
     /**
      * @return Specifies the storage virtual machine in which to create the volume.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> storageVirtualMachineId() {
@@ -315,14 +334,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
      * 
      */
     @Import(name="tieringPolicy")
     private @Nullable Output<OntapVolumeTieringPolicyArgs> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * @return The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeTieringPolicyArgs>> tieringPolicy() {
@@ -382,6 +401,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         this.bypassSnaplockEnterpriseRetention = $.bypassSnaplockEnterpriseRetention;
         this.copyTagsToBackups = $.copyTagsToBackups;
         this.fileSystemId = $.fileSystemId;
+        this.finalBackupTags = $.finalBackupTags;
         this.flexcacheEndpointType = $.flexcacheEndpointType;
         this.junctionPath = $.junctionPath;
         this.name = $.name;
@@ -421,7 +441,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
          * 
          * @return builder
          * 
@@ -432,7 +452,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
          * 
          * @return builder
          * 
@@ -523,6 +543,27 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the volume&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(@Nullable Output<Map<String,String>> finalBackupTags) {
+            $.finalBackupTags = finalBackupTags;
+            return this;
+        }
+
+        /**
+         * @param finalBackupTags A map of tags to apply to the volume&#39;s final backup.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder finalBackupTags(Map<String,String> finalBackupTags) {
+            return finalBackupTags(Output.of(finalBackupTags));
         }
 
         /**
@@ -694,7 +735,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -705,7 +746,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
          * 
          * @return builder
          * 
@@ -759,6 +800,8 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -769,6 +812,8 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -828,7 +873,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
          * 
          * @return builder
          * 
@@ -839,7 +884,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
          * 
          * @return builder
          * 

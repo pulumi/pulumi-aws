@@ -172,6 +172,20 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    @Export(name="billingMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> billingMode;
+
+    /**
+     * @return The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    public Output<Optional<String>> billingMode() {
+        return Codegen.optional(this.billingMode);
+    }
+    /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      * 
      */
@@ -292,7 +306,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventDataStore(String name) {
+    public EventDataStore(java.lang.String name) {
         this(name, EventDataStoreArgs.Empty);
     }
     /**
@@ -300,7 +314,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventDataStore(String name, @Nullable EventDataStoreArgs args) {
+    public EventDataStore(java.lang.String name, @Nullable EventDataStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,15 +323,22 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventDataStore(String name, @Nullable EventDataStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudtrail/eventDataStore:EventDataStore", name, args == null ? EventDataStoreArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventDataStore(java.lang.String name, @Nullable EventDataStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudtrail/eventDataStore:EventDataStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventDataStore(String name, Output<String> id, @Nullable EventDataStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cloudtrail/eventDataStore:EventDataStore", name, state, makeResourceOptions(options, id));
+    private EventDataStore(java.lang.String name, Output<java.lang.String> id, @Nullable EventDataStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cloudtrail/eventDataStore:EventDataStore", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventDataStoreArgs makeArgs(@Nullable EventDataStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventDataStoreArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -333,7 +354,7 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventDataStore get(String name, Output<String> id, @Nullable EventDataStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventDataStore get(java.lang.String name, Output<java.lang.String> id, @Nullable EventDataStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventDataStore(name, id, state, options);
     }
 }

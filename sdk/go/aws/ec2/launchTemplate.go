@@ -39,10 +39,10 @@ type LaunchTemplate struct {
 	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrOutput `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrOutput `pulumi:"ebsOptimized"`
@@ -162,10 +162,10 @@ type launchTemplateState struct {
 	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
@@ -256,10 +256,10 @@ type LaunchTemplateState struct {
 	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrInput
 	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
@@ -352,10 +352,10 @@ type launchTemplateArgs struct {
 	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
@@ -439,10 +439,10 @@ type LaunchTemplateArgs struct {
 	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
-	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrInput
 	// If `true`, enables [EC2 Instance
-	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
@@ -636,13 +636,13 @@ func (o LaunchTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 func (o LaunchTemplateOutput) DisableApiStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
 // If `true`, enables [EC2 Instance
-// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
+// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
 func (o LaunchTemplateOutput) DisableApiTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
 }

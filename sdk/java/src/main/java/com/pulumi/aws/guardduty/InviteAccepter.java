@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var primary = new Detector("primary");
  * 
  *         var memberDetector = new Detector("memberDetector");
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *         var memberMember = new Member("memberMember", MemberArgs.builder()
  *             .accountId(memberDetector.accountId())
  *             .detectorId(primary.id())
- *             .email("required{@literal @}example.com")
+ *             .email("required}{@literal @}{@code example.com")
  *             .invite(true)
  *             .build());
  * 
@@ -63,8 +63,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(memberMember)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -113,7 +113,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InviteAccepter(String name) {
+    public InviteAccepter(java.lang.String name) {
         this(name, InviteAccepterArgs.Empty);
     }
     /**
@@ -121,7 +121,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InviteAccepter(String name, InviteAccepterArgs args) {
+    public InviteAccepter(java.lang.String name, InviteAccepterArgs args) {
         this(name, args, null);
     }
     /**
@@ -130,15 +130,22 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InviteAccepter(String name, InviteAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/inviteAccepter:InviteAccepter", name, args == null ? InviteAccepterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InviteAccepter(java.lang.String name, InviteAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/inviteAccepter:InviteAccepter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InviteAccepter(String name, Output<String> id, @Nullable InviteAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:guardduty/inviteAccepter:InviteAccepter", name, state, makeResourceOptions(options, id));
+    private InviteAccepter(java.lang.String name, Output<java.lang.String> id, @Nullable InviteAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:guardduty/inviteAccepter:InviteAccepter", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InviteAccepterArgs makeArgs(InviteAccepterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InviteAccepterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -154,7 +161,7 @@ public class InviteAccepter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InviteAccepter get(String name, Output<String> id, @Nullable InviteAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InviteAccepter get(java.lang.String name, Output<java.lang.String> id, @Nullable InviteAccepterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InviteAccepter(name, id, state, options);
     }
 }

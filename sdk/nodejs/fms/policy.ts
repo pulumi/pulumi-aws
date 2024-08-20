@@ -122,6 +122,7 @@ export class Policy extends pulumi.CustomResource {
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     public readonly remediationEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly resourceSetIds!: pulumi.Output<string[]>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
@@ -172,6 +173,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
             resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
+            resourceInputs["resourceSetIds"] = state ? state.resourceSetIds : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
@@ -194,6 +196,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
+            resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
@@ -249,6 +252,7 @@ export interface PolicyState {
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     remediationEnabled?: pulumi.Input<boolean>;
+    resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
@@ -313,6 +317,7 @@ export interface PolicyArgs {
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     remediationEnabled?: pulumi.Input<boolean>;
+    resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */

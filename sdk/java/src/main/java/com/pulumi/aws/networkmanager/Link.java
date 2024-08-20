@@ -207,7 +207,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Link(String name) {
+    public Link(java.lang.String name) {
         this(name, LinkArgs.Empty);
     }
     /**
@@ -215,7 +215,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Link(String name, LinkArgs args) {
+    public Link(java.lang.String name, LinkArgs args) {
         this(name, args, null);
     }
     /**
@@ -224,15 +224,22 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Link(String name, LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/link:Link", name, args == null ? LinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Link(java.lang.String name, LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/link:Link", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Link(String name, Output<String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:networkmanager/link:Link", name, state, makeResourceOptions(options, id));
+    private Link(java.lang.String name, Output<java.lang.String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:networkmanager/link:Link", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LinkArgs makeArgs(LinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -248,7 +255,7 @@ public class Link extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Link get(String name, Output<String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Link get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Link(name, id, state, options);
     }
 }

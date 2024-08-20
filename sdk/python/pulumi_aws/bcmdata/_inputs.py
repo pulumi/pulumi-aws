@@ -170,7 +170,7 @@ if not MYPY:
         """
         Query statement.
         """
-        table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]
+        table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]
         """
         Table configuration.
         """
@@ -181,10 +181,10 @@ elif False:
 class ExportExportDataQueryArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[str],
-                 table_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]] = None):
+                 table_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None):
         """
         :param pulumi.Input[str] query_statement: Query statement.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]] table_configurations: Table configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]] table_configurations: Table configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         if table_configurations is not None:
@@ -204,14 +204,14 @@ class ExportExportDataQueryArgs:
 
     @property
     @pulumi.getter(name="tableConfigurations")
-    def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]:
+    def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
         """
         Table configuration.
         """
         return pulumi.get(self, "table_configurations")
 
     @table_configurations.setter
-    def table_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]):
+    def table_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]):
         pulumi.set(self, "table_configurations", value)
 
 

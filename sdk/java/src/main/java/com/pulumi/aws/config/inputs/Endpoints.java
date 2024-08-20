@@ -435,6 +435,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String databrew;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String dataexchange;
     /**
      * @return Use this to override the default service endpoint URL
@@ -676,6 +681,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String glue;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String gluedatabrew;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1116,6 +1126,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String rekognition;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String resiliencehub;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2030,6 +2045,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> databrew() {
+        return Optional.ofNullable(this.databrew);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> dataexchange() {
         return Optional.ofNullable(this.dataexchange);
     }
@@ -2368,6 +2390,13 @@ public final class Endpoints {
      */
     public Optional<String> glue() {
         return Optional.ofNullable(this.glue);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> gluedatabrew() {
+        return Optional.ofNullable(this.gluedatabrew);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -2989,6 +3018,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> resiliencehub() {
+        return Optional.ofNullable(this.resiliencehub);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> resourceexplorer2() {
         return Optional.ofNullable(this.resourceexplorer2);
     }
@@ -3527,6 +3563,7 @@ public final class Endpoints {
         private @Nullable String customerprofiles;
         private @Nullable String databasemigration;
         private @Nullable String databasemigrationservice;
+        private @Nullable String databrew;
         private @Nullable String dataexchange;
         private @Nullable String datapipeline;
         private @Nullable String datasync;
@@ -3576,6 +3613,7 @@ public final class Endpoints {
         private @Nullable String glacier;
         private @Nullable String globalaccelerator;
         private @Nullable String glue;
+        private @Nullable String gluedatabrew;
         private @Nullable String grafana;
         private @Nullable String greengrass;
         private @Nullable String groundstation;
@@ -3664,6 +3702,7 @@ public final class Endpoints {
         private @Nullable String redshiftdataapiservice;
         private @Nullable String redshiftserverless;
         private @Nullable String rekognition;
+        private @Nullable String resiliencehub;
         private @Nullable String resourceexplorer2;
         private @Nullable String resourcegroups;
         private @Nullable String resourcegroupstagging;
@@ -3815,6 +3854,7 @@ public final class Endpoints {
     	      this.customerprofiles = defaults.customerprofiles;
     	      this.databasemigration = defaults.databasemigration;
     	      this.databasemigrationservice = defaults.databasemigrationservice;
+    	      this.databrew = defaults.databrew;
     	      this.dataexchange = defaults.dataexchange;
     	      this.datapipeline = defaults.datapipeline;
     	      this.datasync = defaults.datasync;
@@ -3864,6 +3904,7 @@ public final class Endpoints {
     	      this.glacier = defaults.glacier;
     	      this.globalaccelerator = defaults.globalaccelerator;
     	      this.glue = defaults.glue;
+    	      this.gluedatabrew = defaults.gluedatabrew;
     	      this.grafana = defaults.grafana;
     	      this.greengrass = defaults.greengrass;
     	      this.groundstation = defaults.groundstation;
@@ -3952,6 +3993,7 @@ public final class Endpoints {
     	      this.redshiftdataapiservice = defaults.redshiftdataapiservice;
     	      this.redshiftserverless = defaults.redshiftserverless;
     	      this.rekognition = defaults.rekognition;
+    	      this.resiliencehub = defaults.resiliencehub;
     	      this.resourceexplorer2 = defaults.resourceexplorer2;
     	      this.resourcegroups = defaults.resourcegroups;
     	      this.resourcegroupstagging = defaults.resourcegroupstagging;
@@ -4523,6 +4565,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder databrew(@Nullable String databrew) {
+
+            this.databrew = databrew;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dataexchange(@Nullable String dataexchange) {
 
             this.dataexchange = dataexchange;
@@ -4814,6 +4862,12 @@ public final class Endpoints {
         public Builder glue(@Nullable String glue) {
 
             this.glue = glue;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder gluedatabrew(@Nullable String gluedatabrew) {
+
+            this.gluedatabrew = gluedatabrew;
             return this;
         }
         @CustomType.Setter
@@ -5345,6 +5399,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder resiliencehub(@Nullable String resiliencehub) {
+
+            this.resiliencehub = resiliencehub;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceexplorer2(@Nullable String resourceexplorer2) {
 
             this.resourceexplorer2 = resourceexplorer2;
@@ -5814,6 +5874,7 @@ public final class Endpoints {
             _resultValue.customerprofiles = customerprofiles;
             _resultValue.databasemigration = databasemigration;
             _resultValue.databasemigrationservice = databasemigrationservice;
+            _resultValue.databrew = databrew;
             _resultValue.dataexchange = dataexchange;
             _resultValue.datapipeline = datapipeline;
             _resultValue.datasync = datasync;
@@ -5863,6 +5924,7 @@ public final class Endpoints {
             _resultValue.glacier = glacier;
             _resultValue.globalaccelerator = globalaccelerator;
             _resultValue.glue = glue;
+            _resultValue.gluedatabrew = gluedatabrew;
             _resultValue.grafana = grafana;
             _resultValue.greengrass = greengrass;
             _resultValue.groundstation = groundstation;
@@ -5951,6 +6013,7 @@ public final class Endpoints {
             _resultValue.redshiftdataapiservice = redshiftdataapiservice;
             _resultValue.redshiftserverless = redshiftserverless;
             _resultValue.rekognition = rekognition;
+            _resultValue.resiliencehub = resiliencehub;
             _resultValue.resourceexplorer2 = resourceexplorer2;
             _resultValue.resourcegroups = resourcegroups;
             _resultValue.resourcegroupstagging = resourcegroupstagging;

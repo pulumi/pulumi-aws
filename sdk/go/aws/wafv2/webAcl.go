@@ -36,6 +36,8 @@ type WebAcl struct {
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
 	// Friendly name of the WebACL.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+	RuleJson pulumi.StringPtrOutput `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -112,6 +114,8 @@ type webAclState struct {
 	LockToken   *string `pulumi:"lockToken"`
 	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+	RuleJson *string `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -150,6 +154,8 @@ type WebAclState struct {
 	LockToken   pulumi.StringPtrInput
 	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+	RuleJson pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -185,6 +191,8 @@ type webAclArgs struct {
 	Description *string `pulumi:"description"`
 	// Friendly name of the WebACL.
 	Name *string `pulumi:"name"`
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+	RuleJson *string `pulumi:"ruleJson"`
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules []WebAclRule `pulumi:"rules"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -213,6 +221,8 @@ type WebAclArgs struct {
 	Description pulumi.StringPtrInput
 	// Friendly name of the WebACL.
 	Name pulumi.StringPtrInput
+	// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+	RuleJson pulumi.StringPtrInput
 	// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
 	Rules WebAclRuleArrayInput
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -364,6 +374,11 @@ func (o WebAclOutput) LockToken() pulumi.StringOutput {
 // Friendly name of the WebACL.
 func (o WebAclOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+func (o WebAclOutput) RuleJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringPtrOutput { return v.RuleJson }).(pulumi.StringPtrOutput)
 }
 
 // Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.

@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         /// </summary>
         [Output("auditLogConfiguration")]
         public Output<Outputs.WindowsFileSystemAuditLogConfiguration> AuditLogConfiguration { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.WindowsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -157,6 +157,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        [Output("finalBackupTags")]
+        public Output<ImmutableDictionary<string, string>?> FinalBackupTags { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -201,7 +207,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         /// </summary>
         [Output("selfManagedActiveDirectory")]
         public Output<Outputs.WindowsFileSystemSelfManagedActiveDirectory?> SelfManagedActiveDirectory { get; private set; } = null!;
@@ -327,7 +333,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationArgs>? AuditLogConfiguration { get; set; }
@@ -363,10 +369,22 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.WindowsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -393,7 +411,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs>? SelfManagedActiveDirectory { get; set; }
@@ -487,7 +505,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationGetArgs>? AuditLogConfiguration { get; set; }
@@ -523,7 +541,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.WindowsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -533,6 +551,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        [Input("finalBackupTags")]
+        private InputMap<string>? _finalBackupTags;
+
+        /// <summary>
+        /// A map of tags to apply to the file system's final backup.
+        /// </summary>
+        public InputMap<string> FinalBackupTags
+        {
+            get => _finalBackupTags ?? (_finalBackupTags = new InputMap<string>());
+            set => _finalBackupTags = value;
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -589,7 +619,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryGetArgs>? SelfManagedActiveDirectory { get; set; }

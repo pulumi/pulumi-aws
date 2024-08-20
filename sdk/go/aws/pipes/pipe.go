@@ -246,6 +246,54 @@ import (
 //
 // ```
 //
+// ### CloudWatch Logs Logging Configuration Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
+//				Name: pulumi.String("example-pipe-target"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(sourceAwsSqsQueue.Arn),
+//				Target:  pulumi.Any(targetAwsSqsQueue.Arn),
+//				LogConfiguration: &pipes.PipeLogConfigurationArgs{
+//					IncludeExecutionDatas: pulumi.StringArray{
+//						pulumi.String("ALL"),
+//					},
+//					Level: pulumi.String("INFO"),
+//					CloudwatchLogsLogDestination: &pipes.PipeLogConfigurationCloudwatchLogsLogDestinationArgs{
+//						LogGroupArn: pulumi.Any(targetAwsCloudwatchLogGroup.Arn),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				source,
+//				target,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import pipes using the `name`. For example:

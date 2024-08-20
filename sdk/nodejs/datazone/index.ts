@@ -20,6 +20,16 @@ export const getEnvironmentBlueprint: typeof import("./getEnvironmentBlueprint")
 export const getEnvironmentBlueprintOutput: typeof import("./getEnvironmentBlueprint").getEnvironmentBlueprintOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentBlueprint","getEnvironmentBlueprintOutput"], () => require("./getEnvironmentBlueprint"));
 
+export { GlossaryArgs, GlossaryState } from "./glossary";
+export type Glossary = import("./glossary").Glossary;
+export const Glossary: typeof import("./glossary").Glossary = null as any;
+utilities.lazyLoad(exports, ["Glossary"], () => require("./glossary"));
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -29,6 +39,10 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration":
                 return new EnvironmentBlueprintConfiguration(name, <any>undefined, { urn })
+            case "aws:datazone/glossary:Glossary":
+                return new Glossary(name, <any>undefined, { urn })
+            case "aws:datazone/project:Project":
+                return new Project(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -36,3 +50,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "datazone/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/environmentBlueprintConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/glossary", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/project", _module)

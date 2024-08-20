@@ -8,5 +8,7 @@ import typing
 from .domain import *
 from .environment_blueprint_configuration import *
 from .get_environment_blueprint import *
+from .glossary import *
+from .project import *
 from ._inputs import *
 from . import outputs

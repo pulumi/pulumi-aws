@@ -411,14 +411,14 @@ public class Vpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipv6IpamPoolId);
     }
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv6NetmaskLength;
 
     /**
-     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     public Output<Optional<Integer>> ipv6NetmaskLength() {
@@ -493,7 +493,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Vpc(String name) {
+    public Vpc(java.lang.String name) {
         this(name, VpcArgs.Empty);
     }
     /**
@@ -501,7 +501,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Vpc(String name, @Nullable VpcArgs args) {
+    public Vpc(java.lang.String name, @Nullable VpcArgs args) {
         this(name, args, null);
     }
     /**
@@ -510,15 +510,22 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Vpc(String name, @Nullable VpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpc:Vpc", name, args == null ? VpcArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Vpc(java.lang.String name, @Nullable VpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpc:Vpc", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Vpc(String name, Output<String> id, @Nullable VpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/vpc:Vpc", name, state, makeResourceOptions(options, id));
+    private Vpc(java.lang.String name, Output<java.lang.String> id, @Nullable VpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/vpc:Vpc", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VpcArgs makeArgs(@Nullable VpcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpcArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -534,7 +541,7 @@ public class Vpc extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Vpc get(String name, Output<String> id, @Nullable VpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Vpc get(java.lang.String name, Output<java.lang.String> id, @Nullable VpcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Vpc(name, id, state, options);
     }
 }

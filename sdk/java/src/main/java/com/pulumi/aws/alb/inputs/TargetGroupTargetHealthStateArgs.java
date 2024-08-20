@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
         return this.enableUnhealthyConnectionTermination;
     }
 
+    /**
+     * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * 
+     */
+    @Import(name="unhealthyDrainingInterval")
+    private @Nullable Output<Integer> unhealthyDrainingInterval;
+
+    /**
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * 
+     */
+    public Optional<Output<Integer>> unhealthyDrainingInterval() {
+        return Optional.ofNullable(this.unhealthyDrainingInterval);
+    }
+
     private TargetGroupTargetHealthStateArgs() {}
 
     private TargetGroupTargetHealthStateArgs(TargetGroupTargetHealthStateArgs $) {
         this.enableUnhealthyConnectionTermination = $.enableUnhealthyConnectionTermination;
+        this.unhealthyDrainingInterval = $.unhealthyDrainingInterval;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class TargetGroupTargetHealthStateArgs extends com.pulumi.resources
          */
         public Builder enableUnhealthyConnectionTermination(Boolean enableUnhealthyConnectionTermination) {
             return enableUnhealthyConnectionTermination(Output.of(enableUnhealthyConnectionTermination));
+        }
+
+        /**
+         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unhealthyDrainingInterval(@Nullable Output<Integer> unhealthyDrainingInterval) {
+            $.unhealthyDrainingInterval = unhealthyDrainingInterval;
+            return this;
+        }
+
+        /**
+         * @param unhealthyDrainingInterval Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder unhealthyDrainingInterval(Integer unhealthyDrainingInterval) {
+            return unhealthyDrainingInterval(Output.of(unhealthyDrainingInterval));
         }
 
         public TargetGroupTargetHealthStateArgs build() {

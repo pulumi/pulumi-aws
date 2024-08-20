@@ -69,6 +69,18 @@ namespace Pulumi.Aws.MskConnect
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetCustomPluginArgs()
         {
         }
@@ -82,6 +94,18 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetCustomPluginInvokeArgs()
         {
@@ -114,6 +138,10 @@ namespace Pulumi.Aws.MskConnect
         /// the state of the custom plugin.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetCustomPluginResult(
@@ -127,7 +155,9 @@ namespace Pulumi.Aws.MskConnect
 
             string name,
 
-            string state)
+            string state,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Description = description;
@@ -135,6 +165,7 @@ namespace Pulumi.Aws.MskConnect
             LatestRevision = latestRevision;
             Name = name;
             State = state;
+            Tags = tags;
         }
     }
 }

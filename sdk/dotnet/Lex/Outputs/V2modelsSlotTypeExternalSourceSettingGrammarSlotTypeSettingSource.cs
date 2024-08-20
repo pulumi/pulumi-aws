@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource
     {
+        /// <summary>
+        /// KMS key required to decrypt the contents of the grammar, if any.
+        /// </summary>
         public readonly string KmsKeyArn;
+        /// <summary>
+        /// Name of the Amazon S3 bucket that contains the grammar source.
+        /// </summary>
         public readonly string S3BucketName;
+        /// <summary>
+        /// Path to the grammar in the Amazon S3 bucket.
+        /// </summary>
         public readonly string S3ObjectKey;
 
         [OutputConstructor]

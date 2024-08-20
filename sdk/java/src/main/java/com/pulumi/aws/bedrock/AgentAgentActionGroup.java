@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupState;
 import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupActionGroupExecutor;
 import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupApiSchema;
+import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupFunctionSchema;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -23,6 +24,54 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroup;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
+ *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
+ *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
+ *                 .build())
+ *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
+ *                 .payload(StdFunctions.file(FileArgs.builder()
+ *                     .input("path/to/schema.yaml")
+ *                     .build()).result())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### API Schema in S3 Bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -72,6 +121,119 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Function Schema (Simplified Schema)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroup;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
+ *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
+ *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
+ *                 .build())
+ *             .functionSchema(AgentAgentActionGroupFunctionSchemaArgs.builder()
+ *                 .memberFunctions(AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs.builder()
+ *                     .functions(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.builder()
+ *                         .name("example-function")
+ *                         .description("Example function")
+ *                         .parameters(                        
+ *                             AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.builder()
+ *                                 .mapBlockKey("param1")
+ *                                 .type("string")
+ *                                 .description("The first parameter")
+ *                                 .required(true)
+ *                                 .build(),
+ *                             AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.builder()
+ *                                 .mapBlockKey("param2")
+ *                                 .type("integer")
+ *                                 .description("The second parameter")
+ *                                 .required(false)
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Return of Control
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroup;
+ * import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
+ *             .actionGroupName("example")
+ *             .agentId("GGRRAED6JP")
+ *             .agentVersion("DRAFT")
+ *             .skipResourceInUseCheck(true)
+ *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
+ *                 .customControl("RETURN_CONTROL")
+ *                 .build())
+ *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
+ *                 .payload(StdFunctions.file(FileArgs.builder()
+ *                     .input("path/to/schema.yaml")
+ *                     .build()).result())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Agents for Amazon Bedrock Agent Action Group the action group ID, the agent ID, and the agent version separated by `,`. For example:
@@ -84,14 +246,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")
 public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+     * ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="actionGroupExecutor", refs={AgentAgentActionGroupActionGroupExecutor.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupActionGroupExecutor> actionGroupExecutor;
 
     /**
-     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+     * @return ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<AgentAgentActionGroupActionGroupExecutor>> actionGroupExecutor() {
@@ -168,18 +334,14 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return this.agentVersion;
     }
     /**
-     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-     * 
-     * The following arguments are optional:
+     * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
     @Export(name="apiSchema", refs={AgentAgentActionGroupApiSchema.class}, tree="[0]")
     private Output</* @Nullable */ AgentAgentActionGroupApiSchema> apiSchema;
 
     /**
-     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
-     * 
-     * The following arguments are optional:
+     * @return Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
     public Output<Optional<AgentAgentActionGroupApiSchema>> apiSchema() {
@@ -198,6 +360,24 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Describes the function schema for the action group.
+     * Each function represents an action in an action group.
+     * See `function_schema` Block for details.
+     * 
+     */
+    @Export(name="functionSchema", refs={AgentAgentActionGroupFunctionSchema.class}, tree="[0]")
+    private Output</* @Nullable */ AgentAgentActionGroupFunctionSchema> functionSchema;
+
+    /**
+     * @return Describes the function schema for the action group.
+     * Each function represents an action in an action group.
+     * See `function_schema` Block for details.
+     * 
+     */
+    public Output<Optional<AgentAgentActionGroupFunctionSchema>> functionSchema() {
+        return Codegen.optional(this.functionSchema);
     }
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
@@ -232,7 +412,7 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AgentAgentActionGroup(String name) {
+    public AgentAgentActionGroup(java.lang.String name) {
         this(name, AgentAgentActionGroupArgs.Empty);
     }
     /**
@@ -240,7 +420,7 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentAgentActionGroup(String name, AgentAgentActionGroupArgs args) {
+    public AgentAgentActionGroup(java.lang.String name, AgentAgentActionGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,15 +429,22 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentAgentActionGroup(String name, AgentAgentActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, args == null ? AgentAgentActionGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AgentAgentActionGroup(java.lang.String name, AgentAgentActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AgentAgentActionGroup(String name, Output<String> id, @Nullable AgentAgentActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, state, makeResourceOptions(options, id));
+    private AgentAgentActionGroup(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AgentAgentActionGroupArgs makeArgs(AgentAgentActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentAgentActionGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -273,7 +460,7 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AgentAgentActionGroup get(String name, Output<String> id, @Nullable AgentAgentActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AgentAgentActionGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AgentAgentActionGroup(name, id, state, options);
     }
 }

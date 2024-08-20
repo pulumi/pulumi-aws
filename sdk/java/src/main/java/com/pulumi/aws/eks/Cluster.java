@@ -12,11 +12,13 @@ import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
+import com.pulumi.aws.eks.outputs.ClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.ClusterVpcConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -416,6 +418,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    @Export(name="bootstrapSelfManagedAddons", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> bootstrapSelfManagedAddons;
+
+    /**
+     * @return Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> bootstrapSelfManagedAddons() {
+        return Codegen.optional(this.bootstrapSelfManagedAddons);
+    }
     @Export(name="certificateAuthorities", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
     private Output<List<ClusterCertificateAuthority>> certificateAuthorities;
 
@@ -643,6 +659,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
+     * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    @Export(name="upgradePolicy", refs={ClusterUpgradePolicy.class}, tree="[0]")
+    private Output<ClusterUpgradePolicy> upgradePolicy;
+
+    /**
+     * @return Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+     * 
+     */
+    public Output<ClusterUpgradePolicy> upgradePolicy() {
+        return this.upgradePolicy;
+    }
+    /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      * 
      */
@@ -679,7 +709,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Cluster(String name) {
+    public Cluster(java.lang.String name) {
         this(name, ClusterArgs.Empty);
     }
     /**
@@ -687,7 +717,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Cluster(String name, ClusterArgs args) {
+    public Cluster(java.lang.String name, ClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -696,15 +726,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Cluster(String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Cluster(java.lang.String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    private Cluster(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/cluster:Cluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterArgs makeArgs(ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -720,7 +757,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Cluster get(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Cluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Cluster(name, id, state, options);
     }
 }

@@ -6,7 +6,10 @@ package com.pulumi.aws.lb.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TargetGroupTargetHealthState {
@@ -15,6 +18,11 @@ public final class TargetGroupTargetHealthState {
      * 
      */
     private Boolean enableUnhealthyConnectionTermination;
+    /**
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * 
+     */
+    private @Nullable Integer unhealthyDrainingInterval;
 
     private TargetGroupTargetHealthState() {}
     /**
@@ -23,6 +31,13 @@ public final class TargetGroupTargetHealthState {
      */
     public Boolean enableUnhealthyConnectionTermination() {
         return this.enableUnhealthyConnectionTermination;
+    }
+    /**
+     * @return Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
+     * 
+     */
+    public Optional<Integer> unhealthyDrainingInterval() {
+        return Optional.ofNullable(this.unhealthyDrainingInterval);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class TargetGroupTargetHealthState {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enableUnhealthyConnectionTermination;
+        private @Nullable Integer unhealthyDrainingInterval;
         public Builder() {}
         public Builder(TargetGroupTargetHealthState defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableUnhealthyConnectionTermination = defaults.enableUnhealthyConnectionTermination;
+    	      this.unhealthyDrainingInterval = defaults.unhealthyDrainingInterval;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class TargetGroupTargetHealthState {
             this.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
             return this;
         }
+        @CustomType.Setter
+        public Builder unhealthyDrainingInterval(@Nullable Integer unhealthyDrainingInterval) {
+
+            this.unhealthyDrainingInterval = unhealthyDrainingInterval;
+            return this;
+        }
         public TargetGroupTargetHealthState build() {
             final var _resultValue = new TargetGroupTargetHealthState();
             _resultValue.enableUnhealthyConnectionTermination = enableUnhealthyConnectionTermination;
+            _resultValue.unhealthyDrainingInterval = unhealthyDrainingInterval;
             return _resultValue;
         }
     }

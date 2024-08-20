@@ -418,6 +418,38 @@ public class Association extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.syncCompliance);
     }
     /**
+     * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
@@ -454,7 +486,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Association(String name) {
+    public Association(java.lang.String name) {
         this(name, AssociationArgs.Empty);
     }
     /**
@@ -462,7 +494,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Association(String name, @Nullable AssociationArgs args) {
+    public Association(java.lang.String name, @Nullable AssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -471,15 +503,22 @@ public class Association extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Association(String name, @Nullable AssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/association:Association", name, args == null ? AssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Association(java.lang.String name, @Nullable AssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/association:Association", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Association(String name, Output<String> id, @Nullable AssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ssm/association:Association", name, state, makeResourceOptions(options, id));
+    private Association(java.lang.String name, Output<java.lang.String> id, @Nullable AssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ssm/association:Association", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AssociationArgs makeArgs(@Nullable AssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -495,7 +534,7 @@ public class Association extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Association get(String name, Output<String> id, @Nullable AssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Association get(java.lang.String name, Output<java.lang.String> id, @Nullable AssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Association(name, id, state, options);
     }
 }

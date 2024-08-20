@@ -172,7 +172,7 @@ public class JobTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JobTemplate(String name) {
+    public JobTemplate(java.lang.String name) {
         this(name, JobTemplateArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class JobTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JobTemplate(String name, JobTemplateArgs args) {
+    public JobTemplate(java.lang.String name, JobTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,15 +189,22 @@ public class JobTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JobTemplate(String name, JobTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emrcontainers/jobTemplate:JobTemplate", name, args == null ? JobTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public JobTemplate(java.lang.String name, JobTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emrcontainers/jobTemplate:JobTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JobTemplate(String name, Output<String> id, @Nullable JobTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:emrcontainers/jobTemplate:JobTemplate", name, state, makeResourceOptions(options, id));
+    private JobTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable JobTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:emrcontainers/jobTemplate:JobTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static JobTemplateArgs makeArgs(JobTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -213,7 +220,7 @@ public class JobTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JobTemplate get(String name, Output<String> id, @Nullable JobTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JobTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable JobTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JobTemplate(name, id, state, options);
     }
 }

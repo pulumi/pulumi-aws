@@ -225,7 +225,7 @@ class DefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param Mapping[str, str] tags: Resource tags to default across all resources
+        :param Mapping[str, str] tags: Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -234,7 +234,7 @@ class DefaultTags(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags to default across all resources
+        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
         """
         return pulumi.get(self, "tags")
 
@@ -326,6 +326,7 @@ class Endpoints(dict):
                  customerprofiles: Optional[str] = None,
                  databasemigration: Optional[str] = None,
                  databasemigrationservice: Optional[str] = None,
+                 databrew: Optional[str] = None,
                  dataexchange: Optional[str] = None,
                  datapipeline: Optional[str] = None,
                  datasync: Optional[str] = None,
@@ -375,6 +376,7 @@ class Endpoints(dict):
                  glacier: Optional[str] = None,
                  globalaccelerator: Optional[str] = None,
                  glue: Optional[str] = None,
+                 gluedatabrew: Optional[str] = None,
                  grafana: Optional[str] = None,
                  greengrass: Optional[str] = None,
                  groundstation: Optional[str] = None,
@@ -463,6 +465,7 @@ class Endpoints(dict):
                  redshiftdataapiservice: Optional[str] = None,
                  redshiftserverless: Optional[str] = None,
                  rekognition: Optional[str] = None,
+                 resiliencehub: Optional[str] = None,
                  resourceexplorer2: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
                  resourcegroupstagging: Optional[str] = None,
@@ -612,6 +615,7 @@ class Endpoints(dict):
         :param str customerprofiles: Use this to override the default service endpoint URL
         :param str databasemigration: Use this to override the default service endpoint URL
         :param str databasemigrationservice: Use this to override the default service endpoint URL
+        :param str databrew: Use this to override the default service endpoint URL
         :param str dataexchange: Use this to override the default service endpoint URL
         :param str datapipeline: Use this to override the default service endpoint URL
         :param str datasync: Use this to override the default service endpoint URL
@@ -661,6 +665,7 @@ class Endpoints(dict):
         :param str glacier: Use this to override the default service endpoint URL
         :param str globalaccelerator: Use this to override the default service endpoint URL
         :param str glue: Use this to override the default service endpoint URL
+        :param str gluedatabrew: Use this to override the default service endpoint URL
         :param str grafana: Use this to override the default service endpoint URL
         :param str greengrass: Use this to override the default service endpoint URL
         :param str groundstation: Use this to override the default service endpoint URL
@@ -749,6 +754,7 @@ class Endpoints(dict):
         :param str redshiftdataapiservice: Use this to override the default service endpoint URL
         :param str redshiftserverless: Use this to override the default service endpoint URL
         :param str rekognition: Use this to override the default service endpoint URL
+        :param str resiliencehub: Use this to override the default service endpoint URL
         :param str resourceexplorer2: Use this to override the default service endpoint URL
         :param str resourcegroups: Use this to override the default service endpoint URL
         :param str resourcegroupstagging: Use this to override the default service endpoint URL
@@ -982,6 +988,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
             pulumi.set(__self__, "databasemigrationservice", databasemigrationservice)
+        if databrew is not None:
+            pulumi.set(__self__, "databrew", databrew)
         if dataexchange is not None:
             pulumi.set(__self__, "dataexchange", dataexchange)
         if datapipeline is not None:
@@ -1080,6 +1088,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "globalaccelerator", globalaccelerator)
         if glue is not None:
             pulumi.set(__self__, "glue", glue)
+        if gluedatabrew is not None:
+            pulumi.set(__self__, "gluedatabrew", gluedatabrew)
         if grafana is not None:
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
@@ -1256,6 +1266,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "redshiftserverless", redshiftserverless)
         if rekognition is not None:
             pulumi.set(__self__, "rekognition", rekognition)
+        if resiliencehub is not None:
+            pulumi.set(__self__, "resiliencehub", resiliencehub)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -2059,6 +2071,14 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def databrew(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "databrew")
+
+    @property
+    @pulumi.getter
     def dataexchange(self) -> Optional[str]:
         """
         Use this to override the default service endpoint URL
@@ -2448,6 +2468,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "glue")
+
+    @property
+    @pulumi.getter
+    def gluedatabrew(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "gluedatabrew")
 
     @property
     @pulumi.getter
@@ -3155,6 +3183,14 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def resiliencehub(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "resiliencehub")
+
+    @property
+    @pulumi.getter
     def resourceexplorer2(self) -> Optional[str]:
         """
         Use this to override the default service endpoint URL
@@ -3672,8 +3708,8 @@ class IgnoreTags(dict):
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] key_prefixes: Resource tag key prefixes to ignore across all resources.
-        :param Sequence[str] keys: Resource tag keys to ignore across all resources.
+        :param Sequence[str] key_prefixes: Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+        :param Sequence[str] keys: Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         if key_prefixes is not None:
             pulumi.set(__self__, "key_prefixes", key_prefixes)
@@ -3684,7 +3720,7 @@ class IgnoreTags(dict):
     @pulumi.getter(name="keyPrefixes")
     def key_prefixes(self) -> Optional[Sequence[str]]:
         """
-        Resource tag key prefixes to ignore across all resources.
+        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
         """
         return pulumi.get(self, "key_prefixes")
 
@@ -3692,7 +3728,7 @@ class IgnoreTags(dict):
     @pulumi.getter
     def keys(self) -> Optional[Sequence[str]]:
         """
-        Resource tag keys to ignore across all resources.
+        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
         """
         return pulumi.get(self, "keys")
 

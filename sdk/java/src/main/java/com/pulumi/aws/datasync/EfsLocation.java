@@ -213,7 +213,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EfsLocation(String name) {
+    public EfsLocation(java.lang.String name) {
         this(name, EfsLocationArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EfsLocation(String name, EfsLocationArgs args) {
+    public EfsLocation(java.lang.String name, EfsLocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,15 +230,22 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EfsLocation(String name, EfsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/efsLocation:EfsLocation", name, args == null ? EfsLocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EfsLocation(java.lang.String name, EfsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/efsLocation:EfsLocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EfsLocation(String name, Output<String> id, @Nullable EfsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/efsLocation:EfsLocation", name, state, makeResourceOptions(options, id));
+    private EfsLocation(java.lang.String name, Output<java.lang.String> id, @Nullable EfsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/efsLocation:EfsLocation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EfsLocationArgs makeArgs(EfsLocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EfsLocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +261,7 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EfsLocation get(String name, Output<String> id, @Nullable EfsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EfsLocation get(java.lang.String name, Output<java.lang.String> id, @Nullable EfsLocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EfsLocation(name, id, state, options);
     }
 }

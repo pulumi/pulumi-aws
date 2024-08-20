@@ -229,7 +229,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PeeringConnectionOptions(String name) {
+    public PeeringConnectionOptions(java.lang.String name) {
         this(name, PeeringConnectionOptionsArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PeeringConnectionOptions(String name, PeeringConnectionOptionsArgs args) {
+    public PeeringConnectionOptions(java.lang.String name, PeeringConnectionOptionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PeeringConnectionOptions(String name, PeeringConnectionOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, args == null ? PeeringConnectionOptionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PeeringConnectionOptions(java.lang.String name, PeeringConnectionOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PeeringConnectionOptions(String name, Output<String> id, @Nullable PeeringConnectionOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, state, makeResourceOptions(options, id));
+    private PeeringConnectionOptions(java.lang.String name, Output<java.lang.String> id, @Nullable PeeringConnectionOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/peeringConnectionOptions:PeeringConnectionOptions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PeeringConnectionOptionsArgs makeArgs(PeeringConnectionOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PeeringConnectionOptionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class PeeringConnectionOptions extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PeeringConnectionOptions get(String name, Output<String> id, @Nullable PeeringConnectionOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PeeringConnectionOptions get(java.lang.String name, Output<java.lang.String> id, @Nullable PeeringConnectionOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PeeringConnectionOptions(name, id, state, options);
     }
 }

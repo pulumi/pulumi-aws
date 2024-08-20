@@ -1660,7 +1660,9 @@ func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditi
 }
 
 type SelectionConditionStringEqual struct {
-	Key   string `pulumi:"key"`
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
 	Value string `pulumi:"value"`
 }
 
@@ -1676,7 +1678,9 @@ type SelectionConditionStringEqualInput interface {
 }
 
 type SelectionConditionStringEqualArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1731,10 +1735,12 @@ func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutp
 	return o
 }
 
+// The key in a key-value pair.
 func (o SelectionConditionStringEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value in a key-value pair.
 func (o SelectionConditionStringEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1760,7 +1766,9 @@ func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) Selec
 }
 
 type SelectionConditionStringLike struct {
-	Key   string `pulumi:"key"`
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
 	Value string `pulumi:"value"`
 }
 
@@ -1776,7 +1784,9 @@ type SelectionConditionStringLikeInput interface {
 }
 
 type SelectionConditionStringLikeArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1831,10 +1841,12 @@ func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput
 	return o
 }
 
+// The key in a key-value pair.
 func (o SelectionConditionStringLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value in a key-value pair.
 func (o SelectionConditionStringLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1860,7 +1872,9 @@ func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) Select
 }
 
 type SelectionConditionStringNotEqual struct {
-	Key   string `pulumi:"key"`
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
 	Value string `pulumi:"value"`
 }
 
@@ -1876,7 +1890,9 @@ type SelectionConditionStringNotEqualInput interface {
 }
 
 type SelectionConditionStringNotEqualArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1931,10 +1947,12 @@ func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqu
 	return o
 }
 
+// The key in a key-value pair.
 func (o SelectionConditionStringNotEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value in a key-value pair.
 func (o SelectionConditionStringNotEqualOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1960,7 +1978,9 @@ func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 type SelectionConditionStringNotLike struct {
-	Key   string `pulumi:"key"`
+	// The key in a key-value pair.
+	Key string `pulumi:"key"`
+	// The value in a key-value pair.
 	Value string `pulumi:"value"`
 }
 
@@ -1976,7 +1996,9 @@ type SelectionConditionStringNotLikeInput interface {
 }
 
 type SelectionConditionStringNotLikeArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key in a key-value pair.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value in a key-value pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2031,10 +2053,12 @@ func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLike
 	return o
 }
 
+// The key in a key-value pair.
 func (o SelectionConditionStringNotLikeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value in a key-value pair.
 func (o SelectionConditionStringNotLikeOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SelectionConditionStringNotLike) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -2510,6 +2534,460 @@ func (o GetFrameworkControlScopeArrayOutput) Index(i pulumi.IntInput) GetFramewo
 	}).(GetFrameworkControlScopeOutput)
 }
 
+type GetPlanRule struct {
+	CompletionWindow       int                     `pulumi:"completionWindow"`
+	CopyActions            []GetPlanRuleCopyAction `pulumi:"copyActions"`
+	EnableContinuousBackup bool                    `pulumi:"enableContinuousBackup"`
+	Lifecycles             []GetPlanRuleLifecycle  `pulumi:"lifecycles"`
+	RecoveryPointTags      map[string]string       `pulumi:"recoveryPointTags"`
+	RuleName               string                  `pulumi:"ruleName"`
+	Schedule               string                  `pulumi:"schedule"`
+	StartWindow            int                     `pulumi:"startWindow"`
+	TargetVaultName        string                  `pulumi:"targetVaultName"`
+}
+
+// GetPlanRuleInput is an input type that accepts GetPlanRuleArgs and GetPlanRuleOutput values.
+// You can construct a concrete instance of `GetPlanRuleInput` via:
+//
+//	GetPlanRuleArgs{...}
+type GetPlanRuleInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleOutput() GetPlanRuleOutput
+	ToGetPlanRuleOutputWithContext(context.Context) GetPlanRuleOutput
+}
+
+type GetPlanRuleArgs struct {
+	CompletionWindow       pulumi.IntInput                 `pulumi:"completionWindow"`
+	CopyActions            GetPlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup pulumi.BoolInput                `pulumi:"enableContinuousBackup"`
+	Lifecycles             GetPlanRuleLifecycleArrayInput  `pulumi:"lifecycles"`
+	RecoveryPointTags      pulumi.StringMapInput           `pulumi:"recoveryPointTags"`
+	RuleName               pulumi.StringInput              `pulumi:"ruleName"`
+	Schedule               pulumi.StringInput              `pulumi:"schedule"`
+	StartWindow            pulumi.IntInput                 `pulumi:"startWindow"`
+	TargetVaultName        pulumi.StringInput              `pulumi:"targetVaultName"`
+}
+
+func (GetPlanRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRule)(nil)).Elem()
+}
+
+func (i GetPlanRuleArgs) ToGetPlanRuleOutput() GetPlanRuleOutput {
+	return i.ToGetPlanRuleOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleArgs) ToGetPlanRuleOutputWithContext(ctx context.Context) GetPlanRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleOutput)
+}
+
+// GetPlanRuleArrayInput is an input type that accepts GetPlanRuleArray and GetPlanRuleArrayOutput values.
+// You can construct a concrete instance of `GetPlanRuleArrayInput` via:
+//
+//	GetPlanRuleArray{ GetPlanRuleArgs{...} }
+type GetPlanRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleArrayOutput() GetPlanRuleArrayOutput
+	ToGetPlanRuleArrayOutputWithContext(context.Context) GetPlanRuleArrayOutput
+}
+
+type GetPlanRuleArray []GetPlanRuleInput
+
+func (GetPlanRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRule)(nil)).Elem()
+}
+
+func (i GetPlanRuleArray) ToGetPlanRuleArrayOutput() GetPlanRuleArrayOutput {
+	return i.ToGetPlanRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleArray) ToGetPlanRuleArrayOutputWithContext(ctx context.Context) GetPlanRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleArrayOutput)
+}
+
+type GetPlanRuleOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRule)(nil)).Elem()
+}
+
+func (o GetPlanRuleOutput) ToGetPlanRuleOutput() GetPlanRuleOutput {
+	return o
+}
+
+func (o GetPlanRuleOutput) ToGetPlanRuleOutputWithContext(ctx context.Context) GetPlanRuleOutput {
+	return o
+}
+
+func (o GetPlanRuleOutput) CompletionWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRule) int { return v.CompletionWindow }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleOutput) CopyActions() GetPlanRuleCopyActionArrayOutput {
+	return o.ApplyT(func(v GetPlanRule) []GetPlanRuleCopyAction { return v.CopyActions }).(GetPlanRuleCopyActionArrayOutput)
+}
+
+func (o GetPlanRuleOutput) EnableContinuousBackup() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPlanRule) bool { return v.EnableContinuousBackup }).(pulumi.BoolOutput)
+}
+
+func (o GetPlanRuleOutput) Lifecycles() GetPlanRuleLifecycleArrayOutput {
+	return o.ApplyT(func(v GetPlanRule) []GetPlanRuleLifecycle { return v.Lifecycles }).(GetPlanRuleLifecycleArrayOutput)
+}
+
+func (o GetPlanRuleOutput) RecoveryPointTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetPlanRule) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
+}
+
+func (o GetPlanRuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+func (o GetPlanRuleOutput) Schedule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+func (o GetPlanRuleOutput) StartWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRule) int { return v.StartWindow }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleOutput) TargetVaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.TargetVaultName }).(pulumi.StringOutput)
+}
+
+type GetPlanRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRule)(nil)).Elem()
+}
+
+func (o GetPlanRuleArrayOutput) ToGetPlanRuleArrayOutput() GetPlanRuleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleArrayOutput) ToGetPlanRuleArrayOutputWithContext(ctx context.Context) GetPlanRuleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleArrayOutput) Index(i pulumi.IntInput) GetPlanRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanRule {
+		return vs[0].([]GetPlanRule)[vs[1].(int)]
+	}).(GetPlanRuleOutput)
+}
+
+type GetPlanRuleCopyAction struct {
+	DestinationVaultArn string                           `pulumi:"destinationVaultArn"`
+	Lifecycles          []GetPlanRuleCopyActionLifecycle `pulumi:"lifecycles"`
+}
+
+// GetPlanRuleCopyActionInput is an input type that accepts GetPlanRuleCopyActionArgs and GetPlanRuleCopyActionOutput values.
+// You can construct a concrete instance of `GetPlanRuleCopyActionInput` via:
+//
+//	GetPlanRuleCopyActionArgs{...}
+type GetPlanRuleCopyActionInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleCopyActionOutput() GetPlanRuleCopyActionOutput
+	ToGetPlanRuleCopyActionOutputWithContext(context.Context) GetPlanRuleCopyActionOutput
+}
+
+type GetPlanRuleCopyActionArgs struct {
+	DestinationVaultArn pulumi.StringInput                       `pulumi:"destinationVaultArn"`
+	Lifecycles          GetPlanRuleCopyActionLifecycleArrayInput `pulumi:"lifecycles"`
+}
+
+func (GetPlanRuleCopyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleCopyAction)(nil)).Elem()
+}
+
+func (i GetPlanRuleCopyActionArgs) ToGetPlanRuleCopyActionOutput() GetPlanRuleCopyActionOutput {
+	return i.ToGetPlanRuleCopyActionOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleCopyActionArgs) ToGetPlanRuleCopyActionOutputWithContext(ctx context.Context) GetPlanRuleCopyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleCopyActionOutput)
+}
+
+// GetPlanRuleCopyActionArrayInput is an input type that accepts GetPlanRuleCopyActionArray and GetPlanRuleCopyActionArrayOutput values.
+// You can construct a concrete instance of `GetPlanRuleCopyActionArrayInput` via:
+//
+//	GetPlanRuleCopyActionArray{ GetPlanRuleCopyActionArgs{...} }
+type GetPlanRuleCopyActionArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleCopyActionArrayOutput() GetPlanRuleCopyActionArrayOutput
+	ToGetPlanRuleCopyActionArrayOutputWithContext(context.Context) GetPlanRuleCopyActionArrayOutput
+}
+
+type GetPlanRuleCopyActionArray []GetPlanRuleCopyActionInput
+
+func (GetPlanRuleCopyActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleCopyAction)(nil)).Elem()
+}
+
+func (i GetPlanRuleCopyActionArray) ToGetPlanRuleCopyActionArrayOutput() GetPlanRuleCopyActionArrayOutput {
+	return i.ToGetPlanRuleCopyActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleCopyActionArray) ToGetPlanRuleCopyActionArrayOutputWithContext(ctx context.Context) GetPlanRuleCopyActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleCopyActionArrayOutput)
+}
+
+type GetPlanRuleCopyActionOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleCopyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleCopyAction)(nil)).Elem()
+}
+
+func (o GetPlanRuleCopyActionOutput) ToGetPlanRuleCopyActionOutput() GetPlanRuleCopyActionOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionOutput) ToGetPlanRuleCopyActionOutputWithContext(ctx context.Context) GetPlanRuleCopyActionOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionOutput) DestinationVaultArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRuleCopyAction) string { return v.DestinationVaultArn }).(pulumi.StringOutput)
+}
+
+func (o GetPlanRuleCopyActionOutput) Lifecycles() GetPlanRuleCopyActionLifecycleArrayOutput {
+	return o.ApplyT(func(v GetPlanRuleCopyAction) []GetPlanRuleCopyActionLifecycle { return v.Lifecycles }).(GetPlanRuleCopyActionLifecycleArrayOutput)
+}
+
+type GetPlanRuleCopyActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleCopyActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleCopyAction)(nil)).Elem()
+}
+
+func (o GetPlanRuleCopyActionArrayOutput) ToGetPlanRuleCopyActionArrayOutput() GetPlanRuleCopyActionArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionArrayOutput) ToGetPlanRuleCopyActionArrayOutputWithContext(ctx context.Context) GetPlanRuleCopyActionArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionArrayOutput) Index(i pulumi.IntInput) GetPlanRuleCopyActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanRuleCopyAction {
+		return vs[0].([]GetPlanRuleCopyAction)[vs[1].(int)]
+	}).(GetPlanRuleCopyActionOutput)
+}
+
+type GetPlanRuleCopyActionLifecycle struct {
+	ColdStorageAfter                    int  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         int  `pulumi:"deleteAfter"`
+	OptInToArchiveForSupportedResources bool `pulumi:"optInToArchiveForSupportedResources"`
+}
+
+// GetPlanRuleCopyActionLifecycleInput is an input type that accepts GetPlanRuleCopyActionLifecycleArgs and GetPlanRuleCopyActionLifecycleOutput values.
+// You can construct a concrete instance of `GetPlanRuleCopyActionLifecycleInput` via:
+//
+//	GetPlanRuleCopyActionLifecycleArgs{...}
+type GetPlanRuleCopyActionLifecycleInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleCopyActionLifecycleOutput() GetPlanRuleCopyActionLifecycleOutput
+	ToGetPlanRuleCopyActionLifecycleOutputWithContext(context.Context) GetPlanRuleCopyActionLifecycleOutput
+}
+
+type GetPlanRuleCopyActionLifecycleArgs struct {
+	ColdStorageAfter                    pulumi.IntInput  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         pulumi.IntInput  `pulumi:"deleteAfter"`
+	OptInToArchiveForSupportedResources pulumi.BoolInput `pulumi:"optInToArchiveForSupportedResources"`
+}
+
+func (GetPlanRuleCopyActionLifecycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (i GetPlanRuleCopyActionLifecycleArgs) ToGetPlanRuleCopyActionLifecycleOutput() GetPlanRuleCopyActionLifecycleOutput {
+	return i.ToGetPlanRuleCopyActionLifecycleOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleCopyActionLifecycleArgs) ToGetPlanRuleCopyActionLifecycleOutputWithContext(ctx context.Context) GetPlanRuleCopyActionLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleCopyActionLifecycleOutput)
+}
+
+// GetPlanRuleCopyActionLifecycleArrayInput is an input type that accepts GetPlanRuleCopyActionLifecycleArray and GetPlanRuleCopyActionLifecycleArrayOutput values.
+// You can construct a concrete instance of `GetPlanRuleCopyActionLifecycleArrayInput` via:
+//
+//	GetPlanRuleCopyActionLifecycleArray{ GetPlanRuleCopyActionLifecycleArgs{...} }
+type GetPlanRuleCopyActionLifecycleArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleCopyActionLifecycleArrayOutput() GetPlanRuleCopyActionLifecycleArrayOutput
+	ToGetPlanRuleCopyActionLifecycleArrayOutputWithContext(context.Context) GetPlanRuleCopyActionLifecycleArrayOutput
+}
+
+type GetPlanRuleCopyActionLifecycleArray []GetPlanRuleCopyActionLifecycleInput
+
+func (GetPlanRuleCopyActionLifecycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (i GetPlanRuleCopyActionLifecycleArray) ToGetPlanRuleCopyActionLifecycleArrayOutput() GetPlanRuleCopyActionLifecycleArrayOutput {
+	return i.ToGetPlanRuleCopyActionLifecycleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleCopyActionLifecycleArray) ToGetPlanRuleCopyActionLifecycleArrayOutputWithContext(ctx context.Context) GetPlanRuleCopyActionLifecycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleCopyActionLifecycleArrayOutput)
+}
+
+type GetPlanRuleCopyActionLifecycleOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleCopyActionLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (o GetPlanRuleCopyActionLifecycleOutput) ToGetPlanRuleCopyActionLifecycleOutput() GetPlanRuleCopyActionLifecycleOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionLifecycleOutput) ToGetPlanRuleCopyActionLifecycleOutputWithContext(ctx context.Context) GetPlanRuleCopyActionLifecycleOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionLifecycleOutput) ColdStorageAfter() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRuleCopyActionLifecycle) int { return v.ColdStorageAfter }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleCopyActionLifecycleOutput) DeleteAfter() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRuleCopyActionLifecycle) int { return v.DeleteAfter }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleCopyActionLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPlanRuleCopyActionLifecycle) bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolOutput)
+}
+
+type GetPlanRuleCopyActionLifecycleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleCopyActionLifecycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleCopyActionLifecycle)(nil)).Elem()
+}
+
+func (o GetPlanRuleCopyActionLifecycleArrayOutput) ToGetPlanRuleCopyActionLifecycleArrayOutput() GetPlanRuleCopyActionLifecycleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionLifecycleArrayOutput) ToGetPlanRuleCopyActionLifecycleArrayOutputWithContext(ctx context.Context) GetPlanRuleCopyActionLifecycleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleCopyActionLifecycleArrayOutput) Index(i pulumi.IntInput) GetPlanRuleCopyActionLifecycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanRuleCopyActionLifecycle {
+		return vs[0].([]GetPlanRuleCopyActionLifecycle)[vs[1].(int)]
+	}).(GetPlanRuleCopyActionLifecycleOutput)
+}
+
+type GetPlanRuleLifecycle struct {
+	ColdStorageAfter                    int  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         int  `pulumi:"deleteAfter"`
+	OptInToArchiveForSupportedResources bool `pulumi:"optInToArchiveForSupportedResources"`
+}
+
+// GetPlanRuleLifecycleInput is an input type that accepts GetPlanRuleLifecycleArgs and GetPlanRuleLifecycleOutput values.
+// You can construct a concrete instance of `GetPlanRuleLifecycleInput` via:
+//
+//	GetPlanRuleLifecycleArgs{...}
+type GetPlanRuleLifecycleInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleLifecycleOutput() GetPlanRuleLifecycleOutput
+	ToGetPlanRuleLifecycleOutputWithContext(context.Context) GetPlanRuleLifecycleOutput
+}
+
+type GetPlanRuleLifecycleArgs struct {
+	ColdStorageAfter                    pulumi.IntInput  `pulumi:"coldStorageAfter"`
+	DeleteAfter                         pulumi.IntInput  `pulumi:"deleteAfter"`
+	OptInToArchiveForSupportedResources pulumi.BoolInput `pulumi:"optInToArchiveForSupportedResources"`
+}
+
+func (GetPlanRuleLifecycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleLifecycle)(nil)).Elem()
+}
+
+func (i GetPlanRuleLifecycleArgs) ToGetPlanRuleLifecycleOutput() GetPlanRuleLifecycleOutput {
+	return i.ToGetPlanRuleLifecycleOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleLifecycleArgs) ToGetPlanRuleLifecycleOutputWithContext(ctx context.Context) GetPlanRuleLifecycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleLifecycleOutput)
+}
+
+// GetPlanRuleLifecycleArrayInput is an input type that accepts GetPlanRuleLifecycleArray and GetPlanRuleLifecycleArrayOutput values.
+// You can construct a concrete instance of `GetPlanRuleLifecycleArrayInput` via:
+//
+//	GetPlanRuleLifecycleArray{ GetPlanRuleLifecycleArgs{...} }
+type GetPlanRuleLifecycleArrayInput interface {
+	pulumi.Input
+
+	ToGetPlanRuleLifecycleArrayOutput() GetPlanRuleLifecycleArrayOutput
+	ToGetPlanRuleLifecycleArrayOutputWithContext(context.Context) GetPlanRuleLifecycleArrayOutput
+}
+
+type GetPlanRuleLifecycleArray []GetPlanRuleLifecycleInput
+
+func (GetPlanRuleLifecycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleLifecycle)(nil)).Elem()
+}
+
+func (i GetPlanRuleLifecycleArray) ToGetPlanRuleLifecycleArrayOutput() GetPlanRuleLifecycleArrayOutput {
+	return i.ToGetPlanRuleLifecycleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlanRuleLifecycleArray) ToGetPlanRuleLifecycleArrayOutputWithContext(ctx context.Context) GetPlanRuleLifecycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlanRuleLifecycleArrayOutput)
+}
+
+type GetPlanRuleLifecycleOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlanRuleLifecycle)(nil)).Elem()
+}
+
+func (o GetPlanRuleLifecycleOutput) ToGetPlanRuleLifecycleOutput() GetPlanRuleLifecycleOutput {
+	return o
+}
+
+func (o GetPlanRuleLifecycleOutput) ToGetPlanRuleLifecycleOutputWithContext(ctx context.Context) GetPlanRuleLifecycleOutput {
+	return o
+}
+
+func (o GetPlanRuleLifecycleOutput) ColdStorageAfter() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRuleLifecycle) int { return v.ColdStorageAfter }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleLifecycleOutput) DeleteAfter() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPlanRuleLifecycle) int { return v.DeleteAfter }).(pulumi.IntOutput)
+}
+
+func (o GetPlanRuleLifecycleOutput) OptInToArchiveForSupportedResources() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPlanRuleLifecycle) bool { return v.OptInToArchiveForSupportedResources }).(pulumi.BoolOutput)
+}
+
+type GetPlanRuleLifecycleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlanRuleLifecycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlanRuleLifecycle)(nil)).Elem()
+}
+
+func (o GetPlanRuleLifecycleArrayOutput) ToGetPlanRuleLifecycleArrayOutput() GetPlanRuleLifecycleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleLifecycleArrayOutput) ToGetPlanRuleLifecycleArrayOutputWithContext(ctx context.Context) GetPlanRuleLifecycleArrayOutput {
+	return o
+}
+
+func (o GetPlanRuleLifecycleArrayOutput) Index(i pulumi.IntInput) GetPlanRuleLifecycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlanRuleLifecycle {
+		return vs[0].([]GetPlanRuleLifecycle)[vs[1].(int)]
+	}).(GetPlanRuleLifecycleOutput)
+}
+
 type GetReportPlanReportDeliveryChannel struct {
 	// List of the format of your reports: CSV, JSON, or both.
 	Formats []string `pulumi:"formats"`
@@ -2806,6 +3284,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrameworkControlInputParameterArrayInput)(nil)).Elem(), GetFrameworkControlInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrameworkControlScopeInput)(nil)).Elem(), GetFrameworkControlScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrameworkControlScopeArrayInput)(nil)).Elem(), GetFrameworkControlScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleInput)(nil)).Elem(), GetPlanRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleArrayInput)(nil)).Elem(), GetPlanRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleCopyActionInput)(nil)).Elem(), GetPlanRuleCopyActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleCopyActionArrayInput)(nil)).Elem(), GetPlanRuleCopyActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleCopyActionLifecycleInput)(nil)).Elem(), GetPlanRuleCopyActionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleCopyActionLifecycleArrayInput)(nil)).Elem(), GetPlanRuleCopyActionLifecycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleLifecycleInput)(nil)).Elem(), GetPlanRuleLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlanRuleLifecycleArrayInput)(nil)).Elem(), GetPlanRuleLifecycleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportDeliveryChannelInput)(nil)).Elem(), GetReportPlanReportDeliveryChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportDeliveryChannelArrayInput)(nil)).Elem(), GetReportPlanReportDeliveryChannelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReportPlanReportSettingInput)(nil)).Elem(), GetReportPlanReportSettingArgs{})
@@ -2848,6 +3334,14 @@ func init() {
 	pulumi.RegisterOutputType(GetFrameworkControlInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetFrameworkControlScopeOutput{})
 	pulumi.RegisterOutputType(GetFrameworkControlScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleCopyActionOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleCopyActionArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleCopyActionLifecycleOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleCopyActionLifecycleArrayOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleLifecycleOutput{})
+	pulumi.RegisterOutputType(GetPlanRuleLifecycleArrayOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportDeliveryChannelOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportDeliveryChannelArrayOutput{})
 	pulumi.RegisterOutputType(GetReportPlanReportSettingOutput{})

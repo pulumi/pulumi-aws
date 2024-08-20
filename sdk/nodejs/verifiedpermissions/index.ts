@@ -10,6 +10,11 @@ export const getPolicyStore: typeof import("./getPolicyStore").getPolicyStore = 
 export const getPolicyStoreOutput: typeof import("./getPolicyStore").getPolicyStoreOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyStore","getPolicyStoreOutput"], () => require("./getPolicyStore"));
 
+export { IdentitySourceArgs, IdentitySourceState } from "./identitySource";
+export type IdentitySource = import("./identitySource").IdentitySource;
+export const IdentitySource: typeof import("./identitySource").IdentitySource = null as any;
+utilities.lazyLoad(exports, ["IdentitySource"], () => require("./identitySource"));
+
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
@@ -35,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:verifiedpermissions/identitySource:IdentitySource":
+                return new IdentitySource(name, <any>undefined, { urn })
             case "aws:verifiedpermissions/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws:verifiedpermissions/policyStore:PolicyStore":
@@ -48,6 +55,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "verifiedpermissions/identitySource", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedpermissions/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedpermissions/policyStore", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedpermissions/policyTemplate", _module)

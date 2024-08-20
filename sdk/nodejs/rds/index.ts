@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
 export { ClusterArgs, ClusterState } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -66,6 +71,11 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetClusterParameterGroupArgs, GetClusterParameterGroupResult, GetClusterParameterGroupOutputArgs } from "./getClusterParameterGroup";
+export const getClusterParameterGroup: typeof import("./getClusterParameterGroup").getClusterParameterGroup = null as any;
+export const getClusterParameterGroupOutput: typeof import("./getClusterParameterGroup").getClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterParameterGroup","getClusterParameterGroupOutput"], () => require("./getClusterParameterGroup"));
 
 export { GetClusterSnapshotArgs, GetClusterSnapshotResult, GetClusterSnapshotOutputArgs } from "./getClusterSnapshot";
 export const getClusterSnapshot: typeof import("./getClusterSnapshot").getClusterSnapshot = null as any;
@@ -143,6 +153,11 @@ export const InstanceAutomatedBackupsReplication: typeof import("./instanceAutom
 utilities.lazyLoad(exports, ["InstanceAutomatedBackupsReplication"], () => require("./instanceAutomatedBackupsReplication"));
 
 export * from "./instanceType";
+export { IntegrationArgs, IntegrationState } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+
 export { OptionGroupArgs, OptionGroupState } from "./optionGroup";
 export type OptionGroup = import("./optionGroup").OptionGroup;
 export const OptionGroup: typeof import("./optionGroup").OptionGroup = null as any;
@@ -207,6 +222,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:rds/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "aws:rds/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:rds/clusterActivityStream:ClusterActivityStream":
@@ -233,6 +250,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
                 return new InstanceAutomatedBackupsReplication(name, <any>undefined, { urn })
+            case "aws:rds/integration:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws:rds/optionGroup:OptionGroup":
                 return new OptionGroup(name, <any>undefined, { urn })
             case "aws:rds/parameterGroup:ParameterGroup":
@@ -260,6 +279,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "rds/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterActivityStream", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterEndpoint", _module)
@@ -273,6 +293,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instanceAutomatedBackupsReplication", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/optionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxy", _module)

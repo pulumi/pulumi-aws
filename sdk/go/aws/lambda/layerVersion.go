@@ -102,8 +102,9 @@ type LayerVersion struct {
 	// ARN for a signing profile version.
 	SigningProfileVersionArn pulumi.StringOutput `pulumi:"signingProfileVersionArn"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
-	SkipDestroy    pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
-	SourceCodeHash pulumi.StringOutput  `pulumi:"sourceCodeHash"`
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
+	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
 	// Lambda Layer version.
@@ -176,7 +177,8 @@ type layerVersionState struct {
 	// ARN for a signing profile version.
 	SigningProfileVersionArn *string `pulumi:"signingProfileVersionArn"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
-	SkipDestroy    *bool   `pulumi:"skipDestroy"`
+	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// Size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
@@ -218,7 +220,8 @@ type LayerVersionState struct {
 	// ARN for a signing profile version.
 	SigningProfileVersionArn pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
-	SkipDestroy    pulumi.BoolPtrInput
+	SkipDestroy pulumi.BoolPtrInput
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 	// Size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
@@ -252,7 +255,8 @@ type layerVersionArgs struct {
 	// Object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
-	SkipDestroy    *bool   `pulumi:"skipDestroy"`
+	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 }
 
@@ -279,7 +283,8 @@ type LayerVersionArgs struct {
 	// Object version containing the function's deployment package. Conflicts with `filename`.
 	S3ObjectVersion pulumi.StringPtrInput
 	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
-	SkipDestroy    pulumi.BoolPtrInput
+	SkipDestroy pulumi.BoolPtrInput
+	// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 	SourceCodeHash pulumi.StringPtrInput
 }
 
@@ -452,6 +457,7 @@ func (o LayerVersionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`.
 func (o LayerVersionOutput) SourceCodeHash() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.SourceCodeHash }).(pulumi.StringOutput)
 }

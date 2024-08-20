@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<string>? _args;
 
         /// <summary>
-        /// An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        /// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         /// </summary>
         public InputList<string> Args
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<string>? _commands;
 
         /// <summary>
-        /// The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        /// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
         /// </summary>
         public InputList<string> Commands
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs>? _envs;
 
         /// <summary>
-        /// The environment variables to pass to a container. See EKS Environment below.
+        /// Environment variables to pass to a container. See EKS Environment below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs> Envs
         {
@@ -49,31 +49,31 @@ namespace Pulumi.Aws.Batch.Inputs
         }
 
         /// <summary>
-        /// The Docker image used to start the container.
+        /// Docker image used to start the container.
         /// </summary>
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        /// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         /// </summary>
         [Input("imagePullPolicy")]
         public Input<string>? ImagePullPolicy { get; set; }
 
         /// <summary>
-        /// The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        /// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         /// </summary>
         [Input("resources")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs>? Resources { get; set; }
 
         /// <summary>
-        /// The security context for a job.
+        /// Security context for a job.
         /// </summary>
         [Input("securityContext")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs>? SecurityContext { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs>? _volumeMounts;
 
         /// <summary>
-        /// The volume mounts for the container.
+        /// Volume mounts for the container.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs> VolumeMounts
         {

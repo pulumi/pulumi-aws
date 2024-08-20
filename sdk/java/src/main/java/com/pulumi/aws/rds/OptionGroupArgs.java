@@ -8,6 +8,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +112,21 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     * 
+     */
+    @Import(name="skipDestroy")
+    private @Nullable Output<Boolean> skipDestroy;
+
+    /**
+     * @return Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDestroy() {
+        return Optional.ofNullable(this.skipDestroy);
+    }
+
+    /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -134,6 +150,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.optionGroupDescription = $.optionGroupDescription;
         this.options = $.options;
+        this.skipDestroy = $.skipDestroy;
         this.tags = $.tags;
     }
 
@@ -289,6 +306,27 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder options(OptionGroupOptionArgs... options) {
             return options(List.of(options));
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
+            $.skipDestroy = skipDestroy;
+            return this;
+        }
+
+        /**
+         * @param skipDestroy Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDestroy(Boolean skipDestroy) {
+            return skipDestroy(Output.of(skipDestroy));
         }
 
         /**

@@ -176,7 +176,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PrefixListReference(String name) {
+    public PrefixListReference(java.lang.String name) {
         this(name, PrefixListReferenceArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PrefixListReference(String name, PrefixListReferenceArgs args) {
+    public PrefixListReference(java.lang.String name, PrefixListReferenceArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,15 +193,22 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PrefixListReference(String name, PrefixListReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, args == null ? PrefixListReferenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PrefixListReference(java.lang.String name, PrefixListReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PrefixListReference(String name, Output<String> id, @Nullable PrefixListReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, state, makeResourceOptions(options, id));
+    private PrefixListReference(java.lang.String name, Output<java.lang.String> id, @Nullable PrefixListReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PrefixListReferenceArgs makeArgs(PrefixListReferenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrefixListReferenceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +224,7 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PrefixListReference get(String name, Output<String> id, @Nullable PrefixListReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PrefixListReference get(java.lang.String name, Output<java.lang.String> id, @Nullable PrefixListReferenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PrefixListReference(name, id, state, options);
     }
 }

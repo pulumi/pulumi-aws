@@ -17,14 +17,14 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
     public static final ConnectorCapacityArgs Empty = new ConnectorCapacityArgs();
 
     /**
-     * Information about the auto scaling parameters for the connector. See below.
+     * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
     @Import(name="autoscaling")
     private @Nullable Output<ConnectorCapacityAutoscalingArgs> autoscaling;
 
     /**
-     * @return Information about the auto scaling parameters for the connector. See below.
+     * @return Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
     public Optional<Output<ConnectorCapacityAutoscalingArgs>> autoscaling() {
@@ -32,14 +32,14 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Details about a fixed capacity allocated to a connector. See below.
+     * Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
     @Import(name="provisionedCapacity")
     private @Nullable Output<ConnectorCapacityProvisionedCapacityArgs> provisionedCapacity;
 
     /**
-     * @return Details about a fixed capacity allocated to a connector. See below.
+     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
     public Optional<Output<ConnectorCapacityProvisionedCapacityArgs>> provisionedCapacity() {
@@ -72,7 +72,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoscaling Information about the auto scaling parameters for the connector. See below.
+         * @param autoscaling Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param autoscaling Information about the auto scaling parameters for the connector. See below.
+         * @param autoscaling Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See below.
+         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConnectorCapacityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See below.
+         * @param provisionedCapacity Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
          * 
          * @return builder
          * 

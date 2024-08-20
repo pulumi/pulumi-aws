@@ -440,6 +440,8 @@ class PipelineStageAction(dict):
             suggest = "role_arn"
         elif key == "runOrder":
             suggest = "run_order"
+        elif key == "timeoutInMinutes":
+            suggest = "timeout_in_minutes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineStageAction. Access the value via the '{suggest}' property getter instead.")
@@ -464,7 +466,8 @@ class PipelineStageAction(dict):
                  output_artifacts: Optional[Sequence[str]] = None,
                  region: Optional[str] = None,
                  role_arn: Optional[str] = None,
-                 run_order: Optional[int] = None):
+                 run_order: Optional[int] = None,
+                 timeout_in_minutes: Optional[int] = None):
         """
         :param str category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         :param str name: The action declaration's name.
@@ -498,6 +501,8 @@ class PipelineStageAction(dict):
             pulumi.set(__self__, "role_arn", role_arn)
         if run_order is not None:
             pulumi.set(__self__, "run_order", run_order)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -594,6 +599,11 @@ class PipelineStageAction(dict):
         The order in which actions are run.
         """
         return pulumi.get(self, "run_order")
+
+    @property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_in_minutes")
 
 
 @pulumi.output_type

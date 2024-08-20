@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
  * 
+ * &gt; **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
+ * 
  * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
  * 
  * &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -74,7 +76,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -118,7 +120,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -163,7 +165,7 @@ import javax.annotation.Nullable;
  *                 "us-west-2c")
  *             .databaseName("mydb")
  *             .masterUsername("foo")
- *             .masterPassword("bar")
+ *             .masterPassword("must_be_eight_characters")
  *             .backupRetentionPeriod(5)
  *             .preferredBackupWindow("07:00-09:00")
  *             .build());
@@ -547,6 +549,34 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.backupRetentionPeriod;
     }
     /**
+     * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
+    private Output<String> caCertificateIdentifier;
+
+    /**
+     * @return The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    public Output<String> caCertificateIdentifier() {
+        return this.caCertificateIdentifier;
+    }
+    /**
+     * Expiration date of the DB instance’s server certificate
+     * 
+     */
+    @Export(name="caCertificateValidTill", refs={String.class}, tree="[0]")
+    private Output<String> caCertificateValidTill;
+
+    /**
+     * @return Expiration date of the DB instance’s server certificate
+     * 
+     */
+    public Output<String> caCertificateValidTill() {
+        return this.caCertificateValidTill;
+    }
+    /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
@@ -847,6 +877,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
+    private Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Output<String> engineLifecycleSupport() {
+        return this.engineLifecycleSupport;
+    }
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
@@ -1071,42 +1115,84 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.networkType;
     }
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     * 
+     */
+    @Export(name="performanceInsightsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> performanceInsightsEnabled;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     * 
+     */
+    public Output<Optional<Boolean>> performanceInsightsEnabled() {
+        return Codegen.optional(this.performanceInsightsEnabled);
+    }
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * 
+     */
+    @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> performanceInsightsKmsKeyId;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * 
+     */
+    public Output<String> performanceInsightsKmsKeyId() {
+        return this.performanceInsightsKmsKeyId;
+    }
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * 
+     */
+    @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
+    private Output<Integer> performanceInsightsRetentionPeriod;
+
+    /**
+     * @return Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * 
+     */
+    public Output<Integer> performanceInsightsRetentionPeriod() {
+        return this.performanceInsightsRetentionPeriod;
+    }
+    /**
+     * Port on which the DB accepts connections.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return Port on which the DB accepts connections
+     * @return Port on which the DB accepts connections.
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
-     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * @return Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
     public Output<String> preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * @return Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
     public Output<String> preferredMaintenanceWindow() {
@@ -1311,7 +1397,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Cluster(String name) {
+    public Cluster(java.lang.String name) {
         this(name, ClusterArgs.Empty);
     }
     /**
@@ -1319,7 +1405,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Cluster(String name, ClusterArgs args) {
+    public Cluster(java.lang.String name, ClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -1328,15 +1414,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Cluster(String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Cluster(java.lang.String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    private Cluster(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/cluster:Cluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterArgs makeArgs(ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -1355,7 +1448,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Cluster get(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Cluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Cluster(name, id, state, options);
     }
 }

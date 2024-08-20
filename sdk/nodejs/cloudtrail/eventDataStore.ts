@@ -110,6 +110,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     */
+    public readonly billingMode!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class EventDataStore extends pulumi.CustomResource {
             const state = argsOrState as EventDataStoreState | undefined;
             resourceInputs["advancedEventSelectors"] = state ? state.advancedEventSelectors : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["billingMode"] = state ? state.billingMode : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = state ? state.multiRegionEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -170,6 +175,7 @@ export class EventDataStore extends pulumi.CustomResource {
         } else {
             const args = argsOrState as EventDataStoreArgs | undefined;
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -197,6 +203,10 @@ export interface EventDataStoreState {
      * ARN of the event data store.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     */
+    billingMode?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
@@ -241,6 +251,10 @@ export interface EventDataStoreArgs {
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      */
     advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelector>[]>;
+    /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     */
+    billingMode?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */

@@ -300,7 +300,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProvisioningTemplate(String name) {
+    public ProvisioningTemplate(java.lang.String name) {
         this(name, ProvisioningTemplateArgs.Empty);
     }
     /**
@@ -308,7 +308,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProvisioningTemplate(String name, ProvisioningTemplateArgs args) {
+    public ProvisioningTemplate(java.lang.String name, ProvisioningTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -317,15 +317,22 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProvisioningTemplate(String name, ProvisioningTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args == null ? ProvisioningTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProvisioningTemplate(java.lang.String name, ProvisioningTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProvisioningTemplate(String name, Output<String> id, @Nullable ProvisioningTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, state, makeResourceOptions(options, id));
+    private ProvisioningTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable ProvisioningTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/provisioningTemplate:ProvisioningTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProvisioningTemplateArgs makeArgs(ProvisioningTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProvisioningTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -341,7 +348,7 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProvisioningTemplate get(String name, Output<String> id, @Nullable ProvisioningTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProvisioningTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable ProvisioningTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProvisioningTemplate(name, id, state, options);
     }
 }

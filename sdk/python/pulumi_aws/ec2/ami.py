@@ -802,9 +802,9 @@ class Ami(pulumi.CustomResource):
             root_device_name="/dev/xvda",
             imds_support="v2.0",
             ebs_block_devices=[{
-                "deviceName": "/dev/xvda",
-                "snapshotId": "snap-xxxxxxxx",
-                "volumeSize": 8,
+                "device_name": "/dev/xvda",
+                "snapshot_id": "snap-xxxxxxxx",
+                "volume_size": 8,
             }])
         ```
 
@@ -867,9 +867,9 @@ class Ami(pulumi.CustomResource):
             root_device_name="/dev/xvda",
             imds_support="v2.0",
             ebs_block_devices=[{
-                "deviceName": "/dev/xvda",
-                "snapshotId": "snap-xxxxxxxx",
-                "volumeSize": 8,
+                "device_name": "/dev/xvda",
+                "snapshot_id": "snap-xxxxxxxx",
+                "volume_size": 8,
             }])
         ```
 

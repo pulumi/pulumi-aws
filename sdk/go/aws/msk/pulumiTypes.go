@@ -248,7 +248,9 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGrou
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
-	PublicAccess    *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess    `pulumi:"publicAccess"`
+	// Access control settings for brokers. See below.
+	PublicAccess *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccess"`
+	// VPC connectivity access control for brokers. See below.
 	VpcConnectivity *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivity"`
 }
 
@@ -264,7 +266,9 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
-	PublicAccess    ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput    `pulumi:"publicAccess"`
+	// Access control settings for brokers. See below.
+	PublicAccess ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput `pulumi:"publicAccess"`
+	// VPC connectivity access control for brokers. See below.
 	VpcConnectivity ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput `pulumi:"vpcConnectivity"`
 }
 
@@ -345,12 +349,14 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGro
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
+// Access control settings for brokers. See below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 		return v.PublicAccess
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+// VPC connectivity access control for brokers. See below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 		return v.VpcConnectivity
@@ -381,6 +387,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) Elem() ClusterBroke
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput)
 }
 
+// Access control settings for brokers. See below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
 		if v == nil {
@@ -390,6 +397,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() Clus
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+// VPC connectivity access control for brokers. See below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
 		if v == nil {
@@ -400,6 +408,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) VpcConnectivity() C
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess struct {
+	// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 	Type *string `pulumi:"type"`
 }
 
@@ -415,6 +424,7 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs struct {
+	// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -495,6 +505,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterB
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -523,6 +534,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Elem() 
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
 }
 
+// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string {
 		if v == nil {
@@ -984,6 +996,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentic
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfo struct {
+	// A block that contains EBS volume information. See below.
 	EbsStorageInfo *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo `pulumi:"ebsStorageInfo"`
 }
 
@@ -999,6 +1012,7 @@ type ClusterBrokerNodeGroupInfoStorageInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoArgs struct {
+	// A block that contains EBS volume information. See below.
 	EbsStorageInfo ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
 }
 
@@ -1079,6 +1093,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInf
 	}).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
+// A block that contains EBS volume information. See below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		return v.EbsStorageInfo
@@ -1109,6 +1124,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) Elem() ClusterBrokerNode
 	}).(ClusterBrokerNodeGroupInfoStorageInfoOutput)
 }
 
+// A block that contains EBS volume information. See below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		if v == nil {
@@ -1119,8 +1135,10 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) EbsStorageInfo() Cluster
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo struct {
+	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
 	ProvisionedThroughput *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput `pulumi:"provisionedThroughput"`
-	VolumeSize            *int                                                                      `pulumi:"volumeSize"`
+	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	VolumeSize *int `pulumi:"volumeSize"`
 }
 
 // ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput values.
@@ -1135,8 +1153,10 @@ type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs struct {
+	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
 	ProvisionedThroughput ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
-	VolumeSize            pulumi.IntPtrInput                                                               `pulumi:"volumeSize"`
+	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 }
 
 func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ElementType() reflect.Type {
@@ -1216,12 +1236,14 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrok
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
 }
 
+// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		return v.ProvisionedThroughput
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
+// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
@@ -1250,6 +1272,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Elem() Clu
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
 }
 
+// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		if v == nil {
@@ -1259,6 +1282,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Provisione
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
+// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int {
 		if v == nil {
@@ -1269,8 +1293,9 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) VolumeSize
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput struct {
-	Enabled          *bool `pulumi:"enabled"`
-	VolumeThroughput *int  `pulumi:"volumeThroughput"`
+	Enabled *bool `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	VolumeThroughput *int `pulumi:"volumeThroughput"`
 }
 
 // ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput values.
@@ -1285,8 +1310,9 @@ type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInp
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs struct {
-	Enabled          pulumi.BoolPtrInput `pulumi:"enabled"`
-	VolumeThroughput pulumi.IntPtrInput  `pulumi:"volumeThroughput"`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	VolumeThroughput pulumi.IntPtrInput `pulumi:"volumeThroughput"`
 }
 
 func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ElementType() reflect.Type {
@@ -1372,6 +1398,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) VolumeThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
 		return v.VolumeThroughput
@@ -1411,6 +1438,7 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) VolumeThroughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
 		if v == nil {
@@ -1744,6 +1772,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 }
 
 type ClusterClientAuthenticationTls struct {
+	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
 	CertificateAuthorityArns []string `pulumi:"certificateAuthorityArns"`
 }
 
@@ -1759,6 +1788,7 @@ type ClusterClientAuthenticationTlsInput interface {
 }
 
 type ClusterClientAuthenticationTlsArgs struct {
+	// List of ACM Certificate Authority Amazon Resource Names (ARNs).
 	CertificateAuthorityArns pulumi.StringArrayInput `pulumi:"certificateAuthorityArns"`
 }
 
@@ -1839,6 +1869,7 @@ func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPt
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
+// List of ACM Certificate Authority Amazon Resource Names (ARNs).
 func (o ClusterClientAuthenticationTlsOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
 }
@@ -1867,6 +1898,7 @@ func (o ClusterClientAuthenticationTlsPtrOutput) Elem() ClusterClientAuthenticat
 	}).(ClusterClientAuthenticationTlsOutput)
 }
 
+// List of ACM Certificate Authority Amazon Resource Names (ARNs).
 func (o ClusterClientAuthenticationTlsPtrOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationTls) []string {
 		if v == nil {
@@ -2189,8 +2221,10 @@ func (o ClusterEncryptionInfoPtrOutput) EncryptionInTransit() ClusterEncryptionI
 }
 
 type ClusterEncryptionInfoEncryptionInTransit struct {
+	// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
 	ClientBroker *string `pulumi:"clientBroker"`
-	InCluster    *bool   `pulumi:"inCluster"`
+	// Whether data communication among broker nodes is encrypted. Default value: `true`.
+	InCluster *bool `pulumi:"inCluster"`
 }
 
 // ClusterEncryptionInfoEncryptionInTransitInput is an input type that accepts ClusterEncryptionInfoEncryptionInTransitArgs and ClusterEncryptionInfoEncryptionInTransitOutput values.
@@ -2205,8 +2239,10 @@ type ClusterEncryptionInfoEncryptionInTransitInput interface {
 }
 
 type ClusterEncryptionInfoEncryptionInTransitArgs struct {
+	// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
 	ClientBroker pulumi.StringPtrInput `pulumi:"clientBroker"`
-	InCluster    pulumi.BoolPtrInput   `pulumi:"inCluster"`
+	// Whether data communication among broker nodes is encrypted. Default value: `true`.
+	InCluster pulumi.BoolPtrInput `pulumi:"inCluster"`
 }
 
 func (ClusterEncryptionInfoEncryptionInTransitArgs) ElementType() reflect.Type {
@@ -2286,10 +2322,12 @@ func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoE
 	}).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
+// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) ClientBroker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
 }
 
+// Whether data communication among broker nodes is encrypted. Default value: `true`.
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) InCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *bool { return v.InCluster }).(pulumi.BoolPtrOutput)
 }
@@ -2318,6 +2356,7 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) Elem() ClusterEncrypt
 	}).(ClusterEncryptionInfoEncryptionInTransitOutput)
 }
 
+// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ClientBroker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfoEncryptionInTransit) *string {
 		if v == nil {
@@ -2327,6 +2366,7 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ClientBroker() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether data communication among broker nodes is encrypted. Default value: `true`.
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfoEncryptionInTransit) *bool {
 		if v == nil {
@@ -2639,7 +2679,8 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) S3() ClusterLoggingInfoBrokerLogs
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogs struct {
-	Enabled  bool    `pulumi:"enabled"`
+	Enabled bool `pulumi:"enabled"`
+	// Name of the Cloudwatch Log Group to deliver logs to.
 	LogGroup *string `pulumi:"logGroup"`
 }
 
@@ -2655,7 +2696,8 @@ type ClusterLoggingInfoBrokerLogsCloudwatchLogsInput interface {
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs struct {
-	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Name of the Cloudwatch Log Group to deliver logs to.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
 }
 
@@ -2740,6 +2782,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) Enabled() pulumi.BoolO
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Name of the Cloudwatch Log Group to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -2777,6 +2820,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Name of the Cloudwatch Log Group to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) *string {
 		if v == nil {
@@ -2787,6 +2831,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.S
 }
 
 type ClusterLoggingInfoBrokerLogsFirehose struct {
+	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream *string `pulumi:"deliveryStream"`
 	Enabled        bool    `pulumi:"enabled"`
 }
@@ -2803,6 +2848,7 @@ type ClusterLoggingInfoBrokerLogsFirehoseInput interface {
 }
 
 type ClusterLoggingInfoBrokerLogsFirehoseArgs struct {
+	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
 	Enabled        pulumi.BoolInput      `pulumi:"enabled"`
 }
@@ -2884,6 +2930,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLo
 	}).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
 
+// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
@@ -2916,6 +2963,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Elem() ClusterLoggingInfo
 	}).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
 }
 
+// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) *string {
 		if v == nil {
@@ -2935,9 +2983,11 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolPtrO
 }
 
 type ClusterLoggingInfoBrokerLogsS3 struct {
+	// Name of the S3 bucket to deliver logs to.
 	Bucket  *string `pulumi:"bucket"`
 	Enabled bool    `pulumi:"enabled"`
-	Prefix  *string `pulumi:"prefix"`
+	// Prefix to append to the folder name.
+	Prefix *string `pulumi:"prefix"`
 }
 
 // ClusterLoggingInfoBrokerLogsS3Input is an input type that accepts ClusterLoggingInfoBrokerLogsS3Args and ClusterLoggingInfoBrokerLogsS3Output values.
@@ -2952,9 +3002,11 @@ type ClusterLoggingInfoBrokerLogsS3Input interface {
 }
 
 type ClusterLoggingInfoBrokerLogsS3Args struct {
+	// Name of the S3 bucket to deliver logs to.
 	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
 	Enabled pulumi.BoolInput      `pulumi:"enabled"`
-	Prefix  pulumi.StringPtrInput `pulumi:"prefix"`
+	// Prefix to append to the folder name.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (ClusterLoggingInfoBrokerLogsS3Args) ElementType() reflect.Type {
@@ -3034,6 +3086,7 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3Pt
 	}).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
 }
 
+// Name of the S3 bucket to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
@@ -3042,6 +3095,7 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Prefix to append to the folder name.
 func (o ClusterLoggingInfoBrokerLogsS3Output) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3070,6 +3124,7 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Elem() ClusterLoggingInfoBroker
 	}).(ClusterLoggingInfoBrokerLogsS3Output)
 }
 
+// Name of the S3 bucket to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) *string {
 		if v == nil {
@@ -3088,6 +3143,7 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Prefix to append to the folder name.
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) *string {
 		if v == nil {
@@ -3235,7 +3291,9 @@ func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterOpenMonitoringPromet
 }
 
 type ClusterOpenMonitoringPrometheus struct {
-	JmxExporter  *ClusterOpenMonitoringPrometheusJmxExporter  `pulumi:"jmxExporter"`
+	// Configuration block for JMX Exporter. See below.
+	JmxExporter *ClusterOpenMonitoringPrometheusJmxExporter `pulumi:"jmxExporter"`
+	// Configuration block for Node Exporter. See below.
 	NodeExporter *ClusterOpenMonitoringPrometheusNodeExporter `pulumi:"nodeExporter"`
 }
 
@@ -3251,7 +3309,9 @@ type ClusterOpenMonitoringPrometheusInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusArgs struct {
-	JmxExporter  ClusterOpenMonitoringPrometheusJmxExporterPtrInput  `pulumi:"jmxExporter"`
+	// Configuration block for JMX Exporter. See below.
+	JmxExporter ClusterOpenMonitoringPrometheusJmxExporterPtrInput `pulumi:"jmxExporter"`
+	// Configuration block for Node Exporter. See below.
 	NodeExporter ClusterOpenMonitoringPrometheusNodeExporterPtrInput `pulumi:"nodeExporter"`
 }
 
@@ -3332,12 +3392,14 @@ func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheus
 	}).(ClusterOpenMonitoringPrometheusPtrOutput)
 }
 
+// Configuration block for JMX Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter {
 		return v.JmxExporter
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
+// Configuration block for Node Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter {
 		return v.NodeExporter
@@ -3368,6 +3430,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) Elem() ClusterOpenMonitoringPr
 	}).(ClusterOpenMonitoringPrometheusOutput)
 }
 
+// Configuration block for JMX Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusPtrOutput) JmxExporter() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusJmxExporter {
 		if v == nil {
@@ -3377,6 +3440,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) JmxExporter() ClusterOpenMonit
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
+// Configuration block for Node Exporter. See below.
 func (o ClusterOpenMonitoringPrometheusPtrOutput) NodeExporter() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheusNodeExporter {
 		if v == nil {
@@ -3387,6 +3451,7 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) NodeExporter() ClusterOpenMoni
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporter struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -3402,6 +3467,7 @@ type ClusterOpenMonitoringPrometheusJmxExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusJmxExporterArgs struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -3482,6 +3548,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitorin
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -3510,6 +3577,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenM
 	}).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusJmxExporter) *bool {
 		if v == nil {
@@ -3520,6 +3588,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) EnabledInBroker() p
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporter struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker bool `pulumi:"enabledInBroker"`
 }
 
@@ -3535,6 +3604,7 @@ type ClusterOpenMonitoringPrometheusNodeExporterInput interface {
 }
 
 type ClusterOpenMonitoringPrometheusNodeExporterArgs struct {
+	// Indicates whether you want to enable or disable the Node Exporter.
 	EnabledInBroker pulumi.BoolInput `pulumi:"enabledInBroker"`
 }
 
@@ -3615,6 +3685,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitori
 	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
 }
@@ -3643,6 +3714,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpen
 	}).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 
+// Indicates whether you want to enable or disable the Node Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusNodeExporter) *bool {
 		if v == nil {
@@ -3872,7 +3944,7 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOut
 }
 
 type ReplicatorReplicationInfoList struct {
-	// Confguration relating to consumer group replication.
+	// Configuration relating to consumer group replication.
 	ConsumerGroupReplications []ReplicatorReplicationInfoListConsumerGroupReplication `pulumi:"consumerGroupReplications"`
 	SourceKafkaClusterAlias   *string                                                 `pulumi:"sourceKafkaClusterAlias"`
 	// The ARN of the source Kafka cluster.
@@ -3898,7 +3970,7 @@ type ReplicatorReplicationInfoListInput interface {
 }
 
 type ReplicatorReplicationInfoListArgs struct {
-	// Confguration relating to consumer group replication.
+	// Configuration relating to consumer group replication.
 	ConsumerGroupReplications ReplicatorReplicationInfoListConsumerGroupReplicationArrayInput `pulumi:"consumerGroupReplications"`
 	SourceKafkaClusterAlias   pulumi.StringPtrInput                                           `pulumi:"sourceKafkaClusterAlias"`
 	// The ARN of the source Kafka cluster.
@@ -3989,7 +4061,7 @@ func (o ReplicatorReplicationInfoListOutput) ToReplicatorReplicationInfoListPtrO
 	}).(ReplicatorReplicationInfoListPtrOutput)
 }
 
-// Confguration relating to consumer group replication.
+// Configuration relating to consumer group replication.
 func (o ReplicatorReplicationInfoListOutput) ConsumerGroupReplications() ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListConsumerGroupReplication {
 		return v.ConsumerGroupReplications
@@ -4050,7 +4122,7 @@ func (o ReplicatorReplicationInfoListPtrOutput) Elem() ReplicatorReplicationInfo
 	}).(ReplicatorReplicationInfoListOutput)
 }
 
-// Confguration relating to consumer group replication.
+// Configuration relating to consumer group replication.
 func (o ReplicatorReplicationInfoListPtrOutput) ConsumerGroupReplications() ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoList) []ReplicatorReplicationInfoListConsumerGroupReplication {
 		if v == nil {
@@ -4257,6 +4329,8 @@ type ReplicatorReplicationInfoListTopicReplication struct {
 	CopyTopicConfigurations *bool `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
+	// Configuration for specifying the position in the topics to start replicating from.
+	StartingPosition *ReplicatorReplicationInfoListTopicReplicationStartingPosition `pulumi:"startingPosition"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes []string `pulumi:"topicsToExcludes"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -4281,6 +4355,8 @@ type ReplicatorReplicationInfoListTopicReplicationArgs struct {
 	CopyTopicConfigurations pulumi.BoolPtrInput `pulumi:"copyTopicConfigurations"`
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
+	// Configuration for specifying the position in the topics to start replicating from.
+	StartingPosition ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes pulumi.StringArrayInput `pulumi:"topicsToExcludes"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -4353,6 +4429,13 @@ func (o ReplicatorReplicationInfoListTopicReplicationOutput) DetectAndCopyNewTop
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *bool { return v.DetectAndCopyNewTopics }).(pulumi.BoolPtrOutput)
 }
 
+// Configuration for specifying the position in the topics to start replicating from.
+func (o ReplicatorReplicationInfoListTopicReplicationOutput) StartingPosition() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationStartingPosition {
+		return v.StartingPosition
+	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
+}
+
 // List of regular expression patterns indicating the topics that should not be replica.
 func (o ReplicatorReplicationInfoListTopicReplicationOutput) TopicsToExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) []string { return v.TopicsToExcludes }).(pulumi.StringArrayOutput)
@@ -4381,6 +4464,143 @@ func (o ReplicatorReplicationInfoListTopicReplicationArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatorReplicationInfoListTopicReplication {
 		return vs[0].([]ReplicatorReplicationInfoListTopicReplication)[vs[1].(int)]
 	}).(ReplicatorReplicationInfoListTopicReplicationOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationStartingPosition struct {
+	// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+	Type *string `pulumi:"type"`
+}
+
+// ReplicatorReplicationInfoListTopicReplicationStartingPositionInput is an input type that accepts ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs and ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoListTopicReplicationStartingPositionInput` via:
+//
+//	ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{...}
+type ReplicatorReplicationInfoListTopicReplicationStartingPositionInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput
+	ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutputWithContext(context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput
+}
+
+type ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs struct {
+	// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPosition)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput)
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput).ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(ctx)
+}
+
+// ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput is an input type that accepts ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs, ReplicatorReplicationInfoListTopicReplicationStartingPositionPtr and ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput` via:
+//
+//	        ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput
+	ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput
+}
+
+type replicatorReplicationInfoListTopicReplicationStartingPositionPtrType ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs
+
+func ReplicatorReplicationInfoListTopicReplicationStartingPositionPtr(v *ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput {
+	return (*replicatorReplicationInfoListTopicReplicationStartingPositionPtrType)(v)
+}
+
+func (*replicatorReplicationInfoListTopicReplicationStartingPositionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationInfoListTopicReplicationStartingPosition)(nil)).Elem()
+}
+
+func (i *replicatorReplicationInfoListTopicReplicationStartingPositionPtrType) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorReplicationInfoListTopicReplicationStartingPositionPtrType) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPosition)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return o.ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationInfoListTopicReplicationStartingPosition) *ReplicatorReplicationInfoListTopicReplicationStartingPosition {
+		return &v
+	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
+}
+
+// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplicationStartingPosition) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationInfoListTopicReplicationStartingPosition)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput() ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) ToReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) Elem() ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationStartingPosition) ReplicatorReplicationInfoListTopicReplicationStartingPosition {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationInfoListTopicReplicationStartingPosition
+		return ret
+	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput)
+}
+
+// The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationStartingPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServerlessClusterClientAuthentication struct {
@@ -5044,6 +5264,938 @@ func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBroke
 	}).(GetBrokerNodesNodeInfoListOutput)
 }
 
+type GetClusterBrokerNodeGroupInfo struct {
+	AzDistribution    string                                          `pulumi:"azDistribution"`
+	ClientSubnets     []string                                        `pulumi:"clientSubnets"`
+	ConnectivityInfos []GetClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfos"`
+	InstanceType      string                                          `pulumi:"instanceType"`
+	SecurityGroups    []string                                        `pulumi:"securityGroups"`
+	StorageInfos      []GetClusterBrokerNodeGroupInfoStorageInfo      `pulumi:"storageInfos"`
+}
+
+// GetClusterBrokerNodeGroupInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoArgs and GetClusterBrokerNodeGroupInfoOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoArgs{...}
+type GetClusterBrokerNodeGroupInfoInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoOutput() GetClusterBrokerNodeGroupInfoOutput
+	ToGetClusterBrokerNodeGroupInfoOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoOutput
+}
+
+type GetClusterBrokerNodeGroupInfoArgs struct {
+	AzDistribution    pulumi.StringInput                                      `pulumi:"azDistribution"`
+	ClientSubnets     pulumi.StringArrayInput                                 `pulumi:"clientSubnets"`
+	ConnectivityInfos GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput `pulumi:"connectivityInfos"`
+	InstanceType      pulumi.StringInput                                      `pulumi:"instanceType"`
+	SecurityGroups    pulumi.StringArrayInput                                 `pulumi:"securityGroups"`
+	StorageInfos      GetClusterBrokerNodeGroupInfoStorageInfoArrayInput      `pulumi:"storageInfos"`
+}
+
+func (GetClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoArgs) ToGetClusterBrokerNodeGroupInfoOutput() GetClusterBrokerNodeGroupInfoOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoArgs) ToGetClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoArray and GetClusterBrokerNodeGroupInfoArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoArray{ GetClusterBrokerNodeGroupInfoArgs{...} }
+type GetClusterBrokerNodeGroupInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoArrayOutput() GetClusterBrokerNodeGroupInfoArrayOutput
+	ToGetClusterBrokerNodeGroupInfoArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoArray []GetClusterBrokerNodeGroupInfoInput
+
+func (GetClusterBrokerNodeGroupInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoArray) ToGetClusterBrokerNodeGroupInfoArrayOutput() GetClusterBrokerNodeGroupInfoArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoArray) ToGetClusterBrokerNodeGroupInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) ToGetClusterBrokerNodeGroupInfoOutput() GetClusterBrokerNodeGroupInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) ToGetClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) AzDistribution() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) string { return v.AzDistribution }).(pulumi.StringOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) ConnectivityInfos() GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfo {
+		return v.ConnectivityInfos
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoOutput) StorageInfos() GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfo) []GetClusterBrokerNodeGroupInfoStorageInfo {
+		return v.StorageInfos
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoArrayOutput() GetClusterBrokerNodeGroupInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfo {
+		return vs[0].([]GetClusterBrokerNodeGroupInfo)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfo struct {
+	PublicAccesses    []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess    `pulumi:"publicAccesses"`
+	VpcConnectivities []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivities"`
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoArgs{...}
+type GetClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
+	PublicAccesses    GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput    `pulumi:"publicAccesses"`
+	VpcConnectivities GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput `pulumi:"vpcConnectivities"`
+}
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoArray and GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoArray{ GetClusterBrokerNodeGroupInfoConnectivityInfoArgs{...} }
+type GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoArray []GetClusterBrokerNodeGroupInfoConnectivityInfoInput
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccesses() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		return v.PublicAccesses
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoOutput) VpcConnectivities() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfo) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		return v.VpcConnectivities
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoConnectivityInfo {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoConnectivityInfo)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess struct {
+	Type string `pulumi:"type"`
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{...}
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray and GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray{ GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{...} }
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray []GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity struct {
+	ClientAuthentications []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication `pulumi:"clientAuthentications"`
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{...}
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs struct {
+	ClientAuthentications GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput `pulumi:"clientAuthentications"`
+}
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray{ GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{...} }
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ClientAuthentications() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		return v.ClientAuthentications
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication struct {
+	Sasls []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl `pulumi:"sasls"`
+	Tls   bool                                                                                   `pulumi:"tls"`
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{...}
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs struct {
+	Sasls GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput `pulumi:"sasls"`
+	Tls   pulumi.BoolInput                                                                               `pulumi:"tls"`
+}
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray{ GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{...} }
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Sasls() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		return v.Sasls
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Tls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) bool {
+		return v.Tls
+	}).(pulumi.BoolOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl struct {
+	Iam   bool `pulumi:"iam"`
+	Scram bool `pulumi:"scram"`
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{...}
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs struct {
+	Iam   pulumi.BoolInput `pulumi:"iam"`
+	Scram pulumi.BoolInput `pulumi:"scram"`
+}
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray and GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray{ GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{...} }
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput
+	ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray []GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Iam() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) bool {
+		return v.Iam
+	}).(pulumi.BoolOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Scram() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) bool {
+		return v.Scram
+	}).(pulumi.BoolOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput() GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput) ToGetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfo struct {
+	EbsStorageInfos []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo `pulumi:"ebsStorageInfos"`
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoArgs and GetClusterBrokerNodeGroupInfoStorageInfoOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoArgs{...}
+type GetClusterBrokerNodeGroupInfoStorageInfoInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoArgs struct {
+	EbsStorageInfos GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput `pulumi:"ebsStorageInfos"`
+}
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoArray and GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoArray{ GetClusterBrokerNodeGroupInfoStorageInfoArgs{...} }
+type GetClusterBrokerNodeGroupInfoStorageInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoArray []GetClusterBrokerNodeGroupInfoStorageInfoInput
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoArray) ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoArray) ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfos() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfo) []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		return v.EbsStorageInfos
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoStorageInfo {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoStorageInfo)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo struct {
+	ProvisionedThroughputs []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput `pulumi:"provisionedThroughputs"`
+	VolumeSize             int                                                                           `pulumi:"volumeSize"`
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{...}
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs struct {
+	ProvisionedThroughputs GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput `pulumi:"provisionedThroughputs"`
+	VolumeSize             pulumi.IntInput                                                                       `pulumi:"volumeSize"`
+}
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray{ GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{...} }
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ProvisionedThroughputs() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		return v.ProvisionedThroughputs
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) VolumeSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) int { return v.VolumeSize }).(pulumi.IntOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput struct {
+	Enabled          bool `pulumi:"enabled"`
+	VolumeThroughput int  `pulumi:"volumeThroughput"`
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{...}
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs struct {
+	Enabled          pulumi.BoolInput `pulumi:"enabled"`
+	VolumeThroughput pulumi.IntInput  `pulumi:"volumeThroughput"`
+}
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
+}
+
+// GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput is an input type that accepts GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray and GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput values.
+// You can construct a concrete instance of `GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput` via:
+//
+//	GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray{ GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{...} }
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput
+	ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutputWithContext(context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray []GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
+	return i.ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) bool {
+		return v.Enabled
+	}).(pulumi.BoolOutput)
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) VolumeThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) int {
+		return v.VolumeThroughput
+	}).(pulumi.IntOutput)
+}
+
+type GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput() GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput) ToGetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutputWithContext(ctx context.Context) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput {
+	return o
+}
+
+func (o GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput) Index(i pulumi.IntInput) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		return vs[0].([]GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)[vs[1].(int)]
+	}).(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
@@ -5103,6 +6255,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListConsumerGroupReplicationArrayInput)(nil)).Elem(), ReplicatorReplicationInfoListConsumerGroupReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationArrayInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPositionInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslArgs{})
@@ -5113,6 +6267,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterVpcConfigArrayInput)(nil)).Elem(), ServerlessClusterVpcConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListArrayInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayInput)(nil)).Elem(), GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArray{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoOutput{})
@@ -5171,6 +6343,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListConsumerGroupReplicationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslOutput{})
@@ -5181,4 +6355,22 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessClusterVpcConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListOutput{})
 	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput{})
+	pulumi.RegisterOutputType(GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrayOutput{})
 }

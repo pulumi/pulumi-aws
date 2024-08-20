@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> Ipv6Prefixes;
         public readonly int NetworkCardIndex;
         public readonly string NetworkInterfaceId;
+        public readonly string PrimaryIpv6;
         public readonly string PrivateIpAddress;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string SubnetId;
@@ -67,6 +68,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string networkInterfaceId,
 
+            string primaryIpv6,
+
             string privateIpAddress,
 
             ImmutableArray<string> securityGroups,
@@ -89,6 +92,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
+            PrimaryIpv6 = primaryIpv6;
             PrivateIpAddress = privateIpAddress;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;

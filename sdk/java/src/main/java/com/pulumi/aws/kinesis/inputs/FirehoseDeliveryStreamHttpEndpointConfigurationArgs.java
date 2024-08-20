@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigura
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -187,6 +188,21 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
+     * The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * 
+     */
+    @Import(name="secretsManagerConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
+
+    /**
+     * @return The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
+
+    /**
      * The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
@@ -215,6 +231,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         this.roleArn = $.roleArn;
         this.s3BackupMode = $.s3BackupMode;
         this.s3Configuration = $.s3Configuration;
+        this.secretsManagerConfiguration = $.secretsManagerConfiguration;
         this.url = $.url;
     }
 
@@ -465,6 +482,27 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
          */
         public Builder s3Configuration(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
+        }
+
+        /**
+         * @param secretsManagerConfiguration The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
+            $.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+
+        /**
+         * @param secretsManagerConfiguration The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretsManagerConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
+            return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
         }
 
         /**

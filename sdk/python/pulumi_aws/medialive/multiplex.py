@@ -263,10 +263,10 @@ class Multiplex(pulumi.CustomResource):
                 available.names[1],
             ],
             multiplex_settings={
-                "transportStreamBitrate": 1000000,
-                "transportStreamId": 1,
-                "transportStreamReservedBitrate": 1,
-                "maximumVideoBufferDelayMilliseconds": 1000,
+                "transport_stream_bitrate": 1000000,
+                "transport_stream_id": 1,
+                "transport_stream_reserved_bitrate": 1,
+                "maximum_video_buffer_delay_milliseconds": 1000,
             },
             start_multiplex=True,
             tags={
@@ -317,10 +317,10 @@ class Multiplex(pulumi.CustomResource):
                 available.names[1],
             ],
             multiplex_settings={
-                "transportStreamBitrate": 1000000,
-                "transportStreamId": 1,
-                "transportStreamReservedBitrate": 1,
-                "maximumVideoBufferDelayMilliseconds": 1000,
+                "transport_stream_bitrate": 1000000,
+                "transport_stream_id": 1,
+                "transport_stream_reserved_bitrate": 1,
+                "maximum_video_buffer_delay_milliseconds": 1000,
             },
             start_multiplex=True,
             tags={

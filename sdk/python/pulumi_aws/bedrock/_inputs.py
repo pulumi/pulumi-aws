@@ -21,12 +21,24 @@ __all__ = [
     'AgentAgentActionGroupApiSchemaArgsDict',
     'AgentAgentActionGroupApiSchemaS3Args',
     'AgentAgentActionGroupApiSchemaS3ArgsDict',
+    'AgentAgentActionGroupFunctionSchemaArgs',
+    'AgentAgentActionGroupFunctionSchemaArgsDict',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs',
+    'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict',
     'AgentAgentAliasRoutingConfigurationArgs',
     'AgentAgentAliasRoutingConfigurationArgsDict',
     'AgentAgentAliasTimeoutsArgs',
     'AgentAgentAliasTimeoutsArgsDict',
     'AgentAgentPromptOverrideConfigurationArgs',
     'AgentAgentPromptOverrideConfigurationArgsDict',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict',
     'AgentAgentTimeoutsArgs',
     'AgentAgentTimeoutsArgsDict',
     'AgentDataSourceDataSourceConfigurationArgs',
@@ -91,9 +103,16 @@ MYPY = False
 
 if not MYPY:
     class AgentAgentActionGroupActionGroupExecutorArgsDict(TypedDict):
+        custom_control: NotRequired[pulumi.Input[str]]
+        """
+        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+        To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+        Only one of `custom_control` or `lambda` can be specified.
+        """
         lambda_: NotRequired[pulumi.Input[str]]
         """
         ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+        Only one of `lambda` or `custom_control` can be specified.
         """
 elif False:
     AgentAgentActionGroupActionGroupExecutorArgsDict: TypeAlias = Mapping[str, Any]
@@ -101,18 +120,40 @@ elif False:
 @pulumi.input_type
 class AgentAgentActionGroupActionGroupExecutorArgs:
     def __init__(__self__, *,
+                 custom_control: Optional[pulumi.Input[str]] = None,
                  lambda_: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] custom_control: Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+               To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+               Only one of `custom_control` or `lambda` can be specified.
         :param pulumi.Input[str] lambda_: ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+               Only one of `lambda` or `custom_control` can be specified.
         """
+        if custom_control is not None:
+            pulumi.set(__self__, "custom_control", custom_control)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="customControl")
+    def custom_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+        To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+        Only one of `custom_control` or `lambda` can be specified.
+        """
+        return pulumi.get(self, "custom_control")
+
+    @custom_control.setter
+    def custom_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_control", value)
 
     @property
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+        Only one of `lambda` or `custom_control` can be specified.
         """
         return pulumi.get(self, "lambda_")
 
@@ -126,10 +167,12 @@ if not MYPY:
         payload: NotRequired[pulumi.Input[str]]
         """
         JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        Only one of `payload` or `s3` can be specified.
         """
         s3: NotRequired[pulumi.Input['AgentAgentActionGroupApiSchemaS3ArgsDict']]
         """
-        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+        Only one of `s3` or `payload` can be specified.
         """
 elif False:
     AgentAgentActionGroupApiSchemaArgsDict: TypeAlias = Mapping[str, Any]
@@ -141,7 +184,9 @@ class AgentAgentActionGroupApiSchemaArgs:
                  s3: Optional[pulumi.Input['AgentAgentActionGroupApiSchemaS3Args']] = None):
         """
         :param pulumi.Input[str] payload: JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
-        :param pulumi.Input['AgentAgentActionGroupApiSchemaS3Args'] s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+               Only one of `payload` or `s3` can be specified.
+        :param pulumi.Input['AgentAgentActionGroupApiSchemaS3Args'] s3: Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+               Only one of `s3` or `payload` can be specified.
         """
         if payload is not None:
             pulumi.set(__self__, "payload", payload)
@@ -153,6 +198,7 @@ class AgentAgentActionGroupApiSchemaArgs:
     def payload(self) -> Optional[pulumi.Input[str]]:
         """
         JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        Only one of `payload` or `s3` can be specified.
         """
         return pulumi.get(self, "payload")
 
@@ -164,7 +210,8 @@ class AgentAgentActionGroupApiSchemaArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['AgentAgentActionGroupApiSchemaS3Args']]:
         """
-        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+        Only one of `s3` or `payload` can be specified.
         """
         return pulumi.get(self, "s3")
 
@@ -226,10 +273,251 @@ class AgentAgentActionGroupApiSchemaS3Args:
 
 
 if not MYPY:
+    class AgentAgentActionGroupFunctionSchemaArgsDict(TypedDict):
+        member_functions: NotRequired[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict']]
+        """
+        Contains a list of functions.
+        Each function describes and action in the action group.
+        See `member_functions` Block for details.
+        """
+elif False:
+    AgentAgentActionGroupFunctionSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentActionGroupFunctionSchemaArgs:
+    def __init__(__self__, *,
+                 member_functions: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs']] = None):
+        """
+        :param pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs'] member_functions: Contains a list of functions.
+               Each function describes and action in the action group.
+               See `member_functions` Block for details.
+        """
+        if member_functions is not None:
+            pulumi.set(__self__, "member_functions", member_functions)
+
+    @property
+    @pulumi.getter(name="memberFunctions")
+    def member_functions(self) -> Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs']]:
+        """
+        Contains a list of functions.
+        Each function describes and action in the action group.
+        See `member_functions` Block for details.
+        """
+        return pulumi.get(self, "member_functions")
+
+    @member_functions.setter
+    def member_functions(self, value: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs']]):
+        pulumi.set(self, "member_functions", value)
+
+
+if not MYPY:
+    class AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict(TypedDict):
+        functions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict']]]]
+        """
+        Functions that each define an action in the action group. See `functions` Block for details.
+        """
+elif False:
+    AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs:
+    def __init__(__self__, *,
+                 functions: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs']]] functions: Functions that each define an action in the action group. See `functions` Block for details.
+        """
+        if functions is not None:
+            pulumi.set(__self__, "functions", functions)
+
+    @property
+    @pulumi.getter
+    def functions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs']]]]:
+        """
+        Functions that each define an action in the action group. See `functions` Block for details.
+        """
+        return pulumi.get(self, "functions")
+
+    @functions.setter
+    def functions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs']]]]):
+        pulumi.set(self, "functions", value)
+
+
+if not MYPY:
+    class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name for the function.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the function and its purpose.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict']]]]
+        """
+        Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        """
+elif False:
+    AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] name: Name for the function.
+        :param pulumi.Input[str] description: Description of the function and its purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs']]] parameters: Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name for the function.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the function and its purpose.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs']]]]:
+        """
+        Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+if not MYPY:
+    class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict(TypedDict):
+        map_block_key: pulumi.Input[str]
+        """
+        Name of the parameter.
+
+        **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        """
+        type: pulumi.Input[str]
+        """
+        Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the parameter is required for the agent to complete the function for action group invocation.
+        """
+elif False:
+    AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 required: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] map_block_key: Name of the parameter.
+               
+               **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        :param pulumi.Input[str] type: Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        :param pulumi.Input[str] description: Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+        :param pulumi.Input[bool] required: Whether the parameter is required for the agent to complete the function for action group invocation.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Name of the parameter.
+
+        **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+        """
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the parameter is required for the agent to complete the function for action group invocation.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
     class AgentAgentAliasRoutingConfigurationArgsDict(TypedDict):
         agent_version: pulumi.Input[str]
         """
         Version of the agent with which the alias is associated.
+        """
+        provisioned_throughput: pulumi.Input[str]
+        """
+        ARN of the Provisioned Throughput assigned to the agent alias.
         """
 elif False:
     AgentAgentAliasRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -237,11 +525,14 @@ elif False:
 @pulumi.input_type
 class AgentAgentAliasRoutingConfigurationArgs:
     def __init__(__self__, *,
-                 agent_version: pulumi.Input[str]):
+                 agent_version: pulumi.Input[str],
+                 provisioned_throughput: pulumi.Input[str]):
         """
         :param pulumi.Input[str] agent_version: Version of the agent with which the alias is associated.
+        :param pulumi.Input[str] provisioned_throughput: ARN of the Provisioned Throughput assigned to the agent alias.
         """
         pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -254,6 +545,18 @@ class AgentAgentAliasRoutingConfigurationArgs:
     @agent_version.setter
     def agent_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "agent_version", value)
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> pulumi.Input[str]:
+        """
+        ARN of the Provisioned Throughput assigned to the agent alias.
+        """
+        return pulumi.get(self, "provisioned_throughput")
+
+    @provisioned_throughput.setter
+    def provisioned_throughput(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provisioned_throughput", value)
 
 
 if not MYPY:
@@ -334,9 +637,9 @@ if not MYPY:
         """
         ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
         """
-        prompt_configurations: pulumi.Input[Sequence[Any]]
+        prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict']]]
         """
-        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         """
 elif False:
     AgentAgentPromptOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -345,10 +648,10 @@ elif False:
 class AgentAgentPromptOverrideConfigurationArgs:
     def __init__(__self__, *,
                  override_lambda: pulumi.Input[str],
-                 prompt_configurations: pulumi.Input[Sequence[Any]]):
+                 prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]):
         """
         :param pulumi.Input[str] override_lambda: ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        :param pulumi.Input[Sequence[Any]] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         """
         pulumi.set(__self__, "override_lambda", override_lambda)
         pulumi.set(__self__, "prompt_configurations", prompt_configurations)
@@ -367,15 +670,248 @@ class AgentAgentPromptOverrideConfigurationArgs:
 
     @property
     @pulumi.getter(name="promptConfigurations")
-    def prompt_configurations(self) -> pulumi.Input[Sequence[Any]]:
+    def prompt_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]:
         """
-        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         """
         return pulumi.get(self, "prompt_configurations")
 
     @prompt_configurations.setter
-    def prompt_configurations(self, value: pulumi.Input[Sequence[Any]]):
+    def prompt_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]):
         pulumi.set(self, "prompt_configurations", value)
+
+
+if not MYPY:
+    class AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict(TypedDict):
+        base_prompt_template: pulumi.Input[str]
+        """
+        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        """
+        inference_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict']]]
+        """
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
+        """
+        parser_mode: pulumi.Input[str]
+        """
+        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        prompt_creation_mode: pulumi.Input[str]
+        """
+        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        prompt_state: pulumi.Input[str]
+        """
+        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        """
+        prompt_type: pulumi.Input[str]
+        """
+        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+elif False:
+    AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs:
+    def __init__(__self__, *,
+                 base_prompt_template: pulumi.Input[str],
+                 inference_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]],
+                 parser_mode: pulumi.Input[str],
+                 prompt_creation_mode: pulumi.Input[str],
+                 prompt_state: pulumi.Input[str],
+                 prompt_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] base_prompt_template: prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
+        :param pulumi.Input[str] parser_mode: Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param pulumi.Input[str] prompt_creation_mode: Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param pulumi.Input[str] prompt_state: Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] prompt_type: Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        pulumi.set(__self__, "base_prompt_template", base_prompt_template)
+        pulumi.set(__self__, "inference_configurations", inference_configurations)
+        pulumi.set(__self__, "parser_mode", parser_mode)
+        pulumi.set(__self__, "prompt_creation_mode", prompt_creation_mode)
+        pulumi.set(__self__, "prompt_state", prompt_state)
+        pulumi.set(__self__, "prompt_type", prompt_type)
+
+    @property
+    @pulumi.getter(name="basePromptTemplate")
+    def base_prompt_template(self) -> pulumi.Input[str]:
+        """
+        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        """
+        return pulumi.get(self, "base_prompt_template")
+
+    @base_prompt_template.setter
+    def base_prompt_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_prompt_template", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfigurations")
+    def inference_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]]:
+        """
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
+        """
+        return pulumi.get(self, "inference_configurations")
+
+    @inference_configurations.setter
+    def inference_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]]):
+        pulumi.set(self, "inference_configurations", value)
+
+    @property
+    @pulumi.getter(name="parserMode")
+    def parser_mode(self) -> pulumi.Input[str]:
+        """
+        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "parser_mode")
+
+    @parser_mode.setter
+    def parser_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parser_mode", value)
+
+    @property
+    @pulumi.getter(name="promptCreationMode")
+    def prompt_creation_mode(self) -> pulumi.Input[str]:
+        """
+        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "prompt_creation_mode")
+
+    @prompt_creation_mode.setter
+    def prompt_creation_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_creation_mode", value)
+
+    @property
+    @pulumi.getter(name="promptState")
+    def prompt_state(self) -> pulumi.Input[str]:
+        """
+        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "prompt_state")
+
+    @prompt_state.setter
+    def prompt_state(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_state", value)
+
+    @property
+    @pulumi.getter(name="promptType")
+    def prompt_type(self) -> pulumi.Input[str]:
+        """
+        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        return pulumi.get(self, "prompt_type")
+
+    @prompt_type.setter
+    def prompt_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_type", value)
+
+
+if not MYPY:
+    class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict(TypedDict):
+        max_length: pulumi.Input[int]
+        """
+        Maximum number of tokens to allow in the generated response.
+        """
+        stop_sequences: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        """
+        temperature: pulumi.Input[float]
+        """
+        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        """
+        top_k: pulumi.Input[int]
+        """
+        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        """
+        top_p: pulumi.Input[float]
+        """
+        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+elif False:
+    AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_length: pulumi.Input[int],
+                 stop_sequences: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 temperature: pulumi.Input[float],
+                 top_k: pulumi.Input[int],
+                 top_p: pulumi.Input[float]):
+        """
+        :param pulumi.Input[int] max_length: Maximum number of tokens to allow in the generated response.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        :param pulumi.Input[float] temperature: Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        :param pulumi.Input[int] top_k: Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        :param pulumi.Input[float] top_p: Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "stop_sequences", stop_sequences)
+        pulumi.set(__self__, "temperature", temperature)
+        pulumi.set(__self__, "top_k", top_k)
+        pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[int]:
+        """
+        Maximum number of tokens to allow in the generated response.
+        """
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> pulumi.Input[float]:
+        """
+        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: pulumi.Input[float]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> pulumi.Input[int]:
+        """
+        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: pulumi.Input[int]):
+        pulumi.set(self, "top_k", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> pulumi.Input[float]:
+        """
+        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: pulumi.Input[float]):
+        pulumi.set(self, "top_p", value)
 
 
 if not MYPY:
@@ -504,8 +1040,17 @@ class AgentDataSourceDataSourceConfigurationArgs:
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict(TypedDict):
         bucket_arn: pulumi.Input[str]
+        """
+        ARN of the bucket that contains the data source.
+        """
         bucket_owner_account_id: NotRequired[pulumi.Input[str]]
+        """
+        Bucket account owner ID for the S3 bucket.
+        """
         inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
 elif False:
     AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -515,6 +1060,11 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
                  bucket_arn: pulumi.Input[str],
                  bucket_owner_account_id: Optional[pulumi.Input[str]] = None,
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] bucket_arn: ARN of the bucket that contains the data source.
+        :param pulumi.Input[str] bucket_owner_account_id: Bucket account owner ID for the S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         if bucket_owner_account_id is not None:
             pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
@@ -524,6 +1074,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
+        """
+        ARN of the bucket that contains the data source.
+        """
         return pulumi.get(self, "bucket_arn")
 
     @bucket_arn.setter
@@ -533,6 +1086,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="bucketOwnerAccountId")
     def bucket_owner_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bucket account owner ID for the S3 bucket.
+        """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @bucket_owner_account_id.setter
@@ -542,6 +1098,9 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
     @property
     @pulumi.getter(name="inclusionPrefixes")
     def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        """
         return pulumi.get(self, "inclusion_prefixes")
 
     @inclusion_prefixes.setter
@@ -669,7 +1228,7 @@ if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict(TypedDict):
         chunking_strategy: pulumi.Input[str]
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         """
         fixed_size_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict']]
         """
@@ -684,7 +1243,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
                  chunking_strategy: pulumi.Input[str],
                  fixed_size_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs'] fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
         """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
@@ -695,7 +1254,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
     @pulumi.getter(name="chunkingStrategy")
     def chunking_strategy(self) -> pulumi.Input[str]:
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
         """
         return pulumi.get(self, "chunking_strategy")
 

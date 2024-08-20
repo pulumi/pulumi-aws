@@ -10,6 +10,16 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
 export { TableArgs, TableState } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string? AuthenticationMode;
         /// <summary>
-        /// Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        /// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         /// </summary>
         public readonly bool? BootstrapClusterCreatorAdminPermissions;
 

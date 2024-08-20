@@ -142,7 +142,7 @@ export interface ProviderAssumeRoleWithWebIdentity {
 
 export interface ProviderDefaultTags {
     /**
-     * Resource tags to default across all resources
+     * Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -487,6 +487,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    databrew?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dataexchange?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -680,6 +684,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     glue?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    gluedatabrew?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -1035,6 +1043,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    resiliencehub?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     resourceexplorer2?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -1292,11 +1304,11 @@ export interface ProviderEndpoint {
 
 export interface ProviderIgnoreTags {
     /**
-     * Resource tag key prefixes to ignore across all resources.
+     * Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
      */
     keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Resource tag keys to ignore across all resources.
+     * Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
      */
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -2153,11 +2165,48 @@ export namespace alb {
         onUnhealthy: pulumi.Input<string>;
     }
 
+    export interface TargetGroupTargetGroupHealth {
+        /**
+         * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+         */
+        dnsFailover?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealthDnsFailover>;
+        /**
+         * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+         */
+        unhealthyStateRouting?: pulumi.Input<inputs.alb.TargetGroupTargetGroupHealthUnhealthyStateRouting>;
+    }
+
+    export interface TargetGroupTargetGroupHealthDnsFailover {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<string>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetGroupHealthUnhealthyStateRouting {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<number>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
     export interface TargetGroupTargetHealthState {
         /**
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: pulumi.Input<number>;
     }
 }
 
@@ -2294,6 +2343,21 @@ export namespace amplify {
          * Thumbnail URL for the production branch.
          */
         thumbnailUrl?: pulumi.Input<string>;
+    }
+
+    export interface DomainAssociationCertificateSettings {
+        /**
+         * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+         */
+        certificateVerificationDnsRecord?: pulumi.Input<string>;
+        /**
+         * The Amazon resource name (ARN) for the custom certificate.
+         */
+        customCertificateArn?: pulumi.Input<string>;
+        /**
+         * The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface DomainAssociationSubDomain {
@@ -2473,8 +2537,17 @@ export namespace apigateway {
     }
 
     export interface UsagePlanApiStage {
+        /**
+         * API Id of the associated API stage in a usage plan.
+         */
         apiId: pulumi.Input<string>;
+        /**
+         * API stage name of the associated API stage in a usage plan.
+         */
         stage: pulumi.Input<string>;
+        /**
+         * The throttling limits of the usage plan.
+         */
         throttles?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageThrottle>[]>;
     }
 
@@ -2494,8 +2567,17 @@ export namespace apigateway {
     }
 
     export interface UsagePlanQuotaSettings {
+        /**
+         * Maximum number of requests that can be made in a given time period.
+         */
         limit: pulumi.Input<number>;
+        /**
+         * Number of requests subtracted from the given limit in the initial time period.
+         */
         offset?: pulumi.Input<number>;
+        /**
+         * Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+         */
         period: pulumi.Input<string>;
     }
 
@@ -2723,8 +2805,17 @@ export namespace appautoscaling {
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
+        /**
+         * Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         */
         metricIntervalLowerBound?: pulumi.Input<string>;
+        /**
+         * Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         */
         metricIntervalUpperBound?: pulumi.Input<string>;
+        /**
+         * Number of members by which to scale, when the adjustment bounds are breached. A positive value scales up. A negative value scales down.
+         */
         scalingAdjustment: pulumi.Input<number>;
     }
 
@@ -2869,7 +2960,13 @@ export namespace appautoscaling {
     }
 
     export interface ScheduledActionScalableTargetAction {
+        /**
+         * Maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
+         */
         maxCapacity?: pulumi.Input<number>;
+        /**
+         * Minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
+         */
         minCapacity?: pulumi.Input<number>;
     }
 }
@@ -3190,14 +3287,29 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
         apiKey: pulumi.Input<string>;
+        /**
+         * The Secret Access Key portion of the credentials.
+         */
         secretKey: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
         apiKey?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey>;
+        /**
+         * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+         */
         authenticationType: pulumi.Input<string>;
+        /**
+         * Basic credentials that are required for the authentication of the user.
+         */
         basic?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic>;
+        /**
+         * If the connector uses the custom authentication mechanism, this holds the required credentials.
+         */
         custom?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom>;
+        /**
+         * OAuth 2.0 credentials required for the authentication of the user.
+         */
         oauth2?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2>;
     }
 
@@ -3212,7 +3324,13 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
+        /**
+         * A map that holds custom authentication credentials.
+         */
         credentialsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The custom authentication type that the connector uses.
+         */
         customAuthenticationType: pulumi.Input<string>;
     }
 
@@ -3237,10 +3355,16 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
         apiKey: pulumi.Input<string>;
+        /**
+         * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         */
         applicationKey: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace {
+        /**
+         * The API tokens used by Dynatrace API to authenticate various API calls.
+         */
         apiToken: pulumi.Input<string>;
     }
 
@@ -3281,9 +3405,21 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
+        /**
+         * The Access Key portion of the credentials.
+         */
         accessKeyId: pulumi.Input<string>;
+        /**
+         * Encryption keys used to encrypt data.
+         */
         datakey: pulumi.Input<string>;
+        /**
+         * The secret key used to sign requests.
+         */
         secretAccessKey: pulumi.Input<string>;
+        /**
+         * Identifier for the user.
+         */
         userId: pulumi.Input<string>;
     }
 
@@ -3312,7 +3448,13 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
         accessToken?: pulumi.Input<string>;
+        /**
+         * The secret manager ARN, which contains the client ID and client secret of the connected app.
+         */
         clientCredentialsArn?: pulumi.Input<string>;
+        /**
+         * A JSON web token (JWT) that authorizes access to Salesforce records.
+         */
         jwtToken?: pulumi.Input<string>;
         oauth2GrantType?: pulumi.Input<string>;
         oauthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest>;
@@ -3331,7 +3473,13 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
+        /**
+         * The SAPOData basic authentication credentials.
+         */
         basicAuthCredentials?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials>;
+        /**
+         * The SAPOData OAuth type authentication credentials.
+         */
         oauthCredentials?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials>;
     }
 
@@ -3419,6 +3567,9 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
+        /**
+         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         */
         amplitude?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude>;
         /**
          * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
@@ -3432,7 +3583,13 @@ export namespace appflow {
          * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
          */
         dynatrace?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace>;
+        /**
+         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         */
         googleAnalytics?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics>;
+        /**
+         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         */
         honeycode?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode>;
         /**
          * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
@@ -3458,6 +3615,9 @@ export namespace appflow {
          * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
          */
         serviceNow?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow>;
+        /**
+         * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         */
         singular?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular>;
         /**
          * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
@@ -3467,6 +3627,9 @@ export namespace appflow {
          * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
          */
         snowflake?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake>;
+        /**
+         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         */
         trendmicro?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro>;
         /**
          * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
@@ -3482,13 +3645,22 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
+        /**
+         * The OAuth 2.0 properties required for OAuth 2.0 authentication.
+         */
         oauth2Properties?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties>;
+        /**
+         * A map of properties that are required to create a profile for the custom connector.
+         */
         profileProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
         oauth2GrantType: pulumi.Input<string>;
         tokenUrl: pulumi.Input<string>;
+        /**
+         * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         */
         tokenUrlCustomProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
@@ -3517,30 +3689,72 @@ export namespace appflow {
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
         bucketName: pulumi.Input<string>;
         bucketPrefix?: pulumi.Input<string>;
+        /**
+         * The unique ID that's assigned to an Amazon Redshift cluster.
+         */
         clusterIdentifier?: pulumi.Input<string>;
+        /**
+         * ARN of the IAM role that permits AppFlow to access the database through Data API.
+         */
         dataApiRoleArn?: pulumi.Input<string>;
+        /**
+         * The name of an Amazon Redshift database.
+         */
         databaseName?: pulumi.Input<string>;
+        /**
+         * The JDBC URL of the Amazon Redshift cluster.
+         */
         databaseUrl?: pulumi.Input<string>;
+        /**
+         * ARN of the IAM role.
+         */
         roleArn: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
         instanceUrl?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connector profile applies to a sandbox or production environment.
+         */
         isSandboxEnvironment?: pulumi.Input<boolean>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
+        /**
+         * The location of the SAPOData resource.
+         */
         applicationHostUrl: pulumi.Input<string>;
+        /**
+         * The application path to catalog service.
+         */
         applicationServicePath: pulumi.Input<string>;
+        /**
+         * The client number for the client creating the connection.
+         */
         clientNumber: pulumi.Input<string>;
+        /**
+         * The logon language of SAPOData instance.
+         */
         logonLanguage?: pulumi.Input<string>;
+        /**
+         * The SAPOData OAuth properties required for OAuth type authentication.
+         */
         oauthProperties?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties>;
+        /**
+         * The port number of the SAPOData instance.
+         */
         portNumber: pulumi.Input<number>;
         privateLinkServiceName?: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
+        /**
+         * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+         */
         authCodeUrl: pulumi.Input<string>;
+        /**
+         * The OAuth scopes required for OAuth type authentication.
+         */
         oauthScopes: pulumi.Input<pulumi.Input<string>[]>;
         tokenUrl: pulumi.Input<string>;
     }
@@ -3557,12 +3771,24 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
+        /**
+         * The name of the account.
+         */
         accountName?: pulumi.Input<string>;
         bucketName: pulumi.Input<string>;
         bucketPrefix?: pulumi.Input<string>;
         privateLinkServiceName?: pulumi.Input<string>;
+        /**
+         * AWS Region of the Snowflake account.
+         */
         region?: pulumi.Input<string>;
+        /**
+         * Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+         */
         stage: pulumi.Input<string>;
+        /**
+         * The name of the Snowflake warehouse.
+         */
         warehouse: pulumi.Input<string>;
     }
 
@@ -3672,7 +3898,13 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
+        /**
+         * Unique name of the Amazon Connect Customer Profiles domain.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * Object specified in the Amazon Connect Customer Profiles flow destination.
+         */
         objectTypeName?: pulumi.Input<string>;
     }
 
@@ -3803,6 +4035,10 @@ export namespace appflow {
          */
         prefixFormat?: pulumi.Input<string>;
         /**
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         */
+        prefixHierarchies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType?: pulumi.Input<string>;
@@ -3834,6 +4070,9 @@ export namespace appflow {
         errorHandlingConfig?: pulumi.Input<inputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig>;
         idFieldNames?: pulumi.Input<pulumi.Input<string>[]>;
         objectPath: pulumi.Input<string>;
+        /**
+         * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+         */
         successResponseHandlingConfig?: pulumi.Input<inputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig>;
         writeOperationType?: pulumi.Input<string>;
     }
@@ -3920,6 +4159,10 @@ export namespace appflow {
          */
         prefixFormat?: pulumi.Input<string>;
         /**
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         */
+        prefixHierarchies?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType: pulumi.Input<string>;
@@ -3945,6 +4188,25 @@ export namespace appflow {
          * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: pulumi.Input<boolean>;
+    }
+
+    export interface FlowMetadataCatalogConfig {
+        glueDataCatalog?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfigGlueDataCatalog>;
+    }
+
+    export interface FlowMetadataCatalogConfigGlueDataCatalog {
+        /**
+         * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * A naming prefix for each Data Catalog table that Amazon AppFlow creates
+         */
+        tablePrefix: pulumi.Input<string>;
     }
 
     export interface FlowSourceFlowConfig {
@@ -3990,7 +4252,13 @@ export namespace appflow {
          * Information that is required for querying Datadog. See Generic Source Properties for more details.
          */
         datadog?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDatadog>;
+        /**
+         * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
         dynatrace?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace>;
+        /**
+         * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+         */
         googleAnalytics?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics>;
         /**
          * Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
@@ -4024,6 +4292,9 @@ export namespace appflow {
          * Information that is required for querying Slack. See Generic Source Properties for more details.
          */
         slack?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSlack>;
+        /**
+         * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
         trendmicro?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro>;
         /**
          * Information that is required for querying Veeva. See Veeva Source Properties for more details.
@@ -4067,6 +4338,9 @@ export namespace appflow {
     export interface FlowSourceFlowConfigSourceConnectorPropertiesS3 {
         bucketName: pulumi.Input<string>;
         bucketPrefix: pulumi.Input<string>;
+        /**
+         * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         */
         s3InputFormatConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig>;
     }
 
@@ -4078,7 +4352,13 @@ export namespace appflow {
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
+        /**
+         * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+         */
         enableDynamicFieldUpdate?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon AppFlow includes deleted files in the flow run.
+         */
         includeDeletedRecords?: pulumi.Input<boolean>;
         object: pulumi.Input<string>;
     }
@@ -4104,9 +4384,21 @@ export namespace appflow {
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
+        /**
+         * Document type specified in the Veeva document extract flow.
+         */
         documentType?: pulumi.Input<string>;
+        /**
+         * Boolean value to include All Versions of files in Veeva document extract flow.
+         */
         includeAllVersions?: pulumi.Input<boolean>;
+        /**
+         * Boolean value to include file renditions in Veeva document extract flow.
+         */
         includeRenditions?: pulumi.Input<boolean>;
+        /**
+         * Boolean value to include source files in Veeva document extract flow.
+         */
         includeSourceFiles?: pulumi.Input<boolean>;
         object: pulumi.Input<string>;
     }
@@ -7345,6 +7637,21 @@ export namespace appsync {
         userPoolId: pulumi.Input<string>;
     }
 
+    export interface GraphQLApiEnhancedMetricsConfig {
+        /**
+         * How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+         */
+        dataSourceLevelMetricsBehavior: pulumi.Input<string>;
+        /**
+         * How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+         */
+        operationLevelMetricsConfig: pulumi.Input<string>;
+        /**
+         * How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+         */
+        resolverLevelMetricsBehavior: pulumi.Input<string>;
+    }
+
     export interface GraphQLApiLambdaAuthorizerConfig {
         /**
          * Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
@@ -7590,7 +7897,13 @@ export namespace auditmanager {
     }
 
     export interface AssessmentRolesAll {
+        /**
+         * Amazon Resource Name (ARN) of the IAM role.
+         */
         roleArn: pulumi.Input<string>;
+        /**
+         * Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+         */
         roleType: pulumi.Input<string>;
     }
 
@@ -7892,56 +8205,225 @@ export namespace autoscaling {
     }
 
     export interface GroupMixedInstancesPolicyInstancesDistribution {
+        /**
+         * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
+         */
         onDemandAllocationStrategy?: pulumi.Input<string>;
+        /**
+         * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
+         */
         onDemandBaseCapacity?: pulumi.Input<number>;
+        /**
+         * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
+         */
         onDemandPercentageAboveBaseCapacity?: pulumi.Input<number>;
+        /**
+         * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
+         */
         spotAllocationStrategy?: pulumi.Input<string>;
+        /**
+         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
+         */
         spotInstancePools?: pulumi.Input<number>;
+        /**
+         * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
+         */
         spotMaxPrice?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplate {
+        /**
+         * Override the instance launch template specification in the Launch Template.
+         */
         launchTemplateSpecification: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification>;
+        /**
+         * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+         */
         overrides?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride>[]>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
+        /**
+         * ID of the launch template. Conflicts with `launchTemplateName`.
+         */
         launchTemplateId?: pulumi.Input<string>;
+        /**
+         * Name of the launch template. Conflicts with `launchTemplateId`.
+         */
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverride {
+        /**
+         * Override the instance type in the Launch Template with instance types that satisfy the requirements.
+         */
         instanceRequirements?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements>;
+        /**
+         * Override the instance type in the Launch Template.
+         */
         instanceType?: pulumi.Input<string>;
+        /**
+         * Override the instance launch template specification in the Launch Template.
+         */
         launchTemplateSpecification?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification>;
+        /**
+         * Number of capacity units, which gives the instance type a proportional weight to other instance types.
+         */
         weightedCapacity?: pulumi.Input<string>;
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
+        /**
+         * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+         */
         acceleratorCount?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount>;
+        /**
+         * List of accelerator manufacturer names. Default is any manufacturer.
+         *
+         * ```
+         * Valid names:
+         * * amazon-web-services
+         * * amd
+         * * nvidia
+         * * xilinx
+         * ```
+         */
         acceleratorManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of accelerator names. Default is any acclerator.
+         *
+         * ```
+         * Valid names:
+         * * a100            - NVIDIA A100 GPUs
+         * * v100            - NVIDIA V100 GPUs
+         * * k80             - NVIDIA K80 GPUs
+         * * t4              - NVIDIA T4 GPUs
+         * * m60             - NVIDIA M60 GPUs
+         * * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+         * * vu9p            - Xilinx VU9P FPGAs
+         * ```
+         */
         acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+         */
         acceleratorTotalMemoryMib?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib>;
+        /**
+         * List of accelerator types. Default is any accelerator type.
+         *
+         * ```
+         * Valid types:
+         * * fpga
+         * * gpu
+         * * inference
+         * ```
+         */
         acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+         *
+         * > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
+         */
         allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
         bareMetal?: pulumi.Input<string>;
+        /**
+         * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+         */
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps>;
+        /**
+         * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
         burstablePerformance?: pulumi.Input<string>;
+        /**
+         * List of CPU manufacturer names. Default is any manufacturer.
+         *
+         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         *
+         * ```
+         * Valid names:
+         * * amazon-web-services
+         * * amd
+         * * intel
+         * ```
+         */
         cpuManufacturers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+         *
+         * > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
+         */
         excludedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of instance generation names. Default is any generation.
+         *
+         * ```
+         * Valid names:
+         * * current  - Recommended for best performance.
+         * * previous - For existing applications optimized for older instance types.
+         * ```
+         */
         instanceGenerations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+         */
         localStorage?: pulumi.Input<string>;
+        /**
+         * List of local storage type names. Default any storage type.
+         *
+         * ```
+         * Value names:
+         * * hdd - hard disk drive
+         * * ssd - solid state drive
+         * ```
+         */
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+         */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: pulumi.Input<number>;
+        /**
+         * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+         */
         memoryGibPerVcpu?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu>;
+        /**
+         * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+         */
         memoryMib?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib>;
+        /**
+         * Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+         */
         networkBandwidthGbps?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps>;
+        /**
+         * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+         */
         networkInterfaceCount?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount>;
+        /**
+         * Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+         *
+         * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+         */
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        /**
+         * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+         */
         requireHibernateSupport?: pulumi.Input<boolean>;
+        /**
+         * Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
+         *
+         * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+         */
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
+        /**
+         * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+         */
         totalLocalStorageGb?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb>;
+        /**
+         * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+         */
         vcpuCount?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount>;
     }
 
@@ -7991,7 +8473,13 @@ export namespace autoscaling {
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
+        /**
+         * ID of the launch template. Conflicts with `launchTemplateName`.
+         */
         launchTemplateId?: pulumi.Input<string>;
+        /**
+         * Name of the launch template. Conflicts with `launchTemplateId`.
+         */
         launchTemplateName?: pulumi.Input<string>;
         version?: pulumi.Input<string>;
     }
@@ -8920,22 +9408,46 @@ export namespace backup {
     }
 
     export interface SelectionConditionStringEqual {
+        /**
+         * The key in a key-value pair.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface SelectionConditionStringLike {
+        /**
+         * The key in a key-value pair.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface SelectionConditionStringNotEqual {
+        /**
+         * The key in a key-value pair.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface SelectionConditionStringNotLike {
+        /**
+         * The key in a key-value pair.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value in a key-value pair.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -9077,82 +9589,89 @@ export namespace batch {
 
     export interface JobDefinitionEksProperties {
         /**
-         * The properties for the Kubernetes pod resources of a job. See `podProperties` below.
+         * Properties for the Kubernetes pod resources of a job. See `podProperties` below.
          */
         podProperties: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodProperties>;
     }
 
     export interface JobDefinitionEksPropertiesPodProperties {
         /**
-         * The properties of the container that's used on the Amazon EKS pod. See containers below.
+         * Properties of the container that's used on the Amazon EKS pod. See containers below.
          */
         containers: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainers>;
         /**
-         * The DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+         * DNS policy for the pod. The default value is `ClusterFirst`. If the `hostNetwork` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
          */
         dnsPolicy?: pulumi.Input<string>;
         /**
-         * Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+         * Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
          */
         hostNetwork?: pulumi.Input<boolean>;
+        /**
+         * List of Kubernetes secret resources. See `imagePullSecret` below.
+         */
+        imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesImagePullSecret>[]>;
         /**
          * Metadata about the Kubernetes pod.
          */
         metadata?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata>;
         /**
-         * The name of the service account that's used to run the pod.
+         * Name of the service account that's used to run the pod.
          */
         serviceAccountName?: pulumi.Input<string>;
         /**
-         * Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolume>[]>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainers {
         /**
-         * An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+         * Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
          */
         args?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+         * Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
          */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The environment variables to pass to a container. See EKS Environment below.
+         * Environment variables to pass to a container. See EKS Environment below.
          */
         envs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersEnv>[]>;
         /**
-         * The Docker image used to start the container.
+         * Docker image used to start the container.
          */
         image: pulumi.Input<string>;
         /**
-         * The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
          */
         imagePullPolicy?: pulumi.Input<string>;
         /**
-         * The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+         * Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
          */
         name?: pulumi.Input<string>;
         /**
-         * The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
          */
         resources?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersResources>;
         /**
-         * The security context for a job.
+         * Security context for a job.
          */
         securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersSecurityContext>;
         /**
-         * The volume mounts for the container.
+         * Volume mounts for the container.
          */
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount>[]>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainersEnv {
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name: pulumi.Input<string>;
+        /**
+         * Value of the environment variable.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -9172,10 +9691,17 @@ export namespace batch {
     export interface JobDefinitionEksPropertiesPodPropertiesContainersVolumeMount {
         mountPath: pulumi.Input<string>;
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name: pulumi.Input<string>;
         readOnly?: pulumi.Input<boolean>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesImagePullSecret {
+        /**
+         * Unique identifier.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesMetadata {
@@ -9186,59 +9712,74 @@ export namespace batch {
         emptyDir?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir>;
         hostPath?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath>;
         /**
-         * Specifies the name of the job definition.
+         * Name of the job definition.
          */
         name?: pulumi.Input<string>;
         secret?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeSecret>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
+        /**
+         * Medium to store the volume. The default value is an empty string, which uses the storage of the node.
+         */
         medium?: pulumi.Input<string>;
+        /**
+         * Maximum size of the volume. By default, there's no maximum size defined.
+         */
         sizeLimit: pulumi.Input<string>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
+        /**
+         * Path of the file or directory on the host to mount into containers on the pod.
+         */
         path: pulumi.Input<string>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
+        /**
+         * Whether the secret or the secret's keys must be defined.
+         */
         optional?: pulumi.Input<boolean>;
+        /**
+         * Name of the secret. The name must be allowed as a DNS subdomain name.
+         */
         secretName: pulumi.Input<string>;
     }
 
     export interface JobDefinitionRetryStrategy {
         /**
-         * The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+         * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
          */
         attempts?: pulumi.Input<number>;
         /**
-         * The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+         * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
          */
         evaluateOnExits?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionRetryStrategyEvaluateOnExit>[]>;
     }
 
     export interface JobDefinitionRetryStrategyEvaluateOnExit {
         /**
-         * Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+         * Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
          */
         action: pulumi.Input<string>;
         /**
-         * A glob pattern to match against the decimal representation of the exit code returned for a job.
+         * Glob pattern to match against the decimal representation of the exit code returned for a job.
          */
         onExitCode?: pulumi.Input<string>;
         /**
-         * A glob pattern to match against the reason returned for a job.
+         * Glob pattern to match against the reason returned for a job.
          */
         onReason?: pulumi.Input<string>;
         /**
-         * A glob pattern to match against the status reason returned for a job.
+         * Glob pattern to match against the status reason returned for a job.
          */
         onStatusReason?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionTimeout {
         /**
-         * The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+         * Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
          */
         attemptDurationSeconds?: pulumi.Input<number>;
     }
@@ -9270,8 +9811,14 @@ export namespace batch {
     }
 
     export interface SchedulingPolicyFairSharePolicy {
+        /**
+         * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
+         */
         computeReservation?: pulumi.Input<number>;
         shareDecaySeconds?: pulumi.Input<number>;
+        /**
+         * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `shareDistribution` block is documented below.
+         */
         shareDistributions?: pulumi.Input<pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicyShareDistribution>[]>;
     }
 
@@ -9323,7 +9870,7 @@ export namespace bcmdata {
         /**
          * Table configuration.
          */
-        tableConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+        tableConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
     }
 
     export interface ExportExportDestinationConfiguration {
@@ -9393,7 +9940,14 @@ export namespace bcmdata {
 export namespace bedrock {
     export interface AgentAgentActionGroupActionGroupExecutor {
         /**
+         * Custom control method for handling the information elicited from the user. Valid values: `RETURN_CONTROL`.
+         * To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
+         * Only one of `customControl` or `lambda` can be specified.
+         */
+        customControl?: pulumi.Input<string>;
+        /**
          * ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+         * Only one of `lambda` or `customControl` can be specified.
          */
         lambda?: pulumi.Input<string>;
     }
@@ -9401,10 +9955,12 @@ export namespace bedrock {
     export interface AgentAgentActionGroupApiSchema {
         /**
          * JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+         * Only one of `payload` or `s3` can be specified.
          */
         payload?: pulumi.Input<string>;
         /**
-         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+         * Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
+         * Only one of `s3` or `payload` can be specified.
          */
         s3?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupApiSchemaS3>;
     }
@@ -9420,11 +9976,67 @@ export namespace bedrock {
         s3ObjectKey?: pulumi.Input<string>;
     }
 
+    export interface AgentAgentActionGroupFunctionSchema {
+        /**
+         * Contains a list of functions.
+         * Each function describes and action in the action group.
+         * See `memberFunctions` Block for details.
+         */
+        memberFunctions?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctions>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctions {
+        /**
+         * Functions that each define an action in the action group. See `functions` Block for details.
+         */
+        functions?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction>[]>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction {
+        /**
+         * Description of the function and its purpose.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name for the function.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter>[]>;
+    }
+
+    export interface AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter {
+        /**
+         * Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Name of the parameter.
+         *
+         * **Note:** The argument name `mapBlockKey` may seem out of context, but is necessary for backward compatibility reasons in the provider.
+         */
+        mapBlockKey: pulumi.Input<string>;
+        /**
+         * Whether the parameter is required for the agent to complete the function for action group invocation.
+         */
+        required?: pulumi.Input<boolean>;
+        /**
+         * Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface AgentAgentAliasRoutingConfiguration {
         /**
          * Version of the agent with which the alias is associated.
          */
         agentVersion: pulumi.Input<string>;
+        /**
+         * ARN of the Provisioned Throughput assigned to the agent alias.
+         */
+        provisionedThroughput: pulumi.Input<string>;
     }
 
     export interface AgentAgentAliasTimeouts {
@@ -9448,9 +10060,59 @@ export namespace bedrock {
          */
         overrideLambda: pulumi.Input<string>;
         /**
-         * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
+         * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` Block for details.
          */
-        promptConfigurations: pulumi.Input<any[]>;
+        promptConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfiguration>[]>;
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfiguration {
+        /**
+         * prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+         */
+        basePromptTemplate: pulumi.Input<string>;
+        /**
+         * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` Block for details.
+         */
+        inferenceConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration>[]>;
+        /**
+         * Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        parserMode: pulumi.Input<string>;
+        /**
+         * Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        promptCreationMode: pulumi.Input<string>;
+        /**
+         * Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+         */
+        promptState: pulumi.Input<string>;
+        /**
+         * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+         */
+        promptType: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
+        /**
+         * Maximum number of tokens to allow in the generated response.
+         */
+        maxLength: pulumi.Input<number>;
+        /**
+         * List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+         */
+        stopSequences: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+         */
+        temperature: pulumi.Input<number>;
+        /**
+         * Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+         */
+        topK: pulumi.Input<number>;
+        /**
+         * Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+         */
+        topP: pulumi.Input<number>;
     }
 
     export interface AgentAgentTimeouts {
@@ -9480,8 +10142,17 @@ export namespace bedrock {
     }
 
     export interface AgentDataSourceDataSourceConfigurationS3Configuration {
+        /**
+         * ARN of the bucket that contains the data source.
+         */
         bucketArn: pulumi.Input<string>;
+        /**
+         * Bucket account owner ID for the S3 bucket.
+         */
         bucketOwnerAccountId?: pulumi.Input<string>;
+        /**
+         * List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+         */
         inclusionPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -9512,7 +10183,7 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
          */
         chunkingStrategy: pulumi.Input<string>;
         /**
@@ -10310,6 +10981,38 @@ export namespace cfg {
     }
 }
 
+export namespace chatbot {
+    export interface SlackChannelConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface TeamsChannelConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace chime {
     export interface SdkvoiceGlobalSettingsVoiceConnector {
         /**
@@ -10731,34 +11434,50 @@ export namespace cloudformation {
 
     export interface StackSetInstanceDeploymentTargets {
         /**
-         * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+         * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         */
+        accountFilterType?: pulumi.Input<string>;
+        /**
+         * List of accounts to deploy stack set updates.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * S3 URL of the file containing the list of accounts.
+         */
+        accountsUrl?: pulumi.Input<string>;
+        /**
+         * Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          */
         organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface StackSetInstanceOperationPreferences {
         /**
-         * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         * Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         */
+        concurrencyMode?: pulumi.Input<string>;
+        /**
+         * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
          */
         failureToleranceCount?: pulumi.Input<number>;
         /**
-         * The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         * Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
          */
         failureTolerancePercentage?: pulumi.Input<number>;
         /**
-         * The maximum number of accounts in which to perform this operation at one time.
+         * Maximum number of accounts in which to perform this operation at one time.
          */
         maxConcurrentCount?: pulumi.Input<number>;
         /**
-         * The maximum percentage of accounts in which to perform this operation at one time.
+         * Maximum percentage of accounts in which to perform this operation at one time.
          */
         maxConcurrentPercentage?: pulumi.Input<number>;
         /**
-         * The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         * Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
          */
         regionConcurrencyType?: pulumi.Input<string>;
         /**
-         * The order of the Regions in where you want to perform the stack operation.
+         * Order of the Regions in where you want to perform the stack operation.
          */
         regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -10849,6 +11568,9 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -10864,15 +11586,27 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+        /**
+         * Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
+         */
         queryStringBehavior: pulumi.Input<string>;
+        /**
+         * Configuration parameter that contains a list of query string names. See Items for more information.
+         */
         queryStrings?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings>;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+        /**
+         * List of item names, such as cookies, headers, or query strings.
+         */
         items?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -10936,28 +11670,88 @@ export namespace cloudfront {
     }
 
     export interface DistributionCustomErrorResponse {
+        /**
+         * Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
+         */
         errorCachingMinTtl?: pulumi.Input<number>;
+        /**
+         * 4xx or 5xx HTTP status code that you want to customize.
+         */
         errorCode: pulumi.Input<number>;
+        /**
+         * HTTP status code that you want CloudFront to return with the custom error page to the viewer.
+         */
         responseCode?: pulumi.Input<number>;
+        /**
+         * Path of the custom error page (for example, `/custom_404.html`).
+         */
         responsePagePath?: pulumi.Input<string>;
     }
 
     export interface DistributionDefaultCacheBehavior {
+        /**
+         * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+         */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
+         */
         cachePolicyId?: pulumi.Input<string>;
+        /**
+         * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+         */
         cachedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
+         */
         compress?: pulumi.Input<boolean>;
+        /**
+         * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+         */
         defaultTtl?: pulumi.Input<number>;
+        /**
+         * Field level encryption configuration ID.
+         */
         fieldLevelEncryptionId?: pulumi.Input<string>;
+        /**
+         * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
+         */
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValues>;
+        /**
+         * A config block that triggers a cloudfront function with specific actions (maximum 2).
+         */
         functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorFunctionAssociation>[]>;
+        /**
+         * A config block that triggers a lambda function with specific actions (maximum 4).
+         */
         lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorLambdaFunctionAssociation>[]>;
+        /**
+         * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+         */
         maxTtl?: pulumi.Input<number>;
+        /**
+         * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+         */
         minTtl?: pulumi.Input<number>;
+        /**
+         * Unique identifier of the origin request policy that is attached to the behavior.
+         */
         originRequestPolicyId?: pulumi.Input<string>;
+        /**
+         * ARN of the real-time log configuration that is attached to this cache behavior.
+         */
         realtimeLogConfigArn?: pulumi.Input<string>;
+        /**
+         * Identifier for a response headers policy.
+         */
         responseHeadersPolicyId?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
+         */
         smoothStreaming?: pulumi.Input<boolean>;
+        /**
+         * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+         */
         targetOriginId: pulumi.Input<string>;
         /**
          * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
@@ -10967,18 +11761,39 @@ export namespace cloudfront {
          * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+         */
         viewerProtocolPolicy: pulumi.Input<string>;
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValues {
+        /**
+         * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+         */
         cookies: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookies>;
+        /**
+         * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
+         */
         headers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
+         */
         queryString: pulumi.Input<boolean>;
+        /**
+         * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
+         */
         queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionDefaultCacheBehaviorForwardedValuesCookies {
+        /**
+         * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
+         */
         forward: pulumi.Input<string>;
+        /**
+         * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
+         */
         whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -11009,28 +11824,88 @@ export namespace cloudfront {
     }
 
     export interface DistributionLoggingConfig {
+        /**
+         * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`.
+         */
         bucket: pulumi.Input<string>;
+        /**
+         * Whether to include cookies in access logs (default: `false`).
+         */
         includeCookies?: pulumi.Input<boolean>;
+        /**
+         * Prefix to the access log filenames for this distribution, for example, `myprefix/`.
+         */
         prefix?: pulumi.Input<string>;
     }
 
     export interface DistributionOrderedCacheBehavior {
+        /**
+         * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+         */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `defaultCacheBehavior` either `cachePolicyId` or `forwardedValues` must be set.
+         */
         cachePolicyId?: pulumi.Input<string>;
+        /**
+         * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
+         */
         cachedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
+         */
         compress?: pulumi.Input<boolean>;
+        /**
+         * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+         */
         defaultTtl?: pulumi.Input<number>;
+        /**
+         * Field level encryption configuration ID.
+         */
         fieldLevelEncryptionId?: pulumi.Input<string>;
+        /**
+         * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
+         */
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValues>;
+        /**
+         * A config block that triggers a cloudfront function with specific actions (maximum 2).
+         */
         functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorFunctionAssociation>[]>;
+        /**
+         * A config block that triggers a lambda function with specific actions (maximum 4).
+         */
         lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorLambdaFunctionAssociation>[]>;
+        /**
+         * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+         */
         maxTtl?: pulumi.Input<number>;
+        /**
+         * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+         */
         minTtl?: pulumi.Input<number>;
+        /**
+         * Unique identifier of the origin request policy that is attached to the behavior.
+         */
         originRequestPolicyId?: pulumi.Input<string>;
+        /**
+         * Pattern (for example, `images/*.jpg`) that specifies which requests you want this cache behavior to apply to.
+         */
         pathPattern: pulumi.Input<string>;
+        /**
+         * ARN of the real-time log configuration that is attached to this cache behavior.
+         */
         realtimeLogConfigArn?: pulumi.Input<string>;
+        /**
+         * Identifier for a response headers policy.
+         */
         responseHeadersPolicyId?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
+         */
         smoothStreaming?: pulumi.Input<boolean>;
+        /**
+         * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
+         */
         targetOriginId: pulumi.Input<string>;
         /**
          * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
@@ -11040,18 +11915,39 @@ export namespace cloudfront {
          * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
          */
         trustedSigners?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
+         */
         viewerProtocolPolicy: pulumi.Input<string>;
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValues {
+        /**
+         * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+         */
         cookies: pulumi.Input<inputs.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookies>;
+        /**
+         * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
+         */
         headers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
+         */
         queryString: pulumi.Input<boolean>;
+        /**
+         * When specified, along with a value of `true` for `queryString`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `queryString`, all query string keys are cached.
+         */
         queryStringCacheKeys?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionOrderedCacheBehaviorForwardedValuesCookies {
+        /**
+         * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelistedNames`.
+         */
         forward: pulumi.Input<string>;
+        /**
+         * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
+         */
         whitelistedNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -11082,18 +11978,42 @@ export namespace cloudfront {
     }
 
     export interface DistributionOrigin {
+        /**
+         * Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+         */
         connectionAttempts?: pulumi.Input<number>;
+        /**
+         * Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+         */
         connectionTimeout?: pulumi.Input<number>;
+        /**
+         * One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
+         */
         customHeaders?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginCustomHeader>[]>;
+        /**
+         * The CloudFront custom origin configuration information. If an S3 origin is required, use `originAccessControlId` or `s3OriginConfig` instead.
+         */
         customOriginConfig?: pulumi.Input<inputs.cloudfront.DistributionOriginCustomOriginConfig>;
         /**
          * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
          */
         domainName: pulumi.Input<string>;
+        /**
+         * Unique identifier of a [CloudFront origin access control][8] for this origin.
+         */
         originAccessControlId?: pulumi.Input<string>;
         originId: pulumi.Input<string>;
+        /**
+         * Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
+         */
         originPath?: pulumi.Input<string>;
+        /**
+         * CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         */
         originShield?: pulumi.Input<inputs.cloudfront.DistributionOriginOriginShield>;
+        /**
+         * CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
+         */
         s3OriginConfig?: pulumi.Input<inputs.cloudfront.DistributionOriginS3OriginConfig>;
     }
 
@@ -11103,21 +12023,48 @@ export namespace cloudfront {
     }
 
     export interface DistributionOriginCustomOriginConfig {
+        /**
+         * HTTP port the custom origin listens on.
+         */
         httpPort: pulumi.Input<number>;
+        /**
+         * HTTPS port the custom origin listens on.
+         */
         httpsPort: pulumi.Input<number>;
+        /**
+         * The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+         */
         originKeepaliveTimeout?: pulumi.Input<number>;
+        /**
+         * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
+         */
         originProtocolPolicy: pulumi.Input<string>;
+        /**
+         * The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
+         */
         originReadTimeout?: pulumi.Input<number>;
+        /**
+         * List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
+         */
         originSslProtocols: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionOriginGroup {
+        /**
+         * The failover criteria for when to failover to the secondary origin.
+         */
         failoverCriteria: pulumi.Input<inputs.cloudfront.DistributionOriginGroupFailoverCriteria>;
+        /**
+         * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+         */
         members: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginGroupMember>[]>;
         originId: pulumi.Input<string>;
     }
 
     export interface DistributionOriginGroupFailoverCriteria {
+        /**
+         * List of HTTP status codes for the origin group.
+         */
         statusCodes: pulumi.Input<pulumi.Input<number>[]>;
     }
 
@@ -11130,10 +12077,16 @@ export namespace cloudfront {
          * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
          */
         enabled: pulumi.Input<boolean>;
+        /**
+         * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+         */
         originShieldRegion?: pulumi.Input<string>;
     }
 
     export interface DistributionOriginS3OriginConfig {
+        /**
+         * The CloudFront origin access identity to associate with the origin.
+         */
         originAccessIdentity: pulumi.Input<string>;
     }
 
@@ -11142,7 +12095,13 @@ export namespace cloudfront {
     }
 
     export interface DistributionRestrictionsGeoRestriction {
+        /**
+         * [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+         */
         locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
+         */
         restrictionType: pulumi.Input<string>;
     }
 
@@ -11191,10 +12150,25 @@ export namespace cloudfront {
     }
 
     export interface DistributionViewerCertificate {
+        /**
+         * ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM certificate must be in  US-EAST-1.
+         */
         acmCertificateArn?: pulumi.Input<string>;
+        /**
+         * `true` if you want viewers to use HTTPS to request your objects and you're using the CloudFront domain name for your distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
+         */
         cloudfrontDefaultCertificate?: pulumi.Input<boolean>;
+        /**
+         * IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
+         */
         iamCertificateId?: pulumi.Input<string>;
+        /**
+         * Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfrontDefaultCertificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under "Security policy." Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acmCertificateArn` or `iamCertificateId`), and have specified `sni-only` in `sslSupportMethod`, `TLSv1` or later must be specified. If you have specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1` must be specified.
+         */
         minimumProtocolVersion?: pulumi.Input<string>;
+        /**
+         * How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acmCertificateArn` or `iamCertificateId`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
+         */
         sslSupportMethod?: pulumi.Input<string>;
     }
 
@@ -11214,7 +12188,13 @@ export namespace cloudfront {
     }
 
     export interface FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
+        /**
+         * he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+         */
         contentType: pulumi.Input<string>;
+        /**
+         * The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+         */
         format: pulumi.Input<string>;
         profileId?: pulumi.Input<string>;
     }
@@ -11236,6 +12216,9 @@ export namespace cloudfront {
 
     export interface FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
         profileId: pulumi.Input<string>;
+        /**
+         * Query argument for field-level encryption query argument-profile mapping.
+         */
         queryArg: pulumi.Input<string>;
     }
 
@@ -11244,8 +12227,17 @@ export namespace cloudfront {
     }
 
     export interface FieldLevelEncryptionProfileEncryptionEntitiesItem {
+        /**
+         * Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+         */
         fieldPatterns: pulumi.Input<inputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns>;
+        /**
+         * The provider associated with the public key being used for encryption.
+         */
         providerId: pulumi.Input<string>;
+        /**
+         * The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+         */
         publicKeyId: pulumi.Input<string>;
     }
 
@@ -11378,6 +12370,9 @@ export namespace cloudfront {
     export interface ResponseHeadersPolicyCustomHeadersConfigItem {
         header: pulumi.Input<string>;
         override: pulumi.Input<boolean>;
+        /**
+         * The value for the HTTP response header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -11562,7 +12557,7 @@ export namespace cloudsearch {
          */
         highlight?: pulumi.Input<boolean>;
         /**
-         * A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+         * A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
          */
         name: pulumi.Input<string>;
         /**
@@ -11647,6 +12642,9 @@ export namespace cloudtrail {
     }
 
     export interface TrailAdvancedEventSelector {
+        /**
+         * Specifies the selector statements in an advanced event selector. Fields documented below.
+         */
         fieldSelectors: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelectorFieldSelector>[]>;
         /**
          * Name of the trail.
@@ -11655,12 +12653,33 @@ export namespace cloudtrail {
     }
 
     export interface TrailAdvancedEventSelectorFieldSelector {
+        /**
+         * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+         */
         endsWiths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+         */
         equals?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+         */
         field: pulumi.Input<string>;
+        /**
+         * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+         */
         notEndsWiths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+         */
         notEquals?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+         */
         notStartsWiths?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+         */
         startsWiths?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -12515,11 +13534,20 @@ export namespace cloudwatch {
     }
 
     export interface MetricStreamStatisticsConfiguration {
+        /**
+         * The additional statistics to stream for the metrics listed in `includeMetrics`.
+         */
         additionalStatistics: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array that defines the metrics that are to have additional statistics streamed. See details below.
+         */
         includeMetrics: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfigurationIncludeMetric>[]>;
     }
 
     export interface MetricStreamStatisticsConfigurationIncludeMetric {
+        /**
+         * The name of the metric.
+         */
         metricName: pulumi.Input<string>;
         namespace: pulumi.Input<string>;
     }
@@ -12996,6 +14024,21 @@ export namespace codebuild {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface WebhookScopeConfiguration {
+        /**
+         * The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * The name of either the enterprise or organization.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+         */
+        scope: pulumi.Input<string>;
+    }
 }
 
 export namespace codecatalyst {
@@ -13011,6 +14054,9 @@ export namespace codecatalyst {
     }
 
     export interface DevEnvironmentPersistentStorage {
+        /**
+         * The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+         */
         size: pulumi.Input<number>;
     }
 
@@ -13433,6 +14479,9 @@ export namespace codegurureviewer {
     }
 
     export interface RepositoryAssociationS3RepositoryDetail {
+        /**
+         * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+         */
         bucketName?: pulumi.Input<string>;
         codeArtifacts?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetailCodeArtifact>[]>;
     }
@@ -13602,6 +14651,7 @@ export namespace codepipeline {
          * The order in which actions are run.
          */
         runOrder?: pulumi.Input<number>;
+        timeoutInMinutes?: pulumi.Input<number>;
         /**
          * A string that identifies the action type.
          */
@@ -13814,16 +14864,40 @@ export namespace cognito {
     }
 
     export interface IdentityPoolRoleAttachmentRoleMapping {
+        /**
+         * Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+         */
         ambiguousRoleResolution?: pulumi.Input<string>;
+        /**
+         * A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
+         */
         identityProvider: pulumi.Input<string>;
+        /**
+         * The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+         */
         mappingRules?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRule>[]>;
+        /**
+         * The role mapping type.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface IdentityPoolRoleAttachmentRoleMappingMappingRule {
+        /**
+         * The claim name that must be present in the token, for example, "isAdmin" or "paid".
+         */
         claim: pulumi.Input<string>;
+        /**
+         * The match condition that specifies how closely the claim value in the IdP token must match Value.
+         */
         matchType: pulumi.Input<string>;
+        /**
+         * The role ARN.
+         */
         roleArn: pulumi.Input<string>;
+        /**
+         * A brief string that the claim must match, for example, "paid" or "yes".
+         */
         value: pulumi.Input<string>;
     }
 
@@ -13866,7 +14940,13 @@ export namespace cognito {
     }
 
     export interface ResourceServerScope {
+        /**
+         * The scope description.
+         */
         scopeDescription: pulumi.Input<string>;
+        /**
+         * The scope name.
+         */
         scopeName: pulumi.Input<string>;
     }
 
@@ -13898,16 +14978,25 @@ export namespace cognito {
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
         eventAction: pulumi.Input<string>;
+        /**
+         * Whether to send a notification.
+         */
         notify: pulumi.Input<boolean>;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
         eventAction: pulumi.Input<string>;
+        /**
+         * Whether to send a notification.
+         */
         notify: pulumi.Input<boolean>;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
         eventAction: pulumi.Input<string>;
+        /**
+         * Whether to send a notification.
+         */
         notify: pulumi.Input<boolean>;
     }
 
@@ -13939,20 +15028,47 @@ export namespace cognito {
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+        /**
+         * The email HTML body.
+         */
         htmlBody: pulumi.Input<string>;
+        /**
+         * The email subject.
+         */
         subject: pulumi.Input<string>;
+        /**
+         * The email text body.
+         */
         textBody: pulumi.Input<string>;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
+        /**
+         * The email HTML body.
+         */
         htmlBody: pulumi.Input<string>;
+        /**
+         * The email subject.
+         */
         subject: pulumi.Input<string>;
+        /**
+         * The email text body.
+         */
         textBody: pulumi.Input<string>;
     }
 
     export interface RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
+        /**
+         * The email HTML body.
+         */
         htmlBody: pulumi.Input<string>;
+        /**
+         * The email subject.
+         */
         subject: pulumi.Input<string>;
+        /**
+         * The email text body.
+         */
         textBody: pulumi.Input<string>;
     }
 
@@ -14948,6 +16064,9 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -14960,6 +16079,9 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -14972,6 +16094,9 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -14984,6 +16109,9 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -14996,6 +16124,9 @@ export namespace connect {
          * The identifier of the hierarchy level.
          */
         id?: pulumi.Input<string>;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -15094,7 +16225,13 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionAnd {
+        /**
+         * Configuration block for the filter that's based on  values. See Cost Category below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionAndCostCategory>;
+        /**
+         * Configuration block for the specific Dimension to use for.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionAndDimension>;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15178,7 +16315,13 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionNot {
+        /**
+         * Configuration block for the filter that's based on  values. See Cost Category below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionNotCostCategory>;
+        /**
+         * Configuration block for the specific Dimension to use for.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionNotDimension>;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15232,7 +16375,13 @@ export namespace costexplorer {
     }
 
     export interface AnomalySubscriptionThresholdExpressionOr {
+        /**
+         * Configuration block for the filter that's based on  values. See Cost Category below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionOrCostCategory>;
+        /**
+         * Configuration block for the specific Dimension to use for.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionOrDimension>;
         /**
          * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15358,10 +16507,25 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAnd {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
         ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAnd>[]>;
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndDimension>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNot>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15370,7 +16534,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAndAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAndCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndAndDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15454,7 +16624,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAndNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNotCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndNotDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15508,7 +16684,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleAndOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOrCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleAndOrDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15607,10 +16789,25 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNot {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
         ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAnd>[]>;
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotDimension>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNot>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15619,7 +16816,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNotAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAndCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotAndDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15703,7 +16906,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNotNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNotCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotNotDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15757,7 +16966,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleNotOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOrCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleNotOrDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15826,10 +17041,25 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOr {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
         ands?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAnd>[]>;
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrDimension>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         not?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNot>;
+        /**
+         * Return results that match both `Dimension` object.
+         */
         ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOr>[]>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15838,7 +17068,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOrAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAndCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrAndDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15922,7 +17158,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOrNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNotCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrNotDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -15976,7 +17218,13 @@ export namespace costexplorer {
     }
 
     export interface CostCategoryRuleRuleOrOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOrCostCategory>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.CostCategoryRuleRuleOrOrDimension>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -16144,7 +17392,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: inputs.costexplorer.GetTagsFilterAndCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: inputs.costexplorer.GetTagsFilterAndDimension;
         /**
          * Tags that match your request.
@@ -16153,7 +17407,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterAndArgs {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.GetTagsFilterAndCostCategoryArgs>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.GetTagsFilterAndDimensionArgs>;
         /**
          * Tags that match your request.
@@ -16294,7 +17554,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: inputs.costexplorer.GetTagsFilterNotCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: inputs.costexplorer.GetTagsFilterNotDimension;
         /**
          * Tags that match your request.
@@ -16303,7 +17569,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterNotArgs {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.GetTagsFilterNotCostCategoryArgs>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.GetTagsFilterNotDimensionArgs>;
         /**
          * Tags that match your request.
@@ -16384,7 +17656,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: inputs.costexplorer.GetTagsFilterOrCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: inputs.costexplorer.GetTagsFilterOrDimension;
         /**
          * Tags that match your request.
@@ -16393,7 +17671,13 @@ export namespace costexplorer {
     }
 
     export interface GetTagsFilterOrArgs {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
+         */
         costCategory?: pulumi.Input<inputs.costexplorer.GetTagsFilterOrCostCategoryArgs>;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+         */
         dimension?: pulumi.Input<inputs.costexplorer.GetTagsFilterOrDimensionArgs>;
         /**
          * Tags that match your request.
@@ -16590,7 +17874,13 @@ export namespace customerprofiles {
     }
 
     export interface DomainMatchingExportingConfigS3Exporting {
+        /**
+         * The name of the S3 bucket where Identity Resolution Jobs write result files.
+         */
         s3BucketName: pulumi.Input<string>;
+        /**
+         * The S3 key name of the location where Identity Resolution Jobs write result files.
+         */
         s3KeyName?: pulumi.Input<string>;
     }
 
@@ -16672,7 +17962,13 @@ export namespace customerprofiles {
     }
 
     export interface DomainRuleBasedMatchingExportingConfigS3Exporting {
+        /**
+         * The name of the S3 bucket where Identity Resolution Jobs write result files.
+         */
         s3BucketName: pulumi.Input<string>;
+        /**
+         * The S3 key name of the location where Identity Resolution Jobs write result files.
+         */
         s3KeyName?: pulumi.Input<string>;
     }
 
@@ -16727,41 +18023,131 @@ export namespace customerprofiles {
     }
 
     export interface ProfileBillingAddress {
+        /**
+         * The first line of a customer address.
+         */
         address1?: pulumi.Input<string>;
+        /**
+         * The second line of a customer address.
+         */
         address2?: pulumi.Input<string>;
+        /**
+         * The third line of a customer address.
+         */
         address3?: pulumi.Input<string>;
+        /**
+         * The fourth line of a customer address.
+         */
         address4?: pulumi.Input<string>;
+        /**
+         * The city in which a customer lives.
+         */
         city?: pulumi.Input<string>;
+        /**
+         * The country in which a customer lives.
+         */
         country?: pulumi.Input<string>;
+        /**
+         * The county in which a customer lives.
+         */
         county?: pulumi.Input<string>;
+        /**
+         * The postal code of a customer address.
+         */
         postalCode?: pulumi.Input<string>;
+        /**
+         * The province in which a customer lives.
+         */
         province?: pulumi.Input<string>;
+        /**
+         * The state in which a customer lives.
+         */
         state?: pulumi.Input<string>;
     }
 
     export interface ProfileMailingAddress {
+        /**
+         * The first line of a customer address.
+         */
         address1?: pulumi.Input<string>;
+        /**
+         * The second line of a customer address.
+         */
         address2?: pulumi.Input<string>;
+        /**
+         * The third line of a customer address.
+         */
         address3?: pulumi.Input<string>;
+        /**
+         * The fourth line of a customer address.
+         */
         address4?: pulumi.Input<string>;
+        /**
+         * The city in which a customer lives.
+         */
         city?: pulumi.Input<string>;
+        /**
+         * The country in which a customer lives.
+         */
         country?: pulumi.Input<string>;
+        /**
+         * The county in which a customer lives.
+         */
         county?: pulumi.Input<string>;
+        /**
+         * The postal code of a customer address.
+         */
         postalCode?: pulumi.Input<string>;
+        /**
+         * The province in which a customer lives.
+         */
         province?: pulumi.Input<string>;
+        /**
+         * The state in which a customer lives.
+         */
         state?: pulumi.Input<string>;
     }
 
     export interface ProfileShippingAddress {
+        /**
+         * The first line of a customer address.
+         */
         address1?: pulumi.Input<string>;
+        /**
+         * The second line of a customer address.
+         */
         address2?: pulumi.Input<string>;
+        /**
+         * The third line of a customer address.
+         */
         address3?: pulumi.Input<string>;
+        /**
+         * The fourth line of a customer address.
+         */
         address4?: pulumi.Input<string>;
+        /**
+         * The city in which a customer lives.
+         */
         city?: pulumi.Input<string>;
+        /**
+         * The country in which a customer lives.
+         */
         country?: pulumi.Input<string>;
+        /**
+         * The county in which a customer lives.
+         */
         county?: pulumi.Input<string>;
+        /**
+         * The postal code of a customer address.
+         */
         postalCode?: pulumi.Input<string>;
+        /**
+         * The province in which a customer lives.
+         */
         province?: pulumi.Input<string>;
+        /**
+         * The state in which a customer lives.
+         */
         state?: pulumi.Input<string>;
     }
 }
@@ -17156,6 +18542,22 @@ export namespace datazone {
          */
         delete?: pulumi.Input<string>;
     }
+
+    export interface ProjectFailureReason {
+        code: pulumi.Input<string>;
+        message: pulumi.Input<string>;
+    }
+
+    export interface ProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+    }
 }
 
 export namespace dax {
@@ -17438,22 +18840,51 @@ export namespace directoryservice {
 
 export namespace dlm {
     export interface LifecyclePolicyPolicyDetails {
+        /**
+         * The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+         */
         action?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsAction>;
+        /**
+         * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+         */
         eventSource?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsEventSource>;
         parameters?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsParameters>;
+        /**
+         * The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+         */
         policyType?: pulumi.Input<string>;
+        /**
+         * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+         */
         resourceLocations?: pulumi.Input<string>;
+        /**
+         * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+         */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * See the `schedule` configuration block.
+         */
         schedules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsSchedule>[]>;
+        /**
+         * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+         *
+         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+         */
         targetTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface LifecyclePolicyPolicyDetailsAction {
+        /**
+         * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+         */
         crossRegionCopies: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>[]>;
         name: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+        /**
+         * The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+         */
         encryptionConfiguration: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration>;
         retainRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule>;
         target: pulumi.Input<string>;
@@ -17471,38 +18902,83 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsEventSource {
         parameters: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsEventSourceParameters>;
+        /**
+         * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsEventSourceParameters {
+        /**
+         * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         */
         descriptionRegex: pulumi.Input<string>;
+        /**
+         * The type of event. Currently, only `shareSnapshot` events are supported.
+         */
         eventType: pulumi.Input<string>;
+        /**
+         * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         */
         snapshotOwners: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LifecyclePolicyPolicyDetailsParameters {
+        /**
+         * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+         */
         excludeBootVolume?: pulumi.Input<boolean>;
+        /**
+         * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+         */
         noReboot?: pulumi.Input<boolean>;
     }
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
         copyTags?: pulumi.Input<boolean>;
+        /**
+         * See the `createRule` block. Max of 1 per schedule.
+         */
         createRule: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule>;
+        /**
+         * See the `crossRegionCopyRule` block. Max of 3 per schedule.
+         */
         crossRegionCopyRules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule>[]>;
         deprecateRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleDeprecateRule>;
+        /**
+         * See the `fastRestoreRule` block. Max of 1 per schedule.
+         */
         fastRestoreRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleFastRestoreRule>;
         name: pulumi.Input<string>;
         retainRule: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule>;
+        /**
+         * See the `shareRule` block. Max of 1 per schedule.
+         */
         shareRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleShareRule>;
+        /**
+         * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+         */
         tagsToAdd?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+         */
         variableTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
+        /**
+         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
+         */
         cronExpression?: pulumi.Input<string>;
         interval?: pulumi.Input<number>;
         intervalUnit?: pulumi.Input<string>;
+        /**
+         * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+         */
         location?: pulumi.Input<string>;
+        /**
+         * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
+         */
         times?: pulumi.Input<string>;
     }
 
@@ -17532,6 +19008,9 @@ export namespace dlm {
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+        /**
+         * The Availability Zones in which to enable fast snapshot restore.
+         */
         availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
         count?: pulumi.Input<number>;
         interval?: pulumi.Input<number>;
@@ -17545,6 +19024,9 @@ export namespace dlm {
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleShareRule {
+        /**
+         * The IDs of the AWS accounts with which to share the snapshots.
+         */
         targetAccounts: pulumi.Input<pulumi.Input<string>[]>;
         unshareInterval?: pulumi.Input<number>;
         unshareIntervalUnit?: pulumi.Input<string>;
@@ -18717,14 +20199,45 @@ export namespace ec2 {
     }
 
     export interface DefaultNetworkAclIngress {
+        /**
+         * The action to take.
+         */
         action: pulumi.Input<string>;
+        /**
+         * The CIDR block to match. This must be a valid network mask.
+         */
         cidrBlock?: pulumi.Input<string>;
+        /**
+         * The from port to match.
+         */
         fromPort: pulumi.Input<number>;
+        /**
+         * The ICMP type code to be used. Default 0.
+         */
         icmpCode?: pulumi.Input<number>;
+        /**
+         * The ICMP type to be used. Default 0.
+         */
         icmpType?: pulumi.Input<number>;
+        /**
+         * The IPv6 CIDR block.
+         *
+         * > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+         */
         ipv6CidrBlock?: pulumi.Input<string>;
+        /**
+         * The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+         */
         protocol: pulumi.Input<string>;
+        /**
+         * The rule number. Used for ordering.
+         */
         ruleNo: pulumi.Input<number>;
+        /**
+         * The to port to match.
+         *
+         * The following arguments are optional:
+         */
         toPort: pulumi.Input<number>;
     }
 
@@ -18823,17 +20336,41 @@ export namespace ec2 {
     }
 
     export interface DefaultSecurityGroupIngress {
+        /**
+         * List of CIDR blocks.
+         */
         cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Description of the security group.
          */
         description?: pulumi.Input<string>;
+        /**
+         * Start port (or ICMP type number if protocol is `icmp`)
+         */
         fromPort: pulumi.Input<number>;
+        /**
+         * List of IPv6 CIDR blocks.
+         */
         ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of prefix list IDs (for allowing access to VPC endpoints)
+         */
         prefixListIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         */
         protocol: pulumi.Input<string>;
+        /**
+         * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+         */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the security group itself will be added as a source to this egress rule.
+         */
         self?: pulumi.Input<boolean>;
+        /**
+         * End range port (or ICMP code if protocol is `icmp`).
+         */
         toPort: pulumi.Input<number>;
     }
 
@@ -20604,7 +22141,7 @@ export namespace ec2 {
 
     export interface InstanceInstanceMarketOptions {
         /**
-         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
+         * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
          */
         marketType?: pulumi.Input<string>;
         /**
@@ -21359,6 +22896,7 @@ export namespace ec2 {
          * The ID of the network interface to attach.
          */
         networkInterfaceId?: pulumi.Input<string>;
+        primaryIpv6?: pulumi.Input<string>;
         /**
          * The primary private IPv4 address.
          */
@@ -22391,10 +23929,16 @@ export namespace ec2 {
     }
 
     export interface PeeringConnectionOptionsAccepter {
+        /**
+         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
 
     export interface PeeringConnectionOptionsRequester {
+        /**
+         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+         */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
 
@@ -22546,12 +24090,18 @@ export namespace ec2 {
     export interface SpotFleetRequestLaunchSpecification {
         ami: pulumi.Input<string>;
         associatePublicIpAddress?: pulumi.Input<boolean>;
+        /**
+         * The availability zone in which to place the request.
+         */
         availabilityZone?: pulumi.Input<string>;
         ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecificationEbsBlockDevice>[]>;
         ebsOptimized?: pulumi.Input<boolean>;
         ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>[]>;
         iamInstanceProfile?: pulumi.Input<string>;
         iamInstanceProfileArn?: pulumi.Input<string>;
+        /**
+         * The type of instance to request.
+         */
         instanceType: pulumi.Input<string>;
         keyName?: pulumi.Input<string>;
         monitoring?: pulumi.Input<boolean>;
@@ -22562,6 +24112,9 @@ export namespace ec2 {
          * The maximum bid price per unit hour.
          */
         spotPrice?: pulumi.Input<string>;
+        /**
+         * The subnet in which to launch the requested instance.
+         */
         subnetId?: pulumi.Input<string>;
         /**
          * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -22569,6 +24122,9 @@ export namespace ec2 {
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         userData?: pulumi.Input<string>;
         vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The capacity added to the fleet by a fulfilled request.
+         */
         weightedCapacity?: pulumi.Input<string>;
     }
 
@@ -23272,6 +24828,10 @@ export namespace ec2 {
     }
 
     export interface VpcPeeringConnectionAccepter {
+        /**
+         * Allow a local VPC to resolve public DNS hostnames to
+         * private IP addresses when queried from instances in the peer VPC.
+         */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
 
@@ -23292,6 +24852,10 @@ export namespace ec2 {
     }
 
     export interface VpcPeeringConnectionRequester {
+        /**
+         * Allow a local VPC to resolve public DNS hostnames to
+         * private IP addresses when queried from instances in the peer VPC.
+         */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
 
@@ -23625,6 +25189,28 @@ export namespace ec2transitgateway {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GetPeeringAttachmentsFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetPeeringAttachmentsFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetRouteTableAssociationsFilter {
         /**
          * Name of the field to filter by, as defined by
@@ -23821,6 +25407,13 @@ export namespace ec2transitgateway {
          */
         delete?: pulumi.Input<string>;
     }
+
+    export interface PeeringAttachmentOptions {
+        /**
+         * Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+         */
+        dynamicRouting?: pulumi.Input<string>;
+    }
 }
 
 export namespace ecr {
@@ -23834,7 +25427,7 @@ export namespace ecr {
          */
         description?: string;
         /**
-         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
          */
         priority: number;
         /**
@@ -23853,7 +25446,7 @@ export namespace ecr {
          */
         description?: pulumi.Input<string>;
         /**
-         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
          */
         priority: pulumi.Input<number>;
         /**
@@ -23878,11 +25471,11 @@ export namespace ecr {
 
     export interface GetLifecyclePolicyDocumentRuleSelection {
         /**
-         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         * Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
          */
         countNumber: number;
         /**
-         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          */
         countType: string;
         /**
@@ -23890,26 +25483,26 @@ export namespace ecr {
          */
         countUnit?: string;
         /**
-         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
          */
         tagPatternLists?: string[];
         /**
-         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
          */
         tagPrefixLists?: string[];
         /**
-         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
          */
         tagStatus: string;
     }
 
     export interface GetLifecyclePolicyDocumentRuleSelectionArgs {
         /**
-         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         * Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
          */
         countNumber: pulumi.Input<number>;
         /**
-         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          */
         countType: pulumi.Input<string>;
         /**
@@ -23917,15 +25510,15 @@ export namespace ecr {
          */
         countUnit?: pulumi.Input<string>;
         /**
-         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
          */
         tagPatternLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
          */
         tagPrefixLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
          */
         tagStatus: pulumi.Input<string>;
     }
@@ -23984,6 +25577,17 @@ export namespace ecr {
          * The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
          */
         filterType: pulumi.Input<string>;
+    }
+
+    export interface RepositoryCreationTemplateEncryptionConfiguration {
+        /**
+         * The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+         */
+        encryptionType?: pulumi.Input<string>;
+        /**
+         * The ARN of the KMS key to use when `encryptionType` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+         */
+        kmsKey?: pulumi.Input<string>;
     }
 
     export interface RepositoryEncryptionConfiguration {
@@ -24094,29 +25698,33 @@ export namespace ecs {
 
     export interface ClusterConfiguration {
         /**
-         * The details of the execute command configuration. Detailed below.
+         * Details of the execute command configuration. See `executeCommandConfiguration` Block for details.
          */
         executeCommandConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationExecuteCommandConfiguration>;
+        /**
+         * Details of the managed storage configuration. See `managedStorageConfiguration` Block for details.
+         */
+        managedStorageConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationManagedStorageConfiguration>;
     }
 
     export interface ClusterConfigurationExecuteCommandConfiguration {
         /**
-         * The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * AWS Key Management Service key ID to encrypt the data between the local client and the container.
          */
         kmsKeyId?: pulumi.Input<string>;
         /**
-         * The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+         * Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `logConfiguration` Block for details.
          */
         logConfiguration?: pulumi.Input<inputs.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration>;
         /**
-         * The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+         * Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
          */
         logging?: pulumi.Input<string>;
     }
 
     export interface ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
         /**
-         * Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+         * Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
          */
         cloudWatchEncryptionEnabled?: pulumi.Input<boolean>;
         /**
@@ -24124,22 +25732,33 @@ export namespace ecs {
          */
         cloudWatchLogGroupName?: pulumi.Input<string>;
         /**
-         * Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+         * Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
          */
         s3BucketEncryptionEnabled?: pulumi.Input<boolean>;
         /**
-         * The name of the S3 bucket to send logs to.
+         * Name of the S3 bucket to send logs to.
          */
         s3BucketName?: pulumi.Input<string>;
         /**
-         * An optional folder in the S3 bucket to place logs in.
+         * Optional folder in the S3 bucket to place logs in.
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
 
+    export interface ClusterConfigurationManagedStorageConfiguration {
+        /**
+         * AWS Key Management Service key ID for the Fargate ephemeral storage.
+         */
+        fargateEphemeralStorageKmsKeyId?: pulumi.Input<string>;
+        /**
+         * AWS Key Management Service key ID to encrypt the managed storage.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
     export interface ClusterServiceConnectDefaults {
         /**
-         * The ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
+         * ARN of the `aws.servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
          */
         namespace: pulumi.Input<string>;
     }
@@ -24150,7 +25769,7 @@ export namespace ecs {
          */
         name: pulumi.Input<string>;
         /**
-         * The value to assign to the setting. Valid values are `enabled` and `disabled`.
+         * Value to assign to the setting. Valid values: `enabled`, `disabled`.
          */
         value: pulumi.Input<string>;
     }
@@ -24740,7 +26359,7 @@ export namespace ecs {
         /**
          * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
          */
-        throughput?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         /**
          * Volume type.
          */
@@ -25122,7 +26741,7 @@ export namespace eks {
          */
         authenticationMode?: pulumi.Input<string>;
         /**
-         * Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+         * Whether or not to bootstrap the access config values to the cluster. Default is `false`.
          */
         bootstrapClusterCreatorAdminPermissions?: pulumi.Input<boolean>;
     }
@@ -25216,6 +26835,13 @@ export namespace eks {
          * The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
          */
         groupName: pulumi.Input<string>;
+    }
+
+    export interface ClusterUpgradePolicy {
+        /**
+         * Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+         */
+        supportType?: pulumi.Input<string>;
     }
 
     export interface ClusterVpcConfig {
@@ -25469,13 +27095,22 @@ export namespace elasticache {
     }
 
     export interface ServerlessCacheCacheUsageLimits {
+        /**
+         * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         */
         dataStorage?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsDataStorage>;
+        /**
+         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         */
         ecpuPerSeconds?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecond>[]>;
     }
 
     export interface ServerlessCacheCacheUsageLimitsDataStorage {
         maximum?: pulumi.Input<number>;
         minimum?: pulumi.Input<number>;
+        /**
+         * The unit that the storage is measured in, in GB.
+         */
         unit: pulumi.Input<string>;
     }
 
@@ -27045,7 +28680,13 @@ export namespace emrcontainers {
     }
 
     export interface JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration {
+        /**
+         * The classification within a configuration.
+         */
         classification?: pulumi.Input<string>;
+        /**
+         * A set of properties specified within a configuration classification.
+         */
         properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
@@ -27210,6 +28851,17 @@ export namespace emrserverless {
          * The memory requirements for every worker instance of the worker type.
          */
         memory: pulumi.Input<string>;
+    }
+
+    export interface ApplicationInteractiveConfiguration {
+        /**
+         * Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
+         */
+        livyEndpointEnabled?: pulumi.Input<boolean>;
+        /**
+         * Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
+         */
+        studioEnabled?: pulumi.Input<boolean>;
     }
 
     export interface ApplicationMaximumCapacity {
@@ -27734,6 +29386,17 @@ export namespace fis {
         value: pulumi.Input<string>;
     }
 
+    export interface ExperimentTemplateExperimentOptions {
+        /**
+         * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+         */
+        accountTargeting?: pulumi.Input<string>;
+        /**
+         * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+         */
+        emptyTargetResolutionMode?: pulumi.Input<string>;
+    }
+
     export interface ExperimentTemplateLogConfiguration {
         /**
          * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
@@ -27946,15 +29609,27 @@ export namespace fms {
 
 export namespace fsx {
     export interface DataRepositoryAssociationS3 {
+        /**
+         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         */
         autoExportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoExportPolicy>;
+        /**
+         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         */
         autoImportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3AutoImportPolicy>;
     }
 
     export interface DataRepositoryAssociationS3AutoExportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
         events?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DataRepositoryAssociationS3AutoImportPolicy {
+        /**
+         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         */
         events?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -28108,12 +29783,12 @@ export namespace fsx {
     export interface LustreFileSystemMetadataConfiguration {
         /**
          * Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
-         *
-         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          */
         iops?: pulumi.Input<number>;
         /**
          * Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+         *
+         * !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
          */
         mode?: pulumi.Input<string>;
     }
@@ -28182,11 +29857,29 @@ export namespace fsx {
     }
 
     export interface OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+        /**
+         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         */
         dnsIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         */
         fileSystemAdministratorsGroup?: pulumi.Input<string>;
+        /**
+         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         */
         organizationalUnitDistinguishedName?: pulumi.Input<string>;
+        /**
+         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
         password: pulumi.Input<string>;
+        /**
+         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
         username: pulumi.Input<string>;
     }
 
@@ -28274,7 +29967,7 @@ export namespace fsx {
          */
         auditLogVolume?: pulumi.Input<boolean>;
         /**
-         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
          */
         autocommitPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod>;
         /**
@@ -28282,7 +29975,7 @@ export namespace fsx {
          */
         privilegedDelete?: pulumi.Input<string>;
         /**
-         * The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+         * The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
          */
         retentionPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod>;
         /**
@@ -28307,23 +30000,50 @@ export namespace fsx {
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriod {
+        /**
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+         */
         defaultRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention>;
+        /**
+         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+         */
         maximumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention>;
+        /**
+         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+         */
         minimumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+        /**
+         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         */
         type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
         value?: pulumi.Input<number>;
     }
 
@@ -28359,7 +30079,7 @@ export namespace fsx {
          */
         dataCompressionType?: pulumi.Input<string>;
         /**
-         * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+         * NFS export configuration for the root volume. Exactly 1 item. See `nfsExports` Block for details.
          */
         nfsExports?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExports>;
         /**
@@ -28371,14 +30091,14 @@ export namespace fsx {
          */
         recordSizeKib?: pulumi.Input<number>;
         /**
-         * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+         * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
          */
         userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota>[]>;
     }
 
     export interface OpenZfsFileSystemRootVolumeConfigurationNfsExports {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          */
         clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration>[]>;
     }
@@ -28737,6 +30457,10 @@ export namespace globalaccelerator {
     }
 
     export interface CrossAccountAttachmentResource {
+        /**
+         * IP address range, in CIDR format, that is specified as resource.
+         */
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The endpoint ID for the endpoint that is specified as a AWS resource.
          */
@@ -29121,7 +30845,7 @@ export namespace glue {
          */
         customDatatypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The delimiter used in the Csv to separate columns.
+         * The delimiter used in the CSV to separate columns.
          */
         delimiter?: pulumi.Input<string>;
         /**
@@ -29136,6 +30860,9 @@ export namespace glue {
          * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
          */
         quoteSymbol?: pulumi.Input<string>;
+        /**
+         * The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+         */
         serde?: pulumi.Input<string>;
     }
 
@@ -29690,8 +31417,14 @@ export namespace glue {
     }
 
     export interface PartitionStorageDescriptorColumn {
+        /**
+         * Free-form text comment.
+         */
         comment?: pulumi.Input<string>;
         name: pulumi.Input<string>;
+        /**
+         * The datatype of data in the Column.
+         */
         type?: pulumi.Input<string>;
     }
 
@@ -30010,7 +31743,14 @@ export namespace guardduty {
         /**
          * Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
          */
-        taggings: pulumi.Input<any[]>;
+        taggings: pulumi.Input<pulumi.Input<inputs.guardduty.MalwareProtectionPlanActionTagging>[]>;
+    }
+
+    export interface MalwareProtectionPlanActionTagging {
+        /**
+         * Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+         */
+        status: pulumi.Input<string>;
     }
 
     export interface MalwareProtectionPlanProtectedResource {
@@ -30215,12 +31955,24 @@ export namespace iam {
     }
 
     export interface GetPolicyDocumentStatementNotPrincipal {
+        /**
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         */
         identifiers: string[];
+        /**
+         * Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
+         */
         type: string;
     }
 
     export interface GetPolicyDocumentStatementNotPrincipalArgs {
+        /**
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         */
         identifiers: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -31115,6 +32867,38 @@ export namespace imagebuilder {
         timezone?: pulumi.Input<string>;
     }
 
+    export interface ImagePipelineWorkflow {
+        /**
+         * The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+         */
+        onFailure?: pulumi.Input<string>;
+        /**
+         * The parallel group in which to run a test Workflow.
+         */
+        parallelGroup?: pulumi.Input<string>;
+        /**
+         * Configuration block for the workflow parameters. Detailed below.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflowParameter>[]>;
+        /**
+         * Amazon Resource Name (ARN) of the Image Builder Workflow.
+         *
+         * The following arguments are optional:
+         */
+        workflowArn: pulumi.Input<string>;
+    }
+
+    export interface ImagePipelineWorkflowParameter {
+        /**
+         * The name of the Workflow parameter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the Workflow parameter.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface ImageRecipeBlockDeviceMapping {
         /**
          * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -31264,7 +33048,13 @@ export namespace imagebuilder {
 
 export namespace inspector {
     export interface AssessmentTemplateEventSubscription {
+        /**
+         * The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+         */
         event: pulumi.Input<string>;
+        /**
+         * The ARN of the SNS topic to which notifications are sent.
+         */
         topicArn: pulumi.Input<string>;
     }
 }
@@ -31518,6 +33308,10 @@ export namespace iot {
 
     export interface TopicRuleCloudwatchLog {
         /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: pulumi.Input<boolean>;
+        /**
          * The CloudWatch log group name.
          */
         logGroupName: pulumi.Input<string>;
@@ -31699,6 +33493,10 @@ export namespace iot {
     }
 
     export interface TopicRuleErrorActionCloudwatchLogs {
+        /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: pulumi.Input<boolean>;
         /**
          * The CloudWatch log group name.
          */
@@ -33687,10 +35485,16 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
+        /**
+         * The ARN of the S3 bucket
+         */
         bucketArn: pulumi.Input<string>;
         bufferingInterval?: pulumi.Input<number>;
         bufferingSize?: pulumi.Input<number>;
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
         compressionFormat?: pulumi.Input<string>;
         /**
          * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
@@ -33704,12 +35508,22 @@ export namespace kinesis {
          * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          */
         dynamicPartitioningConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
         errorOutputPrefix?: pulumi.Input<string>;
         /**
          * The file extension to override the default file extension (for example, `.json`).
          */
         fileExtension?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
         kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
         prefix?: pulumi.Input<string>;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
@@ -33964,13 +35778,29 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
+        /**
+         * The ARN of the S3 bucket
+         */
         bucketArn: pulumi.Input<string>;
         bufferingInterval?: pulumi.Input<number>;
         bufferingSize?: pulumi.Input<number>;
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
         compressionFormat?: pulumi.Input<string>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
         errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
         kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
         prefix?: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
     }
@@ -34035,6 +35865,10 @@ export namespace kinesis {
          * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration>;
+        /**
+         * The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+         */
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration>;
         /**
          * The HTTP endpoint URL to which Kinesis Firehose sends your data.
          */
@@ -34167,6 +36001,21 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
@@ -34589,9 +36438,9 @@ export namespace kinesis {
          */
         dataTableName: pulumi.Input<string>;
         /**
-         * The password for the username above.
+         * The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        password: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
          */
@@ -34606,6 +36455,7 @@ export namespace kinesis {
         roleArn: pulumi.Input<string>;
         /**
          * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
          */
         s3BackupConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration>;
         /**
@@ -34616,10 +36466,11 @@ export namespace kinesis {
          * The S3 Configuration. See s3Configuration below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration>;
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration>;
         /**
-         * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+         * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        username: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
@@ -34673,13 +36524,29 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
+        /**
+         * The ARN of the S3 bucket
+         */
         bucketArn: pulumi.Input<string>;
         bufferingInterval?: pulumi.Input<number>;
         bufferingSize?: pulumi.Input<number>;
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
         compressionFormat?: pulumi.Input<string>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
         errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
         kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
         prefix?: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
     }
@@ -34755,6 +36622,21 @@ export namespace kinesis {
         logStreamName?: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamServerSideEncryption {
         /**
          * Whether to enable encryption at rest. Default is `false`.
@@ -34800,9 +36682,9 @@ export namespace kinesis {
          */
         metadataColumnName?: pulumi.Input<string>;
         /**
-         * The private key for authentication.
+         * The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        privateKey: pulumi.Input<string>;
+        privateKey?: pulumi.Input<string>;
         /**
          * The processing configuration. See `processingConfiguration` block below for details.
          */
@@ -34828,6 +36710,10 @@ export namespace kinesis {
          */
         schema: pulumi.Input<string>;
         /**
+         * The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+         */
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration>;
+        /**
          * The configuration for Snowflake role.
          */
         snowflakeRoleConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration>;
@@ -34840,9 +36726,9 @@ export namespace kinesis {
          */
         table: pulumi.Input<string>;
         /**
-         * The user for authentication.
+         * The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        user: pulumi.Input<string>;
+        user?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions {
@@ -34951,6 +36837,21 @@ export namespace kinesis {
         logStreamName?: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration {
         /**
          * Whether the Snowflake role is enabled.
@@ -34995,9 +36896,9 @@ export namespace kinesis {
          */
         hecEndpointType?: pulumi.Input<string>;
         /**
-         * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+         * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
          */
-        hecToken: pulumi.Input<string>;
+        hecToken?: pulumi.Input<string>;
         /**
          * The data processing configuration.  See `processingConfiguration` block below for details.
          */
@@ -35008,12 +36909,14 @@ export namespace kinesis {
         retryDuration?: pulumi.Input<number>;
         /**
          * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
          */
         s3BackupMode?: pulumi.Input<string>;
         /**
          * The S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3Configuration>;
+        secretsManagerConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
@@ -35120,6 +37023,21 @@ export namespace kinesis {
          * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration {
+        /**
+         * Enables or disables the Secrets Manager configuration.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The ARN of the role the stream assumes.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         */
+        secretArn?: pulumi.Input<string>;
     }
 
     export interface StreamStreamModeDetails {
@@ -36074,6 +37992,9 @@ export namespace lakeformation {
          * The following arguments are optional:
          */
         name: string;
+        /**
+         * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+         */
         wildcard?: boolean;
     }
 
@@ -36100,6 +38021,9 @@ export namespace lakeformation {
          * The following arguments are optional:
          */
         name: pulumi.Input<string>;
+        /**
+         * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+         */
         wildcard?: pulumi.Input<boolean>;
     }
 
@@ -36452,6 +38376,9 @@ export namespace lambda {
     }
 
     export interface EventSourceMappingDestinationConfigOnFailure {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
         destinationArn: pulumi.Input<string>;
     }
 
@@ -36478,6 +38405,9 @@ export namespace lambda {
     }
 
     export interface EventSourceMappingFilterCriteriaFilter {
+        /**
+         * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+         */
         pattern?: pulumi.Input<string>;
     }
 
@@ -36546,10 +38476,16 @@ export namespace lambda {
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnFailure {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
         destination: pulumi.Input<string>;
     }
 
     export interface FunctionEventInvokeConfigDestinationConfigOnSuccess {
+        /**
+         * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+         */
         destination: pulumi.Input<string>;
     }
 
@@ -37297,11 +39233,48 @@ export namespace lb {
         onUnhealthy: pulumi.Input<string>;
     }
 
+    export interface TargetGroupTargetGroupHealth {
+        /**
+         * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
+         */
+        dnsFailover?: pulumi.Input<inputs.lb.TargetGroupTargetGroupHealthDnsFailover>;
+        /**
+         * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
+         */
+        unhealthyStateRouting?: pulumi.Input<inputs.lb.TargetGroupTargetGroupHealthUnhealthyStateRouting>;
+    }
+
+    export interface TargetGroupTargetGroupHealthDnsFailover {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<string>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetGroupHealthUnhealthyStateRouting {
+        /**
+         * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
+         */
+        minimumHealthyTargetsCount?: pulumi.Input<number>;
+        /**
+         * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
+         */
+        minimumHealthyTargetsPercentage?: pulumi.Input<string>;
+    }
+
     export interface TargetGroupTargetHealthState {
         /**
          * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
          */
         enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
+        /**
+         * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enableUnhealthyConnectionTermination` is set to false. Default: `0`.
+         */
+        unhealthyDrainingInterval?: pulumi.Input<number>;
     }
 }
 
@@ -37362,6 +39335,9 @@ export namespace lex {
     }
 
     export interface BotClarificationPrompt {
+        /**
+         * The number of times to prompt the user for information.
+         */
         maxAttempts: pulumi.Input<number>;
         messages: pulumi.Input<pulumi.Input<inputs.lex.BotClarificationPromptMessage>[]>;
         responseCard?: pulumi.Input<string>;
@@ -37416,6 +39392,9 @@ export namespace lex {
     }
 
     export interface IntentConfirmationPrompt {
+        /**
+         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+         */
         maxAttempts: pulumi.Input<number>;
         messages: pulumi.Input<pulumi.Input<inputs.lex.IntentConfirmationPromptMessage>[]>;
         responseCard?: pulumi.Input<string>;
@@ -37438,7 +39417,15 @@ export namespace lex {
     }
 
     export interface IntentDialogCodeHook {
+        /**
+         * The version of the request-response that you want Amazon Lex to use
+         * to invoke your Lambda function. For more information, see
+         * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
+         */
         messageVersion: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function.
+         */
         uri: pulumi.Input<string>;
     }
 
@@ -37607,6 +39594,9 @@ export namespace lex {
     }
 
     export interface IntentSlotValueElicitationPrompt {
+        /**
+         * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+         */
         maxAttempts: pulumi.Input<number>;
         messages: pulumi.Input<pulumi.Input<inputs.lex.IntentSlotValueElicitationPromptMessage>[]>;
         responseCard?: pulumi.Input<string>;
@@ -37837,9 +39827,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingClosingResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -37977,6 +39979,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -37989,6 +39994,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -38085,9 +40093,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -38195,6 +40215,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -38207,6 +40230,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -38303,9 +40329,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -38402,6 +40440,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -38414,6 +40455,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentClosingSettingNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -38613,6 +40657,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -38625,6 +40672,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -38721,9 +40771,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -38831,6 +40893,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -38843,6 +40908,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -38939,9 +41007,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -39038,6 +41118,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39050,6 +41133,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -39146,9 +41232,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -39286,6 +41384,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39298,6 +41399,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -39394,9 +41498,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -39504,6 +41620,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39516,6 +41635,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -39612,9 +41734,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -39711,6 +41845,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39723,6 +41860,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -39819,9 +41959,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -39959,6 +42111,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39971,6 +42126,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -40067,9 +42225,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -40177,6 +42347,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -40189,6 +42362,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -40285,9 +42461,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -40384,6 +42572,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -40396,6 +42587,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -40492,9 +42686,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -40632,6 +42838,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -40644,6 +42853,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -40740,9 +42952,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -40850,6 +43074,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -40862,6 +43089,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -40958,9 +43188,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -41057,6 +43299,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -41069,6 +43314,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -41165,9 +43413,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -41305,6 +43565,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -41317,6 +43580,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -41413,9 +43679,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -41523,6 +43801,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -41535,6 +43816,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -41631,9 +43915,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -41730,6 +44026,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -41742,6 +44041,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -41838,9 +44140,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -41989,6 +44303,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -42001,6 +44318,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -42097,9 +44417,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -42207,6 +44539,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -42219,6 +44554,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -42315,9 +44653,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -42414,6 +44764,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -42426,6 +44779,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -42522,9 +44878,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -42684,9 +45052,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessage>;
     }
 
@@ -42969,9 +45349,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -43123,9 +45515,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -43302,6 +45706,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43314,6 +45721,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -43410,9 +45820,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -43520,6 +45942,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43532,6 +45957,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -43628,9 +46056,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -43727,6 +46167,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43739,6 +46182,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -43835,9 +46281,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -43975,6 +46433,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43987,6 +46448,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -44083,9 +46547,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -44193,6 +46669,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44205,6 +46684,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -44301,9 +46783,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -44400,6 +46894,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44412,6 +46909,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -44508,9 +47008,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -44648,6 +47160,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44660,6 +47175,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -44756,9 +47274,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -44866,6 +47396,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44878,6 +47411,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -44974,9 +47510,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -45073,6 +47621,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45085,6 +47636,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -45181,9 +47735,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -45398,6 +47964,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45410,6 +47979,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -45506,9 +48078,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -45616,6 +48200,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45628,6 +48215,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -45724,9 +48314,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -45823,6 +48425,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45835,6 +48440,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -45931,9 +48539,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -46071,6 +48691,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46083,6 +48706,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -46179,9 +48805,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -46289,6 +48927,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46301,6 +48942,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -46397,9 +49041,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -46496,6 +49152,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46508,6 +49167,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -46604,9 +49266,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -46744,6 +49418,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46756,6 +49433,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -46852,9 +49532,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -46962,6 +49654,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46974,6 +49669,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -47070,9 +49768,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -47169,6 +49879,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47181,6 +49894,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -47277,9 +49993,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -47417,6 +50145,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47429,6 +50160,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -47525,9 +50259,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -47635,6 +50381,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47647,6 +50396,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -47743,9 +50495,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -47893,9 +50657,21 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation {
+        /**
+         * Configuration block for a message in a custom format defined by the client application. See `customPayload`.
+         */
         customPayload?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayload>;
+        /**
+         * Configuration block for a message that defines a response card that the client application can show to the user. See `imageResponseCard`.
+         */
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCard>;
+        /**
+         * Configuration block for a message in plain text format. See `plainTextMessage`.
+         */
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessage>;
+        /**
+         * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssmlMessage`.
+         */
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessage>;
     }
 
@@ -47992,6 +50768,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingNextStepIntentSlot {
+        /**
+         * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+         */
         mapBlockKey: pulumi.Input<string>;
         /**
          * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48004,6 +50783,9 @@ export namespace lex {
     }
 
     export interface V2modelsIntentInitialResponseSettingNextStepIntentSlotValue {
+        /**
+         * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+         */
         interpretedValue?: pulumi.Input<string>;
     }
 
@@ -48091,6 +50873,379 @@ export namespace lex {
         obfuscationSettingType: pulumi.Input<string>;
     }
 
+    export interface V2modelsSlotSubSlotSetting {
+        expression?: pulumi.Input<string>;
+        slotSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecification {
+        mapBlockKey: pulumi.Input<string>;
+        /**
+         * Unique identifier for the slot type associated with this slot.
+         */
+        slotTypeId: pulumi.Input<string>;
+        /**
+         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+         *
+         * The following arguments are optional:
+         */
+        valueElicitationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        defaultValueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification>[]>;
+        promptSpecification: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification>;
+        sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance>[]>;
+        waitAndContinueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        defaultValueLists?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        defaultValue: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification {
+        allowInterrupt?: pulumi.Input<boolean>;
+        maxRetries: pulumi.Input<number>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>[]>;
+        messageSelectionStrategy?: pulumi.Input<string>;
+        promptAttemptsSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
+        allowInterrupt?: pulumi.Input<boolean>;
+        allowedInputTypes: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes>;
+        audioAndDtmfInputSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification>;
+        mapBlockKey: pulumi.Input<string>;
+        textInputSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
+        allowAudioInput: pulumi.Input<boolean>;
+        allowDtmfInput: pulumi.Input<boolean>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
+        audioSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification>;
+        dtmfSpecification?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification>;
+        startTimeoutMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification {
+        endTimeoutMs: pulumi.Input<number>;
+        maxLengthMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification {
+        deletionCharacter: pulumi.Input<string>;
+        endCharacter: pulumi.Input<string>;
+        endTimeoutMs: pulumi.Input<number>;
+        maxLength: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification {
+        startTimeoutMs: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        utterance: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        active?: pulumi.Input<boolean>;
+        continueResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>[]>;
+        stillWaitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>[]>;
+        waitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        frequencyInSeconds: pulumi.Input<number>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup>[]>;
+        timeoutInSeconds: pulumi.Input<number>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        allowInterrupt?: pulumi.Input<boolean>;
+        messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage>;
+        variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation>[]>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
+        customPayload?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload>;
+        imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard>;
+        plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage>;
+        ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
+        buttons?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton>[]>;
+        imageUrl?: pulumi.Input<string>;
+        subtitle?: pulumi.Input<string>;
+        title: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton {
+        text: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage {
+        value: pulumi.Input<string>;
+    }
+
+    export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage {
+        value: pulumi.Input<string>;
+    }
+
     export interface V2modelsSlotTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -48110,7 +51265,17 @@ export namespace lex {
         /**
          * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
          */
-        subSlots: pulumi.Input<any[]>;
+        subSlots: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>[]>;
+    }
+
+    export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
+        /**
+         * Name of the slot type
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        subSlotId: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotTypeExternalSourceSetting {
@@ -48128,8 +51293,17 @@ export namespace lex {
     }
 
     export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
+        /**
+         * KMS key required to decrypt the contents of the grammar, if any.
+         */
         kmsKeyArn: pulumi.Input<string>;
+        /**
+         * Name of the Amazon S3 bucket that contains the grammar source.
+         */
         s3BucketName: pulumi.Input<string>;
+        /**
+         * Path to the grammar in the Amazon S3 bucket.
+         */
         s3ObjectKey: pulumi.Input<string>;
     }
 
@@ -48137,14 +51311,24 @@ export namespace lex {
         /**
          * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
          */
-        slotTypeValues: pulumi.Input<any[]>;
+        slotTypeValues: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSlotTypeValue>[]>;
         /**
          * Additional values related to the slot type entry. See `sampleValue` argument reference below.
          */
         synonyms?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym>[]>;
     }
 
+    export interface V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+        /**
+         * Value that can be used for a slot type.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface V2modelsSlotTypeSlotTypeValuesSynonym {
+        /**
+         * Value that can be used for a slot type.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -48183,6 +51367,10 @@ export namespace lex {
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
+        /**
+         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
+         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         */
         pattern: pulumi.Input<string>;
     }
 
@@ -49550,6 +52738,9 @@ export namespace medialive {
          */
         name: pulumi.Input<string>;
         remixSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettings>;
+        /**
+         * Stream name RTMP destinations (URLs of type rtmp://)
+         */
         streamName?: pulumi.Input<string>;
     }
 
@@ -49573,8 +52764,17 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
+        /**
+         * Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+         */
         nielsenCbetSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings>;
+        /**
+         * Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+         */
         nielsenDistributionType?: pulumi.Input<string>;
+        /**
+         * Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+         */
         nielsenNaesIiNwSettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>[]>;
     }
 
@@ -49599,9 +52799,21 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettings {
+        /**
+         * Aac Settings. See AAC Settings for more details.
+         */
         aacSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings>;
+        /**
+         * Ac3 Settings. See AC3 Settings for more details.
+         */
         ac3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings>;
+        /**
+         * Eac3 Atmos Settings. See EAC3 Atmos Settings
+         */
         eac3AtmosSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings>;
+        /**
+         * Eac3 Settings. See EAC3 Settings
+         */
         eac3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings>;
         mp2Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings>;
         passThroughSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings>;
@@ -49728,14 +52940,26 @@ export namespace medialive {
         codingMode?: pulumi.Input<string>;
         dcFilter?: pulumi.Input<string>;
         dialnorm?: pulumi.Input<number>;
+        /**
+         * Sets the Dolby dynamic range compression profile.
+         */
         drcLine?: pulumi.Input<string>;
+        /**
+         * Sets the profile for heavy Dolby dynamic range compression.
+         */
         drcRf?: pulumi.Input<string>;
         lfeControl?: pulumi.Input<string>;
+        /**
+         * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         */
         lfeFilter?: pulumi.Input<string>;
         loRoCenterMixLevel?: pulumi.Input<number>;
         loRoSurroundMixLevel?: pulumi.Input<number>;
         ltRtCenterMixLevel?: pulumi.Input<number>;
         ltRtSurroundMixLevel?: pulumi.Input<number>;
+        /**
+         * Metadata control.
+         */
         metadataControl?: pulumi.Input<string>;
         passthroughControl?: pulumi.Input<string>;
         phaseControl?: pulumi.Input<string>;
@@ -49747,6 +52971,9 @@ export namespace medialive {
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
         bitrate?: pulumi.Input<number>;
         codingMode?: pulumi.Input<string>;
+        /**
+         * Sample rate in Hz.
+         */
         sampleRate?: pulumi.Input<number>;
     }
 
@@ -49756,6 +52983,9 @@ export namespace medialive {
     export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
         bitDepth?: pulumi.Input<number>;
         codingMode?: pulumi.Input<string>;
+        /**
+         * Sample rate in Hz.
+         */
         sampleRate?: pulumi.Input<number>;
     }
 
@@ -50296,10 +53526,16 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings {
+        /**
+         * Specify the canned ACL to apply to each S3 request.
+         */
         cannedAcl?: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
+        /**
+         * The ad marker type for this output group.
+         */
         adMarkers?: pulumi.Input<pulumi.Input<string>[]>;
         baseUrlContent?: pulumi.Input<string>;
         baseUrlContent1?: pulumi.Input<string>;
@@ -50338,6 +53574,9 @@ export namespace medialive {
         segmentLength?: pulumi.Input<number>;
         segmentsPerSubdirectory?: pulumi.Input<number>;
         streamInfResolution?: pulumi.Input<string>;
+        /**
+         * Indicates ID3 frame that has the timecode.
+         */
         timedMetadataId3Frame?: pulumi.Input<string>;
         timedMetadataId3Period?: pulumi.Input<number>;
         timestampDeltaMilliseconds?: pulumi.Input<number>;
@@ -50347,6 +53586,9 @@ export namespace medialive {
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
         captionChannel: pulumi.Input<number>;
         languageCode: pulumi.Input<string>;
+        /**
+         * Human readable information to indicate captions available for players (eg. English, or Spanish).
+         */
         languageDescription: pulumi.Input<string>;
     }
 
@@ -50366,39 +53608,78 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
         connectionRetryInterval?: pulumi.Input<number>;
         filecacheDuration?: pulumi.Input<number>;
         httpTransferMode?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
         numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
         restartDelay?: pulumi.Input<number>;
         salt?: pulumi.Input<string>;
         token?: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
         connectionRetryInterval?: pulumi.Input<number>;
         filecacheDuration?: pulumi.Input<number>;
+        /**
+         * Number of retry attempts.
+         */
         numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
         restartDelay?: pulumi.Input<number>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
         connectionRetryInterval?: pulumi.Input<number>;
         filecacheDuration?: pulumi.Input<number>;
         mediaStoreStorageClass?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
         numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
         restartDelay?: pulumi.Input<number>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings {
+        /**
+         * Specify the canned ACL to apply to each S3 request.
+         */
         cannedAcl?: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
         connectionRetryInterval?: pulumi.Input<number>;
         filecacheDuration?: pulumi.Input<number>;
         httpTransferMode?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
         numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
         restartDelay?: pulumi.Input<number>;
     }
 
@@ -50434,7 +53715,13 @@ export namespace medialive {
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
         acquisitionPointId?: pulumi.Input<string>;
         audioOnlyTimecodeControl?: pulumi.Input<string>;
+        /**
+         * Setting to allow self signed or verified RTMP certificates.
+         */
         certificateMode?: pulumi.Input<string>;
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
         connectionRetryInterval?: pulumi.Input<number>;
         destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination>;
         eventId?: pulumi.Input<string>;
@@ -50443,7 +53730,13 @@ export namespace medialive {
         filecacheDuration?: pulumi.Input<number>;
         fragmentLength?: pulumi.Input<number>;
         inputLossAction?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
         numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
         restartDelay?: pulumi.Input<number>;
         segmentationMode?: pulumi.Input<string>;
         sendDelayMs?: pulumi.Input<number>;
@@ -50598,6 +53891,9 @@ export namespace medialive {
         rateMode?: pulumi.Input<string>;
         scte27Pids?: pulumi.Input<string>;
         scte35Control?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
         scte35Pid?: pulumi.Input<string>;
         segmentationMarkers?: pulumi.Input<string>;
         segmentationStyle?: pulumi.Input<string>;
@@ -50629,12 +53925,18 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings {
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
         nameModifier?: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
         h265PackagingType?: pulumi.Input<string>;
         hlsSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings>;
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
         nameModifier?: pulumi.Input<string>;
         segmentModifier?: pulumi.Input<string>;
     }
@@ -50686,6 +53988,9 @@ export namespace medialive {
         pmtPid?: pulumi.Input<string>;
         programNum?: pulumi.Input<number>;
         scte35Behavior?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
         scte35Pid?: pulumi.Input<string>;
         timedMetadataBehavior?: pulumi.Input<string>;
         timedMetadataPid?: pulumi.Input<string>;
@@ -50698,6 +54003,9 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
         h265PackagingType?: pulumi.Input<string>;
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
         nameModifier?: pulumi.Input<string>;
     }
 
@@ -50804,6 +54112,9 @@ export namespace medialive {
         rateMode?: pulumi.Input<string>;
         scte27Pids?: pulumi.Input<string>;
         scte35Control?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
         scte35Pid?: pulumi.Input<string>;
         segmentationMarkers?: pulumi.Input<string>;
         segmentationStyle?: pulumi.Input<string>;
@@ -50896,7 +54207,13 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettings {
+        /**
+         * Frame capture settings. See Frame Capture Settings for more details.
+         */
         frameCaptureSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings>;
+        /**
+         * H264 settings. See H264 Settings for more details.
+         */
         h264Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings>;
         h265Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings>;
     }
@@ -51199,10 +54516,25 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+        /**
+         * Sets the colorspace metadata to be passed through.
+         */
         colorSpacePassthroughSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings>;
+        /**
+         * Set the colorspace to Dolby Vision81.
+         */
         dolbyVision81Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings>;
+        /**
+         * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         */
         hdr10Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings>;
+        /**
+         * Set the colorspace to Rec. 601.
+         */
         rec601Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings>;
+        /**
+         * Set the colorspace to Rec. 709.
+         */
         rec709Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings>;
     }
 
@@ -51213,7 +54545,13 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+        /**
+         * Sets the MaxCLL value for HDR10.
+         */
         maxCll?: pulumi.Input<number>;
+        /**
+         * Sets the MaxFALL value for HDR10.
+         */
         maxFall?: pulumi.Input<number>;
     }
 
@@ -51239,8 +54577,17 @@ export namespace medialive {
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+        /**
+         * Set a prefix on the burned in timecode.
+         */
         prefix?: pulumi.Input<string>;
+        /**
+         * Sets the size of the burned in timecode.
+         */
         timecodeBurninFontSize?: pulumi.Input<string>;
+        /**
+         * Sets the position of the burned in timecode.
+         */
         timecodeBurninPosition?: pulumi.Input<string>;
     }
 
@@ -51283,6 +54630,9 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
+        /**
+         * Failover condition type-specific settings. See Failover Condition Settings for more details.
+         */
         failoverConditionSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings>;
     }
 
@@ -51303,15 +54653,27 @@ export namespace medialive {
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
         audioSelectorName: pulumi.Input<string>;
+        /**
+         * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         */
         audioSilenceThresholdMsec?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+        /**
+         * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         */
         inputLossThresholdMsec?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
+        /**
+         * A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+         */
         blackDetectThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+         */
         videoBlackThresholdMsec?: pulumi.Input<number>;
     }
 
@@ -51370,9 +54732,21 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
+        /**
+         * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+         */
         audioHlsRenditionSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection>;
+        /**
+         * Audio Language Selection. See Audio Language Selection for more details.
+         */
         audioLanguageSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection>;
+        /**
+         * Audio Pid Selection. See Audio PID Selection for more details.
+         */
         audioPidSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection>;
+        /**
+         * Audio Track Selection. See Audio Track Selection for more details.
+         */
         audioTrackSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection>;
     }
 
@@ -51424,6 +54798,9 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
+        /**
+         * 1-based integer value that maps to a specific audio track.
+         */
         track: pulumi.Input<number>;
     }
 
@@ -51439,12 +54816,33 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+        /**
+         * Ancillary Source Settings. See Ancillary Source Settings for more details.
+         */
         ancillarySourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings>;
+        /**
+         * ARIB Source Settings.
+         */
         aribSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings>;
+        /**
+         * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         */
         dvbSubSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings>;
+        /**
+         * Embedded Source Settings. See Embedded Source Settings for more details.
+         */
         embeddedSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings>;
+        /**
+         * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         */
         scte20SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings>;
+        /**
+         * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         */
         scte27SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings>;
+        /**
+         * Teletext Source Settings. See Teletext Source Settings for more details.
+         */
         teletextSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings>;
     }
 
@@ -51507,7 +54905,13 @@ export namespace medialive {
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
         height: pulumi.Input<number>;
+        /**
+         * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+         */
         leftOffset: pulumi.Input<number>;
+        /**
+         * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+         */
         topOffset: pulumi.Input<number>;
         width: pulumi.Input<number>;
     }
@@ -51656,9 +55060,21 @@ export namespace medialive {
     }
 
     export interface MultiplexProgramMultiplexProgramSettings {
+        /**
+         * Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+         */
         preferredChannelPipeline: pulumi.Input<string>;
+        /**
+         * Unique program number.
+         */
         programNumber: pulumi.Input<number>;
+        /**
+         * Service Descriptor. See Service Descriptor for more details.
+         */
         serviceDescriptor?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettingsServiceDescriptor>;
+        /**
+         * Video settings. See Video Settings for more details.
+         */
         videoSettings?: pulumi.Input<inputs.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettings>;
     }
 
@@ -52039,11 +55455,20 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfo {
+        /**
+         * Access control settings for brokers. See below.
+         */
         publicAccess?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess>;
+        /**
+         * VPC connectivity access control for brokers. See below.
+         */
         vpcConnectivity?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity>;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+        /**
+         * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         */
         type?: pulumi.Input<string>;
     }
 
@@ -52071,16 +55496,28 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfo {
+        /**
+         * A block that contains EBS volume information. See below.
+         */
         ebsStorageInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo>;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+        /**
+         * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+         */
         provisionedThroughput?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput>;
+        /**
+         * The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+         */
         volumeSize?: pulumi.Input<number>;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+         */
         volumeThroughput?: pulumi.Input<number>;
     }
 
@@ -52105,6 +55542,9 @@ export namespace msk {
     }
 
     export interface ClusterClientAuthenticationTls {
+        /**
+         * List of ACM Certificate Authority Amazon Resource Names (ARNs).
+         */
         certificateAuthorityArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -52131,7 +55571,13 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionInfoEncryptionInTransit {
+        /**
+         * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
+         */
         clientBroker?: pulumi.Input<string>;
+        /**
+         * Whether data communication among broker nodes is encrypted. Default value: `true`.
+         */
         inCluster?: pulumi.Input<boolean>;
     }
 
@@ -52150,17 +55596,29 @@ export namespace msk {
 
     export interface ClusterLoggingInfoBrokerLogsCloudwatchLogs {
         enabled: pulumi.Input<boolean>;
+        /**
+         * Name of the Cloudwatch Log Group to deliver logs to.
+         */
         logGroup?: pulumi.Input<string>;
     }
 
     export interface ClusterLoggingInfoBrokerLogsFirehose {
+        /**
+         * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+         */
         deliveryStream?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
     }
 
     export interface ClusterLoggingInfoBrokerLogsS3 {
+        /**
+         * Name of the S3 bucket to deliver logs to.
+         */
         bucket?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
+        /**
+         * Prefix to append to the folder name.
+         */
         prefix?: pulumi.Input<string>;
     }
 
@@ -52172,15 +55630,27 @@ export namespace msk {
     }
 
     export interface ClusterOpenMonitoringPrometheus {
+        /**
+         * Configuration block for JMX Exporter. See below.
+         */
         jmxExporter?: pulumi.Input<inputs.msk.ClusterOpenMonitoringPrometheusJmxExporter>;
+        /**
+         * Configuration block for Node Exporter. See below.
+         */
         nodeExporter?: pulumi.Input<inputs.msk.ClusterOpenMonitoringPrometheusNodeExporter>;
     }
 
     export interface ClusterOpenMonitoringPrometheusJmxExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
         enabledInBroker: pulumi.Input<boolean>;
     }
 
     export interface ClusterOpenMonitoringPrometheusNodeExporter {
+        /**
+         * Indicates whether you want to enable or disable the Node Exporter.
+         */
         enabledInBroker: pulumi.Input<boolean>;
     }
 
@@ -52215,7 +55685,7 @@ export namespace msk {
 
     export interface ReplicatorReplicationInfoList {
         /**
-         * Confguration relating to consumer group replication.
+         * Configuration relating to consumer group replication.
          */
         consumerGroupReplications: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication>[]>;
         sourceKafkaClusterAlias?: pulumi.Input<string>;
@@ -52271,6 +55741,10 @@ export namespace msk {
          */
         detectAndCopyNewTopics?: pulumi.Input<boolean>;
         /**
+         * Configuration for specifying the position in the topics to start replicating from.
+         */
+        startingPosition?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoListTopicReplicationStartingPosition>;
+        /**
          * List of regular expression patterns indicating the topics that should not be replica.
          */
         topicsToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -52278,6 +55752,13 @@ export namespace msk {
          * List of regular expression patterns indicating the topics to copy.
          */
         topicsToReplicates: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ReplicatorReplicationInfoListTopicReplicationStartingPosition {
+        /**
+         * The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface ServerlessClusterClientAuthentication {
@@ -52316,11 +55797,11 @@ export namespace msk {
 export namespace mskconnect {
     export interface ConnectorCapacity {
         /**
-         * Information about the auto scaling parameters for the connector. See below.
+         * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
          */
         autoscaling?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscaling>;
         /**
-         * Details about a fixed capacity allocated to a connector. See below.
+         * Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
          */
         provisionedCapacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacityProvisionedCapacity>;
     }
@@ -52339,11 +55820,11 @@ export namespace mskconnect {
          */
         minWorkerCount: pulumi.Input<number>;
         /**
-         * The scale-in policy for the connector. See below.
+         * The scale-in policy for the connector. See `scaleInPolicy` Block for details.
          */
         scaleInPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy>;
         /**
-         * The scale-out policy for the connector. See below.
+         * The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
          */
         scaleOutPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy>;
     }
@@ -52375,7 +55856,7 @@ export namespace mskconnect {
 
     export interface ConnectorKafkaCluster {
         /**
-         * The Apache Kafka cluster to which the connector is connected.
+         * The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
          */
         apacheKafkaCluster: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaCluster>;
     }
@@ -52386,7 +55867,7 @@ export namespace mskconnect {
          */
         bootstrapServers: pulumi.Input<string>;
         /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
          */
         vpc: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpc>;
     }
@@ -52418,22 +55899,22 @@ export namespace mskconnect {
 
     export interface ConnectorLogDelivery {
         /**
-         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `workerLogDelivery` Block for details.
          */
         workerLogDelivery: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDelivery>;
     }
 
     export interface ConnectorLogDeliveryWorkerLogDelivery {
         /**
-         * Details about delivering logs to Amazon CloudWatch Logs. See below.
+         * Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
          */
         cloudwatchLogs?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs>;
         /**
-         * Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         * Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
          */
         firehose?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryFirehose>;
         /**
-         * Details about delivering logs to Amazon S3. See below.
+         * Details about delivering logs to Amazon S3. See `s3` Block for deetails.
          */
         s3?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryS3>;
     }
@@ -52477,7 +55958,7 @@ export namespace mskconnect {
 
     export interface ConnectorPlugin {
         /**
-         * Details about a custom plugin. See below.
+         * Details about a custom plugin. See `customPlugin` Block for details.
          */
         customPlugin: pulumi.Input<inputs.mskconnect.ConnectorPluginCustomPlugin>;
     }
@@ -52506,14 +55987,23 @@ export namespace mskconnect {
 
     export interface CustomPluginLocation {
         /**
-         * Information of the plugin file stored in Amazon S3. See below.
+         * Information of the plugin file stored in Amazon S3. See `s3` Block for details..
          */
         s3: pulumi.Input<inputs.mskconnect.CustomPluginLocationS3>;
     }
 
     export interface CustomPluginLocationS3 {
+        /**
+         * The Amazon Resource Name (ARN) of an S3 bucket.
+         */
         bucketArn: pulumi.Input<string>;
+        /**
+         * The file key for an object in an S3 bucket.
+         */
         fileKey: pulumi.Input<string>;
+        /**
+         * The version of an object in an S3 bucket.
+         */
         objectVersion?: pulumi.Input<string>;
     }
 }
@@ -52561,31 +56051,61 @@ export namespace mwaa {
 
     export interface EnvironmentLoggingConfigurationDagProcessingLogs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
         logLevel?: pulumi.Input<string>;
     }
 
     export interface EnvironmentLoggingConfigurationSchedulerLogs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
         logLevel?: pulumi.Input<string>;
     }
 
     export interface EnvironmentLoggingConfigurationTaskLogs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
         logLevel?: pulumi.Input<string>;
     }
 
     export interface EnvironmentLoggingConfigurationWebserverLogs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
         logLevel?: pulumi.Input<string>;
     }
 
     export interface EnvironmentLoggingConfigurationWorkerLogs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
+        /**
+         * Enabling or disabling the collection of logs
+         */
         enabled?: pulumi.Input<boolean>;
+        /**
+         * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+         */
         logLevel?: pulumi.Input<string>;
     }
 
@@ -52618,7 +56138,13 @@ export namespace neptune {
     }
 
     export interface ClusterServerlessV2ScalingConfiguration {
+        /**
+         * The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         */
         maxCapacity?: pulumi.Input<number>;
+        /**
+         * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+         */
         minCapacity?: pulumi.Input<number>;
     }
 
@@ -52911,6 +56437,9 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleGroupReferenceSetsIpSetReference {
+        /**
+         * Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+         */
         ipSetReferences: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>[]>;
         key: pulumi.Input<string>;
     }
@@ -53331,7 +56860,13 @@ export namespace networkfirewall {
     }
 
     export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort {
+        /**
+         * The lower limit of the port range. This must be less than or equal to the `toPort`.
+         */
         fromPort: pulumi.Input<number>;
+        /**
+         * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+         */
         toPort: pulumi.Input<number>;
     }
 
@@ -53929,6 +57464,33 @@ export namespace networkmanager {
          * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         ipv6Support?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace oam {
+    export interface LinkLinkConfiguration {
+        /**
+         * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
+         */
+        logGroupConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfigurationLogGroupConfiguration>;
+        /**
+         * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
+         */
+        metricConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfigurationMetricConfiguration>;
+    }
+
+    export interface LinkLinkConfigurationLogGroupConfiguration {
+        /**
+         * Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
+         */
+        filter: pulumi.Input<string>;
+    }
+
+    export interface LinkLinkConfigurationMetricConfiguration {
+        /**
+         * Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
+         */
+        filter: pulumi.Input<string>;
     }
 }
 
@@ -54691,8 +58253,17 @@ export namespace opsworks {
     }
 
     export interface CustomLayerLoadBasedAutoScaling {
+        /**
+         * The downscaling settings, as defined below, used for load-based autoscaling
+         */
         downscaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScalingDownscaling>;
+        /**
+         * Whether load-based auto scaling is enabled for the layer.
+         */
         enable?: pulumi.Input<boolean>;
+        /**
+         * The upscaling settings, as defined below, used for load-based autoscaling
+         */
         upscaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScalingUpscaling>;
     }
 
@@ -55781,6 +59352,10 @@ export namespace pipes {
          */
         firehoseLogDestination?: pulumi.Input<inputs.pipes.PipeLogConfigurationFirehoseLogDestination>;
         /**
+         * String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+         */
+        includeExecutionDatas?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
          */
         level: pulumi.Input<string>;
@@ -55791,17 +59366,35 @@ export namespace pipes {
     }
 
     export interface PipeLogConfigurationCloudwatchLogsLogDestination {
+        /**
+         * Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+         */
         logGroupArn: pulumi.Input<string>;
     }
 
     export interface PipeLogConfigurationFirehoseLogDestination {
+        /**
+         * Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+         */
         deliveryStreamArn: pulumi.Input<string>;
     }
 
     export interface PipeLogConfigurationS3LogDestination {
+        /**
+         * Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         */
         bucketName: pulumi.Input<string>;
+        /**
+         * Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+         */
         bucketOwner: pulumi.Input<string>;
+        /**
+         * EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+         */
         outputFormat?: pulumi.Input<string>;
+        /**
+         * Prefix text with which to begin Amazon S3 log object names.
+         */
         prefix?: pulumi.Input<string>;
     }
 
@@ -55841,24 +59434,63 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersActivemqBrokerParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
         credentials: pulumi.Input<inputs.pipes.PipeSourceParametersActivemqBrokerParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum length of 1000.
+         */
         queueName: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersActivemqBrokerParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         basicAuth: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersDynamodbStreamParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * Define the target queue to send dead-letter queue events to. Detailed below.
+         */
         deadLetterConfig?: pulumi.Input<inputs.pipes.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
+         */
         maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
+         */
         maximumRetryAttempts?: pulumi.Input<number>;
+        /**
+         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
+         */
         onPartialBatchItemFailure?: pulumi.Input<string>;
+        /**
+         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         */
         parallelizationFactor?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
         startingPosition: pulumi.Input<string>;
     }
 
@@ -55870,22 +59502,55 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersFilterCriteria {
+        /**
+         * An array of up to 5 event patterns. Detailed below.
+         */
         filters?: pulumi.Input<pulumi.Input<inputs.pipes.PipeSourceParametersFilterCriteriaFilter>[]>;
     }
 
     export interface PipeSourceParametersFilterCriteriaFilter {
+        /**
+         * The event pattern. At most 4096 characters.
+         */
         pattern: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersKinesisStreamParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * Define the target queue to send dead-letter queue events to. Detailed below.
+         */
         deadLetterConfig?: pulumi.Input<inputs.pipes.PipeSourceParametersKinesisStreamParametersDeadLetterConfig>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
+         */
         maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
+         */
         maximumRetryAttempts?: pulumi.Input<number>;
+        /**
+         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
+         */
         onPartialBatchItemFailure?: pulumi.Input<string>;
+        /**
+         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         */
         parallelizationFactor?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
         startingPosition: pulumi.Input<string>;
+        /**
+         * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+         */
         startingPositionTimestamp?: pulumi.Input<string>;
     }
 
@@ -55897,47 +59562,128 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum value of 200.
+         */
         consumerGroupId?: pulumi.Input<string>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
         credentials?: pulumi.Input<inputs.pipes.PipeSourceParametersManagedStreamingKafkaParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
         startingPosition?: pulumi.Input<string>;
+        /**
+         * The name of the topic that the pipe will read from. Maximum length of 249.
+         */
         topicName: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         clientCertificateTlsAuth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         saslScram512Auth?: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
         credentials: pulumi.Input<inputs.pipes.PipeSourceParametersRabbitmqBrokerParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum length of 1000.
+         */
         queueName: pulumi.Input<string>;
+        /**
+         * The name of the virtual host associated with the source broker. Maximum length of 200.
+         */
         virtualHost?: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         basicAuth: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParameters {
+        /**
+         * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         */
         additionalBootstrapServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum value of 200.
+         */
         consumerGroupId?: pulumi.Input<string>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
         credentials?: pulumi.Input<inputs.pipes.PipeSourceParametersSelfManagedKafkaParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The ARN of the Secrets Manager secret used for certification.
+         */
         serverRootCaCertificate?: pulumi.Input<string>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
         startingPosition?: pulumi.Input<string>;
+        /**
+         * The name of the topic that the pipe will read from. Maximum length of 249.
+         */
         topicName: pulumi.Input<string>;
+        /**
+         * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+         */
         vpc?: pulumi.Input<inputs.pipes.PipeSourceParametersSelfManagedKafkaParametersVpc>;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         basicAuth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         clientCertificateTlsAuth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         saslScram256Auth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
         saslScram512Auth?: pulumi.Input<string>;
     }
 
@@ -55947,7 +59693,13 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersSqsQueueParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
         batchSize?: pulumi.Input<number>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     }
 
@@ -56003,23 +59755,59 @@ export namespace pipes {
     }
 
     export interface PipeTargetParametersBatchJobParameters {
+        /**
+         * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+         */
         arrayProperties?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersArrayProperties>;
+        /**
+         * The overrides that are sent to a container. Detailed below.
+         */
         containerOverrides?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverrides>;
+        /**
+         * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         */
         dependsOns?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersDependsOn>[]>;
+        /**
+         * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+         */
         jobDefinition: pulumi.Input<string>;
+        /**
+         * The name of the job. It can be up to 128 letters long.
+         */
         jobName: pulumi.Input<string>;
+        /**
+         * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+         */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+         */
         retryStrategy?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersRetryStrategy>;
     }
 
     export interface PipeTargetParametersBatchJobParametersArrayProperties {
+        /**
+         * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+         */
         size?: pulumi.Input<number>;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverrides {
+        /**
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         */
         environments?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment>[]>;
+        /**
+         * The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+         */
         instanceType?: pulumi.Input<string>;
+        /**
+         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         */
         resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement>[]>;
     }
 
@@ -56028,86 +59816,209 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersBatchJobParametersDependsOn {
+        /**
+         * The job ID of the AWS Batch job that's associated with this dependency.
+         */
         jobId?: pulumi.Input<string>;
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersBatchJobParametersRetryStrategy {
+        /**
+         * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+         */
         attempts?: pulumi.Input<number>;
     }
 
     export interface PipeTargetParametersCloudwatchLogsParameters {
+        /**
+         * The name of the log stream.
+         */
         logStreamName?: pulumi.Input<string>;
+        /**
+         * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         */
         timestamp?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParameters {
+        /**
+         * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         */
         capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy>[]>;
+        /**
+         * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+         */
         enableEcsManagedTags?: pulumi.Input<boolean>;
+        /**
+         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+         */
         enableExecuteCommand?: pulumi.Input<boolean>;
+        /**
+         * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+         */
         group?: pulumi.Input<string>;
+        /**
+         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+         */
         launchType?: pulumi.Input<string>;
+        /**
+         * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+         */
         networkConfiguration?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfiguration>;
+        /**
+         * The overrides that are associated with a task. Detailed below.
+         */
         overrides?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverrides>;
+        /**
+         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         */
         placementConstraints?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersPlacementConstraint>[]>;
+        /**
+         * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         */
         placementStrategies?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersPlacementStrategy>[]>;
+        /**
+         * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+         */
         platformVersion?: pulumi.Input<string>;
+        /**
+         * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+         */
         propagateTags?: pulumi.Input<string>;
+        /**
+         * The reference ID to use for the task. Maximum length of 1,024.
+         */
         referenceId?: pulumi.Input<string>;
         /**
          * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The number of tasks to create based on TaskDefinition. The default is 1.
+         */
         taskCount?: pulumi.Input<number>;
+        /**
+         * The ARN of the task definition to use if the event target is an Amazon ECS task.
+         */
         taskDefinitionArn: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
+        /**
+         * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+         */
         base?: pulumi.Input<number>;
+        /**
+         * The short name of the capacity provider. Maximum value of 255.
+         */
         capacityProvider: pulumi.Input<string>;
+        /**
+         * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+         */
         weight?: pulumi.Input<number>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfiguration {
+        /**
+         * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+         */
         awsVpcConfiguration?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
+        /**
+         * Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+         */
         assignPublicIp?: pulumi.Input<string>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         subnets?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverrides {
+        /**
+         * One or more container overrides that are sent to a task. Detailed below.
+         */
         containerOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>[]>;
+        /**
+         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         */
         cpu?: pulumi.Input<string>;
+        /**
+         * The ephemeral storage setting override for the task.  Detailed below.
+         */
         ephemeralStorage?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage>;
+        /**
+         * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+         */
         executionRoleArn?: pulumi.Input<string>;
+        /**
+         * List of Elastic Inference accelerator overrides for the task. Detailed below.
+         */
         inferenceAcceleratorOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>[]>;
+        /**
+         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         */
         memory?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+         */
         taskRoleArn?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
+        /**
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         */
         commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         */
         cpu?: pulumi.Input<number>;
+        /**
+         * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         */
         environmentFiles?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile>[]>;
+        /**
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         */
         environments?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment>[]>;
+        /**
+         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         */
         memory?: pulumi.Input<number>;
+        /**
+         * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+         */
         memoryReservation?: pulumi.Input<number>;
         /**
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: pulumi.Input<string>;
+        /**
+         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         */
         resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement>[]>;
     }
 
@@ -56116,46 +60027,94 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
+        /**
+         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+         */
         sizeInGib: pulumi.Input<number>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
+        /**
+         * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+         */
         deviceName?: pulumi.Input<string>;
+        /**
+         * The Elastic Inference accelerator type to use.
+         */
         deviceType?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementConstraint {
+        /**
+         * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+         */
         expression?: pulumi.Input<string>;
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementStrategy {
+        /**
+         * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+         */
         field?: pulumi.Input<string>;
+        /**
+         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         */
         type?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersEventbridgeEventBusParameters {
+        /**
+         * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         */
         detailType?: pulumi.Input<string>;
+        /**
+         * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+         */
         endpointId?: pulumi.Input<string>;
+        /**
+         * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
          */
         source?: pulumi.Input<string>;
+        /**
+         * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         */
         time?: pulumi.Input<string>;
     }
 
@@ -56166,23 +60125,50 @@ export namespace pipes {
     }
 
     export interface PipeTargetParametersKinesisStreamParameters {
+        /**
+         * Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+         */
         partitionKey: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersLambdaFunctionParameters {
+        /**
+         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         */
         invocationType: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersRedshiftDataParameters {
+        /**
+         * The name of the database. Required when authenticating using temporary credentials.
+         */
         database: pulumi.Input<string>;
+        /**
+         * The database user name. Required when authenticating using temporary credentials.
+         */
         dbUser?: pulumi.Input<string>;
+        /**
+         * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+         */
         secretManagerArn?: pulumi.Input<string>;
+        /**
+         * List of SQL statements text to run, each of maximum length of 100,000.
+         */
         sqls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+         */
         statementName?: pulumi.Input<string>;
+        /**
+         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         */
         withEvent?: pulumi.Input<boolean>;
     }
 
     export interface PipeTargetParametersSagemakerPipelineParameters {
+        /**
+         * List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         */
         pipelineParameters?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersSagemakerPipelineParametersPipelineParameter>[]>;
     }
 
@@ -56191,15 +60177,27 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersSqsQueueParameters {
+        /**
+         * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         */
         messageDeduplicationId?: pulumi.Input<string>;
+        /**
+         * The FIFO message group ID to use as the target.
+         */
         messageGroupId?: pulumi.Input<string>;
     }
 
     export interface PipeTargetParametersStepFunctionStateMachineParameters {
+        /**
+         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         */
         invocationType: pulumi.Input<string>;
     }
 }
@@ -56877,6 +60875,9 @@ export namespace quicksight {
     }
 
     export interface DataSetOutputColumn {
+        /**
+         * Field folder description.
+         */
         description?: pulumi.Input<string>;
         /**
          * Display name for the dataset.
@@ -57948,7 +61949,11 @@ export namespace rds {
         /**
          * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
          */
-        sourceClusterIdentifier: pulumi.Input<string>;
+        sourceClusterIdentifier?: pulumi.Input<string>;
+        /**
+         * Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+         */
+        sourceClusterResourceId?: pulumi.Input<string>;
         /**
          * Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
          */
@@ -57956,10 +61961,27 @@ export namespace rds {
     }
 
     export interface ClusterS3Import {
+        /**
+         * Bucket name where your backup is stored
+         */
         bucketName: pulumi.Input<string>;
+        /**
+         * Can be blank, but is the path to your backup
+         */
         bucketPrefix?: pulumi.Input<string>;
+        /**
+         * Role applied to load the data.
+         */
         ingestionRole: pulumi.Input<string>;
+        /**
+         * Source engine for the backup
+         */
         sourceEngine: pulumi.Input<string>;
+        /**
+         * Version of the source engine used to make the backup
+         *
+         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+         */
         sourceEngineVersion: pulumi.Input<string>;
     }
 
@@ -57976,6 +61998,10 @@ export namespace rds {
          * Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
          */
         minCapacity?: pulumi.Input<number>;
+        /**
+         * Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+         */
+        secondsBeforeTimeout?: pulumi.Input<number>;
         /**
          * Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
          */
@@ -58143,11 +62169,39 @@ export namespace rds {
     }
 
     export interface InstanceS3Import {
+        /**
+         * The bucket name where your backup is stored
+         */
         bucketName: pulumi.Input<string>;
+        /**
+         * Can be blank, but is the path to your backup
+         */
         bucketPrefix?: pulumi.Input<string>;
+        /**
+         * Role applied to load the data.
+         */
         ingestionRole: pulumi.Input<string>;
+        /**
+         * Source engine for the backup
+         */
         sourceEngine: pulumi.Input<string>;
+        /**
+         * Version of the source engine used to make the backup
+         *
+         * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+         */
         sourceEngineVersion: pulumi.Input<string>;
+    }
+
+    export interface IntegrationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 
     export interface OptionGroupOption {
@@ -58607,6 +62661,152 @@ export namespace rekognition {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorDataSharingPreference {
+        /**
+         * Whether you are sharing data with Rekognition to improve model performance.
+         */
+        optIn: pulumi.Input<boolean>;
+    }
+
+    export interface StreamProcessorInput {
+        /**
+         * Kinesis input stream. See `kinesisVideoStream`.
+         */
+        kinesisVideoStream?: pulumi.Input<inputs.rekognition.StreamProcessorInputKinesisVideoStream>;
+    }
+
+    export interface StreamProcessorInputKinesisVideoStream {
+        /**
+         * ARN of the Kinesis video stream stream that streams the source video.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorNotificationChannel {
+        /**
+         * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         */
+        snsTopicArn?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorOutput {
+        /**
+         * The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+         */
+        kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorOutputKinesisDataStream>;
+        /**
+         * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+         */
+        s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorOutputS3Destination>;
+    }
+
+    export interface StreamProcessorOutputKinesisDataStream {
+        /**
+         * ARN of the output Amazon Kinesis Data Streams stream.
+         */
+        arn?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorOutputS3Destination {
+        /**
+         * Name of the Amazon S3 bucket you want to associate with the streaming video project.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * The prefix value of the location within the bucket that you want the information to be published to.
+         */
+        keyPrefix?: pulumi.Input<string>;
+    }
+
+    export interface StreamProcessorRegionsOfInterest {
+        /**
+         * Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
+         */
+        boundingBox?: pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterestBoundingBox>;
+        /**
+         * Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+         */
+        polygons: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterestPolygon>[]>;
+    }
+
+    export interface StreamProcessorRegionsOfInterestBoundingBox {
+        /**
+         * Height of the bounding box as a ratio of the overall image height.
+         */
+        height?: pulumi.Input<number>;
+        /**
+         * Left coordinate of the bounding box as a ratio of overall image width.
+         */
+        left?: pulumi.Input<number>;
+        /**
+         * Top coordinate of the bounding box as a ratio of overall image height.
+         */
+        top?: pulumi.Input<number>;
+        /**
+         * Width of the bounding box as a ratio of the overall image width.
+         */
+        width?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorRegionsOfInterestPolygon {
+        /**
+         * The value of the X coordinate for a point on a Polygon.
+         */
+        x?: pulumi.Input<number>;
+        /**
+         * The value of the Y coordinate for a point on a Polygon.
+         */
+        y?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorSettings {
+        /**
+         * Label detection settings to use on a streaming video. See `connectedHome`.
+         */
+        connectedHome?: pulumi.Input<inputs.rekognition.StreamProcessorSettingsConnectedHome>;
+        /**
+         * Input face recognition parameters for an Amazon Rekognition stream processor. See `faceSearch`.
+         */
+        faceSearch?: pulumi.Input<inputs.rekognition.StreamProcessorSettingsFaceSearch>;
+    }
+
+    export interface StreamProcessorSettingsConnectedHome {
+        /**
+         * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         */
+        labels?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Minimum confidence required to label an object in the video.
+         */
+        minConfidence?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorSettingsFaceSearch {
+        /**
+         * ID of a collection that contains faces that you want to search for.
+         */
+        collectionId: pulumi.Input<string>;
+        /**
+         * Minimum face match confidence score that must be met to return a result for a recognized face.
+         */
+        faceMatchThreshold?: pulumi.Input<number>;
+    }
+
+    export interface StreamProcessorTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
     }
 }
 
@@ -59147,9 +63347,21 @@ export namespace route53 {
     }
 
     export interface RecordGeoproximityRoutingPolicy {
+        /**
+         * A AWS region where the resource is present.
+         */
         awsRegion?: pulumi.Input<string>;
+        /**
+         * Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
+         */
         bias?: pulumi.Input<number>;
+        /**
+         * Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
+         */
         coordinates?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeoproximityRoutingPolicyCoordinate>[]>;
+        /**
+         * A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
+         */
         localZoneGroup?: pulumi.Input<string>;
     }
 
@@ -59743,6 +63955,9 @@ export namespace s3 {
     }
 
     export interface BucketAclV2AccessControlPolicyGrantGrantee {
+        /**
+         * Display name of the owner.
+         */
         displayName?: pulumi.Input<string>;
         /**
          * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -59801,10 +64016,25 @@ export namespace s3 {
     }
 
     export interface BucketCorsRule {
+        /**
+         * List of headers allowed.
+         */
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+         */
         allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more origins you want customers to be able to access the bucket from.
+         */
         allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+         */
         exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies time in seconds that browser can cache the response for a preflight request.
+         */
         maxAgeSeconds?: pulumi.Input<number>;
     }
 
@@ -60016,7 +64246,7 @@ export namespace s3 {
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * Specifies a period in the object's expire (documented below).
+         * Specifies a period in the object's expire. See Expiration below for details.
          */
         expiration?: pulumi.Input<inputs.s3.BucketLifecycleRuleExpiration>;
         /**
@@ -60024,13 +64254,11 @@ export namespace s3 {
          */
         id?: pulumi.Input<string>;
         /**
-         * Specifies when noncurrent object versions expire (documented below).
+         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
         noncurrentVersionExpiration?: pulumi.Input<inputs.s3.BucketLifecycleRuleNoncurrentVersionExpiration>;
         /**
-         * Specifies when noncurrent object versions transitions (documented below).
-         *
-         * At least one of `abortIncompleteMultipartUploadDays`, `expiration`, `transition`, `noncurrentVersionExpiration`, `noncurrentVersionTransition` must be specified.
+         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
          */
         noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRuleNoncurrentVersionTransition>[]>;
         /**
@@ -60042,7 +64270,7 @@ export namespace s3 {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Specifies a period in the object's transitions (documented below).
+         * Specifies a period in the object's transitions. See Transition below for details.
          */
         transitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRuleTransition>[]>;
     }
@@ -60097,7 +64325,7 @@ export namespace s3 {
 
     export interface BucketLogging {
         /**
-         * The name of the bucket that will receive the log objects.
+         * Name of the bucket that will receive the log objects.
          */
         targetBucket: pulumi.Input<string>;
         /**
@@ -60244,39 +64472,33 @@ export namespace s3 {
 
     export interface BucketObjectLockConfiguration {
         /**
-         * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+         * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
          */
         objectLockEnabled: pulumi.Input<string>;
         /**
-         * The Object Lock rule in place for this bucket.
+         * Object Lock rule in place for this bucket (documented below).
          */
         rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationRule>;
     }
 
     export interface BucketObjectLockConfigurationRule {
         /**
-         * The default retention period that you want to apply to new objects placed in this bucket.
+         * Default retention period that you want to apply to new objects placed in this bucket (documented below).
          */
         defaultRetention: pulumi.Input<inputs.s3.BucketObjectLockConfigurationRuleDefaultRetention>;
     }
 
     export interface BucketObjectLockConfigurationRuleDefaultRetention {
         /**
-         * The number of days that you want to specify for the default retention period.
+         * Number of days that you want to specify for the default retention period.
          */
         days?: pulumi.Input<number>;
         /**
-         * The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+         * Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
          */
         mode: pulumi.Input<string>;
         /**
-         * The number of years that you want to specify for the default retention period.
-         *
-         * Either `days` or `years` must be specified, but not both.
-         *
-         * > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
-         * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
-         * Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
+         * Number of years that you want to specify for the default retention period.
          */
         years?: pulumi.Input<number>;
     }
@@ -60526,7 +64748,13 @@ export namespace s3 {
     }
 
     export interface BucketReplicationConfiguration {
+        /**
+         * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+         */
         role: pulumi.Input<string>;
+        /**
+         * Specifies the rules managing the replication (documented below).
+         */
         rules: pulumi.Input<pulumi.Input<inputs.s3.BucketReplicationConfigurationRule>[]>;
     }
 
@@ -60552,7 +64780,7 @@ export namespace s3 {
          */
         prefix?: pulumi.Input<string>;
         /**
-         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
         priority?: pulumi.Input<number>;
         /**
@@ -60560,24 +64788,22 @@ export namespace s3 {
          */
         sourceSelectionCriteria?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteria>;
         /**
-         * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-         *
-         * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+         * Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
         status: pulumi.Input<string>;
     }
 
     export interface BucketReplicationConfigurationRuleDestination {
         /**
-         * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
+         * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslation?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleDestinationAccessControlTranslation>;
         /**
-         * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
+         * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
         accountId?: pulumi.Input<string>;
         /**
-         * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+         * ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          */
         bucket: pulumi.Input<string>;
         /**
@@ -60601,7 +64827,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
         /**
-         * The override value for the owner on replicated objects. Currently only `Destination` is supported.
+         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
          */
         owner: pulumi.Input<string>;
     }
@@ -60612,7 +64838,7 @@ export namespace s3 {
          */
         minutes?: pulumi.Input<number>;
         /**
-         * The status of replication metrics. Either `Enabled` or `Disabled`.
+         * Status of replication metrics. Either `Enabled` or `Disabled`.
          */
         status?: pulumi.Input<string>;
     }
@@ -60623,7 +64849,7 @@ export namespace s3 {
          */
         minutes?: pulumi.Input<number>;
         /**
-         * The status of RTC. Either `Enabled` or `Disabled`.
+         * Status of RTC. Either `Enabled` or `Disabled`.
          */
         status?: pulumi.Input<string>;
     }
@@ -60657,14 +64883,14 @@ export namespace s3 {
 
     export interface BucketServerSideEncryptionConfiguration {
         /**
-         * A single object for server-side encryption by default configuration. (documented below)
+         * Single object for server-side encryption by default configuration. (documented below)
          */
         rule: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRule>;
     }
 
     export interface BucketServerSideEncryptionConfigurationRule {
         /**
-         * A single object for setting server-side encryption by default. (documented below)
+         * Single object for setting server-side encryption by default. (documented below)
          */
         applyServerSideEncryptionByDefault: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>;
         /**
@@ -60675,11 +64901,11 @@ export namespace s3 {
 
     export interface BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
         /**
-         * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
+         * AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
          */
         kmsMasterKeyId?: pulumi.Input<string>;
         /**
-         * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+         * Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
          */
         sseAlgorithm: pulumi.Input<string>;
     }
@@ -61101,7 +65327,7 @@ export namespace s3 {
 
     export interface BucketWebsite {
         /**
-         * An absolute path to the document to return in case of a 4XX error.
+         * Absolute path to the document to return in case of a 4XX error.
          */
         errorDocument?: pulumi.Input<string>;
         /**
@@ -61109,14 +65335,12 @@ export namespace s3 {
          */
         indexDocument?: pulumi.Input<string>;
         /**
-         * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+         * Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          */
         redirectAllRequestsTo?: pulumi.Input<string>;
         /**
-         * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
-         *
-         * The `CORS` object supports the following:
          */
         routingRules?: pulumi.Input<string | pulumi.Input<RoutingRule>[]>;
     }
@@ -62922,7 +67146,7 @@ export namespace sagemaker {
 
     export interface EndpointConfigurationDataCaptureConfigCaptureOption {
         /**
-         * Specifies the data to be captured. Should be one of `Input` or `Output`.
+         * Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
          */
         captureMode: pulumi.Input<string>;
     }
@@ -63020,19 +67244,61 @@ export namespace sagemaker {
     }
 
     export interface EndpointConfigurationShadowProductionVariant {
+        /**
+         * The size of the Elastic Inference (EI) instance to use for the production variant.
+         */
         acceleratorType?: pulumi.Input<string>;
+        /**
+         * The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
+         */
         containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+         */
         coreDumpConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantCoreDumpConfig>;
+        /**
+         * You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+         */
         enableSsmAccess?: pulumi.Input<boolean>;
+        /**
+         * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         */
         inferenceAmiVersion?: pulumi.Input<string>;
+        /**
+         * Initial number of instances used for auto-scaling.
+         */
         initialInstanceCount?: pulumi.Input<number>;
+        /**
+         * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+         */
         initialVariantWeight?: pulumi.Input<number>;
+        /**
+         * The type of instance to start.
+         */
         instanceType?: pulumi.Input<string>;
+        /**
+         * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
+         */
         modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * The name of the model to use.
+         */
         modelName: pulumi.Input<string>;
+        /**
+         * Sets how the endpoint routes incoming traffic. See routingConfig below.
+         */
         routingConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantRoutingConfig>[]>;
+        /**
+         * Specifies configuration for how an endpoint performs asynchronous inference.
+         */
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantServerlessConfig>;
+        /**
+         * The name of the variant. If omitted, this provider will assign a random, unique name.
+         */
         variantName?: pulumi.Input<string>;
+        /**
+         * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
+         */
         volumeSizeInGb?: pulumi.Input<number>;
     }
 
@@ -63100,7 +67366,13 @@ export namespace sagemaker {
 
     export interface EndpointDeploymentConfigBlueGreenUpdatePolicy {
         maximumExecutionTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+         */
         terminationWaitInSeconds?: pulumi.Input<number>;
+        /**
+         * Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+         */
         trafficRoutingConfiguration: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration>;
     }
 
@@ -63202,6 +67474,9 @@ export namespace sagemaker {
          * The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
          */
         dataCatalogConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOfflineStoreConfigDataCatalogConfig>;
+        /**
+         * Set to `true` to turn Online Store On.
+         */
         disableGlueTableCreation?: pulumi.Input<boolean>;
         /**
          * The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
@@ -63244,6 +67519,9 @@ export namespace sagemaker {
     }
 
     export interface FeatureGroupOnlineStoreConfig {
+        /**
+         * Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
+         */
         enableOnlineStore?: pulumi.Input<boolean>;
         /**
          * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
@@ -63462,17 +67740,45 @@ export namespace sagemaker {
     }
 
     export interface ModelInferenceExecutionConfig {
+        /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
         mode: pulumi.Input<string>;
     }
 
     export interface ModelPrimaryContainer {
+        /**
+         * The DNS host name for the container.
+         */
         containerHostname?: pulumi.Input<string>;
+        /**
+         * Environment variables for the Docker container.
+         * A list of key value pairs.
+         */
         environment?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The registry path where the inference code image is stored in Amazon ECR.
+         */
         image?: pulumi.Input<string>;
+        /**
+         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         */
         imageConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerImageConfig>;
+        /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
         mode?: pulumi.Input<string>;
+        /**
+         * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+         */
         modelDataSource?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerModelDataSource>;
+        /**
+         * The URL for the S3 location where model artifacts are stored.
+         */
         modelDataUrl?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the model package to use to create the model.
+         */
         modelPackageName?: pulumi.Input<string>;
     }
 
@@ -63615,31 +67921,34 @@ export namespace sagemaker {
          */
         appType?: pulumi.Input<string>;
         /**
-         * The Code Editor application settings. See Code Editor App Settings below.
+         * The Code Editor application settings. See `codeEditorAppSettings` Block below.
          */
         codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettings>;
         /**
-         * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See Custom File System below.
+         * A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. See `customFileSystem` Block below.
          */
         customFileSystems?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystem>[]>;
         /**
-         * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
          */
         jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettings>;
         /**
-         * The Jupyter server's app settings. See Jupyter Server App Settings below.
+         * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
         jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettings>;
         /**
-         * The kernel gateway app settings. See Kernel Gateway App Settings below.
+         * The kernel gateway app settings. See `kernelGatewayAppSettings` Block below.
          */
         kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettings>;
+        /**
+         * The storage settings. See `spaceStorageSettings` Block below.
+         */
         spaceStorageSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettings>;
     }
 
     export interface SpaceSpaceSettingsCodeEditorAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec>;
     }
@@ -63669,7 +67978,7 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsCustomFileSystem {
         /**
-         * A custom file system in Amazon EFS. see EFS File System below.
+         * A custom file system in Amazon EFS. See `efsFileSystem` Block below.
          */
         efsFileSystem: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCustomFileSystemEfsFileSystem>;
     }
@@ -63683,11 +67992,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsJupyterLabAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
     }
@@ -63724,11 +68033,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsJupyterServerAppSettings {
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec>;
         /**
@@ -63769,11 +68078,11 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsKernelGatewayAppSettings {
         /**
-         * A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+         * A list of custom SageMaker images that are configured to run as a KernelGateway app. See `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage>[]>;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
         /**
@@ -63821,10 +68130,16 @@ export namespace sagemaker {
     }
 
     export interface SpaceSpaceSettingsSpaceStorageSettings {
+        /**
+         * A collection of EBS storage settings for a space. See `ebsStorageSettings` Block below.
+         */
         ebsStorageSettings: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings>;
     }
 
     export interface SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings {
+        /**
+         * The size of an EBS storage volume for a space.
+         */
         ebsVolumeSizeInGb: pulumi.Input<number>;
     }
 
@@ -65077,16 +69392,34 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<number>;
         gt?: pulumi.Input<number>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<number>;
         lt?: pulumi.Input<number>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<number>;
     }
 
     export interface AutomationRuleCriteriaCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65102,10 +69435,19 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<number>;
         gt?: pulumi.Input<number>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<number>;
         lt?: pulumi.Input<number>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<number>;
     }
 
@@ -65115,8 +69457,17 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaFirstObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaFirstObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65142,8 +69493,17 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65164,8 +69524,17 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaNoteUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaNoteUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65222,6 +69591,9 @@ export namespace securityhub {
 
     export interface AutomationRuleCriteriaResourceDetailsOther {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -65243,6 +69615,9 @@ export namespace securityhub {
 
     export interface AutomationRuleCriteriaResourceTag {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -65273,8 +69648,17 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleCriteriaUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.AutomationRuleCriteriaUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65291,6 +69675,9 @@ export namespace securityhub {
 
     export interface AutomationRuleCriteriaUserDefinedField {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -65792,14 +70179,32 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
     export interface InsightFiltersCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65815,8 +70220,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
@@ -65826,14 +70240,32 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersFindingProviderFieldsConfidence {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
     export interface InsightFiltersFindingProviderFieldsCriticality {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
@@ -65863,8 +70295,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersFirstObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersFirstObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65897,8 +70338,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -65939,16 +70389,31 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersNetworkDestinationIpv4 {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
     export interface InsightFiltersNetworkDestinationIpv6 {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
     export interface InsightFiltersNetworkDestinationPort {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
@@ -65968,10 +70433,16 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersNetworkSourceIpv4 {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
     export interface InsightFiltersNetworkSourceIpv6 {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
@@ -65981,8 +70452,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersNetworkSourcePort {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
@@ -65992,8 +70472,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersNoteUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersNoteUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66014,8 +70503,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersProcessLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersProcessLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66036,8 +70534,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersProcessParentPid {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
@@ -66047,14 +70554,32 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersProcessPid {
+        /**
+         * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
+         */
         eq?: pulumi.Input<string>;
+        /**
+         * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         gte?: pulumi.Input<string>;
+        /**
+         * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
+         */
         lte?: pulumi.Input<string>;
     }
 
     export interface InsightFiltersProcessTerminatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersProcessTerminatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66076,6 +70601,9 @@ export namespace securityhub {
 
     export interface InsightFiltersProductField {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -66116,10 +70644,16 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceIpv4Address {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceIpv6Address {
+        /**
+         * A finding's CIDR value.
+         */
         cidr: pulumi.Input<string>;
     }
 
@@ -66129,8 +70663,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceAwsEc2InstanceLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66161,8 +70704,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceAwsIamAccessKeyCreatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66208,8 +70760,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersResourceContainerLaunchedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersResourceContainerLaunchedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66231,6 +70792,9 @@ export namespace securityhub {
 
     export interface InsightFiltersResourceDetailsOther {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -66252,6 +70816,9 @@ export namespace securityhub {
 
     export interface InsightFiltersResourceTag {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -66277,8 +70844,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersThreatIntelIndicatorLastObservedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersThreatIntelIndicatorLastObservedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66324,8 +70900,17 @@ export namespace securityhub {
     }
 
     export interface InsightFiltersUpdatedAt {
+        /**
+         * A configuration block of the date range for the date filter. See dateRange below for more details.
+         */
         dateRange?: pulumi.Input<inputs.securityhub.InsightFiltersUpdatedAtDateRange>;
+        /**
+         * An end date for the date filter. Required with `start` if `dateRange` is not specified.
+         */
         end?: pulumi.Input<string>;
+        /**
+         * A start date for the date filter. Required with `end` if `dateRange` is not specified.
+         */
         start?: pulumi.Input<string>;
     }
 
@@ -66342,6 +70927,9 @@ export namespace securityhub {
 
     export interface InsightFiltersUserDefinedValue {
         comparison: pulumi.Input<string>;
+        /**
+         * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+         */
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -66566,31 +71154,34 @@ export namespace securitylake {
 
     export interface SubscriberSource {
         /**
-         * Amazon Security Lake supports log and event collection for natively supported AWS services.
+         * Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
          */
         awsLogSourceResource?: pulumi.Input<inputs.securitylake.SubscriberSourceAwsLogSourceResource>;
         /**
-         * Amazon Security Lake supports custom source types.
+         * Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
          */
         customLogSourceResource?: pulumi.Input<inputs.securitylake.SubscriberSourceCustomLogSourceResource>;
     }
 
     export interface SubscriberSourceAwsLogSourceResource {
         /**
-         * The name for a third-party custom source. This must be a Regionally unique value.
+         * Provides data expiration details of Amazon Security Lake object.
          */
         sourceName: pulumi.Input<string>;
         /**
-         * The version for a third-party custom source. This must be a Regionally unique value.
+         * Provides data storage transition details of Amazon Security Lake object.
          */
         sourceVersion?: pulumi.Input<string>;
     }
 
     export interface SubscriberSourceCustomLogSourceResource {
         /**
-         * The attributes of a third-party custom source.
+         * The attributes of the third-party custom source. See `attributes` Block below.
          */
         attributes?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSourceCustomLogSourceResourceAttribute>[]>;
+        /**
+         * The details of the log provider for the third-party custom source. See `provider` Block below.
+         */
         providers?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSourceCustomLogSourceResourceProvider>[]>;
         /**
          * The name for a third-party custom source. This must be a Regionally unique value.
@@ -67118,36 +71709,35 @@ export namespace sesv2 {
 
     export interface ConfigurationSetEventDestinationEventDestination {
         /**
-         * An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
+         * An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
          */
         cloudWatchDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination>;
         /**
          * When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
          */
         enabled?: pulumi.Input<boolean>;
+        eventBridgeDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination>;
         /**
-         * An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
+         * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
          */
         kinesisFirehoseDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination>;
         /**
          * An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-         *
-         * The following arguments are optional:
          */
         matchingEventTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
+         * An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
          */
         pinpointDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestination>;
         /**
-         * An object that defines an Amazon SNS destination for email events. See snsDestination below.
+         * An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
          */
         snsDestination?: pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestination>;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
         /**
-         * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
+         * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
          */
         dimensionConfigurations: pulumi.Input<pulumi.Input<inputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration>[]>;
     }
@@ -67165,6 +71755,13 @@ export namespace sesv2 {
          * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
          */
         dimensionValueSource: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         */
+        eventBusArn: pulumi.Input<string>;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
@@ -67307,6 +71904,21 @@ export namespace sesv2 {
 }
 
 export namespace sfn {
+    export interface ActivityEncryptionConfiguration {
+        /**
+         * Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+         */
+        kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         */
+        type?: pulumi.Input<string>;
+    }
+
     export interface AliasRoutingConfiguration {
         /**
          * The Amazon Resource Name (ARN) of the state machine version.
@@ -67316,6 +71928,21 @@ export namespace sfn {
          * Percentage of traffic routed to the state machine version.
          */
         weight: pulumi.Input<number>;
+    }
+
+    export interface StateMachineEncryptionConfiguration {
+        /**
+         * Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+         */
+        kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
+        /**
+         * The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+         */
+        type?: pulumi.Input<string>;
     }
 
     export interface StateMachineLoggingConfiguration {
@@ -67384,8 +72011,17 @@ export namespace shield {
     }
 
     export interface ProactiveEngagementEmergencyContact {
+        /**
+         * Additional notes regarding the contact.
+         */
         contactNotes?: pulumi.Input<string>;
+        /**
+         * A valid email address that will be used for this contact.
+         */
         emailAddress: pulumi.Input<string>;
+        /**
+         * A phone number, starting with `+` and up to 15 digits that will be used for this contact.
+         */
         phoneNumber?: pulumi.Input<string>;
     }
 }
@@ -67400,6 +72036,9 @@ export namespace signer {
 
     export interface SigningJobDestinationS3 {
         bucket: pulumi.Input<string>;
+        /**
+         * An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+         */
         prefix?: pulumi.Input<string>;
     }
 
@@ -67415,6 +72054,9 @@ export namespace signer {
 
     export interface SigningJobSignedObjectS3 {
         bucket?: pulumi.Input<string>;
+        /**
+         * Key name of the object that contains your unsigned code.
+         */
         key?: pulumi.Input<string>;
     }
 
@@ -67427,7 +72069,13 @@ export namespace signer {
 
     export interface SigningJobSourceS3 {
         bucket: pulumi.Input<string>;
+        /**
+         * Key name of the object that contains your unsigned code.
+         */
         key: pulumi.Input<string>;
+        /**
+         * Version of your source image in your version enabled S3 bucket.
+         */
         version: pulumi.Input<string>;
     }
 
@@ -67699,6 +72347,9 @@ export namespace ssm {
 
     export interface MaintenanceWindowTaskTarget {
         key: pulumi.Input<string>;
+        /**
+         * The array of strings.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -67775,6 +72426,9 @@ export namespace ssm {
          * SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
          */
         documentHashType?: pulumi.Input<string>;
+        /**
+         * The version of an Automation document to use during task execution.
+         */
         documentVersion?: pulumi.Input<string>;
         /**
          * Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
@@ -67999,15 +72653,36 @@ export namespace ssmincidents {
     }
 
     export interface ResponsePlanAction {
+        /**
+         * The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+         */
         ssmAutomations?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionSsmAutomation>[]>;
     }
 
     export interface ResponsePlanActionSsmAutomation {
+        /**
+         * The automation document's name.
+         */
         documentName: pulumi.Input<string>;
+        /**
+         * The version of the automation document to use at runtime.
+         */
         documentVersion?: pulumi.Input<string>;
+        /**
+         * The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+         */
         dynamicParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The key-value pair parameters to use when the automation document runs. The following values are supported:
+         */
         parameters?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionSsmAutomationParameter>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+         */
         roleArn: pulumi.Input<string>;
+        /**
+         * The account that the automation document runs in. This can be in either the management account or an application account.
+         */
         targetAccount?: pulumi.Input<string>;
     }
 
@@ -68016,6 +72691,9 @@ export namespace ssmincidents {
          * The name of the response plan.
          */
         name: pulumi.Input<string>;
+        /**
+         * The values for the associated parameter name.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -68056,6 +72734,9 @@ export namespace ssmincidents {
     }
 
     export interface ResponsePlanIntegration {
+        /**
+         * Details about the PagerDuty configuration for a response plan. The following values are supported:
+         */
         pagerduties?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanIntegrationPagerduty>[]>;
     }
 
@@ -68064,7 +72745,15 @@ export namespace ssmincidents {
          * The name of the response plan.
          */
         name: pulumi.Input<string>;
+        /**
+         * The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+         *
+         * For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+         */
         secretId: pulumi.Input<string>;
+        /**
+         * The ID of the PagerDuty service that the response plan associated with the incident at launch.
+         */
         serviceId: pulumi.Input<string>;
     }
 }
@@ -68247,11 +72936,20 @@ export namespace ssoadmin {
     }
 
     export interface InstanceAccessControlAttributesAttribute {
+        /**
+         * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+         */
         values: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttributeValue>[]>;
     }
 
     export interface InstanceAccessControlAttributesAttributeValue {
+        /**
+         * The identity source to use when mapping a specified attribute to AWS SSO.
+         */
         sources: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -68492,6 +73190,43 @@ export namespace synthetics {
     }
 }
 
+export namespace timestreaminfluxdb {
+    export interface DbInstanceLogDeliveryConfiguration {
+        /**
+         * Configuration for S3 bucket log delivery.
+         */
+        s3Configuration?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceLogDeliveryConfigurationS3Configuration>;
+    }
+
+    export interface DbInstanceLogDeliveryConfigurationS3Configuration {
+        /**
+         * Name of the S3 bucket to deliver logs to.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * Indicates whether log delivery to the S3 bucket is enabled.
+         *
+         * **Note**: Only three arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface DbInstanceTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace timestreamwrite {
     export interface TableMagneticStoreWriteProperties {
         /**
@@ -68611,18 +73346,48 @@ export namespace transfer {
     }
 
     export interface ConnectorAs2Config {
+        /**
+         * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         */
         compression: pulumi.Input<string>;
+        /**
+         * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         */
         encryptionAlgorithm: pulumi.Input<string>;
+        /**
+         * The unique identifier for the AS2 local profile.
+         */
         localProfileId: pulumi.Input<string>;
+        /**
+         * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         */
         mdnResponse: pulumi.Input<string>;
+        /**
+         * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         */
         mdnSigningAlgorithm?: pulumi.Input<string>;
+        /**
+         * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         */
         messageSubject?: pulumi.Input<string>;
+        /**
+         * The unique identifier for the AS2 partner profile.
+         */
         partnerProfileId: pulumi.Input<string>;
+        /**
+         * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         */
         signingAlgorithm: pulumi.Input<string>;
     }
 
     export interface ConnectorSftpConfig {
+        /**
+         * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         */
         trustedHostKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         */
         userSecretId?: pulumi.Input<string>;
     }
 
@@ -68679,11 +73444,11 @@ export namespace transfer {
 
     export interface ServerWorkflowDetails {
         /**
-         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
          */
         onPartialUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnPartialUpload>;
         /**
-         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
          */
         onUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnUpload>;
     }
@@ -68746,10 +73511,25 @@ export namespace transfer {
     }
 
     export interface WorkflowOnExceptionStep {
+        /**
+         * Details for a step that performs a file copy. See Copy Step Details below.
+         */
         copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetails>;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
         customStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCustomStepDetails>;
+        /**
+         * Details for a step that decrypts the file.
+         */
         decryptStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDecryptStepDetails>;
+        /**
+         * Details for a step that deletes the file.
+         */
         deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDeleteStepDetails>;
+        /**
+         * Details for a step that creates one or more tags.
+         */
         tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepTagStepDetails>;
         type: pulumi.Input<string>;
     }
@@ -68909,14 +73689,32 @@ export namespace transfer {
 
     export interface WorkflowOnExceptionStepTagStepDetailsTag {
         key: pulumi.Input<string>;
+        /**
+         * The value that corresponds to the key.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface WorkflowStep {
+        /**
+         * Details for a step that performs a file copy. See Copy Step Details below.
+         */
         copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetails>;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
         customStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCustomStepDetails>;
+        /**
+         * Details for a step that decrypts the file.
+         */
         decryptStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetails>;
+        /**
+         * Details for a step that deletes the file.
+         */
         deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDeleteStepDetails>;
+        /**
+         * Details for a step that creates one or more tags.
+         */
         tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepTagStepDetails>;
         type: pulumi.Input<string>;
     }
@@ -69076,6 +73874,9 @@ export namespace transfer {
 
     export interface WorkflowStepTagStepDetailsTag {
         key: pulumi.Input<string>;
+        /**
+         * The value that corresponds to the key.
+         */
         value: pulumi.Input<string>;
     }
 }
@@ -69210,6 +74011,102 @@ export namespace verifiedaccess {
 }
 
 export namespace verifiedpermissions {
+    export interface IdentitySourceConfiguration {
+        /**
+         * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         */
+        cognitoUserPoolConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfiguration>;
+        /**
+         * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         */
+        openIdConnectConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfiguration>;
+    }
+
+    export interface IdentitySourceConfigurationCognitoUserPoolConfiguration {
+        /**
+         * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         */
+        clientIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         */
+        groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+         */
+        userPoolArn: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+        /**
+         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         */
+        groupEntityType: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfiguration {
+        /**
+         * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         */
+        entityIdPrefix?: pulumi.Input<string>;
+        /**
+         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         */
+        groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration>;
+        /**
+         * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         */
+        tokenSelection?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+        /**
+         * The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+         */
+        groupClaim: pulumi.Input<string>;
+        /**
+         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         */
+        groupEntityType: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+        /**
+         * The OIDC configuration for processing access tokens. See Access Token Only below.
+         */
+        accessTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly>;
+        /**
+         * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         */
+        identityTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+        /**
+         * The access token aud claim values that you want to accept in your policy store.
+         */
+        audiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The claim that determines the principal in OIDC access tokens.
+         */
+        principalIdClaim?: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+        /**
+         * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         */
+        clientIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The claim that determines the principal in OIDC access tokens.
+         */
+        principalIdClaim?: pulumi.Input<string>;
+    }
+
     export interface PolicyDefinition {
         /**
          * The static policy statement. See Static below.
@@ -69369,7 +74266,14 @@ export namespace vpclattice {
     }
 
     export interface ListenerDefaultActionForwardTargetGroup {
+        /**
+         * ID or Amazon Resource Name (ARN) of the target group.
+         */
         targetGroupIdentifier?: pulumi.Input<string>;
+        /**
+         * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+         * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+         */
         weight?: pulumi.Input<number>;
     }
 
@@ -69588,30 +74492,88 @@ export namespace vpclattice {
 
 export namespace waf {
     export interface ByteMatchSetByteMatchTuple {
+        /**
+         * The part of a web request that you want to search, such as a specified header or a query string.
+         */
         fieldToMatch: pulumi.Input<inputs.waf.ByteMatchSetByteMatchTupleFieldToMatch>;
+        /**
+         * Within the portion of a web request that you want to search
+         * (for example, in the query string, if any), specify where you want to search.
+         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
+         * for all supported values.
+         */
         positionalConstraint: pulumi.Input<string>;
+        /**
+         * The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
+         * for all supported values.
+         */
         targetString?: pulumi.Input<string>;
+        /**
+         * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+         * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
+         * for all supported values.
+         */
         textTransformation: pulumi.Input<string>;
     }
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
+        /**
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+         * If `type` is any other value, omit this field.
+         */
         data?: pulumi.Input<string>;
+        /**
+         * The part of the web request that you want AWS WAF to search for a specified string.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+         * for all supported values.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
+        /**
+         * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+         */
         type: pulumi.Input<string>;
+        /**
+         * The country that you want AWS WAF to search for.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface IpSetIpSetDescriptor {
+        /**
+         * Type of the IP address - `IPV4` or `IPV6`.
+         */
         type: pulumi.Input<string>;
+        /**
+         * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+         */
         value: pulumi.Input<string>;
     }
 
     export interface RateBasedRulePredicate {
+        /**
+         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+         */
         dataId: pulumi.Input<string>;
+        /**
+         * Set this to `false` if you want to allow, block, or count requests
+         * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
+         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+         */
         negated: pulumi.Input<boolean>;
+        /**
+         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -69649,8 +74611,17 @@ export namespace waf {
     }
 
     export interface RuleGroupActivatedRule {
+        /**
+         * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+         */
         action: pulumi.Input<inputs.waf.RuleGroupActivatedRuleAction>;
+        /**
+         * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+         */
         priority: pulumi.Input<number>;
+        /**
+         * The ID of a rule
+         */
         ruleId: pulumi.Input<string>;
         type?: pulumi.Input<string>;
     }
@@ -69660,20 +74631,51 @@ export namespace waf {
     }
 
     export interface RulePredicate {
+        /**
+         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+         */
         dataId: pulumi.Input<string>;
+        /**
+         * Set this to `false` if you want to allow, block, or count requests
+         * based on the settings in the specified waf_byte_match_set, waf_ipset, aws_waf_size_constraint_set, aws.waf.SqlInjectionMatchSet or aws_waf_xss_match_set.
+         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
+         */
         negated: pulumi.Input<boolean>;
+        /**
+         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraint {
+        /**
+         * Type of comparison you want to perform, such as `EQ`, `NE`, `LT`, or `GT`. Please refer to the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for a complete list of supported values.
+         */
         comparisonOperator: pulumi.Input<string>;
+        /**
+         * Parameter that specifies where in a web request to look for the size constraint.
+         */
         fieldToMatch: pulumi.Input<inputs.waf.SizeConstraintSetSizeConstraintFieldToMatch>;
+        /**
+         * Size in bytes that you want to compare against the size of the specified `fieldToMatch`. Valid values for `size` are between 0 and 21474836480 bytes (0 and 20 GB).
+         */
         size: pulumi.Input<number>;
+        /**
+         * Parameter is used to eliminate unusual formatting that attackers may use in web requests to bypass AWS WAF. When a transformation is specified, AWS WAF performs the transformation on the `fieldToMatch` before inspecting the request for a match. Some examples of supported transformations are `CMD_LINE`, `HTML_ENTITY_DECODE`, and `NONE`. You can find a complete list of supported values in the [AWS WAF API Reference](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation).
+         * **Note:** If you choose `BODY` as the `type`, you must also choose `NONE` because CloudFront only forwards the first 8192 bytes for inspection.
+         */
         textTransformation: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
+        /**
+         * When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
+         */
         data?: pulumi.Input<string>;
+        /**
+         * Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -69693,7 +74695,17 @@ export namespace waf {
     }
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
+        /**
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+         * If `type` is any other value, omit this field.
+         */
         data?: pulumi.Input<string>;
+        /**
+         * The part of the web request that you want AWS WAF to search for a specified string.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+         * for all supported values.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -69788,7 +74800,17 @@ export namespace waf {
     }
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
+        /**
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+         * If `type` is any other value, omit this field.
+         */
         data?: pulumi.Input<string>;
+        /**
+         * The part of the web request that you want AWS WAF to search for a specified string.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+         * for all supported values.
+         */
         type: pulumi.Input<string>;
     }
 }
@@ -69827,18 +74849,44 @@ export namespace wafregional {
     }
 
     export interface GeoMatchSetGeoMatchConstraint {
+        /**
+         * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+         */
         type: pulumi.Input<string>;
+        /**
+         * The country that you want AWS WAF to search for.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface IpSetIpSetDescriptor {
+        /**
+         * The string like IPV4 or IPV6.
+         */
         type: pulumi.Input<string>;
+        /**
+         * The CIDR notation.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface RateBasedRulePredicate {
+        /**
+         * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
+         */
         dataId: pulumi.Input<string>;
+        /**
+         * Set this to `false` if you want to allow, block, or count requests
+         * based on the settings in the specified `ByteMatchSet`, `IPSet`, `SqlInjectionMatchSet`, `XssMatchSet`, or `SizeConstraintSet`.
+         * For example, if an IPSet includes the IP address `192.0.2.44`, AWS WAF will allow or block requests based on that IP address.
+         * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
+         */
         negated: pulumi.Input<boolean>;
+        /**
+         * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -69876,8 +74924,17 @@ export namespace wafregional {
     }
 
     export interface RuleGroupActivatedRule {
+        /**
+         * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+         */
         action: pulumi.Input<inputs.wafregional.RuleGroupActivatedRuleAction>;
+        /**
+         * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
+         */
         priority: pulumi.Input<number>;
+        /**
+         * The ID of a rule
+         */
         ruleId: pulumi.Input<string>;
         type?: pulumi.Input<string>;
     }
@@ -69893,14 +74950,44 @@ export namespace wafregional {
     }
 
     export interface SizeConstraintSetSizeConstraint {
+        /**
+         * The type of comparison you want to perform.
+         * e.g., `EQ`, `NE`, `LT`, `GT`.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
+         */
         comparisonOperator: pulumi.Input<string>;
+        /**
+         * Specifies where in a web request to look for the size constraint.
+         */
         fieldToMatch: pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraintFieldToMatch>;
+        /**
+         * The size in bytes that you want to compare against the size of the specified `fieldToMatch`.
+         * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
+         */
         size: pulumi.Input<number>;
+        /**
+         * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
+         * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
+         * for all supported values.
+         * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
+         */
         textTransformation: pulumi.Input<string>;
     }
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
+        /**
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
+         * If `type` is any other value, omit this field.
+         */
         data?: pulumi.Input<string>;
+        /**
+         * The part of the web request that you want AWS WAF to search for a specified string.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
+         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
+         * for all supported values.
+         */
         type: pulumi.Input<string>;
     }
 
@@ -70124,6 +75211,9 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -70154,6 +75244,9 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -70176,6 +75269,9 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -70198,6 +75294,9 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -70220,6 +75319,9 @@ export namespace wafv2 {
          * A friendly name of the rule group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -70398,6 +75500,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -70470,6 +75575,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -70782,17 +75890,53 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
         byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
         orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement>;
     }
 
@@ -70895,6 +76039,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -70967,6 +76114,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71169,6 +76319,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -71241,6 +76394,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71370,6 +76526,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -71442,6 +76601,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71575,6 +76737,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -71647,6 +76812,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71693,6 +76861,9 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: pulumi.Input<string>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -71773,6 +76944,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -71845,6 +77019,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -71970,6 +77147,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -72042,6 +77222,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -72171,6 +77354,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -72243,6 +77429,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -72372,6 +77561,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -72444,6 +77636,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -72577,6 +77772,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -72649,6 +77847,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -72695,6 +77896,9 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: pulumi.Input<string>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -72775,6 +77979,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -72847,6 +78054,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -72972,6 +78182,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -73044,6 +78257,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -73773,6 +78989,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -73848,6 +79067,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -74131,11 +79353,17 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
         failureValues: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The identifier for the value to match against in the JSON.
          */
         identifier: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
         successValues: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -74244,11 +79472,17 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
         failureValues: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The identifier for the value to match against in the JSON.
          */
         identifier: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
         successValues: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -74264,6 +79498,10 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
+        /**
+         * Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
+         */
+        enableMachineLearning?: pulumi.Input<boolean>;
         /**
          * The inspection level to use for the Bot Control rule group.
          */
@@ -74298,7 +79536,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
         allow?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow>;
         block?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock>;
+        /**
+         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         */
         captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha>;
+        /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         */
         challenge?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge>;
         count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount>;
     }
@@ -74437,17 +79681,53 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+        /**
+         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+         */
         andStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement>;
+        /**
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+         */
         byteMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+         */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+         */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+         */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+         */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement>;
+        /**
+         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+         */
         orStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement>;
+        /**
+         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+         */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+         */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+         */
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+         */
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+         */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement>;
     }
 
@@ -74554,6 +79834,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -74629,6 +79912,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -74835,6 +80121,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -74910,6 +80199,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -75043,6 +80335,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -75118,6 +80413,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -75255,6 +80553,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -75330,6 +80631,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -75376,6 +80680,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: pulumi.Input<string>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
@@ -75460,6 +80767,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -75535,6 +80845,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -75664,6 +80977,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -75739,6 +81055,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -75992,17 +81311,53 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatement {
+        /**
+         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+         */
         andStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement>;
+        /**
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+         */
         byteMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+         */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+         */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+         */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+         */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement>;
+        /**
+         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+         */
         orStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement>;
+        /**
+         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+         */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+         */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+         */
         sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+         */
         sqliMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+         */
         xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement>;
     }
 
@@ -76109,6 +81464,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -76184,6 +81542,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -76390,6 +81751,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -76465,6 +81829,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -76598,6 +81965,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -76673,6 +82043,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -76810,6 +82183,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -76885,6 +82261,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -76931,6 +82310,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: pulumi.Input<string>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
@@ -77015,6 +82397,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -77090,6 +82475,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -77219,6 +82607,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -77294,6 +82685,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -77427,6 +82821,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -77502,6 +82899,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -77635,6 +83035,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -77710,6 +83113,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -77776,7 +83182,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
         allow?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow>;
         block?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock>;
+        /**
+         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         */
         captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha>;
+        /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         */
         challenge?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge>;
         count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount>;
     }
@@ -78010,6 +83422,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -78085,6 +83500,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -78131,6 +83549,9 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
+         */
         sensitivityLevel?: pulumi.Input<string>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
@@ -78215,6 +83636,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -78290,6 +83714,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -78419,6 +83846,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
         excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
         includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -78494,6 +83924,9 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
         all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
         includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -78700,6 +84133,9 @@ export namespace workspaces {
          * The description of the IP group.
          */
         description?: pulumi.Input<string>;
+        /**
+         * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+         */
         source: pulumi.Input<string>;
     }
 

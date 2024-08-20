@@ -33,7 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/directoryservice/%v", exampleAwsDirectoryServiceDirectory.Id)),
+//				Name:            pulumi.Sprintf("/aws/directoryservice/%v", exampleAwsDirectoryServiceDirectory.Id),
 //				RetentionInDays: pulumi.Int(14),
 //			})
 //			if err != nil {
@@ -64,9 +64,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad-log-policy", &cloudwatch.LogResourcePolicyArgs{
-//				PolicyDocument: ad_log_policy.ApplyT(func(ad_log_policy iam.GetPolicyDocumentResult) (*string, error) {
+//				PolicyDocument: pulumi.String(ad_log_policy.ApplyT(func(ad_log_policy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &ad_log_policy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				PolicyName: pulumi.String("ad-log-policy"),
 //			})
 //			if err != nil {

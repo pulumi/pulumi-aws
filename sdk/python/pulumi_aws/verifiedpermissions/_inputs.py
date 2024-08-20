@@ -15,6 +15,22 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'IdentitySourceConfigurationArgs',
+    'IdentitySourceConfigurationArgsDict',
+    'IdentitySourceConfigurationCognitoUserPoolConfigurationArgs',
+    'IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict',
+    'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs',
+    'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationArgs',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs',
+    'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict',
     'PolicyDefinitionArgs',
     'PolicyDefinitionArgsDict',
     'PolicyDefinitionStaticArgs',
@@ -32,6 +48,457 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class IdentitySourceConfigurationArgsDict(TypedDict):
+        cognito_user_pool_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict']]
+        """
+        Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+        """
+        open_id_connect_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict']]
+        """
+        Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+        """
+elif False:
+    IdentitySourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationArgs:
+    def __init__(__self__, *,
+                 cognito_user_pool_configuration: Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgs']] = None,
+                 open_id_connect_configuration: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgs'] cognito_user_pool_configuration: Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgs'] open_id_connect_configuration: Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+        """
+        if cognito_user_pool_configuration is not None:
+            pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
+        if open_id_connect_configuration is not None:
+            pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+
+    @property
+    @pulumi.getter(name="cognitoUserPoolConfiguration")
+    def cognito_user_pool_configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgs']]:
+        """
+        Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+        """
+        return pulumi.get(self, "cognito_user_pool_configuration")
+
+    @cognito_user_pool_configuration.setter
+    def cognito_user_pool_configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgs']]):
+        pulumi.set(self, "cognito_user_pool_configuration", value)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfiguration")
+    def open_id_connect_configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgs']]:
+        """
+        Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+        """
+        return pulumi.get(self, "open_id_connect_configuration")
+
+    @open_id_connect_configuration.setter
+    def open_id_connect_configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgs']]):
+        pulumi.set(self, "open_id_connect_configuration", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict(TypedDict):
+        user_pool_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        """
+        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        """
+        group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict']]
+        """
+        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        """
+elif False:
+    IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs:
+    def __init__(__self__, *,
+                 user_pool_arn: pulumi.Input[str],
+                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 group_configuration: Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] user_pool_arn: The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        :param pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs'] group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        """
+        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
+
+    @property
+    @pulumi.getter(name="userPoolArn")
+    def user_pool_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        """
+        return pulumi.get(self, "user_pool_arn")
+
+    @user_pool_arn.setter
+    def user_pool_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool_arn", value)
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        """
+        return pulumi.get(self, "client_ids")
+
+    @client_ids.setter
+    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_ids", value)
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs']]:
+        """
+        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        """
+        return pulumi.get(self, "group_configuration")
+
+    @group_configuration.setter
+    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs']]):
+        pulumi.set(self, "group_configuration", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict(TypedDict):
+        group_entity_type: pulumi.Input[str]
+        """
+        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+elif False:
+    IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 group_entity_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> pulumi.Input[str]:
+        """
+        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+        return pulumi.get(self, "group_entity_type")
+
+    @group_entity_type.setter
+    def group_entity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_entity_type", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict(TypedDict):
+        issuer: pulumi.Input[str]
+        """
+        The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        """
+        entity_id_prefix: NotRequired[pulumi.Input[str]]
+        """
+        A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+        """
+        group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict']]
+        """
+        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        """
+        token_selection: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict']]
+        """
+        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        """
+elif False:
+    IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
+    def __init__(__self__, *,
+                 issuer: pulumi.Input[str],
+                 entity_id_prefix: Optional[pulumi.Input[str]] = None,
+                 group_configuration: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']] = None,
+                 token_selection: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']] = None):
+        """
+        :param pulumi.Input[str] issuer: The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        :param pulumi.Input[str] entity_id_prefix: A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs'] group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs'] token_selection: The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        if entity_id_prefix is not None:
+            pulumi.set(__self__, "entity_id_prefix", entity_id_prefix)
+        if group_configuration is not None:
+            pulumi.set(__self__, "group_configuration", group_configuration)
+        if token_selection is not None:
+            pulumi.set(__self__, "token_selection", token_selection)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[str]:
+        """
+        The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="entityIdPrefix")
+    def entity_id_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+        """
+        return pulumi.get(self, "entity_id_prefix")
+
+    @entity_id_prefix.setter
+    def entity_id_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_id_prefix", value)
+
+    @property
+    @pulumi.getter(name="groupConfiguration")
+    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']]:
+        """
+        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        """
+        return pulumi.get(self, "group_configuration")
+
+    @group_configuration.setter
+    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']]):
+        pulumi.set(self, "group_configuration", value)
+
+    @property
+    @pulumi.getter(name="tokenSelection")
+    def token_selection(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']]:
+        """
+        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+        """
+        return pulumi.get(self, "token_selection")
+
+    @token_selection.setter
+    def token_selection(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs']]):
+        pulumi.set(self, "token_selection", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict(TypedDict):
+        group_claim: pulumi.Input[str]
+        """
+        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        """
+        group_entity_type: pulumi.Input[str]
+        """
+        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+elif False:
+    IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 group_claim: pulumi.Input[str],
+                 group_entity_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] group_claim: The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        :param pulumi.Input[str] group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+        pulumi.set(__self__, "group_claim", group_claim)
+        pulumi.set(__self__, "group_entity_type", group_entity_type)
+
+    @property
+    @pulumi.getter(name="groupClaim")
+    def group_claim(self) -> pulumi.Input[str]:
+        """
+        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+        """
+        return pulumi.get(self, "group_claim")
+
+    @group_claim.setter
+    def group_claim(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_claim", value)
+
+    @property
+    @pulumi.getter(name="groupEntityType")
+    def group_entity_type(self) -> pulumi.Input[str]:
+        """
+        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        """
+        return pulumi.get(self, "group_entity_type")
+
+    @group_entity_type.setter
+    def group_entity_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_entity_type", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict(TypedDict):
+        access_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict']]
+        """
+        The OIDC configuration for processing access tokens. See Access Token Only below.
+        """
+        identity_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict']]
+        """
+        The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        """
+elif False:
+    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs:
+    def __init__(__self__, *,
+                 access_token_only: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs']] = None,
+                 identity_token_only: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs']] = None):
+        """
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs'] access_token_only: The OIDC configuration for processing access tokens. See Access Token Only below.
+        :param pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs'] identity_token_only: The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        """
+        if access_token_only is not None:
+            pulumi.set(__self__, "access_token_only", access_token_only)
+        if identity_token_only is not None:
+            pulumi.set(__self__, "identity_token_only", identity_token_only)
+
+    @property
+    @pulumi.getter(name="accessTokenOnly")
+    def access_token_only(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs']]:
+        """
+        The OIDC configuration for processing access tokens. See Access Token Only below.
+        """
+        return pulumi.get(self, "access_token_only")
+
+    @access_token_only.setter
+    def access_token_only(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs']]):
+        pulumi.set(self, "access_token_only", value)
+
+    @property
+    @pulumi.getter(name="identityTokenOnly")
+    def identity_token_only(self) -> Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs']]:
+        """
+        The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+        """
+        return pulumi.get(self, "identity_token_only")
+
+    @identity_token_only.setter
+    def identity_token_only(self, value: Optional[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs']]):
+        pulumi.set(self, "identity_token_only", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict(TypedDict):
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The access token aud claim values that you want to accept in your policy store.
+        """
+        principal_id_claim: NotRequired[pulumi.Input[str]]
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
+elif False:
+    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs:
+    def __init__(__self__, *,
+                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id_claim: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The access token aud claim values that you want to accept in your policy store.
+        :param pulumi.Input[str] principal_id_claim: The claim that determines the principal in OIDC access tokens.
+        """
+        if audiences is not None:
+            pulumi.set(__self__, "audiences", audiences)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The access token aud claim values that you want to accept in your policy store.
+        """
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "audiences", value)
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[pulumi.Input[str]]:
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
+        return pulumi.get(self, "principal_id_claim")
+
+    @principal_id_claim.setter
+    def principal_id_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id_claim", value)
+
+
+if not MYPY:
+    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict(TypedDict):
+        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        """
+        principal_id_claim: NotRequired[pulumi.Input[str]]
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
+elif False:
+    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs:
+    def __init__(__self__, *,
+                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id_claim: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids: The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        :param pulumi.Input[str] principal_id_claim: The claim that determines the principal in OIDC access tokens.
+        """
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
+        if principal_id_claim is not None:
+            pulumi.set(__self__, "principal_id_claim", principal_id_claim)
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+        """
+        return pulumi.get(self, "client_ids")
+
+    @client_ids.setter
+    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_ids", value)
+
+    @property
+    @pulumi.getter(name="principalIdClaim")
+    def principal_id_claim(self) -> Optional[pulumi.Input[str]]:
+        """
+        The claim that determines the principal in OIDC access tokens.
+        """
+        return pulumi.get(self, "principal_id_claim")
+
+    @principal_id_claim.setter
+    def principal_id_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id_claim", value)
+
 
 if not MYPY:
     class PolicyDefinitionArgsDict(TypedDict):

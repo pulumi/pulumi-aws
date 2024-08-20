@@ -132,6 +132,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CloudWatch Logs Logging Configuration Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.LogGroup("example", {name: "example-pipe-target"});
+ * const examplePipe = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: sourceAwsSqsQueue.arn,
+ *     target: targetAwsSqsQueue.arn,
+ *     logConfiguration: {
+ *         includeExecutionDatas: ["ALL"],
+ *         level: "INFO",
+ *         cloudwatchLogsLogDestination: {
+ *             logGroupArn: targetAwsCloudwatchLogGroup.arn,
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         source,
+ *         target,
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import pipes using the `name`. For example:

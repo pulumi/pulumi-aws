@@ -13,13 +13,13 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     public sealed class SubscriberSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Security Lake supports log and event collection for natively supported AWS services.
+        /// Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
         /// </summary>
         [Input("awsLogSourceResource")]
         public Input<Inputs.SubscriberSourceAwsLogSourceResourceGetArgs>? AwsLogSourceResource { get; set; }
 
         /// <summary>
-        /// Amazon Security Lake supports custom source types.
+        /// Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
         /// </summary>
         [Input("customLogSourceResource")]
         public Input<Inputs.SubscriberSourceCustomLogSourceResourceGetArgs>? CustomLogSourceResource { get; set; }

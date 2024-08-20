@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sfn;
 
+import com.pulumi.aws.sfn.inputs.StateMachineEncryptionConfigurationArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineTracingConfigurationArgs;
 import com.pulumi.core.Output;
@@ -33,6 +34,21 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> definition() {
         return this.definition;
+    }
+
+    /**
+     * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<StateMachineEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+     * 
+     */
+    public Optional<Output<StateMachineEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -159,6 +175,7 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
 
     private StateMachineArgs(StateMachineArgs $) {
         this.definition = $.definition;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.loggingConfiguration = $.loggingConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -206,6 +223,27 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder definition(String definition) {
             return definition(Output.of(definition));
+        }
+
+        /**
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<StateMachineEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(StateMachineEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**

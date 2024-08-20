@@ -184,14 +184,14 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     @Import(name="ipv6NetmaskLength")
     private @Nullable Output<Integer> ipv6NetmaskLength;
 
     /**
-     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+     * @return Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
     public Optional<Output<Integer>> ipv6NetmaskLength() {
@@ -481,7 +481,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6NetmaskLength Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+         * @param ipv6NetmaskLength Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
          * 
          * @return builder
          * 
@@ -492,7 +492,7 @@ public final class VpcArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipv6NetmaskLength Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+         * @param ipv6NetmaskLength Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
          * 
          * @return builder
          * 

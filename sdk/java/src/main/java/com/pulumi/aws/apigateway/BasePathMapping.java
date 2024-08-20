@@ -100,7 +100,7 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BasePathMapping(String name) {
+    public BasePathMapping(java.lang.String name) {
         this(name, BasePathMappingArgs.Empty);
     }
     /**
@@ -108,7 +108,7 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BasePathMapping(String name, BasePathMappingArgs args) {
+    public BasePathMapping(java.lang.String name, BasePathMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -117,15 +117,22 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BasePathMapping(String name, BasePathMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/basePathMapping:BasePathMapping", name, args == null ? BasePathMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public BasePathMapping(java.lang.String name, BasePathMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/basePathMapping:BasePathMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BasePathMapping(String name, Output<String> id, @Nullable BasePathMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:apigateway/basePathMapping:BasePathMapping", name, state, makeResourceOptions(options, id));
+    private BasePathMapping(java.lang.String name, Output<java.lang.String> id, @Nullable BasePathMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:apigateway/basePathMapping:BasePathMapping", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static BasePathMappingArgs makeArgs(BasePathMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BasePathMappingArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -141,7 +148,7 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BasePathMapping get(String name, Output<String> id, @Nullable BasePathMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BasePathMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable BasePathMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BasePathMapping(name, id, state, options);
     }
 }

@@ -30,6 +30,7 @@ class WebAclArgs:
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 rule_json: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -44,6 +45,7 @@ class WebAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[str] rule_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
@@ -63,6 +65,8 @@ class WebAclArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rule_json is not None:
+            pulumi.set(__self__, "rule_json", rule_json)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -179,6 +183,18 @@ class WebAclArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ruleJson")
+    def rule_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        """
+        return pulumi.get(self, "rule_json")
+
+    @rule_json.setter
+    def rule_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_json", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
@@ -229,6 +245,7 @@ class _WebAclState:
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 rule_json: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -247,6 +264,7 @@ class _WebAclState:
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[str] rule_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,6 +294,8 @@ class _WebAclState:
             pulumi.set(__self__, "lock_token", lock_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rule_json is not None:
+            pulumi.set(__self__, "rule_json", rule_json)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if scope is not None:
@@ -422,6 +442,18 @@ class _WebAclState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ruleJson")
+    def rule_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        """
+        return pulumi.get(self, "rule_json")
+
+    @rule_json.setter
+    def rule_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_json", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
@@ -507,6 +539,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 rule_json: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -524,6 +557,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[str] rule_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -560,6 +594,7 @@ class WebAcl(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 rule_json: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -583,6 +618,7 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["rule_json"] = rule_json
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -618,6 +654,7 @@ class WebAcl(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            rule_json: Optional[pulumi.Input[str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -641,6 +678,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[str] rule_json: Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -663,6 +701,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
         __props__.__dict__["name"] = name
+        __props__.__dict__["rule_json"] = rule_json
         __props__.__dict__["rules"] = rules
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
@@ -755,6 +794,14 @@ class WebAcl(pulumi.CustomResource):
         Friendly name of the WebACL.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ruleJson")
+    def rule_json(self) -> pulumi.Output[Optional[str]]:
+        """
+        Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+        """
+        return pulumi.get(self, "rule_json")
 
     @property
     @pulumi.getter

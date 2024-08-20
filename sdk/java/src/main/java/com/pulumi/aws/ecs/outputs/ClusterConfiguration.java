@@ -4,6 +4,7 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.ClusterConfigurationExecuteCommandConfiguration;
+import com.pulumi.aws.ecs.outputs.ClusterConfigurationManagedStorageConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,18 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterConfiguration {
     /**
-     * @return The details of the execute command configuration. Detailed below.
+     * @return Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
     private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
+    /**
+     * @return Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * 
+     */
+    private @Nullable ClusterConfigurationManagedStorageConfiguration managedStorageConfiguration;
 
     private ClusterConfiguration() {}
     /**
-     * @return The details of the execute command configuration. Detailed below.
+     * @return Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
     public Optional<ClusterConfigurationExecuteCommandConfiguration> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
+    }
+    /**
+     * @return Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
+     * 
+     */
+    public Optional<ClusterConfigurationManagedStorageConfiguration> managedStorageConfiguration() {
+        return Optional.ofNullable(this.managedStorageConfiguration);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ClusterConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration;
+        private @Nullable ClusterConfigurationManagedStorageConfiguration managedStorageConfiguration;
         public Builder() {}
         public Builder(ClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executeCommandConfiguration = defaults.executeCommandConfiguration;
+    	      this.managedStorageConfiguration = defaults.managedStorageConfiguration;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class ClusterConfiguration {
             this.executeCommandConfiguration = executeCommandConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder managedStorageConfiguration(@Nullable ClusterConfigurationManagedStorageConfiguration managedStorageConfiguration) {
+
+            this.managedStorageConfiguration = managedStorageConfiguration;
+            return this;
+        }
         public ClusterConfiguration build() {
             final var _resultValue = new ClusterConfiguration();
             _resultValue.executeCommandConfiguration = executeCommandConfiguration;
+            _resultValue.managedStorageConfiguration = managedStorageConfiguration;
             return _resultValue;
         }
     }

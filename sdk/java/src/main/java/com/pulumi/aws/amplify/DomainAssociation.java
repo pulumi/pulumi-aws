@@ -6,6 +6,7 @@ package com.pulumi.aws.amplify;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amplify.DomainAssociationArgs;
 import com.pulumi.aws.amplify.inputs.DomainAssociationState;
+import com.pulumi.aws.amplify.outputs.DomainAssociationCertificateSettings;
 import com.pulumi.aws.amplify.outputs.DomainAssociationSubDomain;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -125,6 +126,20 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    @Export(name="certificateSettings", refs={DomainAssociationCertificateSettings.class}, tree="[0]")
+    private Output</* @Nullable */ DomainAssociationCertificateSettings> certificateSettings;
+
+    /**
+     * @return The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    public Output<Optional<DomainAssociationCertificateSettings>> certificateSettings() {
+        return Codegen.optional(this.certificateSettings);
+    }
+    /**
      * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
@@ -199,7 +214,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainAssociation(String name) {
+    public DomainAssociation(java.lang.String name) {
         this(name, DomainAssociationArgs.Empty);
     }
     /**
@@ -207,7 +222,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainAssociation(String name, DomainAssociationArgs args) {
+    public DomainAssociation(java.lang.String name, DomainAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,15 +231,22 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainAssociation(String name, DomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/domainAssociation:DomainAssociation", name, args == null ? DomainAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DomainAssociation(java.lang.String name, DomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/domainAssociation:DomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainAssociation(String name, Output<String> id, @Nullable DomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:amplify/domainAssociation:DomainAssociation", name, state, makeResourceOptions(options, id));
+    private DomainAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable DomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:amplify/domainAssociation:DomainAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DomainAssociationArgs makeArgs(DomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +262,7 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainAssociation get(String name, Output<String> id, @Nullable DomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainAssociation(name, id, state, options);
     }
 }

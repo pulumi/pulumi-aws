@@ -120,7 +120,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailIdentityMailFromAttributes(String name) {
+    public EmailIdentityMailFromAttributes(java.lang.String name) {
         this(name, EmailIdentityMailFromAttributesArgs.Empty);
     }
     /**
@@ -128,7 +128,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailIdentityMailFromAttributes(String name, EmailIdentityMailFromAttributesArgs args) {
+    public EmailIdentityMailFromAttributes(java.lang.String name, EmailIdentityMailFromAttributesArgs args) {
         this(name, args, null);
     }
     /**
@@ -137,15 +137,22 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailIdentityMailFromAttributes(String name, EmailIdentityMailFromAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, args == null ? EmailIdentityMailFromAttributesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EmailIdentityMailFromAttributes(java.lang.String name, EmailIdentityMailFromAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailIdentityMailFromAttributes(String name, Output<String> id, @Nullable EmailIdentityMailFromAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, state, makeResourceOptions(options, id));
+    private EmailIdentityMailFromAttributes(java.lang.String name, Output<java.lang.String> id, @Nullable EmailIdentityMailFromAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EmailIdentityMailFromAttributesArgs makeArgs(EmailIdentityMailFromAttributesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailIdentityMailFromAttributesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -161,7 +168,7 @@ public class EmailIdentityMailFromAttributes extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailIdentityMailFromAttributes get(String name, Output<String> id, @Nullable EmailIdentityMailFromAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailIdentityMailFromAttributes get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailIdentityMailFromAttributesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailIdentityMailFromAttributes(name, id, state, options);
     }
 }

@@ -98,7 +98,7 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AvailabilityZoneGroup(String name) {
+    public AvailabilityZoneGroup(java.lang.String name) {
         this(name, AvailabilityZoneGroupArgs.Empty);
     }
     /**
@@ -106,7 +106,7 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AvailabilityZoneGroup(String name, AvailabilityZoneGroupArgs args) {
+    public AvailabilityZoneGroup(java.lang.String name, AvailabilityZoneGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -115,15 +115,22 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AvailabilityZoneGroup(String name, AvailabilityZoneGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args == null ? AvailabilityZoneGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AvailabilityZoneGroup(java.lang.String name, AvailabilityZoneGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AvailabilityZoneGroup(String name, Output<String> id, @Nullable AvailabilityZoneGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, state, makeResourceOptions(options, id));
+    private AvailabilityZoneGroup(java.lang.String name, Output<java.lang.String> id, @Nullable AvailabilityZoneGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AvailabilityZoneGroupArgs makeArgs(AvailabilityZoneGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AvailabilityZoneGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -139,7 +146,7 @@ public class AvailabilityZoneGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AvailabilityZoneGroup get(String name, Output<String> id, @Nullable AvailabilityZoneGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AvailabilityZoneGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable AvailabilityZoneGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AvailabilityZoneGroup(name, id, state, options);
     }
 }

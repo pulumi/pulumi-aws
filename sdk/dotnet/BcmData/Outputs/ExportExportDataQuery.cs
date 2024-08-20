@@ -20,13 +20,13 @@ namespace Pulumi.Aws.BcmData.Outputs
         /// <summary>
         /// Table configuration.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? TableConfigurations;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, string>>? TableConfigurations;
 
         [OutputConstructor]
         private ExportExportDataQuery(
             string queryStatement,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? tableConfigurations)
+            ImmutableDictionary<string, ImmutableDictionary<string, string>>? tableConfigurations)
         {
             QueryStatement = queryStatement;
             TableConfigurations = tableConfigurations;

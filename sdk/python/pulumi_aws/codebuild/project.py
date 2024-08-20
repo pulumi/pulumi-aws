@@ -895,7 +895,10 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example = pulumi.Output.all(
+            exampleBucketV2Arn=example_bucket_v2.arn,
+            exampleBucketV2Arn1=example_bucket_v2.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -942,11 +945,12 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    example_bucket_v2_arn,
-                    f"{example_bucket_v2_arn1}/*",
+                    resolved_outputs['exampleBucketV2Arn'],
+                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
                 ],
             },
         ]))
+
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)
@@ -963,11 +967,11 @@ class Project(pulumi.CustomResource):
                 "location": example_bucket_v2.bucket,
             },
             environment={
-                "computeType": "BUILD_GENERAL1_SMALL",
+                "compute_type": "BUILD_GENERAL1_SMALL",
                 "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 "type": "LINUX_CONTAINER",
-                "imagePullCredentialsType": "CODEBUILD",
-                "environmentVariables": [
+                "image_pull_credentials_type": "CODEBUILD",
+                "environment_variables": [
                     {
                         "name": "SOME_KEY1",
                         "value": "SOME_VALUE1",
@@ -980,11 +984,11 @@ class Project(pulumi.CustomResource):
                 ],
             },
             logs_config={
-                "cloudwatchLogs": {
-                    "groupName": "log-group",
-                    "streamName": "log-stream",
+                "cloudwatch_logs": {
+                    "group_name": "log-group",
+                    "stream_name": "log-stream",
                 },
-                "s3Logs": {
+                "s3_logs": {
                     "status": "ENABLED",
                     "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
                 },
@@ -992,19 +996,19 @@ class Project(pulumi.CustomResource):
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
-                "gitCloneDepth": 1,
-                "gitSubmodulesConfig": {
-                    "fetchSubmodules": True,
+                "git_clone_depth": 1,
+                "git_submodules_config": {
+                    "fetch_submodules": True,
                 },
             },
             source_version="master",
             vpc_config={
-                "vpcId": example_aws_vpc["id"],
+                "vpc_id": example_aws_vpc["id"],
                 "subnets": [
                     example1["id"],
                     example2["id"],
                 ],
-                "securityGroupIds": [
+                "security_group_ids": [
                     example1_aws_security_group["id"],
                     example2_aws_security_group["id"],
                 ],
@@ -1029,11 +1033,11 @@ class Project(pulumi.CustomResource):
                 ],
             },
             environment={
-                "computeType": "BUILD_GENERAL1_SMALL",
+                "compute_type": "BUILD_GENERAL1_SMALL",
                 "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 "type": "LINUX_CONTAINER",
-                "imagePullCredentialsType": "CODEBUILD",
-                "environmentVariables": [{
+                "image_pull_credentials_type": "CODEBUILD",
+                "environment_variables": [{
                     "name": "SOME_KEY1",
                     "value": "SOME_VALUE1",
                 }],
@@ -1041,7 +1045,7 @@ class Project(pulumi.CustomResource):
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
-                "gitCloneDepth": 1,
+                "git_clone_depth": 1,
             },
             tags={
                 "Environment": "Test",
@@ -1114,7 +1118,10 @@ class Project(pulumi.CustomResource):
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
-        example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
+        example = pulumi.Output.all(
+            exampleBucketV2Arn=example_bucket_v2.arn,
+            exampleBucketV2Arn1=example_bucket_v2.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
                 "actions": [
@@ -1161,11 +1168,12 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    example_bucket_v2_arn,
-                    f"{example_bucket_v2_arn1}/*",
+                    resolved_outputs['exampleBucketV2Arn'],
+                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
                 ],
             },
         ]))
+
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
             policy=example.json)
@@ -1182,11 +1190,11 @@ class Project(pulumi.CustomResource):
                 "location": example_bucket_v2.bucket,
             },
             environment={
-                "computeType": "BUILD_GENERAL1_SMALL",
+                "compute_type": "BUILD_GENERAL1_SMALL",
                 "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 "type": "LINUX_CONTAINER",
-                "imagePullCredentialsType": "CODEBUILD",
-                "environmentVariables": [
+                "image_pull_credentials_type": "CODEBUILD",
+                "environment_variables": [
                     {
                         "name": "SOME_KEY1",
                         "value": "SOME_VALUE1",
@@ -1199,11 +1207,11 @@ class Project(pulumi.CustomResource):
                 ],
             },
             logs_config={
-                "cloudwatchLogs": {
-                    "groupName": "log-group",
-                    "streamName": "log-stream",
+                "cloudwatch_logs": {
+                    "group_name": "log-group",
+                    "stream_name": "log-stream",
                 },
-                "s3Logs": {
+                "s3_logs": {
                     "status": "ENABLED",
                     "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
                 },
@@ -1211,19 +1219,19 @@ class Project(pulumi.CustomResource):
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
-                "gitCloneDepth": 1,
-                "gitSubmodulesConfig": {
-                    "fetchSubmodules": True,
+                "git_clone_depth": 1,
+                "git_submodules_config": {
+                    "fetch_submodules": True,
                 },
             },
             source_version="master",
             vpc_config={
-                "vpcId": example_aws_vpc["id"],
+                "vpc_id": example_aws_vpc["id"],
                 "subnets": [
                     example1["id"],
                     example2["id"],
                 ],
-                "securityGroupIds": [
+                "security_group_ids": [
                     example1_aws_security_group["id"],
                     example2_aws_security_group["id"],
                 ],
@@ -1248,11 +1256,11 @@ class Project(pulumi.CustomResource):
                 ],
             },
             environment={
-                "computeType": "BUILD_GENERAL1_SMALL",
+                "compute_type": "BUILD_GENERAL1_SMALL",
                 "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 "type": "LINUX_CONTAINER",
-                "imagePullCredentialsType": "CODEBUILD",
-                "environmentVariables": [{
+                "image_pull_credentials_type": "CODEBUILD",
+                "environment_variables": [{
                     "name": "SOME_KEY1",
                     "value": "SOME_VALUE1",
                 }],
@@ -1260,7 +1268,7 @@ class Project(pulumi.CustomResource):
             source={
                 "type": "GITHUB",
                 "location": "https://github.com/mitchellh/packer.git",
-                "gitCloneDepth": 1,
+                "git_clone_depth": 1,
             },
             tags={
                 "Environment": "Test",

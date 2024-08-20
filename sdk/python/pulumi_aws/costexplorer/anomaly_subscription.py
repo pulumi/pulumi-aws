@@ -330,7 +330,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -355,7 +355,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -380,14 +380,14 @@ class AnomalySubscription(pulumi.CustomResource):
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["100"],
                         },
                     },
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["50"],
                         },
                     },
@@ -402,7 +402,10 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = pulumi.Output.all(
+            costAnomalyUpdatesArn=cost_anomaly_updates.arn,
+            costAnomalyUpdatesArn1=cost_anomaly_updates.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[
                 {
                     "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
@@ -412,7 +415,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [cost_anomaly_updates_arn],
+                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -437,9 +440,10 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [cost_anomaly_updates_arn1],
+                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
                 },
             ]))
+
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)
@@ -508,7 +512,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -533,7 +537,7 @@ class AnomalySubscription(pulumi.CustomResource):
             threshold_expression={
                 "dimension": {
                     "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                    "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                    "match_options": ["GREATER_THAN_OR_EQUAL"],
                     "values": ["100"],
                 },
             })
@@ -558,14 +562,14 @@ class AnomalySubscription(pulumi.CustomResource):
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["100"],
                         },
                     },
                     {
                         "dimension": {
                             "key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
-                            "matchOptions": ["GREATER_THAN_OR_EQUAL"],
+                            "match_options": ["GREATER_THAN_OR_EQUAL"],
                             "values": ["50"],
                         },
                     },
@@ -580,7 +584,10 @@ class AnomalySubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cost_anomaly_updates = aws.sns.Topic("cost_anomaly_updates", name="CostAnomalyUpdates")
-        sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+        sns_topic_policy = pulumi.Output.all(
+            costAnomalyUpdatesArn=cost_anomaly_updates.arn,
+            costAnomalyUpdatesArn1=cost_anomaly_updates.arn
+        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
             statements=[
                 {
                     "sid": "AWSAnomalyDetectionSNSPublishingPermissions",
@@ -590,7 +597,7 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "Service",
                         "identifiers": ["costalerts.amazonaws.com"],
                     }],
-                    "resources": [cost_anomaly_updates_arn],
+                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
                 },
                 {
                     "sid": "__default_statement_ID",
@@ -615,9 +622,10 @@ class AnomalySubscription(pulumi.CustomResource):
                         "type": "AWS",
                         "identifiers": ["*"],
                     }],
-                    "resources": [cost_anomaly_updates_arn1],
+                    "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
                 },
             ]))
+
         default = aws.sns.TopicPolicy("default",
             arn=cost_anomaly_updates.arn,
             policy=sns_topic_policy.json)

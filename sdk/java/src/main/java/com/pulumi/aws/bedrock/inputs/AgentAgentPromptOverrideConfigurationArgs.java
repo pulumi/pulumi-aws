@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -32,17 +32,17 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
     @Import(name="promptConfigurations", required=true)
-    private Output<List<Object>> promptConfigurations;
+    private Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations;
 
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
-    public Output<List<Object>> promptConfigurations() {
+    public Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations() {
         return this.promptConfigurations;
     }
 
@@ -93,33 +93,33 @@ public final class AgentAgentPromptOverrideConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 
          */
-        public Builder promptConfigurations(Output<List<Object>> promptConfigurations) {
+        public Builder promptConfigurations(Output<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations) {
             $.promptConfigurations = promptConfigurations;
             return this;
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 
          */
-        public Builder promptConfigurations(List<Object> promptConfigurations) {
+        public Builder promptConfigurations(List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs> promptConfigurations) {
             return promptConfigurations(Output.of(promptConfigurations));
         }
 
         /**
-         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+         * @param promptConfigurations Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
          * 
          * @return builder
          * 
          */
-        public Builder promptConfigurations(Object... promptConfigurations) {
+        public Builder promptConfigurations(AgentAgentPromptOverrideConfigurationPromptConfigurationArgs... promptConfigurations) {
             return promptConfigurations(List.of(promptConfigurations));
         }
 

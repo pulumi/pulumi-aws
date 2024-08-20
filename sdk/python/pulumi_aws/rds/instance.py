@@ -50,6 +50,7 @@ class InstanceArgs:
                  domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -87,6 +88,7 @@ class InstanceArgs:
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -147,6 +149,7 @@ class InstanceArgs:
         :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -235,6 +238,7 @@ class InstanceArgs:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -295,6 +299,8 @@ class InstanceArgs:
             pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
@@ -372,6 +378,8 @@ class InstanceArgs:
             pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if upgrade_storage_config is not None:
+            pulumi.set(__self__, "upgrade_storage_config", upgrade_storage_config)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
@@ -740,6 +748,18 @@ class InstanceArgs:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -1236,6 +1256,18 @@ class InstanceArgs:
         pulumi.set(self, "timezone", value)
 
     @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
+
+    @upgrade_storage_config.setter
+    def upgrade_storage_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_storage_config", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1295,6 +1327,7 @@ class _InstanceState:
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1342,6 +1375,7 @@ class _InstanceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -1404,6 +1438,7 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -1501,6 +1536,7 @@ class _InstanceState:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -1566,6 +1602,8 @@ class _InstanceState:
             pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_lifecycle_support is not None:
+            pulumi.set(__self__, "engine_lifecycle_support", engine_lifecycle_support)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
@@ -1666,6 +1704,8 @@ class _InstanceState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if upgrade_storage_config is not None:
+            pulumi.set(__self__, "upgrade_storage_config", upgrade_storage_config)
         if username is not None:
             pulumi.set(__self__, "username", username)
         if vpc_security_group_ids is not None:
@@ -2058,6 +2098,18 @@ class _InstanceState:
     @engine.setter
     def engine(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine", value)
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
+
+    @engine_lifecycle_support.setter
+    def engine_lifecycle_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_lifecycle_support", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -2672,6 +2724,18 @@ class _InstanceState:
         pulumi.set(self, "timezone", value)
 
     @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
+
+    @upgrade_storage_config.setter
+    def upgrade_storage_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_storage_config", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2730,6 +2794,7 @@ class Instance(pulumi.CustomResource):
                  domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2768,6 +2833,7 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -2935,12 +3001,12 @@ class Instance(pulumi.CustomResource):
             family=default.parameter_group_family,
             parameters=[
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_customer_id",
                     "value": "0",
                 },
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },
@@ -3081,6 +3147,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] domain_ou: The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -3170,6 +3237,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -3345,12 +3413,12 @@ class Instance(pulumi.CustomResource):
             family=default.parameter_group_family,
             parameters=[
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_customer_id",
                     "value": "0",
                 },
                 {
-                    "applyMethod": "immediate",
+                    "apply_method": "immediate",
                     "name": "rds.ibm_site_id",
                     "value": "0",
                 },
@@ -3476,6 +3544,7 @@ class Instance(pulumi.CustomResource):
                  domain_ou: Optional[pulumi.Input[str]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -3514,6 +3583,7 @@ class Instance(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
+                 upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -3552,6 +3622,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["domain_ou"] = domain_ou
             __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
             __props__.__dict__["engine"] = engine
+            __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
@@ -3592,6 +3663,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
+            __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
             __props__.__dict__["username"] = username
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["address"] = None
@@ -3648,6 +3720,7 @@ class Instance(pulumi.CustomResource):
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
+            engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -3695,6 +3768,7 @@ class Instance(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
+            upgrade_storage_config: Optional[pulumi.Input[bool]] = None,
             username: Optional[pulumi.Input[str]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Instance':
         """
@@ -3762,6 +3836,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -3859,6 +3934,7 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -3898,6 +3974,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
@@ -3945,6 +4022,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timezone"] = timezone
+        __props__.__dict__["upgrade_storage_config"] = upgrade_storage_config
         __props__.__dict__["username"] = username
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return Instance(resource_name, opts=opts, __props__=__props__)
@@ -4216,6 +4294,14 @@ class Instance(pulumi.CustomResource):
         The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         """
         return pulumi.get(self, "engine")
+
+    @property
+    @pulumi.getter(name="engineLifecycleSupport")
+    def engine_lifecycle_support(self) -> pulumi.Output[str]:
+        """
+        The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        """
+        return pulumi.get(self, "engine_lifecycle_support")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -4640,6 +4726,14 @@ class Instance(pulumi.CustomResource):
         for more information.
         """
         return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="upgradeStorageConfig")
+    def upgrade_storage_config(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        """
+        return pulumi.get(self, "upgrade_storage_config")
 
     @property
     @pulumi.getter

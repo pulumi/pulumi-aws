@@ -224,7 +224,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     policies?: Record<string, pulumi.Input<arn.ARN>> | arn.ARN[];
 
     /**
-     * The Lambda runtime to use.  If not provided, will default to [NodeJS8d10Runtime]
+     * The Lambda runtime to use.  If not provided, will default to [aws.lambda.Runtime.NodeJS20dX].
      */
     runtime?: Runtime | string;
 
@@ -406,13 +406,11 @@ export class CallbackFunction<E, R> extends LambdaFunction {
         // Copy over all option values into the function args.  Then overwrite anything we care
         // about with our own values.  This ensures that clients can pass future supported
         // lambda options without us having to know about it.
-        // The default version for Lambda functions now is NodeJS16. As of April 30 2022, Node12
-        // is EOL/ nodeJS 14 is only in maintenance mode so it's best to upgrade to Node16
         const functionArgs = {
             ...args,
             code: code,
             handler: serializedFileNameNoExtension + "." + handlerName,
-            runtime: args.runtime || Runtime.NodeJS16dX,
+            runtime: args.runtime || Runtime.NodeJS20dX,
             role: iam.Role.isInstance(role) ? role.arn : role,
             timeout: args.timeout === undefined ? 180 : args.timeout,
         };

@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,10 +18,10 @@ public final class AgentAgentPromptOverrideConfiguration {
      */
     private String overrideLambda;
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
-    private List<Object> promptConfigurations;
+    private List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations;
 
     private AgentAgentPromptOverrideConfiguration() {}
     /**
@@ -32,10 +32,10 @@ public final class AgentAgentPromptOverrideConfiguration {
         return this.overrideLambda;
     }
     /**
-     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+     * @return Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
-    public List<Object> promptConfigurations() {
+    public List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations() {
         return this.promptConfigurations;
     }
 
@@ -49,7 +49,7 @@ public final class AgentAgentPromptOverrideConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String overrideLambda;
-        private List<Object> promptConfigurations;
+        private List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations;
         public Builder() {}
         public Builder(AgentAgentPromptOverrideConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,14 +66,14 @@ public final class AgentAgentPromptOverrideConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder promptConfigurations(List<Object> promptConfigurations) {
+        public Builder promptConfigurations(List<AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations) {
             if (promptConfigurations == null) {
               throw new MissingRequiredPropertyException("AgentAgentPromptOverrideConfiguration", "promptConfigurations");
             }
             this.promptConfigurations = promptConfigurations;
             return this;
         }
-        public Builder promptConfigurations(Object... promptConfigurations) {
+        public Builder promptConfigurations(AgentAgentPromptOverrideConfigurationPromptConfiguration... promptConfigurations) {
             return promptConfigurations(List.of(promptConfigurations));
         }
         public AgentAgentPromptOverrideConfiguration build() {

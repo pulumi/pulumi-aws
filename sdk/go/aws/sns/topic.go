@@ -172,7 +172,7 @@ type Topic struct {
 	DeliveryPolicy pulumi.StringPtrOutput `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
 	FirehoseFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"firehoseFailureFeedbackRoleArn"`
@@ -268,7 +268,7 @@ type topicState struct {
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
-	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
 	FirehoseFailureFeedbackRoleArn *string `pulumi:"firehoseFailureFeedbackRoleArn"`
@@ -335,7 +335,7 @@ type TopicState struct {
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
-	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrInput
 	// IAM role for failure feedback
 	FirehoseFailureFeedbackRoleArn pulumi.StringPtrInput
@@ -402,7 +402,7 @@ type topicArgs struct {
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
-	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
 	FirehoseFailureFeedbackRoleArn *string `pulumi:"firehoseFailureFeedbackRoleArn"`
@@ -460,7 +460,7 @@ type TopicArgs struct {
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
-	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 	FifoTopic pulumi.BoolPtrInput
 	// IAM role for failure feedback
 	FirehoseFailureFeedbackRoleArn pulumi.StringPtrInput
@@ -634,7 +634,7 @@ func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can't deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren't guaranteed to preserve strict message ordering. Default is `false`.
 func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.FifoTopic }).(pulumi.BoolPtrOutput)
 }

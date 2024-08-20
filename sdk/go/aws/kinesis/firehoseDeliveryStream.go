@@ -390,7 +390,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},
@@ -484,9 +484,9 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
 //				Name: pulumi.String("elasticsearch"),
 //				Role: pulumi.Any(firehose.Id),
-//				Policy: firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
 //					return &firehose_elasticsearch.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -571,7 +571,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},
@@ -754,7 +754,7 @@ import (
 //								Parameters: kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{
 //									&kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{
 //										ParameterName:  pulumi.String("LambdaArn"),
-//										ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", lambdaProcessor.Arn)),
+//										ParameterValue: pulumi.Sprintf("%v:$LATEST", lambdaProcessor.Arn),
 //									},
 //								},
 //							},

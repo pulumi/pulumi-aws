@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'InstanceConnectEndpointTimeouts',
+    'PeeringAttachmentOptions',
     'GetAttachmentFilterResult',
     'GetAttachmentsFilterResult',
     'GetConnectFilterResult',
@@ -26,6 +27,7 @@ __all__ = [
     'GetMulticastDomainMemberResult',
     'GetMulticastDomainSourceResult',
     'GetPeeringAttachmentFilterResult',
+    'GetPeeringAttachmentsFilterResult',
     'GetRouteTableAssociationsFilterResult',
     'GetRouteTableFilterResult',
     'GetRouteTablePropagationsFilterResult',
@@ -66,6 +68,42 @@ class InstanceConnectEndpointTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class PeeringAttachmentOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicRouting":
+            suggest = "dynamic_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PeeringAttachmentOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PeeringAttachmentOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PeeringAttachmentOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamic_routing: Optional[str] = None):
+        """
+        :param str dynamic_routing: Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        """
+        if dynamic_routing is not None:
+            pulumi.set(__self__, "dynamic_routing", dynamic_routing)
+
+    @property
+    @pulumi.getter(name="dynamicRouting")
+    def dynamic_routing(self) -> Optional[str]:
+        """
+        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        """
+        return pulumi.get(self, "dynamic_routing")
 
 
 @pulumi.output_type
@@ -358,6 +396,35 @@ class GetPeeringAttachmentFilterResult(dict):
         """
         Set of values that are accepted for the given field.
         An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPeeringAttachmentsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
         """
         return pulumi.get(self, "values")
 

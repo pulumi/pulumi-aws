@@ -34,7 +34,7 @@ public final class ClassifierCsvClassifier {
      */
     private @Nullable List<String> customDatatypes;
     /**
-     * @return The delimiter used in the Csv to separate columns.
+     * @return The delimiter used in the CSV to separate columns.
      * 
      */
     private @Nullable String delimiter;
@@ -53,6 +53,10 @@ public final class ClassifierCsvClassifier {
      * 
      */
     private @Nullable String quoteSymbol;
+    /**
+     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * 
+     */
     private @Nullable String serde;
 
     private ClassifierCsvClassifier() {}
@@ -85,7 +89,7 @@ public final class ClassifierCsvClassifier {
         return this.customDatatypes == null ? List.of() : this.customDatatypes;
     }
     /**
-     * @return The delimiter used in the Csv to separate columns.
+     * @return The delimiter used in the CSV to separate columns.
      * 
      */
     public Optional<String> delimiter() {
@@ -112,6 +116,10 @@ public final class ClassifierCsvClassifier {
     public Optional<String> quoteSymbol() {
         return Optional.ofNullable(this.quoteSymbol);
     }
+    /**
+     * @return The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+     * 
+     */
     public Optional<String> serde() {
         return Optional.ofNullable(this.serde);
     }

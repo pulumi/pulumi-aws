@@ -205,7 +205,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HsmConfiguration(String name) {
+    public HsmConfiguration(java.lang.String name) {
         this(name, HsmConfigurationArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HsmConfiguration(String name, HsmConfigurationArgs args) {
+    public HsmConfiguration(java.lang.String name, HsmConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,15 +222,22 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HsmConfiguration(String name, HsmConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, args == null ? HsmConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HsmConfiguration(java.lang.String name, HsmConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HsmConfiguration(String name, Output<String> id, @Nullable HsmConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, state, makeResourceOptions(options, id));
+    private HsmConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable HsmConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:redshift/hsmConfiguration:HsmConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HsmConfigurationArgs makeArgs(HsmConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HsmConfigurationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -249,7 +256,7 @@ public class HsmConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HsmConfiguration get(String name, Output<String> id, @Nullable HsmConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HsmConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable HsmConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HsmConfiguration(name, id, state, options);
     }
 }

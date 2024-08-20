@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Associate an existing ElastiCache user and an existing user group.
  * 
- * &gt; **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+ * &gt; Pulumi will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
  * 
  * ## Example Usage
  * 
@@ -41,16 +41,16 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var default_ = new User("default", UserArgs.builder()
  *             .userId("defaultUserID")
  *             .userName("default")
- *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
  *             .engine("REDIS")
  *             .passwords("password123456789")
  *             .build());
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .userId("exampleUserID")
  *             .userName("exampleuser")
- *             .accessString("on ~app::* -{@literal @}all +{@literal @}read +{@literal @}hash +{@literal @}bitmap +{@literal @}geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
+ *             .accessString("on ~app::* -}{@literal @}{@code all +}{@literal @}{@code read +}{@literal @}{@code hash +}{@literal @}{@code bitmap +}{@literal @}{@code geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember")
  *             .engine("REDIS")
  *             .passwords("password123456789")
  *             .build());
@@ -74,8 +74,8 @@ import javax.annotation.Nullable;
  *             .userId(exampleUser.userId())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -124,7 +124,7 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserGroupAssociation(String name) {
+    public UserGroupAssociation(java.lang.String name) {
         this(name, UserGroupAssociationArgs.Empty);
     }
     /**
@@ -132,7 +132,7 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserGroupAssociation(String name, UserGroupAssociationArgs args) {
+    public UserGroupAssociation(java.lang.String name, UserGroupAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -141,15 +141,22 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserGroupAssociation(String name, UserGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/userGroupAssociation:UserGroupAssociation", name, args == null ? UserGroupAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserGroupAssociation(java.lang.String name, UserGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/userGroupAssociation:UserGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserGroupAssociation(String name, Output<String> id, @Nullable UserGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/userGroupAssociation:UserGroupAssociation", name, state, makeResourceOptions(options, id));
+    private UserGroupAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/userGroupAssociation:UserGroupAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserGroupAssociationArgs makeArgs(UserGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserGroupAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -165,7 +172,7 @@ public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserGroupAssociation get(String name, Output<String> id, @Nullable UserGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserGroupAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable UserGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserGroupAssociation(name, id, state, options);
     }
 }

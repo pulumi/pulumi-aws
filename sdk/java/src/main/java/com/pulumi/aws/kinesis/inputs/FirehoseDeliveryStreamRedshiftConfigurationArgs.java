@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfiguration
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -97,18 +98,18 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
-     * The password for the username above.
+     * The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
-     * @return The password for the username above.
+     * @return The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -158,6 +159,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
 
     /**
      * The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     @Import(name="s3BackupConfiguration")
@@ -165,6 +167,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
 
     /**
      * @return The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs>> s3BackupConfiguration() {
@@ -201,19 +204,26 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         return this.s3Configuration;
     }
 
-    /**
-     * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
-     * 
-     */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="secretsManagerConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration;
+
+    public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs>> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
+    }
 
     /**
-     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+     * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
+
+    /**
+     * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
+     * 
+     */
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private FirehoseDeliveryStreamRedshiftConfigurationArgs() {}
@@ -231,6 +241,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         this.s3BackupConfiguration = $.s3BackupConfiguration;
         this.s3BackupMode = $.s3BackupMode;
         this.s3Configuration = $.s3Configuration;
+        this.secretsManagerConfiguration = $.secretsManagerConfiguration;
         this.username = $.username;
     }
 
@@ -358,18 +369,18 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
-         * @param password The password for the username above.
+         * @param password The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
         /**
-         * @param password The password for the username above.
+         * @param password The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
@@ -443,6 +454,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
 
         /**
          * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
          * 
          * @return builder
          * 
@@ -454,6 +466,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
 
         /**
          * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+         * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
          * 
          * @return builder
          * 
@@ -504,19 +517,28 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
             return s3Configuration(Output.of(s3Configuration));
         }
 
+        public Builder secretsManagerConfiguration(@Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs> secretsManagerConfiguration) {
+            $.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
+
+        public Builder secretsManagerConfiguration(FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs secretsManagerConfiguration) {
+            return secretsManagerConfiguration(Output.of(secretsManagerConfiguration));
+        }
+
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
         /**
-         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+         * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
          * 
          * @return builder
          * 
@@ -532,17 +554,11 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
             if ($.dataTableName == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "dataTableName");
             }
-            if ($.password == null) {
-                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "password");
-            }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "roleArn");
             }
             if ($.s3Configuration == null) {
                 throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "s3Configuration");
-            }
-            if ($.username == null) {
-                throw new MissingRequiredPropertyException("FirehoseDeliveryStreamRedshiftConfigurationArgs", "username");
             }
             return $;
         }

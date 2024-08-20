@@ -61,7 +61,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
+        :param pulumi.Input[bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         pulumi.set(__self__, "container_definitions", container_definitions)
@@ -311,7 +311,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="trackLatest")
     def track_latest(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         """
         return pulumi.get(self, "track_latest")
 
@@ -383,7 +383,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
+        :param pulumi.Input[bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         if arn is not None:
@@ -695,7 +695,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="trackLatest")
     def track_latest(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         """
         return pulumi.get(self, "track_latest")
 
@@ -781,7 +781,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]),
             volumes=[{
                 "name": "service-storage",
-                "hostPath": "/ecs/service-storage",
+                "host_path": "/ecs/service-storage",
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -801,13 +801,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration={
                 "type": "APPMESH",
-                "containerName": "applicationContainerName",
+                "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```
@@ -824,11 +824,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "dockerVolumeConfiguration": {
+                "docker_volume_configuration": {
                     "scope": "shared",
                     "autoprovision": True,
                     "driver": "local",
-                    "driverOpts": {
+                    "driver_opts": {
                         "type": "nfs",
                         "device": f"{fs['dnsName']}:/",
                         "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
@@ -849,13 +849,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "efsVolumeConfiguration": {
-                    "fileSystemId": fs["id"],
-                    "rootDirectory": "/opt/data",
-                    "transitEncryption": "ENABLED",
-                    "transitEncryptionPort": 2999,
-                    "authorizationConfig": {
-                        "accessPointId": test["id"],
+                "efs_volume_configuration": {
+                    "file_system_id": fs["id"],
+                    "root_directory": "/opt/data",
+                    "transit_encryption": "ENABLED",
+                    "transit_encryption_port": 2999,
+                    "authorization_config": {
+                        "access_point_id": test["id"],
                         "iam": "ENABLED",
                     },
                 },
@@ -881,11 +881,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "fsxWindowsFileServerVolumeConfiguration": {
-                    "fileSystemId": test_aws_fsx_windows_file_system["id"],
-                    "rootDirectory": "\\\\data",
-                    "authorizationConfig": {
-                        "credentialsParameter": test.arn,
+                "fsx_windows_file_server_volume_configuration": {
+                    "file_system_id": test_aws_fsx_windows_file_system["id"],
+                    "root_directory": "\\\\data",
+                    "authorization_config": {
+                        "credentials_parameter": test.arn,
                         "domain": test_aws_directory_service_directory["name"],
                     },
                 },
@@ -928,8 +928,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             inference_accelerators=[{
-                "deviceName": "device_1",
-                "deviceType": "eia1.medium",
+                "device_name": "device_1",
+                "device_type": "eia1.medium",
             }])
         ```
 
@@ -956,8 +956,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             runtime_platform={
-                "operatingSystemFamily": "WINDOWS_SERVER_2019_CORE",
-                "cpuArchitecture": "X86_64",
+                "operating_system_family": "WINDOWS_SERVER_2019_CORE",
+                "cpu_architecture": "X86_64",
             })
         ```
 
@@ -990,7 +990,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
+        :param pulumi.Input[bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         ...
@@ -1039,7 +1039,7 @@ class TaskDefinition(pulumi.CustomResource):
             ]),
             volumes=[{
                 "name": "service-storage",
-                "hostPath": "/ecs/service-storage",
+                "host_path": "/ecs/service-storage",
             }],
             placement_constraints=[{
                 "type": "memberOf",
@@ -1059,13 +1059,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             proxy_configuration={
                 "type": "APPMESH",
-                "containerName": "applicationContainerName",
+                "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```
@@ -1082,11 +1082,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "dockerVolumeConfiguration": {
+                "docker_volume_configuration": {
                     "scope": "shared",
                     "autoprovision": True,
                     "driver": "local",
-                    "driverOpts": {
+                    "driver_opts": {
                         "type": "nfs",
                         "device": f"{fs['dnsName']}:/",
                         "o": f"addr={fs['dnsName']},rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport",
@@ -1107,13 +1107,13 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "efsVolumeConfiguration": {
-                    "fileSystemId": fs["id"],
-                    "rootDirectory": "/opt/data",
-                    "transitEncryption": "ENABLED",
-                    "transitEncryptionPort": 2999,
-                    "authorizationConfig": {
-                        "accessPointId": test["id"],
+                "efs_volume_configuration": {
+                    "file_system_id": fs["id"],
+                    "root_directory": "/opt/data",
+                    "transit_encryption": "ENABLED",
+                    "transit_encryption_port": 2999,
+                    "authorization_config": {
+                        "access_point_id": test["id"],
                         "iam": "ENABLED",
                     },
                 },
@@ -1139,11 +1139,11 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions=std.file(input="task-definitions/service.json").result,
             volumes=[{
                 "name": "service-storage",
-                "fsxWindowsFileServerVolumeConfiguration": {
-                    "fileSystemId": test_aws_fsx_windows_file_system["id"],
-                    "rootDirectory": "\\\\data",
-                    "authorizationConfig": {
-                        "credentialsParameter": test.arn,
+                "fsx_windows_file_server_volume_configuration": {
+                    "file_system_id": test_aws_fsx_windows_file_system["id"],
+                    "root_directory": "\\\\data",
+                    "authorization_config": {
+                        "credentials_parameter": test.arn,
                         "domain": test_aws_directory_service_directory["name"],
                     },
                 },
@@ -1186,8 +1186,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             inference_accelerators=[{
-                "deviceName": "device_1",
-                "deviceType": "eia1.medium",
+                "device_name": "device_1",
+                "device_type": "eia1.medium",
             }])
         ```
 
@@ -1214,8 +1214,8 @@ class TaskDefinition(pulumi.CustomResource):
         ]
         \"\"\",
             runtime_platform={
-                "operatingSystemFamily": "WINDOWS_SERVER_2019_CORE",
-                "cpuArchitecture": "X86_64",
+                "operating_system_family": "WINDOWS_SERVER_2019_CORE",
+                "cpu_architecture": "X86_64",
             })
         ```
 
@@ -1360,7 +1360,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
-        :param pulumi.Input[bool] track_latest: Whether should track latest task definition or the one created with the resource. Default is `false`.
+        :param pulumi.Input[bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1567,7 +1567,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="trackLatest")
     def track_latest(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether should track latest task definition or the one created with the resource. Default is `false`.
+        Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
         """
         return pulumi.get(self, "track_latest")
 

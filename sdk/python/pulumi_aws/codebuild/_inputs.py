@@ -63,6 +63,8 @@ __all__ = [
     'WebhookFilterGroupArgsDict',
     'WebhookFilterGroupFilterArgs',
     'WebhookFilterGroupFilterArgsDict',
+    'WebhookScopeConfigurationArgs',
+    'WebhookScopeConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -2230,5 +2232,75 @@ class WebhookFilterGroupFilterArgs:
     @exclude_matched_pattern.setter
     def exclude_matched_pattern(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "exclude_matched_pattern", value)
+
+
+if not MYPY:
+    class WebhookScopeConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of either the enterprise or organization.
+        """
+        scope: pulumi.Input[str]
+        """
+        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+        """
+elif False:
+    WebhookScopeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebhookScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 domain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of either the enterprise or organization.
+        :param pulumi.Input[str] scope: The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        :param pulumi.Input[str] domain: The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scope", scope)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of either the enterprise or organization.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The type of scope for a GitHub webhook. Valid values for this parameter are: `GITHUB_ORGANIZATION`, `GITHUB_GLOBAL`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
 
 

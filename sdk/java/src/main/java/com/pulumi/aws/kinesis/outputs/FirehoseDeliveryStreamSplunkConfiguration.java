@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -47,10 +48,10 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     private @Nullable String hecEndpointType;
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private String hecToken;
+    private @Nullable String hecToken;
     /**
      * @return The data processing configuration.  See `processing_configuration` block below for details.
      * 
@@ -63,6 +64,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     private @Nullable Integer retryDuration;
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
      * 
      */
     private @Nullable String s3BackupMode;
@@ -71,6 +73,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      * 
      */
     private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
 
     private FirehoseDeliveryStreamSplunkConfiguration() {}
     /**
@@ -116,11 +119,11 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         return Optional.ofNullable(this.hecEndpointType);
     }
     /**
-     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
+     * @return The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    public String hecToken() {
-        return this.hecToken;
+    public Optional<String> hecToken() {
+        return Optional.ofNullable(this.hecToken);
     }
     /**
      * @return The data processing configuration.  See `processing_configuration` block below for details.
@@ -138,6 +141,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     }
     /**
      * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
+     * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
      * 
      */
     public Optional<String> s3BackupMode() {
@@ -149,6 +153,9 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      */
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
+    }
+    public Optional<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration> secretsManagerConfiguration() {
+        return Optional.ofNullable(this.secretsManagerConfiguration);
     }
 
     public static Builder builder() {
@@ -166,11 +173,12 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         private @Nullable Integer hecAcknowledgmentTimeout;
         private String hecEndpoint;
         private @Nullable String hecEndpointType;
-        private String hecToken;
+        private @Nullable String hecToken;
         private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
         private @Nullable Integer retryDuration;
         private @Nullable String s3BackupMode;
         private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
+        private @Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration secretsManagerConfiguration;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -185,6 +193,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     	      this.retryDuration = defaults.retryDuration;
     	      this.s3BackupMode = defaults.s3BackupMode;
     	      this.s3Configuration = defaults.s3Configuration;
+    	      this.secretsManagerConfiguration = defaults.secretsManagerConfiguration;
         }
 
         @CustomType.Setter
@@ -226,10 +235,8 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder hecToken(String hecToken) {
-            if (hecToken == null) {
-              throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSplunkConfiguration", "hecToken");
-            }
+        public Builder hecToken(@Nullable String hecToken) {
+
             this.hecToken = hecToken;
             return this;
         }
@@ -259,6 +266,12 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             this.s3Configuration = s3Configuration;
             return this;
         }
+        @CustomType.Setter
+        public Builder secretsManagerConfiguration(@Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration secretsManagerConfiguration) {
+
+            this.secretsManagerConfiguration = secretsManagerConfiguration;
+            return this;
+        }
         public FirehoseDeliveryStreamSplunkConfiguration build() {
             final var _resultValue = new FirehoseDeliveryStreamSplunkConfiguration();
             _resultValue.bufferingInterval = bufferingInterval;
@@ -272,6 +285,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             _resultValue.retryDuration = retryDuration;
             _resultValue.s3BackupMode = s3BackupMode;
             _resultValue.s3Configuration = s3Configuration;
+            _resultValue.secretsManagerConfiguration = secretsManagerConfiguration;
             return _resultValue;
         }
     }

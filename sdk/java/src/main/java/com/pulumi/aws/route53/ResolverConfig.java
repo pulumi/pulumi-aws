@@ -118,7 +118,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverConfig(String name) {
+    public ResolverConfig(java.lang.String name) {
         this(name, ResolverConfigArgs.Empty);
     }
     /**
@@ -126,7 +126,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverConfig(String name, ResolverConfigArgs args) {
+    public ResolverConfig(java.lang.String name, ResolverConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -135,15 +135,22 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverConfig(String name, ResolverConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverConfig:ResolverConfig", name, args == null ? ResolverConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ResolverConfig(java.lang.String name, ResolverConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverConfig:ResolverConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverConfig(String name, Output<String> id, @Nullable ResolverConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:route53/resolverConfig:ResolverConfig", name, state, makeResourceOptions(options, id));
+    private ResolverConfig(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:route53/resolverConfig:ResolverConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ResolverConfigArgs makeArgs(ResolverConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverConfigArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -159,7 +166,7 @@ public class ResolverConfig extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverConfig get(String name, Output<String> id, @Nullable ResolverConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverConfig get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverConfig(name, id, state, options);
     }
 }

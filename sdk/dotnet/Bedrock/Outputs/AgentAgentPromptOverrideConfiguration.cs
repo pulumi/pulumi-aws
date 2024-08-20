@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string OverrideLambda;
         /// <summary>
-        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
         /// </summary>
-        public readonly ImmutableArray<object> PromptConfigurations;
+        public readonly ImmutableArray<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration> PromptConfigurations;
 
         [OutputConstructor]
         private AgentAgentPromptOverrideConfiguration(
             string overrideLambda,
 
-            ImmutableArray<object> promptConfigurations)
+            ImmutableArray<Outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration> promptConfigurations)
         {
             OverrideLambda = overrideLambda;
             PromptConfigurations = promptConfigurations;

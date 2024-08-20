@@ -295,14 +295,22 @@ func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type ConnectorAs2Config struct {
-	Compression         string  `pulumi:"compression"`
-	EncryptionAlgorithm string  `pulumi:"encryptionAlgorithm"`
-	LocalProfileId      string  `pulumi:"localProfileId"`
-	MdnResponse         string  `pulumi:"mdnResponse"`
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression string `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId string `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse string `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 	MdnSigningAlgorithm *string `pulumi:"mdnSigningAlgorithm"`
-	MessageSubject      *string `pulumi:"messageSubject"`
-	PartnerProfileId    string  `pulumi:"partnerProfileId"`
-	SigningAlgorithm    string  `pulumi:"signingAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject *string `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm string `pulumi:"signingAlgorithm"`
 }
 
 // ConnectorAs2ConfigInput is an input type that accepts ConnectorAs2ConfigArgs and ConnectorAs2ConfigOutput values.
@@ -317,14 +325,22 @@ type ConnectorAs2ConfigInput interface {
 }
 
 type ConnectorAs2ConfigArgs struct {
-	Compression         pulumi.StringInput    `pulumi:"compression"`
-	EncryptionAlgorithm pulumi.StringInput    `pulumi:"encryptionAlgorithm"`
-	LocalProfileId      pulumi.StringInput    `pulumi:"localProfileId"`
-	MdnResponse         pulumi.StringInput    `pulumi:"mdnResponse"`
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression pulumi.StringInput `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId pulumi.StringInput `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse pulumi.StringInput `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 	MdnSigningAlgorithm pulumi.StringPtrInput `pulumi:"mdnSigningAlgorithm"`
-	MessageSubject      pulumi.StringPtrInput `pulumi:"messageSubject"`
-	PartnerProfileId    pulumi.StringInput    `pulumi:"partnerProfileId"`
-	SigningAlgorithm    pulumi.StringInput    `pulumi:"signingAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId pulumi.StringInput `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm pulumi.StringInput `pulumi:"signingAlgorithm"`
 }
 
 func (ConnectorAs2ConfigArgs) ElementType() reflect.Type {
@@ -404,34 +420,42 @@ func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx c
 	}).(ConnectorAs2ConfigPtrOutput)
 }
 
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
 func (o ConnectorAs2ConfigOutput) Compression() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.Compression }).(pulumi.StringOutput)
 }
 
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
 func (o ConnectorAs2ConfigOutput) EncryptionAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
+// The unique identifier for the AS2 local profile.
 func (o ConnectorAs2ConfigOutput) LocalProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.LocalProfileId }).(pulumi.StringOutput)
 }
 
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
 func (o ConnectorAs2ConfigOutput) MdnResponse() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.MdnResponse }).(pulumi.StringOutput)
 }
 
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 func (o ConnectorAs2ConfigOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MdnSigningAlgorithm }).(pulumi.StringPtrOutput)
 }
 
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
 func (o ConnectorAs2ConfigOutput) MessageSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MessageSubject }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the AS2 partner profile.
 func (o ConnectorAs2ConfigOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.PartnerProfileId }).(pulumi.StringOutput)
 }
 
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
 func (o ConnectorAs2ConfigOutput) SigningAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorAs2Config) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
 }
@@ -460,6 +484,7 @@ func (o ConnectorAs2ConfigPtrOutput) Elem() ConnectorAs2ConfigOutput {
 	}).(ConnectorAs2ConfigOutput)
 }
 
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
 func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -469,6 +494,7 @@ func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
 func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -478,6 +504,7 @@ func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the AS2 local profile.
 func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -487,6 +514,7 @@ func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
 func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -496,6 +524,7 @@ func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
 func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -505,6 +534,7 @@ func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
 func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -514,6 +544,7 @@ func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for the AS2 partner profile.
 func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -523,6 +554,7 @@ func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
 func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorAs2Config) *string {
 		if v == nil {
@@ -533,8 +565,10 @@ func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 }
 
 type ConnectorSftpConfig struct {
+	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
-	UserSecretId    *string  `pulumi:"userSecretId"`
+	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	UserSecretId *string `pulumi:"userSecretId"`
 }
 
 // ConnectorSftpConfigInput is an input type that accepts ConnectorSftpConfigArgs and ConnectorSftpConfigOutput values.
@@ -549,8 +583,10 @@ type ConnectorSftpConfigInput interface {
 }
 
 type ConnectorSftpConfigArgs struct {
+	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
-	UserSecretId    pulumi.StringPtrInput   `pulumi:"userSecretId"`
+	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	UserSecretId pulumi.StringPtrInput `pulumi:"userSecretId"`
 }
 
 func (ConnectorSftpConfigArgs) ElementType() reflect.Type {
@@ -630,10 +666,12 @@ func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigPtrOutputWithContext(ctx
 	}).(ConnectorSftpConfigPtrOutput)
 }
 
+// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 func (o ConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
 }
 
+// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
 func (o ConnectorSftpConfigOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) *string { return v.UserSecretId }).(pulumi.StringPtrOutput)
 }
@@ -662,6 +700,7 @@ func (o ConnectorSftpConfigPtrOutput) Elem() ConnectorSftpConfigOutput {
 	}).(ConnectorSftpConfigOutput)
 }
 
+// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConnectorSftpConfig) []string {
 		if v == nil {
@@ -671,6 +710,7 @@ func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
 func (o ConnectorSftpConfigPtrOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorSftpConfig) *string {
 		if v == nil {
@@ -1233,9 +1273,9 @@ func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() pulumi.S
 }
 
 type ServerWorkflowDetails struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 	OnPartialUpload *ServerWorkflowDetailsOnPartialUpload `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 	OnUpload *ServerWorkflowDetailsOnUpload `pulumi:"onUpload"`
 }
 
@@ -1251,9 +1291,9 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
-	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+	// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 	OnPartialUpload ServerWorkflowDetailsOnPartialUploadPtrInput `pulumi:"onPartialUpload"`
-	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 	OnUpload ServerWorkflowDetailsOnUploadPtrInput `pulumi:"onUpload"`
 }
 
@@ -1334,12 +1374,12 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload { return v.OnPartialUpload }).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload { return v.OnUpload }).(ServerWorkflowDetailsOnUploadPtrOutput)
 }
@@ -1368,7 +1408,7 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 	}).(ServerWorkflowDetailsOutput)
 }
 
-// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` block below for details.
+// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsOnPartialUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnPartialUpload {
 		if v == nil {
@@ -1378,7 +1418,7 @@ func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailsO
 	}).(ServerWorkflowDetailsOnPartialUploadPtrOutput)
 }
 
-// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` block below for details.
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailsOnUploadPtrOutput {
 	return o.ApplyT(func(v *ServerWorkflowDetails) *ServerWorkflowDetailsOnUpload {
 		if v == nil {
@@ -1988,12 +2028,17 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 type WorkflowOnExceptionStep struct {
-	CopyStepDetails    *WorkflowOnExceptionStepCopyStepDetails    `pulumi:"copyStepDetails"`
-	CustomStepDetails  *WorkflowOnExceptionStepCustomStepDetails  `pulumi:"customStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails *WorkflowOnExceptionStepCopyStepDetails `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails *WorkflowOnExceptionStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
 	DecryptStepDetails *WorkflowOnExceptionStepDecryptStepDetails `pulumi:"decryptStepDetails"`
-	DeleteStepDetails  *WorkflowOnExceptionStepDeleteStepDetails  `pulumi:"deleteStepDetails"`
-	TagStepDetails     *WorkflowOnExceptionStepTagStepDetails     `pulumi:"tagStepDetails"`
-	Type               string                                     `pulumi:"type"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails *WorkflowOnExceptionStepDeleteStepDetails `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails *WorkflowOnExceptionStepTagStepDetails `pulumi:"tagStepDetails"`
+	Type           string                                 `pulumi:"type"`
 }
 
 // WorkflowOnExceptionStepInput is an input type that accepts WorkflowOnExceptionStepArgs and WorkflowOnExceptionStepOutput values.
@@ -2008,12 +2053,17 @@ type WorkflowOnExceptionStepInput interface {
 }
 
 type WorkflowOnExceptionStepArgs struct {
-	CopyStepDetails    WorkflowOnExceptionStepCopyStepDetailsPtrInput    `pulumi:"copyStepDetails"`
-	CustomStepDetails  WorkflowOnExceptionStepCustomStepDetailsPtrInput  `pulumi:"customStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails WorkflowOnExceptionStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails WorkflowOnExceptionStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
 	DecryptStepDetails WorkflowOnExceptionStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
-	DeleteStepDetails  WorkflowOnExceptionStepDeleteStepDetailsPtrInput  `pulumi:"deleteStepDetails"`
-	TagStepDetails     WorkflowOnExceptionStepTagStepDetailsPtrInput     `pulumi:"tagStepDetails"`
-	Type               pulumi.StringInput                                `pulumi:"type"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails WorkflowOnExceptionStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails WorkflowOnExceptionStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
+	Type           pulumi.StringInput                            `pulumi:"type"`
 }
 
 func (WorkflowOnExceptionStepArgs) ElementType() reflect.Type {
@@ -2067,24 +2117,29 @@ func (o WorkflowOnExceptionStepOutput) ToWorkflowOnExceptionStepOutputWithContex
 	return o
 }
 
+// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowOnExceptionStepOutput) CopyStepDetails() WorkflowOnExceptionStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowOnExceptionStepCopyStepDetailsPtrOutput)
 }
 
+// Details for a step that invokes a lambda function.
 func (o WorkflowOnExceptionStepOutput) CustomStepDetails() WorkflowOnExceptionStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowOnExceptionStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that decrypts the file.
 func (o WorkflowOnExceptionStepOutput) DecryptStepDetails() WorkflowOnExceptionStepDecryptStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDecryptStepDetails {
 		return v.DecryptStepDetails
 	}).(WorkflowOnExceptionStepDecryptStepDetailsPtrOutput)
 }
 
+// Details for a step that deletes the file.
 func (o WorkflowOnExceptionStepOutput) DeleteStepDetails() WorkflowOnExceptionStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowOnExceptionStepDeleteStepDetailsPtrOutput)
 }
 
+// Details for a step that creates one or more tags.
 func (o WorkflowOnExceptionStepOutput) TagStepDetails() WorkflowOnExceptionStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStep) *WorkflowOnExceptionStepTagStepDetails { return v.TagStepDetails }).(WorkflowOnExceptionStepTagStepDetailsPtrOutput)
 }
@@ -4012,7 +4067,8 @@ func (o WorkflowOnExceptionStepTagStepDetailsPtrOutput) Tags() WorkflowOnExcepti
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTag struct {
-	Key   string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
 }
 
@@ -4028,7 +4084,8 @@ type WorkflowOnExceptionStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowOnExceptionStepTagStepDetailsTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4087,6 +4144,7 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Key() pulumi.StringOutpu
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value that corresponds to the key.
 func (o WorkflowOnExceptionStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowOnExceptionStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4112,12 +4170,17 @@ func (o WorkflowOnExceptionStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntI
 }
 
 type WorkflowStep struct {
-	CopyStepDetails    *WorkflowStepCopyStepDetails    `pulumi:"copyStepDetails"`
-	CustomStepDetails  *WorkflowStepCustomStepDetails  `pulumi:"customStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails *WorkflowStepCopyStepDetails `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails *WorkflowStepCustomStepDetails `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
 	DecryptStepDetails *WorkflowStepDecryptStepDetails `pulumi:"decryptStepDetails"`
-	DeleteStepDetails  *WorkflowStepDeleteStepDetails  `pulumi:"deleteStepDetails"`
-	TagStepDetails     *WorkflowStepTagStepDetails     `pulumi:"tagStepDetails"`
-	Type               string                          `pulumi:"type"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails *WorkflowStepDeleteStepDetails `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails *WorkflowStepTagStepDetails `pulumi:"tagStepDetails"`
+	Type           string                      `pulumi:"type"`
 }
 
 // WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
@@ -4132,12 +4195,17 @@ type WorkflowStepInput interface {
 }
 
 type WorkflowStepArgs struct {
-	CopyStepDetails    WorkflowStepCopyStepDetailsPtrInput    `pulumi:"copyStepDetails"`
-	CustomStepDetails  WorkflowStepCustomStepDetailsPtrInput  `pulumi:"customStepDetails"`
+	// Details for a step that performs a file copy. See Copy Step Details below.
+	CopyStepDetails WorkflowStepCopyStepDetailsPtrInput `pulumi:"copyStepDetails"`
+	// Details for a step that invokes a lambda function.
+	CustomStepDetails WorkflowStepCustomStepDetailsPtrInput `pulumi:"customStepDetails"`
+	// Details for a step that decrypts the file.
 	DecryptStepDetails WorkflowStepDecryptStepDetailsPtrInput `pulumi:"decryptStepDetails"`
-	DeleteStepDetails  WorkflowStepDeleteStepDetailsPtrInput  `pulumi:"deleteStepDetails"`
-	TagStepDetails     WorkflowStepTagStepDetailsPtrInput     `pulumi:"tagStepDetails"`
-	Type               pulumi.StringInput                     `pulumi:"type"`
+	// Details for a step that deletes the file.
+	DeleteStepDetails WorkflowStepDeleteStepDetailsPtrInput `pulumi:"deleteStepDetails"`
+	// Details for a step that creates one or more tags.
+	TagStepDetails WorkflowStepTagStepDetailsPtrInput `pulumi:"tagStepDetails"`
+	Type           pulumi.StringInput                 `pulumi:"type"`
 }
 
 func (WorkflowStepArgs) ElementType() reflect.Type {
@@ -4191,22 +4259,27 @@ func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Details for a step that performs a file copy. See Copy Step Details below.
 func (o WorkflowStepOutput) CopyStepDetails() WorkflowStepCopyStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCopyStepDetails { return v.CopyStepDetails }).(WorkflowStepCopyStepDetailsPtrOutput)
 }
 
+// Details for a step that invokes a lambda function.
 func (o WorkflowStepOutput) CustomStepDetails() WorkflowStepCustomStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepCustomStepDetails { return v.CustomStepDetails }).(WorkflowStepCustomStepDetailsPtrOutput)
 }
 
+// Details for a step that decrypts the file.
 func (o WorkflowStepOutput) DecryptStepDetails() WorkflowStepDecryptStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDecryptStepDetails { return v.DecryptStepDetails }).(WorkflowStepDecryptStepDetailsPtrOutput)
 }
 
+// Details for a step that deletes the file.
 func (o WorkflowStepOutput) DeleteStepDetails() WorkflowStepDeleteStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepDeleteStepDetails { return v.DeleteStepDetails }).(WorkflowStepDeleteStepDetailsPtrOutput)
 }
 
+// Details for a step that creates one or more tags.
 func (o WorkflowStepOutput) TagStepDetails() WorkflowStepTagStepDetailsPtrOutput {
 	return o.ApplyT(func(v WorkflowStep) *WorkflowStepTagStepDetails { return v.TagStepDetails }).(WorkflowStepTagStepDetailsPtrOutput)
 }
@@ -6120,7 +6193,8 @@ func (o WorkflowStepTagStepDetailsPtrOutput) Tags() WorkflowStepTagStepDetailsTa
 }
 
 type WorkflowStepTagStepDetailsTag struct {
-	Key   string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value string `pulumi:"value"`
 }
 
@@ -6136,7 +6210,8 @@ type WorkflowStepTagStepDetailsTagInput interface {
 }
 
 type WorkflowStepTagStepDetailsTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value that corresponds to the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6195,6 +6270,7 @@ func (o WorkflowStepTagStepDetailsTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value that corresponds to the key.
 func (o WorkflowStepTagStepDetailsTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkflowStepTagStepDetailsTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6217,6 +6293,278 @@ func (o WorkflowStepTagStepDetailsTagArrayOutput) Index(i pulumi.IntInput) Workf
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStepTagStepDetailsTag {
 		return vs[0].([]WorkflowStepTagStepDetailsTag)[vs[1].(int)]
 	}).(WorkflowStepTagStepDetailsTagOutput)
+}
+
+type GetConnectorAs2Config struct {
+	// Basic authentication for AS2 connector API. Returns a null value if not set.
+	BasicAuthSecretId string `pulumi:"basicAuthSecretId"`
+	// Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+	Compression string `pulumi:"compression"`
+	// Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// Unique identifier for AS2 local profile.
+	LocalProfileId string `pulumi:"localProfileId"`
+	// Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+	MdnResponse string `pulumi:"mdnResponse"`
+	// Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
+	MdnSigningAlgorithm string `pulumi:"mdnSigningAlgorithm"`
+	// Subject HTTP header attribute in outbound AS2 messages to the connector.
+	MessageSubject string `pulumi:"messageSubject"`
+	// Unique identifier used by connector for partner profile.
+	PartnerProfileId string `pulumi:"partnerProfileId"`
+	SingingAlgorithm string `pulumi:"singingAlgorithm"`
+}
+
+// GetConnectorAs2ConfigInput is an input type that accepts GetConnectorAs2ConfigArgs and GetConnectorAs2ConfigOutput values.
+// You can construct a concrete instance of `GetConnectorAs2ConfigInput` via:
+//
+//	GetConnectorAs2ConfigArgs{...}
+type GetConnectorAs2ConfigInput interface {
+	pulumi.Input
+
+	ToGetConnectorAs2ConfigOutput() GetConnectorAs2ConfigOutput
+	ToGetConnectorAs2ConfigOutputWithContext(context.Context) GetConnectorAs2ConfigOutput
+}
+
+type GetConnectorAs2ConfigArgs struct {
+	// Basic authentication for AS2 connector API. Returns a null value if not set.
+	BasicAuthSecretId pulumi.StringInput `pulumi:"basicAuthSecretId"`
+	// Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+	Compression pulumi.StringInput `pulumi:"compression"`
+	// Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// Unique identifier for AS2 local profile.
+	LocalProfileId pulumi.StringInput `pulumi:"localProfileId"`
+	// Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+	MdnResponse pulumi.StringInput `pulumi:"mdnResponse"`
+	// Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
+	MdnSigningAlgorithm pulumi.StringInput `pulumi:"mdnSigningAlgorithm"`
+	// Subject HTTP header attribute in outbound AS2 messages to the connector.
+	MessageSubject pulumi.StringInput `pulumi:"messageSubject"`
+	// Unique identifier used by connector for partner profile.
+	PartnerProfileId pulumi.StringInput `pulumi:"partnerProfileId"`
+	SingingAlgorithm pulumi.StringInput `pulumi:"singingAlgorithm"`
+}
+
+func (GetConnectorAs2ConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorAs2Config)(nil)).Elem()
+}
+
+func (i GetConnectorAs2ConfigArgs) ToGetConnectorAs2ConfigOutput() GetConnectorAs2ConfigOutput {
+	return i.ToGetConnectorAs2ConfigOutputWithContext(context.Background())
+}
+
+func (i GetConnectorAs2ConfigArgs) ToGetConnectorAs2ConfigOutputWithContext(ctx context.Context) GetConnectorAs2ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorAs2ConfigOutput)
+}
+
+// GetConnectorAs2ConfigArrayInput is an input type that accepts GetConnectorAs2ConfigArray and GetConnectorAs2ConfigArrayOutput values.
+// You can construct a concrete instance of `GetConnectorAs2ConfigArrayInput` via:
+//
+//	GetConnectorAs2ConfigArray{ GetConnectorAs2ConfigArgs{...} }
+type GetConnectorAs2ConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectorAs2ConfigArrayOutput() GetConnectorAs2ConfigArrayOutput
+	ToGetConnectorAs2ConfigArrayOutputWithContext(context.Context) GetConnectorAs2ConfigArrayOutput
+}
+
+type GetConnectorAs2ConfigArray []GetConnectorAs2ConfigInput
+
+func (GetConnectorAs2ConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorAs2Config)(nil)).Elem()
+}
+
+func (i GetConnectorAs2ConfigArray) ToGetConnectorAs2ConfigArrayOutput() GetConnectorAs2ConfigArrayOutput {
+	return i.ToGetConnectorAs2ConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectorAs2ConfigArray) ToGetConnectorAs2ConfigArrayOutputWithContext(ctx context.Context) GetConnectorAs2ConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorAs2ConfigArrayOutput)
+}
+
+type GetConnectorAs2ConfigOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorAs2ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorAs2Config)(nil)).Elem()
+}
+
+func (o GetConnectorAs2ConfigOutput) ToGetConnectorAs2ConfigOutput() GetConnectorAs2ConfigOutput {
+	return o
+}
+
+func (o GetConnectorAs2ConfigOutput) ToGetConnectorAs2ConfigOutputWithContext(ctx context.Context) GetConnectorAs2ConfigOutput {
+	return o
+}
+
+// Basic authentication for AS2 connector API. Returns a null value if not set.
+func (o GetConnectorAs2ConfigOutput) BasicAuthSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.BasicAuthSecretId }).(pulumi.StringOutput)
+}
+
+// Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+func (o GetConnectorAs2ConfigOutput) Compression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.Compression }).(pulumi.StringOutput)
+}
+
+// Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
+func (o GetConnectorAs2ConfigOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// Unique identifier for AS2 local profile.
+func (o GetConnectorAs2ConfigOutput) LocalProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.LocalProfileId }).(pulumi.StringOutput)
+}
+
+// Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+func (o GetConnectorAs2ConfigOutput) MdnResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.MdnResponse }).(pulumi.StringOutput)
+}
+
+// Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
+func (o GetConnectorAs2ConfigOutput) MdnSigningAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.MdnSigningAlgorithm }).(pulumi.StringOutput)
+}
+
+// Subject HTTP header attribute in outbound AS2 messages to the connector.
+func (o GetConnectorAs2ConfigOutput) MessageSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.MessageSubject }).(pulumi.StringOutput)
+}
+
+// Unique identifier used by connector for partner profile.
+func (o GetConnectorAs2ConfigOutput) PartnerProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.PartnerProfileId }).(pulumi.StringOutput)
+}
+
+func (o GetConnectorAs2ConfigOutput) SingingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorAs2Config) string { return v.SingingAlgorithm }).(pulumi.StringOutput)
+}
+
+type GetConnectorAs2ConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorAs2ConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorAs2Config)(nil)).Elem()
+}
+
+func (o GetConnectorAs2ConfigArrayOutput) ToGetConnectorAs2ConfigArrayOutput() GetConnectorAs2ConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorAs2ConfigArrayOutput) ToGetConnectorAs2ConfigArrayOutputWithContext(ctx context.Context) GetConnectorAs2ConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorAs2ConfigArrayOutput) Index(i pulumi.IntInput) GetConnectorAs2ConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectorAs2Config {
+		return vs[0].([]GetConnectorAs2Config)[vs[1].(int)]
+	}).(GetConnectorAs2ConfigOutput)
+}
+
+type GetConnectorSftpConfig struct {
+	// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
+	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
+	// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+	UserSecretId string `pulumi:"userSecretId"`
+}
+
+// GetConnectorSftpConfigInput is an input type that accepts GetConnectorSftpConfigArgs and GetConnectorSftpConfigOutput values.
+// You can construct a concrete instance of `GetConnectorSftpConfigInput` via:
+//
+//	GetConnectorSftpConfigArgs{...}
+type GetConnectorSftpConfigInput interface {
+	pulumi.Input
+
+	ToGetConnectorSftpConfigOutput() GetConnectorSftpConfigOutput
+	ToGetConnectorSftpConfigOutputWithContext(context.Context) GetConnectorSftpConfigOutput
+}
+
+type GetConnectorSftpConfigArgs struct {
+	// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
+	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
+	// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+	UserSecretId pulumi.StringInput `pulumi:"userSecretId"`
+}
+
+func (GetConnectorSftpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorSftpConfig)(nil)).Elem()
+}
+
+func (i GetConnectorSftpConfigArgs) ToGetConnectorSftpConfigOutput() GetConnectorSftpConfigOutput {
+	return i.ToGetConnectorSftpConfigOutputWithContext(context.Background())
+}
+
+func (i GetConnectorSftpConfigArgs) ToGetConnectorSftpConfigOutputWithContext(ctx context.Context) GetConnectorSftpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorSftpConfigOutput)
+}
+
+// GetConnectorSftpConfigArrayInput is an input type that accepts GetConnectorSftpConfigArray and GetConnectorSftpConfigArrayOutput values.
+// You can construct a concrete instance of `GetConnectorSftpConfigArrayInput` via:
+//
+//	GetConnectorSftpConfigArray{ GetConnectorSftpConfigArgs{...} }
+type GetConnectorSftpConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetConnectorSftpConfigArrayOutput() GetConnectorSftpConfigArrayOutput
+	ToGetConnectorSftpConfigArrayOutputWithContext(context.Context) GetConnectorSftpConfigArrayOutput
+}
+
+type GetConnectorSftpConfigArray []GetConnectorSftpConfigInput
+
+func (GetConnectorSftpConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorSftpConfig)(nil)).Elem()
+}
+
+func (i GetConnectorSftpConfigArray) ToGetConnectorSftpConfigArrayOutput() GetConnectorSftpConfigArrayOutput {
+	return i.ToGetConnectorSftpConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetConnectorSftpConfigArray) ToGetConnectorSftpConfigArrayOutputWithContext(ctx context.Context) GetConnectorSftpConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConnectorSftpConfigArrayOutput)
+}
+
+type GetConnectorSftpConfigOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorSftpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConnectorSftpConfig)(nil)).Elem()
+}
+
+func (o GetConnectorSftpConfigOutput) ToGetConnectorSftpConfigOutput() GetConnectorSftpConfigOutput {
+	return o
+}
+
+func (o GetConnectorSftpConfigOutput) ToGetConnectorSftpConfigOutputWithContext(ctx context.Context) GetConnectorSftpConfigOutput {
+	return o
+}
+
+// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
+func (o GetConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
+}
+
+// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+func (o GetConnectorSftpConfigOutput) UserSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConnectorSftpConfig) string { return v.UserSecretId }).(pulumi.StringOutput)
+}
+
+type GetConnectorSftpConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConnectorSftpConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConnectorSftpConfig)(nil)).Elem()
+}
+
+func (o GetConnectorSftpConfigArrayOutput) ToGetConnectorSftpConfigArrayOutput() GetConnectorSftpConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorSftpConfigArrayOutput) ToGetConnectorSftpConfigArrayOutputWithContext(ctx context.Context) GetConnectorSftpConfigArrayOutput {
+	return o
+}
+
+func (o GetConnectorSftpConfigArrayOutput) Index(i pulumi.IntInput) GetConnectorSftpConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectorSftpConfig {
+		return vs[0].([]GetConnectorSftpConfig)[vs[1].(int)]
+	}).(GetConnectorSftpConfigOutput)
 }
 
 func init() {
@@ -6296,6 +6644,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsTagInput)(nil)).Elem(), WorkflowStepTagStepDetailsTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsTagArrayInput)(nil)).Elem(), WorkflowStepTagStepDetailsTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorAs2ConfigInput)(nil)).Elem(), GetConnectorAs2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorAs2ConfigArrayInput)(nil)).Elem(), GetConnectorAs2ConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorSftpConfigInput)(nil)).Elem(), GetConnectorSftpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectorSftpConfigArrayInput)(nil)).Elem(), GetConnectorSftpConfigArray{})
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingOutput{})
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfileOutput{})
@@ -6372,4 +6724,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsTagOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTagStepDetailsTagArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectorAs2ConfigOutput{})
+	pulumi.RegisterOutputType(GetConnectorAs2ConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetConnectorSftpConfigOutput{})
+	pulumi.RegisterOutputType(GetConnectorSftpConfigArrayOutput{})
 }

@@ -130,7 +130,7 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DomainSamlOptions(String name) {
+    public DomainSamlOptions(java.lang.String name) {
         this(name, DomainSamlOptionsArgs.Empty);
     }
     /**
@@ -138,7 +138,7 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DomainSamlOptions(String name, DomainSamlOptionsArgs args) {
+    public DomainSamlOptions(java.lang.String name, DomainSamlOptionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -147,15 +147,22 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DomainSamlOptions(String name, DomainSamlOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/domainSamlOptions:DomainSamlOptions", name, args == null ? DomainSamlOptionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DomainSamlOptions(java.lang.String name, DomainSamlOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/domainSamlOptions:DomainSamlOptions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DomainSamlOptions(String name, Output<String> id, @Nullable DomainSamlOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:opensearch/domainSamlOptions:DomainSamlOptions", name, state, makeResourceOptions(options, id));
+    private DomainSamlOptions(java.lang.String name, Output<java.lang.String> id, @Nullable DomainSamlOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:opensearch/domainSamlOptions:DomainSamlOptions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DomainSamlOptionsArgs makeArgs(DomainSamlOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainSamlOptionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -171,7 +178,7 @@ public class DomainSamlOptions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DomainSamlOptions get(String name, Output<String> id, @Nullable DomainSamlOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DomainSamlOptions get(java.lang.String name, Output<java.lang.String> id, @Nullable DomainSamlOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DomainSamlOptions(name, id, state, options);
     }
 }

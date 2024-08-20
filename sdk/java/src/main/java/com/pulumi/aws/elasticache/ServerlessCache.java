@@ -438,7 +438,7 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerlessCache(String name) {
+    public ServerlessCache(java.lang.String name) {
         this(name, ServerlessCacheArgs.Empty);
     }
     /**
@@ -446,7 +446,7 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessCache(String name, ServerlessCacheArgs args) {
+    public ServerlessCache(java.lang.String name, ServerlessCacheArgs args) {
         this(name, args, null);
     }
     /**
@@ -455,15 +455,22 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessCache(String name, ServerlessCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/serverlessCache:ServerlessCache", name, args == null ? ServerlessCacheArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerlessCache(java.lang.String name, ServerlessCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/serverlessCache:ServerlessCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerlessCache(String name, Output<String> id, @Nullable ServerlessCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/serverlessCache:ServerlessCache", name, state, makeResourceOptions(options, id));
+    private ServerlessCache(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/serverlessCache:ServerlessCache", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerlessCacheArgs makeArgs(ServerlessCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessCacheArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -479,7 +486,7 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerlessCache get(String name, Output<String> id, @Nullable ServerlessCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerlessCache get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerlessCache(name, id, state, options);
     }
 }

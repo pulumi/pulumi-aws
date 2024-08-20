@@ -261,7 +261,7 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public UserPoolUICustomization(String name) {
+    public UserPoolUICustomization(java.lang.String name) {
         this(name, UserPoolUICustomizationArgs.Empty);
     }
     /**
@@ -269,7 +269,7 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public UserPoolUICustomization(String name, UserPoolUICustomizationArgs args) {
+    public UserPoolUICustomization(java.lang.String name, UserPoolUICustomizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -278,15 +278,22 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public UserPoolUICustomization(String name, UserPoolUICustomizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolUICustomization:UserPoolUICustomization", name, args == null ? UserPoolUICustomizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public UserPoolUICustomization(java.lang.String name, UserPoolUICustomizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userPoolUICustomization:UserPoolUICustomization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private UserPoolUICustomization(String name, Output<String> id, @Nullable UserPoolUICustomizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cognito/userPoolUICustomization:UserPoolUICustomization", name, state, makeResourceOptions(options, id));
+    private UserPoolUICustomization(java.lang.String name, Output<java.lang.String> id, @Nullable UserPoolUICustomizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cognito/userPoolUICustomization:UserPoolUICustomization", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static UserPoolUICustomizationArgs makeArgs(UserPoolUICustomizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserPoolUICustomizationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +309,7 @@ public class UserPoolUICustomization extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static UserPoolUICustomization get(String name, Output<String> id, @Nullable UserPoolUICustomizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static UserPoolUICustomization get(java.lang.String name, Output<java.lang.String> id, @Nullable UserPoolUICustomizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new UserPoolUICustomization(name, id, state, options);
     }
 }

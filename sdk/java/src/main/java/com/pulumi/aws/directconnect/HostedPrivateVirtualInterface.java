@@ -263,7 +263,7 @@ public class HostedPrivateVirtualInterface extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HostedPrivateVirtualInterface(String name) {
+    public HostedPrivateVirtualInterface(java.lang.String name) {
         this(name, HostedPrivateVirtualInterfaceArgs.Empty);
     }
     /**
@@ -271,7 +271,7 @@ public class HostedPrivateVirtualInterface extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HostedPrivateVirtualInterface(String name, HostedPrivateVirtualInterfaceArgs args) {
+    public HostedPrivateVirtualInterface(java.lang.String name, HostedPrivateVirtualInterfaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -280,15 +280,22 @@ public class HostedPrivateVirtualInterface extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HostedPrivateVirtualInterface(String name, HostedPrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, args == null ? HostedPrivateVirtualInterfaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HostedPrivateVirtualInterface(java.lang.String name, HostedPrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HostedPrivateVirtualInterface(String name, Output<String> id, @Nullable HostedPrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, state, makeResourceOptions(options, id));
+    private HostedPrivateVirtualInterface(java.lang.String name, Output<java.lang.String> id, @Nullable HostedPrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HostedPrivateVirtualInterfaceArgs makeArgs(HostedPrivateVirtualInterfaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedPrivateVirtualInterfaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -304,7 +311,7 @@ public class HostedPrivateVirtualInterface extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HostedPrivateVirtualInterface get(String name, Output<String> id, @Nullable HostedPrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HostedPrivateVirtualInterface get(java.lang.String name, Output<java.lang.String> id, @Nullable HostedPrivateVirtualInterfaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HostedPrivateVirtualInterface(name, id, state, options);
     }
 }

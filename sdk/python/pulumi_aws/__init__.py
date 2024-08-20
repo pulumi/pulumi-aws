@@ -17,6 +17,7 @@ from .get_partition import *
 from .get_region import *
 from .get_regions import *
 from .get_service import *
+from .get_service_principal import *
 from .provider import *
 from ._inputs import *
 from . import outputs
@@ -419,6 +420,8 @@ if typing.TYPE_CHECKING:
     swf = __swf
     import pulumi_aws.synthetics as __synthetics
     synthetics = __synthetics
+    import pulumi_aws.timestreaminfluxdb as __timestreaminfluxdb
+    timestreaminfluxdb = __timestreaminfluxdb
     import pulumi_aws.timestreamwrite as __timestreamwrite
     timestreamwrite = __timestreamwrite
     import pulumi_aws.transcribe as __transcribe
@@ -644,6 +647,7 @@ else:
     storagegateway = _utilities.lazy_import('pulumi_aws.storagegateway')
     swf = _utilities.lazy_import('pulumi_aws.swf')
     synthetics = _utilities.lazy_import('pulumi_aws.synthetics')
+    timestreaminfluxdb = _utilities.lazy_import('pulumi_aws.timestreaminfluxdb')
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
@@ -2079,6 +2083,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chatbot/slackChannelConfiguration",
+  "fqn": "pulumi_aws.chatbot",
+  "classes": {
+   "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration": "SlackChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chatbot/teamsChannelConfiguration",
+  "fqn": "pulumi_aws.chatbot",
+  "classes": {
+   "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration": "TeamsChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "chime/sdkvoiceGlobalSettings",
   "fqn": "pulumi_aws.chime",
   "classes": {
@@ -2515,6 +2535,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/internetMonitor:InternetMonitor": "InternetMonitor"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logAccountPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logAccountPolicy:LogAccountPolicy": "LogAccountPolicy"
   }
  },
  {
@@ -3303,6 +3331,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/glossary",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/glossary:Glossary": "Glossary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/project",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dax/cluster",
   "fqn": "pulumi_aws.dax",
   "classes": {
@@ -3907,6 +3951,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ebs",
   "classes": {
    "aws:ebs/snapshot:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ebs/snapshotBlockPublicAccess",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess"
   }
  },
  {
@@ -4939,6 +4991,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecr",
   "classes": {
    "aws:ecr/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecr/repositoryCreationTemplate",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate": "RepositoryCreationTemplate"
   }
  },
  {
@@ -5979,6 +6039,22 @@ _utilities.register(
   "fqn": "pulumi_aws.grafana",
   "classes": {
    "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration": "WorkspaceSamlConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspaceServiceAccount",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount": "WorkspaceServiceAccount"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "grafana/workspaceServiceAccountToken",
+  "fqn": "pulumi_aws.grafana",
+  "classes": {
+   "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken": "WorkspaceServiceAccountToken"
   }
  },
  {
@@ -8639,6 +8715,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/certificate",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/cluster",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -8739,6 +8823,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication": "InstanceAutomatedBackupsReplication"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/integration",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/integration:Integration": "Integration"
   }
  },
  {
@@ -9083,6 +9175,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rekognition",
   "classes": {
    "aws:rekognition/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rekognition/streamProcessor",
+  "fqn": "pulumi_aws.rekognition",
+  "classes": {
+   "aws:rekognition/streamProcessor:StreamProcessor": "StreamProcessor"
   }
  },
  {
@@ -10671,6 +10771,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "shield/subscription",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/subscription:Subscription": "Subscription"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "signer/signingJob",
   "fqn": "pulumi_aws.signer",
   "classes": {
@@ -11135,6 +11243,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "timestreaminfluxdb/dbInstance",
+  "fqn": "pulumi_aws.timestreaminfluxdb",
+  "classes": {
+   "aws:timestreaminfluxdb/dbInstance:DbInstance": "DbInstance"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "timestreamwrite/database",
   "fqn": "pulumi_aws.timestreamwrite",
   "classes": {
@@ -11307,6 +11423,14 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/identitySource",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/identitySource:IdentitySource": "IdentitySource"
   }
  },
  {

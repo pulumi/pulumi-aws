@@ -27,7 +27,7 @@ import java.util.StringJoiner;
         }
 
         @Override
-        public String toString() {
+        public java.lang.String toString() {
             return new StringJoiner(", ", "EngineMode[", "]")
                 .add("value='" + this.value + "'")
                 .toString();

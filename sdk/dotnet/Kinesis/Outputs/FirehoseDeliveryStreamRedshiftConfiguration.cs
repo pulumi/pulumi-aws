@@ -34,9 +34,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string DataTableName;
         /// <summary>
-        /// The password for the username above.
+        /// The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
@@ -51,6 +51,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly string RoleArn;
         /// <summary>
         /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
+        /// `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration? S3BackupConfiguration;
         /// <summary>
@@ -61,10 +62,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// The S3 Configuration. See s3_configuration below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration S3Configuration;
+        public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
-        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
+        /// The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamRedshiftConfiguration(
@@ -78,7 +80,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string dataTableName,
 
-            string password,
+            string? password,
 
             Outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration? processingConfiguration,
 
@@ -92,7 +94,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration,
 
-            string username)
+            Outputs.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration? secretsManagerConfiguration,
+
+            string? username)
         {
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             ClusterJdbcurl = clusterJdbcurl;
@@ -106,6 +110,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             S3BackupConfiguration = s3BackupConfiguration;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
+            SecretsManagerConfiguration = secretsManagerConfiguration;
             Username = username;
         }
     }

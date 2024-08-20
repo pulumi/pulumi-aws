@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2transitgateway;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2transitgateway.PeeringAttachmentArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.PeeringAttachmentState;
+import com.pulumi.aws.ec2transitgateway.outputs.PeeringAttachmentOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -83,6 +84,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
 public class PeeringAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    @Export(name="options", refs={PeeringAttachmentOptions.class}, tree="[0]")
+    private Output</* @Nullable */ PeeringAttachmentOptions> options;
+
+    /**
+     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    public Output<Optional<PeeringAttachmentOptions>> options() {
+        return Codegen.optional(this.options);
+    }
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
@@ -182,7 +197,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PeeringAttachment(String name) {
+    public PeeringAttachment(java.lang.String name) {
         this(name, PeeringAttachmentArgs.Empty);
     }
     /**
@@ -190,7 +205,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PeeringAttachment(String name, PeeringAttachmentArgs args) {
+    public PeeringAttachment(java.lang.String name, PeeringAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -199,15 +214,22 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PeeringAttachment(String name, PeeringAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, args == null ? PeeringAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public PeeringAttachment(java.lang.String name, PeeringAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PeeringAttachment(String name, Output<String> id, @Nullable PeeringAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, state, makeResourceOptions(options, id));
+    private PeeringAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable PeeringAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static PeeringAttachmentArgs makeArgs(PeeringAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PeeringAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -223,7 +245,7 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PeeringAttachment get(String name, Output<String> id, @Nullable PeeringAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PeeringAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable PeeringAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PeeringAttachment(name, id, state, options);
     }
 }

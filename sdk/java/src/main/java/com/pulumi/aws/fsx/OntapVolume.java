@@ -123,14 +123,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
 public class OntapVolume extends com.pulumi.resources.CustomResource {
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
      * 
      */
     @Export(name="aggregateConfiguration", refs={OntapVolumeAggregateConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeAggregateConfiguration> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See Aggreate Configuration below.
+     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
      * 
      */
     public Output<Optional<OntapVolumeAggregateConfiguration>> aggregateConfiguration() {
@@ -191,6 +191,20 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
+    }
+    /**
+     * A map of tags to apply to the volume&#39;s final backup.
+     * 
+     */
+    @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the volume&#39;s final backup.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> finalBackupTags() {
+        return Codegen.optional(this.finalBackupTags);
     }
     /**
      * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -305,14 +319,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
      * 
      */
     @Export(name="snaplockConfiguration", refs={OntapVolumeSnaplockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeSnaplockConfiguration> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeSnaplockConfiguration>> snaplockConfiguration() {
@@ -349,12 +363,16 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage virtual machine in which to create the volume.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="storageVirtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> storageVirtualMachineId;
 
     /**
      * @return Specifies the storage virtual machine in which to create the volume.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> storageVirtualMachineId() {
@@ -393,14 +411,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
      * 
      */
     @Export(name="tieringPolicy", refs={OntapVolumeTieringPolicy.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeTieringPolicy> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * @return The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeTieringPolicy>> tieringPolicy() {
@@ -453,7 +471,7 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OntapVolume(String name) {
+    public OntapVolume(java.lang.String name) {
         this(name, OntapVolumeArgs.Empty);
     }
     /**
@@ -461,7 +479,7 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OntapVolume(String name, OntapVolumeArgs args) {
+    public OntapVolume(java.lang.String name, OntapVolumeArgs args) {
         this(name, args, null);
     }
     /**
@@ -470,15 +488,22 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OntapVolume(String name, OntapVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapVolume:OntapVolume", name, args == null ? OntapVolumeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OntapVolume(java.lang.String name, OntapVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapVolume:OntapVolume", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OntapVolume(String name, Output<String> id, @Nullable OntapVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapVolume:OntapVolume", name, state, makeResourceOptions(options, id));
+    private OntapVolume(java.lang.String name, Output<java.lang.String> id, @Nullable OntapVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapVolume:OntapVolume", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OntapVolumeArgs makeArgs(OntapVolumeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OntapVolumeArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -494,7 +519,7 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OntapVolume get(String name, Output<String> id, @Nullable OntapVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OntapVolume get(java.lang.String name, Output<java.lang.String> id, @Nullable OntapVolumeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OntapVolume(name, id, state, options);
     }
 }

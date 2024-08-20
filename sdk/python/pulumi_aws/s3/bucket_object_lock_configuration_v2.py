@@ -32,8 +32,8 @@ class BucketObjectLockConfigurationV2Args:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
-        :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-               The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        :param pulumi.Input[str] token: This argument is deprecated and no longer needed to enable Object Lock.
+               To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
@@ -97,8 +97,8 @@ class BucketObjectLockConfigurationV2Args:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
-        Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-        The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        This argument is deprecated and no longer needed to enable Object Lock.
+        To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         return pulumi.get(self, "token")
 
@@ -121,8 +121,8 @@ class _BucketObjectLockConfigurationV2State:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
-        :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-               The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        :param pulumi.Input[str] token: This argument is deprecated and no longer needed to enable Object Lock.
+               To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -187,8 +187,8 @@ class _BucketObjectLockConfigurationV2State:
     @pulumi.getter
     def token(self) -> Optional[pulumi.Input[str]]:
         """
-        Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-        The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        This argument is deprecated and no longer needed to enable Object Lock.
+        To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         return pulumi.get(self, "token")
 
@@ -232,7 +232,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=example.id,
             rule={
-                "defaultRetention": {
+                "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },
@@ -267,8 +267,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         :param pulumi.Input[Union['BucketObjectLockConfigurationV2RuleArgs', 'BucketObjectLockConfigurationV2RuleArgsDict']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
-        :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-               The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        :param pulumi.Input[str] token: This argument is deprecated and no longer needed to enable Object Lock.
+               To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         ...
     @overload
@@ -300,7 +300,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=example.id,
             rule={
-                "defaultRetention": {
+                "default_retention": {
                     "mode": "COMPLIANCE",
                     "days": 5,
                 },
@@ -393,8 +393,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
         :param pulumi.Input[Union['BucketObjectLockConfigurationV2RuleArgs', 'BucketObjectLockConfigurationV2RuleArgsDict']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
-        :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-               The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        :param pulumi.Input[str] token: This argument is deprecated and no longer needed to enable Object Lock.
+               To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,8 +443,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
     @pulumi.getter
     def token(self) -> pulumi.Output[Optional[str]]:
         """
-        Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-        The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
+        This argument is deprecated and no longer needed to enable Object Lock.
+        To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
         return pulumi.get(self, "token")
 

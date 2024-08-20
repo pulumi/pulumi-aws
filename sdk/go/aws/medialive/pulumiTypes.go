@@ -966,7 +966,8 @@ type ChannelEncoderSettingsAudioDescription struct {
 	// The name of this audio description.
 	Name          string                                               `pulumi:"name"`
 	RemixSettings *ChannelEncoderSettingsAudioDescriptionRemixSettings `pulumi:"remixSettings"`
-	StreamName    *string                                              `pulumi:"streamName"`
+	// Stream name RTMP destinations (URLs of type rtmp://)
+	StreamName *string `pulumi:"streamName"`
 }
 
 // ChannelEncoderSettingsAudioDescriptionInput is an input type that accepts ChannelEncoderSettingsAudioDescriptionArgs and ChannelEncoderSettingsAudioDescriptionOutput values.
@@ -998,7 +999,8 @@ type ChannelEncoderSettingsAudioDescriptionArgs struct {
 	// The name of this audio description.
 	Name          pulumi.StringInput                                          `pulumi:"name"`
 	RemixSettings ChannelEncoderSettingsAudioDescriptionRemixSettingsPtrInput `pulumi:"remixSettings"`
-	StreamName    pulumi.StringPtrInput                                       `pulumi:"streamName"`
+	// Stream name RTMP destinations (URLs of type rtmp://)
+	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
 }
 
 func (ChannelEncoderSettingsAudioDescriptionArgs) ElementType() reflect.Type {
@@ -1107,6 +1109,7 @@ func (o ChannelEncoderSettingsAudioDescriptionOutput) RemixSettings() ChannelEnc
 	}).(ChannelEncoderSettingsAudioDescriptionRemixSettingsPtrOutput)
 }
 
+// Stream name RTMP destinations (URLs of type rtmp://)
 func (o ChannelEncoderSettingsAudioDescriptionOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescription) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
@@ -1444,8 +1447,11 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsPtrOutput) N
 }
 
 type ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings struct {
-	NielsenCbetSettings     *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings     `pulumi:"nielsenCbetSettings"`
-	NielsenDistributionType *string                                                                                                       `pulumi:"nielsenDistributionType"`
+	// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+	NielsenCbetSettings *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings `pulumi:"nielsenCbetSettings"`
+	// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+	NielsenDistributionType *string `pulumi:"nielsenDistributionType"`
+	// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
 	NielsenNaesIiNwSettings []ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting `pulumi:"nielsenNaesIiNwSettings"`
 }
 
@@ -1461,8 +1467,11 @@ type ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermar
 }
 
 type ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs struct {
-	NielsenCbetSettings     ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrInput      `pulumi:"nielsenCbetSettings"`
-	NielsenDistributionType pulumi.StringPtrInput                                                                                                 `pulumi:"nielsenDistributionType"`
+	// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+	NielsenCbetSettings ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrInput `pulumi:"nielsenCbetSettings"`
+	// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+	NielsenDistributionType pulumi.StringPtrInput `pulumi:"nielsenDistributionType"`
+	// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
 	NielsenNaesIiNwSettings ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrayInput `pulumi:"nielsenNaesIiNwSettings"`
 }
 
@@ -1543,18 +1552,21 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWater
 	}).(ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsPtrOutput)
 }
 
+// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsOutput) NielsenCbetSettings() ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
 		return v.NielsenCbetSettings
 	}).(ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrOutput)
 }
 
+// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsOutput) NielsenDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) *string {
 		return v.NielsenDistributionType
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsOutput) NielsenNaesIiNwSettings() ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrayOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) []ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting {
 		return v.NielsenNaesIiNwSettings
@@ -1585,6 +1597,7 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWater
 	}).(ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsOutput)
 }
 
+// Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsPtrOutput) NielsenCbetSettings() ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
 		if v == nil {
@@ -1594,6 +1607,7 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWater
 	}).(ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsPtrOutput)
 }
 
+// Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsPtrOutput) NielsenDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) *string {
 		if v == nil {
@@ -1603,6 +1617,7 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWater
 	}).(pulumi.StringPtrOutput)
 }
 
+// Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsPtrOutput) NielsenNaesIiNwSettings() ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrayOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings) []ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting {
 		if v == nil {
@@ -1897,9 +1912,13 @@ func (o ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWater
 }
 
 type ChannelEncoderSettingsAudioDescriptionCodecSettings struct {
-	AacSettings         *ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings         `pulumi:"aacSettings"`
-	Ac3Settings         *ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings         `pulumi:"ac3Settings"`
-	Eac3AtmosSettings   *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings   `pulumi:"eac3AtmosSettings"`
+	// Aac Settings. See AAC Settings for more details.
+	AacSettings *ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings `pulumi:"aacSettings"`
+	// Ac3 Settings. See AC3 Settings for more details.
+	Ac3Settings *ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings `pulumi:"ac3Settings"`
+	// Eac3 Atmos Settings. See EAC3 Atmos Settings
+	Eac3AtmosSettings *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings `pulumi:"eac3AtmosSettings"`
+	// Eac3 Settings. See EAC3 Settings
 	Eac3Settings        *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings        `pulumi:"eac3Settings"`
 	Mp2Settings         *ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings         `pulumi:"mp2Settings"`
 	PassThroughSettings *ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings `pulumi:"passThroughSettings"`
@@ -1918,9 +1937,13 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsInput interface {
 }
 
 type ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs struct {
-	AacSettings         ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrInput         `pulumi:"aacSettings"`
-	Ac3Settings         ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrInput         `pulumi:"ac3Settings"`
-	Eac3AtmosSettings   ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrInput   `pulumi:"eac3AtmosSettings"`
+	// Aac Settings. See AAC Settings for more details.
+	AacSettings ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrInput `pulumi:"aacSettings"`
+	// Ac3 Settings. See AC3 Settings for more details.
+	Ac3Settings ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrInput `pulumi:"ac3Settings"`
+	// Eac3 Atmos Settings. See EAC3 Atmos Settings
+	Eac3AtmosSettings ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrInput `pulumi:"eac3AtmosSettings"`
+	// Eac3 Settings. See EAC3 Settings
 	Eac3Settings        ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrInput        `pulumi:"eac3Settings"`
 	Mp2Settings         ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsPtrInput         `pulumi:"mp2Settings"`
 	PassThroughSettings ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsPtrInput `pulumi:"passThroughSettings"`
@@ -2004,24 +2027,28 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput) ToChannelEnco
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput)
 }
 
+// Aac Settings. See AAC Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput) AacSettings() ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings {
 		return v.AacSettings
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput)
 }
 
+// Ac3 Settings. See AC3 Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput) Ac3Settings() ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
 		return v.Ac3Settings
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrOutput)
 }
 
+// Eac3 Atmos Settings. See EAC3 Atmos Settings
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput) Eac3AtmosSettings() ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
 		return v.Eac3AtmosSettings
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrOutput)
 }
 
+// Eac3 Settings. See EAC3 Settings
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput) Eac3Settings() ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
 		return v.Eac3Settings
@@ -2070,6 +2097,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Elem() Cha
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsOutput)
 }
 
+// Aac Settings. See AAC Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) AacSettings() ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings {
 		if v == nil {
@@ -2079,6 +2107,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) AacSetting
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsPtrOutput)
 }
 
+// Ac3 Settings. See AC3 Settings for more details.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Ac3Settings() ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
 		if v == nil {
@@ -2088,6 +2117,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Ac3Setting
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsPtrOutput)
 }
 
+// Eac3 Atmos Settings. See EAC3 Atmos Settings
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Eac3AtmosSettings() ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
 		if v == nil {
@@ -2097,6 +2127,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Eac3AtmosS
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsPtrOutput)
 }
 
+// Eac3 Settings. See EAC3 Settings
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput) Eac3Settings() ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettings) *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
 		if v == nil {
@@ -2946,23 +2977,27 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings struct {
 	// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
 	BitstreamMode *string `pulumi:"bitstreamMode"`
 	// Dolby Digital Plus coding mode.
-	CodingMode           *string  `pulumi:"codingMode"`
-	DcFilter             *string  `pulumi:"dcFilter"`
-	Dialnorm             *int     `pulumi:"dialnorm"`
-	DrcLine              *string  `pulumi:"drcLine"`
-	DrcRf                *string  `pulumi:"drcRf"`
-	LfeControl           *string  `pulumi:"lfeControl"`
+	CodingMode *string `pulumi:"codingMode"`
+	DcFilter   *string `pulumi:"dcFilter"`
+	Dialnorm   *int    `pulumi:"dialnorm"`
+	// Sets the Dolby dynamic range compression profile.
+	DrcLine *string `pulumi:"drcLine"`
+	// Sets the profile for heavy Dolby dynamic range compression.
+	DrcRf      *string `pulumi:"drcRf"`
+	LfeControl *string `pulumi:"lfeControl"`
+	// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
 	LfeFilter            *string  `pulumi:"lfeFilter"`
 	LoRoCenterMixLevel   *float64 `pulumi:"loRoCenterMixLevel"`
 	LoRoSurroundMixLevel *float64 `pulumi:"loRoSurroundMixLevel"`
 	LtRtCenterMixLevel   *float64 `pulumi:"ltRtCenterMixLevel"`
 	LtRtSurroundMixLevel *float64 `pulumi:"ltRtSurroundMixLevel"`
-	MetadataControl      *string  `pulumi:"metadataControl"`
-	PassthroughControl   *string  `pulumi:"passthroughControl"`
-	PhaseControl         *string  `pulumi:"phaseControl"`
-	StereoDownmix        *string  `pulumi:"stereoDownmix"`
-	SurroundExMode       *string  `pulumi:"surroundExMode"`
-	SurroundMode         *string  `pulumi:"surroundMode"`
+	// Metadata control.
+	MetadataControl    *string `pulumi:"metadataControl"`
+	PassthroughControl *string `pulumi:"passthroughControl"`
+	PhaseControl       *string `pulumi:"phaseControl"`
+	StereoDownmix      *string `pulumi:"stereoDownmix"`
+	SurroundExMode     *string `pulumi:"surroundExMode"`
+	SurroundMode       *string `pulumi:"surroundMode"`
 }
 
 // ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsInput is an input type that accepts ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs and ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput values.
@@ -2984,23 +3019,27 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs struct 
 	// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
 	BitstreamMode pulumi.StringPtrInput `pulumi:"bitstreamMode"`
 	// Dolby Digital Plus coding mode.
-	CodingMode           pulumi.StringPtrInput  `pulumi:"codingMode"`
-	DcFilter             pulumi.StringPtrInput  `pulumi:"dcFilter"`
-	Dialnorm             pulumi.IntPtrInput     `pulumi:"dialnorm"`
-	DrcLine              pulumi.StringPtrInput  `pulumi:"drcLine"`
-	DrcRf                pulumi.StringPtrInput  `pulumi:"drcRf"`
-	LfeControl           pulumi.StringPtrInput  `pulumi:"lfeControl"`
+	CodingMode pulumi.StringPtrInput `pulumi:"codingMode"`
+	DcFilter   pulumi.StringPtrInput `pulumi:"dcFilter"`
+	Dialnorm   pulumi.IntPtrInput    `pulumi:"dialnorm"`
+	// Sets the Dolby dynamic range compression profile.
+	DrcLine pulumi.StringPtrInput `pulumi:"drcLine"`
+	// Sets the profile for heavy Dolby dynamic range compression.
+	DrcRf      pulumi.StringPtrInput `pulumi:"drcRf"`
+	LfeControl pulumi.StringPtrInput `pulumi:"lfeControl"`
+	// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
 	LfeFilter            pulumi.StringPtrInput  `pulumi:"lfeFilter"`
 	LoRoCenterMixLevel   pulumi.Float64PtrInput `pulumi:"loRoCenterMixLevel"`
 	LoRoSurroundMixLevel pulumi.Float64PtrInput `pulumi:"loRoSurroundMixLevel"`
 	LtRtCenterMixLevel   pulumi.Float64PtrInput `pulumi:"ltRtCenterMixLevel"`
 	LtRtSurroundMixLevel pulumi.Float64PtrInput `pulumi:"ltRtSurroundMixLevel"`
-	MetadataControl      pulumi.StringPtrInput  `pulumi:"metadataControl"`
-	PassthroughControl   pulumi.StringPtrInput  `pulumi:"passthroughControl"`
-	PhaseControl         pulumi.StringPtrInput  `pulumi:"phaseControl"`
-	StereoDownmix        pulumi.StringPtrInput  `pulumi:"stereoDownmix"`
-	SurroundExMode       pulumi.StringPtrInput  `pulumi:"surroundExMode"`
-	SurroundMode         pulumi.StringPtrInput  `pulumi:"surroundMode"`
+	// Metadata control.
+	MetadataControl    pulumi.StringPtrInput `pulumi:"metadataControl"`
+	PassthroughControl pulumi.StringPtrInput `pulumi:"passthroughControl"`
+	PhaseControl       pulumi.StringPtrInput `pulumi:"phaseControl"`
+	StereoDownmix      pulumi.StringPtrInput `pulumi:"stereoDownmix"`
+	SurroundExMode     pulumi.StringPtrInput `pulumi:"surroundExMode"`
+	SurroundMode       pulumi.StringPtrInput `pulumi:"surroundMode"`
 }
 
 func (ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs) ElementType() reflect.Type {
@@ -3112,10 +3151,12 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) D
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *int { return v.Dialnorm }).(pulumi.IntPtrOutput)
 }
 
+// Sets the Dolby dynamic range compression profile.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) DrcLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string { return v.DrcLine }).(pulumi.StringPtrOutput)
 }
 
+// Sets the profile for heavy Dolby dynamic range compression.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) DrcRf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string { return v.DrcRf }).(pulumi.StringPtrOutput)
 }
@@ -3124,6 +3165,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) L
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string { return v.LfeControl }).(pulumi.StringPtrOutput)
 }
 
+// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) LfeFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string { return v.LfeFilter }).(pulumi.StringPtrOutput)
 }
@@ -3152,6 +3194,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) L
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Metadata control.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsOutput) MetadataControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string {
 		return v.MetadataControl
@@ -3266,6 +3309,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sets the Dolby dynamic range compression profile.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput) DrcLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string {
 		if v == nil {
@@ -3275,6 +3319,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the profile for heavy Dolby dynamic range compression.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput) DrcRf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string {
 		if v == nil {
@@ -3293,6 +3338,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput) LfeFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string {
 		if v == nil {
@@ -3338,6 +3384,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Metadata control.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput) MetadataControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings) *string {
 		if v == nil {
@@ -3395,6 +3442,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsPtrOutput
 type ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings struct {
 	Bitrate    *float64 `pulumi:"bitrate"`
 	CodingMode *string  `pulumi:"codingMode"`
+	// Sample rate in Hz.
 	SampleRate *float64 `pulumi:"sampleRate"`
 }
 
@@ -3412,6 +3460,7 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsInput interfa
 type ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs struct {
 	Bitrate    pulumi.Float64PtrInput `pulumi:"bitrate"`
 	CodingMode pulumi.StringPtrInput  `pulumi:"codingMode"`
+	// Sample rate in Hz.
 	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
 
@@ -3500,6 +3549,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsOutput) Co
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings) *string { return v.CodingMode }).(pulumi.StringPtrOutput)
 }
 
+// Sample rate in Hz.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings) *float64 { return v.SampleRate }).(pulumi.Float64PtrOutput)
 }
@@ -3546,6 +3596,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sample rate in Hz.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsPtrOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings) *float64 {
 		if v == nil {
@@ -3676,6 +3727,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsPt
 type ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings struct {
 	BitDepth   *float64 `pulumi:"bitDepth"`
 	CodingMode *string  `pulumi:"codingMode"`
+	// Sample rate in Hz.
 	SampleRate *float64 `pulumi:"sampleRate"`
 }
 
@@ -3693,6 +3745,7 @@ type ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsInput interfa
 type ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs struct {
 	BitDepth   pulumi.Float64PtrInput `pulumi:"bitDepth"`
 	CodingMode pulumi.StringPtrInput  `pulumi:"codingMode"`
+	// Sample rate in Hz.
 	SampleRate pulumi.Float64PtrInput `pulumi:"sampleRate"`
 }
 
@@ -3781,6 +3834,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsOutput) Co
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings) *string { return v.CodingMode }).(pulumi.StringPtrOutput)
 }
 
+// Sample rate in Hz.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings) *float64 { return v.SampleRate }).(pulumi.Float64PtrOutput)
 }
@@ -3827,6 +3881,7 @@ func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sample rate in Hz.
 func (o ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsPtrOutput) SampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings) *float64 {
 		if v == nil {
@@ -10234,6 +10289,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSet
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings struct {
+	// Specify the canned ACL to apply to each S3 request.
 	CannedAcl *string `pulumi:"cannedAcl"`
 }
 
@@ -10249,6 +10305,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettin
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs struct {
+	// Specify the canned ACL to apply to each S3 request.
 	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
 }
 
@@ -10329,6 +10386,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSet
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsPtrOutput)
 }
 
+// Specify the canned ACL to apply to each S3 request.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings) *string {
 		return v.CannedAcl
@@ -10359,6 +10417,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSet
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsOutput)
 }
 
+// Specify the canned ACL to apply to each S3 request.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsPtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings) *string {
 		if v == nil {
@@ -10369,48 +10428,50 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSet
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings struct {
-	AdMarkers                  []string                                                                                     `pulumi:"adMarkers"`
-	BaseUrlContent             *string                                                                                      `pulumi:"baseUrlContent"`
-	BaseUrlContent1            *string                                                                                      `pulumi:"baseUrlContent1"`
-	BaseUrlManifest            *string                                                                                      `pulumi:"baseUrlManifest"`
-	BaseUrlManifest1           *string                                                                                      `pulumi:"baseUrlManifest1"`
-	CaptionLanguageMappings    []ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping `pulumi:"captionLanguageMappings"`
-	CaptionLanguageSetting     *string                                                                                      `pulumi:"captionLanguageSetting"`
-	ClientCache                *string                                                                                      `pulumi:"clientCache"`
-	CodecSpecification         *string                                                                                      `pulumi:"codecSpecification"`
-	ConstantIv                 *string                                                                                      `pulumi:"constantIv"`
-	Destination                ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination              `pulumi:"destination"`
-	DirectoryStructure         *string                                                                                      `pulumi:"directoryStructure"`
-	DiscontinuityTags          *string                                                                                      `pulumi:"discontinuityTags"`
-	EncryptionType             *string                                                                                      `pulumi:"encryptionType"`
-	HlsCdnSettings             []ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting          `pulumi:"hlsCdnSettings"`
-	HlsId3SegmentTagging       *string                                                                                      `pulumi:"hlsId3SegmentTagging"`
-	IframeOnlyPlaylists        *string                                                                                      `pulumi:"iframeOnlyPlaylists"`
-	IncompleteSegmentBehavior  *string                                                                                      `pulumi:"incompleteSegmentBehavior"`
-	IndexNSegments             *int                                                                                         `pulumi:"indexNSegments"`
-	InputLossAction            *string                                                                                      `pulumi:"inputLossAction"`
-	IvInManifest               *string                                                                                      `pulumi:"ivInManifest"`
-	IvSource                   *string                                                                                      `pulumi:"ivSource"`
-	KeepSegments               *int                                                                                         `pulumi:"keepSegments"`
-	KeyFormat                  *string                                                                                      `pulumi:"keyFormat"`
-	KeyFormatVersions          *string                                                                                      `pulumi:"keyFormatVersions"`
-	KeyProviderSettings        *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings     `pulumi:"keyProviderSettings"`
-	ManifestCompression        *string                                                                                      `pulumi:"manifestCompression"`
-	ManifestDurationFormat     *string                                                                                      `pulumi:"manifestDurationFormat"`
-	MinSegmentLength           *int                                                                                         `pulumi:"minSegmentLength"`
-	Mode                       *string                                                                                      `pulumi:"mode"`
-	OutputSelection            *string                                                                                      `pulumi:"outputSelection"`
-	ProgramDateTime            *string                                                                                      `pulumi:"programDateTime"`
-	ProgramDateTimeClock       *string                                                                                      `pulumi:"programDateTimeClock"`
-	ProgramDateTimePeriod      *int                                                                                         `pulumi:"programDateTimePeriod"`
-	RedundantManifest          *string                                                                                      `pulumi:"redundantManifest"`
-	SegmentLength              *int                                                                                         `pulumi:"segmentLength"`
-	SegmentsPerSubdirectory    *int                                                                                         `pulumi:"segmentsPerSubdirectory"`
-	StreamInfResolution        *string                                                                                      `pulumi:"streamInfResolution"`
-	TimedMetadataId3Frame      *string                                                                                      `pulumi:"timedMetadataId3Frame"`
-	TimedMetadataId3Period     *int                                                                                         `pulumi:"timedMetadataId3Period"`
-	TimestampDeltaMilliseconds *int                                                                                         `pulumi:"timestampDeltaMilliseconds"`
-	TsFileMode                 *string                                                                                      `pulumi:"tsFileMode"`
+	// The ad marker type for this output group.
+	AdMarkers                 []string                                                                                     `pulumi:"adMarkers"`
+	BaseUrlContent            *string                                                                                      `pulumi:"baseUrlContent"`
+	BaseUrlContent1           *string                                                                                      `pulumi:"baseUrlContent1"`
+	BaseUrlManifest           *string                                                                                      `pulumi:"baseUrlManifest"`
+	BaseUrlManifest1          *string                                                                                      `pulumi:"baseUrlManifest1"`
+	CaptionLanguageMappings   []ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping `pulumi:"captionLanguageMappings"`
+	CaptionLanguageSetting    *string                                                                                      `pulumi:"captionLanguageSetting"`
+	ClientCache               *string                                                                                      `pulumi:"clientCache"`
+	CodecSpecification        *string                                                                                      `pulumi:"codecSpecification"`
+	ConstantIv                *string                                                                                      `pulumi:"constantIv"`
+	Destination               ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination              `pulumi:"destination"`
+	DirectoryStructure        *string                                                                                      `pulumi:"directoryStructure"`
+	DiscontinuityTags         *string                                                                                      `pulumi:"discontinuityTags"`
+	EncryptionType            *string                                                                                      `pulumi:"encryptionType"`
+	HlsCdnSettings            []ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting          `pulumi:"hlsCdnSettings"`
+	HlsId3SegmentTagging      *string                                                                                      `pulumi:"hlsId3SegmentTagging"`
+	IframeOnlyPlaylists       *string                                                                                      `pulumi:"iframeOnlyPlaylists"`
+	IncompleteSegmentBehavior *string                                                                                      `pulumi:"incompleteSegmentBehavior"`
+	IndexNSegments            *int                                                                                         `pulumi:"indexNSegments"`
+	InputLossAction           *string                                                                                      `pulumi:"inputLossAction"`
+	IvInManifest              *string                                                                                      `pulumi:"ivInManifest"`
+	IvSource                  *string                                                                                      `pulumi:"ivSource"`
+	KeepSegments              *int                                                                                         `pulumi:"keepSegments"`
+	KeyFormat                 *string                                                                                      `pulumi:"keyFormat"`
+	KeyFormatVersions         *string                                                                                      `pulumi:"keyFormatVersions"`
+	KeyProviderSettings       *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings     `pulumi:"keyProviderSettings"`
+	ManifestCompression       *string                                                                                      `pulumi:"manifestCompression"`
+	ManifestDurationFormat    *string                                                                                      `pulumi:"manifestDurationFormat"`
+	MinSegmentLength          *int                                                                                         `pulumi:"minSegmentLength"`
+	Mode                      *string                                                                                      `pulumi:"mode"`
+	OutputSelection           *string                                                                                      `pulumi:"outputSelection"`
+	ProgramDateTime           *string                                                                                      `pulumi:"programDateTime"`
+	ProgramDateTimeClock      *string                                                                                      `pulumi:"programDateTimeClock"`
+	ProgramDateTimePeriod     *int                                                                                         `pulumi:"programDateTimePeriod"`
+	RedundantManifest         *string                                                                                      `pulumi:"redundantManifest"`
+	SegmentLength             *int                                                                                         `pulumi:"segmentLength"`
+	SegmentsPerSubdirectory   *int                                                                                         `pulumi:"segmentsPerSubdirectory"`
+	StreamInfResolution       *string                                                                                      `pulumi:"streamInfResolution"`
+	// Indicates ID3 frame that has the timecode.
+	TimedMetadataId3Frame      *string `pulumi:"timedMetadataId3Frame"`
+	TimedMetadataId3Period     *int    `pulumi:"timedMetadataId3Period"`
+	TimestampDeltaMilliseconds *int    `pulumi:"timestampDeltaMilliseconds"`
+	TsFileMode                 *string `pulumi:"tsFileMode"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutput values.
@@ -10425,48 +10486,50 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsInput i
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs struct {
-	AdMarkers                  pulumi.StringArrayInput                                                                              `pulumi:"adMarkers"`
-	BaseUrlContent             pulumi.StringPtrInput                                                                                `pulumi:"baseUrlContent"`
-	BaseUrlContent1            pulumi.StringPtrInput                                                                                `pulumi:"baseUrlContent1"`
-	BaseUrlManifest            pulumi.StringPtrInput                                                                                `pulumi:"baseUrlManifest"`
-	BaseUrlManifest1           pulumi.StringPtrInput                                                                                `pulumi:"baseUrlManifest1"`
-	CaptionLanguageMappings    ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrayInput `pulumi:"captionLanguageMappings"`
-	CaptionLanguageSetting     pulumi.StringPtrInput                                                                                `pulumi:"captionLanguageSetting"`
-	ClientCache                pulumi.StringPtrInput                                                                                `pulumi:"clientCache"`
-	CodecSpecification         pulumi.StringPtrInput                                                                                `pulumi:"codecSpecification"`
-	ConstantIv                 pulumi.StringPtrInput                                                                                `pulumi:"constantIv"`
-	Destination                ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationInput                 `pulumi:"destination"`
-	DirectoryStructure         pulumi.StringPtrInput                                                                                `pulumi:"directoryStructure"`
-	DiscontinuityTags          pulumi.StringPtrInput                                                                                `pulumi:"discontinuityTags"`
-	EncryptionType             pulumi.StringPtrInput                                                                                `pulumi:"encryptionType"`
-	HlsCdnSettings             ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrayInput          `pulumi:"hlsCdnSettings"`
-	HlsId3SegmentTagging       pulumi.StringPtrInput                                                                                `pulumi:"hlsId3SegmentTagging"`
-	IframeOnlyPlaylists        pulumi.StringPtrInput                                                                                `pulumi:"iframeOnlyPlaylists"`
-	IncompleteSegmentBehavior  pulumi.StringPtrInput                                                                                `pulumi:"incompleteSegmentBehavior"`
-	IndexNSegments             pulumi.IntPtrInput                                                                                   `pulumi:"indexNSegments"`
-	InputLossAction            pulumi.StringPtrInput                                                                                `pulumi:"inputLossAction"`
-	IvInManifest               pulumi.StringPtrInput                                                                                `pulumi:"ivInManifest"`
-	IvSource                   pulumi.StringPtrInput                                                                                `pulumi:"ivSource"`
-	KeepSegments               pulumi.IntPtrInput                                                                                   `pulumi:"keepSegments"`
-	KeyFormat                  pulumi.StringPtrInput                                                                                `pulumi:"keyFormat"`
-	KeyFormatVersions          pulumi.StringPtrInput                                                                                `pulumi:"keyFormatVersions"`
-	KeyProviderSettings        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsPtrInput      `pulumi:"keyProviderSettings"`
-	ManifestCompression        pulumi.StringPtrInput                                                                                `pulumi:"manifestCompression"`
-	ManifestDurationFormat     pulumi.StringPtrInput                                                                                `pulumi:"manifestDurationFormat"`
-	MinSegmentLength           pulumi.IntPtrInput                                                                                   `pulumi:"minSegmentLength"`
-	Mode                       pulumi.StringPtrInput                                                                                `pulumi:"mode"`
-	OutputSelection            pulumi.StringPtrInput                                                                                `pulumi:"outputSelection"`
-	ProgramDateTime            pulumi.StringPtrInput                                                                                `pulumi:"programDateTime"`
-	ProgramDateTimeClock       pulumi.StringPtrInput                                                                                `pulumi:"programDateTimeClock"`
-	ProgramDateTimePeriod      pulumi.IntPtrInput                                                                                   `pulumi:"programDateTimePeriod"`
-	RedundantManifest          pulumi.StringPtrInput                                                                                `pulumi:"redundantManifest"`
-	SegmentLength              pulumi.IntPtrInput                                                                                   `pulumi:"segmentLength"`
-	SegmentsPerSubdirectory    pulumi.IntPtrInput                                                                                   `pulumi:"segmentsPerSubdirectory"`
-	StreamInfResolution        pulumi.StringPtrInput                                                                                `pulumi:"streamInfResolution"`
-	TimedMetadataId3Frame      pulumi.StringPtrInput                                                                                `pulumi:"timedMetadataId3Frame"`
-	TimedMetadataId3Period     pulumi.IntPtrInput                                                                                   `pulumi:"timedMetadataId3Period"`
-	TimestampDeltaMilliseconds pulumi.IntPtrInput                                                                                   `pulumi:"timestampDeltaMilliseconds"`
-	TsFileMode                 pulumi.StringPtrInput                                                                                `pulumi:"tsFileMode"`
+	// The ad marker type for this output group.
+	AdMarkers                 pulumi.StringArrayInput                                                                              `pulumi:"adMarkers"`
+	BaseUrlContent            pulumi.StringPtrInput                                                                                `pulumi:"baseUrlContent"`
+	BaseUrlContent1           pulumi.StringPtrInput                                                                                `pulumi:"baseUrlContent1"`
+	BaseUrlManifest           pulumi.StringPtrInput                                                                                `pulumi:"baseUrlManifest"`
+	BaseUrlManifest1          pulumi.StringPtrInput                                                                                `pulumi:"baseUrlManifest1"`
+	CaptionLanguageMappings   ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrayInput `pulumi:"captionLanguageMappings"`
+	CaptionLanguageSetting    pulumi.StringPtrInput                                                                                `pulumi:"captionLanguageSetting"`
+	ClientCache               pulumi.StringPtrInput                                                                                `pulumi:"clientCache"`
+	CodecSpecification        pulumi.StringPtrInput                                                                                `pulumi:"codecSpecification"`
+	ConstantIv                pulumi.StringPtrInput                                                                                `pulumi:"constantIv"`
+	Destination               ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationInput                 `pulumi:"destination"`
+	DirectoryStructure        pulumi.StringPtrInput                                                                                `pulumi:"directoryStructure"`
+	DiscontinuityTags         pulumi.StringPtrInput                                                                                `pulumi:"discontinuityTags"`
+	EncryptionType            pulumi.StringPtrInput                                                                                `pulumi:"encryptionType"`
+	HlsCdnSettings            ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrayInput          `pulumi:"hlsCdnSettings"`
+	HlsId3SegmentTagging      pulumi.StringPtrInput                                                                                `pulumi:"hlsId3SegmentTagging"`
+	IframeOnlyPlaylists       pulumi.StringPtrInput                                                                                `pulumi:"iframeOnlyPlaylists"`
+	IncompleteSegmentBehavior pulumi.StringPtrInput                                                                                `pulumi:"incompleteSegmentBehavior"`
+	IndexNSegments            pulumi.IntPtrInput                                                                                   `pulumi:"indexNSegments"`
+	InputLossAction           pulumi.StringPtrInput                                                                                `pulumi:"inputLossAction"`
+	IvInManifest              pulumi.StringPtrInput                                                                                `pulumi:"ivInManifest"`
+	IvSource                  pulumi.StringPtrInput                                                                                `pulumi:"ivSource"`
+	KeepSegments              pulumi.IntPtrInput                                                                                   `pulumi:"keepSegments"`
+	KeyFormat                 pulumi.StringPtrInput                                                                                `pulumi:"keyFormat"`
+	KeyFormatVersions         pulumi.StringPtrInput                                                                                `pulumi:"keyFormatVersions"`
+	KeyProviderSettings       ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsPtrInput      `pulumi:"keyProviderSettings"`
+	ManifestCompression       pulumi.StringPtrInput                                                                                `pulumi:"manifestCompression"`
+	ManifestDurationFormat    pulumi.StringPtrInput                                                                                `pulumi:"manifestDurationFormat"`
+	MinSegmentLength          pulumi.IntPtrInput                                                                                   `pulumi:"minSegmentLength"`
+	Mode                      pulumi.StringPtrInput                                                                                `pulumi:"mode"`
+	OutputSelection           pulumi.StringPtrInput                                                                                `pulumi:"outputSelection"`
+	ProgramDateTime           pulumi.StringPtrInput                                                                                `pulumi:"programDateTime"`
+	ProgramDateTimeClock      pulumi.StringPtrInput                                                                                `pulumi:"programDateTimeClock"`
+	ProgramDateTimePeriod     pulumi.IntPtrInput                                                                                   `pulumi:"programDateTimePeriod"`
+	RedundantManifest         pulumi.StringPtrInput                                                                                `pulumi:"redundantManifest"`
+	SegmentLength             pulumi.IntPtrInput                                                                                   `pulumi:"segmentLength"`
+	SegmentsPerSubdirectory   pulumi.IntPtrInput                                                                                   `pulumi:"segmentsPerSubdirectory"`
+	StreamInfResolution       pulumi.StringPtrInput                                                                                `pulumi:"streamInfResolution"`
+	// Indicates ID3 frame that has the timecode.
+	TimedMetadataId3Frame      pulumi.StringPtrInput `pulumi:"timedMetadataId3Frame"`
+	TimedMetadataId3Period     pulumi.IntPtrInput    `pulumi:"timedMetadataId3Period"`
+	TimestampDeltaMilliseconds pulumi.IntPtrInput    `pulumi:"timestampDeltaMilliseconds"`
+	TsFileMode                 pulumi.StringPtrInput `pulumi:"tsFileMode"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs) ElementType() reflect.Type {
@@ -10546,6 +10609,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutp
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrOutput)
 }
 
+// The ad marker type for this output group.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutput) AdMarkers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings) []string {
 		return v.AdMarkers
@@ -10772,6 +10836,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates ID3 frame that has the timecode.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutput) TimedMetadataId3Frame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings) *string {
 		return v.TimedMetadataId3Frame
@@ -10820,6 +10885,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrO
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsOutput)
 }
 
+// The ad marker type for this output group.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrOutput) AdMarkers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings) []string {
 		if v == nil {
@@ -11162,6 +11228,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates ID3 frame that has the timecode.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrOutput) TimedMetadataId3Frame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings) *string {
 		if v == nil {
@@ -11199,8 +11266,9 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrO
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping struct {
-	CaptionChannel      int    `pulumi:"captionChannel"`
-	LanguageCode        string `pulumi:"languageCode"`
+	CaptionChannel int    `pulumi:"captionChannel"`
+	LanguageCode   string `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription string `pulumi:"languageDescription"`
 }
 
@@ -11216,8 +11284,9 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaption
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs struct {
-	CaptionChannel      pulumi.IntInput    `pulumi:"captionChannel"`
-	LanguageCode        pulumi.StringInput `pulumi:"languageCode"`
+	CaptionChannel pulumi.IntInput    `pulumi:"captionChannel"`
+	LanguageCode   pulumi.StringInput `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription pulumi.StringInput `pulumi:"languageDescription"`
 }
 
@@ -11284,6 +11353,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCapt
 	}).(pulumi.StringOutput)
 }
 
+// Human readable information to indicate captions available for players (eg. English, or Spanish).
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingOutput) LanguageDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping) string {
 		return v.LanguageDescription
@@ -11578,13 +11648,16 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       *int    `pulumi:"filecacheDuration"`
 	HttpTransferMode        *string `pulumi:"httpTransferMode"`
-	NumRetries              *int    `pulumi:"numRetries"`
-	RestartDelay            *int    `pulumi:"restartDelay"`
-	Salt                    *string `pulumi:"salt"`
-	Token                   *string `pulumi:"token"`
+	// Number of retry attempts.
+	NumRetries *int `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay *int    `pulumi:"restartDelay"`
+	Salt         *string `pulumi:"salt"`
+	Token        *string `pulumi:"token"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsOutput values.
@@ -11599,13 +11672,16 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnS
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       pulumi.IntPtrInput    `pulumi:"filecacheDuration"`
 	HttpTransferMode        pulumi.StringPtrInput `pulumi:"httpTransferMode"`
-	NumRetries              pulumi.IntPtrInput    `pulumi:"numRetries"`
-	RestartDelay            pulumi.IntPtrInput    `pulumi:"restartDelay"`
-	Salt                    pulumi.StringPtrInput `pulumi:"salt"`
-	Token                   pulumi.StringPtrInput `pulumi:"token"`
+	// Number of retry attempts.
+	NumRetries pulumi.IntPtrInput `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay pulumi.IntPtrInput    `pulumi:"restartDelay"`
+	Salt         pulumi.StringPtrInput `pulumi:"salt"`
+	Token        pulumi.StringPtrInput `pulumi:"token"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs) ElementType() reflect.Type {
@@ -11685,6 +11761,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		return v.ConnectionRetryInterval
@@ -11703,12 +11780,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		return v.NumRetries
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		return v.RestartDelay
@@ -11751,6 +11830,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsPtrOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		if v == nil {
@@ -11778,6 +11858,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsPtrOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		if v == nil {
@@ -11787,6 +11868,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsPtrOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings) *int {
 		if v == nil {
@@ -11815,10 +11897,13 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       *int `pulumi:"filecacheDuration"`
-	NumRetries              *int `pulumi:"numRetries"`
-	RestartDelay            *int `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries *int `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay *int `pulumi:"restartDelay"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsOutput values.
@@ -11833,10 +11918,13 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnS
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       pulumi.IntPtrInput `pulumi:"filecacheDuration"`
-	NumRetries              pulumi.IntPtrInput `pulumi:"numRetries"`
-	RestartDelay            pulumi.IntPtrInput `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries pulumi.IntPtrInput `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay pulumi.IntPtrInput `pulumi:"restartDelay"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs) ElementType() reflect.Type {
@@ -11916,6 +12004,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		return v.ConnectionRetryInterval
@@ -11928,12 +12017,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		return v.NumRetries
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		return v.RestartDelay
@@ -11964,6 +12055,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsPtrOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		if v == nil {
@@ -11982,6 +12074,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsPtrOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		if v == nil {
@@ -11991,6 +12084,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsPtrOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings) *int {
 		if v == nil {
@@ -12001,11 +12095,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       *int    `pulumi:"filecacheDuration"`
 	MediaStoreStorageClass  *string `pulumi:"mediaStoreStorageClass"`
-	NumRetries              *int    `pulumi:"numRetries"`
-	RestartDelay            *int    `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries *int `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay *int `pulumi:"restartDelay"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsOutput values.
@@ -12020,11 +12117,14 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnS
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       pulumi.IntPtrInput    `pulumi:"filecacheDuration"`
 	MediaStoreStorageClass  pulumi.StringPtrInput `pulumi:"mediaStoreStorageClass"`
-	NumRetries              pulumi.IntPtrInput    `pulumi:"numRetries"`
-	RestartDelay            pulumi.IntPtrInput    `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries pulumi.IntPtrInput `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay pulumi.IntPtrInput `pulumi:"restartDelay"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs) ElementType() reflect.Type {
@@ -12104,6 +12204,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		return v.ConnectionRetryInterval
@@ -12122,12 +12223,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		return v.NumRetries
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		return v.RestartDelay
@@ -12158,6 +12261,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsPtrOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		if v == nil {
@@ -12185,6 +12289,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsPtrOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		if v == nil {
@@ -12194,6 +12299,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsPtrOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings) *int {
 		if v == nil {
@@ -12204,6 +12310,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings struct {
+	// Specify the canned ACL to apply to each S3 request.
 	CannedAcl *string `pulumi:"cannedAcl"`
 }
 
@@ -12219,6 +12326,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnS
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs struct {
+	// Specify the canned ACL to apply to each S3 request.
 	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
 }
 
@@ -12299,6 +12407,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsPtrOutput)
 }
 
+// Specify the canned ACL to apply to each S3 request.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings) *string {
 		return v.CannedAcl
@@ -12329,6 +12438,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsOutput)
 }
 
+// Specify the canned ACL to apply to each S3 request.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsPtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings) *string {
 		if v == nil {
@@ -12339,11 +12449,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval *int    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       *int    `pulumi:"filecacheDuration"`
 	HttpTransferMode        *string `pulumi:"httpTransferMode"`
-	NumRetries              *int    `pulumi:"numRetries"`
-	RestartDelay            *int    `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries *int `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay *int `pulumi:"restartDelay"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsOutput values.
@@ -12358,11 +12471,14 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnS
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs struct {
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 	ConnectionRetryInterval pulumi.IntPtrInput    `pulumi:"connectionRetryInterval"`
 	FilecacheDuration       pulumi.IntPtrInput    `pulumi:"filecacheDuration"`
 	HttpTransferMode        pulumi.StringPtrInput `pulumi:"httpTransferMode"`
-	NumRetries              pulumi.IntPtrInput    `pulumi:"numRetries"`
-	RestartDelay            pulumi.IntPtrInput    `pulumi:"restartDelay"`
+	// Number of retry attempts.
+	NumRetries pulumi.IntPtrInput `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay pulumi.IntPtrInput `pulumi:"restartDelay"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs) ElementType() reflect.Type {
@@ -12442,6 +12558,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		return v.ConnectionRetryInterval
@@ -12460,12 +12577,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		return v.NumRetries
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		return v.RestartDelay
@@ -12496,6 +12615,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsPtrOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		if v == nil {
@@ -12523,6 +12643,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsPtrOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		if v == nil {
@@ -12532,6 +12653,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsC
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsPtrOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings) *int {
 		if v == nil {
@@ -13228,25 +13350,29 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSet
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings struct {
-	AcquisitionPointId       *string                                                                              `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodeControl *string                                                                              `pulumi:"audioOnlyTimecodeControl"`
-	CertificateMode          *string                                                                              `pulumi:"certificateMode"`
-	ConnectionRetryInterval  *int                                                                                 `pulumi:"connectionRetryInterval"`
-	Destination              ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination `pulumi:"destination"`
-	EventId                  *string                                                                              `pulumi:"eventId"`
-	EventIdMode              *string                                                                              `pulumi:"eventIdMode"`
-	EventStopBehavior        *string                                                                              `pulumi:"eventStopBehavior"`
-	FilecacheDuration        *int                                                                                 `pulumi:"filecacheDuration"`
-	FragmentLength           *int                                                                                 `pulumi:"fragmentLength"`
-	InputLossAction          *string                                                                              `pulumi:"inputLossAction"`
-	NumRetries               *int                                                                                 `pulumi:"numRetries"`
-	RestartDelay             *int                                                                                 `pulumi:"restartDelay"`
-	SegmentationMode         *string                                                                              `pulumi:"segmentationMode"`
-	SendDelayMs              *int                                                                                 `pulumi:"sendDelayMs"`
-	SparseTrackType          *string                                                                              `pulumi:"sparseTrackType"`
-	StreamManifestBehavior   *string                                                                              `pulumi:"streamManifestBehavior"`
-	TimestampOffset          *string                                                                              `pulumi:"timestampOffset"`
-	TimestampOffsetMode      *string                                                                              `pulumi:"timestampOffsetMode"`
+	AcquisitionPointId       *string `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl *string `pulumi:"audioOnlyTimecodeControl"`
+	// Setting to allow self signed or verified RTMP certificates.
+	CertificateMode *string `pulumi:"certificateMode"`
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+	ConnectionRetryInterval *int                                                                                 `pulumi:"connectionRetryInterval"`
+	Destination             ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination `pulumi:"destination"`
+	EventId                 *string                                                                              `pulumi:"eventId"`
+	EventIdMode             *string                                                                              `pulumi:"eventIdMode"`
+	EventStopBehavior       *string                                                                              `pulumi:"eventStopBehavior"`
+	FilecacheDuration       *int                                                                                 `pulumi:"filecacheDuration"`
+	FragmentLength          *int                                                                                 `pulumi:"fragmentLength"`
+	InputLossAction         *string                                                                              `pulumi:"inputLossAction"`
+	// Number of retry attempts.
+	NumRetries *int `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay           *int    `pulumi:"restartDelay"`
+	SegmentationMode       *string `pulumi:"segmentationMode"`
+	SendDelayMs            *int    `pulumi:"sendDelayMs"`
+	SparseTrackType        *string `pulumi:"sparseTrackType"`
+	StreamManifestBehavior *string `pulumi:"streamManifestBehavior"`
+	TimestampOffset        *string `pulumi:"timestampOffset"`
+	TimestampOffsetMode    *string `pulumi:"timestampOffsetMode"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs and ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput values.
@@ -13261,25 +13387,29 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsIn
 }
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs struct {
-	AcquisitionPointId       pulumi.StringPtrInput                                                                     `pulumi:"acquisitionPointId"`
-	AudioOnlyTimecodeControl pulumi.StringPtrInput                                                                     `pulumi:"audioOnlyTimecodeControl"`
-	CertificateMode          pulumi.StringPtrInput                                                                     `pulumi:"certificateMode"`
-	ConnectionRetryInterval  pulumi.IntPtrInput                                                                        `pulumi:"connectionRetryInterval"`
-	Destination              ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationInput `pulumi:"destination"`
-	EventId                  pulumi.StringPtrInput                                                                     `pulumi:"eventId"`
-	EventIdMode              pulumi.StringPtrInput                                                                     `pulumi:"eventIdMode"`
-	EventStopBehavior        pulumi.StringPtrInput                                                                     `pulumi:"eventStopBehavior"`
-	FilecacheDuration        pulumi.IntPtrInput                                                                        `pulumi:"filecacheDuration"`
-	FragmentLength           pulumi.IntPtrInput                                                                        `pulumi:"fragmentLength"`
-	InputLossAction          pulumi.StringPtrInput                                                                     `pulumi:"inputLossAction"`
-	NumRetries               pulumi.IntPtrInput                                                                        `pulumi:"numRetries"`
-	RestartDelay             pulumi.IntPtrInput                                                                        `pulumi:"restartDelay"`
-	SegmentationMode         pulumi.StringPtrInput                                                                     `pulumi:"segmentationMode"`
-	SendDelayMs              pulumi.IntPtrInput                                                                        `pulumi:"sendDelayMs"`
-	SparseTrackType          pulumi.StringPtrInput                                                                     `pulumi:"sparseTrackType"`
-	StreamManifestBehavior   pulumi.StringPtrInput                                                                     `pulumi:"streamManifestBehavior"`
-	TimestampOffset          pulumi.StringPtrInput                                                                     `pulumi:"timestampOffset"`
-	TimestampOffsetMode      pulumi.StringPtrInput                                                                     `pulumi:"timestampOffsetMode"`
+	AcquisitionPointId       pulumi.StringPtrInput `pulumi:"acquisitionPointId"`
+	AudioOnlyTimecodeControl pulumi.StringPtrInput `pulumi:"audioOnlyTimecodeControl"`
+	// Setting to allow self signed or verified RTMP certificates.
+	CertificateMode pulumi.StringPtrInput `pulumi:"certificateMode"`
+	// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+	ConnectionRetryInterval pulumi.IntPtrInput                                                                        `pulumi:"connectionRetryInterval"`
+	Destination             ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationInput `pulumi:"destination"`
+	EventId                 pulumi.StringPtrInput                                                                     `pulumi:"eventId"`
+	EventIdMode             pulumi.StringPtrInput                                                                     `pulumi:"eventIdMode"`
+	EventStopBehavior       pulumi.StringPtrInput                                                                     `pulumi:"eventStopBehavior"`
+	FilecacheDuration       pulumi.IntPtrInput                                                                        `pulumi:"filecacheDuration"`
+	FragmentLength          pulumi.IntPtrInput                                                                        `pulumi:"fragmentLength"`
+	InputLossAction         pulumi.StringPtrInput                                                                     `pulumi:"inputLossAction"`
+	// Number of retry attempts.
+	NumRetries pulumi.IntPtrInput `pulumi:"numRetries"`
+	// Number of seconds to wait until a restart is initiated.
+	RestartDelay           pulumi.IntPtrInput    `pulumi:"restartDelay"`
+	SegmentationMode       pulumi.StringPtrInput `pulumi:"segmentationMode"`
+	SendDelayMs            pulumi.IntPtrInput    `pulumi:"sendDelayMs"`
+	SparseTrackType        pulumi.StringPtrInput `pulumi:"sparseTrackType"`
+	StreamManifestBehavior pulumi.StringPtrInput `pulumi:"streamManifestBehavior"`
+	TimestampOffset        pulumi.StringPtrInput `pulumi:"timestampOffset"`
+	TimestampOffsetMode    pulumi.StringPtrInput `pulumi:"timestampOffsetMode"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs) ElementType() reflect.Type {
@@ -13371,12 +13501,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
+// Setting to allow self signed or verified RTMP certificates.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		return v.CertificateMode
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		return v.ConnectionRetryInterval
@@ -13425,12 +13557,14 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		return v.NumRetries
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		return v.RestartDelay
@@ -13515,6 +13649,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
+// Setting to allow self signed or verified RTMP certificates.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) CertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *string {
 		if v == nil {
@@ -13524,6 +13659,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) ConnectionRetryInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		if v == nil {
@@ -13596,6 +13732,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.StringPtrOutput)
 }
 
+// Number of retry attempts.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) NumRetries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		if v == nil {
@@ -13605,6 +13742,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSetting
 	}).(pulumi.IntPtrOutput)
 }
 
+// Number of seconds to wait until a restart is initiated.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsPtrOutput) RestartDelay() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings) *int {
 		if v == nil {
@@ -14870,14 +15008,15 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsC
 	RateMode                 *string                                                                                                                `pulumi:"rateMode"`
 	Scte27Pids               *string                                                                                                                `pulumi:"scte27Pids"`
 	Scte35Control            *string                                                                                                                `pulumi:"scte35Control"`
-	Scte35Pid                *string                                                                                                                `pulumi:"scte35Pid"`
-	SegmentationMarkers      *string                                                                                                                `pulumi:"segmentationMarkers"`
-	SegmentationStyle        *string                                                                                                                `pulumi:"segmentationStyle"`
-	SegmentationTime         *float64                                                                                                               `pulumi:"segmentationTime"`
-	TimedMetadataBehavior    *string                                                                                                                `pulumi:"timedMetadataBehavior"`
-	TimedMetadataPid         *string                                                                                                                `pulumi:"timedMetadataPid"`
-	TransportStreamId        *int                                                                                                                   `pulumi:"transportStreamId"`
-	VideoPid                 *string                                                                                                                `pulumi:"videoPid"`
+	// PID from which to read SCTE-35 messages.
+	Scte35Pid             *string  `pulumi:"scte35Pid"`
+	SegmentationMarkers   *string  `pulumi:"segmentationMarkers"`
+	SegmentationStyle     *string  `pulumi:"segmentationStyle"`
+	SegmentationTime      *float64 `pulumi:"segmentationTime"`
+	TimedMetadataBehavior *string  `pulumi:"timedMetadataBehavior"`
+	TimedMetadataPid      *string  `pulumi:"timedMetadataPid"`
+	TransportStreamId     *int     `pulumi:"transportStreamId"`
+	VideoPid              *string  `pulumi:"videoPid"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs and ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsOutput values.
@@ -14931,14 +15070,15 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsC
 	RateMode                 pulumi.StringPtrInput                                                                                                         `pulumi:"rateMode"`
 	Scte27Pids               pulumi.StringPtrInput                                                                                                         `pulumi:"scte27Pids"`
 	Scte35Control            pulumi.StringPtrInput                                                                                                         `pulumi:"scte35Control"`
-	Scte35Pid                pulumi.StringPtrInput                                                                                                         `pulumi:"scte35Pid"`
-	SegmentationMarkers      pulumi.StringPtrInput                                                                                                         `pulumi:"segmentationMarkers"`
-	SegmentationStyle        pulumi.StringPtrInput                                                                                                         `pulumi:"segmentationStyle"`
-	SegmentationTime         pulumi.Float64PtrInput                                                                                                        `pulumi:"segmentationTime"`
-	TimedMetadataBehavior    pulumi.StringPtrInput                                                                                                         `pulumi:"timedMetadataBehavior"`
-	TimedMetadataPid         pulumi.StringPtrInput                                                                                                         `pulumi:"timedMetadataPid"`
-	TransportStreamId        pulumi.IntPtrInput                                                                                                            `pulumi:"transportStreamId"`
-	VideoPid                 pulumi.StringPtrInput                                                                                                         `pulumi:"videoPid"`
+	// PID from which to read SCTE-35 messages.
+	Scte35Pid             pulumi.StringPtrInput  `pulumi:"scte35Pid"`
+	SegmentationMarkers   pulumi.StringPtrInput  `pulumi:"segmentationMarkers"`
+	SegmentationStyle     pulumi.StringPtrInput  `pulumi:"segmentationStyle"`
+	SegmentationTime      pulumi.Float64PtrInput `pulumi:"segmentationTime"`
+	TimedMetadataBehavior pulumi.StringPtrInput  `pulumi:"timedMetadataBehavior"`
+	TimedMetadataPid      pulumi.StringPtrInput  `pulumi:"timedMetadataPid"`
+	TransportStreamId     pulumi.IntPtrInput     `pulumi:"transportStreamId"`
+	VideoPid              pulumi.StringPtrInput  `pulumi:"videoPid"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs) ElementType() reflect.Type {
@@ -15252,6 +15392,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings) *string {
 		return v.Scte35Pid
@@ -15675,6 +15816,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings) *string {
 		if v == nil {
@@ -16356,6 +16498,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings struct {
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 	NameModifier *string `pulumi:"nameModifier"`
 }
 
@@ -16371,6 +16514,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSett
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs struct {
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 	NameModifier pulumi.StringPtrInput `pulumi:"nameModifier"`
 }
 
@@ -16451,6 +16595,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputS
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsPtrOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings) *string {
 		return v.NameModifier
@@ -16481,6 +16626,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputS
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsPtrOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings) *string {
 		if v == nil {
@@ -16493,8 +16639,9 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputS
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings struct {
 	H265PackagingType *string                                                                           `pulumi:"h265PackagingType"`
 	HlsSettings       ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings `pulumi:"hlsSettings"`
-	NameModifier      *string                                                                           `pulumi:"nameModifier"`
-	SegmentModifier   *string                                                                           `pulumi:"segmentModifier"`
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+	NameModifier    *string `pulumi:"nameModifier"`
+	SegmentModifier *string `pulumi:"segmentModifier"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs and ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsOutput values.
@@ -16511,8 +16658,9 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsInput
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs struct {
 	H265PackagingType pulumi.StringPtrInput                                                                  `pulumi:"h265PackagingType"`
 	HlsSettings       ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsInput `pulumi:"hlsSettings"`
-	NameModifier      pulumi.StringPtrInput                                                                  `pulumi:"nameModifier"`
-	SegmentModifier   pulumi.StringPtrInput                                                                  `pulumi:"segmentModifier"`
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+	NameModifier    pulumi.StringPtrInput `pulumi:"nameModifier"`
+	SegmentModifier pulumi.StringPtrInput `pulumi:"segmentModifier"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs) ElementType() reflect.Type {
@@ -16604,6 +16752,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsOu
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings) *string {
 		return v.NameModifier
@@ -16658,6 +16807,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsPt
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsPtrOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsPtrOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings) *string {
 		if v == nil {
@@ -17657,18 +17807,19 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHl
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings struct {
-	AudioFramesPerPes     *int    `pulumi:"audioFramesPerPes"`
-	AudioPids             *string `pulumi:"audioPids"`
-	EcmPid                *string `pulumi:"ecmPid"`
-	NielsenId3Behavior    *string `pulumi:"nielsenId3Behavior"`
-	PatInterval           *int    `pulumi:"patInterval"`
-	PcrControl            *string `pulumi:"pcrControl"`
-	PcrPeriod             *int    `pulumi:"pcrPeriod"`
-	PcrPid                *string `pulumi:"pcrPid"`
-	PmtInterval           *int    `pulumi:"pmtInterval"`
-	PmtPid                *string `pulumi:"pmtPid"`
-	ProgramNum            *int    `pulumi:"programNum"`
-	Scte35Behavior        *string `pulumi:"scte35Behavior"`
+	AudioFramesPerPes  *int    `pulumi:"audioFramesPerPes"`
+	AudioPids          *string `pulumi:"audioPids"`
+	EcmPid             *string `pulumi:"ecmPid"`
+	NielsenId3Behavior *string `pulumi:"nielsenId3Behavior"`
+	PatInterval        *int    `pulumi:"patInterval"`
+	PcrControl         *string `pulumi:"pcrControl"`
+	PcrPeriod          *int    `pulumi:"pcrPeriod"`
+	PcrPid             *string `pulumi:"pcrPid"`
+	PmtInterval        *int    `pulumi:"pmtInterval"`
+	PmtPid             *string `pulumi:"pmtPid"`
+	ProgramNum         *int    `pulumi:"programNum"`
+	Scte35Behavior     *string `pulumi:"scte35Behavior"`
+	// PID from which to read SCTE-35 messages.
 	Scte35Pid             *string `pulumi:"scte35Pid"`
 	TimedMetadataBehavior *string `pulumi:"timedMetadataBehavior"`
 	TimedMetadataPid      *string `pulumi:"timedMetadataPid"`
@@ -17688,18 +17839,19 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSe
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs struct {
-	AudioFramesPerPes     pulumi.IntPtrInput    `pulumi:"audioFramesPerPes"`
-	AudioPids             pulumi.StringPtrInput `pulumi:"audioPids"`
-	EcmPid                pulumi.StringPtrInput `pulumi:"ecmPid"`
-	NielsenId3Behavior    pulumi.StringPtrInput `pulumi:"nielsenId3Behavior"`
-	PatInterval           pulumi.IntPtrInput    `pulumi:"patInterval"`
-	PcrControl            pulumi.StringPtrInput `pulumi:"pcrControl"`
-	PcrPeriod             pulumi.IntPtrInput    `pulumi:"pcrPeriod"`
-	PcrPid                pulumi.StringPtrInput `pulumi:"pcrPid"`
-	PmtInterval           pulumi.IntPtrInput    `pulumi:"pmtInterval"`
-	PmtPid                pulumi.StringPtrInput `pulumi:"pmtPid"`
-	ProgramNum            pulumi.IntPtrInput    `pulumi:"programNum"`
-	Scte35Behavior        pulumi.StringPtrInput `pulumi:"scte35Behavior"`
+	AudioFramesPerPes  pulumi.IntPtrInput    `pulumi:"audioFramesPerPes"`
+	AudioPids          pulumi.StringPtrInput `pulumi:"audioPids"`
+	EcmPid             pulumi.StringPtrInput `pulumi:"ecmPid"`
+	NielsenId3Behavior pulumi.StringPtrInput `pulumi:"nielsenId3Behavior"`
+	PatInterval        pulumi.IntPtrInput    `pulumi:"patInterval"`
+	PcrControl         pulumi.StringPtrInput `pulumi:"pcrControl"`
+	PcrPeriod          pulumi.IntPtrInput    `pulumi:"pcrPeriod"`
+	PcrPid             pulumi.StringPtrInput `pulumi:"pcrPid"`
+	PmtInterval        pulumi.IntPtrInput    `pulumi:"pmtInterval"`
+	PmtPid             pulumi.StringPtrInput `pulumi:"pmtPid"`
+	ProgramNum         pulumi.IntPtrInput    `pulumi:"programNum"`
+	Scte35Behavior     pulumi.StringPtrInput `pulumi:"scte35Behavior"`
+	// PID from which to read SCTE-35 messages.
 	Scte35Pid             pulumi.StringPtrInput `pulumi:"scte35Pid"`
 	TimedMetadataBehavior pulumi.StringPtrInput `pulumi:"timedMetadataBehavior"`
 	TimedMetadataPid      pulumi.StringPtrInput `pulumi:"timedMetadataPid"`
@@ -17856,6 +18008,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHl
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings) *string {
 		return v.Scte35Pid
@@ -18018,6 +18171,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHl
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsPtrOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings) *string {
 		if v == nil {
@@ -18183,7 +18337,8 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputS
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings struct {
 	H265PackagingType *string `pulumi:"h265PackagingType"`
-	NameModifier      *string `pulumi:"nameModifier"`
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+	NameModifier *string `pulumi:"nameModifier"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs and ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsOutput values.
@@ -18199,7 +18354,8 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs struct {
 	H265PackagingType pulumi.StringPtrInput `pulumi:"h265PackagingType"`
-	NameModifier      pulumi.StringPtrInput `pulumi:"nameModifier"`
+	// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+	NameModifier pulumi.StringPtrInput `pulumi:"nameModifier"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs) ElementType() reflect.Type {
@@ -18285,6 +18441,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetti
 	}).(pulumi.StringPtrOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings) *string {
 		return v.NameModifier
@@ -18324,6 +18481,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetti
 	}).(pulumi.StringPtrOutput)
 }
 
+// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsPtrOutput) NameModifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings) *string {
 		if v == nil {
@@ -19329,14 +19487,15 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsConta
 	RateMode                 *string                                                                                                            `pulumi:"rateMode"`
 	Scte27Pids               *string                                                                                                            `pulumi:"scte27Pids"`
 	Scte35Control            *string                                                                                                            `pulumi:"scte35Control"`
-	Scte35Pid                *string                                                                                                            `pulumi:"scte35Pid"`
-	SegmentationMarkers      *string                                                                                                            `pulumi:"segmentationMarkers"`
-	SegmentationStyle        *string                                                                                                            `pulumi:"segmentationStyle"`
-	SegmentationTime         *float64                                                                                                           `pulumi:"segmentationTime"`
-	TimedMetadataBehavior    *string                                                                                                            `pulumi:"timedMetadataBehavior"`
-	TimedMetadataPid         *string                                                                                                            `pulumi:"timedMetadataPid"`
-	TransportStreamId        *int                                                                                                               `pulumi:"transportStreamId"`
-	VideoPid                 *string                                                                                                            `pulumi:"videoPid"`
+	// PID from which to read SCTE-35 messages.
+	Scte35Pid             *string  `pulumi:"scte35Pid"`
+	SegmentationMarkers   *string  `pulumi:"segmentationMarkers"`
+	SegmentationStyle     *string  `pulumi:"segmentationStyle"`
+	SegmentationTime      *float64 `pulumi:"segmentationTime"`
+	TimedMetadataBehavior *string  `pulumi:"timedMetadataBehavior"`
+	TimedMetadataPid      *string  `pulumi:"timedMetadataPid"`
+	TransportStreamId     *int     `pulumi:"transportStreamId"`
+	VideoPid              *string  `pulumi:"videoPid"`
 }
 
 // ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsInput is an input type that accepts ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs and ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsOutput values.
@@ -19390,14 +19549,15 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsConta
 	RateMode                 pulumi.StringPtrInput                                                                                                     `pulumi:"rateMode"`
 	Scte27Pids               pulumi.StringPtrInput                                                                                                     `pulumi:"scte27Pids"`
 	Scte35Control            pulumi.StringPtrInput                                                                                                     `pulumi:"scte35Control"`
-	Scte35Pid                pulumi.StringPtrInput                                                                                                     `pulumi:"scte35Pid"`
-	SegmentationMarkers      pulumi.StringPtrInput                                                                                                     `pulumi:"segmentationMarkers"`
-	SegmentationStyle        pulumi.StringPtrInput                                                                                                     `pulumi:"segmentationStyle"`
-	SegmentationTime         pulumi.Float64PtrInput                                                                                                    `pulumi:"segmentationTime"`
-	TimedMetadataBehavior    pulumi.StringPtrInput                                                                                                     `pulumi:"timedMetadataBehavior"`
-	TimedMetadataPid         pulumi.StringPtrInput                                                                                                     `pulumi:"timedMetadataPid"`
-	TransportStreamId        pulumi.IntPtrInput                                                                                                        `pulumi:"transportStreamId"`
-	VideoPid                 pulumi.StringPtrInput                                                                                                     `pulumi:"videoPid"`
+	// PID from which to read SCTE-35 messages.
+	Scte35Pid             pulumi.StringPtrInput  `pulumi:"scte35Pid"`
+	SegmentationMarkers   pulumi.StringPtrInput  `pulumi:"segmentationMarkers"`
+	SegmentationStyle     pulumi.StringPtrInput  `pulumi:"segmentationStyle"`
+	SegmentationTime      pulumi.Float64PtrInput `pulumi:"segmentationTime"`
+	TimedMetadataBehavior pulumi.StringPtrInput  `pulumi:"timedMetadataBehavior"`
+	TimedMetadataPid      pulumi.StringPtrInput  `pulumi:"timedMetadataPid"`
+	TransportStreamId     pulumi.IntPtrInput     `pulumi:"transportStreamId"`
+	VideoPid              pulumi.StringPtrInput  `pulumi:"videoPid"`
 }
 
 func (ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs) ElementType() reflect.Type {
@@ -19711,6 +19871,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings) *string {
 		return v.Scte35Pid
@@ -20134,6 +20295,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// PID from which to read SCTE-35 messages.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrOutput) Scte35Pid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings) *string {
 		if v == nil {
@@ -21326,9 +21488,11 @@ func (o ChannelEncoderSettingsVideoDescriptionArrayOutput) Index(i pulumi.IntInp
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettings struct {
+	// Frame capture settings. See Frame Capture Settings for more details.
 	FrameCaptureSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings `pulumi:"frameCaptureSettings"`
-	H264Settings         *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings         `pulumi:"h264Settings"`
-	H265Settings         *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings         `pulumi:"h265Settings"`
+	// H264 settings. See H264 Settings for more details.
+	H264Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings `pulumi:"h264Settings"`
+	H265Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings `pulumi:"h265Settings"`
 }
 
 // ChannelEncoderSettingsVideoDescriptionCodecSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput values.
@@ -21343,9 +21507,11 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsInput interface {
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs struct {
+	// Frame capture settings. See Frame Capture Settings for more details.
 	FrameCaptureSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrInput `pulumi:"frameCaptureSettings"`
-	H264Settings         ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrInput         `pulumi:"h264Settings"`
-	H265Settings         ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput         `pulumi:"h265Settings"`
+	// H264 settings. See H264 Settings for more details.
+	H264Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrInput `pulumi:"h264Settings"`
+	H265Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput `pulumi:"h265Settings"`
 }
 
 func (ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs) ElementType() reflect.Type {
@@ -21425,12 +21591,14 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput) ToChannelEnco
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput)
 }
 
+// Frame capture settings. See Frame Capture Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput) FrameCaptureSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings {
 		return v.FrameCaptureSettings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrOutput)
 }
 
+// H264 settings. See H264 Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput) H264Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings {
 		return v.H264Settings
@@ -21467,6 +21635,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) Elem() Cha
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput)
 }
 
+// Frame capture settings. See Frame Capture Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) FrameCaptureSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings {
 		if v == nil {
@@ -21476,6 +21645,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) FrameCaptu
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrOutput)
 }
 
+// H264 settings. See H264 Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) H264Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings {
 		if v == nil {
@@ -23554,11 +23724,16 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings struct {
+	// Sets the colorspace metadata to be passed through.
 	ColorSpacePassthroughSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings `pulumi:"colorSpacePassthroughSettings"`
-	DolbyVision81Settings         *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings         `pulumi:"dolbyVision81Settings"`
-	Hdr10Settings                 *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings                 `pulumi:"hdr10Settings"`
-	Rec601Settings                *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings                `pulumi:"rec601Settings"`
-	Rec709Settings                *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings                `pulumi:"rec709Settings"`
+	// Set the colorspace to Dolby Vision81.
+	DolbyVision81Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings `pulumi:"dolbyVision81Settings"`
+	// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+	Hdr10Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings `pulumi:"hdr10Settings"`
+	// Set the colorspace to Rec. 601.
+	Rec601Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings `pulumi:"rec601Settings"`
+	// Set the colorspace to Rec. 709.
+	Rec709Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings `pulumi:"rec709Settings"`
 }
 
 // ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput values.
@@ -23573,11 +23748,16 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSe
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs struct {
+	// Sets the colorspace metadata to be passed through.
 	ColorSpacePassthroughSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput `pulumi:"colorSpacePassthroughSettings"`
-	DolbyVision81Settings         ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput         `pulumi:"dolbyVision81Settings"`
-	Hdr10Settings                 ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput                 `pulumi:"hdr10Settings"`
-	Rec601Settings                ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput                `pulumi:"rec601Settings"`
-	Rec709Settings                ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput                `pulumi:"rec709Settings"`
+	// Set the colorspace to Dolby Vision81.
+	DolbyVision81Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput `pulumi:"dolbyVision81Settings"`
+	// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+	Hdr10Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput `pulumi:"hdr10Settings"`
+	// Set the colorspace to Rec. 601.
+	Rec601Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput `pulumi:"rec601Settings"`
+	// Set the colorspace to Rec. 709.
+	Rec709Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput `pulumi:"rec709Settings"`
 }
 
 func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ElementType() reflect.Type {
@@ -23657,30 +23837,35 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
 }
 
+// Sets the colorspace metadata to be passed through.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ColorSpacePassthroughSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
 		return v.ColorSpacePassthroughSettings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
 }
 
+// Set the colorspace to Dolby Vision81.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) DolbyVision81Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
 		return v.DolbyVision81Settings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
 }
 
+// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Hdr10Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
 		return v.Hdr10Settings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
 }
 
+// Set the colorspace to Rec. 601.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Rec601Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
 		return v.Rec601Settings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
 }
 
+// Set the colorspace to Rec. 709.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Rec709Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
 		return v.Rec709Settings
@@ -23711,6 +23896,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput)
 }
 
+// Sets the colorspace metadata to be passed through.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) ColorSpacePassthroughSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
 		if v == nil {
@@ -23720,6 +23906,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
 }
 
+// Set the colorspace to Dolby Vision81.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) DolbyVision81Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
 		if v == nil {
@@ -23729,6 +23916,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
 }
 
+// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Hdr10Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
 		if v == nil {
@@ -23738,6 +23926,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
 }
 
+// Set the colorspace to Rec. 601.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Rec601Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
 		if v == nil {
@@ -23747,6 +23936,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
 }
 
+// Set the colorspace to Rec. 709.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Rec709Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
 		if v == nil {
@@ -23993,7 +24183,9 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings struct {
-	MaxCll  *int `pulumi:"maxCll"`
+	// Sets the MaxCLL value for HDR10.
+	MaxCll *int `pulumi:"maxCll"`
+	// Sets the MaxFALL value for HDR10.
 	MaxFall *int `pulumi:"maxFall"`
 }
 
@@ -24009,7 +24201,9 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSe
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs struct {
-	MaxCll  pulumi.IntPtrInput `pulumi:"maxCll"`
+	// Sets the MaxCLL value for HDR10.
+	MaxCll pulumi.IntPtrInput `pulumi:"maxCll"`
+	// Sets the MaxFALL value for HDR10.
 	MaxFall pulumi.IntPtrInput `pulumi:"maxFall"`
 }
 
@@ -24090,12 +24284,14 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
 }
 
+// Sets the MaxCLL value for HDR10.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) MaxCll() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
 		return v.MaxCll
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sets the MaxFALL value for HDR10.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) MaxFall() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
 		return v.MaxFall
@@ -24126,6 +24322,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput)
 }
 
+// Sets the MaxCLL value for HDR10.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) MaxCll() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
 		if v == nil {
@@ -24135,6 +24332,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpac
 	}).(pulumi.IntPtrOutput)
 }
 
+// Sets the MaxFALL value for HDR10.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) MaxFall() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
 		if v == nil {
@@ -24676,8 +24874,11 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSet
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings struct {
-	Prefix                 *string `pulumi:"prefix"`
+	// Set a prefix on the burned in timecode.
+	Prefix *string `pulumi:"prefix"`
+	// Sets the size of the burned in timecode.
 	TimecodeBurninFontSize *string `pulumi:"timecodeBurninFontSize"`
+	// Sets the position of the burned in timecode.
 	TimecodeBurninPosition *string `pulumi:"timecodeBurninPosition"`
 }
 
@@ -24693,8 +24894,11 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurn
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs struct {
-	Prefix                 pulumi.StringPtrInput `pulumi:"prefix"`
+	// Set a prefix on the burned in timecode.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Sets the size of the burned in timecode.
 	TimecodeBurninFontSize pulumi.StringPtrInput `pulumi:"timecodeBurninFontSize"`
+	// Sets the position of the burned in timecode.
 	TimecodeBurninPosition pulumi.StringPtrInput `pulumi:"timecodeBurninPosition"`
 }
 
@@ -24775,18 +24979,21 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeB
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput)
 }
 
+// Set a prefix on the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		return v.Prefix
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the size of the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) TimecodeBurninFontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		return v.TimecodeBurninFontSize
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the position of the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) TimecodeBurninPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		return v.TimecodeBurninPosition
@@ -24817,6 +25024,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeB
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput)
 }
 
+// Set a prefix on the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		if v == nil {
@@ -24826,6 +25034,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeB
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the size of the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) TimecodeBurninFontSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		if v == nil {
@@ -24835,6 +25044,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeB
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the position of the burned in timecode.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) TimecodeBurninPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
 		if v == nil {
@@ -25167,6 +25377,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) Secondary
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition struct {
+	// Failover condition type-specific settings. See Failover Condition Settings for more details.
 	FailoverConditionSettings *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings `pulumi:"failoverConditionSettings"`
 }
 
@@ -25182,6 +25393,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionInput 
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs struct {
+	// Failover condition type-specific settings. See Failover Condition Settings for more details.
 	FailoverConditionSettings ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrInput `pulumi:"failoverConditionSettings"`
 }
 
@@ -25236,6 +25448,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionOut
 	return o
 }
 
+// Failover condition type-specific settings. See Failover Condition Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionOutput) FailoverConditionSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
 		return v.FailoverConditionSettings
@@ -25444,8 +25657,9 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings struct {
-	AudioSelectorName         string `pulumi:"audioSelectorName"`
-	AudioSilenceThresholdMsec *int   `pulumi:"audioSilenceThresholdMsec"`
+	AudioSelectorName string `pulumi:"audioSelectorName"`
+	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+	AudioSilenceThresholdMsec *int `pulumi:"audioSilenceThresholdMsec"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput values.
@@ -25460,7 +25674,8 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs struct {
-	AudioSelectorName         pulumi.StringInput `pulumi:"audioSelectorName"`
+	AudioSelectorName pulumi.StringInput `pulumi:"audioSelectorName"`
+	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 	AudioSilenceThresholdMsec pulumi.IntPtrInput `pulumi:"audioSilenceThresholdMsec"`
 }
 
@@ -25547,6 +25762,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(pulumi.StringOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput) AudioSilenceThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *int {
 		return v.AudioSilenceThresholdMsec
@@ -25586,6 +25802,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput) AudioSilenceThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *int {
 		if v == nil {
@@ -25596,6 +25813,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings struct {
+	// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 	InputLossThresholdMsec *int `pulumi:"inputLossThresholdMsec"`
 }
 
@@ -25611,6 +25829,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs struct {
+	// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 	InputLossThresholdMsec pulumi.IntPtrInput `pulumi:"inputLossThresholdMsec"`
 }
 
@@ -25691,6 +25910,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput)
 }
 
+// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsOutput) InputLossThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings) *int {
 		return v.InputLossThresholdMsec
@@ -25721,6 +25941,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsOutput)
 }
 
+// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput) InputLossThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings) *int {
 		if v == nil {
@@ -25731,8 +25952,10 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings struct {
-	BlackDetectThreshold    *float64 `pulumi:"blackDetectThreshold"`
-	VideoBlackThresholdMsec *int     `pulumi:"videoBlackThresholdMsec"`
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	BlackDetectThreshold *float64 `pulumi:"blackDetectThreshold"`
+	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+	VideoBlackThresholdMsec *int `pulumi:"videoBlackThresholdMsec"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput values.
@@ -25747,8 +25970,10 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs struct {
-	BlackDetectThreshold    pulumi.Float64PtrInput `pulumi:"blackDetectThreshold"`
-	VideoBlackThresholdMsec pulumi.IntPtrInput     `pulumi:"videoBlackThresholdMsec"`
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	BlackDetectThreshold pulumi.Float64PtrInput `pulumi:"blackDetectThreshold"`
+	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+	VideoBlackThresholdMsec pulumi.IntPtrInput `pulumi:"videoBlackThresholdMsec"`
 }
 
 func (ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs) ElementType() reflect.Type {
@@ -25828,12 +26053,14 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput)
 }
 
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		return v.BlackDetectThreshold
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput) VideoBlackThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *int {
 		return v.VideoBlackThresholdMsec
@@ -25864,6 +26091,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput)
 }
 
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		if v == nil {
@@ -25873,6 +26101,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput) VideoBlackThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *int {
 		if v == nil {
@@ -26325,10 +26554,14 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput) Index(i pul
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings struct {
+	// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 	AudioHlsRenditionSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection `pulumi:"audioHlsRenditionSelection"`
-	AudioLanguageSelection     *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection     `pulumi:"audioLanguageSelection"`
-	AudioPidSelection          *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection          `pulumi:"audioPidSelection"`
-	AudioTrackSelection        *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection        `pulumi:"audioTrackSelection"`
+	// Audio Language Selection. See Audio Language Selection for more details.
+	AudioLanguageSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection `pulumi:"audioLanguageSelection"`
+	// Audio Pid Selection. See Audio PID Selection for more details.
+	AudioPidSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection `pulumi:"audioPidSelection"`
+	// Audio Track Selection. See Audio Track Selection for more details.
+	AudioTrackSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection `pulumi:"audioTrackSelection"`
 }
 
 // ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs and ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput values.
@@ -26343,10 +26576,14 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsInput inter
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs struct {
+	// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 	AudioHlsRenditionSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrInput `pulumi:"audioHlsRenditionSelection"`
-	AudioLanguageSelection     ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrInput     `pulumi:"audioLanguageSelection"`
-	AudioPidSelection          ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrInput          `pulumi:"audioPidSelection"`
-	AudioTrackSelection        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrInput        `pulumi:"audioTrackSelection"`
+	// Audio Language Selection. See Audio Language Selection for more details.
+	AudioLanguageSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrInput `pulumi:"audioLanguageSelection"`
+	// Audio Pid Selection. See Audio PID Selection for more details.
+	AudioPidSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrInput `pulumi:"audioPidSelection"`
+	// Audio Track Selection. See Audio Track Selection for more details.
+	AudioTrackSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrInput `pulumi:"audioTrackSelection"`
 }
 
 func (ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs) ElementType() reflect.Type {
@@ -26426,24 +26663,28 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) 
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput)
 }
 
+// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioHlsRenditionSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
 		return v.AudioHlsRenditionSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput)
 }
 
+// Audio Language Selection. See Audio Language Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioLanguageSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
 		return v.AudioLanguageSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput)
 }
 
+// Audio Pid Selection. See Audio PID Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioPidSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
 		return v.AudioPidSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput)
 }
 
+// Audio Track Selection. See Audio Track Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioTrackSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
 		return v.AudioTrackSelection
@@ -26474,6 +26715,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput)
 }
 
+// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioHlsRenditionSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
 		if v == nil {
@@ -26483,6 +26725,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput)
 }
 
+// Audio Language Selection. See Audio Language Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioLanguageSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
 		if v == nil {
@@ -26492,6 +26735,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput)
 }
 
+// Audio Pid Selection. See Audio PID Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioPidSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
 		if v == nil {
@@ -26501,6 +26745,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput)
 }
 
+// Audio Track Selection. See Audio Track Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioTrackSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
 		if v == nil {
@@ -27269,6 +27514,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack struct {
+	// 1-based integer value that maps to a specific audio track.
 	Track int `pulumi:"track"`
 }
 
@@ -27284,6 +27530,7 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackS
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs struct {
+	// 1-based integer value that maps to a specific audio track.
 	Track pulumi.IntInput `pulumi:"track"`
 }
 
@@ -27338,6 +27585,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 	return o
 }
 
+// 1-based integer value that maps to a specific audio track.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackOutput) Track() pulumi.IntOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack) int {
 		return v.Track
@@ -27482,13 +27730,20 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput) Index(i p
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings struct {
+	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings `pulumi:"ancillarySourceSettings"`
-	AribSourceSettings      *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings      `pulumi:"aribSourceSettings"`
-	DvbSubSourceSettings    *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings    `pulumi:"dvbSubSourceSettings"`
-	EmbeddedSourceSettings  *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings  `pulumi:"embeddedSourceSettings"`
-	Scte20SourceSettings    *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings    `pulumi:"scte20SourceSettings"`
-	Scte27SourceSettings    *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings    `pulumi:"scte27SourceSettings"`
-	TeletextSourceSettings  *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings  `pulumi:"teletextSourceSettings"`
+	// ARIB Source Settings.
+	AribSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings `pulumi:"aribSourceSettings"`
+	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+	DvbSubSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings `pulumi:"dvbSubSourceSettings"`
+	// Embedded Source Settings. See Embedded Source Settings for more details.
+	EmbeddedSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings `pulumi:"embeddedSourceSettings"`
+	// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+	Scte20SourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings `pulumi:"scte20SourceSettings"`
+	// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+	Scte27SourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings `pulumi:"scte27SourceSettings"`
+	// Teletext Source Settings. See Teletext Source Settings for more details.
+	TeletextSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings `pulumi:"teletextSourceSettings"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput values.
@@ -27503,13 +27758,20 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput int
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs struct {
+	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrInput `pulumi:"ancillarySourceSettings"`
-	AribSourceSettings      ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput      `pulumi:"aribSourceSettings"`
-	DvbSubSourceSettings    ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput    `pulumi:"dvbSubSourceSettings"`
-	EmbeddedSourceSettings  ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrInput  `pulumi:"embeddedSourceSettings"`
-	Scte20SourceSettings    ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrInput    `pulumi:"scte20SourceSettings"`
-	Scte27SourceSettings    ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrInput    `pulumi:"scte27SourceSettings"`
-	TeletextSourceSettings  ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrInput  `pulumi:"teletextSourceSettings"`
+	// ARIB Source Settings.
+	AribSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput `pulumi:"aribSourceSettings"`
+	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+	DvbSubSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput `pulumi:"dvbSubSourceSettings"`
+	// Embedded Source Settings. See Embedded Source Settings for more details.
+	EmbeddedSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrInput `pulumi:"embeddedSourceSettings"`
+	// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+	Scte20SourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrInput `pulumi:"scte20SourceSettings"`
+	// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+	Scte27SourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrInput `pulumi:"scte27SourceSettings"`
+	// Teletext Source Settings. See Teletext Source Settings for more details.
+	TeletextSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrInput `pulumi:"teletextSourceSettings"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs) ElementType() reflect.Type {
@@ -27589,42 +27851,49 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput)
 }
 
+// Ancillary Source Settings. See Ancillary Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AncillarySourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
 		return v.AncillarySourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		return v.AribSourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
+// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) DvbSubSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
 		return v.DvbSubSourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
 }
 
+// Embedded Source Settings. See Embedded Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) EmbeddedSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
 		return v.EmbeddedSourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput)
 }
 
+// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) Scte20SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
 		return v.Scte20SourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput)
 }
 
+// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) Scte27SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
 		return v.Scte27SourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput)
 }
 
+// Teletext Source Settings. See Teletext Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) TeletextSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
 		return v.TeletextSourceSettings
@@ -27655,6 +27924,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput)
 }
 
+// Ancillary Source Settings. See Ancillary Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AncillarySourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
 		if v == nil {
@@ -27664,6 +27934,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		if v == nil {
@@ -27673,6 +27944,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
+// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) DvbSubSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
 		if v == nil {
@@ -27682,6 +27954,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
 }
 
+// Embedded Source Settings. See Embedded Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) EmbeddedSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
 		if v == nil {
@@ -27691,6 +27964,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput)
 }
 
+// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) Scte20SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
 		if v == nil {
@@ -27700,6 +27974,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput)
 }
 
+// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) Scte27SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
 		if v == nil {
@@ -27709,6 +27984,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput)
 }
 
+// Teletext Source Settings. See Teletext Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) TeletextSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
 		if v == nil {
@@ -28781,10 +29057,12 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle struct {
-	Height     float64 `pulumi:"height"`
+	Height float64 `pulumi:"height"`
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset float64 `pulumi:"leftOffset"`
-	TopOffset  float64 `pulumi:"topOffset"`
-	Width      float64 `pulumi:"width"`
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	TopOffset float64 `pulumi:"topOffset"`
+	Width     float64 `pulumi:"width"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput values.
@@ -28799,10 +29077,12 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextS
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs struct {
-	Height     pulumi.Float64Input `pulumi:"height"`
+	Height pulumi.Float64Input `pulumi:"height"`
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset pulumi.Float64Input `pulumi:"leftOffset"`
-	TopOffset  pulumi.Float64Input `pulumi:"topOffset"`
-	Width      pulumi.Float64Input `pulumi:"width"`
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	TopOffset pulumi.Float64Input `pulumi:"topOffset"`
+	Width     pulumi.Float64Input `pulumi:"width"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs) ElementType() reflect.Type {
@@ -28888,12 +29168,14 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64Output)
 }
 
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) LeftOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.LeftOffset
 	}).(pulumi.Float64Output)
 }
 
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) TopOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.TopOffset
@@ -28939,6 +29221,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) LeftOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -28948,6 +29231,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) TopOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -30867,10 +31151,14 @@ func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamReservedBitrate() pu
 }
 
 type MultiplexProgramMultiplexProgramSettings struct {
-	PreferredChannelPipeline string                                                     `pulumi:"preferredChannelPipeline"`
-	ProgramNumber            int                                                        `pulumi:"programNumber"`
-	ServiceDescriptor        *MultiplexProgramMultiplexProgramSettingsServiceDescriptor `pulumi:"serviceDescriptor"`
-	VideoSettings            *MultiplexProgramMultiplexProgramSettingsVideoSettings     `pulumi:"videoSettings"`
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline string `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber int `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor *MultiplexProgramMultiplexProgramSettingsServiceDescriptor `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings *MultiplexProgramMultiplexProgramSettingsVideoSettings `pulumi:"videoSettings"`
 }
 
 // MultiplexProgramMultiplexProgramSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsArgs and MultiplexProgramMultiplexProgramSettingsOutput values.
@@ -30885,10 +31173,14 @@ type MultiplexProgramMultiplexProgramSettingsInput interface {
 }
 
 type MultiplexProgramMultiplexProgramSettingsArgs struct {
-	PreferredChannelPipeline pulumi.StringInput                                                `pulumi:"preferredChannelPipeline"`
-	ProgramNumber            pulumi.IntInput                                                   `pulumi:"programNumber"`
-	ServiceDescriptor        MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput `pulumi:"serviceDescriptor"`
-	VideoSettings            MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput     `pulumi:"videoSettings"`
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline pulumi.StringInput `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber pulumi.IntInput `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput `pulumi:"videoSettings"`
 }
 
 func (MultiplexProgramMultiplexProgramSettingsArgs) ElementType() reflect.Type {
@@ -30968,20 +31260,24 @@ func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultip
 	}).(MultiplexProgramMultiplexProgramSettingsPtrOutput)
 }
 
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
 func (o MultiplexProgramMultiplexProgramSettingsOutput) PreferredChannelPipeline() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) string { return v.PreferredChannelPipeline }).(pulumi.StringOutput)
 }
 
+// Unique program number.
 func (o MultiplexProgramMultiplexProgramSettingsOutput) ProgramNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) int { return v.ProgramNumber }).(pulumi.IntOutput)
 }
 
+// Service Descriptor. See Service Descriptor for more details.
 func (o MultiplexProgramMultiplexProgramSettingsOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
 	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
 		return v.ServiceDescriptor
 	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
 }
 
+// Video settings. See Video Settings for more details.
 func (o MultiplexProgramMultiplexProgramSettingsOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
 	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
 		return v.VideoSettings
@@ -31012,6 +31308,7 @@ func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) Elem() MultiplexProgr
 	}).(MultiplexProgramMultiplexProgramSettingsOutput)
 }
 
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
 func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) PreferredChannelPipeline() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *string {
 		if v == nil {
@@ -31021,6 +31318,7 @@ func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) PreferredChannelPipel
 	}).(pulumi.StringPtrOutput)
 }
 
+// Unique program number.
 func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ProgramNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *int {
 		if v == nil {
@@ -31030,6 +31328,7 @@ func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ProgramNumber() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Service Descriptor. See Service Descriptor for more details.
 func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
 	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
 		if v == nil {
@@ -31039,6 +31338,7 @@ func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ServiceDescriptor() M
 	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
 }
 
+// Video settings. See Video Settings for more details.
 func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
 	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
 		if v == nil {
@@ -31542,10 +31842,10 @@ func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrO
 }
 
 type GetInputDestination struct {
-	Ip   string        `pulumi:"ip"`
-	Port string        `pulumi:"port"`
-	Url  string        `pulumi:"url"`
-	Vpcs []interface{} `pulumi:"vpcs"`
+	Ip   string                   `pulumi:"ip"`
+	Port string                   `pulumi:"port"`
+	Url  string                   `pulumi:"url"`
+	Vpcs []GetInputDestinationVpc `pulumi:"vpcs"`
 }
 
 // GetInputDestinationInput is an input type that accepts GetInputDestinationArgs and GetInputDestinationOutput values.
@@ -31560,10 +31860,10 @@ type GetInputDestinationInput interface {
 }
 
 type GetInputDestinationArgs struct {
-	Ip   pulumi.StringInput `pulumi:"ip"`
-	Port pulumi.StringInput `pulumi:"port"`
-	Url  pulumi.StringInput `pulumi:"url"`
-	Vpcs pulumi.ArrayInput  `pulumi:"vpcs"`
+	Ip   pulumi.StringInput               `pulumi:"ip"`
+	Port pulumi.StringInput               `pulumi:"port"`
+	Url  pulumi.StringInput               `pulumi:"url"`
+	Vpcs GetInputDestinationVpcArrayInput `pulumi:"vpcs"`
 }
 
 func (GetInputDestinationArgs) ElementType() reflect.Type {
@@ -31629,8 +31929,8 @@ func (o GetInputDestinationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInputDestination) string { return v.Url }).(pulumi.StringOutput)
 }
 
-func (o GetInputDestinationOutput) Vpcs() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetInputDestination) []interface{} { return v.Vpcs }).(pulumi.ArrayOutput)
+func (o GetInputDestinationOutput) Vpcs() GetInputDestinationVpcArrayOutput {
+	return o.ApplyT(func(v GetInputDestination) []GetInputDestinationVpc { return v.Vpcs }).(GetInputDestinationVpcArrayOutput)
 }
 
 type GetInputDestinationArrayOutput struct{ *pulumi.OutputState }
@@ -31651,6 +31951,106 @@ func (o GetInputDestinationArrayOutput) Index(i pulumi.IntInput) GetInputDestina
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestination {
 		return vs[0].([]GetInputDestination)[vs[1].(int)]
 	}).(GetInputDestinationOutput)
+}
+
+type GetInputDestinationVpc struct {
+	AvailabilityZone   string `pulumi:"availabilityZone"`
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+}
+
+// GetInputDestinationVpcInput is an input type that accepts GetInputDestinationVpcArgs and GetInputDestinationVpcOutput values.
+// You can construct a concrete instance of `GetInputDestinationVpcInput` via:
+//
+//	GetInputDestinationVpcArgs{...}
+type GetInputDestinationVpcInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput
+	ToGetInputDestinationVpcOutputWithContext(context.Context) GetInputDestinationVpcOutput
+}
+
+type GetInputDestinationVpcArgs struct {
+	AvailabilityZone   pulumi.StringInput `pulumi:"availabilityZone"`
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+}
+
+func (GetInputDestinationVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (i GetInputDestinationVpcArgs) ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput {
+	return i.ToGetInputDestinationVpcOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationVpcArgs) ToGetInputDestinationVpcOutputWithContext(ctx context.Context) GetInputDestinationVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationVpcOutput)
+}
+
+// GetInputDestinationVpcArrayInput is an input type that accepts GetInputDestinationVpcArray and GetInputDestinationVpcArrayOutput values.
+// You can construct a concrete instance of `GetInputDestinationVpcArrayInput` via:
+//
+//	GetInputDestinationVpcArray{ GetInputDestinationVpcArgs{...} }
+type GetInputDestinationVpcArrayInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput
+	ToGetInputDestinationVpcArrayOutputWithContext(context.Context) GetInputDestinationVpcArrayOutput
+}
+
+type GetInputDestinationVpcArray []GetInputDestinationVpcInput
+
+func (GetInputDestinationVpcArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (i GetInputDestinationVpcArray) ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput {
+	return i.ToGetInputDestinationVpcArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationVpcArray) ToGetInputDestinationVpcArrayOutputWithContext(ctx context.Context) GetInputDestinationVpcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationVpcArrayOutput)
+}
+
+type GetInputDestinationVpcOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (o GetInputDestinationVpcOutput) ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcOutput) ToGetInputDestinationVpcOutputWithContext(ctx context.Context) GetInputDestinationVpcOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestinationVpc) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationVpcOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestinationVpc) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+type GetInputDestinationVpcArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationVpcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (o GetInputDestinationVpcArrayOutput) ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcArrayOutput) ToGetInputDestinationVpcArrayOutputWithContext(ctx context.Context) GetInputDestinationVpcArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcArrayOutput) Index(i pulumi.IntInput) GetInputDestinationVpcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestinationVpc {
+		return vs[0].([]GetInputDestinationVpc)[vs[1].(int)]
+	}).(GetInputDestinationVpcOutput)
 }
 
 type GetInputInputDevice struct {
@@ -32290,6 +32690,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationInput)(nil)).Elem(), GetInputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationArrayInput)(nil)).Elem(), GetInputDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationVpcInput)(nil)).Elem(), GetInputDestinationVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationVpcArrayInput)(nil)).Elem(), GetInputDestinationVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceInput)(nil)).Elem(), GetInputInputDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceArrayInput)(nil)).Elem(), GetInputInputDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowInput)(nil)).Elem(), GetInputMediaConnectFlowArgs{})
@@ -32635,6 +33037,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationVpcOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationVpcArrayOutput{})
 	pulumi.RegisterOutputType(GetInputInputDeviceOutput{})
 	pulumi.RegisterOutputType(GetInputInputDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInputMediaConnectFlowOutput{})

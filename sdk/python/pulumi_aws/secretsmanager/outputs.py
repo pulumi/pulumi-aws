@@ -18,6 +18,7 @@ __all__ = [
     'SecretReplica',
     'SecretRotationRotationRules',
     'GetSecretRotationRotationRuleResult',
+    'GetSecretVersionsVersionResult',
     'GetSecretsFilterResult',
 ]
 
@@ -194,6 +195,49 @@ class GetSecretRotationRotationRuleResult(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
         return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
+class GetSecretVersionsVersionResult(dict):
+    def __init__(__self__, *,
+                 created_time: str,
+                 last_accessed_date: str,
+                 version_id: str,
+                 version_stages: Sequence[str]):
+        """
+        :param str last_accessed_date: Date that this version of the secret was last accessed.
+        :param str version_id: Unique version identifier of this version of the secret.
+        """
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "last_accessed_date", last_accessed_date)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stages", version_stages)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> str:
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="lastAccessedDate")
+    def last_accessed_date(self) -> str:
+        """
+        Date that this version of the secret was last accessed.
+        """
+        return pulumi.get(self, "last_accessed_date")
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> str:
+        """
+        Unique version identifier of this version of the secret.
+        """
+        return pulumi.get(self, "version_id")
+
+    @property
+    @pulumi.getter(name="versionStages")
+    def version_stages(self) -> Sequence[str]:
+        return pulumi.get(self, "version_stages")
 
 
 @pulumi.output_type

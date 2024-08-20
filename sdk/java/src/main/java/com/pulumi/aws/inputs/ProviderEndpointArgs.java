@@ -1279,6 +1279,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="databrew")
+    private @Nullable Output<String> databrew;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> databrew() {
+        return Optional.ofNullable(this.databrew);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="dataexchange")
     private @Nullable Output<String> dataexchange;
 
@@ -2008,6 +2023,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> glue() {
         return Optional.ofNullable(this.glue);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="gluedatabrew")
+    private @Nullable Output<String> gluedatabrew;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> gluedatabrew() {
+        return Optional.ofNullable(this.gluedatabrew);
     }
 
     /**
@@ -3334,6 +3364,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="resiliencehub")
+    private @Nullable Output<String> resiliencehub;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> resiliencehub() {
+        return Optional.ofNullable(this.resiliencehub);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="resourceexplorer2")
     private @Nullable Output<String> resourceexplorer2;
 
@@ -4377,6 +4422,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.customerprofiles = $.customerprofiles;
         this.databasemigration = $.databasemigration;
         this.databasemigrationservice = $.databasemigrationservice;
+        this.databrew = $.databrew;
         this.dataexchange = $.dataexchange;
         this.datapipeline = $.datapipeline;
         this.datasync = $.datasync;
@@ -4426,6 +4472,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.glacier = $.glacier;
         this.globalaccelerator = $.globalaccelerator;
         this.glue = $.glue;
+        this.gluedatabrew = $.gluedatabrew;
         this.grafana = $.grafana;
         this.greengrass = $.greengrass;
         this.groundstation = $.groundstation;
@@ -4514,6 +4561,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshiftdataapiservice = $.redshiftdataapiservice;
         this.redshiftserverless = $.redshiftserverless;
         this.rekognition = $.rekognition;
+        this.resiliencehub = $.resiliencehub;
         this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
@@ -6363,6 +6411,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param databrew Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databrew(@Nullable Output<String> databrew) {
+            $.databrew = databrew;
+            return this;
+        }
+
+        /**
+         * @param databrew Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databrew(String databrew) {
+            return databrew(Output.of(databrew));
+        }
+
+        /**
          * @param dataexchange Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -7389,6 +7458,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder glue(String glue) {
             return glue(Output.of(glue));
+        }
+
+        /**
+         * @param gluedatabrew Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gluedatabrew(@Nullable Output<String> gluedatabrew) {
+            $.gluedatabrew = gluedatabrew;
+            return this;
+        }
+
+        /**
+         * @param gluedatabrew Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gluedatabrew(String gluedatabrew) {
+            return gluedatabrew(Output.of(gluedatabrew));
         }
 
         /**
@@ -9237,6 +9327,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder rekognition(String rekognition) {
             return rekognition(Output.of(rekognition));
+        }
+
+        /**
+         * @param resiliencehub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehub(@Nullable Output<String> resiliencehub) {
+            $.resiliencehub = resiliencehub;
+            return this;
+        }
+
+        /**
+         * @param resiliencehub Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehub(String resiliencehub) {
+            return resiliencehub(Output.of(resiliencehub));
         }
 
         /**

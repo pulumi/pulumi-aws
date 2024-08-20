@@ -114,14 +114,14 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     @Export(name="routingConfigurations", refs={List.class,AgentAgentAliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
 
     /**
-     * @return Details about the routing configuration of the alias. See `routing_configuration` block for details.
+     * @return Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
     public Output<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations() {
@@ -170,7 +170,7 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AgentAgentAlias(String name) {
+    public AgentAgentAlias(java.lang.String name) {
         this(name, AgentAgentAliasArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentAgentAlias(String name, AgentAgentAliasArgs args) {
+    public AgentAgentAlias(java.lang.String name, AgentAgentAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,15 +187,22 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentAgentAlias(String name, AgentAgentAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgentAlias:AgentAgentAlias", name, args == null ? AgentAgentAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AgentAgentAlias(java.lang.String name, AgentAgentAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgentAlias:AgentAgentAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AgentAgentAlias(String name, Output<String> id, @Nullable AgentAgentAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:bedrock/agentAgentAlias:AgentAgentAlias", name, state, makeResourceOptions(options, id));
+    private AgentAgentAlias(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:bedrock/agentAgentAlias:AgentAgentAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AgentAgentAliasArgs makeArgs(AgentAgentAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AgentAgentAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +218,7 @@ public class AgentAgentAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AgentAgentAlias get(String name, Output<String> id, @Nullable AgentAgentAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AgentAgentAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable AgentAgentAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AgentAgentAlias(name, id, state, options);
     }
 }

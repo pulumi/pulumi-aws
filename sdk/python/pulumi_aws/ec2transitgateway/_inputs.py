@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'InstanceConnectEndpointTimeoutsArgs',
     'InstanceConnectEndpointTimeoutsArgsDict',
+    'PeeringAttachmentOptionsArgs',
+    'PeeringAttachmentOptionsArgsDict',
     'GetAttachmentFilterArgs',
     'GetAttachmentFilterArgsDict',
     'GetAttachmentsFilterArgs',
@@ -31,6 +33,8 @@ __all__ = [
     'GetMulticastDomainFilterArgsDict',
     'GetPeeringAttachmentFilterArgs',
     'GetPeeringAttachmentFilterArgsDict',
+    'GetPeeringAttachmentsFilterArgs',
+    'GetPeeringAttachmentsFilterArgsDict',
     'GetRouteTableAssociationsFilterArgs',
     'GetRouteTableAssociationsFilterArgsDict',
     'GetRouteTableFilterArgs',
@@ -101,6 +105,38 @@ class InstanceConnectEndpointTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class PeeringAttachmentOptionsArgsDict(TypedDict):
+        dynamic_routing: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        """
+elif False:
+    PeeringAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PeeringAttachmentOptionsArgs:
+    def __init__(__self__, *,
+                 dynamic_routing: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] dynamic_routing: Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        """
+        if dynamic_routing is not None:
+            pulumi.set(__self__, "dynamic_routing", dynamic_routing)
+
+    @property
+    @pulumi.getter(name="dynamicRouting")
+    def dynamic_routing(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+        """
+        return pulumi.get(self, "dynamic_routing")
+
+    @dynamic_routing.setter
+    def dynamic_routing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dynamic_routing", value)
 
 
 if not MYPY:
@@ -451,6 +487,56 @@ class GetPeeringAttachmentFilterArgs:
         """
         Set of values that are accepted for the given field.
         An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetPeeringAttachmentsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetPeeringAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetPeeringAttachmentsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
         """
         return pulumi.get(self, "values")
 

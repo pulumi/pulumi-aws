@@ -48,3 +48,30 @@ aws iam list-policies --scope AWS | jq -f docs/generate-iam-policies.jq -r > pol
 ```
 
 Copy the content of `policies.go` and insert into the `iam_managed_policy.go` file, merging with any existing manual changes. If policies have been removed, we should keep them but mark them as deprecated.
+
+## Updating pulumi-terraform-aws dependency
+
+Keeping the pulumi-terraform-aws dependency up-to-date involves updating the `./upstream` Git sub-module, resolving
+patch conflicts, adjusting `resources.go` mappings configurations and re-generating the SDKs. For a fully worked
+example, to update to v5.60.0 (actual update in #4309):
+
+```bash
+git branch upstream-v5.60.0 && git checkout upstream-v5.60.0
+./upstream.sh checkout
+./upstream.sh rebase -o v5.60.0
+# in ./rebase finish the Git rebase and resolve conflicts
+./scripts/patch_computed_only.sh
+# if patch_computed_only edited anything in ./upstream, commit it
+(cd ./upstream && go build ./...) # verify everything builds
+# add commits as needed to make it build
+./upstream.sh format_patches
+git add ./patches && git commit -m "Update patches for v5.60.0"
+(cd upstream && git reset --hard v5.60.0)
+git add ./upstream && git commit -m "Move upstream to v5.60.0"
+./upstream.sh init -f # verify patches apply cleanly with no changes
+./scripts/tidy-all.sh
+git add . && git commit -m "./scripts/tidy-all.sh"
+make tfgen # iterate on editing resources.go configurations as needed
+git add . && git commit -m "make tfgen"
+make build_sdks && git add . && git commit -m "make build_sdks"
+```

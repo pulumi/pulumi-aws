@@ -71,7 +71,7 @@ export class AgentAgentAlias extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+     * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
     public readonly routingConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentAliasRoutingConfiguration[]>;
     /**
@@ -158,7 +158,7 @@ export interface AgentAgentAliasState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+     * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
     /**
@@ -193,7 +193,7 @@ export interface AgentAgentAliasArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Details about the routing configuration of the alias. See `routingConfiguration` block for details.
+     * Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentAliasRoutingConfiguration>[]>;
     /**

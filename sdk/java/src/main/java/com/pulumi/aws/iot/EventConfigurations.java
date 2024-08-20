@@ -97,7 +97,7 @@ public class EventConfigurations extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventConfigurations(String name) {
+    public EventConfigurations(java.lang.String name) {
         this(name, EventConfigurationsArgs.Empty);
     }
     /**
@@ -105,7 +105,7 @@ public class EventConfigurations extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventConfigurations(String name, EventConfigurationsArgs args) {
+    public EventConfigurations(java.lang.String name, EventConfigurationsArgs args) {
         this(name, args, null);
     }
     /**
@@ -114,15 +114,22 @@ public class EventConfigurations extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventConfigurations(String name, EventConfigurationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/eventConfigurations:EventConfigurations", name, args == null ? EventConfigurationsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EventConfigurations(java.lang.String name, EventConfigurationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/eventConfigurations:EventConfigurations", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventConfigurations(String name, Output<String> id, @Nullable EventConfigurationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/eventConfigurations:EventConfigurations", name, state, makeResourceOptions(options, id));
+    private EventConfigurations(java.lang.String name, Output<java.lang.String> id, @Nullable EventConfigurationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/eventConfigurations:EventConfigurations", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EventConfigurationsArgs makeArgs(EventConfigurationsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventConfigurationsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -138,7 +145,7 @@ public class EventConfigurations extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventConfigurations get(String name, Output<String> id, @Nullable EventConfigurationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventConfigurations get(java.lang.String name, Output<java.lang.String> id, @Nullable EventConfigurationsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventConfigurations(name, id, state, options);
     }
 }

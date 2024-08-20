@@ -253,7 +253,7 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryAssociation(String name) {
+    public RepositoryAssociation(java.lang.String name) {
         this(name, RepositoryAssociationArgs.Empty);
     }
     /**
@@ -261,7 +261,7 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryAssociation(String name, RepositoryAssociationArgs args) {
+    public RepositoryAssociation(java.lang.String name, RepositoryAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -270,15 +270,22 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryAssociation(String name, RepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, args == null ? RepositoryAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryAssociation(java.lang.String name, RepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryAssociation(String name, Output<String> id, @Nullable RepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, state, makeResourceOptions(options, id));
+    private RepositoryAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryAssociationArgs makeArgs(RepositoryAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -294,7 +301,7 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryAssociation get(String name, Output<String> id, @Nullable RepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryAssociation(name, id, state, options);
     }
 }

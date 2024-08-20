@@ -142,7 +142,7 @@ class GetOntapFileSystemResult:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        DNS name for the file system.
         """
         return pulumi.get(self, "dns_name")
 

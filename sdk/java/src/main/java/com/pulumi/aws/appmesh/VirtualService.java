@@ -273,7 +273,7 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualService(String name) {
+    public VirtualService(java.lang.String name) {
         this(name, VirtualServiceArgs.Empty);
     }
     /**
@@ -281,7 +281,7 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualService(String name, VirtualServiceArgs args) {
+    public VirtualService(java.lang.String name, VirtualServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -290,15 +290,22 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualService(String name, VirtualServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualService:VirtualService", name, args == null ? VirtualServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public VirtualService(java.lang.String name, VirtualServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualService:VirtualService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualService(String name, Output<String> id, @Nullable VirtualServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:appmesh/virtualService:VirtualService", name, state, makeResourceOptions(options, id));
+    private VirtualService(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:appmesh/virtualService:VirtualService", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static VirtualServiceArgs makeArgs(VirtualServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualServiceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -314,7 +321,7 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualService get(String name, Output<String> id, @Nullable VirtualServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualService get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualService(name, id, state, options);
     }
 }

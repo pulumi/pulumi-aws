@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags to default across all resources
+        /// Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -114,6 +114,16 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly s3Region!: pulumi.Output<string>;
     /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
     public readonly timeUnit!: pulumi.Output<string>;
@@ -142,6 +152,8 @@ export class ReportDefinition extends pulumi.CustomResource {
             resourceInputs["s3Bucket"] = state ? state.s3Bucket : undefined;
             resourceInputs["s3Prefix"] = state ? state.s3Prefix : undefined;
             resourceInputs["s3Region"] = state ? state.s3Region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeUnit"] = state ? state.timeUnit : undefined;
         } else {
             const args = argsOrState as ReportDefinitionArgs | undefined;
@@ -176,8 +188,10 @@ export class ReportDefinition extends pulumi.CustomResource {
             resourceInputs["s3Bucket"] = args ? args.s3Bucket : undefined;
             resourceInputs["s3Prefix"] = args ? args.s3Prefix : undefined;
             resourceInputs["s3Region"] = args ? args.s3Region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeUnit"] = args ? args.timeUnit : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReportDefinition.__pulumiType, name, resourceInputs, opts);
@@ -233,6 +247,16 @@ export interface ReportDefinitionState {
      */
     s3Region?: pulumi.Input<string>;
     /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */
     timeUnit?: pulumi.Input<string>;
@@ -282,6 +306,10 @@ export interface ReportDefinitionArgs {
      * Region of the existing S3 bucket to hold generated reports.
      */
     s3Region: pulumi.Input<string>;
+    /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      */

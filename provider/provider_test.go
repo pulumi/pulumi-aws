@@ -2,6 +2,8 @@
 package provider
 
 import (
+	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -32,6 +34,24 @@ func getEnvRegion(t *testing.T) string {
 		envRegion = "us-west-2"
 	}
 	return envRegion
+}
+
+func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
+	ctx := context.Background()
+	var env []string
+	workspace := ptest.CurrentStack().Workspace()
+	for k, v := range workspace.GetEnvVars() {
+		env = append(env, fmt.Sprintf("%s=%s", k, v))
+	}
+	stdin := bytes.NewReader([]byte{})
+	var arguments []string
+	arguments = append(arguments, args...)
+	arguments = append(arguments, "-s", ptest.CurrentStack().Name())
+	s1, s2, code, err := workspace.PulumiCommand().Run(ctx, workdir, stdin, nil, nil, env, arguments...)
+	t.Logf("stdout: %s", s1)
+	t.Logf("stderr: %s", s2)
+	t.Logf("code=%v", code)
+	require.NoError(t, err)
 }
 
 type testProviderUpgradeOptions struct {
@@ -83,9 +103,8 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	if opts != nil && opts.region != "" {
 		test.SetConfig("aws:region", opts.region)
 	}
-	result := providertest.PreviewProviderUpgrade(
-		test, providerName, baselineVersion, optproviderupgrade.DisableAttach(),
-	)
+	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
+		optproviderupgrade.DisableAttach())
 	assertpreview.HasNoReplacements(t, result)
 }
 
@@ -134,7 +153,7 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 		pt.Up()
 		grptLog := pt.GrpcLog()
 		grpcLogPath := filepath.Join(cacheDir, "grpc.json")
-		pt.T().Logf("writing grpc log to %s", grpcLogPath)
+		t.Logf("writing grpc log to %s", grpcLogPath)
 		grptLog.WriteTo(grpcLogPath)
 
 		e := pt.ExportStack()
@@ -182,7 +201,7 @@ func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
 			return
 		}
 
-		pulumiTest.T().Log("Plan is not equal, re-running up")
+		t.Log("Plan is not equal, re-running up")
 	}
 	pulumiTest.Preview(optpreview.Plan(planFile))
 	upResult := pulumiTest.Up(optup.Plan(planFile))

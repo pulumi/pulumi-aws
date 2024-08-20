@@ -113,14 +113,14 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.homeEfsFileSystemUid;
     }
     /**
-     * A collection of ownership settings. See Ownership Settings below.
+     * A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
     @Export(name="ownershipSettings", refs={SpaceOwnershipSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceOwnershipSettings> ownershipSettings;
 
     /**
-     * @return A collection of ownership settings. See Ownership Settings below.
+     * @return A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
     public Output<Optional<SpaceOwnershipSettings>> ownershipSettings() {
@@ -155,28 +155,28 @@ public class Space extends com.pulumi.resources.CustomResource {
         return this.spaceName;
     }
     /**
-     * A collection of space settings. See Space Settings below.
+     * A collection of space settings. See `space_settings` Block below.
      * 
      */
     @Export(name="spaceSettings", refs={SpaceSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSettings> spaceSettings;
 
     /**
-     * @return A collection of space settings. See Space Settings below.
+     * @return A collection of space settings. See `space_settings` Block below.
      * 
      */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
     }
     /**
-     * A collection of space sharing settings. See Space Sharing Settings below.
+     * A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
     @Export(name="spaceSharingSettings", refs={SpaceSpaceSharingSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSharingSettings> spaceSharingSettings;
 
     /**
-     * @return A collection of space sharing settings. See Space Sharing Settings below.
+     * @return A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
     public Output<Optional<SpaceSpaceSharingSettings>> spaceSharingSettings() {
@@ -233,7 +233,7 @@ public class Space extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Space(String name) {
+    public Space(java.lang.String name) {
         this(name, SpaceArgs.Empty);
     }
     /**
@@ -241,7 +241,7 @@ public class Space extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Space(String name, SpaceArgs args) {
+    public Space(java.lang.String name, SpaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -250,15 +250,22 @@ public class Space extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Space(String name, SpaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/space:Space", name, args == null ? SpaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Space(java.lang.String name, SpaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/space:Space", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Space(String name, Output<String> id, @Nullable SpaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:sagemaker/space:Space", name, state, makeResourceOptions(options, id));
+    private Space(java.lang.String name, Output<java.lang.String> id, @Nullable SpaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:sagemaker/space:Space", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SpaceArgs makeArgs(SpaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpaceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +281,7 @@ public class Space extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Space get(String name, Output<String> id, @Nullable SpaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Space get(java.lang.String name, Output<java.lang.String> id, @Nullable SpaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Space(name, id, state, options);
     }
 }

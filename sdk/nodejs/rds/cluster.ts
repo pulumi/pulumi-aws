@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
  *
+ * > **Note:** `caCertificateIdentifier` is only supported for Multi-AZ DB clusters.
+ *
  * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
  *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -40,7 +42,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -61,7 +63,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -83,7 +85,7 @@ import * as utilities from "../utilities";
  *     ],
  *     databaseName: "mydb",
  *     masterUsername: "foo",
- *     masterPassword: "bar",
+ *     masterPassword: "must_be_eight_characters",
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  * });
@@ -280,6 +282,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    public readonly caCertificateIdentifier!: pulumi.Output<string>;
+    /**
+     * Expiration date of the DB instance’s server certificate
+     */
+    public /*out*/ readonly caCertificateValidTill!: pulumi.Output<string>;
+    /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
@@ -367,6 +377,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    public readonly engineLifecycleSupport!: pulumi.Output<string>;
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
@@ -431,15 +445,27 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly networkType!: pulumi.Output<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
@@ -519,6 +545,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["backtrackWindow"] = state ? state.backtrackWindow : undefined;
             resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
+            resourceInputs["caCertificateIdentifier"] = state ? state.caCertificateIdentifier : undefined;
+            resourceInputs["caCertificateValidTill"] = state ? state.caCertificateValidTill : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = state ? state.clusterMembers : undefined;
@@ -540,6 +568,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = state ? state.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = state ? state.engineMode : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
@@ -556,6 +585,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecrets"] = state ? state.masterUserSecrets : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
+            resourceInputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
@@ -584,6 +616,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = args ? args.clusterMembers : undefined;
@@ -603,6 +636,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["enableLocalWriteForwarding"] = args ? args.enableLocalWriteForwarding : undefined;
             resourceInputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
+            resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineMode"] = args ? args.engineMode : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -616,6 +650,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterUserSecretKmsKeyId"] = args ? args.masterUserSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
+            resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
@@ -632,6 +669,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["caCertificateValidTill"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
@@ -682,6 +720,14 @@ export interface ClusterState {
      * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    caCertificateIdentifier?: pulumi.Input<string>;
+    /**
+     * Expiration date of the DB instance’s server certificate
+     */
+    caCertificateValidTill?: pulumi.Input<string>;
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
@@ -770,6 +816,10 @@ export interface ClusterState {
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
@@ -834,15 +884,27 @@ export interface ClusterState {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     port?: pulumi.Input<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -935,6 +997,10 @@ export interface ClusterArgs {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    caCertificateIdentifier?: pulumi.Input<string>;
+    /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     clusterIdentifier?: pulumi.Input<string>;
@@ -1014,6 +1080,10 @@ export interface ClusterArgs {
      */
     engine: pulumi.Input<string | enums.rds.EngineType>;
     /**
+     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     */
+    engineLifecycleSupport?: pulumi.Input<string>;
+    /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
@@ -1066,15 +1136,27 @@ export interface ClusterArgs {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Port on which the DB accepts connections
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+     */
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     */
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Port on which the DB accepts connections.
      */
     port?: pulumi.Input<number>;
     /**
-     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**

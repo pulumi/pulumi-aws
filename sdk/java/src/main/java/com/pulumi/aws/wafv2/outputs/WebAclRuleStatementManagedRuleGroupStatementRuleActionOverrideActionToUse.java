@@ -17,7 +17,15 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block;
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge;
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count;
 
@@ -28,9 +36,17 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock> block() {
         return Optional.ofNullable(this.block);
     }
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha> captcha() {
         return Optional.ofNullable(this.captcha);
     }
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge> challenge() {
         return Optional.ofNullable(this.challenge);
     }

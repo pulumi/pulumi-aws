@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -277,6 +278,20 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> presignedUrl() {
         return Codegen.optional(this.presignedUrl);
     }
+    /**
+     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    @Export(name="sharedAccounts", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> sharedAccounts;
+
+    /**
+     * @return (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * 
+     */
+    public Output<Optional<List<String>>> sharedAccounts() {
+        return Codegen.optional(this.sharedAccounts);
+    }
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
@@ -404,7 +419,7 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SnapshotCopy(String name) {
+    public SnapshotCopy(java.lang.String name) {
         this(name, SnapshotCopyArgs.Empty);
     }
     /**
@@ -412,7 +427,7 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SnapshotCopy(String name, SnapshotCopyArgs args) {
+    public SnapshotCopy(java.lang.String name, SnapshotCopyArgs args) {
         this(name, args, null);
     }
     /**
@@ -421,15 +436,22 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SnapshotCopy(String name, SnapshotCopyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/snapshotCopy:SnapshotCopy", name, args == null ? SnapshotCopyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SnapshotCopy(java.lang.String name, SnapshotCopyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/snapshotCopy:SnapshotCopy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SnapshotCopy(String name, Output<String> id, @Nullable SnapshotCopyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/snapshotCopy:SnapshotCopy", name, state, makeResourceOptions(options, id));
+    private SnapshotCopy(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCopyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/snapshotCopy:SnapshotCopy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SnapshotCopyArgs makeArgs(SnapshotCopyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotCopyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -445,7 +467,7 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SnapshotCopy get(String name, Output<String> id, @Nullable SnapshotCopyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SnapshotCopy get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotCopyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SnapshotCopy(name, id, state, options);
     }
 }

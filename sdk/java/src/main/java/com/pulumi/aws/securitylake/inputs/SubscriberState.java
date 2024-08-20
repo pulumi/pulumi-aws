@@ -19,9 +19,17 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
 
     public static final SubscriberState Empty = new SubscriberState();
 
+    /**
+     * The Amazon S3 or Lake Formation access type.
+     * 
+     */
     @Import(name="accessType")
     private @Nullable Output<String> accessType;
 
+    /**
+     * @return The Amazon S3 or Lake Formation access type.
+     * 
+     */
     public Optional<Output<String>> accessType() {
         return Optional.ofNullable(this.accessType);
     }
@@ -102,14 +110,14 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
     @Import(name="source")
     private @Nullable Output<SubscriberSourceArgs> source;
 
     /**
-     * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+     * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
     public Optional<Output<SubscriberSourceArgs>> source() {
@@ -147,14 +155,14 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS identity used to access your data.
+     * The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
     @Import(name="subscriberIdentity")
     private @Nullable Output<SubscriberSubscriberIdentityArgs> subscriberIdentity;
 
     /**
-     * @return The AWS identity used to access your data.
+     * @return The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
     public Optional<Output<SubscriberSubscriberIdentityArgs>> subscriberIdentity() {
@@ -274,11 +282,23 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
             $ = new SubscriberState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessType The Amazon S3 or Lake Formation access type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessType(@Nullable Output<String> accessType) {
             $.accessType = accessType;
             return this;
         }
 
+        /**
+         * @param accessType The Amazon S3 or Lake Formation access type.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessType(String accessType) {
             return accessType(Output.of(accessType));
         }
@@ -389,7 +409,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
          * 
          * @return builder
          * 
@@ -400,7 +420,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+         * @param source The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
          * 
          * @return builder
          * 
@@ -452,7 +472,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriberIdentity The AWS identity used to access your data.
+         * @param subscriberIdentity The AWS identity used to access your data. See `subscriber_identity` Block below.
          * 
          * @return builder
          * 
@@ -463,7 +483,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subscriberIdentity The AWS identity used to access your data.
+         * @param subscriberIdentity The AWS identity used to access your data. See `subscriber_identity` Block below.
          * 
          * @return builder
          * 

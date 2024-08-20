@@ -76,6 +76,10 @@ export class EventBus extends pulumi.CustomResource {
      */
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
     /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -105,12 +109,14 @@ export class EventBus extends pulumi.CustomResource {
             const state = argsOrState as EventBusState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["eventSourceName"] = state ? state.eventSourceName : undefined;
+            resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventBusArgs | undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
+            resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -133,6 +139,10 @@ export interface EventBusState {
      * The partner event source that the new event bus will be matched with. Must match `name`.
      */
     eventSourceName?: pulumi.Input<string>;
+    /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */
@@ -157,6 +167,10 @@ export interface EventBusArgs {
      * The partner event source that the new event bus will be matched with. Must match `name`.
      */
     eventSourceName?: pulumi.Input<string>;
+    /**
+     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     */
+    kmsKeyIdentifier?: pulumi.Input<string>;
     /**
      * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
      */

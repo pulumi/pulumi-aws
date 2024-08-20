@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CustomDatatypes;
         /// <summary>
-        /// The delimiter used in the Csv to separate columns.
+        /// The delimiter used in the CSV to separate columns.
         /// </summary>
         public readonly string? Delimiter;
         /// <summary>
@@ -45,6 +45,9 @@ namespace Pulumi.Aws.Glue.Outputs
         /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         /// </summary>
         public readonly string? QuoteSymbol;
+        /// <summary>
+        /// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
+        /// </summary>
         public readonly string? Serde;
 
         [OutputConstructor]

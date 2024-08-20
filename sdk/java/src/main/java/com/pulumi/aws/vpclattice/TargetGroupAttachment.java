@@ -95,7 +95,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TargetGroupAttachment(String name) {
+    public TargetGroupAttachment(java.lang.String name) {
         this(name, TargetGroupAttachmentArgs.Empty);
     }
     /**
@@ -103,7 +103,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TargetGroupAttachment(String name, TargetGroupAttachmentArgs args) {
+    public TargetGroupAttachment(java.lang.String name, TargetGroupAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -112,15 +112,22 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TargetGroupAttachment(String name, TargetGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment", name, args == null ? TargetGroupAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TargetGroupAttachment(java.lang.String name, TargetGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TargetGroupAttachment(String name, Output<String> id, @Nullable TargetGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment", name, state, makeResourceOptions(options, id));
+    private TargetGroupAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:vpclattice/targetGroupAttachment:TargetGroupAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TargetGroupAttachmentArgs makeArgs(TargetGroupAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TargetGroupAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -136,7 +143,7 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TargetGroupAttachment get(String name, Output<String> id, @Nullable TargetGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TargetGroupAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable TargetGroupAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TargetGroupAttachment(name, id, state, options);
     }
 }

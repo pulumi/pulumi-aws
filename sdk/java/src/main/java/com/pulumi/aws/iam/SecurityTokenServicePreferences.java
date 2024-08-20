@@ -73,7 +73,7 @@ public class SecurityTokenServicePreferences extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SecurityTokenServicePreferences(String name) {
+    public SecurityTokenServicePreferences(java.lang.String name) {
         this(name, SecurityTokenServicePreferencesArgs.Empty);
     }
     /**
@@ -81,7 +81,7 @@ public class SecurityTokenServicePreferences extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SecurityTokenServicePreferences(String name, SecurityTokenServicePreferencesArgs args) {
+    public SecurityTokenServicePreferences(java.lang.String name, SecurityTokenServicePreferencesArgs args) {
         this(name, args, null);
     }
     /**
@@ -90,15 +90,22 @@ public class SecurityTokenServicePreferences extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SecurityTokenServicePreferences(String name, SecurityTokenServicePreferencesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences", name, args == null ? SecurityTokenServicePreferencesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SecurityTokenServicePreferences(java.lang.String name, SecurityTokenServicePreferencesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SecurityTokenServicePreferences(String name, Output<String> id, @Nullable SecurityTokenServicePreferencesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences", name, state, makeResourceOptions(options, id));
+    private SecurityTokenServicePreferences(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityTokenServicePreferencesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SecurityTokenServicePreferencesArgs makeArgs(SecurityTokenServicePreferencesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SecurityTokenServicePreferencesArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -114,7 +121,7 @@ public class SecurityTokenServicePreferences extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SecurityTokenServicePreferences get(String name, Output<String> id, @Nullable SecurityTokenServicePreferencesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SecurityTokenServicePreferences get(java.lang.String name, Output<java.lang.String> id, @Nullable SecurityTokenServicePreferencesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SecurityTokenServicePreferences(name, id, state, options);
     }
 }

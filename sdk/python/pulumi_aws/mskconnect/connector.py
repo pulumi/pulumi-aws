@@ -32,21 +32,25 @@ class ConnectorArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Connector resource.
-        :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See below.
+        :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
-        :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See below.
-        :param pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs'] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See below.
-        :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See below.
+        :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        :param pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs'] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         :param pulumi.Input[str] kafkaconnect_version: The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A summary description of the connector.
-        :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See below.
+        :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[str] name: The name of the connector.
-        :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "connector_configuration", connector_configuration)
@@ -62,6 +66,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "log_delivery", log_delivery)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if worker_configuration is not None:
             pulumi.set(__self__, "worker_configuration", worker_configuration)
 
@@ -69,7 +75,7 @@ class ConnectorArgs:
     @pulumi.getter
     def capacity(self) -> pulumi.Input['ConnectorCapacityArgs']:
         """
-        Information about the capacity allocated to the connector. See below.
+        Information about the capacity allocated to the connector. See `capacity` Block for details.
         """
         return pulumi.get(self, "capacity")
 
@@ -93,7 +99,7 @@ class ConnectorArgs:
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Input['ConnectorKafkaClusterArgs']:
         """
-        Specifies which Apache Kafka cluster to connect to. See below.
+        Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         """
         return pulumi.get(self, "kafka_cluster")
 
@@ -105,7 +111,7 @@ class ConnectorArgs:
     @pulumi.getter(name="kafkaClusterClientAuthentication")
     def kafka_cluster_client_authentication(self) -> pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs']:
         """
-        Details of the client authentication used by the Apache Kafka cluster. See below.
+        Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_client_authentication")
 
@@ -117,7 +123,7 @@ class ConnectorArgs:
     @pulumi.getter(name="kafkaClusterEncryptionInTransit")
     def kafka_cluster_encryption_in_transit(self) -> pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs']:
         """
-        Details of encryption in transit to the Apache Kafka cluster. See below.
+        Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_encryption_in_transit")
 
@@ -141,7 +147,7 @@ class ConnectorArgs:
     @pulumi.getter
     def plugins(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]]:
         """
-        Specifies which plugins to use for the connector. See below.
+        Specifies which plugins to use for the connector. See `plugin` Block for details.
         """
         return pulumi.get(self, "plugins")
 
@@ -154,6 +160,8 @@ class ConnectorArgs:
     def service_execution_role_arn(self) -> pulumi.Input[str]:
         """
         The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role_arn")
 
@@ -177,7 +185,7 @@ class ConnectorArgs:
     @pulumi.getter(name="logDelivery")
     def log_delivery(self) -> Optional[pulumi.Input['ConnectorLogDeliveryArgs']]:
         """
-        Details about log delivery. See below.
+        Details about log delivery. See `log_delivery` Block for details.
         """
         return pulumi.get(self, "log_delivery")
 
@@ -198,10 +206,22 @@ class ConnectorArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']]:
         """
-        Specifies which worker configuration to use with the connector. See below.
+        Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         return pulumi.get(self, "worker_configuration")
 
@@ -225,24 +245,30 @@ class _ConnectorState:
                  name: Optional[pulumi.Input[str]] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Connector resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the connector.
-        :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See below.
+        :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[str] description: A summary description of the connector.
-        :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See below.
-        :param pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs'] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See below.
-        :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See below.
+        :param pulumi.Input['ConnectorKafkaClusterArgs'] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        :param pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs'] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         :param pulumi.Input[str] kafkaconnect_version: The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-        :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See below.
+        :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[str] name: The name of the connector.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The current version of the connector.
-        :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See below.
+        :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -268,6 +294,13 @@ class _ConnectorState:
             pulumi.set(__self__, "plugins", plugins)
         if service_execution_role_arn is not None:
             pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if worker_configuration is not None:
@@ -289,7 +322,7 @@ class _ConnectorState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input['ConnectorCapacityArgs']]:
         """
-        Information about the capacity allocated to the connector. See below.
+        Information about the capacity allocated to the connector. See `capacity` Block for details.
         """
         return pulumi.get(self, "capacity")
 
@@ -325,7 +358,7 @@ class _ConnectorState:
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> Optional[pulumi.Input['ConnectorKafkaClusterArgs']]:
         """
-        Specifies which Apache Kafka cluster to connect to. See below.
+        Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         """
         return pulumi.get(self, "kafka_cluster")
 
@@ -337,7 +370,7 @@ class _ConnectorState:
     @pulumi.getter(name="kafkaClusterClientAuthentication")
     def kafka_cluster_client_authentication(self) -> Optional[pulumi.Input['ConnectorKafkaClusterClientAuthenticationArgs']]:
         """
-        Details of the client authentication used by the Apache Kafka cluster. See below.
+        Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_client_authentication")
 
@@ -349,7 +382,7 @@ class _ConnectorState:
     @pulumi.getter(name="kafkaClusterEncryptionInTransit")
     def kafka_cluster_encryption_in_transit(self) -> Optional[pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs']]:
         """
-        Details of encryption in transit to the Apache Kafka cluster. See below.
+        Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_encryption_in_transit")
 
@@ -373,7 +406,7 @@ class _ConnectorState:
     @pulumi.getter(name="logDelivery")
     def log_delivery(self) -> Optional[pulumi.Input['ConnectorLogDeliveryArgs']]:
         """
-        Details about log delivery. See below.
+        Details about log delivery. See `log_delivery` Block for details.
         """
         return pulumi.get(self, "log_delivery")
 
@@ -397,7 +430,7 @@ class _ConnectorState:
     @pulumi.getter
     def plugins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]]]:
         """
-        Specifies which plugins to use for the connector. See below.
+        Specifies which plugins to use for the connector. See `plugin` Block for details.
         """
         return pulumi.get(self, "plugins")
 
@@ -410,12 +443,39 @@ class _ConnectorState:
     def service_execution_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role_arn")
 
     @service_execution_role_arn.setter
     def service_execution_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_execution_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -433,7 +493,7 @@ class _ConnectorState:
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']]:
         """
-        Specifies which worker configuration to use with the connector. See below.
+        Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         return pulumi.get(self, "worker_configuration")
 
@@ -458,6 +518,7 @@ class Connector(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_configuration: Optional[pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -476,14 +537,14 @@ class Connector(pulumi.CustomResource):
             kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcuCount": 1,
-                    "minWorkerCount": 1,
-                    "maxWorkerCount": 2,
-                    "scaleInPolicy": {
-                        "cpuUtilizationPercentage": 20,
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
+                    "scale_in_policy": {
+                        "cpu_utilization_percentage": 20,
                     },
-                    "scaleOutPolicy": {
-                        "cpuUtilizationPercentage": 80,
+                    "scale_out_policy": {
+                        "cpu_utilization_percentage": 80,
                     },
                 },
             },
@@ -493,10 +554,10 @@ class Connector(pulumi.CustomResource):
                 "topics": "example",
             },
             kafka_cluster={
-                "apacheKafkaCluster": {
-                    "bootstrapServers": example_aws_msk_cluster["bootstrapBrokersTls"],
+                "apache_kafka_cluster": {
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
-                        "securityGroups": [example_aws_security_group["id"]],
+                        "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
                             example1["id"],
                             example2["id"],
@@ -506,13 +567,13 @@ class Connector(pulumi.CustomResource):
                 },
             },
             kafka_cluster_client_authentication={
-                "authenticationType": "NONE",
+                "authentication_type": "NONE",
             },
             kafka_cluster_encryption_in_transit={
-                "encryptionType": "TLS",
+                "encryption_type": "TLS",
             },
             plugins=[{
-                "customPlugin": {
+                "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
                     "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },
@@ -530,18 +591,21 @@ class Connector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See below.
+        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[str] description: A summary description of the connector.
-        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See below.
-        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See below.
-        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See below.
+        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         :param pulumi.Input[str] kafkaconnect_version: The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See below.
+        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[str] name: The name of the connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
-        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']] worker_configuration: Specifies which worker configuration to use with the connector. See below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']] worker_configuration: Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         ...
     @overload
@@ -565,14 +629,14 @@ class Connector(pulumi.CustomResource):
             kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcuCount": 1,
-                    "minWorkerCount": 1,
-                    "maxWorkerCount": 2,
-                    "scaleInPolicy": {
-                        "cpuUtilizationPercentage": 20,
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
+                    "scale_in_policy": {
+                        "cpu_utilization_percentage": 20,
                     },
-                    "scaleOutPolicy": {
-                        "cpuUtilizationPercentage": 80,
+                    "scale_out_policy": {
+                        "cpu_utilization_percentage": 80,
                     },
                 },
             },
@@ -582,10 +646,10 @@ class Connector(pulumi.CustomResource):
                 "topics": "example",
             },
             kafka_cluster={
-                "apacheKafkaCluster": {
-                    "bootstrapServers": example_aws_msk_cluster["bootstrapBrokersTls"],
+                "apache_kafka_cluster": {
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
-                        "securityGroups": [example_aws_security_group["id"]],
+                        "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
                             example1["id"],
                             example2["id"],
@@ -595,13 +659,13 @@ class Connector(pulumi.CustomResource):
                 },
             },
             kafka_cluster_client_authentication={
-                "authenticationType": "NONE",
+                "authentication_type": "NONE",
             },
             kafka_cluster_encryption_in_transit={
-                "encryptionType": "TLS",
+                "encryption_type": "TLS",
             },
             plugins=[{
-                "customPlugin": {
+                "custom_plugin": {
                     "arn": example_aws_mskconnect_custom_plugin["arn"],
                     "revision": example_aws_mskconnect_custom_plugin["latestRevision"],
                 },
@@ -643,6 +707,7 @@ class Connector(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_configuration: Optional[pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -680,8 +745,10 @@ class Connector(pulumi.CustomResource):
             if service_execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_execution_role_arn'")
             __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(Connector, __self__).__init__(
             'aws:mskconnect/connector:Connector',
@@ -705,6 +772,8 @@ class Connector(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             plugins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
             worker_configuration: Optional[pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']]] = None) -> 'Connector':
         """
@@ -715,19 +784,23 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the connector.
-        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See below.
+        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[str] description: A summary description of the connector.
-        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See below.
-        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See below.
-        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See below.
+        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']] kafka_cluster: Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
+        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']] kafka_cluster_client_authentication: Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
+        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         :param pulumi.Input[str] kafkaconnect_version: The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See below.
+        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: Details about log delivery. See `log_delivery` Block for details.
         :param pulumi.Input[str] name: The name of the connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The current version of the connector.
-        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']] worker_configuration: Specifies which worker configuration to use with the connector. See below.
+        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']] worker_configuration: Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -745,6 +818,8 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["plugins"] = plugins
         __props__.__dict__["service_execution_role_arn"] = service_execution_role_arn
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["version"] = version
         __props__.__dict__["worker_configuration"] = worker_configuration
         return Connector(resource_name, opts=opts, __props__=__props__)
@@ -761,7 +836,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output['outputs.ConnectorCapacity']:
         """
-        Information about the capacity allocated to the connector. See below.
+        Information about the capacity allocated to the connector. See `capacity` Block for details.
         """
         return pulumi.get(self, "capacity")
 
@@ -785,7 +860,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="kafkaCluster")
     def kafka_cluster(self) -> pulumi.Output['outputs.ConnectorKafkaCluster']:
         """
-        Specifies which Apache Kafka cluster to connect to. See below.
+        Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         """
         return pulumi.get(self, "kafka_cluster")
 
@@ -793,7 +868,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="kafkaClusterClientAuthentication")
     def kafka_cluster_client_authentication(self) -> pulumi.Output['outputs.ConnectorKafkaClusterClientAuthentication']:
         """
-        Details of the client authentication used by the Apache Kafka cluster. See below.
+        Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_client_authentication")
 
@@ -801,7 +876,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="kafkaClusterEncryptionInTransit")
     def kafka_cluster_encryption_in_transit(self) -> pulumi.Output['outputs.ConnectorKafkaClusterEncryptionInTransit']:
         """
-        Details of encryption in transit to the Apache Kafka cluster. See below.
+        Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         """
         return pulumi.get(self, "kafka_cluster_encryption_in_transit")
 
@@ -817,7 +892,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="logDelivery")
     def log_delivery(self) -> pulumi.Output[Optional['outputs.ConnectorLogDelivery']]:
         """
-        Details about log delivery. See below.
+        Details about log delivery. See `log_delivery` Block for details.
         """
         return pulumi.get(self, "log_delivery")
 
@@ -833,7 +908,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def plugins(self) -> pulumi.Output[Sequence['outputs.ConnectorPlugin']]:
         """
-        Specifies which plugins to use for the connector. See below.
+        Specifies which plugins to use for the connector. See `plugin` Block for details.
         """
         return pulumi.get(self, "plugins")
 
@@ -842,8 +917,27 @@ class Connector(pulumi.CustomResource):
     def service_execution_role_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
@@ -857,7 +951,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> pulumi.Output[Optional['outputs.ConnectorWorkerConfiguration']]:
         """
-        Specifies which worker configuration to use with the connector. See below.
+        Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         """
         return pulumi.get(self, "worker_configuration")
 

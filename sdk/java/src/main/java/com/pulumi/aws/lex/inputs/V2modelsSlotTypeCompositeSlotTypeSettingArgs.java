@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.lex.inputs;
 
+import com.pulumi.aws.lex.inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,13 +20,13 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
      * 
      */
     @Import(name="subSlots", required=true)
-    private Output<List<Object>> subSlots;
+    private Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
 
     /**
      * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
      * 
      */
-    public Output<List<Object>> subSlots() {
+    public Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots() {
         return this.subSlots;
     }
 
@@ -60,7 +60,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder subSlots(Output<List<Object>> subSlots) {
+        public Builder subSlots(Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots) {
             $.subSlots = subSlots;
             return this;
         }
@@ -71,7 +71,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder subSlots(List<Object> subSlots) {
+        public Builder subSlots(List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> subSlots) {
             return subSlots(Output.of(subSlots));
         }
 
@@ -81,7 +81,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder subSlots(Object... subSlots) {
+        public Builder subSlots(V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs... subSlots) {
             return subSlots(List.of(subSlots));
         }
 

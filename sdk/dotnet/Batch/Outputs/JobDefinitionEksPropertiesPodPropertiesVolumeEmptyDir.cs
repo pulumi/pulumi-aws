@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir
     {
+        /// <summary>
+        /// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
+        /// </summary>
         public readonly string? Medium;
+        /// <summary>
+        /// Maximum size of the volume. By default, there's no maximum size defined.
+        /// </summary>
         public readonly string SizeLimit;
 
         [OutputConstructor]

@@ -1261,6 +1261,10 @@ if not MYPY:
         """
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
+        batch_mode: NotRequired[pulumi.Input[bool]]
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
 elif False:
     TopicRuleCloudwatchLogArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1268,13 +1272,17 @@ elif False:
 class TopicRuleCloudwatchLogArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -1299,6 +1307,18 @@ class TopicRuleCloudwatchLogArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
 
 if not MYPY:
@@ -2269,6 +2289,10 @@ if not MYPY:
         """
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
+        batch_mode: NotRequired[pulumi.Input[bool]]
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
 elif False:
     TopicRuleErrorActionCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2276,13 +2300,17 @@ elif False:
 class TopicRuleErrorActionCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -2307,6 +2335,18 @@ class TopicRuleErrorActionCloudwatchLogsArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
 
 if not MYPY:

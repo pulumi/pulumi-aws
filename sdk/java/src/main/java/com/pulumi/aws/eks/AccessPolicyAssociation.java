@@ -159,7 +159,7 @@ public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessPolicyAssociation(String name) {
+    public AccessPolicyAssociation(java.lang.String name) {
         this(name, AccessPolicyAssociationArgs.Empty);
     }
     /**
@@ -167,7 +167,7 @@ public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessPolicyAssociation(String name, AccessPolicyAssociationArgs args) {
+    public AccessPolicyAssociation(java.lang.String name, AccessPolicyAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,15 +176,22 @@ public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessPolicyAssociation(String name, AccessPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/accessPolicyAssociation:AccessPolicyAssociation", name, args == null ? AccessPolicyAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public AccessPolicyAssociation(java.lang.String name, AccessPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/accessPolicyAssociation:AccessPolicyAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessPolicyAssociation(String name, Output<String> id, @Nullable AccessPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:eks/accessPolicyAssociation:AccessPolicyAssociation", name, state, makeResourceOptions(options, id));
+    private AccessPolicyAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:eks/accessPolicyAssociation:AccessPolicyAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AccessPolicyAssociationArgs makeArgs(AccessPolicyAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccessPolicyAssociationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -200,7 +207,7 @@ public class AccessPolicyAssociation extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessPolicyAssociation get(String name, Output<String> id, @Nullable AccessPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessPolicyAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessPolicyAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessPolicyAssociation(name, id, state, options);
     }
 }

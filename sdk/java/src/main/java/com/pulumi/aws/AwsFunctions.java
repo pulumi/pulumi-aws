@@ -26,6 +26,8 @@ import com.pulumi.aws.inputs.GetRegionsArgs;
 import com.pulumi.aws.inputs.GetRegionsPlainArgs;
 import com.pulumi.aws.inputs.GetServiceArgs;
 import com.pulumi.aws.inputs.GetServicePlainArgs;
+import com.pulumi.aws.inputs.GetServicePrincipalArgs;
+import com.pulumi.aws.inputs.GetServicePrincipalPlainArgs;
 import com.pulumi.aws.outputs.GetArnResult;
 import com.pulumi.aws.outputs.GetAvailabilityZoneResult;
 import com.pulumi.aws.outputs.GetAvailabilityZonesResult;
@@ -36,6 +38,7 @@ import com.pulumi.aws.outputs.GetIpRangesResult;
 import com.pulumi.aws.outputs.GetPartitionResult;
 import com.pulumi.aws.outputs.GetRegionResult;
 import com.pulumi.aws.outputs.GetRegionsResult;
+import com.pulumi.aws.outputs.GetServicePrincipalResult;
 import com.pulumi.aws.outputs.GetServiceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -4873,5 +4876,193 @@ public final class AwsFunctions {
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .build());
+     * 
+     *         final var test = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .region("us-iso-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args) {
+        return getServicePrincipal(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .build());
+     * 
+     *         final var test = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .region("us-iso-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain(GetServicePrincipalPlainArgs args) {
+        return getServicePrincipalPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .build());
+     * 
+     *         final var test = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .region("us-iso-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetServicePrincipalResult> getServicePrincipal(GetServicePrincipalArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to create a Service Principal Name for a service in a given region. Service Principal Names should always end in the standard global format: `{servicename}.amazonaws.com`. However, in some AWS partitions, AWS may expect a different format.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetServicePrincipalArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .build());
+     * 
+     *         final var test = AwsFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+     *             .serviceName("s3")
+     *             .region("us-iso-east-1")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain(GetServicePrincipalPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
     }
 }

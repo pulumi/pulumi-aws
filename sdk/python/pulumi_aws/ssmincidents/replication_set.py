@@ -254,7 +254,7 @@ class ReplicationSet(pulumi.CustomResource):
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
             regions=[{
                 "name": "us-west-2",
-                "kmsKeyArn": example_key.arn,
+                "kms_key_arn": example_key.arn,
             }],
             tags={
                 "exampleTag": "exampleValue",
@@ -341,7 +341,7 @@ class ReplicationSet(pulumi.CustomResource):
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
             regions=[{
                 "name": "us-west-2",
-                "kmsKeyArn": example_key.arn,
+                "kms_key_arn": example_key.arn,
             }],
             tags={
                 "exampleTag": "exampleValue",

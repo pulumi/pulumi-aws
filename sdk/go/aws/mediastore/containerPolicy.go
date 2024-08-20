@@ -53,7 +53,7 @@ import (
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
 //								Identifiers: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId)),
+//									pulumi.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId),
 //								},
 //							},
 //						},
@@ -79,9 +79,9 @@ import (
 //			}, nil)
 //			_, err = mediastore.NewContainerPolicy(ctx, "example", &mediastore.ContainerPolicyArgs{
 //				ContainerName: exampleContainer.Name,
-//				Policy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
 //					return &example.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

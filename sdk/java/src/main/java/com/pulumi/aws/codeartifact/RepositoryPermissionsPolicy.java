@@ -187,7 +187,7 @@ public class RepositoryPermissionsPolicy extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RepositoryPermissionsPolicy(String name) {
+    public RepositoryPermissionsPolicy(java.lang.String name) {
         this(name, RepositoryPermissionsPolicyArgs.Empty);
     }
     /**
@@ -195,7 +195,7 @@ public class RepositoryPermissionsPolicy extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RepositoryPermissionsPolicy(String name, RepositoryPermissionsPolicyArgs args) {
+    public RepositoryPermissionsPolicy(java.lang.String name, RepositoryPermissionsPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,15 +204,22 @@ public class RepositoryPermissionsPolicy extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RepositoryPermissionsPolicy(String name, RepositoryPermissionsPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, args == null ? RepositoryPermissionsPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RepositoryPermissionsPolicy(java.lang.String name, RepositoryPermissionsPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RepositoryPermissionsPolicy(String name, Output<String> id, @Nullable RepositoryPermissionsPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, state, makeResourceOptions(options, id));
+    private RepositoryPermissionsPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPermissionsPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RepositoryPermissionsPolicyArgs makeArgs(RepositoryPermissionsPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RepositoryPermissionsPolicyArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -228,7 +235,7 @@ public class RepositoryPermissionsPolicy extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RepositoryPermissionsPolicy get(String name, Output<String> id, @Nullable RepositoryPermissionsPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RepositoryPermissionsPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RepositoryPermissionsPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RepositoryPermissionsPolicy(name, id, state, options);
     }
 }

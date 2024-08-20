@@ -397,6 +397,7 @@ class IpGroupRule(dict):
                  source: str,
                  description: Optional[str] = None):
         """
+        :param str source: The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         :param str description: The description of the IP group.
         """
         pulumi.set(__self__, "source", source)
@@ -406,6 +407,9 @@ class IpGroupRule(dict):
     @property
     @pulumi.getter
     def source(self) -> str:
+        """
+        The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+        """
         return pulumi.get(self, "source")
 
     @property

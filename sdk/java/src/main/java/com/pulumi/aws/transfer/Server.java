@@ -326,6 +326,8 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * In Terraform v1.5.0 and later, use an `import` Block to import Transfer Servers using the server `id`. For example:
+ * 
  * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  * 
  * ```sh
@@ -407,14 +409,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
     @Export(name="endpointDetails", refs={ServerEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerEndpointDetails> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` block below for details.
+     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
     public Output<Optional<ServerEndpointDetails>> endpointDetails() {
@@ -561,14 +563,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preAuthenticationLoginBanner);
     }
     /**
-     * The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
     @Export(name="protocolDetails", refs={ServerProtocolDetails.class}, tree="[0]")
     private Output<ServerProtocolDetails> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocol_details` block below for details.
+     * @return The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
     public Output<ServerProtocolDetails> protocolDetails() {
@@ -597,14 +599,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.protocols;
     }
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
     @Export(name="s3StorageOptions", refs={ServerS3StorageOptions.class}, tree="[0]")
     private Output<ServerS3StorageOptions> s3StorageOptions;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` block below for details.
+     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
     public Output<ServerS3StorageOptions> s3StorageOptions() {
@@ -612,16 +614,21 @@ public class Server extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     * 
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
@@ -629,16 +636,21 @@ public class Server extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2020-06`
      * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-2020-06`
+     * * `TransferSecurityPolicy-2022-03`
+     * * `TransferSecurityPolicy-2023-05`
+     * * `TransferSecurityPolicy-2024-01`
      * * `TransferSecurityPolicy-FIPS-2020-06`
+     * * `TransferSecurityPolicy-FIPS-2023-05`
+     * * `TransferSecurityPolicy-FIPS-2024-01`
+     * * `TransferSecurityPolicy-FIPS-2024-05`
      * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
+     * * `TransferSecurityPolicy-Restricted-2018-11`
+     * * `TransferSecurityPolicy-Restricted-2020-06`
+     * 
+     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     public Output<Optional<String>> securityPolicyName() {
@@ -719,14 +731,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.url);
     }
     /**
-     * Specifies the workflow details. See `workflow_details` block below for details.
+     * Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
     @Export(name="workflowDetails", refs={ServerWorkflowDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerWorkflowDetails> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflow_details` block below for details.
+     * @return Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
     public Output<Optional<ServerWorkflowDetails>> workflowDetails() {
@@ -737,7 +749,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Server(String name) {
+    public Server(java.lang.String name) {
         this(name, ServerArgs.Empty);
     }
     /**
@@ -745,7 +757,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Server(String name, @Nullable ServerArgs args) {
+    public Server(java.lang.String name, @Nullable ServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -754,15 +766,22 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Server(String name, @Nullable ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/server:Server", name, args == null ? ServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Server(java.lang.String name, @Nullable ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/server:Server", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Server(String name, Output<String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/server:Server", name, state, makeResourceOptions(options, id));
+    private Server(java.lang.String name, Output<java.lang.String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/server:Server", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerArgs makeArgs(@Nullable ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -783,7 +802,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Server get(String name, Output<String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Server get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Server(name, id, state, options);
     }
 }

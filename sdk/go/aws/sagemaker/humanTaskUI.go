@@ -38,7 +38,7 @@ import (
 //			_, err = sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
 //				HumanTaskUiName: pulumi.String("example"),
 //				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-//					Content: invokeFile.Result,
+//					Content: pulumi.String(invokeFile.Result),
 //				},
 //			})
 //			if err != nil {

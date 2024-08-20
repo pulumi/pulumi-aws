@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
         /// Set of COIP Pool Identifiers
         /// </summary>
         public readonly ImmutableArray<string> PoolIds;
-        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private GetCoipPoolsResult(
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> poolIds,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;

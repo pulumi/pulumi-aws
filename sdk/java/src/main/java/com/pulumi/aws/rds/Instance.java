@@ -968,6 +968,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
+     * The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
+    private Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Output<String> engineLifecycleSupport() {
+        return this.engineLifecycleSupport;
+    }
+    /**
      * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
@@ -1724,6 +1738,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.timezone;
     }
     /**
+     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    @Export(name="upgradeStorageConfig", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> upgradeStorageConfig;
+
+    /**
+     * @return Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+     * 
+     */
+    public Output<Optional<Boolean>> upgradeStorageConfig() {
+        return Codegen.optional(this.upgradeStorageConfig);
+    }
+    /**
      * (Required unless a `snapshot_identifier` or `replicate_source_db`
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
@@ -1760,7 +1788,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Instance(String name) {
+    public Instance(java.lang.String name) {
         this(name, InstanceArgs.Empty);
     }
     /**
@@ -1768,7 +1796,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Instance(String name, InstanceArgs args) {
+    public Instance(java.lang.String name, InstanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -1777,15 +1805,22 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Instance(String name, InstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/instance:Instance", name, args == null ? InstanceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Instance(java.lang.String name, InstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/instance:Instance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Instance(String name, Output<String> id, @Nullable InstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/instance:Instance", name, state, makeResourceOptions(options, id));
+    private Instance(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/instance:Instance", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceArgs makeArgs(InstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -1804,7 +1839,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Instance get(String name, Output<String> id, @Nullable InstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Instance get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Instance(name, id, state, options);
     }
 }

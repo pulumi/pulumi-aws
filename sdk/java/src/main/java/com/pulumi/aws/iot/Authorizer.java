@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .tokenSigningPublicKeys(Map.of("Key1", StdFunctions.file(FileArgs.builder()
  *                 .input("test-fixtures/iot-authorizer-signing-key.pem")
  *                 .build()).result()))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
@@ -158,6 +159,38 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.status);
     }
     /**
+     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      * 
      */
@@ -190,7 +223,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Authorizer(String name) {
+    public Authorizer(java.lang.String name) {
         this(name, AuthorizerArgs.Empty);
     }
     /**
@@ -198,7 +231,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Authorizer(String name, AuthorizerArgs args) {
+    public Authorizer(java.lang.String name, AuthorizerArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,15 +240,22 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Authorizer(String name, AuthorizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/authorizer:Authorizer", name, args == null ? AuthorizerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Authorizer(java.lang.String name, AuthorizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/authorizer:Authorizer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Authorizer(String name, Output<String> id, @Nullable AuthorizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/authorizer:Authorizer", name, state, makeResourceOptions(options, id));
+    private Authorizer(java.lang.String name, Output<java.lang.String> id, @Nullable AuthorizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/authorizer:Authorizer", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static AuthorizerArgs makeArgs(AuthorizerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AuthorizerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -234,7 +274,7 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Authorizer get(String name, Output<String> id, @Nullable AuthorizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Authorizer get(java.lang.String name, Output<java.lang.String> id, @Nullable AuthorizerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Authorizer(name, id, state, options);
     }
 }

@@ -173,14 +173,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
     @Export(name="auditLogConfiguration", refs={WindowsFileSystemAuditLogConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
+     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
     public Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration() {
@@ -257,14 +257,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deploymentType);
     }
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
     @Export(name="diskIopsConfiguration", refs={WindowsFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
     public Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
@@ -283,6 +283,20 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dnsName() {
         return this.dnsName;
+    }
+    /**
+     * A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> finalBackupTags;
+
+    /**
+     * @return A map of tags to apply to the file system&#39;s final backup.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> finalBackupTags() {
+        return Codegen.optional(this.finalBackupTags);
     }
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -383,14 +397,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+     * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
     @Export(name="selfManagedActiveDirectory", refs={WindowsFileSystemSelfManagedActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ WindowsFileSystemSelfManagedActiveDirectory> selfManagedActiveDirectory;
 
     /**
-     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
+     * @return Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
     public Output<Optional<WindowsFileSystemSelfManagedActiveDirectory>> selfManagedActiveDirectory() {
@@ -535,7 +549,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WindowsFileSystem(String name) {
+    public WindowsFileSystem(java.lang.String name) {
         this(name, WindowsFileSystemArgs.Empty);
     }
     /**
@@ -543,7 +557,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WindowsFileSystem(String name, WindowsFileSystemArgs args) {
+    public WindowsFileSystem(java.lang.String name, WindowsFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -552,15 +566,22 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WindowsFileSystem(String name, WindowsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, args == null ? WindowsFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WindowsFileSystem(java.lang.String name, WindowsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WindowsFileSystem(String name, Output<String> id, @Nullable WindowsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, state, makeResourceOptions(options, id));
+    private WindowsFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/windowsFileSystem:WindowsFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WindowsFileSystemArgs makeArgs(WindowsFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -576,7 +597,7 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WindowsFileSystem get(String name, Output<String> id, @Nullable WindowsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WindowsFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WindowsFileSystem(name, id, state, options);
     }
 }

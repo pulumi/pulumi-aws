@@ -77,7 +77,7 @@ public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OrganizationsAccess(String name) {
+    public OrganizationsAccess(java.lang.String name) {
         this(name, OrganizationsAccessArgs.Empty);
     }
     /**
@@ -85,7 +85,7 @@ public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OrganizationsAccess(String name, OrganizationsAccessArgs args) {
+    public OrganizationsAccess(java.lang.String name, OrganizationsAccessArgs args) {
         this(name, args, null);
     }
     /**
@@ -94,15 +94,22 @@ public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OrganizationsAccess(String name, OrganizationsAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, args == null ? OrganizationsAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OrganizationsAccess(java.lang.String name, OrganizationsAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OrganizationsAccess(String name, Output<String> id, @Nullable OrganizationsAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, state, makeResourceOptions(options, id));
+    private OrganizationsAccess(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationsAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OrganizationsAccessArgs makeArgs(OrganizationsAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrganizationsAccessArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -118,7 +125,7 @@ public class OrganizationsAccess extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OrganizationsAccess get(String name, Output<String> id, @Nullable OrganizationsAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OrganizationsAccess get(java.lang.String name, Output<java.lang.String> id, @Nullable OrganizationsAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OrganizationsAccess(name, id, state, options);
     }
 }

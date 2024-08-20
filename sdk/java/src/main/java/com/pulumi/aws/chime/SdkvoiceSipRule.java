@@ -155,7 +155,7 @@ public class SdkvoiceSipRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SdkvoiceSipRule(String name) {
+    public SdkvoiceSipRule(java.lang.String name) {
         this(name, SdkvoiceSipRuleArgs.Empty);
     }
     /**
@@ -163,7 +163,7 @@ public class SdkvoiceSipRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SdkvoiceSipRule(String name, SdkvoiceSipRuleArgs args) {
+    public SdkvoiceSipRule(java.lang.String name, SdkvoiceSipRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -172,15 +172,22 @@ public class SdkvoiceSipRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SdkvoiceSipRule(String name, SdkvoiceSipRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule", name, args == null ? SdkvoiceSipRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public SdkvoiceSipRule(java.lang.String name, SdkvoiceSipRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SdkvoiceSipRule(String name, Output<String> id, @Nullable SdkvoiceSipRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule", name, state, makeResourceOptions(options, id));
+    private SdkvoiceSipRule(java.lang.String name, Output<java.lang.String> id, @Nullable SdkvoiceSipRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:chime/sdkvoiceSipRule:SdkvoiceSipRule", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static SdkvoiceSipRuleArgs makeArgs(SdkvoiceSipRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SdkvoiceSipRuleArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -196,7 +203,7 @@ public class SdkvoiceSipRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SdkvoiceSipRule get(String name, Output<String> id, @Nullable SdkvoiceSipRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SdkvoiceSipRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SdkvoiceSipRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SdkvoiceSipRule(name, id, state, options);
     }
 }

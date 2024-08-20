@@ -8,6 +8,7 @@ import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
+import com.pulumi.aws.eks.outputs.GetClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -94,6 +95,11 @@ public final class GetClusterResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return (Optional) Configuration block for the support policy to use for the cluster.
+     * 
+     */
+    private List<GetClusterUpgradePolicy> upgradePolicies;
     /**
      * @return Kubernetes server version for the cluster.
      * 
@@ -215,6 +221,13 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
+     * @return (Optional) Configuration block for the support policy to use for the cluster.
+     * 
+     */
+    public List<GetClusterUpgradePolicy> upgradePolicies() {
+        return this.upgradePolicies;
+    }
+    /**
      * @return Kubernetes server version for the cluster.
      * 
      */
@@ -254,6 +267,7 @@ public final class GetClusterResult {
         private String roleArn;
         private String status;
         private Map<String,String> tags;
+        private List<GetClusterUpgradePolicy> upgradePolicies;
         private String version;
         private GetClusterVpcConfig vpcConfig;
         public Builder() {}
@@ -275,6 +289,7 @@ public final class GetClusterResult {
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
+    	      this.upgradePolicies = defaults.upgradePolicies;
     	      this.version = defaults.version;
     	      this.vpcConfig = defaults.vpcConfig;
         }
@@ -426,6 +441,17 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder upgradePolicies(List<GetClusterUpgradePolicy> upgradePolicies) {
+            if (upgradePolicies == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "upgradePolicies");
+            }
+            this.upgradePolicies = upgradePolicies;
+            return this;
+        }
+        public Builder upgradePolicies(GetClusterUpgradePolicy... upgradePolicies) {
+            return upgradePolicies(List.of(upgradePolicies));
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "version");
@@ -459,6 +485,7 @@ public final class GetClusterResult {
             _resultValue.roleArn = roleArn;
             _resultValue.status = status;
             _resultValue.tags = tags;
+            _resultValue.upgradePolicies = upgradePolicies;
             _resultValue.version = version;
             _resultValue.vpcConfig = vpcConfig;
             return _resultValue;

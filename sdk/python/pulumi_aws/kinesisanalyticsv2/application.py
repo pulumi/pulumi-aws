@@ -33,7 +33,7 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
         :param pulumi.Input[str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
@@ -67,7 +67,7 @@ class ApplicationArgs:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -214,7 +214,7 @@ class _ApplicationState:
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
@@ -370,7 +370,7 @@ class _ApplicationState:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -492,46 +492,46 @@ class Application(pulumi.CustomResource):
             runtime_environment="FLINK-1_8",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "s3ContentLocation": {
-                            "bucketArn": example.arn,
-                            "fileKey": example_bucket_objectv2.key,
+                "application_code_configuration": {
+                    "code_content": {
+                        "s3_content_location": {
+                            "bucket_arn": example.arn,
+                            "file_key": example_bucket_objectv2.key,
                         },
                     },
-                    "codeContentType": "ZIPFILE",
+                    "code_content_type": "ZIPFILE",
                 },
-                "environmentProperties": {
-                    "propertyGroups": [
+                "environment_properties": {
+                    "property_groups": [
                         {
-                            "propertyGroupId": "PROPERTY-GROUP-1",
-                            "propertyMap": {
-                                "Key1": "Value1",
+                            "property_group_id": "PROPERTY-GROUP-1",
+                            "property_map": {
+                                "key1": "Value1",
                             },
                         },
                         {
-                            "propertyGroupId": "PROPERTY-GROUP-2",
-                            "propertyMap": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                            "property_group_id": "PROPERTY-GROUP-2",
+                            "property_map": {
+                                "key_a": "ValueA",
+                                "key_b": "ValueB",
                             },
                         },
                     ],
                 },
-                "flinkApplicationConfiguration": {
-                    "checkpointConfiguration": {
-                        "configurationType": "DEFAULT",
+                "flink_application_configuration": {
+                    "checkpoint_configuration": {
+                        "configuration_type": "DEFAULT",
                     },
-                    "monitoringConfiguration": {
-                        "configurationType": "CUSTOM",
-                        "logLevel": "DEBUG",
-                        "metricsLevel": "TASK",
+                    "monitoring_configuration": {
+                        "configuration_type": "CUSTOM",
+                        "log_level": "DEBUG",
+                        "metrics_level": "TASK",
                     },
-                    "parallelismConfiguration": {
-                        "autoScalingEnabled": True,
-                        "configurationType": "CUSTOM",
+                    "parallelism_configuration": {
+                        "auto_scaling_enabled": True,
+                        "configuration_type": "CUSTOM",
                         "parallelism": 10,
-                        "parallelismPerKpu": 4,
+                        "parallelism_per_kpu": 4,
                     },
                 },
             },
@@ -555,90 +555,90 @@ class Application(pulumi.CustomResource):
             runtime_environment="SQL-1_0",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "textContent": "SELECT 1;\\n",
+                "application_code_configuration": {
+                    "code_content": {
+                        "text_content": "SELECT 1;\\n",
                     },
-                    "codeContentType": "PLAINTEXT",
+                    "code_content_type": "PLAINTEXT",
                 },
-                "sqlApplicationConfiguration": {
+                "sql_application_configuration": {
                     "input": {
-                        "namePrefix": "PREFIX_1",
-                        "inputParallelism": {
+                        "name_prefix": "PREFIX_1",
+                        "input_parallelism": {
                             "count": 3,
                         },
-                        "inputSchema": {
-                            "recordColumns": [
+                        "input_schema": {
+                            "record_columns": [
                                 {
                                     "name": "COLUMN_1",
-                                    "sqlType": "VARCHAR(8)",
+                                    "sql_type": "VARCHAR(8)",
                                     "mapping": "MAPPING-1",
                                 },
                                 {
                                     "name": "COLUMN_2",
-                                    "sqlType": "DOUBLE",
+                                    "sql_type": "DOUBLE",
                                 },
                             ],
-                            "recordEncoding": "UTF-8",
-                            "recordFormat": {
-                                "recordFormatType": "CSV",
-                                "mappingParameters": {
-                                    "csvMappingParameters": {
-                                        "recordColumnDelimiter": ",",
-                                        "recordRowDelimiter": "\\n",
+                            "record_encoding": "UTF-8",
+                            "record_format": {
+                                "record_format_type": "CSV",
+                                "mapping_parameters": {
+                                    "csv_mapping_parameters": {
+                                        "record_column_delimiter": ",",
+                                        "record_row_delimiter": "\\n",
                                     },
                                 },
                             },
                         },
-                        "kinesisStreamsInput": {
-                            "resourceArn": example_aws_kinesis_stream["arn"],
+                        "kinesis_streams_input": {
+                            "resource_arn": example_aws_kinesis_stream["arn"],
                         },
                     },
                     "outputs": [
                         {
                             "name": "OUTPUT_1",
-                            "destinationSchema": {
-                                "recordFormatType": "JSON",
+                            "destination_schema": {
+                                "record_format_type": "JSON",
                             },
-                            "lambdaOutput": {
-                                "resourceArn": example_aws_lambda_function["arn"],
+                            "lambda_output": {
+                                "resource_arn": example_aws_lambda_function["arn"],
                             },
                         },
                         {
                             "name": "OUTPUT_2",
-                            "destinationSchema": {
-                                "recordFormatType": "CSV",
+                            "destination_schema": {
+                                "record_format_type": "CSV",
                             },
-                            "kinesisFirehoseOutput": {
-                                "resourceArn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                            "kinesis_firehose_output": {
+                                "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                             },
                         },
                     ],
-                    "referenceDataSource": {
-                        "tableName": "TABLE-1",
-                        "referenceSchema": {
-                            "recordColumns": [{
+                    "reference_data_source": {
+                        "table_name": "TABLE-1",
+                        "reference_schema": {
+                            "record_columns": [{
                                 "name": "COLUMN_1",
-                                "sqlType": "INTEGER",
+                                "sql_type": "INTEGER",
                             }],
-                            "recordFormat": {
-                                "recordFormatType": "JSON",
-                                "mappingParameters": {
-                                    "jsonMappingParameters": {
-                                        "recordRowPath": "$",
+                            "record_format": {
+                                "record_format_type": "JSON",
+                                "mapping_parameters": {
+                                    "json_mapping_parameters": {
+                                        "record_row_path": "$",
                                     },
                                 },
                             },
                         },
-                        "s3ReferenceDataSource": {
-                            "bucketArn": example_aws_s3_bucket["arn"],
-                            "fileKey": "KEY-1",
+                        "s3_reference_data_source": {
+                            "bucket_arn": example_aws_s3_bucket["arn"],
+                            "file_key": "KEY-1",
                         },
                     },
                 },
             },
             cloudwatch_logging_options={
-                "logStreamArn": example_log_stream.arn,
+                "log_stream_arn": example_log_stream.arn,
             })
         ```
 
@@ -658,21 +658,21 @@ class Application(pulumi.CustomResource):
             runtime_environment="FLINK-1_8",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "s3ContentLocation": {
-                            "bucketArn": example.arn,
-                            "fileKey": example_bucket_objectv2.key,
+                "application_code_configuration": {
+                    "code_content": {
+                        "s3_content_location": {
+                            "bucket_arn": example.arn,
+                            "file_key": example_bucket_objectv2.key,
                         },
                     },
-                    "codeContentType": "ZIPFILE",
+                    "code_content_type": "ZIPFILE",
                 },
-                "vpcConfiguration": {
-                    "securityGroupIds": [
+                "vpc_configuration": {
+                    "security_group_ids": [
                         example_aws_security_group[0]["id"],
                         example_aws_security_group[1]["id"],
                     ],
-                    "subnetIds": [example_aws_subnet["id"]],
+                    "subnet_ids": [example_aws_subnet["id"]],
                 },
             })
         ```
@@ -693,7 +693,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] description: A summary description of the application.
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -728,46 +728,46 @@ class Application(pulumi.CustomResource):
             runtime_environment="FLINK-1_8",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "s3ContentLocation": {
-                            "bucketArn": example.arn,
-                            "fileKey": example_bucket_objectv2.key,
+                "application_code_configuration": {
+                    "code_content": {
+                        "s3_content_location": {
+                            "bucket_arn": example.arn,
+                            "file_key": example_bucket_objectv2.key,
                         },
                     },
-                    "codeContentType": "ZIPFILE",
+                    "code_content_type": "ZIPFILE",
                 },
-                "environmentProperties": {
-                    "propertyGroups": [
+                "environment_properties": {
+                    "property_groups": [
                         {
-                            "propertyGroupId": "PROPERTY-GROUP-1",
-                            "propertyMap": {
-                                "Key1": "Value1",
+                            "property_group_id": "PROPERTY-GROUP-1",
+                            "property_map": {
+                                "key1": "Value1",
                             },
                         },
                         {
-                            "propertyGroupId": "PROPERTY-GROUP-2",
-                            "propertyMap": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                            "property_group_id": "PROPERTY-GROUP-2",
+                            "property_map": {
+                                "key_a": "ValueA",
+                                "key_b": "ValueB",
                             },
                         },
                     ],
                 },
-                "flinkApplicationConfiguration": {
-                    "checkpointConfiguration": {
-                        "configurationType": "DEFAULT",
+                "flink_application_configuration": {
+                    "checkpoint_configuration": {
+                        "configuration_type": "DEFAULT",
                     },
-                    "monitoringConfiguration": {
-                        "configurationType": "CUSTOM",
-                        "logLevel": "DEBUG",
-                        "metricsLevel": "TASK",
+                    "monitoring_configuration": {
+                        "configuration_type": "CUSTOM",
+                        "log_level": "DEBUG",
+                        "metrics_level": "TASK",
                     },
-                    "parallelismConfiguration": {
-                        "autoScalingEnabled": True,
-                        "configurationType": "CUSTOM",
+                    "parallelism_configuration": {
+                        "auto_scaling_enabled": True,
+                        "configuration_type": "CUSTOM",
                         "parallelism": 10,
-                        "parallelismPerKpu": 4,
+                        "parallelism_per_kpu": 4,
                     },
                 },
             },
@@ -791,90 +791,90 @@ class Application(pulumi.CustomResource):
             runtime_environment="SQL-1_0",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "textContent": "SELECT 1;\\n",
+                "application_code_configuration": {
+                    "code_content": {
+                        "text_content": "SELECT 1;\\n",
                     },
-                    "codeContentType": "PLAINTEXT",
+                    "code_content_type": "PLAINTEXT",
                 },
-                "sqlApplicationConfiguration": {
+                "sql_application_configuration": {
                     "input": {
-                        "namePrefix": "PREFIX_1",
-                        "inputParallelism": {
+                        "name_prefix": "PREFIX_1",
+                        "input_parallelism": {
                             "count": 3,
                         },
-                        "inputSchema": {
-                            "recordColumns": [
+                        "input_schema": {
+                            "record_columns": [
                                 {
                                     "name": "COLUMN_1",
-                                    "sqlType": "VARCHAR(8)",
+                                    "sql_type": "VARCHAR(8)",
                                     "mapping": "MAPPING-1",
                                 },
                                 {
                                     "name": "COLUMN_2",
-                                    "sqlType": "DOUBLE",
+                                    "sql_type": "DOUBLE",
                                 },
                             ],
-                            "recordEncoding": "UTF-8",
-                            "recordFormat": {
-                                "recordFormatType": "CSV",
-                                "mappingParameters": {
-                                    "csvMappingParameters": {
-                                        "recordColumnDelimiter": ",",
-                                        "recordRowDelimiter": "\\n",
+                            "record_encoding": "UTF-8",
+                            "record_format": {
+                                "record_format_type": "CSV",
+                                "mapping_parameters": {
+                                    "csv_mapping_parameters": {
+                                        "record_column_delimiter": ",",
+                                        "record_row_delimiter": "\\n",
                                     },
                                 },
                             },
                         },
-                        "kinesisStreamsInput": {
-                            "resourceArn": example_aws_kinesis_stream["arn"],
+                        "kinesis_streams_input": {
+                            "resource_arn": example_aws_kinesis_stream["arn"],
                         },
                     },
                     "outputs": [
                         {
                             "name": "OUTPUT_1",
-                            "destinationSchema": {
-                                "recordFormatType": "JSON",
+                            "destination_schema": {
+                                "record_format_type": "JSON",
                             },
-                            "lambdaOutput": {
-                                "resourceArn": example_aws_lambda_function["arn"],
+                            "lambda_output": {
+                                "resource_arn": example_aws_lambda_function["arn"],
                             },
                         },
                         {
                             "name": "OUTPUT_2",
-                            "destinationSchema": {
-                                "recordFormatType": "CSV",
+                            "destination_schema": {
+                                "record_format_type": "CSV",
                             },
-                            "kinesisFirehoseOutput": {
-                                "resourceArn": example_aws_kinesis_firehose_delivery_stream["arn"],
+                            "kinesis_firehose_output": {
+                                "resource_arn": example_aws_kinesis_firehose_delivery_stream["arn"],
                             },
                         },
                     ],
-                    "referenceDataSource": {
-                        "tableName": "TABLE-1",
-                        "referenceSchema": {
-                            "recordColumns": [{
+                    "reference_data_source": {
+                        "table_name": "TABLE-1",
+                        "reference_schema": {
+                            "record_columns": [{
                                 "name": "COLUMN_1",
-                                "sqlType": "INTEGER",
+                                "sql_type": "INTEGER",
                             }],
-                            "recordFormat": {
-                                "recordFormatType": "JSON",
-                                "mappingParameters": {
-                                    "jsonMappingParameters": {
-                                        "recordRowPath": "$",
+                            "record_format": {
+                                "record_format_type": "JSON",
+                                "mapping_parameters": {
+                                    "json_mapping_parameters": {
+                                        "record_row_path": "$",
                                     },
                                 },
                             },
                         },
-                        "s3ReferenceDataSource": {
-                            "bucketArn": example_aws_s3_bucket["arn"],
-                            "fileKey": "KEY-1",
+                        "s3_reference_data_source": {
+                            "bucket_arn": example_aws_s3_bucket["arn"],
+                            "file_key": "KEY-1",
                         },
                     },
                 },
             },
             cloudwatch_logging_options={
-                "logStreamArn": example_log_stream.arn,
+                "log_stream_arn": example_log_stream.arn,
             })
         ```
 
@@ -894,21 +894,21 @@ class Application(pulumi.CustomResource):
             runtime_environment="FLINK-1_8",
             service_execution_role=example_aws_iam_role["arn"],
             application_configuration={
-                "applicationCodeConfiguration": {
-                    "codeContent": {
-                        "s3ContentLocation": {
-                            "bucketArn": example.arn,
-                            "fileKey": example_bucket_objectv2.key,
+                "application_code_configuration": {
+                    "code_content": {
+                        "s3_content_location": {
+                            "bucket_arn": example.arn,
+                            "file_key": example_bucket_objectv2.key,
                         },
                     },
-                    "codeContentType": "ZIPFILE",
+                    "code_content_type": "ZIPFILE",
                 },
-                "vpcConfiguration": {
-                    "securityGroupIds": [
+                "vpc_configuration": {
+                    "security_group_ids": [
                         example_aws_security_group[0]["id"],
                         example_aws_security_group[1]["id"],
                     ],
-                    "subnetIds": [example_aws_subnet["id"]],
+                    "subnet_ids": [example_aws_subnet["id"]],
                 },
             })
         ```
@@ -1017,7 +1017,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
@@ -1123,7 +1123,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`.
+        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         """
         return pulumi.get(self, "runtime_environment")
 

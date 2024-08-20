@@ -234,7 +234,7 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointGroup(String name) {
+    public EndpointGroup(java.lang.String name) {
         this(name, EndpointGroupArgs.Empty);
     }
     /**
@@ -242,7 +242,7 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointGroup(String name, EndpointGroupArgs args) {
+    public EndpointGroup(java.lang.String name, EndpointGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -251,15 +251,22 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointGroup(String name, EndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/endpointGroup:EndpointGroup", name, args == null ? EndpointGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public EndpointGroup(java.lang.String name, EndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/endpointGroup:EndpointGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointGroup(String name, Output<String> id, @Nullable EndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:globalaccelerator/endpointGroup:EndpointGroup", name, state, makeResourceOptions(options, id));
+    private EndpointGroup(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:globalaccelerator/endpointGroup:EndpointGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static EndpointGroupArgs makeArgs(EndpointGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +282,7 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointGroup get(String name, Output<String> id, @Nullable EndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointGroup(name, id, state, options);
     }
 }

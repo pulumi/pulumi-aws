@@ -220,27 +220,27 @@ class StorageLensConfiguration(pulumi.CustomResource):
             config_id="example-1",
             storage_lens_configuration={
                 "enabled": True,
-                "accountLevel": {
-                    "activityMetrics": {
+                "account_level": {
+                    "activity_metrics": {
                         "enabled": True,
                     },
-                    "bucketLevel": {
-                        "activityMetrics": {
+                    "bucket_level": {
+                        "activity_metrics": {
                             "enabled": True,
                         },
                     },
                 },
-                "dataExport": {
-                    "cloudWatchMetrics": {
+                "data_export": {
+                    "cloud_watch_metrics": {
                         "enabled": True,
                     },
-                    "s3BucketDestination": {
-                        "accountId": current.account_id,
+                    "s3_bucket_destination": {
+                        "account_id": current.account_id,
                         "arn": target["arn"],
                         "format": "CSV",
-                        "outputSchemaVersion": "V_1",
+                        "output_schema_version": "V_1",
                         "encryption": {
-                            "sseS3s": [{}],
+                            "sse_s3s": [{}],
                         },
                     },
                 },
@@ -289,27 +289,27 @@ class StorageLensConfiguration(pulumi.CustomResource):
             config_id="example-1",
             storage_lens_configuration={
                 "enabled": True,
-                "accountLevel": {
-                    "activityMetrics": {
+                "account_level": {
+                    "activity_metrics": {
                         "enabled": True,
                     },
-                    "bucketLevel": {
-                        "activityMetrics": {
+                    "bucket_level": {
+                        "activity_metrics": {
                             "enabled": True,
                         },
                     },
                 },
-                "dataExport": {
-                    "cloudWatchMetrics": {
+                "data_export": {
+                    "cloud_watch_metrics": {
                         "enabled": True,
                     },
-                    "s3BucketDestination": {
-                        "accountId": current.account_id,
+                    "s3_bucket_destination": {
+                        "account_id": current.account_id,
                         "arn": target["arn"],
                         "format": "CSV",
-                        "outputSchemaVersion": "V_1",
+                        "output_schema_version": "V_1",
                         "encryption": {
-                            "sseS3s": [{}],
+                            "sse_s3s": [{}],
                         },
                     },
                 },

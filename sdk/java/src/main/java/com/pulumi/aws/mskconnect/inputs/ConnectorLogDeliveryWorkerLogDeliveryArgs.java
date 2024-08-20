@@ -18,14 +18,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
     public static final ConnectorLogDeliveryWorkerLogDeliveryArgs Empty = new ConnectorLogDeliveryWorkerLogDeliveryArgs();
 
     /**
-     * Details about delivering logs to Amazon CloudWatch Logs. See below.
+     * Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
      * 
      */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return Details about delivering logs to Amazon CloudWatch Logs. See below.
+     * @return Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
      * 
      */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs>> cloudwatchLogs() {
@@ -33,14 +33,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
     }
 
     /**
-     * Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+     * Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
      * 
      */
     @Import(name="firehose")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs> firehose;
 
     /**
-     * @return Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+     * @return Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
      * 
      */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs>> firehose() {
@@ -48,14 +48,14 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
     }
 
     /**
-     * Details about delivering logs to Amazon S3. See below.
+     * Details about delivering logs to Amazon S3. See `s3` Block for deetails.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<ConnectorLogDeliveryWorkerLogDeliveryS3Args> s3;
 
     /**
-     * @return Details about delivering logs to Amazon S3. See below.
+     * @return Details about delivering logs to Amazon S3. See `s3` Block for deetails.
      * 
      */
     public Optional<Output<ConnectorLogDeliveryWorkerLogDeliveryS3Args>> s3() {
@@ -89,7 +89,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See below.
+         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See below.
+         * @param cloudwatchLogs Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         * @param firehose Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param s3 Details about delivering logs to Amazon S3. See below.
+         * @param s3 Details about delivering logs to Amazon S3. See `s3` Block for deetails.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs extends com.pulumi.
         }
 
         /**
-         * @param s3 Details about delivering logs to Amazon S3. See below.
+         * @param s3 Details about delivering logs to Amazon S3. See `s3` Block for deetails.
          * 
          * @return builder
          * 

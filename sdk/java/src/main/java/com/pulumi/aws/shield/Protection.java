@@ -164,7 +164,7 @@ public class Protection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Protection(String name) {
+    public Protection(java.lang.String name) {
         this(name, ProtectionArgs.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class Protection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Protection(String name, ProtectionArgs args) {
+    public Protection(java.lang.String name, ProtectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,15 +181,22 @@ public class Protection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Protection(String name, ProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/protection:Protection", name, args == null ? ProtectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Protection(java.lang.String name, ProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/protection:Protection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Protection(String name, Output<String> id, @Nullable ProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:shield/protection:Protection", name, state, makeResourceOptions(options, id));
+    private Protection(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:shield/protection:Protection", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProtectionArgs makeArgs(ProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProtectionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -205,7 +212,7 @@ public class Protection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Protection get(String name, Output<String> id, @Nullable ProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Protection get(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Protection(name, id, state, options);
     }
 }

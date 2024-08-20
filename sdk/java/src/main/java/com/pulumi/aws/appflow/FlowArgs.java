@@ -4,6 +4,7 @@
 package com.pulumi.aws.appflow;
 
 import com.pulumi.aws.appflow.inputs.FlowDestinationFlowConfigArgs;
+import com.pulumi.aws.appflow.inputs.FlowMetadataCatalogConfigArgs;
 import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigArgs;
 import com.pulumi.aws.appflow.inputs.FlowTaskArgs;
 import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
@@ -65,6 +66,21 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> kmsArn() {
         return Optional.ofNullable(this.kmsArn);
+    }
+
+    /**
+     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * 
+     */
+    @Import(name="metadataCatalogConfig")
+    private @Nullable Output<FlowMetadataCatalogConfigArgs> metadataCatalogConfig;
+
+    /**
+     * @return A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * 
+     */
+    public Optional<Output<FlowMetadataCatalogConfigArgs>> metadataCatalogConfig() {
+        return Optional.ofNullable(this.metadataCatalogConfig);
     }
 
     /**
@@ -148,6 +164,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.destinationFlowConfigs = $.destinationFlowConfigs;
         this.kmsArn = $.kmsArn;
+        this.metadataCatalogConfig = $.metadataCatalogConfig;
         this.name = $.name;
         this.sourceFlowConfig = $.sourceFlowConfig;
         this.tags = $.tags;
@@ -244,6 +261,27 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsArn(String kmsArn) {
             return kmsArn(Output.of(kmsArn));
+        }
+
+        /**
+         * @param metadataCatalogConfig A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataCatalogConfig(@Nullable Output<FlowMetadataCatalogConfigArgs> metadataCatalogConfig) {
+            $.metadataCatalogConfig = metadataCatalogConfig;
+            return this;
+        }
+
+        /**
+         * @param metadataCatalogConfig A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataCatalogConfig(FlowMetadataCatalogConfigArgs metadataCatalogConfig) {
+            return metadataCatalogConfig(Output.of(metadataCatalogConfig));
         }
 
         /**

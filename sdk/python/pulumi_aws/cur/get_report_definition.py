@@ -26,7 +26,7 @@ class GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
-    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, refresh_closed_reports=None, report_name=None, report_versioning=None, s3_bucket=None, s3_prefix=None, s3_region=None, time_unit=None):
+    def __init__(__self__, additional_artifacts=None, additional_schema_elements=None, compression=None, format=None, id=None, refresh_closed_reports=None, report_name=None, report_versioning=None, s3_bucket=None, s3_prefix=None, s3_region=None, tags=None, time_unit=None):
         if additional_artifacts and not isinstance(additional_artifacts, list):
             raise TypeError("Expected argument 'additional_artifacts' to be a list")
         pulumi.set(__self__, "additional_artifacts", additional_artifacts)
@@ -60,6 +60,9 @@ class GetReportDefinitionResult:
         if s3_region and not isinstance(s3_region, str):
             raise TypeError("Expected argument 's3_region' to be a str")
         pulumi.set(__self__, "s3_region", s3_region)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if time_unit and not isinstance(time_unit, str):
             raise TypeError("Expected argument 'time_unit' to be a str")
         pulumi.set(__self__, "time_unit", time_unit)
@@ -150,6 +153,14 @@ class GetReportDefinitionResult:
         return pulumi.get(self, "s3_region")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of key-value pairs assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> str:
         """
@@ -175,10 +186,12 @@ class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
             s3_bucket=self.s3_bucket,
             s3_prefix=self.s3_prefix,
             s3_region=self.s3_region,
+            tags=self.tags,
             time_unit=self.time_unit)
 
 
 def get_report_definition(report_name: Optional[str] = None,
+                          tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportDefinitionResult:
     """
     Use this data source to get information on an AWS Cost and Usage Report Definition.
@@ -198,9 +211,11 @@ def get_report_definition(report_name: Optional[str] = None,
 
 
     :param str report_name: Name of the report definition to match.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the resource.
     """
     __args__ = dict()
     __args__['reportName'] = report_name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts, typ=GetReportDefinitionResult).value
 
@@ -216,11 +231,13 @@ def get_report_definition(report_name: Optional[str] = None,
         s3_bucket=pulumi.get(__ret__, 's3_bucket'),
         s3_prefix=pulumi.get(__ret__, 's3_prefix'),
         s3_region=pulumi.get(__ret__, 's3_region'),
+        tags=pulumi.get(__ret__, 'tags'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
 
 
 @_utilities.lift_output_func(get_report_definition)
 def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None,
+                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportDefinitionResult]:
     """
     Use this data source to get information on an AWS Cost and Usage Report Definition.
@@ -240,5 +257,6 @@ def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None
 
 
     :param str report_name: Name of the report definition to match.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the resource.
     """
     ...

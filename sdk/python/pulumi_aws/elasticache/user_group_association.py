@@ -105,7 +105,7 @@ class UserGroupAssociation(pulumi.CustomResource):
         """
         Associate an existing ElastiCache user and an existing user group.
 
-        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+        > Pulumi will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
 
         ## Example Usage
 
@@ -156,7 +156,7 @@ class UserGroupAssociation(pulumi.CustomResource):
         """
         Associate an existing ElastiCache user and an existing user group.
 
-        > **NOTE:** The provider will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
+        > Pulumi will detect changes in the `elasticache.UserGroup` since `elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.
 
         ## Example Usage
 

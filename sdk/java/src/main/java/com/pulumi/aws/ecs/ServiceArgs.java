@@ -181,6 +181,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     * 
+     */
+    @Import(name="forceDelete")
+    private @Nullable Output<Boolean> forceDelete;
+
+    /**
+     * @return Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDelete() {
+        return Optional.ofNullable(this.forceDelete);
+    }
+
+    /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
      * 
      */
@@ -482,6 +497,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.desiredCount = $.desiredCount;
         this.enableEcsManagedTags = $.enableEcsManagedTags;
         this.enableExecuteCommand = $.enableExecuteCommand;
+        this.forceDelete = $.forceDelete;
         this.forceNewDeployment = $.forceNewDeployment;
         this.healthCheckGracePeriodSeconds = $.healthCheckGracePeriodSeconds;
         this.iamRole = $.iamRole;
@@ -739,6 +755,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableExecuteCommand(Boolean enableExecuteCommand) {
             return enableExecuteCommand(Output.of(enableExecuteCommand));
+        }
+
+        /**
+         * @param forceDelete Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
+            $.forceDelete = forceDelete;
+            return this;
+        }
+
+        /**
+         * @param forceDelete Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(Boolean forceDelete) {
+            return forceDelete(Output.of(forceDelete));
         }
 
         /**

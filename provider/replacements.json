@@ -507,6 +507,10 @@
     {
       "old": "* `option_group_description` - (Optional) Description of the option group. Defaults to \"Managed by Terraform\".",
       "new": "* `option_group_description` - (Optional) Description of the option group."
+    },
+    {
+      "old": "* `skip_destroy` - (Optional) Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Terraform state.\n",
+      "new": "* `skip_destroy` - (Optional) Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.\n"
     }
   ],
   "db_parameter_group.html.markdown": [
@@ -811,6 +815,10 @@
     {
       "old": "~> **NOTE:** Terraform will detect changes in the `aws_elasticache_user_group` since `aws_elasticache_user_group_association` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.",
       "new": "~> **NOTE:** The provider will detect changes in the `aws_elasticache_user_group` since `aws_elasticache_user_group_association` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example."
+    },
+    {
+      "old": "~> Terraform will detect changes in the `aws_elasticache_user_group` since `aws_elasticache_user_group_association` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.\n",
+      "new": "~> Pulumi will detect changes in the `aws_elasticache_user_group` since `aws_elasticache_user_group_association` changes the user IDs associated with the user group. You can ignore these changes with the `lifecycle` `ignore_changes` meta argument as shown in the example.\n"
     }
   ],
   "elasticsearch_domain.html.markdown": [
@@ -1254,7 +1262,7 @@
     },
     {
       "old": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(\"file.zip\")` (Terraform 0.11.12 and later) or `base64sha256(file(\"file.zip\"))` (Terraform 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda function source archive.\n",
-      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(\"file.zip\")` (TODO 0.11.12 and later) or `base64sha256(file(\"file.zip\"))` (TODO 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda function source archive.\n"
+      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.\n"
     }
   ],
   "lambda_functions.html.markdown": [
@@ -1304,7 +1312,7 @@
     },
     {
       "old": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256(\"file.zip\")}` (Terraform 0.11.12 or later) or `${base64sha256(file(\"file.zip\"))}` (Terraform 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda layer source archive.\n",
-      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256(\"file.zip\")}` (TODO 0.11.12 or later) or `${base64sha256(file(\"file.zip\"))}` (TODO 0.11.11 and earlier), where \"file.zip\" is the local filename of the lambda layer source archive.\n"
+      "new": "* `source_code_hash` - (Optional) Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.\n"
     }
   ],
   "lambda_layer_version_permission.html.markdown": [

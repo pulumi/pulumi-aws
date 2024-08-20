@@ -111,7 +111,7 @@ public class InstanceTrustProviderAttachment extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceTrustProviderAttachment(String name) {
+    public InstanceTrustProviderAttachment(java.lang.String name) {
         this(name, InstanceTrustProviderAttachmentArgs.Empty);
     }
     /**
@@ -119,7 +119,7 @@ public class InstanceTrustProviderAttachment extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceTrustProviderAttachment(String name, InstanceTrustProviderAttachmentArgs args) {
+    public InstanceTrustProviderAttachment(java.lang.String name, InstanceTrustProviderAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -128,15 +128,22 @@ public class InstanceTrustProviderAttachment extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceTrustProviderAttachment(String name, InstanceTrustProviderAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment", name, args == null ? InstanceTrustProviderAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceTrustProviderAttachment(java.lang.String name, InstanceTrustProviderAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceTrustProviderAttachment(String name, Output<String> id, @Nullable InstanceTrustProviderAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment", name, state, makeResourceOptions(options, id));
+    private InstanceTrustProviderAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceTrustProviderAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceTrustProviderAttachmentArgs makeArgs(InstanceTrustProviderAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceTrustProviderAttachmentArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -152,7 +159,7 @@ public class InstanceTrustProviderAttachment extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceTrustProviderAttachment get(String name, Output<String> id, @Nullable InstanceTrustProviderAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceTrustProviderAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceTrustProviderAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceTrustProviderAttachment(name, id, state, options);
     }
 }

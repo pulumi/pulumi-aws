@@ -16,6 +16,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? ErrorHandlingConfig;
         public readonly ImmutableArray<string> IdFieldNames;
         public readonly string ObjectPath;
+        /// <summary>
+        /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig? SuccessResponseHandlingConfig;
         public readonly string? WriteOperationType;
 

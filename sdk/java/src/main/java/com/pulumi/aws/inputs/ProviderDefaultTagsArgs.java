@@ -17,14 +17,14 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
     public static final ProviderDefaultTagsArgs Empty = new ProviderDefaultTagsArgs();
 
     /**
-     * Resource tags to default across all resources
+     * Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Resource tags to default across all resources
+     * @return Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -56,7 +56,7 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Resource tags to default across all resources
+         * @param tags Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ProviderDefaultTagsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags Resource tags to default across all resources
+         * @param tags Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_&lt;tag_name&gt;`.
          * 
          * @return builder
          * 

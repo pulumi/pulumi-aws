@@ -14,74 +14,86 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackSetInstanceOperationPreferences {
     /**
-     * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    private @Nullable String concurrencyMode;
+    /**
+     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     private @Nullable Integer failureToleranceCount;
     /**
-     * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     private @Nullable Integer failureTolerancePercentage;
     /**
-     * @return The maximum number of accounts in which to perform this operation at one time.
+     * @return Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     private @Nullable Integer maxConcurrentCount;
     /**
-     * @return The maximum percentage of accounts in which to perform this operation at one time.
+     * @return Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     private @Nullable Integer maxConcurrentPercentage;
     /**
-     * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     private @Nullable String regionConcurrencyType;
     /**
-     * @return The order of the Regions in where you want to perform the stack operation.
+     * @return Order of the Regions in where you want to perform the stack operation.
      * 
      */
     private @Nullable List<String> regionOrders;
 
     private StackSetInstanceOperationPreferences() {}
     /**
-     * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+     * 
+     */
+    public Optional<String> concurrencyMode() {
+        return Optional.ofNullable(this.concurrencyMode);
+    }
+    /**
+     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Integer> failureToleranceCount() {
         return Optional.ofNullable(this.failureToleranceCount);
     }
     /**
-     * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Integer> failureTolerancePercentage() {
         return Optional.ofNullable(this.failureTolerancePercentage);
     }
     /**
-     * @return The maximum number of accounts in which to perform this operation at one time.
+     * @return Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Integer> maxConcurrentCount() {
         return Optional.ofNullable(this.maxConcurrentCount);
     }
     /**
-     * @return The maximum percentage of accounts in which to perform this operation at one time.
+     * @return Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Integer> maxConcurrentPercentage() {
         return Optional.ofNullable(this.maxConcurrentPercentage);
     }
     /**
-     * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     public Optional<String> regionConcurrencyType() {
         return Optional.ofNullable(this.regionConcurrencyType);
     }
     /**
-     * @return The order of the Regions in where you want to perform the stack operation.
+     * @return Order of the Regions in where you want to perform the stack operation.
      * 
      */
     public List<String> regionOrders() {
@@ -97,6 +109,7 @@ public final class StackSetInstanceOperationPreferences {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String concurrencyMode;
         private @Nullable Integer failureToleranceCount;
         private @Nullable Integer failureTolerancePercentage;
         private @Nullable Integer maxConcurrentCount;
@@ -106,6 +119,7 @@ public final class StackSetInstanceOperationPreferences {
         public Builder() {}
         public Builder(StackSetInstanceOperationPreferences defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.concurrencyMode = defaults.concurrencyMode;
     	      this.failureToleranceCount = defaults.failureToleranceCount;
     	      this.failureTolerancePercentage = defaults.failureTolerancePercentage;
     	      this.maxConcurrentCount = defaults.maxConcurrentCount;
@@ -114,6 +128,12 @@ public final class StackSetInstanceOperationPreferences {
     	      this.regionOrders = defaults.regionOrders;
         }
 
+        @CustomType.Setter
+        public Builder concurrencyMode(@Nullable String concurrencyMode) {
+
+            this.concurrencyMode = concurrencyMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder failureToleranceCount(@Nullable Integer failureToleranceCount) {
 
@@ -155,6 +175,7 @@ public final class StackSetInstanceOperationPreferences {
         }
         public StackSetInstanceOperationPreferences build() {
             final var _resultValue = new StackSetInstanceOperationPreferences();
+            _resultValue.concurrencyMode = concurrencyMode;
             _resultValue.failureToleranceCount = failureToleranceCount;
             _resultValue.failureTolerancePercentage = failureTolerancePercentage;
             _resultValue.maxConcurrentCount = maxConcurrentCount;

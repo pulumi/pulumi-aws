@@ -175,7 +175,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HostedTransitVirtualInterfaceAcceptor(String name) {
+    public HostedTransitVirtualInterfaceAcceptor(java.lang.String name) {
         this(name, HostedTransitVirtualInterfaceAcceptorArgs.Empty);
     }
     /**
@@ -183,7 +183,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HostedTransitVirtualInterfaceAcceptor(String name, HostedTransitVirtualInterfaceAcceptorArgs args) {
+    public HostedTransitVirtualInterfaceAcceptor(java.lang.String name, HostedTransitVirtualInterfaceAcceptorArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,15 +192,22 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HostedTransitVirtualInterfaceAcceptor(String name, HostedTransitVirtualInterfaceAcceptorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, args == null ? HostedTransitVirtualInterfaceAcceptorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HostedTransitVirtualInterfaceAcceptor(java.lang.String name, HostedTransitVirtualInterfaceAcceptorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HostedTransitVirtualInterfaceAcceptor(String name, Output<String> id, @Nullable HostedTransitVirtualInterfaceAcceptorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, state, makeResourceOptions(options, id));
+    private HostedTransitVirtualInterfaceAcceptor(java.lang.String name, Output<java.lang.String> id, @Nullable HostedTransitVirtualInterfaceAcceptorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HostedTransitVirtualInterfaceAcceptorArgs makeArgs(HostedTransitVirtualInterfaceAcceptorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostedTransitVirtualInterfaceAcceptorArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -216,7 +223,7 @@ public class HostedTransitVirtualInterfaceAcceptor extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HostedTransitVirtualInterfaceAcceptor get(String name, Output<String> id, @Nullable HostedTransitVirtualInterfaceAcceptorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HostedTransitVirtualInterfaceAcceptor get(java.lang.String name, Output<java.lang.String> id, @Nullable HostedTransitVirtualInterfaceAcceptorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HostedTransitVirtualInterfaceAcceptor(name, id, state, options);
     }
 }

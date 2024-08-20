@@ -48,6 +48,15 @@ __all__ = [
     'PatchBaselineSource',
     'ResourceDataSyncS3Destination',
     'GetContactsRotationRecurrenceResult',
+    'GetContactsRotationRecurrenceDailySettingResult',
+    'GetContactsRotationRecurrenceMonthlySettingResult',
+    'GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult',
+    'GetContactsRotationRecurrenceShiftCoverageResult',
+    'GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult',
+    'GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult',
+    'GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult',
+    'GetContactsRotationRecurrenceWeeklySettingResult',
+    'GetContactsRotationRecurrenceWeeklySettingHandOffTimeResult',
     'GetInstancesFilterResult',
     'GetMaintenanceWindowsFilterResult',
     'GetPatchBaselineApprovalRuleResult',
@@ -803,6 +812,9 @@ class MaintenanceWindowTaskTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
+        """
+        :param Sequence[str] values: The array of strings.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
@@ -814,6 +826,9 @@ class MaintenanceWindowTaskTarget(dict):
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
+        """
+        The array of strings.
+        """
         return pulumi.get(self, "values")
 
 
@@ -1084,6 +1099,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param str comment: Information about the command(s) to execute.
         :param str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param str document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
+        :param str document_version: The version of an Automation document to use during task execution.
         :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
@@ -1149,6 +1165,9 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[str]:
+        """
+        The version of an Automation document to use during task execution.
+        """
         return pulumi.get(self, "document_version")
 
     @property
@@ -1632,12 +1651,12 @@ class ResourceDataSyncS3Destination(dict):
 @pulumi.output_type
 class GetContactsRotationRecurrenceResult(dict):
     def __init__(__self__, *,
-                 daily_settings: Sequence[Any],
-                 monthly_settings: Sequence[Any],
+                 daily_settings: Sequence['outputs.GetContactsRotationRecurrenceDailySettingResult'],
+                 monthly_settings: Sequence['outputs.GetContactsRotationRecurrenceMonthlySettingResult'],
                  number_of_on_calls: int,
                  recurrence_multiplier: int,
-                 shift_coverages: Sequence[Any],
-                 weekly_settings: Sequence[Any]):
+                 shift_coverages: Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageResult'],
+                 weekly_settings: Sequence['outputs.GetContactsRotationRecurrenceWeeklySettingResult']):
         pulumi.set(__self__, "daily_settings", daily_settings)
         pulumi.set(__self__, "monthly_settings", monthly_settings)
         pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
@@ -1647,12 +1666,12 @@ class GetContactsRotationRecurrenceResult(dict):
 
     @property
     @pulumi.getter(name="dailySettings")
-    def daily_settings(self) -> Sequence[Any]:
+    def daily_settings(self) -> Sequence['outputs.GetContactsRotationRecurrenceDailySettingResult']:
         return pulumi.get(self, "daily_settings")
 
     @property
     @pulumi.getter(name="monthlySettings")
-    def monthly_settings(self) -> Sequence[Any]:
+    def monthly_settings(self) -> Sequence['outputs.GetContactsRotationRecurrenceMonthlySettingResult']:
         return pulumi.get(self, "monthly_settings")
 
     @property
@@ -1667,13 +1686,184 @@ class GetContactsRotationRecurrenceResult(dict):
 
     @property
     @pulumi.getter(name="shiftCoverages")
-    def shift_coverages(self) -> Sequence[Any]:
+    def shift_coverages(self) -> Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageResult']:
         return pulumi.get(self, "shift_coverages")
 
     @property
     @pulumi.getter(name="weeklySettings")
-    def weekly_settings(self) -> Sequence[Any]:
+    def weekly_settings(self) -> Sequence['outputs.GetContactsRotationRecurrenceWeeklySettingResult']:
         return pulumi.get(self, "weekly_settings")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceDailySettingResult(dict):
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceMonthlySettingResult(dict):
+    def __init__(__self__, *,
+                 day_of_month: int,
+                 hand_off_times: Sequence['outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult']):
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "hand_off_times", hand_off_times)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> int:
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="handOffTimes")
+    def hand_off_times(self) -> Sequence['outputs.GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult']:
+        return pulumi.get(self, "hand_off_times")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceMonthlySettingHandOffTimeResult(dict):
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceShiftCoverageResult(dict):
+    def __init__(__self__, *,
+                 coverage_times: Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult'],
+                 map_block_key: str):
+        pulumi.set(__self__, "coverage_times", coverage_times)
+        pulumi.set(__self__, "map_block_key", map_block_key)
+
+    @property
+    @pulumi.getter(name="coverageTimes")
+    def coverage_times(self) -> Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult']:
+        return pulumi.get(self, "coverage_times")
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> str:
+        return pulumi.get(self, "map_block_key")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult(dict):
+    def __init__(__self__, *,
+                 ends: Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult'],
+                 starts: Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult']):
+        pulumi.set(__self__, "ends", ends)
+        pulumi.set(__self__, "starts", starts)
+
+    @property
+    @pulumi.getter
+    def ends(self) -> Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult']:
+        return pulumi.get(self, "ends")
+
+    @property
+    @pulumi.getter
+    def starts(self) -> Sequence['outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult']:
+        return pulumi.get(self, "starts")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult(dict):
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult(dict):
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        return pulumi.get(self, "minute_of_hour")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceWeeklySettingResult(dict):
+    def __init__(__self__, *,
+                 day_of_week: str,
+                 hand_off_times: Sequence['outputs.GetContactsRotationRecurrenceWeeklySettingHandOffTimeResult']):
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hand_off_times", hand_off_times)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="handOffTimes")
+    def hand_off_times(self) -> Sequence['outputs.GetContactsRotationRecurrenceWeeklySettingHandOffTimeResult']:
+        return pulumi.get(self, "hand_off_times")
+
+
+@pulumi.output_type
+class GetContactsRotationRecurrenceWeeklySettingHandOffTimeResult(dict):
+    def __init__(__self__, *,
+                 hour_of_day: int,
+                 minute_of_hour: int):
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        return pulumi.get(self, "hour_of_day")
+
+    @property
+    @pulumi.getter(name="minuteOfHour")
+    def minute_of_hour(self) -> int:
+        return pulumi.get(self, "minute_of_hour")
 
 
 @pulumi.output_type

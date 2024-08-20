@@ -63,6 +63,9 @@ namespace Pulumi.Aws.SecurityLake
     [AwsResourceType("aws:securitylake/subscriber:Subscriber")]
     public partial class Subscriber : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon S3 or Lake Formation access type.
+        /// </summary>
         [Output("accessType")]
         public Output<string> AccessType { get; private set; } = null!;
 
@@ -97,7 +100,7 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> S3BucketArn { get; private set; } = null!;
 
         /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.SubscriberSource?> Source { get; private set; } = null!;
@@ -115,7 +118,7 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> SubscriberEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS identity used to access your data.
+        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
         [Output("subscriberIdentity")]
         public Output<Outputs.SubscriberSubscriberIdentity?> SubscriberIdentity { get; private set; } = null!;
@@ -193,11 +196,14 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 or Lake Formation access type.
+        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
         /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.SubscriberSourceArgs>? Source { get; set; }
@@ -209,7 +215,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? SubscriberDescription { get; set; }
 
         /// <summary>
-        /// The AWS identity used to access your data.
+        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityArgs>? SubscriberIdentity { get; set; }
@@ -243,6 +249,9 @@ namespace Pulumi.Aws.SecurityLake
 
     public sealed class SubscriberState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 or Lake Formation access type.
+        /// </summary>
         [Input("accessType")]
         public Input<string>? AccessType { get; set; }
 
@@ -277,7 +286,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? S3BucketArn { get; set; }
 
         /// <summary>
-        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services.
+        /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.SubscriberSourceGetArgs>? Source { get; set; }
@@ -295,7 +304,7 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? SubscriberEndpoint { get; set; }
 
         /// <summary>
-        /// The AWS identity used to access your data.
+        /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
         [Input("subscriberIdentity")]
         public Input<Inputs.SubscriberSubscriberIdentityGetArgs>? SubscriberIdentity { get; set; }

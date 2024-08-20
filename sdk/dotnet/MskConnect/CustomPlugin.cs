@@ -89,9 +89,7 @@ namespace Pulumi.Aws.MskConnect
         public Output<int> LatestRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// 
-        /// The following arguments are optional:
+        /// Information about the location of a custom plugin. See `location` Block for details.
         /// </summary>
         [Output("location")]
         public Output<Outputs.CustomPluginLocation> Location { get; private set; } = null!;
@@ -107,6 +105,20 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,9 +179,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// 
-        /// The following arguments are optional:
+        /// Information about the location of a custom plugin. See `location` Block for details.
         /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.CustomPluginLocationArgs> Location { get; set; } = null!;
@@ -179,6 +189,20 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CustomPluginArgs()
         {
@@ -213,9 +237,7 @@ namespace Pulumi.Aws.MskConnect
         public Input<int>? LatestRevision { get; set; }
 
         /// <summary>
-        /// Information about the location of a custom plugin. See below.
-        /// 
-        /// The following arguments are optional:
+        /// Information about the location of a custom plugin. See `location` Block for details.
         /// </summary>
         [Input("location")]
         public Input<Inputs.CustomPluginLocationGetArgs>? Location { get; set; }
@@ -231,6 +253,33 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public CustomPluginState()
         {

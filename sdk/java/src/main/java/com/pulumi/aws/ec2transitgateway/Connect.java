@@ -181,7 +181,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Connect(String name) {
+    public Connect(java.lang.String name) {
         this(name, ConnectArgs.Empty);
     }
     /**
@@ -189,7 +189,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Connect(String name, ConnectArgs args) {
+    public Connect(java.lang.String name, ConnectArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,15 +198,22 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Connect(String name, ConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/connect:Connect", name, args == null ? ConnectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Connect(java.lang.String name, ConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/connect:Connect", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Connect(String name, Output<String> id, @Nullable ConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2transitgateway/connect:Connect", name, state, makeResourceOptions(options, id));
+    private Connect(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2transitgateway/connect:Connect", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ConnectArgs makeArgs(ConnectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +229,7 @@ public class Connect extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Connect get(String name, Output<String> id, @Nullable ConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Connect get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Connect(name, id, state, options);
     }
 }

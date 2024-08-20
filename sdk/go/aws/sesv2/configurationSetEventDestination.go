@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Cloud Watch Destination
+// ### CloudWatch Destination
 //
 // ```go
 // package main
@@ -48,6 +48,49 @@ import (
 //								DimensionValueSource:  pulumi.String("MESSAGE_TAG"),
 //							},
 //						},
+//					},
+//					Enabled: pulumi.Bool(true),
+//					MatchingEventTypes: pulumi.StringArray{
+//						pulumi.String("SEND"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### EventBridge Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_default, err := cloudwatch.LookupEventBus(ctx, &cloudwatch.LookupEventBusArgs{
+//				Name: "default",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sesv2.NewConfigurationSetEventDestination(ctx, "example", &sesv2.ConfigurationSetEventDestinationArgs{
+//				ConfigurationSetName: pulumi.Any(exampleAwsSesv2ConfigurationSet.ConfigurationSetName),
+//				EventDestinationName: pulumi.String("example"),
+//				EventDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationArgs{
+//					EventBridgeDestination: &sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs{
+//						EventBusArn: pulumi.String(_default.Arn),
 //					},
 //					Enabled: pulumi.Bool(true),
 //					MatchingEventTypes: pulumi.StringArray{
@@ -205,7 +248,7 @@ type ConfigurationSetEventDestination struct {
 	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
 	// A name that identifies the event destination within the configuration set.
 	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
-	// An object that defines the event destination. See eventDestination below.
+	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
 }
 
@@ -252,7 +295,7 @@ type configurationSetEventDestinationState struct {
 	ConfigurationSetName *string `pulumi:"configurationSetName"`
 	// A name that identifies the event destination within the configuration set.
 	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	// An object that defines the event destination. See eventDestination below.
+	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName *string `pulumi:"eventDestinationName"`
 }
 
@@ -261,7 +304,7 @@ type ConfigurationSetEventDestinationState struct {
 	ConfigurationSetName pulumi.StringPtrInput
 	// A name that identifies the event destination within the configuration set.
 	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
-	// An object that defines the event destination. See eventDestination below.
+	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringPtrInput
 }
 
@@ -274,7 +317,7 @@ type configurationSetEventDestinationArgs struct {
 	ConfigurationSetName string `pulumi:"configurationSetName"`
 	// A name that identifies the event destination within the configuration set.
 	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
-	// An object that defines the event destination. See eventDestination below.
+	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName string `pulumi:"eventDestinationName"`
 }
 
@@ -284,7 +327,7 @@ type ConfigurationSetEventDestinationArgs struct {
 	ConfigurationSetName pulumi.StringInput
 	// A name that identifies the event destination within the configuration set.
 	EventDestination ConfigurationSetEventDestinationEventDestinationInput
-	// An object that defines the event destination. See eventDestination below.
+	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringInput
 }
 
@@ -387,7 +430,7 @@ func (o ConfigurationSetEventDestinationOutput) EventDestination() Configuration
 	}).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-// An object that defines the event destination. See eventDestination below.
+// An object that defines the event destination. See `eventDestination` Block for details.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
 }

@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
-//				ServiceName: pulumi.String(fmt.Sprintf("com.amazonaws.%v.datasync", current.Name)),
+//				ServiceName: pulumi.Sprintf("com.amazonaws.%v.datasync", current.Name),
 //				VpcId:       pulumi.Any(exampleAwsVpc.Id),
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
@@ -92,9 +92,9 @@ import (
 //					exampleAwsSubnet.Arn,
 //				},
 //				VpcEndpointId: exampleVpcEndpoint.ID(),
-//				PrivateLinkEndpoint: example.ApplyT(func(example ec2.GetNetworkInterfaceResult) (*string, error) {
+//				PrivateLinkEndpoint: pulumi.String(example.ApplyT(func(example ec2.GetNetworkInterfaceResult) (*string, error) {
 //					return &example.PrivateIp, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {

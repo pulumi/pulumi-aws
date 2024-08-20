@@ -15,6 +15,8 @@ import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
 import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRulePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
+import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
+import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplatePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryPlainArgs;
 import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
 import com.pulumi.aws.ecr.outputs.GetCredentialsResult;
@@ -22,6 +24,7 @@ import com.pulumi.aws.ecr.outputs.GetImageResult;
 import com.pulumi.aws.ecr.outputs.GetLifecyclePolicyDocumentResult;
 import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
 import com.pulumi.aws.ecr.outputs.GetRepositoriesResult;
+import com.pulumi.aws.ecr.outputs.GetRepositoryCreationTemplateResult;
 import com.pulumi.aws.ecr.outputs.GetRepositoryResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1396,5 +1399,173 @@ public final class EcrFunctions {
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getRepository:getRepository", TypeShape.of(GetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs.builder()
+     *             .prefix("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryCreationTemplateResult> getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs args) {
+        return getRepositoryCreationTemplate(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs.builder()
+     *             .prefix("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoryCreationTemplateResult> getRepositoryCreationTemplatePlain(GetRepositoryCreationTemplatePlainArgs args) {
+        return getRepositoryCreationTemplatePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs.builder()
+     *             .prefix("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRepositoryCreationTemplateResult> getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", TypeShape.of(GetRepositoryCreationTemplateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = EcrFunctions.getRepositoryCreationTemplate(GetRepositoryCreationTemplateArgs.builder()
+     *             .prefix("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRepositoryCreationTemplateResult> getRepositoryCreationTemplatePlain(GetRepositoryCreationTemplatePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", TypeShape.of(GetRepositoryCreationTemplateResult.class), args, Utilities.withVersion(options));
     }
 }

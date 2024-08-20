@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fis.ExperimentTemplateArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateState;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateAction;
+import com.pulumi.aws.fis.outputs.ExperimentTemplateExperimentOptions;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateStopCondition;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTarget;
@@ -127,6 +128,20 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
+     * The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    @Export(name="experimentOptions", refs={ExperimentTemplateExperimentOptions.class}, tree="[0]")
+    private Output<ExperimentTemplateExperimentOptions> experimentOptions;
+
+    /**
+     * @return The experiment options for the experiment template. See experiment_options below for more details!
+     * 
+     */
+    public Output<ExperimentTemplateExperimentOptions> experimentOptions() {
+        return this.experimentOptions;
+    }
+    /**
      * The configuration for experiment logging. See below.
      * 
      */
@@ -217,7 +232,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExperimentTemplate(String name) {
+    public ExperimentTemplate(java.lang.String name) {
         this(name, ExperimentTemplateArgs.Empty);
     }
     /**
@@ -225,7 +240,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExperimentTemplate(String name, ExperimentTemplateArgs args) {
+    public ExperimentTemplate(java.lang.String name, ExperimentTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -234,15 +249,22 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExperimentTemplate(String name, ExperimentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fis/experimentTemplate:ExperimentTemplate", name, args == null ? ExperimentTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ExperimentTemplate(java.lang.String name, ExperimentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fis/experimentTemplate:ExperimentTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExperimentTemplate(String name, Output<String> id, @Nullable ExperimentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fis/experimentTemplate:ExperimentTemplate", name, state, makeResourceOptions(options, id));
+    private ExperimentTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable ExperimentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fis/experimentTemplate:ExperimentTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ExperimentTemplateArgs makeArgs(ExperimentTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExperimentTemplateArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -258,7 +280,7 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExperimentTemplate get(String name, Output<String> id, @Nullable ExperimentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExperimentTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable ExperimentTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExperimentTemplate(name, id, state, options);
     }
 }

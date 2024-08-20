@@ -26,6 +26,7 @@ __all__ = [
     'ClusterKubernetesNetworkConfig',
     'ClusterOutpostConfig',
     'ClusterOutpostConfigControlPlanePlacement',
+    'ClusterUpgradePolicy',
     'ClusterVpcConfig',
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
@@ -43,6 +44,7 @@ __all__ = [
     'GetClusterKubernetesNetworkConfigResult',
     'GetClusterOutpostConfigResult',
     'GetClusterOutpostConfigControlPlanePlacementResult',
+    'GetClusterUpgradePolicyResult',
     'GetClusterVpcConfigResult',
     'GetNodeGroupLaunchTemplateResult',
     'GetNodeGroupRemoteAccessResult',
@@ -108,7 +110,7 @@ class ClusterAccessConfig(dict):
                  bootstrap_cluster_creator_admin_permissions: Optional[bool] = None):
         """
         :param str authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        :param bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        :param bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -127,7 +129,7 @@ class ClusterAccessConfig(dict):
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
     def bootstrap_cluster_creator_admin_permissions(self) -> Optional[bool]:
         """
-        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
@@ -442,6 +444,42 @@ class ClusterOutpostConfigControlPlanePlacement(dict):
         The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class ClusterUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportType":
+            suggest = "support_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 support_type: Optional[str] = None):
+        """
+        :param str support_type: Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        if support_type is not None:
+            pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> Optional[str]:
+        """
+        Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
+        """
+        return pulumi.get(self, "support_type")
 
 
 @pulumi.output_type
@@ -1044,11 +1082,14 @@ class NodeGroupUpdateConfig(dict):
 @pulumi.output_type
 class GetClusterAccessConfigResult(dict):
     def __init__(__self__, *,
-                 authentication_mode: str):
+                 authentication_mode: str,
+                 bootstrap_cluster_creator_admin_permissions: bool):
         """
         :param str authentication_mode: Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        :param bool bootstrap_cluster_creator_admin_permissions: Default to `true`.
         """
         pulumi.set(__self__, "authentication_mode", authentication_mode)
+        pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -1057,6 +1098,14 @@ class GetClusterAccessConfigResult(dict):
         Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
         """
         return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> bool:
+        """
+        Default to `true`.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
 
 @pulumi.output_type
@@ -1209,6 +1258,24 @@ class GetClusterOutpostConfigControlPlanePlacementResult(dict):
         The name of the placement group for the Kubernetes control plane instances.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class GetClusterUpgradePolicyResult(dict):
+    def __init__(__self__, *,
+                 support_type: str):
+        """
+        :param str support_type: (Optional) Support type to use for the cluster.
+        """
+        pulumi.set(__self__, "support_type", support_type)
+
+    @property
+    @pulumi.getter(name="supportType")
+    def support_type(self) -> str:
+        """
+        (Optional) Support type to use for the cluster.
+        """
+        return pulumi.get(self, "support_type")
 
 
 @pulumi.output_type

@@ -74,7 +74,7 @@ type ConfigurationProfile struct {
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
-	// Name for the configuration profile. Must be between 1 and 64 characters in length.
+	// Name for the configuration profile. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn pulumi.StringPtrOutput `pulumi:"retrievalRoleArn"`
@@ -138,7 +138,7 @@ type configurationProfileState struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri *string `pulumi:"locationUri"`
-	// Name for the configuration profile. Must be between 1 and 64 characters in length.
+	// Name for the configuration profile. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
@@ -167,7 +167,7 @@ type ConfigurationProfileState struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringPtrInput
-	// Name for the configuration profile. Must be between 1 and 64 characters in length.
+	// Name for the configuration profile. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn pulumi.StringPtrInput
@@ -196,7 +196,7 @@ type configurationProfileArgs struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri string `pulumi:"locationUri"`
-	// Name for the configuration profile. Must be between 1 and 64 characters in length.
+	// Name for the configuration profile. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
 	// ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
@@ -218,7 +218,7 @@ type ConfigurationProfileArgs struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringInput
-	// Name for the configuration profile. Must be between 1 and 64 characters in length.
+	// Name for the configuration profile. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
 	// ARN of an IAM role with permission to access the configuration at the specified `locationUri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
 	RetrievalRoleArn pulumi.StringPtrInput
@@ -347,7 +347,7 @@ func (o ConfigurationProfileOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
-// Name for the configuration profile. Must be between 1 and 64 characters in length.
+// Name for the configuration profile. Must be between 1 and 128 characters in length.
 func (o ConfigurationProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

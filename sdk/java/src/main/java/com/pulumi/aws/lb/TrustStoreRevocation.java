@@ -151,7 +151,7 @@ public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrustStoreRevocation(String name) {
+    public TrustStoreRevocation(java.lang.String name) {
         this(name, TrustStoreRevocationArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrustStoreRevocation(String name, TrustStoreRevocationArgs args) {
+    public TrustStoreRevocation(java.lang.String name, TrustStoreRevocationArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,15 +168,22 @@ public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrustStoreRevocation(String name, TrustStoreRevocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/trustStoreRevocation:TrustStoreRevocation", name, args == null ? TrustStoreRevocationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public TrustStoreRevocation(java.lang.String name, TrustStoreRevocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/trustStoreRevocation:TrustStoreRevocation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrustStoreRevocation(String name, Output<String> id, @Nullable TrustStoreRevocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:lb/trustStoreRevocation:TrustStoreRevocation", name, state, makeResourceOptions(options, id));
+    private TrustStoreRevocation(java.lang.String name, Output<java.lang.String> id, @Nullable TrustStoreRevocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:lb/trustStoreRevocation:TrustStoreRevocation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static TrustStoreRevocationArgs makeArgs(TrustStoreRevocationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrustStoreRevocationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +199,7 @@ public class TrustStoreRevocation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrustStoreRevocation get(String name, Output<String> id, @Nullable TrustStoreRevocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrustStoreRevocation get(java.lang.String name, Output<java.lang.String> id, @Nullable TrustStoreRevocationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrustStoreRevocation(name, id, state, options);
     }
 }

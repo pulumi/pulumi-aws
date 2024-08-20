@@ -22,11 +22,13 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationRule',
     'ReplicationConfigurationReplicationConfigurationRuleDestination',
     'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter',
+    'RepositoryCreationTemplateEncryptionConfiguration',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'GetLifecyclePolicyDocumentRuleResult',
     'GetLifecyclePolicyDocumentRuleActionResult',
     'GetLifecyclePolicyDocumentRuleSelectionResult',
+    'GetRepositoryCreationTemplateEncryptionConfigurationResult',
     'GetRepositoryEncryptionConfigurationResult',
     'GetRepositoryImageScanningConfigurationResult',
 ]
@@ -273,6 +275,56 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict)
 
 
 @pulumi.output_type
+class RepositoryCreationTemplateEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "kmsKey":
+            suggest = "kms_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryCreationTemplateEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryCreationTemplateEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: Optional[str] = None,
+                 kms_key: Optional[str] = None):
+        """
+        :param str encryption_type: The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        :param str kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
+        """
+        The encryption type to use for any created repositories. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[str]:
+        """
+        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
+        """
+        return pulumi.get(self, "kms_key")
+
+
+@pulumi.output_type
 class RepositoryEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -365,7 +417,7 @@ class GetLifecyclePolicyDocumentRuleResult(dict):
                  description: Optional[str] = None,
                  selection: Optional['outputs.GetLifecyclePolicyDocumentRuleSelectionResult'] = None):
         """
-        :param int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+        :param int priority: Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
         :param 'GetLifecyclePolicyDocumentRuleActionArgs' action: Specifies the action type.
         :param str description: Describes the purpose of a rule within a lifecycle policy.
         :param 'GetLifecyclePolicyDocumentRuleSelectionArgs' selection: Collects parameters describing the selection criteria for the ECR lifecycle policy:
@@ -382,7 +434,7 @@ class GetLifecyclePolicyDocumentRuleResult(dict):
     @pulumi.getter
     def priority(self) -> int:
         """
-        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+        Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of "any" must have the highest value for `priority` and be evaluated last.
         """
         return pulumi.get(self, "priority")
 
@@ -439,12 +491,12 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
                  tag_pattern_lists: Optional[Sequence[str]] = None,
                  tag_prefix_lists: Optional[Sequence[str]] = None):
         """
-        :param int count_number: Specify a count number. If the `count_type` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is sinceImagePushed, then the value is the maximum age limit for your images.
-        :param str count_type: Specify a count type to apply to the images. If `count_type` is set to imageCountMoreThan, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to sinceImagePushed, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
-        :param str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tag_prefix_list` value. If you specify untagged, then you must omit `tag_prefix_list`.
+        :param int count_number: Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
+        :param str count_type: Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        :param str tag_status: Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
         :param str count_unit: Specify a count unit of days to indicate that as the unit of time, in addition to `count_number`, which is the number of days.
-        :param Sequence[str] tag_pattern_lists: You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
-        :param Sequence[str] tag_prefix_lists: You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+        :param Sequence[str] tag_pattern_lists: You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
+        :param Sequence[str] tag_prefix_lists: You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
         """
         pulumi.set(__self__, "count_number", count_number)
         pulumi.set(__self__, "count_type", count_type)
@@ -460,7 +512,7 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
     @pulumi.getter(name="countNumber")
     def count_number(self) -> int:
         """
-        Specify a count number. If the `count_type` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is sinceImagePushed, then the value is the maximum age limit for your images.
+        Specify a count number. If the `count_type` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `count_type` used is "sinceImagePushed", then the value is the maximum age limit for your images.
         """
         return pulumi.get(self, "count_number")
 
@@ -468,7 +520,7 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
     @pulumi.getter(name="countType")
     def count_type(self) -> str:
         """
-        Specify a count type to apply to the images. If `count_type` is set to imageCountMoreThan, you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to sinceImagePushed, you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
+        Specify a count type to apply to the images. If `count_type` is set to "imageCountMoreThan", you also specify `count_number` to create a rule that sets a limit on the number of images that exist in your repository. If `count_type` is set to "sinceImagePushed", you also specify `count_unit` and `count_number` to specify a time limit on the images that exist in your repository.
         """
         return pulumi.get(self, "count_type")
 
@@ -476,7 +528,7 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
     @pulumi.getter(name="tagStatus")
     def tag_status(self) -> str:
         """
-        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tag_prefix_list` value. If you specify untagged, then you must omit `tag_prefix_list`.
+        Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tag_prefix_list` value. If you specify "untagged", then you must omit `tag_prefix_list`.
         """
         return pulumi.get(self, "tag_status")
 
@@ -492,7 +544,7 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
     @pulumi.getter(name="tagPatternLists")
     def tag_pattern_lists(self) -> Optional[Sequence[str]]:
         """
-        You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+        You must specify a comma-separated list of image tag patterns that may contain wildcards (\\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
         """
         return pulumi.get(self, "tag_pattern_lists")
 
@@ -500,9 +552,38 @@ class GetLifecyclePolicyDocumentRuleSelectionResult(dict):
     @pulumi.getter(name="tagPrefixLists")
     def tag_prefix_lists(self) -> Optional[Sequence[str]]:
         """
-        You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+        You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
         """
         return pulumi.get(self, "tag_prefix_lists")
+
+
+@pulumi.output_type
+class GetRepositoryCreationTemplateEncryptionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 encryption_type: str,
+                 kms_key: str):
+        """
+        :param str encryption_type: Encryption type to use for any created repositories, either `AES256` or `KMS`.
+        :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "kms_key", kms_key)
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        Encryption type to use for any created repositories, either `AES256` or `KMS`.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> str:
+        """
+        If `encryption_type` is `KMS`, the ARN of the KMS key used.
+        """
+        return pulumi.get(self, "kms_key")
 
 
 @pulumi.output_type

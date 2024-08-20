@@ -35,6 +35,10 @@ __all__ = [
     'GetFrameworkControlResult',
     'GetFrameworkControlInputParameterResult',
     'GetFrameworkControlScopeResult',
+    'GetPlanRuleResult',
+    'GetPlanRuleCopyActionResult',
+    'GetPlanRuleCopyActionLifecycleResult',
+    'GetPlanRuleLifecycleResult',
     'GetReportPlanReportDeliveryChannelResult',
     'GetReportPlanReportSettingResult',
 ]
@@ -783,17 +787,27 @@ class SelectionConditionStringEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -802,17 +816,27 @@ class SelectionConditionStringLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -821,17 +845,27 @@ class SelectionConditionStringNotEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -840,17 +874,27 @@ class SelectionConditionStringNotLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key in a key-value pair.
+        :param str value: The value in a key-value pair.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key in a key-value pair.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value in a key-value pair.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1001,6 +1045,146 @@ class GetFrameworkControlScopeResult(dict):
         Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetPlanRuleResult(dict):
+    def __init__(__self__, *,
+                 completion_window: int,
+                 copy_actions: Sequence['outputs.GetPlanRuleCopyActionResult'],
+                 enable_continuous_backup: bool,
+                 lifecycles: Sequence['outputs.GetPlanRuleLifecycleResult'],
+                 rule_name: str,
+                 schedule: str,
+                 start_window: int,
+                 target_vault_name: str,
+                 recovery_point_tags: Optional[Mapping[str, str]] = None):
+        pulumi.set(__self__, "completion_window", completion_window)
+        pulumi.set(__self__, "copy_actions", copy_actions)
+        pulumi.set(__self__, "enable_continuous_backup", enable_continuous_backup)
+        pulumi.set(__self__, "lifecycles", lifecycles)
+        pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_window", start_window)
+        pulumi.set(__self__, "target_vault_name", target_vault_name)
+        if recovery_point_tags is not None:
+            pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
+
+    @property
+    @pulumi.getter(name="completionWindow")
+    def completion_window(self) -> int:
+        return pulumi.get(self, "completion_window")
+
+    @property
+    @pulumi.getter(name="copyActions")
+    def copy_actions(self) -> Sequence['outputs.GetPlanRuleCopyActionResult']:
+        return pulumi.get(self, "copy_actions")
+
+    @property
+    @pulumi.getter(name="enableContinuousBackup")
+    def enable_continuous_backup(self) -> bool:
+        return pulumi.get(self, "enable_continuous_backup")
+
+    @property
+    @pulumi.getter
+    def lifecycles(self) -> Sequence['outputs.GetPlanRuleLifecycleResult']:
+        return pulumi.get(self, "lifecycles")
+
+    @property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> str:
+        return pulumi.get(self, "rule_name")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> str:
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startWindow")
+    def start_window(self) -> int:
+        return pulumi.get(self, "start_window")
+
+    @property
+    @pulumi.getter(name="targetVaultName")
+    def target_vault_name(self) -> str:
+        return pulumi.get(self, "target_vault_name")
+
+    @property
+    @pulumi.getter(name="recoveryPointTags")
+    def recovery_point_tags(self) -> Optional[Mapping[str, str]]:
+        return pulumi.get(self, "recovery_point_tags")
+
+
+@pulumi.output_type
+class GetPlanRuleCopyActionResult(dict):
+    def __init__(__self__, *,
+                 destination_vault_arn: str,
+                 lifecycles: Sequence['outputs.GetPlanRuleCopyActionLifecycleResult']):
+        pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
+        pulumi.set(__self__, "lifecycles", lifecycles)
+
+    @property
+    @pulumi.getter(name="destinationVaultArn")
+    def destination_vault_arn(self) -> str:
+        return pulumi.get(self, "destination_vault_arn")
+
+    @property
+    @pulumi.getter
+    def lifecycles(self) -> Sequence['outputs.GetPlanRuleCopyActionLifecycleResult']:
+        return pulumi.get(self, "lifecycles")
+
+
+@pulumi.output_type
+class GetPlanRuleCopyActionLifecycleResult(dict):
+    def __init__(__self__, *,
+                 cold_storage_after: int,
+                 delete_after: int,
+                 opt_in_to_archive_for_supported_resources: bool):
+        pulumi.set(__self__, "cold_storage_after", cold_storage_after)
+        pulumi.set(__self__, "delete_after", delete_after)
+        pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
+
+    @property
+    @pulumi.getter(name="coldStorageAfter")
+    def cold_storage_after(self) -> int:
+        return pulumi.get(self, "cold_storage_after")
+
+    @property
+    @pulumi.getter(name="deleteAfter")
+    def delete_after(self) -> int:
+        return pulumi.get(self, "delete_after")
+
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> bool:
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
+
+
+@pulumi.output_type
+class GetPlanRuleLifecycleResult(dict):
+    def __init__(__self__, *,
+                 cold_storage_after: int,
+                 delete_after: int,
+                 opt_in_to_archive_for_supported_resources: bool):
+        pulumi.set(__self__, "cold_storage_after", cold_storage_after)
+        pulumi.set(__self__, "delete_after", delete_after)
+        pulumi.set(__self__, "opt_in_to_archive_for_supported_resources", opt_in_to_archive_for_supported_resources)
+
+    @property
+    @pulumi.getter(name="coldStorageAfter")
+    def cold_storage_after(self) -> int:
+        return pulumi.get(self, "cold_storage_after")
+
+    @property
+    @pulumi.getter(name="deleteAfter")
+    def delete_after(self) -> int:
+        return pulumi.get(self, "delete_after")
+
+    @property
+    @pulumi.getter(name="optInToArchiveForSupportedResources")
+    def opt_in_to_archive_for_supported_resources(self) -> bool:
+        return pulumi.get(self, "opt_in_to_archive_for_supported_resources")
 
 
 @pulumi.output_type

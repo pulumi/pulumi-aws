@@ -221,9 +221,17 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
     public Output<String> subtype() {
         return this.subtype;
     }
+    /**
+     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     @Export(name="svmAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> svmAdminPassword;
 
+    /**
+     * @return Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * 
+     */
     public Output<Optional<String>> svmAdminPassword() {
         return Codegen.optional(this.svmAdminPassword);
     }
@@ -278,7 +286,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OntapStorageVirtualMachine(String name) {
+    public OntapStorageVirtualMachine(java.lang.String name) {
         this(name, OntapStorageVirtualMachineArgs.Empty);
     }
     /**
@@ -286,7 +294,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OntapStorageVirtualMachine(String name, OntapStorageVirtualMachineArgs args) {
+    public OntapStorageVirtualMachine(java.lang.String name, OntapStorageVirtualMachineArgs args) {
         this(name, args, null);
     }
     /**
@@ -295,15 +303,22 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OntapStorageVirtualMachine(String name, OntapStorageVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, args == null ? OntapStorageVirtualMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OntapStorageVirtualMachine(java.lang.String name, OntapStorageVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OntapStorageVirtualMachine(String name, Output<String> id, @Nullable OntapStorageVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, state, makeResourceOptions(options, id));
+    private OntapStorageVirtualMachine(java.lang.String name, Output<java.lang.String> id, @Nullable OntapStorageVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OntapStorageVirtualMachineArgs makeArgs(OntapStorageVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OntapStorageVirtualMachineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -322,7 +337,7 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OntapStorageVirtualMachine get(String name, Output<String> id, @Nullable OntapStorageVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OntapStorageVirtualMachine get(java.lang.String name, Output<java.lang.String> id, @Nullable OntapStorageVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OntapStorageVirtualMachine(name, id, state, options);
     }
 }

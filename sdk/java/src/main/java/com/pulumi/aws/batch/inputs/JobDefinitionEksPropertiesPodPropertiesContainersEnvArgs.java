@@ -15,23 +15,31 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
     public static final JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs Empty = new JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs();
 
     /**
-     * Specifies the name of the job definition.
+     * Name of the job definition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the job definition.
+     * @return Name of the job definition.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Value of the environment variable.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value of the environment variable.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -62,7 +70,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -73,7 +81,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
         }
 
         /**
-         * @param name Specifies the name of the job definition.
+         * @param name Name of the job definition.
          * 
          * @return builder
          * 
@@ -82,11 +90,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs exte
             return name(Output.of(name));
         }
 
+        /**
+         * @param value Value of the environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value of the environment variable.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

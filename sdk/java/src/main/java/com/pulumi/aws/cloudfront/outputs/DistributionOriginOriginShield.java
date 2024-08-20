@@ -18,6 +18,10 @@ public final class DistributionOriginOriginShield {
      * 
      */
     private Boolean enabled;
+    /**
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+     * 
+     */
     private @Nullable String originShieldRegion;
 
     private DistributionOriginOriginShield() {}
@@ -28,6 +32,10 @@ public final class DistributionOriginOriginShield {
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+     * 
+     */
     public Optional<String> originShieldRegion() {
         return Optional.ofNullable(this.originShieldRegion);
     }

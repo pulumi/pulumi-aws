@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Example with Log Configuration
+ * ### Execute Command Configuration with Override Logging
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -123,9 +123,121 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.kms.KeyPolicy;
+ * import com.pulumi.aws.kms.KeyPolicyArgs;
+ * import com.pulumi.aws.ecs.Cluster;
+ * import com.pulumi.aws.ecs.ClusterArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ClusterConfigurationManagedStorageConfigurationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("example")
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleKeyPolicy = new KeyPolicy("exampleKeyPolicy", KeyPolicyArgs.builder()
+ *             .keyId(example.id())
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Id", "ECSClusterFargatePolicy"),
+ *                     jsonProperty("Statement", jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Enable IAM User Permissions"),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("AWS", "*")
+ *                             )),
+ *                             jsonProperty("Action", "kms:*"),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow generate data key access for Fargate tasks."),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "fargate.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", jsonArray("kms:GenerateDataKeyWithoutPlaintext")),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("StringEquals", jsonObject(
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))),
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterName", jsonArray("example"))
+ *                                 ))
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty("Sid", "Allow grant creation permission for Fargate tasks."),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Principal", jsonObject(
+ *                                 jsonProperty("Service", "fargate.amazonaws.com")
+ *                             )),
+ *                             jsonProperty("Action", jsonArray("kms:CreateGrant")),
+ *                             jsonProperty("Condition", jsonObject(
+ *                                 jsonProperty("StringEquals", jsonObject(
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterAccount", jsonArray(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))),
+ *                                     jsonProperty("kms:EncryptionContext:aws:ecs:clusterName", jsonArray("example"))
+ *                                 )),
+ *                                 jsonProperty("ForAllValues:StringEquals", jsonObject(
+ *                                     jsonProperty("kms:GrantOperations", jsonArray("Decrypt"))
+ *                                 ))
+ *                             )),
+ *                             jsonProperty("Resource", "*")
+ *                         )
+ *                     )),
+ *                     jsonProperty("Version", "2012-10-17")
+ *                 )))
+ *             .build());
+ * 
+ *         var test = new Cluster("test", ClusterArgs.builder()
+ *             .name("example")
+ *             .configuration(ClusterConfigurationArgs.builder()
+ *                 .managedStorageConfiguration(ClusterConfigurationManagedStorageConfigurationArgs.builder()
+ *                     .fargateEphemeralStorageKmsKeyId(example.id())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyPolicy)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import ECS clusters using the `name`. For example:
+ * Using `pulumi import`, import ECS clusters using the cluster name. For example:
  * 
  * ```sh
  * $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -149,14 +261,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The execute command configuration for the cluster. Detailed below.
+     * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     @Export(name="configuration", refs={ClusterConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ClusterConfiguration> configuration;
 
     /**
-     * @return The execute command configuration for the cluster. Detailed below.
+     * @return Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
     public Output<Optional<ClusterConfiguration>> configuration() {
@@ -165,6 +277,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
@@ -172,33 +286,35 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * @return Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Configures a default Service Connect namespace. Detailed below.
+     * Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
     @Export(name="serviceConnectDefaults", refs={ClusterServiceConnectDefaults.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServiceConnectDefaults> serviceConnectDefaults;
 
     /**
-     * @return Configures a default Service Connect namespace. Detailed below.
+     * @return Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
     public Output<Optional<ClusterServiceConnectDefaults>> serviceConnectDefaults() {
         return Codegen.optional(this.serviceConnectDefaults);
     }
     /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
     @Export(name="settings", refs={List.class,ClusterSetting.class}, tree="[0,1]")
     private Output<List<ClusterSetting>> settings;
 
     /**
-     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
     public Output<List<ClusterSetting>> settings() {
@@ -241,7 +357,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Cluster(String name) {
+    public Cluster(java.lang.String name) {
         this(name, ClusterArgs.Empty);
     }
     /**
@@ -249,7 +365,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Cluster(String name, @Nullable ClusterArgs args) {
+    public Cluster(java.lang.String name, @Nullable ClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -258,15 +374,22 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Cluster(String name, @Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Cluster(java.lang.String name, @Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ecs/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    private Cluster(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ecs/cluster:Cluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClusterArgs makeArgs(@Nullable ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +405,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Cluster get(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Cluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Cluster(name, id, state, options);
     }
 }

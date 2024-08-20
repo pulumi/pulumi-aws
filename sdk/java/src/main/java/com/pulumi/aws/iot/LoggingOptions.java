@@ -104,7 +104,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoggingOptions(String name) {
+    public LoggingOptions(java.lang.String name) {
         this(name, LoggingOptionsArgs.Empty);
     }
     /**
@@ -112,7 +112,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoggingOptions(String name, LoggingOptionsArgs args) {
+    public LoggingOptions(java.lang.String name, LoggingOptionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -121,15 +121,22 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoggingOptions(String name, LoggingOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/loggingOptions:LoggingOptions", name, args == null ? LoggingOptionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LoggingOptions(java.lang.String name, LoggingOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/loggingOptions:LoggingOptions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoggingOptions(String name, Output<String> id, @Nullable LoggingOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/loggingOptions:LoggingOptions", name, state, makeResourceOptions(options, id));
+    private LoggingOptions(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/loggingOptions:LoggingOptions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LoggingOptionsArgs makeArgs(LoggingOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LoggingOptionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -145,7 +152,7 @@ public class LoggingOptions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoggingOptions get(String name, Output<String> id, @Nullable LoggingOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoggingOptions get(java.lang.String name, Output<java.lang.String> id, @Nullable LoggingOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoggingOptions(name, id, state, options);
     }
 }

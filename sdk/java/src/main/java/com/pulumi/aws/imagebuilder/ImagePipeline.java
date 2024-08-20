@@ -9,12 +9,14 @@ import com.pulumi.aws.imagebuilder.inputs.ImagePipelineState;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineSchedule;
+import com.pulumi.aws.imagebuilder.outputs.ImagePipelineWorkflow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -201,6 +203,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedImageMetadataEnabled);
     }
     /**
+     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    @Export(name="executionRole", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> executionRole;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * 
+     */
+    public Output<Optional<String>> executionRole() {
+        return Codegen.optional(this.executionRole);
+    }
+    /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
@@ -348,12 +364,26 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    @Export(name="workflows", refs={List.class,ImagePipelineWorkflow.class}, tree="[0,1]")
+    private Output<List<ImagePipelineWorkflow>> workflows;
+
+    /**
+     * @return Configuration block with the workflow configuration. Detailed below.
+     * 
+     */
+    public Output<List<ImagePipelineWorkflow>> workflows() {
+        return this.workflows;
+    }
 
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ImagePipeline(String name) {
+    public ImagePipeline(java.lang.String name) {
         this(name, ImagePipelineArgs.Empty);
     }
     /**
@@ -361,7 +391,7 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ImagePipeline(String name, ImagePipelineArgs args) {
+    public ImagePipeline(java.lang.String name, ImagePipelineArgs args) {
         this(name, args, null);
     }
     /**
@@ -370,15 +400,22 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ImagePipeline(String name, ImagePipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, args == null ? ImagePipelineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ImagePipeline(java.lang.String name, ImagePipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ImagePipeline(String name, Output<String> id, @Nullable ImagePipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, state, makeResourceOptions(options, id));
+    private ImagePipeline(java.lang.String name, Output<java.lang.String> id, @Nullable ImagePipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:imagebuilder/imagePipeline:ImagePipeline", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ImagePipelineArgs makeArgs(ImagePipelineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ImagePipelineArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -394,7 +431,7 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ImagePipeline get(String name, Output<String> id, @Nullable ImagePipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ImagePipeline get(java.lang.String name, Output<java.lang.String> id, @Nullable ImagePipelineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ImagePipeline(name, id, state, options);
     }
 }

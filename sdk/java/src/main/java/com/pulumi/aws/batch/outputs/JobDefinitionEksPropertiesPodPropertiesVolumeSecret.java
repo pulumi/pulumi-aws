@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
+    /**
+     * @return Whether the secret or the secret&#39;s keys must be defined.
+     * 
+     */
     private @Nullable Boolean optional;
+    /**
+     * @return Name of the secret. The name must be allowed as a DNS subdomain name.
+     * 
+     */
     private String secretName;
 
     private JobDefinitionEksPropertiesPodPropertiesVolumeSecret() {}
+    /**
+     * @return Whether the secret or the secret&#39;s keys must be defined.
+     * 
+     */
     public Optional<Boolean> optional() {
         return Optional.ofNullable(this.optional);
     }
+    /**
+     * @return Name of the secret. The name must be allowed as a DNS subdomain name.
+     * 
+     */
     public String secretName() {
         return this.secretName;
     }

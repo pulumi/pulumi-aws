@@ -232,7 +232,7 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public HoursOfOperation(String name) {
+    public HoursOfOperation(java.lang.String name) {
         this(name, HoursOfOperationArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public HoursOfOperation(String name, HoursOfOperationArgs args) {
+    public HoursOfOperation(java.lang.String name, HoursOfOperationArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,15 +249,22 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public HoursOfOperation(String name, HoursOfOperationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/hoursOfOperation:HoursOfOperation", name, args == null ? HoursOfOperationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public HoursOfOperation(java.lang.String name, HoursOfOperationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/hoursOfOperation:HoursOfOperation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private HoursOfOperation(String name, Output<String> id, @Nullable HoursOfOperationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:connect/hoursOfOperation:HoursOfOperation", name, state, makeResourceOptions(options, id));
+    private HoursOfOperation(java.lang.String name, Output<java.lang.String> id, @Nullable HoursOfOperationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:connect/hoursOfOperation:HoursOfOperation", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static HoursOfOperationArgs makeArgs(HoursOfOperationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HoursOfOperationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -273,7 +280,7 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static HoursOfOperation get(String name, Output<String> id, @Nullable HoursOfOperationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static HoursOfOperation get(java.lang.String name, Output<java.lang.String> id, @Nullable HoursOfOperationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new HoursOfOperation(name, id, state, options);
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -115,6 +116,21 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+     * 
+     */
+    @Import(name="clusterMode")
+    private @Nullable Output<String> clusterMode;
+
+    /**
+     * @return Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+     * 
+     */
+    public Optional<Output<String>> clusterMode() {
+        return Optional.ofNullable(this.clusterMode);
+    }
+
+    /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      * 
      */
@@ -133,15 +149,15 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * User-created description for the replication group. Must not be empty.
      * 
      */
-    @Import(name="description")
-    private @Nullable Output<String> description;
+    @Import(name="description", required=true)
+    private Output<String> description;
 
     /**
      * @return User-created description for the replication group. Must not be empty.
      * 
      */
-    public Optional<Output<String>> description() {
-        return Optional.ofNullable(this.description);
+    public Output<String> description() {
+        return this.description;
     }
 
     /**
@@ -275,14 +291,18 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+     * Specifies whether to enable Multi-AZ Support for the replication group.
+     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * Defaults to `false`.
      * 
      */
     @Import(name="multiAzEnabled")
     private @Nullable Output<Boolean> multiAzEnabled;
 
     /**
-     * @return Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+     * @return Specifies whether to enable Multi-AZ Support for the replication group.
+     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> multiAzEnabled() {
@@ -335,14 +355,22 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have.
+     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * Updates will occur before other modifications.
+     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Defaults to `1`.
      * 
      */
     @Import(name="numCacheClusters")
     private @Nullable Output<Integer> numCacheClusters;
 
     /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+     * @return Number of cache clusters (primary and replicas) this replication group will have.
+     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * Updates will occur before other modifications.
+     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> numCacheClusters() {
@@ -352,6 +380,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
+     * Conflicts with `num_cache_clusters`.
      * 
      */
     @Import(name="numNodeGroups")
@@ -360,6 +389,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
+     * Conflicts with `num_cache_clusters`.
      * 
      */
     public Optional<Output<Integer>> numNodeGroups() {
@@ -415,6 +445,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
+     * Conflicts with `num_cache_clusters`.
+     * Can only be set if `num_node_groups` is set.
      * 
      */
     @Import(name="replicasPerNodeGroup")
@@ -424,6 +456,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * @return Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
+     * Conflicts with `num_cache_clusters`.
+     * Can only be set if `num_node_groups` is set.
      * 
      */
     public Optional<Output<Integer>> replicasPerNodeGroup() {
@@ -633,6 +667,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         this.authTokenUpdateStrategy = $.authTokenUpdateStrategy;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
+        this.clusterMode = $.clusterMode;
         this.dataTieringEnabled = $.dataTieringEnabled;
         this.description = $.description;
         this.engine = $.engine;
@@ -816,6 +851,27 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param clusterMode Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterMode(@Nullable Output<String> clusterMode) {
+            $.clusterMode = clusterMode;
+            return this;
+        }
+
+        /**
+         * @param clusterMode Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterMode(String clusterMode) {
+            return clusterMode(Output.of(clusterMode));
+        }
+
+        /**
          * @param dataTieringEnabled Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
          * 
          * @return builder
@@ -842,7 +898,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder description(@Nullable Output<String> description) {
+        public Builder description(Output<String> description) {
             $.description = description;
             return this;
         }
@@ -1046,7 +1102,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+         * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group.
+         * If `true`, `automatic_failover_enabled` must also be enabled.
+         * Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1057,7 +1115,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+         * @param multiAzEnabled Specifies whether to enable Multi-AZ Support for the replication group.
+         * If `true`, `automatic_failover_enabled` must also be enabled.
+         * Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1130,7 +1190,11 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have.
+         * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+         * Updates will occur before other modifications.
+         * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+         * Defaults to `1`.
          * 
          * @return builder
          * 
@@ -1141,7 +1205,11 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have.
+         * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+         * Updates will occur before other modifications.
+         * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+         * Defaults to `1`.
          * 
          * @return builder
          * 
@@ -1153,6 +1221,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
          * Changing this number will trigger a resizing operation before other settings modifications.
+         * Conflicts with `num_cache_clusters`.
          * 
          * @return builder
          * 
@@ -1165,6 +1234,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param numNodeGroups Number of node groups (shards) for this Redis replication group.
          * Changing this number will trigger a resizing operation before other settings modifications.
+         * Conflicts with `num_cache_clusters`.
          * 
          * @return builder
          * 
@@ -1250,6 +1320,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
          * Valid values are 0 to 5.
+         * Conflicts with `num_cache_clusters`.
+         * Can only be set if `num_node_groups` is set.
          * 
          * @return builder
          * 
@@ -1263,6 +1335,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @param replicasPerNodeGroup Number of replica nodes in each node group.
          * Changing this number will trigger a resizing operation before other settings modifications.
          * Valid values are 0 to 5.
+         * Conflicts with `num_cache_clusters`.
+         * Can only be set if `num_node_groups` is set.
          * 
          * @return builder
          * 
@@ -1578,6 +1652,9 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ReplicationGroupArgs build() {
+            if ($.description == null) {
+                throw new MissingRequiredPropertyException("ReplicationGroupArgs", "description");
+            }
             return $;
         }
     }

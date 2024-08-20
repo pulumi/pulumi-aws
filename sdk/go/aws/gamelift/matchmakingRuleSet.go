@@ -21,6 +21,8 @@ import (
 // ```sh
 // $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
 // ```
+//
+// Deprecated: This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead
 type MatchmakingRuleSet struct {
 	pulumi.CustomResourceState
 

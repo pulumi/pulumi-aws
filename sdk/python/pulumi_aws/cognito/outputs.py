@@ -58,8 +58,21 @@ __all__ = [
     'UserPoolVerificationMessageTemplate',
     'GetIdentityPoolCognitoIdentityProviderResult',
     'GetUserGroupsGroupResult',
+    'GetUserPoolAccountRecoverySettingResult',
+    'GetUserPoolAccountRecoverySettingRecoveryMechanismResult',
+    'GetUserPoolAdminCreateUserConfigResult',
+    'GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult',
     'GetUserPoolClientAnalyticsConfigurationResult',
     'GetUserPoolClientTokenValidityUnitResult',
+    'GetUserPoolDeviceConfigurationResult',
+    'GetUserPoolEmailConfigurationResult',
+    'GetUserPoolLambdaConfigResult',
+    'GetUserPoolLambdaConfigCustomEmailSenderResult',
+    'GetUserPoolLambdaConfigCustomSmsSenderResult',
+    'GetUserPoolLambdaConfigPreTokenGenerationConfigResult',
+    'GetUserPoolSchemaAttributeResult',
+    'GetUserPoolSchemaAttributeNumberAttributeConstraintResult',
+    'GetUserPoolSchemaAttributeStringAttributeConstraintResult',
 ]
 
 @pulumi.output_type
@@ -154,6 +167,12 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
                  type: str,
                  ambiguous_role_resolution: Optional[str] = None,
                  mapping_rules: Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']] = None):
+        """
+        :param str identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        :param str type: The role mapping type.
+        :param str ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
         if ambiguous_role_resolution is not None:
@@ -164,21 +183,33 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> str:
+        """
+        A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
+        """
         return pulumi.get(self, "identity_provider")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The role mapping type.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="ambiguousRoleResolution")
     def ambiguous_role_resolution(self) -> Optional[str]:
+        """
+        Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
+        """
         return pulumi.get(self, "ambiguous_role_resolution")
 
     @property
     @pulumi.getter(name="mappingRules")
     def mapping_rules(self) -> Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']]:
+        """
+        The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        """
         return pulumi.get(self, "mapping_rules")
 
 
@@ -208,6 +239,12 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
                  match_type: str,
                  role_arn: str,
                  value: str):
+        """
+        :param str claim: The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        :param str match_type: The match condition that specifies how closely the claim value in the IdP token must match Value.
+        :param str role_arn: The role ARN.
+        :param str value: A brief string that the claim must match, for example, "paid" or "yes".
+        """
         pulumi.set(__self__, "claim", claim)
         pulumi.set(__self__, "match_type", match_type)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -216,21 +253,33 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
     @property
     @pulumi.getter
     def claim(self) -> str:
+        """
+        The claim name that must be present in the token, for example, "isAdmin" or "paid".
+        """
         return pulumi.get(self, "claim")
 
     @property
     @pulumi.getter(name="matchType")
     def match_type(self) -> str:
+        """
+        The match condition that specifies how closely the claim value in the IdP token must match Value.
+        """
         return pulumi.get(self, "match_type")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The role ARN.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A brief string that the claim must match, for example, "paid" or "yes".
+        """
         return pulumi.get(self, "value")
 
 
@@ -414,17 +463,27 @@ class ResourceServerScope(dict):
     def __init__(__self__, *,
                  scope_description: str,
                  scope_name: str):
+        """
+        :param str scope_description: The scope description.
+        :param str scope_name: The scope name.
+        """
         pulumi.set(__self__, "scope_description", scope_description)
         pulumi.set(__self__, "scope_name", scope_name)
 
     @property
     @pulumi.getter(name="scopeDescription")
     def scope_description(self) -> str:
+        """
+        The scope description.
+        """
         return pulumi.get(self, "scope_description")
 
     @property
     @pulumi.getter(name="scopeName")
     def scope_name(self) -> str:
+        """
+        The scope name.
+        """
         return pulumi.get(self, "scope_name")
 
 
@@ -560,6 +619,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
+        """
+        :param bool notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -571,6 +633,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     @property
     @pulumi.getter
     def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
 
@@ -596,6 +661,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
+        """
+        :param bool notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -607,6 +675,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     @property
     @pulumi.getter
     def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
 
@@ -632,6 +703,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
     def __init__(__self__, *,
                  event_action: str,
                  notify: bool):
+        """
+        :param bool notify: Whether to send a notification.
+        """
         pulumi.set(__self__, "event_action", event_action)
         pulumi.set(__self__, "notify", notify)
 
@@ -643,6 +717,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
     @property
     @pulumi.getter
     def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
         return pulumi.get(self, "notify")
 
 
@@ -776,6 +853,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
                  html_body: str,
                  subject: str,
                  text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        :param str text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -783,16 +865,25 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
 
@@ -821,6 +912,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
                  html_body: str,
                  subject: str,
                  text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        :param str text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -828,16 +924,25 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
 
@@ -866,6 +971,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
                  html_body: str,
                  subject: str,
                  text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        :param str text_body: The email text body.
+        """
         pulumi.set(__self__, "html_body", html_body)
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "text_body", text_body)
@@ -873,16 +983,25 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     @property
     @pulumi.getter(name="htmlBody")
     def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
         return pulumi.get(self, "html_body")
 
     @property
     @pulumi.getter
     def subject(self) -> str:
+        """
+        The email subject.
+        """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter(name="textBody")
     def text_body(self) -> str:
+        """
+        The email text body.
+        """
         return pulumi.get(self, "text_body")
 
 
@@ -2542,6 +2661,125 @@ class GetUserGroupsGroupResult(dict):
 
 
 @pulumi.output_type
+class GetUserPoolAccountRecoverySettingResult(dict):
+    def __init__(__self__, *,
+                 recovery_mechanisms: Sequence['outputs.GetUserPoolAccountRecoverySettingRecoveryMechanismResult']):
+        pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+
+    @property
+    @pulumi.getter(name="recoveryMechanisms")
+    def recovery_mechanisms(self) -> Sequence['outputs.GetUserPoolAccountRecoverySettingRecoveryMechanismResult']:
+        return pulumi.get(self, "recovery_mechanisms")
+
+
+@pulumi.output_type
+class GetUserPoolAccountRecoverySettingRecoveryMechanismResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 priority: int):
+        """
+        :param str name: - Name of the attribute.
+        :param int priority: - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        - Name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class GetUserPoolAdminCreateUserConfigResult(dict):
+    def __init__(__self__, *,
+                 allow_admin_create_user_only: bool,
+                 invite_message_templates: Sequence['outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult'],
+                 unused_account_validity_days: int):
+        """
+        :param bool allow_admin_create_user_only: - Whether only admins can create users.
+        :param int unused_account_validity_days: - Number of days an unconfirmed user account remains valid.
+               * invite_message_template - Templates for invitation messages.
+        """
+        pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
+        pulumi.set(__self__, "invite_message_templates", invite_message_templates)
+        pulumi.set(__self__, "unused_account_validity_days", unused_account_validity_days)
+
+    @property
+    @pulumi.getter(name="allowAdminCreateUserOnly")
+    def allow_admin_create_user_only(self) -> bool:
+        """
+        - Whether only admins can create users.
+        """
+        return pulumi.get(self, "allow_admin_create_user_only")
+
+    @property
+    @pulumi.getter(name="inviteMessageTemplates")
+    def invite_message_templates(self) -> Sequence['outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult']:
+        return pulumi.get(self, "invite_message_templates")
+
+    @property
+    @pulumi.getter(name="unusedAccountValidityDays")
+    def unused_account_validity_days(self) -> int:
+        """
+        - Number of days an unconfirmed user account remains valid.
+        * invite_message_template - Templates for invitation messages.
+        """
+        return pulumi.get(self, "unused_account_validity_days")
+
+
+@pulumi.output_type
+class GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult(dict):
+    def __init__(__self__, *,
+                 email_message: str,
+                 email_subject: str,
+                 sms_message: str):
+        """
+        :param str email_message: - Email message content.
+        :param str email_subject: - Email message subject.
+        :param str sms_message: - SMS message content.
+        """
+        pulumi.set(__self__, "email_message", email_message)
+        pulumi.set(__self__, "email_subject", email_subject)
+        pulumi.set(__self__, "sms_message", sms_message)
+
+    @property
+    @pulumi.getter(name="emailMessage")
+    def email_message(self) -> str:
+        """
+        - Email message content.
+        """
+        return pulumi.get(self, "email_message")
+
+    @property
+    @pulumi.getter(name="emailSubject")
+    def email_subject(self) -> str:
+        """
+        - Email message subject.
+        """
+        return pulumi.get(self, "email_subject")
+
+    @property
+    @pulumi.getter(name="smsMessage")
+    def sms_message(self) -> str:
+        """
+        - SMS message content.
+        """
+        return pulumi.get(self, "sms_message")
+
+
+@pulumi.output_type
 class GetUserPoolClientAnalyticsConfigurationResult(dict):
     def __init__(__self__, *,
                  application_arn: str,
@@ -2641,5 +2879,424 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
         (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
         """
         return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class GetUserPoolDeviceConfigurationResult(dict):
+    def __init__(__self__, *,
+                 challenge_required_on_new_device: bool,
+                 device_only_remembered_on_user_prompt: bool):
+        """
+        :param bool challenge_required_on_new_device: - Whether a challenge is required on new devices.
+        :param bool device_only_remembered_on_user_prompt: - Whether devices are only remembered if the user prompts it.
+        """
+        pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
+        pulumi.set(__self__, "device_only_remembered_on_user_prompt", device_only_remembered_on_user_prompt)
+
+    @property
+    @pulumi.getter(name="challengeRequiredOnNewDevice")
+    def challenge_required_on_new_device(self) -> bool:
+        """
+        - Whether a challenge is required on new devices.
+        """
+        return pulumi.get(self, "challenge_required_on_new_device")
+
+    @property
+    @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
+    def device_only_remembered_on_user_prompt(self) -> bool:
+        """
+        - Whether devices are only remembered if the user prompts it.
+        """
+        return pulumi.get(self, "device_only_remembered_on_user_prompt")
+
+
+@pulumi.output_type
+class GetUserPoolEmailConfigurationResult(dict):
+    def __init__(__self__, *,
+                 configuration_set: str,
+                 email_sending_account: str,
+                 from_: str,
+                 reply_to_email_address: str,
+                 source_arn: str):
+        """
+        :param str configuration_set: - Configuration set used for sending emails.
+        :param str email_sending_account: - Email sending account.
+        :param str from_: - Email sender address.
+        :param str reply_to_email_address: - Reply-to email address.
+        :param str source_arn: - Source Amazon Resource Name (ARN) for emails.
+        """
+        pulumi.set(__self__, "configuration_set", configuration_set)
+        pulumi.set(__self__, "email_sending_account", email_sending_account)
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "reply_to_email_address", reply_to_email_address)
+        pulumi.set(__self__, "source_arn", source_arn)
+
+    @property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> str:
+        """
+        - Configuration set used for sending emails.
+        """
+        return pulumi.get(self, "configuration_set")
+
+    @property
+    @pulumi.getter(name="emailSendingAccount")
+    def email_sending_account(self) -> str:
+        """
+        - Email sending account.
+        """
+        return pulumi.get(self, "email_sending_account")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> str:
+        """
+        - Email sender address.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter(name="replyToEmailAddress")
+    def reply_to_email_address(self) -> str:
+        """
+        - Reply-to email address.
+        """
+        return pulumi.get(self, "reply_to_email_address")
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> str:
+        """
+        - Source Amazon Resource Name (ARN) for emails.
+        """
+        return pulumi.get(self, "source_arn")
+
+
+@pulumi.output_type
+class GetUserPoolLambdaConfigResult(dict):
+    def __init__(__self__, *,
+                 create_auth_challenge: str,
+                 custom_email_senders: Sequence['outputs.GetUserPoolLambdaConfigCustomEmailSenderResult'],
+                 custom_message: str,
+                 custom_sms_senders: Sequence['outputs.GetUserPoolLambdaConfigCustomSmsSenderResult'],
+                 define_auth_challenge: str,
+                 kms_key_id: str,
+                 post_authentication: str,
+                 post_confirmation: str,
+                 pre_authentication: str,
+                 pre_sign_up: str,
+                 pre_token_generation: str,
+                 pre_token_generation_configs: Sequence['outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult'],
+                 user_migration: str,
+                 verify_auth_challenge_response: str):
+        pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
+        pulumi.set(__self__, "custom_email_senders", custom_email_senders)
+        pulumi.set(__self__, "custom_message", custom_message)
+        pulumi.set(__self__, "custom_sms_senders", custom_sms_senders)
+        pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        pulumi.set(__self__, "post_authentication", post_authentication)
+        pulumi.set(__self__, "post_confirmation", post_confirmation)
+        pulumi.set(__self__, "pre_authentication", pre_authentication)
+        pulumi.set(__self__, "pre_sign_up", pre_sign_up)
+        pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+        pulumi.set(__self__, "pre_token_generation_configs", pre_token_generation_configs)
+        pulumi.set(__self__, "user_migration", user_migration)
+        pulumi.set(__self__, "verify_auth_challenge_response", verify_auth_challenge_response)
+
+    @property
+    @pulumi.getter(name="createAuthChallenge")
+    def create_auth_challenge(self) -> str:
+        return pulumi.get(self, "create_auth_challenge")
+
+    @property
+    @pulumi.getter(name="customEmailSenders")
+    def custom_email_senders(self) -> Sequence['outputs.GetUserPoolLambdaConfigCustomEmailSenderResult']:
+        return pulumi.get(self, "custom_email_senders")
+
+    @property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> str:
+        return pulumi.get(self, "custom_message")
+
+    @property
+    @pulumi.getter(name="customSmsSenders")
+    def custom_sms_senders(self) -> Sequence['outputs.GetUserPoolLambdaConfigCustomSmsSenderResult']:
+        return pulumi.get(self, "custom_sms_senders")
+
+    @property
+    @pulumi.getter(name="defineAuthChallenge")
+    def define_auth_challenge(self) -> str:
+        return pulumi.get(self, "define_auth_challenge")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="postAuthentication")
+    def post_authentication(self) -> str:
+        return pulumi.get(self, "post_authentication")
+
+    @property
+    @pulumi.getter(name="postConfirmation")
+    def post_confirmation(self) -> str:
+        return pulumi.get(self, "post_confirmation")
+
+    @property
+    @pulumi.getter(name="preAuthentication")
+    def pre_authentication(self) -> str:
+        return pulumi.get(self, "pre_authentication")
+
+    @property
+    @pulumi.getter(name="preSignUp")
+    def pre_sign_up(self) -> str:
+        return pulumi.get(self, "pre_sign_up")
+
+    @property
+    @pulumi.getter(name="preTokenGeneration")
+    def pre_token_generation(self) -> str:
+        return pulumi.get(self, "pre_token_generation")
+
+    @property
+    @pulumi.getter(name="preTokenGenerationConfigs")
+    def pre_token_generation_configs(self) -> Sequence['outputs.GetUserPoolLambdaConfigPreTokenGenerationConfigResult']:
+        return pulumi.get(self, "pre_token_generation_configs")
+
+    @property
+    @pulumi.getter(name="userMigration")
+    def user_migration(self) -> str:
+        return pulumi.get(self, "user_migration")
+
+    @property
+    @pulumi.getter(name="verifyAuthChallengeResponse")
+    def verify_auth_challenge_response(self) -> str:
+        return pulumi.get(self, "verify_auth_challenge_response")
+
+
+@pulumi.output_type
+class GetUserPoolLambdaConfigCustomEmailSenderResult(dict):
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: - ARN of the Lambda function.
+        :param str lambda_version: - Version of the Lambda function.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        - ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        - Version of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class GetUserPoolLambdaConfigCustomSmsSenderResult(dict):
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: - ARN of the Lambda function.
+        :param str lambda_version: - Version of the Lambda function.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        - ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        - Version of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class GetUserPoolLambdaConfigPreTokenGenerationConfigResult(dict):
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: - ARN of the Lambda function.
+        :param str lambda_version: - Version of the Lambda function.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        - ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        - Version of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class GetUserPoolSchemaAttributeResult(dict):
+    def __init__(__self__, *,
+                 attribute_data_type: str,
+                 developer_only_attribute: bool,
+                 mutable: bool,
+                 name: str,
+                 number_attribute_constraints: Sequence['outputs.GetUserPoolSchemaAttributeNumberAttributeConstraintResult'],
+                 required: bool,
+                 string_attribute_constraints: Sequence['outputs.GetUserPoolSchemaAttributeStringAttributeConstraintResult']):
+        """
+        :param str attribute_data_type: - Data type of the attribute (e.g., string, number).
+        :param bool developer_only_attribute: - Whether the attribute is for developer use only.
+        :param bool mutable: - Whether the attribute can be changed after user creation.
+        :param str name: - Name of the attribute.
+        :param bool required: - Whether the attribute is required during user registration.
+               * number_attribute_constraints - Constraints for numeric attributes.
+               * string_attribute_constraints - Constraints for string attributes.
+        """
+        pulumi.set(__self__, "attribute_data_type", attribute_data_type)
+        pulumi.set(__self__, "developer_only_attribute", developer_only_attribute)
+        pulumi.set(__self__, "mutable", mutable)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "number_attribute_constraints", number_attribute_constraints)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "string_attribute_constraints", string_attribute_constraints)
+
+    @property
+    @pulumi.getter(name="attributeDataType")
+    def attribute_data_type(self) -> str:
+        """
+        - Data type of the attribute (e.g., string, number).
+        """
+        return pulumi.get(self, "attribute_data_type")
+
+    @property
+    @pulumi.getter(name="developerOnlyAttribute")
+    def developer_only_attribute(self) -> bool:
+        """
+        - Whether the attribute is for developer use only.
+        """
+        return pulumi.get(self, "developer_only_attribute")
+
+    @property
+    @pulumi.getter
+    def mutable(self) -> bool:
+        """
+        - Whether the attribute can be changed after user creation.
+        """
+        return pulumi.get(self, "mutable")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        - Name of the attribute.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numberAttributeConstraints")
+    def number_attribute_constraints(self) -> Sequence['outputs.GetUserPoolSchemaAttributeNumberAttributeConstraintResult']:
+        return pulumi.get(self, "number_attribute_constraints")
+
+    @property
+    @pulumi.getter
+    def required(self) -> bool:
+        """
+        - Whether the attribute is required during user registration.
+        * number_attribute_constraints - Constraints for numeric attributes.
+        * string_attribute_constraints - Constraints for string attributes.
+        """
+        return pulumi.get(self, "required")
+
+    @property
+    @pulumi.getter(name="stringAttributeConstraints")
+    def string_attribute_constraints(self) -> Sequence['outputs.GetUserPoolSchemaAttributeStringAttributeConstraintResult']:
+        return pulumi.get(self, "string_attribute_constraints")
+
+
+@pulumi.output_type
+class GetUserPoolSchemaAttributeNumberAttributeConstraintResult(dict):
+    def __init__(__self__, *,
+                 max_value: str,
+                 min_value: str):
+        """
+        :param str max_value: - Maximum allowed value.
+        :param str min_value: - Minimum allowed value.
+        """
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> str:
+        """
+        - Maximum allowed value.
+        """
+        return pulumi.get(self, "max_value")
+
+    @property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> str:
+        """
+        - Minimum allowed value.
+        """
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class GetUserPoolSchemaAttributeStringAttributeConstraintResult(dict):
+    def __init__(__self__, *,
+                 max_length: str,
+                 min_length: str):
+        """
+        :param str max_length: - Maximum allowed length.
+        :param str min_length: - Minimum allowed length.
+        """
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "min_length", min_length)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> str:
+        """
+        - Maximum allowed length.
+        """
+        return pulumi.get(self, "max_length")
+
+    @property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> str:
+        """
+        - Minimum allowed length.
+        """
+        return pulumi.get(self, "min_length")
 
 

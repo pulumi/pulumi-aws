@@ -228,7 +228,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Workflow(String name) {
+    public Workflow(java.lang.String name) {
         this(name, WorkflowArgs.Empty);
     }
     /**
@@ -236,7 +236,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Workflow(String name, WorkflowArgs args) {
+    public Workflow(java.lang.String name, WorkflowArgs args) {
         this(name, args, null);
     }
     /**
@@ -245,15 +245,22 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Workflow(String name, WorkflowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/workflow:Workflow", name, args == null ? WorkflowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public Workflow(java.lang.String name, WorkflowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/workflow:Workflow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Workflow(String name, Output<String> id, @Nullable WorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:transfer/workflow:Workflow", name, state, makeResourceOptions(options, id));
+    private Workflow(java.lang.String name, Output<java.lang.String> id, @Nullable WorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:transfer/workflow:Workflow", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WorkflowArgs makeArgs(WorkflowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkflowArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +276,7 @@ public class Workflow extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Workflow get(String name, Output<String> id, @Nullable WorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Workflow get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkflowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Workflow(name, id, state, options);
     }
 }

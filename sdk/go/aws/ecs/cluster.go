@@ -45,7 +45,7 @@ import (
 //
 // ```
 //
-// ### Example with Log Configuration
+// ### Execute Command Configuration with Override Logging
 //
 // ```go
 // package main
@@ -96,9 +96,130 @@ import (
 //
 // ```
 //
+// ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
+//				Description:          pulumi.String("example"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Id": "ECSClusterFargatePolicy",
+//				"Statement": []interface{}{
+//					map[string]interface{}{
+//						"Sid":    "Enable IAM User Permissions",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"AWS": "*",
+//						},
+//						"Action":   "kms:*",
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow generate data key access for Fargate tasks.",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "fargate.amazonaws.com",
+//						},
+//						"Action": []string{
+//							"kms:GenerateDataKeyWithoutPlaintext",
+//						},
+//						"Condition": map[string]interface{}{
+//							"StringEquals": map[string]interface{}{
+//								"kms:EncryptionContext:aws:ecs:clusterAccount": []*string{
+//									current.AccountId,
+//								},
+//								"kms:EncryptionContext:aws:ecs:clusterName": []string{
+//									"example",
+//								},
+//							},
+//						},
+//						"Resource": "*",
+//					},
+//					map[string]interface{}{
+//						"Sid":    "Allow grant creation permission for Fargate tasks.",
+//						"Effect": "Allow",
+//						"Principal": map[string]interface{}{
+//							"Service": "fargate.amazonaws.com",
+//						},
+//						"Action": []string{
+//							"kms:CreateGrant",
+//						},
+//						"Condition": map[string]interface{}{
+//							"StringEquals": map[string]interface{}{
+//								"kms:EncryptionContext:aws:ecs:clusterAccount": []*string{
+//									current.AccountId,
+//								},
+//								"kms:EncryptionContext:aws:ecs:clusterName": []string{
+//									"example",
+//								},
+//							},
+//							"ForAllValues:StringEquals": map[string]interface{}{
+//								"kms:GrantOperations": []string{
+//									"Decrypt",
+//								},
+//							},
+//						},
+//						"Resource": "*",
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleKeyPolicy, err := kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
+//				KeyId:  example.ID(),
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
+//				Name: pulumi.String("example"),
+//				Configuration: &ecs.ClusterConfigurationArgs{
+//					ManagedStorageConfiguration: &ecs.ClusterConfigurationManagedStorageConfigurationArgs{
+//						FargateEphemeralStorageKmsKeyId: example.ID(),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleKeyPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import ECS clusters using the `name`. For example:
+// Using `pulumi import`, import ECS clusters using the cluster name. For example:
 //
 // ```sh
 // $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -108,13 +229,15 @@ type Cluster struct {
 
 	// ARN that identifies the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The execute command configuration for the cluster. Detailed below.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configures a default Service Connect namespace. Detailed below.
+	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrOutput `pulumi:"serviceConnectDefaults"`
-	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,13 +279,15 @@ func GetCluster(ctx *pulumi.Context,
 type clusterState struct {
 	// ARN that identifies the cluster.
 	Arn *string `pulumi:"arn"`
-	// The execute command configuration for the cluster. Detailed below.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Configures a default Service Connect namespace. Detailed below.
+	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
-	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 	Settings []ClusterSetting `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,13 +300,15 @@ type clusterState struct {
 type ClusterState struct {
 	// ARN that identifies the cluster.
 	Arn pulumi.StringPtrInput
-	// The execute command configuration for the cluster. Detailed below.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Configures a default Service Connect namespace. Detailed below.
+	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
-	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 	Settings ClusterSettingArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -196,13 +323,15 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// The execute command configuration for the cluster. Detailed below.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Configures a default Service Connect namespace. Detailed below.
+	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults *ClusterServiceConnectDefaults `pulumi:"serviceConnectDefaults"`
-	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 	Settings []ClusterSetting `pulumi:"settings"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -210,13 +339,15 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// The execute command configuration for the cluster. Detailed below.
+	// Execute command configuration for the cluster. See `configuration` Block for details.
 	Configuration ClusterConfigurationPtrInput
 	// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Configures a default Service Connect namespace. Detailed below.
+	// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 	ServiceConnectDefaults ClusterServiceConnectDefaultsPtrInput
-	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 	Settings ClusterSettingArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -314,22 +445,24 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The execute command configuration for the cluster. Detailed below.
+// Execute command configuration for the cluster. See `configuration` Block for details.
 func (o ClusterOutput) Configuration() ClusterConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterConfigurationPtrOutput { return v.Configuration }).(ClusterConfigurationPtrOutput)
 }
 
 // Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
+//
+// The following arguments are optional:
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configures a default Service Connect namespace. Detailed below.
+// Default Service Connect namespace. See `serviceConnectDefaults` Block for details.
 func (o ClusterOutput) ServiceConnectDefaults() ClusterServiceConnectDefaultsPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterServiceConnectDefaultsPtrOutput { return v.ServiceConnectDefaults }).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
-// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
 func (o ClusterOutput) Settings() ClusterSettingArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterSettingArrayOutput { return v.Settings }).(ClusterSettingArrayOutput)
 }

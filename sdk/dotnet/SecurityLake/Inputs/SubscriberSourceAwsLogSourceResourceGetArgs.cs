@@ -13,13 +13,13 @@ namespace Pulumi.Aws.SecurityLake.Inputs
     public sealed class SubscriberSourceAwsLogSourceResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name for a third-party custom source. This must be a Regionally unique value.
+        /// Provides data expiration details of Amazon Security Lake object.
         /// </summary>
         [Input("sourceName", required: true)]
         public Input<string> SourceName { get; set; } = null!;
 
         /// <summary>
-        /// The version for a third-party custom source. This must be a Regionally unique value.
+        /// Provides data storage transition details of Amazon Security Lake object.
         /// </summary>
         [Input("sourceVersion")]
         public Input<string>? SourceVersion { get; set; }

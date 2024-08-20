@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
     /// 
+    /// &gt; **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
+    /// 
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -48,7 +50,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///         DatabaseName = "mydb",
     ///         MasterUsername = "foo",
-    ///         MasterPassword = "bar",
+    ///         MasterPassword = "must_be_eight_characters",
     ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///     });
@@ -77,7 +79,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///         DatabaseName = "mydb",
     ///         MasterUsername = "foo",
-    ///         MasterPassword = "bar",
+    ///         MasterPassword = "must_be_eight_characters",
     ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///     });
@@ -107,7 +109,7 @@ namespace Pulumi.Aws.Rds
     ///         },
     ///         DatabaseName = "mydb",
     ///         MasterUsername = "foo",
-    ///         MasterPassword = "bar",
+    ///         MasterPassword = "must_be_eight_characters",
     ///         BackupRetentionPeriod = 5,
     ///         PreferredBackupWindow = "07:00-09:00",
     ///     });
@@ -342,6 +344,18 @@ namespace Pulumi.Aws.Rds
         public Output<int> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Output("caCertificateIdentifier")]
+        public Output<string> CaCertificateIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Expiration date of the DB instance’s server certificate
+        /// </summary>
+        [Output("caCertificateValidTill")]
+        public Output<string> CaCertificateValidTill { get; private set; } = null!;
+
+        /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
@@ -471,6 +485,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
+        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Output("engineLifecycleSupport")]
+        public Output<string> EngineLifecycleSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Output("engineMode")]
@@ -567,19 +587,37 @@ namespace Pulumi.Aws.Rds
         public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// Port on which the DB accepts connections
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        /// </summary>
+        [Output("performanceInsightsEnabled")]
+        public Output<bool?> PerformanceInsightsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// </summary>
+        [Output("performanceInsightsKmsKeyId")]
+        public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// </summary>
+        [Output("performanceInsightsRetentionPeriod")]
+        public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// Port on which the DB accepts connections.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -762,6 +800,12 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
+
+        /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
@@ -891,6 +935,12 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
+        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
+
+        /// <summary>
         /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
@@ -985,19 +1035,37 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Port on which the DB accepts connections
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        /// </summary>
+        [Input("performanceInsightsEnabled")]
+        public Input<bool>? PerformanceInsightsEnabled { get; set; }
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// Port on which the DB accepts connections.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -1143,6 +1211,18 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
+
+        /// <summary>
+        /// Expiration date of the DB instance’s server certificate
+        /// </summary>
+        [Input("caCertificateValidTill")]
+        public Input<string>? CaCertificateValidTill { get; set; }
+
+        /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
@@ -1284,6 +1364,12 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
+        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// </summary>
+        [Input("engineLifecycleSupport")]
+        public Input<string>? EngineLifecycleSupport { get; set; }
+
+        /// <summary>
         /// Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
         /// </summary>
         [Input("engineMode")]
@@ -1402,19 +1488,37 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Port on which the DB accepts connections
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        /// </summary>
+        [Input("performanceInsightsEnabled")]
+        public Input<bool>? PerformanceInsightsEnabled { get; set; }
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// </summary>
+        [Input("performanceInsightsKmsKeyId")]
+        public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// Port on which the DB accepts connections.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        /// Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

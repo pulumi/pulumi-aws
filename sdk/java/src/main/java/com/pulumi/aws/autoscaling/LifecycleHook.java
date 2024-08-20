@@ -219,7 +219,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LifecycleHook(String name) {
+    public LifecycleHook(java.lang.String name) {
         this(name, LifecycleHookArgs.Empty);
     }
     /**
@@ -227,7 +227,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LifecycleHook(String name, LifecycleHookArgs args) {
+    public LifecycleHook(java.lang.String name, LifecycleHookArgs args) {
         this(name, args, null);
     }
     /**
@@ -236,15 +236,22 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LifecycleHook(String name, LifecycleHookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:autoscaling/lifecycleHook:LifecycleHook", name, args == null ? LifecycleHookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LifecycleHook(java.lang.String name, LifecycleHookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:autoscaling/lifecycleHook:LifecycleHook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LifecycleHook(String name, Output<String> id, @Nullable LifecycleHookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:autoscaling/lifecycleHook:LifecycleHook", name, state, makeResourceOptions(options, id));
+    private LifecycleHook(java.lang.String name, Output<java.lang.String> id, @Nullable LifecycleHookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:autoscaling/lifecycleHook:LifecycleHook", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LifecycleHookArgs makeArgs(LifecycleHookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LifecycleHookArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -260,7 +267,7 @@ public class LifecycleHook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LifecycleHook get(String name, Output<String> id, @Nullable LifecycleHookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LifecycleHook get(java.lang.String name, Output<java.lang.String> id, @Nullable LifecycleHookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LifecycleHook(name, id, state, options);
     }
 }

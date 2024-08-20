@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Pipes.Inputs
         [Input("firehoseLogDestination")]
         public Input<Inputs.PipeLogConfigurationFirehoseLogDestinationArgs>? FirehoseLogDestination { get; set; }
 
+        [Input("includeExecutionDatas")]
+        private InputList<string>? _includeExecutionDatas;
+
+        /// <summary>
+        /// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
+        /// </summary>
+        public InputList<string> IncludeExecutionDatas
+        {
+            get => _includeExecutionDatas ?? (_includeExecutionDatas = new InputList<string>());
+            set => _includeExecutionDatas = value;
+        }
+
         /// <summary>
         /// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         /// </summary>

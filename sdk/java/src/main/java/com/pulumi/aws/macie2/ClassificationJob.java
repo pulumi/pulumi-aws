@@ -295,7 +295,7 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClassificationJob(String name) {
+    public ClassificationJob(java.lang.String name) {
         this(name, ClassificationJobArgs.Empty);
     }
     /**
@@ -303,7 +303,7 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClassificationJob(String name, ClassificationJobArgs args) {
+    public ClassificationJob(java.lang.String name, ClassificationJobArgs args) {
         this(name, args, null);
     }
     /**
@@ -312,15 +312,22 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClassificationJob(String name, ClassificationJobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie2/classificationJob:ClassificationJob", name, args == null ? ClassificationJobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ClassificationJob(java.lang.String name, ClassificationJobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:macie2/classificationJob:ClassificationJob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClassificationJob(String name, Output<String> id, @Nullable ClassificationJobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:macie2/classificationJob:ClassificationJob", name, state, makeResourceOptions(options, id));
+    private ClassificationJob(java.lang.String name, Output<java.lang.String> id, @Nullable ClassificationJobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:macie2/classificationJob:ClassificationJob", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ClassificationJobArgs makeArgs(ClassificationJobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClassificationJobArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -336,7 +343,7 @@ public class ClassificationJob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClassificationJob get(String name, Output<String> id, @Nullable ClassificationJobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClassificationJob get(java.lang.String name, Output<java.lang.String> id, @Nullable ClassificationJobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClassificationJob(name, id, state, options);
     }
 }

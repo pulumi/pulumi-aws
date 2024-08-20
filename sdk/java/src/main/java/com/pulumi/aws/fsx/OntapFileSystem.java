@@ -90,8 +90,87 @@ import javax.annotation.Nullable;
  *         var testhapairs = new OntapFileSystem("testhapairs", OntapFileSystemArgs.builder()
  *             .storageCapacity(2048)
  *             .subnetIds(test1.id())
+ *             .deploymentType("SINGLE_AZ_1")
+ *             .haPairs(2)
+ *             .throughputCapacityPerHaPair(128)
+ *             .preferredSubnetId(test1.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapFileSystem;
+ * import com.pulumi.aws.fsx.OntapFileSystemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testsingleazgen2 = new OntapFileSystem("testsingleazgen2", OntapFileSystemArgs.builder()
+ *             .storageCapacity(4096)
+ *             .subnetIds(test1.id())
  *             .deploymentType("SINGLE_AZ_2")
- *             .throughputCapacityPerHaPair(3072)
+ *             .haPairs(4)
+ *             .throughputCapacityPerHaPair(384)
+ *             .preferredSubnetId(test1.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapFileSystem;
+ * import com.pulumi.aws.fsx.OntapFileSystemArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testmultiazgen2 = new OntapFileSystem("testmultiazgen2", OntapFileSystemArgs.builder()
+ *             .storageCapacity(1024)
+ *             .subnetIds(            
+ *                 test1.id(),
+ *                 test2.id())
+ *             .deploymentType("MULTI_AZ_2")
+ *             .haPairs(1)
+ *             .throughputCapacityPerHaPair(384)
  *             .preferredSubnetId(test1.id())
  *             .build());
  * 
@@ -156,14 +235,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     public Output<String> deploymentType() {
@@ -240,14 +319,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fsxAdminPassword);
     }
     /**
-     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     @Export(name="haPairs", refs={Integer.class}, tree="[0]")
     private Output<Integer> haPairs;
 
     /**
-     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * @return The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     public Output<Integer> haPairs() {
@@ -338,14 +417,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     public Output<Integer> storageCapacity() {
@@ -426,14 +505,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.throughputCapacity;
     }
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     @Export(name="throughputCapacityPerHaPair", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacityPerHaPair;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * @return Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     public Output<Integer> throughputCapacityPerHaPair() {
@@ -472,7 +551,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OntapFileSystem(String name) {
+    public OntapFileSystem(java.lang.String name) {
         this(name, OntapFileSystemArgs.Empty);
     }
     /**
@@ -480,7 +559,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OntapFileSystem(String name, OntapFileSystemArgs args) {
+    public OntapFileSystem(java.lang.String name, OntapFileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -489,15 +568,22 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OntapFileSystem(String name, OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, args == null ? OntapFileSystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public OntapFileSystem(java.lang.String name, OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OntapFileSystem(String name, Output<String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, state, makeResourceOptions(options, id));
+    private OntapFileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:fsx/ontapFileSystem:OntapFileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static OntapFileSystemArgs makeArgs(OntapFileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OntapFileSystemArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -516,7 +602,7 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OntapFileSystem get(String name, Output<String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OntapFileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable OntapFileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OntapFileSystem(name, id, state, options);
     }
 }

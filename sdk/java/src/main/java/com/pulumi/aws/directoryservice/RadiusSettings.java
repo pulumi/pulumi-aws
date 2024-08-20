@@ -204,7 +204,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RadiusSettings(String name) {
+    public RadiusSettings(java.lang.String name) {
         this(name, RadiusSettingsArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RadiusSettings(String name, RadiusSettingsArgs args) {
+    public RadiusSettings(java.lang.String name, RadiusSettingsArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,15 +221,22 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RadiusSettings(String name, RadiusSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/radiusSettings:RadiusSettings", name, args == null ? RadiusSettingsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RadiusSettings(java.lang.String name, RadiusSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/radiusSettings:RadiusSettings", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RadiusSettings(String name, Output<String> id, @Nullable RadiusSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:directoryservice/radiusSettings:RadiusSettings", name, state, makeResourceOptions(options, id));
+    private RadiusSettings(java.lang.String name, Output<java.lang.String> id, @Nullable RadiusSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:directoryservice/radiusSettings:RadiusSettings", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RadiusSettingsArgs makeArgs(RadiusSettingsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RadiusSettingsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -248,7 +255,7 @@ public class RadiusSettings extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RadiusSettings get(String name, Output<String> id, @Nullable RadiusSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RadiusSettings get(java.lang.String name, Output<java.lang.String> id, @Nullable RadiusSettingsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RadiusSettings(name, id, state, options);
     }
 }

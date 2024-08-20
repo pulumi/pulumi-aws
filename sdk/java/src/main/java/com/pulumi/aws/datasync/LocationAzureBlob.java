@@ -229,7 +229,7 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocationAzureBlob(String name) {
+    public LocationAzureBlob(java.lang.String name) {
         this(name, LocationAzureBlobArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocationAzureBlob(String name, LocationAzureBlobArgs args) {
+    public LocationAzureBlob(java.lang.String name, LocationAzureBlobArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,15 +246,22 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocationAzureBlob(String name, LocationAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, args == null ? LocationAzureBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LocationAzureBlob(java.lang.String name, LocationAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocationAzureBlob(String name, Output<String> id, @Nullable LocationAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, state, makeResourceOptions(options, id));
+    private LocationAzureBlob(java.lang.String name, Output<java.lang.String> id, @Nullable LocationAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:datasync/locationAzureBlob:LocationAzureBlob", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static LocationAzureBlobArgs makeArgs(LocationAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocationAzureBlobArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +277,7 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocationAzureBlob get(String name, Output<String> id, @Nullable LocationAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocationAzureBlob get(java.lang.String name, Output<java.lang.String> id, @Nullable LocationAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocationAzureBlob(name, id, state, options);
     }
 }

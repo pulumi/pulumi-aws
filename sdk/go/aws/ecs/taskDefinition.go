@@ -112,7 +112,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
 //					Type:          pulumi.String("APPMESH"),
 //					ContainerName: pulumi.String("applicationContainerName"),
@@ -159,7 +159,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -169,8 +169,8 @@ import (
 //							Driver:        pulumi.String("local"),
 //							DriverOpts: pulumi.StringMap{
 //								"type":   pulumi.String("nfs"),
-//								"device": pulumi.String(fmt.Sprintf("%v:/", fs.DnsName)),
-//								"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName)),
+//								"device": pulumi.Sprintf("%v:/", fs.DnsName),
+//								"o":      pulumi.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", fs.DnsName),
 //							},
 //						},
 //					},
@@ -208,7 +208,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -275,7 +275,7 @@ import (
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 //				Family:               pulumi.String("service"),
-//				ContainerDefinitions: invokeFile.Result,
+//				ContainerDefinitions: pulumi.String(invokeFile.Result),
 //				Volumes: ecs.TaskDefinitionVolumeArray{
 //					&ecs.TaskDefinitionVolumeArgs{
 //						Name: pulumi.String("service-storage"),
@@ -464,7 +464,7 @@ type TaskDefinition struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
-	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrOutput `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
@@ -552,7 +552,7 @@ type taskDefinitionState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
-	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
@@ -605,7 +605,7 @@ type TaskDefinitionState struct {
 	TagsAll pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
-	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayInput
@@ -652,7 +652,7 @@ type taskDefinitionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
-	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest *bool `pulumi:"trackLatest"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
@@ -696,7 +696,7 @@ type TaskDefinitionArgs struct {
 	Tags pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
-	// Whether should track latest task definition or the one created with the resource. Default is `false`.
+	// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 	TrackLatest pulumi.BoolPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.
 	Volumes TaskDefinitionVolumeArrayInput
@@ -898,7 +898,7 @@ func (o TaskDefinitionOutput) TaskRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether should track latest task definition or the one created with the resource. Default is `false`.
+// Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
 func (o TaskDefinitionOutput) TrackLatest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.TrackLatest }).(pulumi.BoolPtrOutput)
 }

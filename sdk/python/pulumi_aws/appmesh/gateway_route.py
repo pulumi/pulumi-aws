@@ -333,11 +333,11 @@ class GatewayRoute(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "action": {
                         "target": {
-                            "virtualService": {
-                                "virtualServiceName": example_aws_appmesh_virtual_service["name"],
+                            "virtual_service": {
+                                "virtual_service_name": example_aws_appmesh_virtual_service["name"],
                             },
                         },
                     },
@@ -388,11 +388,11 @@ class GatewayRoute(pulumi.CustomResource):
             mesh_name="example-service-mesh",
             virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
             spec={
-                "httpRoute": {
+                "http_route": {
                     "action": {
                         "target": {
-                            "virtualService": {
-                                "virtualServiceName": example_aws_appmesh_virtual_service["name"],
+                            "virtual_service": {
+                                "virtual_service_name": example_aws_appmesh_virtual_service["name"],
                             },
                         },
                     },

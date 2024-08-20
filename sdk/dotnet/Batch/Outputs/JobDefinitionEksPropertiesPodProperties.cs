@@ -14,27 +14,31 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobDefinitionEksPropertiesPodProperties
     {
         /// <summary>
-        /// The properties of the container that's used on the Amazon EKS pod. See containers below.
+        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainers Containers;
         /// <summary>
-        /// The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        /// DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
         /// </summary>
         public readonly string? DnsPolicy;
         /// <summary>
-        /// Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        /// Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         /// </summary>
         public readonly bool? HostNetwork;
+        /// <summary>
+        /// List of Kubernetes secret resources. See `image_pull_secret` below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret> ImagePullSecrets;
         /// <summary>
         /// Metadata about the Kubernetes pod.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesMetadata? Metadata;
         /// <summary>
-        /// The name of the service account that's used to run the pod.
+        /// Name of the service account that's used to run the pod.
         /// </summary>
         public readonly string? ServiceAccountName;
         /// <summary>
-        /// Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        /// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesVolume> Volumes;
 
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Batch.Outputs
 
             bool? hostNetwork,
 
+            ImmutableArray<Outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets,
+
             Outputs.JobDefinitionEksPropertiesPodPropertiesMetadata? metadata,
 
             string? serviceAccountName,
@@ -55,6 +61,7 @@ namespace Pulumi.Aws.Batch.Outputs
             Containers = containers;
             DnsPolicy = dnsPolicy;
             HostNetwork = hostNetwork;
+            ImagePullSecrets = imagePullSecrets;
             Metadata = metadata;
             ServiceAccountName = serviceAccountName;
             Volumes = volumes;

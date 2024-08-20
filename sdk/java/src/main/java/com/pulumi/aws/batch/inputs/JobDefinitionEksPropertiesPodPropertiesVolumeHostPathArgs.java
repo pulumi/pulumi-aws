@@ -14,9 +14,17 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs ext
 
     public static final JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs Empty = new JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs();
 
+    /**
+     * Path of the file or directory on the host to mount into containers on the pod.
+     * 
+     */
     @Import(name="path", required=true)
     private Output<String> path;
 
+    /**
+     * @return Path of the file or directory on the host to mount into containers on the pod.
+     * 
+     */
     public Output<String> path() {
         return this.path;
     }
@@ -45,11 +53,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs ext
             $ = new JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param path Path of the file or directory on the host to mount into containers on the pod.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
+        /**
+         * @param path Path of the file or directory on the host to mount into containers on the pod.
+         * 
+         * @return builder
+         * 
+         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

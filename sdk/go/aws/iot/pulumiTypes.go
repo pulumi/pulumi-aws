@@ -2756,6 +2756,8 @@ func (o TopicRuleCloudwatchAlarmArrayOutput) Index(i pulumi.IntInput) TopicRuleC
 }
 
 type TopicRuleCloudwatchLog struct {
+	// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The CloudWatch log group name.
 	LogGroupName string `pulumi:"logGroupName"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
@@ -2774,6 +2776,8 @@ type TopicRuleCloudwatchLogInput interface {
 }
 
 type TopicRuleCloudwatchLogArgs struct {
+	// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The CloudWatch log group name.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
@@ -2829,6 +2833,11 @@ func (o TopicRuleCloudwatchLogOutput) ToTopicRuleCloudwatchLogOutput() TopicRule
 
 func (o TopicRuleCloudwatchLogOutput) ToTopicRuleCloudwatchLogOutputWithContext(ctx context.Context) TopicRuleCloudwatchLogOutput {
 	return o
+}
+
+// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+func (o TopicRuleCloudwatchLogOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleCloudwatchLog) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
 // The CloudWatch log group name.
@@ -4349,6 +4358,8 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) StateValue() pulumi.String
 }
 
 type TopicRuleErrorActionCloudwatchLogs struct {
+	// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The CloudWatch log group name.
 	LogGroupName string `pulumi:"logGroupName"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
@@ -4367,6 +4378,8 @@ type TopicRuleErrorActionCloudwatchLogsInput interface {
 }
 
 type TopicRuleErrorActionCloudwatchLogsArgs struct {
+	// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The CloudWatch log group name.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
@@ -4450,6 +4463,11 @@ func (o TopicRuleErrorActionCloudwatchLogsOutput) ToTopicRuleErrorActionCloudwat
 	}).(TopicRuleErrorActionCloudwatchLogsPtrOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+func (o TopicRuleErrorActionCloudwatchLogsOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // The CloudWatch log group name.
 func (o TopicRuleErrorActionCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
@@ -4482,6 +4500,16 @@ func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) Elem() TopicRuleErrorAction
 		var ret TopicRuleErrorActionCloudwatchLogs
 		return ret
 	}).(TopicRuleErrorActionCloudwatchLogsOutput)
+}
+
+// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+func (o TopicRuleErrorActionCloudwatchLogsPtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The CloudWatch log group name.

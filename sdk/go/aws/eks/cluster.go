@@ -148,7 +148,7 @@ import (
 //				clusterName = param
 //			}
 //			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name:            pulumi.String(fmt.Sprintf("/aws/eks/%v/cluster", clusterName)),
+//				Name:            pulumi.Sprintf("/aws/eks/%v/cluster", clusterName),
 //				RetentionInDays: pulumi.Int(7),
 //			})
 //			if err != nil {
@@ -198,22 +198,22 @@ import (
 //				return err
 //			}
 //			example := exampleCluster.Identities.ApplyT(func(identities []eks.ClusterIdentity) (tls.GetCertificateResult, error) {
-//				return tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
+//				return tls.GetCertificateResult(interface{}(tls.GetCertificateOutput(ctx, tls.GetCertificateOutputArgs{
 //					Url: identities[0].Oidcs[0].Issuer,
-//				}, nil), nil
+//				}, nil))), nil
 //			}).(tls.GetCertificateResultOutput)
 //			exampleOpenIdConnectProvider, err := iam.NewOpenIdConnectProvider(ctx, "example", &iam.OpenIdConnectProviderArgs{
 //				ClientIdLists: pulumi.StringArray{
 //					pulumi.String("sts.amazonaws.com"),
 //				},
 //				ThumbprintLists: pulumi.StringArray{
-//					example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//					pulumi.String(example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
 //						return &example.Certificates[0].Sha1Fingerprint, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
-//				Url: example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
+//				Url: pulumi.String(example.ApplyT(func(example tls.GetCertificateResult) (*string, error) {
 //					return &example.Url, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -252,9 +252,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
+//				AssumeRolePolicy: pulumi.String(exampleAssumeRolePolicy.ApplyT(func(exampleAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
 //					return &exampleAssumeRolePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -371,8 +371,10 @@ type Cluster struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig ClusterAccessConfigOutput `pulumi:"accessConfig"`
 	// ARN of the cluster.
-	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
-	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrOutput                   `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthorities     ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -406,6 +408,8 @@ type Cluster struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+	UpgradePolicy ClusterUpgradePolicyOutput `pulumi:"upgradePolicy"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -453,8 +457,10 @@ type clusterState struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// ARN of the cluster.
-	Arn                    *string                       `pulumi:"arn"`
-	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
+	Arn *string `pulumi:"arn"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons *bool                         `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthorities     []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -488,6 +494,8 @@ type clusterState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version *string `pulumi:"version"`
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -500,8 +508,10 @@ type ClusterState struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig ClusterAccessConfigPtrInput
 	// ARN of the cluster.
-	Arn                    pulumi.StringPtrInput
-	CertificateAuthorities ClusterCertificateAuthorityArrayInput
+	Arn pulumi.StringPtrInput
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	CertificateAuthorities     ClusterCertificateAuthorityArrayInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority ClusterCertificateAuthorityPtrInput
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -535,6 +545,8 @@ type ClusterState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version pulumi.StringPtrInput
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -549,8 +561,10 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
-	AccessConfig           *ClusterAccessConfig `pulumi:"accessConfig"`
-	DefaultAddonsToRemoves []string             `pulumi:"defaultAddonsToRemoves"`
+	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons *bool    `pulumi:"bootstrapSelfManagedAddons"`
+	DefaultAddonsToRemoves     []string `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -565,6 +579,8 @@ type clusterArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version *string `pulumi:"version"`
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -576,8 +592,10 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
-	AccessConfig           ClusterAccessConfigPtrInput
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	AccessConfig ClusterAccessConfigPtrInput
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	DefaultAddonsToRemoves     pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -592,6 +610,8 @@ type ClusterArgs struct {
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
 	Version pulumi.StringPtrInput
 	// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
@@ -697,6 +717,11 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.BootstrapSelfManagedAddons }).(pulumi.BoolPtrOutput)
+}
+
 func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityArrayOutput { return v.CertificateAuthorities }).(ClusterCertificateAuthorityArrayOutput)
 }
@@ -780,6 +805,11 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Configuration block for the support policy to use for the cluster.  See upgradePolicy for details.
+func (o ClusterOutput) UpgradePolicy() ClusterUpgradePolicyOutput {
+	return o.ApplyT(func(v *Cluster) ClusterUpgradePolicyOutput { return v.UpgradePolicy }).(ClusterUpgradePolicyOutput)
 }
 
 // Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.

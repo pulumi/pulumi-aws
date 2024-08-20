@@ -153,6 +153,46 @@ namespace Pulumi.Aws.Sfn
     /// });
     /// ```
     /// 
+    /// ### Encryption
+    /// 
+    /// &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ...
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfn_state_machine", new()
+    ///     {
+    ///         Name = "my-state-machine",
+    ///         RoleArn = iamForSfn.Arn,
+    ///         Definition = @$"{{
+    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
+    ///   ""StartAt"": ""HelloWorld"",
+    ///   ""States"": {{
+    ///     ""HelloWorld"": {{
+    ///       ""Type"": ""Task"",
+    ///       ""Resource"": ""{lambda.Arn}"",
+    ///       ""End"": true
+    ///     }}
+    ///   }}
+    /// }}
+    /// ",
+    ///         EncryptionConfiguration = new Aws.Sfn.Inputs.StateMachineEncryptionConfigurationArgs
+    ///         {
+    ///             KmsKeyId = kmsKeyForSfn.Arn,
+    ///             Type = "CUSTOMER_MANAGED_KMS_KEY",
+    ///             KmsDataKeyReusePeriodSeconds = 900,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import State Machines using the `arn`. For example:
@@ -184,6 +224,12 @@ namespace Pulumi.Aws.Sfn
 
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.StateMachineEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
@@ -310,6 +356,12 @@ namespace Pulumi.Aws.Sfn
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
+        /// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.StateMachineEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
+
+        /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
         [Input("loggingConfiguration")]
@@ -391,6 +443,12 @@ namespace Pulumi.Aws.Sfn
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.StateMachineEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.

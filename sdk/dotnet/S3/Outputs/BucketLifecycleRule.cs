@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Specifies a period in the object's expire (documented below).
+        /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
         public readonly Outputs.BucketLifecycleRuleExpiration? Expiration;
         /// <summary>
@@ -30,13 +30,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies when noncurrent object versions expire (documented below).
+        /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
         public readonly Outputs.BucketLifecycleRuleNoncurrentVersionExpiration? NoncurrentVersionExpiration;
         /// <summary>
-        /// Specifies when noncurrent object versions transitions (documented below).
-        /// 
-        /// At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+        /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleRuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
         /// <summary>
@@ -48,7 +46,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies a period in the object's transitions (documented below).
+        /// Specifies a period in the object's transitions. See Transition below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleRuleTransition> Transitions;
 

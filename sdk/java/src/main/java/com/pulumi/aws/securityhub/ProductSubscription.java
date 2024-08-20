@@ -181,7 +181,7 @@ public class ProductSubscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProductSubscription(String name) {
+    public ProductSubscription(java.lang.String name) {
         this(name, ProductSubscriptionArgs.Empty);
     }
     /**
@@ -189,7 +189,7 @@ public class ProductSubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProductSubscription(String name, ProductSubscriptionArgs args) {
+    public ProductSubscription(java.lang.String name, ProductSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -198,15 +198,22 @@ public class ProductSubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProductSubscription(String name, ProductSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/productSubscription:ProductSubscription", name, args == null ? ProductSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ProductSubscription(java.lang.String name, ProductSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/productSubscription:ProductSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProductSubscription(String name, Output<String> id, @Nullable ProductSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:securityhub/productSubscription:ProductSubscription", name, state, makeResourceOptions(options, id));
+    private ProductSubscription(java.lang.String name, Output<java.lang.String> id, @Nullable ProductSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:securityhub/productSubscription:ProductSubscription", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ProductSubscriptionArgs makeArgs(ProductSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductSubscriptionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +229,7 @@ public class ProductSubscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProductSubscription get(String name, Output<String> id, @Nullable ProductSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProductSubscription get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProductSubscription(name, id, state, options);
     }
 }

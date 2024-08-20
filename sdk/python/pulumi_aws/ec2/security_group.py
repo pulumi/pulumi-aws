@@ -363,7 +363,9 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Provides a security group resource.
 
-        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+        > **NOTE:** Avoid using the `ingress` and `egress` arguments of the `ec2.SecurityGroup` resource to configure in-line rules, as they struggle with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
+
+        !> **WARNING:** You should not use the `ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `ec2.SecurityGroup`) in conjunction with the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or the `ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
@@ -415,11 +417,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "cidrBlocks": ["0.0.0.0/0"],
-            "ipv6CidrBlocks": ["::/0"],
+            "cidr_blocks": ["0.0.0.0/0"],
+            "ipv6_cidr_blocks": ["::/0"],
         }])
         ```
 
@@ -436,10 +438,10 @@ class SecurityGroup(pulumi.CustomResource):
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "prefixListIds": [my_endpoint.prefix_list_id],
+            "prefix_list_ids": [my_endpoint.prefix_list_id],
         }])
         ```
 
@@ -549,7 +551,9 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Provides a security group resource.
 
-        > **NOTE on Security Groups and Security Group Rules:** This provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID. The `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources have been added to address these limitations and should be used for all new security group rules. You should not use the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
+        > **NOTE:** Avoid using the `ingress` and `egress` arguments of the `ec2.SecurityGroup` resource to configure in-line rules, as they struggle with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
+
+        !> **WARNING:** You should not use the `ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `ec2.SecurityGroup`) in conjunction with the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or the `ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
 
         > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 
@@ -601,11 +605,11 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "cidrBlocks": ["0.0.0.0/0"],
-            "ipv6CidrBlocks": ["::/0"],
+            "cidr_blocks": ["0.0.0.0/0"],
+            "ipv6_cidr_blocks": ["::/0"],
         }])
         ```
 
@@ -622,10 +626,10 @@ class SecurityGroup(pulumi.CustomResource):
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
         example = aws.ec2.SecurityGroup("example", egress=[{
-            "fromPort": 0,
-            "toPort": 0,
+            "from_port": 0,
+            "to_port": 0,
             "protocol": "-1",
-            "prefixListIds": [my_endpoint.prefix_list_id],
+            "prefix_list_ids": [my_endpoint.prefix_list_id],
         }])
         ```
 

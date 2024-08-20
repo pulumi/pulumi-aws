@@ -174,7 +174,7 @@ public class RoleAlias extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RoleAlias(String name) {
+    public RoleAlias(java.lang.String name) {
         this(name, RoleAliasArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class RoleAlias extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RoleAlias(String name, RoleAliasArgs args) {
+    public RoleAlias(java.lang.String name, RoleAliasArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,15 +191,22 @@ public class RoleAlias extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RoleAlias(String name, RoleAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/roleAlias:RoleAlias", name, args == null ? RoleAliasArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RoleAlias(java.lang.String name, RoleAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/roleAlias:RoleAlias", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RoleAlias(String name, Output<String> id, @Nullable RoleAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:iot/roleAlias:RoleAlias", name, state, makeResourceOptions(options, id));
+    private RoleAlias(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:iot/roleAlias:RoleAlias", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RoleAliasArgs makeArgs(RoleAliasArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleAliasArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -215,7 +222,7 @@ public class RoleAlias extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RoleAlias get(String name, Output<String> id, @Nullable RoleAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RoleAlias get(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAliasState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RoleAlias(name, id, state, options);
     }
 }

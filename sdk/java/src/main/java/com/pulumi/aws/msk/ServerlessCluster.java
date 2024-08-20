@@ -191,7 +191,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerlessCluster(String name) {
+    public ServerlessCluster(java.lang.String name) {
         this(name, ServerlessClusterArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessCluster(String name, ServerlessClusterArgs args) {
+    public ServerlessCluster(java.lang.String name, ServerlessClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,15 +208,22 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessCluster(String name, ServerlessClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/serverlessCluster:ServerlessCluster", name, args == null ? ServerlessClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ServerlessCluster(java.lang.String name, ServerlessClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:msk/serverlessCluster:ServerlessCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerlessCluster(String name, Output<String> id, @Nullable ServerlessClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:msk/serverlessCluster:ServerlessCluster", name, state, makeResourceOptions(options, id));
+    private ServerlessCluster(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:msk/serverlessCluster:ServerlessCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ServerlessClusterArgs makeArgs(ServerlessClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerlessClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -232,7 +239,7 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerlessCluster get(String name, Output<String> id, @Nullable ServerlessClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerlessCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerlessClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerlessCluster(name, id, state, options);
     }
 }

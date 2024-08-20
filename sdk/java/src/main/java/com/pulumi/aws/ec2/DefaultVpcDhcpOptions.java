@@ -186,7 +186,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DefaultVpcDhcpOptions(String name) {
+    public DefaultVpcDhcpOptions(java.lang.String name) {
         this(name, DefaultVpcDhcpOptionsArgs.Empty);
     }
     /**
@@ -194,7 +194,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DefaultVpcDhcpOptions(String name, @Nullable DefaultVpcDhcpOptionsArgs args) {
+    public DefaultVpcDhcpOptions(java.lang.String name, @Nullable DefaultVpcDhcpOptionsArgs args) {
         this(name, args, null);
     }
     /**
@@ -203,15 +203,22 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DefaultVpcDhcpOptions(String name, @Nullable DefaultVpcDhcpOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args == null ? DefaultVpcDhcpOptionsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DefaultVpcDhcpOptions(java.lang.String name, @Nullable DefaultVpcDhcpOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DefaultVpcDhcpOptions(String name, Output<String> id, @Nullable DefaultVpcDhcpOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, state, makeResourceOptions(options, id));
+    private DefaultVpcDhcpOptions(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultVpcDhcpOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DefaultVpcDhcpOptionsArgs makeArgs(@Nullable DefaultVpcDhcpOptionsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DefaultVpcDhcpOptionsArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +234,7 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DefaultVpcDhcpOptions get(String name, Output<String> id, @Nullable DefaultVpcDhcpOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DefaultVpcDhcpOptions get(java.lang.String name, Output<java.lang.String> id, @Nullable DefaultVpcDhcpOptionsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DefaultVpcDhcpOptions(name, id, state, options);
     }
 }

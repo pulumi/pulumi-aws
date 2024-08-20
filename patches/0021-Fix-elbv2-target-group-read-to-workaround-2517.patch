@@ -5,10 +5,10 @@ Subject: [PATCH] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index 87c7a782d5..bda4aa1e80 100644
+index 319e089d11..7f15483ead 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
-@@ -570,15 +570,15 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta i
+@@ -635,19 +635,19 @@ func resourceTargetGroupRead(ctx context.Context, d *schema.ResourceData, meta i
  		return sdkdiag.AppendErrorf(diags, "reading ELBv2 Target Group (%s) attributes: %s", d.Id(), err)
  	}
  
@@ -22,12 +22,17 @@ index 87c7a782d5..bda4aa1e80 100644
  		return sdkdiag.AppendErrorf(diags, "setting target_failover: %s", err)
  	}
  
+-	if err := d.Set("target_group_health", []interface{}{flattenTargetGroupHealthAttributes(attributes, protocol)}); err != nil {
++	if err := d.Set("target_group_health", fix2517(flattenTargetGroupHealthAttributes(attributes, protocol))); err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "setting target_group_health: %s", err)
+ 	}
+ 
 -	if err := d.Set("target_health_state", []interface{}{flattenTargetGroupTargetHealthStateAttributes(attributes, protocol)}); err != nil {
 +	if err := d.Set("target_health_state", fix2517(flattenTargetGroupTargetHealthStateAttributes(attributes, protocol))); err != nil {
  		return sdkdiag.AppendErrorf(diags, "setting target_health_state: %s", err)
  	}
  
-@@ -1348,3 +1348,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
+@@ -1500,3 +1500,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
  		}
  	}
  }

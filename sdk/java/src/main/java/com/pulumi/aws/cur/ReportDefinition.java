@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -233,6 +234,38 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return this.s3Region;
     }
     /**
+     * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
+    }
+    /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      * 
      */
@@ -251,7 +284,7 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReportDefinition(String name) {
+    public ReportDefinition(java.lang.String name) {
         this(name, ReportDefinitionArgs.Empty);
     }
     /**
@@ -259,7 +292,7 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReportDefinition(String name, ReportDefinitionArgs args) {
+    public ReportDefinition(java.lang.String name, ReportDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -268,15 +301,22 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReportDefinition(String name, ReportDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cur/reportDefinition:ReportDefinition", name, args == null ? ReportDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReportDefinition(java.lang.String name, ReportDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cur/reportDefinition:ReportDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReportDefinition(String name, Output<String> id, @Nullable ReportDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cur/reportDefinition:ReportDefinition", name, state, makeResourceOptions(options, id));
+    private ReportDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable ReportDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cur/reportDefinition:ReportDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReportDefinitionArgs makeArgs(ReportDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReportDefinitionArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -292,7 +332,7 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReportDefinition get(String name, Output<String> id, @Nullable ReportDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReportDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable ReportDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReportDefinition(name, id, state, options);
     }
 }

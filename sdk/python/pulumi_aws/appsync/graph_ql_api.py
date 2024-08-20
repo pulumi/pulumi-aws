@@ -23,6 +23,7 @@ class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
@@ -39,10 +40,13 @@ class GraphQLApiArgs:
         The set of arguments for constructing a GraphQLApi resource.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+               
+               The following arguments are optional:
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
@@ -57,6 +61,8 @@ class GraphQLApiArgs:
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if enhanced_metrics_config is not None:
+            pulumi.set(__self__, "enhanced_metrics_config", enhanced_metrics_config)
         if introspection_config is not None:
             pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
@@ -107,6 +113,18 @@ class GraphQLApiArgs:
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]:
+        """
+        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        """
+        return pulumi.get(self, "enhanced_metrics_config")
+
+    @enhanced_metrics_config.setter
+    def enhanced_metrics_config(self, value: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]):
+        pulumi.set(self, "enhanced_metrics_config", value)
+
+    @property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> Optional[pulumi.Input[str]]:
         """
@@ -147,6 +165,8 @@ class GraphQLApiArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         User-supplied name for the GraphSQL API.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -259,6 +279,7 @@ class _GraphQLApiState:
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
@@ -278,10 +299,13 @@ class _GraphQLApiState:
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+               
+               The following arguments are optional:
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
@@ -301,6 +325,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "arn", arn)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
+        if enhanced_metrics_config is not None:
+            pulumi.set(__self__, "enhanced_metrics_config", enhanced_metrics_config)
         if introspection_config is not None:
             pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
@@ -370,6 +396,18 @@ class _GraphQLApiState:
         pulumi.set(self, "authentication_type", value)
 
     @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]:
+        """
+        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        """
+        return pulumi.get(self, "enhanced_metrics_config")
+
+    @enhanced_metrics_config.setter
+    def enhanced_metrics_config(self, value: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']]):
+        pulumi.set(self, "enhanced_metrics_config", value)
+
+    @property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> Optional[pulumi.Input[str]]:
         """
@@ -410,6 +448,8 @@ class _GraphQLApiState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         User-supplied name for the GraphSQL API.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -548,6 +588,7 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
                  log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
@@ -567,10 +608,13 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
@@ -607,6 +651,7 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
                  log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
@@ -632,6 +677,7 @@ class GraphQLApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["enhanced_metrics_config"] = enhanced_metrics_config
             __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
@@ -660,6 +706,7 @@ class GraphQLApi(pulumi.CustomResource):
             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_type: Optional[pulumi.Input[str]] = None,
+            enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
             introspection_config: Optional[pulumi.Input[str]] = None,
             lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
             log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
@@ -684,10 +731,13 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         :param pulumi.Input[int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
@@ -708,6 +758,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication_type"] = authentication_type
+        __props__.__dict__["enhanced_metrics_config"] = enhanced_metrics_config
         __props__.__dict__["introspection_config"] = introspection_config
         __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
         __props__.__dict__["log_config"] = log_config
@@ -749,6 +800,14 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "authentication_type")
 
     @property
+    @pulumi.getter(name="enhancedMetricsConfig")
+    def enhanced_metrics_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiEnhancedMetricsConfig']]:
+        """
+        Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        """
+        return pulumi.get(self, "enhanced_metrics_config")
+
+    @property
     @pulumi.getter(name="introspectionConfig")
     def introspection_config(self) -> pulumi.Output[Optional[str]]:
         """
@@ -777,6 +836,8 @@ class GraphQLApi(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         User-supplied name for the GraphSQL API.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

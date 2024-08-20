@@ -485,6 +485,20 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.clusterEnabled;
     }
     /**
+     * Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+     * 
+     */
+    @Export(name="clusterMode", refs={String.class}, tree="[0]")
+    private Output<String> clusterMode;
+
+    /**
+     * @return Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
+     * 
+     */
+    public Output<String> clusterMode() {
+        return this.clusterMode;
+    }
+    /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      * 
      */
@@ -677,14 +691,18 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.memberClusters;
     }
     /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+     * Specifies whether to enable Multi-AZ Support for the replication group.
+     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * Defaults to `false`.
      * 
      */
     @Export(name="multiAzEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiAzEnabled;
 
     /**
-     * @return Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
+     * @return Specifies whether to enable Multi-AZ Support for the replication group.
+     * If `true`, `automatic_failover_enabled` must also be enabled.
+     * Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> multiAzEnabled() {
@@ -733,14 +751,22 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notificationTopicArn);
     }
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have.
+     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * Updates will occur before other modifications.
+     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Defaults to `1`.
      * 
      */
     @Export(name="numCacheClusters", refs={Integer.class}, tree="[0]")
     private Output<Integer> numCacheClusters;
 
     /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
+     * @return Number of cache clusters (primary and replicas) this replication group will have.
+     * If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
+     * Updates will occur before other modifications.
+     * Conflicts with `num_node_groups` and `replicas_per_node_group`.
+     * Defaults to `1`.
      * 
      */
     public Output<Integer> numCacheClusters() {
@@ -749,6 +775,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
+     * Conflicts with `num_cache_clusters`.
      * 
      */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
@@ -757,6 +784,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Number of node groups (shards) for this Redis replication group.
      * Changing this number will trigger a resizing operation before other settings modifications.
+     * Conflicts with `num_cache_clusters`.
      * 
      */
     public Output<Integer> numNodeGroups() {
@@ -836,6 +864,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
+     * Conflicts with `num_cache_clusters`.
+     * Can only be set if `num_node_groups` is set.
      * 
      */
     @Export(name="replicasPerNodeGroup", refs={Integer.class}, tree="[0]")
@@ -845,6 +875,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * @return Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
+     * Conflicts with `num_cache_clusters`.
+     * Can only be set if `num_node_groups` is set.
      * 
      */
     public Output<Integer> replicasPerNodeGroup() {
@@ -1055,7 +1087,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ReplicationGroup(String name) {
+    public ReplicationGroup(java.lang.String name) {
         this(name, ReplicationGroupArgs.Empty);
     }
     /**
@@ -1063,7 +1095,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationGroup(String name, @Nullable ReplicationGroupArgs args) {
+    public ReplicationGroup(java.lang.String name, ReplicationGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -1072,15 +1104,22 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationGroup(String name, @Nullable ReplicationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/replicationGroup:ReplicationGroup", name, args == null ? ReplicationGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public ReplicationGroup(java.lang.String name, ReplicationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/replicationGroup:ReplicationGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ReplicationGroup(String name, Output<String> id, @Nullable ReplicationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:elasticache/replicationGroup:ReplicationGroup", name, state, makeResourceOptions(options, id));
+    private ReplicationGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:elasticache/replicationGroup:ReplicationGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static ReplicationGroupArgs makeArgs(ReplicationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationGroupArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -1099,7 +1138,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ReplicationGroup get(String name, Output<String> id, @Nullable ReplicationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ReplicationGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ReplicationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ReplicationGroup(name, id, state, options);
     }
 }

@@ -224,7 +224,7 @@ public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InstanceAutomatedBackupsReplication(String name) {
+    public InstanceAutomatedBackupsReplication(java.lang.String name) {
         this(name, InstanceAutomatedBackupsReplicationArgs.Empty);
     }
     /**
@@ -232,7 +232,7 @@ public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InstanceAutomatedBackupsReplication(String name, InstanceAutomatedBackupsReplicationArgs args) {
+    public InstanceAutomatedBackupsReplication(java.lang.String name, InstanceAutomatedBackupsReplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -241,15 +241,22 @@ public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InstanceAutomatedBackupsReplication(String name, InstanceAutomatedBackupsReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", name, args == null ? InstanceAutomatedBackupsReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InstanceAutomatedBackupsReplication(java.lang.String name, InstanceAutomatedBackupsReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InstanceAutomatedBackupsReplication(String name, Output<String> id, @Nullable InstanceAutomatedBackupsReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", name, state, makeResourceOptions(options, id));
+    private InstanceAutomatedBackupsReplication(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceAutomatedBackupsReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InstanceAutomatedBackupsReplicationArgs makeArgs(InstanceAutomatedBackupsReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InstanceAutomatedBackupsReplicationArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -265,7 +272,7 @@ public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InstanceAutomatedBackupsReplication get(String name, Output<String> id, @Nullable InstanceAutomatedBackupsReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InstanceAutomatedBackupsReplication get(java.lang.String name, Output<java.lang.String> id, @Nullable InstanceAutomatedBackupsReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InstanceAutomatedBackupsReplication(name, id, state, options);
     }
 }

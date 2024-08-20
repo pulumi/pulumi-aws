@@ -31,6 +31,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string> AuthenticationType { get; private set; } = null!;
 
         /// <summary>
+        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// </summary>
+        [Output("enhancedMetricsConfig")]
+        public Output<Outputs.GraphQLApiEnhancedMetricsConfig?> EnhancedMetricsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
         [Output("introspectionConfig")]
@@ -50,6 +56,8 @@ namespace Pulumi.Aws.AppSync
 
         /// <summary>
         /// User-supplied name for the GraphSQL API.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -181,6 +189,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
+        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// </summary>
+        [Input("enhancedMetricsConfig")]
+        public Input<Inputs.GraphQLApiEnhancedMetricsConfigArgs>? EnhancedMetricsConfig { get; set; }
+
+        /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
         [Input("introspectionConfig")]
@@ -200,6 +214,8 @@ namespace Pulumi.Aws.AppSync
 
         /// <summary>
         /// User-supplied name for the GraphSQL API.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -293,6 +309,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? AuthenticationType { get; set; }
 
         /// <summary>
+        /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
+        /// </summary>
+        [Input("enhancedMetricsConfig")]
+        public Input<Inputs.GraphQLApiEnhancedMetricsConfigGetArgs>? EnhancedMetricsConfig { get; set; }
+
+        /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
         [Input("introspectionConfig")]
@@ -312,6 +334,8 @@ namespace Pulumi.Aws.AppSync
 
         /// <summary>
         /// User-supplied name for the GraphSQL API.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

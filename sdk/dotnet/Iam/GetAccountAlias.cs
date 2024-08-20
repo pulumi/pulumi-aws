@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["accountId"] = current.Apply(getAccountAliasResult =&gt; getAccountAliasResult.AccountAlias),
+        ///         ["accountAlias"] = current.Apply(getAccountAliasResult =&gt; getAccountAliasResult.AccountAlias),
         ///     };
         /// });
         /// ```
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Iam
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["accountId"] = current.Apply(getAccountAliasResult =&gt; getAccountAliasResult.AccountAlias),
+        ///         ["accountAlias"] = current.Apply(getAccountAliasResult =&gt; getAccountAliasResult.AccountAlias),
         ///     };
         /// });
         /// ```

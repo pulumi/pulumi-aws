@@ -14,25 +14,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketCorsRule {
+    /**
+     * @return List of headers allowed.
+     * 
+     */
     private @Nullable List<String> allowedHeaders;
+    /**
+     * @return One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * 
+     */
     private List<String> allowedMethods;
+    /**
+     * @return One or more origins you want customers to be able to access the bucket from.
+     * 
+     */
     private List<String> allowedOrigins;
+    /**
+     * @return One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+     * 
+     */
     private @Nullable List<String> exposeHeaders;
+    /**
+     * @return Specifies time in seconds that browser can cache the response for a preflight request.
+     * 
+     */
     private @Nullable Integer maxAgeSeconds;
 
     private BucketCorsRule() {}
+    /**
+     * @return List of headers allowed.
+     * 
+     */
     public List<String> allowedHeaders() {
         return this.allowedHeaders == null ? List.of() : this.allowedHeaders;
     }
+    /**
+     * @return One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * 
+     */
     public List<String> allowedMethods() {
         return this.allowedMethods;
     }
+    /**
+     * @return One or more origins you want customers to be able to access the bucket from.
+     * 
+     */
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
+    /**
+     * @return One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+     * 
+     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
+    /**
+     * @return Specifies time in seconds that browser can cache the response for a preflight request.
+     * 
+     */
     public Optional<Integer> maxAgeSeconds() {
         return Optional.ofNullable(this.maxAgeSeconds);
     }

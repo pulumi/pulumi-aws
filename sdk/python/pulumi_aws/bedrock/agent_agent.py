@@ -30,6 +30,7 @@ class AgentAgentArgs:
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
         """
@@ -44,7 +45,8 @@ class AgentAgentArgs:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "agent_name", agent_name)
@@ -62,6 +64,8 @@ class AgentAgentArgs:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
         if prompt_override_configurations is not None:
             pulumi.set(__self__, "prompt_override_configurations", prompt_override_configurations)
+        if skip_resource_in_use_check is not None:
+            pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -169,13 +173,25 @@ class AgentAgentArgs:
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
         """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         """
         return pulumi.get(self, "prompt_override_configurations")
 
     @prompt_override_configurations.setter
     def prompt_override_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]):
         pulumi.set(self, "prompt_override_configurations", value)
+
+    @property
+    @pulumi.getter(name="skipResourceInUseCheck")
+    def skip_resource_in_use_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the in-use check is skipped when deleting the agent.
+        """
+        return pulumi.get(self, "skip_resource_in_use_check")
+
+    @skip_resource_in_use_check.setter
+    def skip_resource_in_use_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_resource_in_use_check", value)
 
     @property
     @pulumi.getter
@@ -214,6 +230,7 @@ class _AgentAgentState:
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
@@ -232,7 +249,8 @@ class _AgentAgentState:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -260,6 +278,8 @@ class _AgentAgentState:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
         if prompt_override_configurations is not None:
             pulumi.set(__self__, "prompt_override_configurations", prompt_override_configurations)
+        if skip_resource_in_use_check is not None:
+            pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -408,13 +428,25 @@ class _AgentAgentState:
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]:
         """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         """
         return pulumi.get(self, "prompt_override_configurations")
 
     @prompt_override_configurations.setter
     def prompt_override_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]]):
         pulumi.set(self, "prompt_override_configurations", value)
+
+    @property
+    @pulumi.getter(name="skipResourceInUseCheck")
+    def skip_resource_in_use_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the in-use check is skipped when deleting the agent.
+        """
+        return pulumi.get(self, "skip_resource_in_use_check")
+
+    @skip_resource_in_use_check.setter
+    def skip_resource_in_use_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_resource_in_use_check", value)
 
     @property
     @pulumi.getter
@@ -465,6 +497,7 @@ class AgentAgent(pulumi.CustomResource):
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -538,7 +571,8 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -629,6 +663,7 @@ class AgentAgent(pulumi.CustomResource):
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -655,6 +690,7 @@ class AgentAgent(pulumi.CustomResource):
             __props__.__dict__["instruction"] = instruction
             __props__.__dict__["prepare_agent"] = prepare_agent
             __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
+            __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["agent_arn"] = None
@@ -683,6 +719,7 @@ class AgentAgent(pulumi.CustomResource):
             instruction: Optional[pulumi.Input[str]] = None,
             prepare_agent: Optional[pulumi.Input[bool]] = None,
             prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+            skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None) -> 'AgentAgent':
@@ -706,7 +743,8 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -726,6 +764,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["instruction"] = instruction
         __props__.__dict__["prepare_agent"] = prepare_agent
         __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
+        __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -825,9 +864,17 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter(name="promptOverrideConfigurations")
     def prompt_override_configurations(self) -> pulumi.Output[Sequence['outputs.AgentAgentPromptOverrideConfiguration']]:
         """
-        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         """
         return pulumi.get(self, "prompt_override_configurations")
+
+    @property
+    @pulumi.getter(name="skipResourceInUseCheck")
+    def skip_resource_in_use_check(self) -> pulumi.Output[bool]:
+        """
+        Whether the in-use check is skipped when deleting the agent.
+        """
+        return pulumi.get(self, "skip_resource_in_use_check")
 
     @property
     @pulumi.getter

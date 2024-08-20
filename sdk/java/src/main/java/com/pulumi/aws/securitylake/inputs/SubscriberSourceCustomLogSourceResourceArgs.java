@@ -20,23 +20,31 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
     public static final SubscriberSourceCustomLogSourceResourceArgs Empty = new SubscriberSourceCustomLogSourceResourceArgs();
 
     /**
-     * The attributes of a third-party custom source.
+     * The attributes of the third-party custom source. See `attributes` Block below.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>> attributes;
 
     /**
-     * @return The attributes of a third-party custom source.
+     * @return The attributes of the third-party custom source. See `attributes` Block below.
      * 
      */
     public Optional<Output<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
+    /**
+     * The details of the log provider for the third-party custom source. See `provider` Block below.
+     * 
+     */
     @Import(name="providers")
     private @Nullable Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>> providers;
 
+    /**
+     * @return The details of the log provider for the third-party custom source. See `provider` Block below.
+     * 
+     */
     public Optional<Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>>> providers() {
         return Optional.ofNullable(this.providers);
     }
@@ -99,7 +107,7 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
         }
 
         /**
-         * @param attributes The attributes of a third-party custom source.
+         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +118,7 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
         }
 
         /**
-         * @param attributes The attributes of a third-party custom source.
+         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
          * 
          * @return builder
          * 
@@ -120,7 +128,7 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
         }
 
         /**
-         * @param attributes The attributes of a third-party custom source.
+         * @param attributes The attributes of the third-party custom source. See `attributes` Block below.
          * 
          * @return builder
          * 
@@ -129,15 +137,33 @@ public final class SubscriberSourceCustomLogSourceResourceArgs extends com.pulum
             return attributes(List.of(attributes));
         }
 
+        /**
+         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder providers(@Nullable Output<List<SubscriberSourceCustomLogSourceResourceProviderArgs>> providers) {
             $.providers = providers;
             return this;
         }
 
+        /**
+         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder providers(List<SubscriberSourceCustomLogSourceResourceProviderArgs> providers) {
             return providers(Output.of(providers));
         }
 
+        /**
+         * @param providers The details of the log provider for the third-party custom source. See `provider` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder providers(SubscriberSourceCustomLogSourceResourceProviderArgs... providers) {
             return providers(List.of(providers));
         }

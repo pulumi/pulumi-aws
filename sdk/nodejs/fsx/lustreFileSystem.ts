@@ -111,6 +111,12 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly fileSystemTypeVersion!: pulumi.Output<string>;
     /**
+     * A map of tags to apply to the file system's final backup.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    public readonly finalBackupTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      */
     public readonly importPath!: pulumi.Output<string | undefined>;
@@ -123,11 +129,11 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemLogConfiguration>;
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      */
     public readonly metadataConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
@@ -147,13 +153,19 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly perUnitStorageThroughput!: pulumi.Output<number | undefined>;
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
     public readonly rootSquashConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemRootSquashConfiguration | undefined>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
@@ -164,6 +176,8 @@ export class LustreFileSystem extends pulumi.CustomResource {
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     *
+     * The following arguments are optional:
      */
     public readonly subnetIds!: pulumi.Output<string>;
     /**
@@ -210,6 +224,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["driveCacheType"] = state ? state.driveCacheType : undefined;
             resourceInputs["exportPath"] = state ? state.exportPath : undefined;
             resourceInputs["fileSystemTypeVersion"] = state ? state.fileSystemTypeVersion : undefined;
+            resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
             resourceInputs["importPath"] = state ? state.importPath : undefined;
             resourceInputs["importedFileChunkSize"] = state ? state.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
@@ -221,6 +236,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
             resourceInputs["rootSquashConfiguration"] = state ? state.rootSquashConfiguration : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
             resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -243,6 +259,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["driveCacheType"] = args ? args.driveCacheType : undefined;
             resourceInputs["exportPath"] = args ? args.exportPath : undefined;
             resourceInputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
+            resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
             resourceInputs["importPath"] = args ? args.importPath : undefined;
             resourceInputs["importedFileChunkSize"] = args ? args.importedFileChunkSize : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -251,6 +268,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
             resourceInputs["rootSquashConfiguration"] = args ? args.rootSquashConfiguration : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -322,6 +340,12 @@ export interface LustreFileSystemState {
      */
     fileSystemTypeVersion?: pulumi.Input<string>;
     /**
+     * A map of tags to apply to the file system's final backup.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      */
     importPath?: pulumi.Input<string>;
@@ -334,11 +358,11 @@ export interface LustreFileSystemState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      */
     logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      */
     metadataConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
@@ -358,13 +382,19 @@ export interface LustreFileSystemState {
      */
     perUnitStorageThroughput?: pulumi.Input<number>;
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
     rootSquashConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemRootSquashConfiguration>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
@@ -375,6 +405,8 @@ export interface LustreFileSystemState {
     storageType?: pulumi.Input<string>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     *
+     * The following arguments are optional:
      */
     subnetIds?: pulumi.Input<string>;
     /**
@@ -442,6 +474,12 @@ export interface LustreFileSystemArgs {
      */
     fileSystemTypeVersion?: pulumi.Input<string>;
     /**
+     * A map of tags to apply to the file system's final backup.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      */
     importPath?: pulumi.Input<string>;
@@ -454,11 +492,11 @@ export interface LustreFileSystemArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs.
+     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      */
     logConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemLogConfiguration>;
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See Metadata Configuration below.
+     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      */
     metadataConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemMetadataConfiguration>;
     /**
@@ -466,13 +504,19 @@ export interface LustreFileSystemArgs {
      */
     perUnitStorageThroughput?: pulumi.Input<number>;
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
     rootSquashConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemRootSquashConfiguration>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
+     *
+     * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
@@ -483,6 +527,8 @@ export interface LustreFileSystemArgs {
     storageType?: pulumi.Input<string>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
+     *
+     * The following arguments are optional:
      */
     subnetIds: pulumi.Input<string>;
     /**

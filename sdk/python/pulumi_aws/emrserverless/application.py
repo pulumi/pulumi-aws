@@ -28,6 +28,7 @@ class ApplicationArgs:
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+                 interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
@@ -41,6 +42,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input['ApplicationImageConfigurationArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
+        :param pulumi.Input['ApplicationInteractiveConfigurationArgs'] interactive_configuration: Enables the interactive use cases to use when running an application.
         :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
@@ -58,6 +60,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacities is not None:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
+        if interactive_configuration is not None:
+            pulumi.set(__self__, "interactive_configuration", interactive_configuration)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if name is not None:
@@ -152,6 +156,18 @@ class ApplicationArgs:
         pulumi.set(self, "initial_capacities", value)
 
     @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]:
+        """
+        Enables the interactive use cases to use when running an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
+
+    @interactive_configuration.setter
+    def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
+        pulumi.set(self, "interactive_configuration", value)
+
+    @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
         """
@@ -209,6 +225,7 @@ class _ApplicationState:
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationArgs']] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]] = None,
+                 interactive_configuration: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumCapacityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
@@ -224,6 +241,7 @@ class _ApplicationState:
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input['ApplicationImageConfigurationArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
+        :param pulumi.Input['ApplicationInteractiveConfigurationArgs'] interactive_configuration: Enables the interactive use cases to use when running an application.
         :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
@@ -244,6 +262,8 @@ class _ApplicationState:
             pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacities is not None:
             pulumi.set(__self__, "initial_capacities", initial_capacities)
+        if interactive_configuration is not None:
+            pulumi.set(__self__, "interactive_configuration", interactive_configuration)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if name is not None:
@@ -333,6 +353,18 @@ class _ApplicationState:
     @initial_capacities.setter
     def initial_capacities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]):
         pulumi.set(self, "initial_capacities", value)
+
+    @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]:
+        """
+        Enables the interactive use cases to use when running an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
+
+    @interactive_configuration.setter
+    def interactive_configuration(self, value: Optional[pulumi.Input['ApplicationInteractiveConfigurationArgs']]):
+        pulumi.set(self, "interactive_configuration", value)
 
     @property
     @pulumi.getter(name="maximumCapacity")
@@ -430,6 +462,7 @@ class Application(pulumi.CustomResource):
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
@@ -465,10 +498,10 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive",
             initial_capacities=[{
-                "initialCapacityType": "HiveDriver",
-                "initialCapacityConfig": {
-                    "workerCount": 1,
-                    "workerConfiguration": {
+                "initial_capacity_type": "HiveDriver",
+                "initial_capacity_config": {
+                    "worker_count": 1,
+                    "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },
@@ -507,6 +540,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]] initial_capacities: The capacity to initialize when the application is created.
+        :param pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']] interactive_configuration: Enables the interactive use cases to use when running an application.
         :param pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: The network configuration for customer VPC connectivity.
@@ -548,10 +582,10 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive",
             initial_capacities=[{
-                "initialCapacityType": "HiveDriver",
-                "initialCapacityConfig": {
-                    "workerCount": 1,
-                    "workerConfiguration": {
+                "initial_capacity_type": "HiveDriver",
+                "initial_capacity_config": {
+                    "worker_count": 1,
+                    "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },
@@ -603,6 +637,7 @@ class Application(pulumi.CustomResource):
                  auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
                  image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
                  initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+                 interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
                  maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
@@ -623,6 +658,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacities"] = initial_capacities
+            __props__.__dict__["interactive_configuration"] = interactive_configuration
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["name"] = name
             __props__.__dict__["network_configuration"] = network_configuration
@@ -651,6 +687,7 @@ class Application(pulumi.CustomResource):
             auto_stop_configuration: Optional[pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']]] = None,
             image_configuration: Optional[pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']]] = None,
             initial_capacities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]]] = None,
+            interactive_configuration: Optional[pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']]] = None,
             maximum_capacity: Optional[pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
@@ -671,6 +708,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationAutoStopConfigurationArgs', 'ApplicationAutoStopConfigurationArgsDict']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
         :param pulumi.Input[Union['ApplicationImageConfigurationArgs', 'ApplicationImageConfigurationArgsDict']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationInitialCapacityArgs', 'ApplicationInitialCapacityArgsDict']]]] initial_capacities: The capacity to initialize when the application is created.
+        :param pulumi.Input[Union['ApplicationInteractiveConfigurationArgs', 'ApplicationInteractiveConfigurationArgsDict']] interactive_configuration: Enables the interactive use cases to use when running an application.
         :param pulumi.Input[Union['ApplicationMaximumCapacityArgs', 'ApplicationMaximumCapacityArgsDict']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: The network configuration for customer VPC connectivity.
@@ -689,6 +727,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
         __props__.__dict__["image_configuration"] = image_configuration
         __props__.__dict__["initial_capacities"] = initial_capacities
+        __props__.__dict__["interactive_configuration"] = interactive_configuration
         __props__.__dict__["maximum_capacity"] = maximum_capacity
         __props__.__dict__["name"] = name
         __props__.__dict__["network_configuration"] = network_configuration
@@ -745,6 +784,14 @@ class Application(pulumi.CustomResource):
         The capacity to initialize when the application is created.
         """
         return pulumi.get(self, "initial_capacities")
+
+    @property
+    @pulumi.getter(name="interactiveConfiguration")
+    def interactive_configuration(self) -> pulumi.Output['outputs.ApplicationInteractiveConfiguration']:
+        """
+        Enables the interactive use cases to use when running an application.
+        """
+        return pulumi.get(self, "interactive_configuration")
 
     @property
     @pulumi.getter(name="maximumCapacity")

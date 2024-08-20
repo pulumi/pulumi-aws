@@ -173,6 +173,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     * 
+     */
+    @Export(name="ruleJson", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ruleJson;
+
+    /**
+     * @return Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
+     * 
+     */
+    public Output<Optional<String>> ruleJson() {
+        return Codegen.optional(this.ruleJson);
+    }
+    /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
@@ -265,7 +279,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WebAcl(String name) {
+    public WebAcl(java.lang.String name) {
         this(name, WebAclArgs.Empty);
     }
     /**
@@ -273,7 +287,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WebAcl(String name, WebAclArgs args) {
+    public WebAcl(java.lang.String name, WebAclArgs args) {
         this(name, args, null);
     }
     /**
@@ -282,15 +296,22 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WebAcl(String name, WebAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafv2/webAcl:WebAcl", name, args == null ? WebAclArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public WebAcl(java.lang.String name, WebAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafv2/webAcl:WebAcl", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WebAcl(String name, Output<String> id, @Nullable WebAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:wafv2/webAcl:WebAcl", name, state, makeResourceOptions(options, id));
+    private WebAcl(java.lang.String name, Output<java.lang.String> id, @Nullable WebAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:wafv2/webAcl:WebAcl", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static WebAclArgs makeArgs(WebAclArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WebAclArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -306,7 +327,7 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WebAcl get(String name, Output<String> id, @Nullable WebAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WebAcl get(java.lang.String name, Output<java.lang.String> id, @Nullable WebAclState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WebAcl(name, id, state, options);
     }
 }

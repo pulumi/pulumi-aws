@@ -768,6 +768,9 @@ if not MYPY:
         Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
         """
         display_name: NotRequired[pulumi.Input[str]]
+        """
+        Display name of the owner.
+        """
         email_address: NotRequired[pulumi.Input[str]]
         """
         Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
@@ -793,6 +796,7 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
+        :param pulumi.Input[str] display_name: Display name of the owner.
         :param pulumi.Input[str] email_address: Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
         :param pulumi.Input[str] id: Canonical user ID of the grantee.
         :param pulumi.Input[str] uri: URI of the grantee group.
@@ -822,6 +826,9 @@ class BucketAclV2AccessControlPolicyGrantGranteeArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the owner.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -1049,10 +1056,25 @@ class BucketCorsConfigurationV2CorsRuleArgs:
 if not MYPY:
     class BucketCorsRuleArgsDict(TypedDict):
         allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        """
         allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        One or more origins you want customers to be able to access the bucket from.
+        """
         allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of headers allowed.
+        """
         expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        """
         max_age_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies time in seconds that browser can cache the response for a preflight request.
+        """
 elif False:
     BucketCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1064,6 +1086,13 @@ class BucketCorsRuleArgs:
                  allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_age_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: One or more origins you want customers to be able to access the bucket from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: List of headers allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        :param pulumi.Input[int] max_age_seconds: Specifies time in seconds that browser can cache the response for a preflight request.
+        """
         pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
@@ -1076,6 +1105,9 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedMethods")
     def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+        """
         return pulumi.get(self, "allowed_methods")
 
     @allowed_methods.setter
@@ -1085,6 +1117,9 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more origins you want customers to be able to access the bucket from.
+        """
         return pulumi.get(self, "allowed_origins")
 
     @allowed_origins.setter
@@ -1094,6 +1129,9 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="allowedHeaders")
     def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of headers allowed.
+        """
         return pulumi.get(self, "allowed_headers")
 
     @allowed_headers.setter
@@ -1103,6 +1141,9 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+        """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
@@ -1112,6 +1153,9 @@ class BucketCorsRuleArgs:
     @property
     @pulumi.getter(name="maxAgeSeconds")
     def max_age_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies time in seconds that browser can cache the response for a preflight request.
+        """
         return pulumi.get(self, "max_age_seconds")
 
     @max_age_seconds.setter
@@ -2069,7 +2113,7 @@ if not MYPY:
         """
         expiration: NotRequired[pulumi.Input['BucketLifecycleRuleExpirationArgsDict']]
         """
-        Specifies a period in the object's expire (documented below).
+        Specifies a period in the object's expire. See Expiration below for details.
         """
         id: NotRequired[pulumi.Input[str]]
         """
@@ -2077,13 +2121,11 @@ if not MYPY:
         """
         noncurrent_version_expiration: NotRequired[pulumi.Input['BucketLifecycleRuleNoncurrentVersionExpirationArgsDict']]
         """
-        Specifies when noncurrent object versions expire (documented below).
+        Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         """
         noncurrent_version_transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgsDict']]]]
         """
-        Specifies when noncurrent object versions transitions (documented below).
-
-        At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+        Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         """
         prefix: NotRequired[pulumi.Input[str]]
         """
@@ -2095,7 +2137,7 @@ if not MYPY:
         """
         transitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgsDict']]]]
         """
-        Specifies a period in the object's transitions (documented below).
+        Specifies a period in the object's transitions. See Transition below for details.
         """
 elif False:
     BucketLifecycleRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -2115,15 +2157,13 @@ class BucketLifecycleRuleArgs:
         """
         :param pulumi.Input[bool] enabled: Specifies lifecycle rule status.
         :param pulumi.Input[int] abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-        :param pulumi.Input['BucketLifecycleRuleExpirationArgs'] expiration: Specifies a period in the object's expire (documented below).
+        :param pulumi.Input['BucketLifecycleRuleExpirationArgs'] expiration: Specifies a period in the object's expire. See Expiration below for details.
         :param pulumi.Input[str] id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        :param pulumi.Input['BucketLifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgs']]] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
-               
-               At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+        :param pulumi.Input['BucketLifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expiration: Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgs']]] noncurrent_version_transitions: Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         :param pulumi.Input[str] prefix: Object key prefix identifying one or more objects to which the rule applies.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies object tags key and value.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgs']]] transitions: Specifies a period in the object's transitions (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgs']]] transitions: Specifies a period in the object's transitions. See Transition below for details.
         """
         pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
@@ -2171,7 +2211,7 @@ class BucketLifecycleRuleArgs:
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input['BucketLifecycleRuleExpirationArgs']]:
         """
-        Specifies a period in the object's expire (documented below).
+        Specifies a period in the object's expire. See Expiration below for details.
         """
         return pulumi.get(self, "expiration")
 
@@ -2195,7 +2235,7 @@ class BucketLifecycleRuleArgs:
     @pulumi.getter(name="noncurrentVersionExpiration")
     def noncurrent_version_expiration(self) -> Optional[pulumi.Input['BucketLifecycleRuleNoncurrentVersionExpirationArgs']]:
         """
-        Specifies when noncurrent object versions expire (documented below).
+        Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         """
         return pulumi.get(self, "noncurrent_version_expiration")
 
@@ -2207,9 +2247,7 @@ class BucketLifecycleRuleArgs:
     @pulumi.getter(name="noncurrentVersionTransitions")
     def noncurrent_version_transitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgs']]]]:
         """
-        Specifies when noncurrent object versions transitions (documented below).
-
-        At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+        Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         """
         return pulumi.get(self, "noncurrent_version_transitions")
 
@@ -2245,7 +2283,7 @@ class BucketLifecycleRuleArgs:
     @pulumi.getter
     def transitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgs']]]]:
         """
-        Specifies a period in the object's transitions (documented below).
+        Specifies a period in the object's transitions. See Transition below for details.
         """
         return pulumi.get(self, "transitions")
 
@@ -2484,7 +2522,7 @@ if not MYPY:
     class BucketLoggingArgsDict(TypedDict):
         target_bucket: pulumi.Input[str]
         """
-        The name of the bucket that will receive the log objects.
+        Name of the bucket that will receive the log objects.
         """
         target_prefix: NotRequired[pulumi.Input[str]]
         """
@@ -2499,7 +2537,7 @@ class BucketLoggingArgs:
                  target_bucket: pulumi.Input[str],
                  target_prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] target_bucket: The name of the bucket that will receive the log objects.
+        :param pulumi.Input[str] target_bucket: Name of the bucket that will receive the log objects.
         :param pulumi.Input[str] target_prefix: To specify a key prefix for log objects.
         """
         pulumi.set(__self__, "target_bucket", target_bucket)
@@ -2510,7 +2548,7 @@ class BucketLoggingArgs:
     @pulumi.getter(name="targetBucket")
     def target_bucket(self) -> pulumi.Input[str]:
         """
-        The name of the bucket that will receive the log objects.
+        Name of the bucket that will receive the log objects.
         """
         return pulumi.get(self, "target_bucket")
 
@@ -3187,11 +3225,11 @@ if not MYPY:
     class BucketObjectLockConfigurationArgsDict(TypedDict):
         object_lock_enabled: pulumi.Input[str]
         """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
         rule: NotRequired[pulumi.Input['BucketObjectLockConfigurationRuleArgsDict']]
         """
-        The Object Lock rule in place for this bucket.
+        Object Lock rule in place for this bucket (documented below).
         """
 elif False:
     BucketObjectLockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3202,8 +3240,8 @@ class BucketObjectLockConfigurationArgs:
                  object_lock_enabled: pulumi.Input[str],
                  rule: Optional[pulumi.Input['BucketObjectLockConfigurationRuleArgs']] = None):
         """
-        :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-        :param pulumi.Input['BucketObjectLockConfigurationRuleArgs'] rule: The Object Lock rule in place for this bucket.
+        :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+        :param pulumi.Input['BucketObjectLockConfigurationRuleArgs'] rule: Object Lock rule in place for this bucket (documented below).
         """
         pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rule is not None:
@@ -3213,7 +3251,7 @@ class BucketObjectLockConfigurationArgs:
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> pulumi.Input[str]:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
+        Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
         return pulumi.get(self, "object_lock_enabled")
 
@@ -3225,7 +3263,7 @@ class BucketObjectLockConfigurationArgs:
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationRuleArgs']]:
         """
-        The Object Lock rule in place for this bucket.
+        Object Lock rule in place for this bucket (documented below).
         """
         return pulumi.get(self, "rule")
 
@@ -3238,7 +3276,7 @@ if not MYPY:
     class BucketObjectLockConfigurationRuleArgsDict(TypedDict):
         default_retention: pulumi.Input['BucketObjectLockConfigurationRuleDefaultRetentionArgsDict']
         """
-        The default retention period that you want to apply to new objects placed in this bucket.
+        Default retention period that you want to apply to new objects placed in this bucket (documented below).
         """
 elif False:
     BucketObjectLockConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -3248,7 +3286,7 @@ class BucketObjectLockConfigurationRuleArgs:
     def __init__(__self__, *,
                  default_retention: pulumi.Input['BucketObjectLockConfigurationRuleDefaultRetentionArgs']):
         """
-        :param pulumi.Input['BucketObjectLockConfigurationRuleDefaultRetentionArgs'] default_retention: The default retention period that you want to apply to new objects placed in this bucket.
+        :param pulumi.Input['BucketObjectLockConfigurationRuleDefaultRetentionArgs'] default_retention: Default retention period that you want to apply to new objects placed in this bucket (documented below).
         """
         pulumi.set(__self__, "default_retention", default_retention)
 
@@ -3256,7 +3294,7 @@ class BucketObjectLockConfigurationRuleArgs:
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> pulumi.Input['BucketObjectLockConfigurationRuleDefaultRetentionArgs']:
         """
-        The default retention period that you want to apply to new objects placed in this bucket.
+        Default retention period that you want to apply to new objects placed in this bucket (documented below).
         """
         return pulumi.get(self, "default_retention")
 
@@ -3269,21 +3307,15 @@ if not MYPY:
     class BucketObjectLockConfigurationRuleDefaultRetentionArgsDict(TypedDict):
         mode: pulumi.Input[str]
         """
-        The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
         days: NotRequired[pulumi.Input[int]]
         """
-        The number of days that you want to specify for the default retention period.
+        Number of days that you want to specify for the default retention period.
         """
         years: NotRequired[pulumi.Input[int]]
         """
-        The number of years that you want to specify for the default retention period.
-
-        Either `days` or `years` must be specified, but not both.
-
-        > **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
-        When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
-        Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
+        Number of years that you want to specify for the default retention period.
         """
 elif False:
     BucketObjectLockConfigurationRuleDefaultRetentionArgsDict: TypeAlias = Mapping[str, Any]
@@ -3295,15 +3327,9 @@ class BucketObjectLockConfigurationRuleDefaultRetentionArgs:
                  days: Optional[pulumi.Input[int]] = None,
                  years: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] mode: The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-        :param pulumi.Input[int] days: The number of days that you want to specify for the default retention period.
-        :param pulumi.Input[int] years: The number of years that you want to specify for the default retention period.
-               
-               Either `days` or `years` must be specified, but not both.
-               
-               > **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
-               When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
-               Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
+        :param pulumi.Input[str] mode: Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param pulumi.Input[int] days: Number of days that you want to specify for the default retention period.
+        :param pulumi.Input[int] years: Number of years that you want to specify for the default retention period.
         """
         pulumi.set(__self__, "mode", mode)
         if days is not None:
@@ -3315,7 +3341,7 @@ class BucketObjectLockConfigurationRuleDefaultRetentionArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
         """
-        The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         """
         return pulumi.get(self, "mode")
 
@@ -3327,7 +3353,7 @@ class BucketObjectLockConfigurationRuleDefaultRetentionArgs:
     @pulumi.getter
     def days(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days that you want to specify for the default retention period.
+        Number of days that you want to specify for the default retention period.
         """
         return pulumi.get(self, "days")
 
@@ -3339,13 +3365,7 @@ class BucketObjectLockConfigurationRuleDefaultRetentionArgs:
     @pulumi.getter
     def years(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of years that you want to specify for the default retention period.
-
-        Either `days` or `years` must be specified, but not both.
-
-        > **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
-        When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
-        Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
+        Number of years that you want to specify for the default retention period.
         """
         return pulumi.get(self, "years")
 
@@ -4484,7 +4504,13 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsAr
 if not MYPY:
     class BucketReplicationConfigurationArgsDict(TypedDict):
         role: pulumi.Input[str]
+        """
+        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        """
         rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgsDict']]]
+        """
+        Specifies the rules managing the replication (documented below).
+        """
 elif False:
     BucketReplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4493,12 +4519,19 @@ class BucketReplicationConfigurationArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]]):
+        """
+        :param pulumi.Input[str] role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]] rules: Specifies the rules managing the replication (documented below).
+        """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
+        """
+        ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        """
         return pulumi.get(self, "role")
 
     @role.setter
@@ -4508,6 +4541,9 @@ class BucketReplicationConfigurationArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketReplicationConfigurationRuleArgs']]]:
+        """
+        Specifies the rules managing the replication (documented below).
+        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -4523,9 +4559,7 @@ if not MYPY:
         """
         status: pulumi.Input[str]
         """
-        The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-
-        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+        Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         """
         delete_marker_replication_status: NotRequired[pulumi.Input[str]]
         """
@@ -4545,7 +4579,7 @@ if not MYPY:
         """
         priority: NotRequired[pulumi.Input[int]]
         """
-        The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         """
         source_selection_criteria: NotRequired[pulumi.Input['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgsDict']]
         """
@@ -4567,14 +4601,12 @@ class BucketReplicationConfigurationRuleArgs:
                  source_selection_criteria: Optional[pulumi.Input['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs']] = None):
         """
         :param pulumi.Input['BucketReplicationConfigurationRuleDestinationArgs'] destination: Specifies the destination for the rule (documented below).
-        :param pulumi.Input[str] status: The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-               
-               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+        :param pulumi.Input[str] status: Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         :param pulumi.Input[str] delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
         :param pulumi.Input['BucketReplicationConfigurationRuleFilterArgs'] filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param pulumi.Input[str] id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param pulumi.Input[str] prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[int] priority: The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        :param pulumi.Input[int] priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         :param pulumi.Input['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criteria: Specifies special object selection criteria (documented below).
         """
         pulumi.set(__self__, "destination", destination)
@@ -4608,9 +4640,7 @@ class BucketReplicationConfigurationRuleArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
-
-        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+        Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         """
         return pulumi.get(self, "status")
 
@@ -4670,7 +4700,7 @@ class BucketReplicationConfigurationRuleArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         """
         return pulumi.get(self, "priority")
 
@@ -4695,15 +4725,15 @@ if not MYPY:
     class BucketReplicationConfigurationRuleDestinationArgsDict(TypedDict):
         bucket: pulumi.Input[str]
         """
-        The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         """
         access_control_translation: NotRequired[pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgsDict']]
         """
-        Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         """
         account_id: NotRequired[pulumi.Input[str]]
         """
-        The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         """
         metrics: NotRequired[pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgsDict']]
         """
@@ -4736,9 +4766,9 @@ class BucketReplicationConfigurationRuleDestinationArgs:
                  replication_time: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs']] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        :param pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translation: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
-        :param pulumi.Input[str] account_id: The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        :param pulumi.Input[str] bucket: ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        :param pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translation: Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+        :param pulumi.Input[str] account_id: Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         :param pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param pulumi.Input[str] replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                `sse_kms_encrypted_objects` source selection criteria.
@@ -4763,7 +4793,7 @@ class BucketReplicationConfigurationRuleDestinationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         """
         return pulumi.get(self, "bucket")
 
@@ -4775,7 +4805,7 @@ class BucketReplicationConfigurationRuleDestinationArgs:
     @pulumi.getter(name="accessControlTranslation")
     def access_control_translation(self) -> Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]:
         """
-        Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
         """
         return pulumi.get(self, "access_control_translation")
 
@@ -4787,7 +4817,7 @@ class BucketReplicationConfigurationRuleDestinationArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         """
         return pulumi.get(self, "account_id")
 
@@ -4849,7 +4879,7 @@ if not MYPY:
     class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgsDict(TypedDict):
         owner: pulumi.Input[str]
         """
-        The override value for the owner on replicated objects. Currently only `Destination` is supported.
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
         """
 elif False:
     BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgsDict: TypeAlias = Mapping[str, Any]
@@ -4859,7 +4889,7 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] owner: The override value for the owner on replicated objects. Currently only `Destination` is supported.
+        :param pulumi.Input[str] owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
         """
         pulumi.set(__self__, "owner", owner)
 
@@ -4867,7 +4897,7 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs:
     @pulumi.getter
     def owner(self) -> pulumi.Input[str]:
         """
-        The override value for the owner on replicated objects. Currently only `Destination` is supported.
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
         """
         return pulumi.get(self, "owner")
 
@@ -4884,7 +4914,7 @@ if not MYPY:
         """
         status: NotRequired[pulumi.Input[str]]
         """
-        The status of replication metrics. Either `Enabled` or `Disabled`.
+        Status of replication metrics. Either `Enabled` or `Disabled`.
         """
 elif False:
     BucketReplicationConfigurationRuleDestinationMetricsArgsDict: TypeAlias = Mapping[str, Any]
@@ -4896,7 +4926,7 @@ class BucketReplicationConfigurationRuleDestinationMetricsArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
-        :param pulumi.Input[str] status: The status of replication metrics. Either `Enabled` or `Disabled`.
+        :param pulumi.Input[str] status: Status of replication metrics. Either `Enabled` or `Disabled`.
         """
         if minutes is not None:
             pulumi.set(__self__, "minutes", minutes)
@@ -4919,7 +4949,7 @@ class BucketReplicationConfigurationRuleDestinationMetricsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of replication metrics. Either `Enabled` or `Disabled`.
+        Status of replication metrics. Either `Enabled` or `Disabled`.
         """
         return pulumi.get(self, "status")
 
@@ -4936,7 +4966,7 @@ if not MYPY:
         """
         status: NotRequired[pulumi.Input[str]]
         """
-        The status of RTC. Either `Enabled` or `Disabled`.
+        Status of RTC. Either `Enabled` or `Disabled`.
         """
 elif False:
     BucketReplicationConfigurationRuleDestinationReplicationTimeArgsDict: TypeAlias = Mapping[str, Any]
@@ -4948,7 +4978,7 @@ class BucketReplicationConfigurationRuleDestinationReplicationTimeArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
-        :param pulumi.Input[str] status: The status of RTC. Either `Enabled` or `Disabled`.
+        :param pulumi.Input[str] status: Status of RTC. Either `Enabled` or `Disabled`.
         """
         if minutes is not None:
             pulumi.set(__self__, "minutes", minutes)
@@ -4971,7 +5001,7 @@ class BucketReplicationConfigurationRuleDestinationReplicationTimeArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of RTC. Either `Enabled` or `Disabled`.
+        Status of RTC. Either `Enabled` or `Disabled`.
         """
         return pulumi.get(self, "status")
 
@@ -5105,7 +5135,7 @@ if not MYPY:
     class BucketServerSideEncryptionConfigurationArgsDict(TypedDict):
         rule: pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgsDict']
         """
-        A single object for server-side encryption by default configuration. (documented below)
+        Single object for server-side encryption by default configuration. (documented below)
         """
 elif False:
     BucketServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -5115,7 +5145,7 @@ class BucketServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  rule: pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']):
         """
-        :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs'] rule: A single object for server-side encryption by default configuration. (documented below)
+        :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs'] rule: Single object for server-side encryption by default configuration. (documented below)
         """
         pulumi.set(__self__, "rule", rule)
 
@@ -5123,7 +5153,7 @@ class BucketServerSideEncryptionConfigurationArgs:
     @pulumi.getter
     def rule(self) -> pulumi.Input['BucketServerSideEncryptionConfigurationRuleArgs']:
         """
-        A single object for server-side encryption by default configuration. (documented below)
+        Single object for server-side encryption by default configuration. (documented below)
         """
         return pulumi.get(self, "rule")
 
@@ -5136,7 +5166,7 @@ if not MYPY:
     class BucketServerSideEncryptionConfigurationRuleArgsDict(TypedDict):
         apply_server_side_encryption_by_default: pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgsDict']
         """
-        A single object for setting server-side encryption by default. (documented below)
+        Single object for setting server-side encryption by default. (documented below)
         """
         bucket_key_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -5151,7 +5181,7 @@ class BucketServerSideEncryptionConfigurationRuleArgs:
                  apply_server_side_encryption_by_default: pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'],
                  bucket_key_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
+        :param pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. (documented below)
         :param pulumi.Input[bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
@@ -5162,7 +5192,7 @@ class BucketServerSideEncryptionConfigurationRuleArgs:
     @pulumi.getter(name="applyServerSideEncryptionByDefault")
     def apply_server_side_encryption_by_default(self) -> pulumi.Input['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']:
         """
-        A single object for setting server-side encryption by default. (documented below)
+        Single object for setting server-side encryption by default. (documented below)
         """
         return pulumi.get(self, "apply_server_side_encryption_by_default")
 
@@ -5187,11 +5217,11 @@ if not MYPY:
     class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgsDict(TypedDict):
         sse_algorithm: pulumi.Input[str]
         """
-        The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
         """
         kms_master_key_id: NotRequired[pulumi.Input[str]]
         """
-        The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+        AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
 elif False:
     BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgsDict: TypeAlias = Mapping[str, Any]
@@ -5202,8 +5232,8 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
                  sse_algorithm: pulumi.Input[str],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] sse_algorithm: The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-        :param pulumi.Input[str] kms_master_key_id: The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+        :param pulumi.Input[str] sse_algorithm: Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        :param pulumi.Input[str] kms_master_key_id: AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
         pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
@@ -5213,7 +5243,7 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
     @pulumi.getter(name="sseAlgorithm")
     def sse_algorithm(self) -> pulumi.Input[str]:
         """
-        The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+        Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
         """
         return pulumi.get(self, "sse_algorithm")
 
@@ -5225,7 +5255,7 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+        AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         """
         return pulumi.get(self, "kms_master_key_id")
 
@@ -7184,7 +7214,7 @@ if not MYPY:
     class BucketWebsiteArgsDict(TypedDict):
         error_document: NotRequired[pulumi.Input[str]]
         """
-        An absolute path to the document to return in case of a 4XX error.
+        Absolute path to the document to return in case of a 4XX error.
         """
         index_document: NotRequired[pulumi.Input[str]]
         """
@@ -7192,14 +7222,12 @@ if not MYPY:
         """
         redirect_all_requests_to: NotRequired[pulumi.Input[str]]
         """
-        A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         """
         routing_rules: NotRequired[pulumi.Input[Union[str, Sequence[pulumi.Input[str]]]]]
         """
-        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
-
-        The `CORS` object supports the following:
         """
 elif False:
     BucketWebsiteArgsDict: TypeAlias = Mapping[str, Any]
@@ -7212,13 +7240,11 @@ class BucketWebsiteArgs:
                  redirect_all_requests_to: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[Union[str, Sequence[pulumi.Input[str]]]]] = None):
         """
-        :param pulumi.Input[str] error_document: An absolute path to the document to return in case of a 4XX error.
+        :param pulumi.Input[str] error_document: Absolute path to the document to return in case of a 4XX error.
         :param pulumi.Input[str] index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
-        :param pulumi.Input[str] redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
-        :param pulumi.Input[Union[str, Sequence[pulumi.Input[str]]]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        :param pulumi.Input[str] redirect_all_requests_to: Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        :param pulumi.Input[Union[str, Sequence[pulumi.Input[str]]]] routing_rules: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
-               
-               The `CORS` object supports the following:
         """
         if error_document is not None:
             pulumi.set(__self__, "error_document", error_document)
@@ -7233,7 +7259,7 @@ class BucketWebsiteArgs:
     @pulumi.getter(name="errorDocument")
     def error_document(self) -> Optional[pulumi.Input[str]]:
         """
-        An absolute path to the document to return in case of a 4XX error.
+        Absolute path to the document to return in case of a 4XX error.
         """
         return pulumi.get(self, "error_document")
 
@@ -7257,7 +7283,7 @@ class BucketWebsiteArgs:
     @pulumi.getter(name="redirectAllRequestsTo")
     def redirect_all_requests_to(self) -> Optional[pulumi.Input[str]]:
         """
-        A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         """
         return pulumi.get(self, "redirect_all_requests_to")
 
@@ -7269,10 +7295,8 @@ class BucketWebsiteArgs:
     @pulumi.getter(name="routingRules")
     def routing_rules(self) -> Optional[pulumi.Input[Union[str, Sequence[pulumi.Input[str]]]]]:
         """
-        A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
-
-        The `CORS` object supports the following:
         """
         return pulumi.get(self, "routing_rules")
 

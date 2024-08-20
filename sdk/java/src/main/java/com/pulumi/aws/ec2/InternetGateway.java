@@ -228,7 +228,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InternetGateway(String name) {
+    public InternetGateway(java.lang.String name) {
         this(name, InternetGatewayArgs.Empty);
     }
     /**
@@ -236,7 +236,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InternetGateway(String name, @Nullable InternetGatewayArgs args) {
+    public InternetGateway(java.lang.String name, @Nullable InternetGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -245,15 +245,22 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InternetGateway(String name, @Nullable InternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/internetGateway:InternetGateway", name, args == null ? InternetGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public InternetGateway(java.lang.String name, @Nullable InternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/internetGateway:InternetGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InternetGateway(String name, Output<String> id, @Nullable InternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:ec2/internetGateway:InternetGateway", name, state, makeResourceOptions(options, id));
+    private InternetGateway(java.lang.String name, Output<java.lang.String> id, @Nullable InternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:ec2/internetGateway:InternetGateway", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static InternetGatewayArgs makeArgs(@Nullable InternetGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InternetGatewayArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +276,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InternetGateway get(String name, Output<String> id, @Nullable InternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InternetGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable InternetGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InternetGateway(name, id, state, options);
     }
 }

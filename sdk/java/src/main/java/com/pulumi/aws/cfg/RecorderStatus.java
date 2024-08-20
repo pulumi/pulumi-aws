@@ -167,7 +167,7 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RecorderStatus(String name) {
+    public RecorderStatus(java.lang.String name) {
         this(name, RecorderStatusArgs.Empty);
     }
     /**
@@ -175,7 +175,7 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RecorderStatus(String name, RecorderStatusArgs args) {
+    public RecorderStatus(java.lang.String name, RecorderStatusArgs args) {
         this(name, args, null);
     }
     /**
@@ -184,15 +184,22 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RecorderStatus(String name, RecorderStatusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/recorderStatus:RecorderStatus", name, args == null ? RecorderStatusArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public RecorderStatus(java.lang.String name, RecorderStatusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/recorderStatus:RecorderStatus", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RecorderStatus(String name, Output<String> id, @Nullable RecorderStatusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:cfg/recorderStatus:RecorderStatus", name, state, makeResourceOptions(options, id));
+    private RecorderStatus(java.lang.String name, Output<java.lang.String> id, @Nullable RecorderStatusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:cfg/recorderStatus:RecorderStatus", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static RecorderStatusArgs makeArgs(RecorderStatusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RecorderStatusArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -208,7 +215,7 @@ public class RecorderStatus extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RecorderStatus get(String name, Output<String> id, @Nullable RecorderStatusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RecorderStatus get(java.lang.String name, Output<java.lang.String> id, @Nullable RecorderStatusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RecorderStatus(name, id, state, options);
     }
 }

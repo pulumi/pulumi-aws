@@ -365,6 +365,20 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
+     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
+    private Output<String> engineLifecycleSupport;
+
+    /**
+     * @return The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * 
+     */
+    public Output<String> engineLifecycleSupport() {
+        return this.engineLifecycleSupport;
+    }
+    /**
      * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
@@ -473,7 +487,7 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GlobalCluster(String name) {
+    public GlobalCluster(java.lang.String name) {
         this(name, GlobalClusterArgs.Empty);
     }
     /**
@@ -481,7 +495,7 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GlobalCluster(String name, GlobalClusterArgs args) {
+    public GlobalCluster(java.lang.String name, GlobalClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -490,15 +504,22 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GlobalCluster(String name, GlobalClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/globalCluster:GlobalCluster", name, args == null ? GlobalClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public GlobalCluster(java.lang.String name, GlobalClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/globalCluster:GlobalCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GlobalCluster(String name, Output<String> id, @Nullable GlobalClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:rds/globalCluster:GlobalCluster", name, state, makeResourceOptions(options, id));
+    private GlobalCluster(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:rds/globalCluster:GlobalCluster", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static GlobalClusterArgs makeArgs(GlobalClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GlobalClusterArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -514,7 +535,7 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GlobalCluster get(String name, Output<String> id, @Nullable GlobalClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GlobalCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable GlobalClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GlobalCluster(name, id, state, options);
     }
 }

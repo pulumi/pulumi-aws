@@ -317,13 +317,277 @@ func (o DomainTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectFailureReason struct {
+	Code    string `pulumi:"code"`
+	Message string `pulumi:"message"`
+}
+
+// ProjectFailureReasonInput is an input type that accepts ProjectFailureReasonArgs and ProjectFailureReasonOutput values.
+// You can construct a concrete instance of `ProjectFailureReasonInput` via:
+//
+//	ProjectFailureReasonArgs{...}
+type ProjectFailureReasonInput interface {
+	pulumi.Input
+
+	ToProjectFailureReasonOutput() ProjectFailureReasonOutput
+	ToProjectFailureReasonOutputWithContext(context.Context) ProjectFailureReasonOutput
+}
+
+type ProjectFailureReasonArgs struct {
+	Code    pulumi.StringInput `pulumi:"code"`
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (ProjectFailureReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFailureReason)(nil)).Elem()
+}
+
+func (i ProjectFailureReasonArgs) ToProjectFailureReasonOutput() ProjectFailureReasonOutput {
+	return i.ToProjectFailureReasonOutputWithContext(context.Background())
+}
+
+func (i ProjectFailureReasonArgs) ToProjectFailureReasonOutputWithContext(ctx context.Context) ProjectFailureReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFailureReasonOutput)
+}
+
+// ProjectFailureReasonArrayInput is an input type that accepts ProjectFailureReasonArray and ProjectFailureReasonArrayOutput values.
+// You can construct a concrete instance of `ProjectFailureReasonArrayInput` via:
+//
+//	ProjectFailureReasonArray{ ProjectFailureReasonArgs{...} }
+type ProjectFailureReasonArrayInput interface {
+	pulumi.Input
+
+	ToProjectFailureReasonArrayOutput() ProjectFailureReasonArrayOutput
+	ToProjectFailureReasonArrayOutputWithContext(context.Context) ProjectFailureReasonArrayOutput
+}
+
+type ProjectFailureReasonArray []ProjectFailureReasonInput
+
+func (ProjectFailureReasonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFailureReason)(nil)).Elem()
+}
+
+func (i ProjectFailureReasonArray) ToProjectFailureReasonArrayOutput() ProjectFailureReasonArrayOutput {
+	return i.ToProjectFailureReasonArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectFailureReasonArray) ToProjectFailureReasonArrayOutputWithContext(ctx context.Context) ProjectFailureReasonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFailureReasonArrayOutput)
+}
+
+type ProjectFailureReasonOutput struct{ *pulumi.OutputState }
+
+func (ProjectFailureReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFailureReason)(nil)).Elem()
+}
+
+func (o ProjectFailureReasonOutput) ToProjectFailureReasonOutput() ProjectFailureReasonOutput {
+	return o
+}
+
+func (o ProjectFailureReasonOutput) ToProjectFailureReasonOutputWithContext(ctx context.Context) ProjectFailureReasonOutput {
+	return o
+}
+
+func (o ProjectFailureReasonOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFailureReason) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o ProjectFailureReasonOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFailureReason) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type ProjectFailureReasonArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectFailureReasonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFailureReason)(nil)).Elem()
+}
+
+func (o ProjectFailureReasonArrayOutput) ToProjectFailureReasonArrayOutput() ProjectFailureReasonArrayOutput {
+	return o
+}
+
+func (o ProjectFailureReasonArrayOutput) ToProjectFailureReasonArrayOutputWithContext(ctx context.Context) ProjectFailureReasonArrayOutput {
+	return o
+}
+
+func (o ProjectFailureReasonArrayOutput) Index(i pulumi.IntInput) ProjectFailureReasonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFailureReason {
+		return vs[0].([]ProjectFailureReason)[vs[1].(int)]
+	}).(ProjectFailureReasonOutput)
+}
+
+type ProjectTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// ProjectTimeoutsInput is an input type that accepts ProjectTimeoutsArgs and ProjectTimeoutsOutput values.
+// You can construct a concrete instance of `ProjectTimeoutsInput` via:
+//
+//	ProjectTimeoutsArgs{...}
+type ProjectTimeoutsInput interface {
+	pulumi.Input
+
+	ToProjectTimeoutsOutput() ProjectTimeoutsOutput
+	ToProjectTimeoutsOutputWithContext(context.Context) ProjectTimeoutsOutput
+}
+
+type ProjectTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ProjectTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTimeouts)(nil)).Elem()
+}
+
+func (i ProjectTimeoutsArgs) ToProjectTimeoutsOutput() ProjectTimeoutsOutput {
+	return i.ToProjectTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ProjectTimeoutsArgs) ToProjectTimeoutsOutputWithContext(ctx context.Context) ProjectTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTimeoutsOutput)
+}
+
+func (i ProjectTimeoutsArgs) ToProjectTimeoutsPtrOutput() ProjectTimeoutsPtrOutput {
+	return i.ToProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectTimeoutsArgs) ToProjectTimeoutsPtrOutputWithContext(ctx context.Context) ProjectTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTimeoutsOutput).ToProjectTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ProjectTimeoutsPtrInput is an input type that accepts ProjectTimeoutsArgs, ProjectTimeoutsPtr and ProjectTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ProjectTimeoutsPtrInput` via:
+//
+//	        ProjectTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToProjectTimeoutsPtrOutput() ProjectTimeoutsPtrOutput
+	ToProjectTimeoutsPtrOutputWithContext(context.Context) ProjectTimeoutsPtrOutput
+}
+
+type projectTimeoutsPtrType ProjectTimeoutsArgs
+
+func ProjectTimeoutsPtr(v *ProjectTimeoutsArgs) ProjectTimeoutsPtrInput {
+	return (*projectTimeoutsPtrType)(v)
+}
+
+func (*projectTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTimeouts)(nil)).Elem()
+}
+
+func (i *projectTimeoutsPtrType) ToProjectTimeoutsPtrOutput() ProjectTimeoutsPtrOutput {
+	return i.ToProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *projectTimeoutsPtrType) ToProjectTimeoutsPtrOutputWithContext(ctx context.Context) ProjectTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTimeoutsPtrOutput)
+}
+
+type ProjectTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ProjectTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTimeouts)(nil)).Elem()
+}
+
+func (o ProjectTimeoutsOutput) ToProjectTimeoutsOutput() ProjectTimeoutsOutput {
+	return o
+}
+
+func (o ProjectTimeoutsOutput) ToProjectTimeoutsOutputWithContext(ctx context.Context) ProjectTimeoutsOutput {
+	return o
+}
+
+func (o ProjectTimeoutsOutput) ToProjectTimeoutsPtrOutput() ProjectTimeoutsPtrOutput {
+	return o.ToProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectTimeoutsOutput) ToProjectTimeoutsPtrOutputWithContext(ctx context.Context) ProjectTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectTimeouts) *ProjectTimeouts {
+		return &v
+	}).(ProjectTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProjectTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProjectTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ProjectTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTimeouts)(nil)).Elem()
+}
+
+func (o ProjectTimeoutsPtrOutput) ToProjectTimeoutsPtrOutput() ProjectTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProjectTimeoutsPtrOutput) ToProjectTimeoutsPtrOutputWithContext(ctx context.Context) ProjectTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProjectTimeoutsPtrOutput) Elem() ProjectTimeoutsOutput {
+	return o.ApplyT(func(v *ProjectTimeouts) ProjectTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectTimeouts
+		return ret
+	}).(ProjectTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProjectTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsInput)(nil)).Elem(), DomainTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsPtrInput)(nil)).Elem(), DomainTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonInput)(nil)).Elem(), ProjectFailureReasonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectFailureReasonOutput{})
+	pulumi.RegisterOutputType(ProjectFailureReasonArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})
+	pulumi.RegisterOutputType(ProjectTimeoutsPtrOutput{})
 }

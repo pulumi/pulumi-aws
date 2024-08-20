@@ -1923,10 +1923,150 @@ __all__ = [
     'V2modelsSlotMultipleValuesSettingArgsDict',
     'V2modelsSlotObfuscationSettingArgs',
     'V2modelsSlotObfuscationSettingArgsDict',
+    'V2modelsSlotSubSlotSettingArgs',
+    'V2modelsSlotSubSlotSettingArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs',
+    'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict',
     'V2modelsSlotTimeoutsArgs',
     'V2modelsSlotTimeoutsArgsDict',
     'V2modelsSlotTypeCompositeSlotTypeSettingArgs',
     'V2modelsSlotTypeCompositeSlotTypeSettingArgsDict',
+    'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs',
+    'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict',
     'V2modelsSlotTypeExternalSourceSettingArgs',
     'V2modelsSlotTypeExternalSourceSettingArgsDict',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs',
@@ -1935,6 +2075,8 @@ __all__ = [
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict',
     'V2modelsSlotTypeSlotTypeValuesArgs',
     'V2modelsSlotTypeSlotTypeValuesArgsDict',
+    'V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs',
+    'V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict',
     'V2modelsSlotTypeSlotTypeValuesSynonymArgs',
     'V2modelsSlotTypeSlotTypeValuesSynonymArgsDict',
     'V2modelsSlotTypeTimeoutsArgs',
@@ -2356,6 +2498,9 @@ class BotAliasConversationLogsLogSettingArgs:
 if not MYPY:
     class BotClarificationPromptArgsDict(TypedDict):
         max_attempts: pulumi.Input[int]
+        """
+        The number of times to prompt the user for information.
+        """
         messages: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgsDict']]]
         response_card: NotRequired[pulumi.Input[str]]
 elif False:
@@ -2367,6 +2512,9 @@ class BotClarificationPromptArgs:
                  max_attempts: pulumi.Input[int],
                  messages: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information.
+        """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -2375,6 +2523,9 @@ class BotClarificationPromptArgs:
     @property
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
+        """
+        The number of times to prompt the user for information.
+        """
         return pulumi.get(self, "max_attempts")
 
     @max_attempts.setter
@@ -2634,6 +2785,9 @@ class IntentConclusionStatementMessageArgs:
 if not MYPY:
     class IntentConfirmationPromptArgsDict(TypedDict):
         max_attempts: pulumi.Input[int]
+        """
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         messages: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgsDict']]]
         response_card: NotRequired[pulumi.Input[str]]
 elif False:
@@ -2645,6 +2799,9 @@ class IntentConfirmationPromptArgs:
                  max_attempts: pulumi.Input[int],
                  messages: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -2653,6 +2810,9 @@ class IntentConfirmationPromptArgs:
     @property
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
+        """
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         return pulumi.get(self, "max_attempts")
 
     @max_attempts.setter
@@ -2754,7 +2914,15 @@ class IntentConfirmationPromptMessageArgs:
 if not MYPY:
     class IntentDialogCodeHookArgsDict(TypedDict):
         message_version: pulumi.Input[str]
+        """
+        The version of the request-response that you want Amazon Lex to use
+        to invoke your Lambda function. For more information, see
+        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
+        """
         uri: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Lambda function.
+        """
 elif False:
     IntentDialogCodeHookArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2763,12 +2931,23 @@ class IntentDialogCodeHookArgs:
     def __init__(__self__, *,
                  message_version: pulumi.Input[str],
                  uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] message_version: The version of the request-response that you want Amazon Lex to use
+               to invoke your Lambda function. For more information, see
+               [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
+        :param pulumi.Input[str] uri: The Amazon Resource Name (ARN) of the Lambda function.
+        """
         pulumi.set(__self__, "message_version", message_version)
         pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter(name="messageVersion")
     def message_version(self) -> pulumi.Input[str]:
+        """
+        The version of the request-response that you want Amazon Lex to use
+        to invoke your Lambda function. For more information, see
+        [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
+        """
         return pulumi.get(self, "message_version")
 
     @message_version.setter
@@ -2778,6 +2957,9 @@ class IntentDialogCodeHookArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -3544,6 +3726,9 @@ class IntentSlotArgs:
 if not MYPY:
     class IntentSlotValueElicitationPromptArgsDict(TypedDict):
         max_attempts: pulumi.Input[int]
+        """
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         messages: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgsDict']]]
         response_card: NotRequired[pulumi.Input[str]]
 elif False:
@@ -3555,6 +3740,9 @@ class IntentSlotValueElicitationPromptArgs:
                  max_attempts: pulumi.Input[int],
                  messages: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         pulumi.set(__self__, "max_attempts", max_attempts)
         pulumi.set(__self__, "messages", messages)
         if response_card is not None:
@@ -3563,6 +3751,9 @@ class IntentSlotValueElicitationPromptArgs:
     @property
     @pulumi.getter(name="maxAttempts")
     def max_attempts(self) -> pulumi.Input[int]:
+        """
+        The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
+        """
         return pulumi.get(self, "max_attempts")
 
     @max_attempts.setter
@@ -4643,9 +4834,21 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessageA
 if not MYPY:
     class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4656,6 +4859,12 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs:
                  image_response_card: Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -4668,6 +4877,9 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -4677,6 +4889,9 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -4686,6 +4901,9 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -4695,6 +4913,9 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -5324,6 +5545,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentArgs
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -5342,6 +5566,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -5354,6 +5579,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -5388,6 +5616,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5395,12 +5626,18 @@ elif False:
 class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -5840,9 +6077,21 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5853,6 +6102,12 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
                  image_response_card: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -5865,6 +6120,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -5874,6 +6132,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -5883,6 +6144,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -5892,6 +6156,9 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -6383,6 +6650,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -6401,6 +6671,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -6413,6 +6684,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -6447,6 +6721,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6454,12 +6731,18 @@ elif False:
 class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -6899,9 +7182,21 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMe
 if not MYPY:
     class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6912,6 +7207,12 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
                  image_response_card: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -6924,6 +7225,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -6933,6 +7237,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -6942,6 +7249,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -6951,6 +7261,9 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -7390,6 +7703,9 @@ class V2modelsIntentClosingSettingNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentClosingSettingNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -7408,6 +7724,7 @@ class V2modelsIntentClosingSettingNextStepIntentSlotArgs:
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentClosingSettingNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentClosingSettingNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -7420,6 +7737,9 @@ class V2modelsIntentClosingSettingNextStepIntentSlotArgs:
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -7454,6 +7774,9 @@ class V2modelsIntentClosingSettingNextStepIntentSlotArgs:
 if not MYPY:
     class V2modelsIntentClosingSettingNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentClosingSettingNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7461,12 +7784,18 @@ elif False:
 class V2modelsIntentClosingSettingNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -8414,6 +8743,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -8432,6 +8764,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -8444,6 +8777,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -8478,6 +8814,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8485,12 +8824,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -8930,9 +9275,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8943,6 +9300,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -8955,6 +9318,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -8964,6 +9330,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -8973,6 +9342,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -8982,6 +9354,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -9473,6 +9848,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -9491,6 +9869,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -9503,6 +9882,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -9537,6 +9919,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9544,12 +9929,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -9989,9 +10380,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10002,6 +10405,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -10014,6 +10423,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -10023,6 +10435,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -10032,6 +10447,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -10041,6 +10459,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -10480,6 +10901,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -10498,6 +10922,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -10510,6 +10935,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -10544,6 +10972,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10551,12 +10982,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -10996,9 +11433,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11009,6 +11458,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -11021,6 +11476,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -11030,6 +11488,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -11039,6 +11500,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -11048,6 +11512,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -11677,6 +12144,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -11695,6 +12165,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -11707,6 +12178,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -11741,6 +12215,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11748,12 +12225,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -12193,9 +12676,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -12206,6 +12701,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -12218,6 +12719,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -12227,6 +12731,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -12236,6 +12743,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -12245,6 +12755,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -12736,6 +13249,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -12754,6 +13270,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -12766,6 +13283,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -12800,6 +13320,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -12807,12 +13330,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -13252,9 +13781,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -13265,6 +13806,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -13277,6 +13824,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -13286,6 +13836,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -13295,6 +13848,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -13304,6 +13860,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -13743,6 +14302,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -13761,6 +14323,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -13773,6 +14336,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -13807,6 +14373,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -13814,12 +14383,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -14259,9 +14834,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -14272,6 +14859,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -14284,6 +14877,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -14293,6 +14889,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -14302,6 +14901,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -14311,6 +14913,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -14940,6 +15545,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -14958,6 +15566,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -14970,6 +15579,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -15004,6 +15616,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -15011,12 +15626,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -15456,9 +16077,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -15469,6 +16102,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -15481,6 +16120,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -15490,6 +16132,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -15499,6 +16144,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -15508,6 +16156,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -15999,6 +16650,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -16017,6 +16671,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -16029,6 +16684,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -16063,6 +16721,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -16070,12 +16731,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -16515,9 +17182,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -16528,6 +17207,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -16540,6 +17225,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -16549,6 +17237,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -16558,6 +17249,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -16567,6 +17261,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -17006,6 +17703,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -17024,6 +17724,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -17036,6 +17737,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -17070,6 +17774,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -17077,12 +17784,18 @@ elif False:
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -17522,9 +18235,21 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
 if not MYPY:
     class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -17535,6 +18260,12 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -17547,6 +18278,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -17556,6 +18290,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -17565,6 +18302,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -17574,6 +18314,9 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -18203,6 +18946,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -18221,6 +18967,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -18233,6 +18980,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -18267,6 +19017,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18274,12 +19027,18 @@ elif False:
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -18719,9 +19478,21 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18732,6 +19503,12 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -18744,6 +19521,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -18753,6 +19533,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -18762,6 +19545,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -18771,6 +19557,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -19262,6 +20051,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -19280,6 +20072,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -19292,6 +20085,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -19326,6 +20122,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19333,12 +20132,18 @@ elif False:
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -19778,9 +20583,21 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19791,6 +20608,12 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -19803,6 +20626,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -19812,6 +20638,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -19821,6 +20650,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -19830,6 +20662,9 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -20269,6 +21104,9 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -20287,6 +21125,7 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgs:
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -20299,6 +21138,9 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgs:
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -20333,6 +21175,9 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -20340,12 +21185,18 @@ elif False:
 class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -20785,9 +21636,21 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSs
 if not MYPY:
     class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -20798,6 +21661,12 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -20810,6 +21679,9 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -20819,6 +21691,9 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -20828,6 +21703,9 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -20837,6 +21715,9 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -21466,6 +22347,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -21484,6 +22368,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -21496,6 +22381,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -21530,6 +22418,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21537,12 +22428,18 @@ elif False:
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -21982,9 +22879,21 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21995,6 +22904,12 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -22007,6 +22922,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -22016,6 +22934,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -22025,6 +22946,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -22034,6 +22958,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -22525,6 +23452,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -22543,6 +23473,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -22555,6 +23486,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -22589,6 +23523,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22596,12 +23533,18 @@ elif False:
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -23041,9 +23984,21 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -23054,6 +24009,12 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -23066,6 +24027,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -23075,6 +24039,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -23084,6 +24051,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -23093,6 +24063,9 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -23532,6 +24505,9 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -23550,6 +24526,7 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgs:
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -23562,6 +24539,9 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgs:
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -23596,6 +24576,9 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -23603,12 +24586,18 @@ elif False:
 class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -24048,9 +25037,21 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsm
 if not MYPY:
     class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -24061,6 +25062,12 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationA
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -24073,6 +25080,9 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationA
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -24082,6 +25092,9 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationA
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -24091,6 +25104,9 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationA
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -24100,6 +25116,9 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationA
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -24781,6 +25800,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -24799,6 +25821,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -24811,6 +25834,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -24845,6 +25871,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -24852,12 +25881,18 @@ elif False:
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -25297,9 +26332,21 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -25310,6 +26357,12 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -25322,6 +26375,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -25331,6 +26387,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -25340,6 +26399,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -25349,6 +26411,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -25840,6 +26905,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -25858,6 +26926,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -25870,6 +26939,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -25904,6 +26976,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -25911,12 +26986,18 @@ elif False:
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -26356,9 +27437,21 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -26369,6 +27462,12 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -26381,6 +27480,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -26390,6 +27492,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -26399,6 +27504,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -26408,6 +27516,9 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -26847,6 +27958,9 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -26865,6 +27979,7 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgs:
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -26877,6 +27992,9 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgs:
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -26911,6 +28029,9 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgs:
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -26918,12 +28039,18 @@ elif False:
 class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -27363,9 +28490,21 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMes
 if not MYPY:
     class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -27376,6 +28515,12 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs:
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -27388,6 +28533,9 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -27397,6 +28545,9 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -27406,6 +28557,9 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -27415,6 +28569,9 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs:
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -28147,9 +29304,21 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsm
 if not MYPY:
     class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -28160,6 +29329,12 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationA
                  image_response_card: Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -28172,6 +29347,9 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationA
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -28181,6 +29359,9 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationA
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -28190,6 +29371,9 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationA
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -28199,6 +29383,9 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationA
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -29505,9 +30692,21 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -29518,6 +30717,12 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -29530,6 +30735,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -29539,6 +30747,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -29548,6 +30759,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -29557,6 +30771,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -30249,9 +31466,21 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -30262,6 +31491,12 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -30274,6 +31509,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -30283,6 +31521,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -30292,6 +31533,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -30301,6 +31545,9 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -31122,6 +32369,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -31140,6 +32390,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -31152,6 +32403,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -31186,6 +32440,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -31193,12 +32450,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -31638,9 +32901,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -31651,6 +32926,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -31663,6 +32944,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -31672,6 +32956,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -31681,6 +32968,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -31690,6 +32980,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -32181,6 +33474,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -32199,6 +33495,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -32211,6 +33508,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -32245,6 +33545,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -32252,12 +33555,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -32697,9 +34006,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -32710,6 +34031,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -32722,6 +34049,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -32731,6 +34061,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -32740,6 +34073,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -32749,6 +34085,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -33188,6 +34527,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -33206,6 +34548,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -33218,6 +34561,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -33252,6 +34598,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -33259,12 +34608,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -33704,9 +35059,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -33717,6 +35084,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -33729,6 +35102,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -33738,6 +35114,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -33747,6 +35126,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -33756,6 +35138,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -34385,6 +35770,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -34403,6 +35791,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -34415,6 +35804,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -34449,6 +35841,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -34456,12 +35851,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -34901,9 +36302,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -34914,6 +36327,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -34926,6 +36345,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -34935,6 +36357,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -34944,6 +36369,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -34953,6 +36381,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -35444,6 +36875,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -35462,6 +36896,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -35474,6 +36909,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -35508,6 +36946,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -35515,12 +36956,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -35960,9 +37407,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -35973,6 +37432,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -35985,6 +37450,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -35994,6 +37462,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -36003,6 +37474,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -36012,6 +37486,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -36451,6 +37928,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -36469,6 +37949,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -36481,6 +37962,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -36515,6 +37999,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36522,12 +38009,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -36967,9 +38460,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -36980,6 +38485,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -36992,6 +38503,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -37001,6 +38515,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -37010,6 +38527,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -37019,6 +38539,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -37648,6 +39171,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -37666,6 +39192,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -37678,6 +39205,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -37712,6 +39242,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -37719,12 +39252,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -38164,9 +39703,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -38177,6 +39728,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -38189,6 +39746,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -38198,6 +39758,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -38207,6 +39770,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -38216,6 +39782,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -38707,6 +40276,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -38725,6 +40297,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -38737,6 +40310,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -38771,6 +40347,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -38778,12 +40357,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -39223,9 +40808,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -39236,6 +40833,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -39248,6 +40851,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -39257,6 +40863,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -39266,6 +40875,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -39275,6 +40887,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -39714,6 +41329,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -39732,6 +41350,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -39744,6 +41363,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -39778,6 +41400,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -39785,12 +41410,18 @@ elif False:
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -40230,9 +41861,21 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 if not MYPY:
     class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -40243,6 +41886,12 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
                  image_response_card: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -40255,6 +41904,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -40264,6 +41916,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -40273,6 +41928,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -40282,6 +41940,9 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -41284,6 +42945,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -41302,6 +42966,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -41314,6 +42979,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -41348,6 +43016,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -41355,12 +43026,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -41800,9 +43477,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -41813,6 +43502,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -41825,6 +43520,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -41834,6 +43532,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -41843,6 +43544,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -41852,6 +43556,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -42343,6 +44050,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -42361,6 +44071,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -42373,6 +44084,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -42407,6 +44121,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -42414,12 +44131,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -42859,9 +44582,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -42872,6 +44607,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -42884,6 +44625,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -42893,6 +44637,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -42902,6 +44649,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -42911,6 +44661,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -43350,6 +45103,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -43368,6 +45124,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -43380,6 +45137,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -43414,6 +45174,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -43421,12 +45184,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -43866,9 +45635,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -43879,6 +45660,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -43891,6 +45678,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -43900,6 +45690,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -43909,6 +45702,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -43918,6 +45714,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -44547,6 +46346,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -44565,6 +46367,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -44577,6 +46380,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -44611,6 +46417,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -44618,12 +46427,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -45063,9 +46878,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45076,6 +46903,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -45088,6 +46921,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -45097,6 +46933,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -45106,6 +46945,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -45115,6 +46957,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -45606,6 +47451,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -45624,6 +47472,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -45636,6 +47485,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -45670,6 +47522,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -45677,12 +47532,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -46122,9 +47983,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -46135,6 +48008,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -46147,6 +48026,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -46156,6 +48038,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -46165,6 +48050,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -46174,6 +48062,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -46613,6 +48504,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -46631,6 +48525,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -46643,6 +48538,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -46677,6 +48575,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -46684,12 +48585,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -47129,9 +49036,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -47142,6 +49061,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -47154,6 +49079,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -47163,6 +49091,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -47172,6 +49103,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -47181,6 +49115,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -47810,6 +49747,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -47828,6 +49768,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -47840,6 +49781,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -47874,6 +49818,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -47881,12 +49828,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -48326,9 +50279,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -48339,6 +50304,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -48351,6 +50322,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -48360,6 +50334,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -48369,6 +50346,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -48378,6 +50358,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -48869,6 +50852,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -48887,6 +50873,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -48899,6 +50886,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -48933,6 +50923,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -48940,12 +50933,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -49385,9 +51384,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -49398,6 +51409,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -49410,6 +51427,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -49419,6 +51439,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -49428,6 +51451,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -49437,6 +51463,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -49876,6 +51905,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -49894,6 +51926,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -49906,6 +51939,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -49940,6 +51976,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -49947,12 +51986,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -50392,9 +52437,21 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 if not MYPY:
     class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -50405,6 +52462,12 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -50417,6 +52480,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -50426,6 +52492,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -50435,6 +52504,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -50444,6 +52516,9 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -51073,6 +53148,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -51091,6 +53169,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -51103,6 +53182,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -51137,6 +53219,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51144,12 +53229,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -51589,9 +53680,21 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51602,6 +53705,12 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -51614,6 +53723,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -51623,6 +53735,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -51632,6 +53747,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -51641,6 +53759,9 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -52132,6 +54253,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -52150,6 +54274,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -52162,6 +54287,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -52196,6 +54324,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -52203,12 +54334,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -52648,9 +54785,21 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
 if not MYPY:
     class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -52661,6 +54810,12 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -52673,6 +54828,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -52682,6 +54840,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -52691,6 +54852,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -52700,6 +54864,9 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -53373,9 +55540,21 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsml
 if not MYPY:
     class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgsDict(TypedDict):
         custom_payload: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgsDict']]
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         image_response_card: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgsDict']]
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         plain_text_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         ssml_message: NotRequired[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgsDict']]
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53386,6 +55565,12 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationAr
                  image_response_card: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        """
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs'] custom_payload: Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs'] image_response_card: Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs'] plain_text_message: Configuration block for a message in plain text format. See `plain_text_message`.
+        :param pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs'] ssml_message: Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         if custom_payload is not None:
             pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
@@ -53398,6 +55583,9 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationAr
     @property
     @pulumi.getter(name="customPayload")
     def custom_payload(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs']]:
+        """
+        Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+        """
         return pulumi.get(self, "custom_payload")
 
     @custom_payload.setter
@@ -53407,6 +55595,9 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationAr
     @property
     @pulumi.getter(name="imageResponseCard")
     def image_response_card(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs']]:
+        """
+        Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+        """
         return pulumi.get(self, "image_response_card")
 
     @image_response_card.setter
@@ -53416,6 +55607,9 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationAr
     @property
     @pulumi.getter(name="plainTextMessage")
     def plain_text_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs']]:
+        """
+        Configuration block for a message in plain text format. See `plain_text_message`.
+        """
         return pulumi.get(self, "plain_text_message")
 
     @plain_text_message.setter
@@ -53425,6 +55619,9 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationAr
     @property
     @pulumi.getter(name="ssmlMessage")
     def ssml_message(self) -> Optional[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs']]:
+        """
+        Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+        """
         return pulumi.get(self, "ssml_message")
 
     @ssml_message.setter
@@ -53864,6 +56061,9 @@ class V2modelsIntentInitialResponseSettingNextStepIntentArgs:
 if not MYPY:
     class V2modelsIntentInitialResponseSettingNextStepIntentSlotArgsDict(TypedDict):
         map_block_key: pulumi.Input[str]
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         shape: NotRequired[pulumi.Input[str]]
         """
         When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
@@ -53882,6 +56082,7 @@ class V2modelsIntentInitialResponseSettingNextStepIntentSlotArgs:
                  shape: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input['V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgs']] = None):
         """
+        :param pulumi.Input[str] map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param pulumi.Input[str] shape: When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgs'] value: Configuration block for the current value of the slot. See `value`.
         """
@@ -53894,6 +56095,9 @@ class V2modelsIntentInitialResponseSettingNextStepIntentSlotArgs:
     @property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> pulumi.Input[str]:
+        """
+        Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
+        """
         return pulumi.get(self, "map_block_key")
 
     @map_block_key.setter
@@ -53928,6 +56132,9 @@ class V2modelsIntentInitialResponseSettingNextStepIntentSlotArgs:
 if not MYPY:
     class V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgsDict(TypedDict):
         interpreted_value: NotRequired[pulumi.Input[str]]
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
 elif False:
     V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -53935,12 +56142,18 @@ elif False:
 class V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgs:
     def __init__(__self__, *,
                  interpreted_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interpreted_value: Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         if interpreted_value is not None:
             pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
     def interpreted_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
+        """
         return pulumi.get(self, "interpreted_value")
 
     @interpreted_value.setter
@@ -54336,6 +56549,2700 @@ class V2modelsSlotObfuscationSettingArgs:
 
 
 if not MYPY:
+    class V2modelsSlotSubSlotSettingArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[str]]
+        slot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 slot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]] = None):
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if slot_specifications is not None:
+            pulumi.set(__self__, "slot_specifications", slot_specifications)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="slotSpecifications")
+    def slot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]:
+        return pulumi.get(self, "slot_specifications")
+
+    @slot_specifications.setter
+    def slot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]):
+        pulumi.set(self, "slot_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationArgsDict(TypedDict):
+        map_block_key: pulumi.Input[str]
+        slot_type_id: pulumi.Input[str]
+        """
+        Unique identifier for the slot type associated with this slot.
+        """
+        value_elicitation_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict']]]]
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+
+        The following arguments are optional:
+        """
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 slot_type_id: pulumi.Input[str],
+                 value_elicitation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]] = None):
+        """
+        :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]] value_elicitation_settings: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if value_elicitation_settings is not None:
+            pulumi.set(__self__, "value_elicitation_settings", value_elicitation_settings)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> pulumi.Input[str]:
+        """
+        Unique identifier for the slot type associated with this slot.
+        """
+        return pulumi.get(self, "slot_type_id")
+
+    @slot_type_id.setter
+    def slot_type_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot_type_id", value)
+
+    @property
+    @pulumi.getter(name="valueElicitationSettings")
+    def value_elicitation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]:
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "value_elicitation_settings")
+
+    @value_elicitation_settings.setter
+    def value_elicitation_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]):
+        pulumi.set(self, "value_elicitation_settings", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict(TypedDict):
+        prompt_specification: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict']
+        default_value_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict']]]]
+        sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict']]]]
+        wait_and_continue_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
+    def __init__(__self__, *,
+                 prompt_specification: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs'],
+                 default_value_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]] = None,
+                 sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]] = None,
+                 wait_and_continue_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]] = None):
+        pulumi.set(__self__, "prompt_specification", prompt_specification)
+        if default_value_specifications is not None:
+            pulumi.set(__self__, "default_value_specifications", default_value_specifications)
+        if sample_utterances is not None:
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if wait_and_continue_specifications is not None:
+            pulumi.set(__self__, "wait_and_continue_specifications", wait_and_continue_specifications)
+
+    @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']:
+        return pulumi.get(self, "prompt_specification")
+
+    @prompt_specification.setter
+    def prompt_specification(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']):
+        pulumi.set(self, "prompt_specification", value)
+
+    @property
+    @pulumi.getter(name="defaultValueSpecifications")
+    def default_value_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]:
+        return pulumi.get(self, "default_value_specifications")
+
+    @default_value_specifications.setter
+    def default_value_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]):
+        pulumi.set(self, "default_value_specifications", value)
+
+    @property
+    @pulumi.getter(name="sampleUtterances")
+    def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]]:
+        return pulumi.get(self, "sample_utterances")
+
+    @sample_utterances.setter
+    def sample_utterances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]]):
+        pulumi.set(self, "sample_utterances", value)
+
+    @property
+    @pulumi.getter(name="waitAndContinueSpecifications")
+    def wait_and_continue_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]:
+        return pulumi.get(self, "wait_and_continue_specifications")
+
+    @wait_and_continue_specifications.setter
+    def wait_and_continue_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]):
+        pulumi.set(self, "wait_and_continue_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict(TypedDict):
+        default_value_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs:
+    def __init__(__self__, *,
+                 default_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]] = None):
+        if default_value_lists is not None:
+            pulumi.set(__self__, "default_value_lists", default_value_lists)
+
+    @property
+    @pulumi.getter(name="defaultValueLists")
+    def default_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]:
+        return pulumi.get(self, "default_value_lists")
+
+    @default_value_lists.setter
+    def default_value_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]):
+        pulumi.set(self, "default_value_lists", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict(TypedDict):
+        default_value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[str]):
+        pulumi.set(__self__, "default_value", default_value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict(TypedDict):
+        max_retries: pulumi.Input[int]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict']]]]
+        message_selection_strategy: NotRequired[pulumi.Input[str]]
+        prompt_attempts_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs:
+    def __init__(__self__, *,
+                 max_retries: pulumi.Input[int],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]] = None,
+                 message_selection_strategy: Optional[pulumi.Input[str]] = None,
+                 prompt_attempts_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]] = None):
+        pulumi.set(__self__, "max_retries", max_retries)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+        if message_selection_strategy is not None:
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
+        if prompt_attempts_specifications is not None:
+            pulumi.set(__self__, "prompt_attempts_specifications", prompt_attempts_specifications)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+    @property
+    @pulumi.getter(name="messageSelectionStrategy")
+    def message_selection_strategy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "message_selection_strategy")
+
+    @message_selection_strategy.setter
+    def message_selection_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_selection_strategy", value)
+
+    @property
+    @pulumi.getter(name="promptAttemptsSpecifications")
+    def prompt_attempts_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]:
+        return pulumi.get(self, "prompt_attempts_specifications")
+
+    @prompt_attempts_specifications.setter
+    def prompt_attempts_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]):
+        pulumi.set(self, "prompt_attempts_specifications", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict(TypedDict):
+        allowed_input_types: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict']
+        map_block_key: pulumi.Input[str]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        audio_and_dtmf_input_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict']]
+        text_input_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs:
+    def __init__(__self__, *,
+                 allowed_input_types: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs'],
+                 map_block_key: pulumi.Input[str],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 audio_and_dtmf_input_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']] = None,
+                 text_input_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']] = None):
+        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if audio_and_dtmf_input_specification is not None:
+            pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
+        if text_input_specification is not None:
+            pulumi.set(__self__, "text_input_specification", text_input_specification)
+
+    @property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']:
+        return pulumi.get(self, "allowed_input_types")
+
+    @allowed_input_types.setter
+    def allowed_input_types(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']):
+        pulumi.set(self, "allowed_input_types", value)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="audioAndDtmfInputSpecification")
+    def audio_and_dtmf_input_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]:
+        return pulumi.get(self, "audio_and_dtmf_input_specification")
+
+    @audio_and_dtmf_input_specification.setter
+    def audio_and_dtmf_input_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]):
+        pulumi.set(self, "audio_and_dtmf_input_specification", value)
+
+    @property
+    @pulumi.getter(name="textInputSpecification")
+    def text_input_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]:
+        return pulumi.get(self, "text_input_specification")
+
+    @text_input_specification.setter
+    def text_input_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]):
+        pulumi.set(self, "text_input_specification", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict(TypedDict):
+        allow_audio_input: pulumi.Input[bool]
+        allow_dtmf_input: pulumi.Input[bool]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs:
+    def __init__(__self__, *,
+                 allow_audio_input: pulumi.Input[bool],
+                 allow_dtmf_input: pulumi.Input[bool]):
+        pulumi.set(__self__, "allow_audio_input", allow_audio_input)
+        pulumi.set(__self__, "allow_dtmf_input", allow_dtmf_input)
+
+    @property
+    @pulumi.getter(name="allowAudioInput")
+    def allow_audio_input(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "allow_audio_input")
+
+    @allow_audio_input.setter
+    def allow_audio_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_audio_input", value)
+
+    @property
+    @pulumi.getter(name="allowDtmfInput")
+    def allow_dtmf_input(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "allow_dtmf_input")
+
+    @allow_dtmf_input.setter
+    def allow_dtmf_input(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "allow_dtmf_input", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict(TypedDict):
+        start_timeout_ms: pulumi.Input[int]
+        audio_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict']]
+        dtmf_specification: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int],
+                 audio_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']] = None,
+                 dtmf_specification: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']] = None):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+        if audio_specification is not None:
+            pulumi.set(__self__, "audio_specification", audio_specification)
+        if dtmf_specification is not None:
+            pulumi.set(__self__, "dtmf_specification", dtmf_specification)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="audioSpecification")
+    def audio_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]:
+        return pulumi.get(self, "audio_specification")
+
+    @audio_specification.setter
+    def audio_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]):
+        pulumi.set(self, "audio_specification", value)
+
+    @property
+    @pulumi.getter(name="dtmfSpecification")
+    def dtmf_specification(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]:
+        return pulumi.get(self, "dtmf_specification")
+
+    @dtmf_specification.setter
+    def dtmf_specification(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]):
+        pulumi.set(self, "dtmf_specification", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict(TypedDict):
+        end_timeout_ms: pulumi.Input[int]
+        max_length_ms: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs:
+    def __init__(__self__, *,
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length_ms: pulumi.Input[int]):
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length_ms", max_length_ms)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLengthMs")
+    def max_length_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_length_ms")
+
+    @max_length_ms.setter
+    def max_length_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length_ms", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict(TypedDict):
+        deletion_character: pulumi.Input[str]
+        end_character: pulumi.Input[str]
+        end_timeout_ms: pulumi.Input[int]
+        max_length: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs:
+    def __init__(__self__, *,
+                 deletion_character: pulumi.Input[str],
+                 end_character: pulumi.Input[str],
+                 end_timeout_ms: pulumi.Input[int],
+                 max_length: pulumi.Input[int]):
+        pulumi.set(__self__, "deletion_character", deletion_character)
+        pulumi.set(__self__, "end_character", end_character)
+        pulumi.set(__self__, "end_timeout_ms", end_timeout_ms)
+        pulumi.set(__self__, "max_length", max_length)
+
+    @property
+    @pulumi.getter(name="deletionCharacter")
+    def deletion_character(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deletion_character")
+
+    @deletion_character.setter
+    def deletion_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deletion_character", value)
+
+    @property
+    @pulumi.getter(name="endCharacter")
+    def end_character(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "end_character")
+
+    @end_character.setter
+    def end_character(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_character", value)
+
+    @property
+    @pulumi.getter(name="endTimeoutMs")
+    def end_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "end_timeout_ms")
+
+    @end_timeout_ms.setter
+    def end_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "end_timeout_ms", value)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict(TypedDict):
+        start_timeout_ms: pulumi.Input[int]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs:
+    def __init__(__self__, *,
+                 start_timeout_ms: pulumi.Input[int]):
+        pulumi.set(__self__, "start_timeout_ms", start_timeout_ms)
+
+    @property
+    @pulumi.getter(name="startTimeoutMs")
+    def start_timeout_ms(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "start_timeout_ms")
+
+    @start_timeout_ms.setter
+    def start_timeout_ms(self, value: pulumi.Input[int]):
+        pulumi.set(self, "start_timeout_ms", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict(TypedDict):
+        utterance: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs:
+    def __init__(__self__, *,
+                 utterance: pulumi.Input[str]):
+        pulumi.set(__self__, "utterance", utterance)
+
+    @property
+    @pulumi.getter
+    def utterance(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "utterance")
+
+    @utterance.setter
+    def utterance(self, value: pulumi.Input[str]):
+        pulumi.set(self, "utterance", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict(TypedDict):
+        active: NotRequired[pulumi.Input[bool]]
+        continue_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]
+        still_waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]
+        waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 continue_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]] = None,
+                 still_waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]] = None,
+                 waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if continue_responses is not None:
+            pulumi.set(__self__, "continue_responses", continue_responses)
+        if still_waiting_responses is not None:
+            pulumi.set(__self__, "still_waiting_responses", still_waiting_responses)
+        if waiting_responses is not None:
+            pulumi.set(__self__, "waiting_responses", waiting_responses)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter(name="continueResponses")
+    def continue_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]:
+        return pulumi.get(self, "continue_responses")
+
+    @continue_responses.setter
+    def continue_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]):
+        pulumi.set(self, "continue_responses", value)
+
+    @property
+    @pulumi.getter(name="stillWaitingResponses")
+    def still_waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]:
+        return pulumi.get(self, "still_waiting_responses")
+
+    @still_waiting_responses.setter
+    def still_waiting_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]):
+        pulumi.set(self, "still_waiting_responses", value)
+
+    @property
+    @pulumi.getter(name="waitingResponses")
+    def waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]:
+        return pulumi.get(self, "waiting_responses")
+
+    @waiting_responses.setter
+    def waiting_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]):
+        pulumi.set(self, "waiting_responses", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict(TypedDict):
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs:
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict(TypedDict):
+        frequency_in_seconds: pulumi.Input[int]
+        timeout_in_seconds: pulumi.Input[int]
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs:
+    def __init__(__self__, *,
+                 frequency_in_seconds: pulumi.Input[int],
+                 timeout_in_seconds: pulumi.Input[int],
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]] = None):
+        pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="frequencyInSeconds")
+    def frequency_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "frequency_in_seconds")
+
+    @frequency_in_seconds.setter
+    def frequency_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "frequency_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict(TypedDict):
+        allow_interrupt: NotRequired[pulumi.Input[bool]]
+        message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs:
+    def __init__(__self__, *,
+                 allow_interrupt: Optional[pulumi.Input[bool]] = None,
+                 message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]] = None):
+        if allow_interrupt is not None:
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if message_groups is not None:
+            pulumi.set(__self__, "message_groups", message_groups)
+
+    @property
+    @pulumi.getter(name="allowInterrupt")
+    def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_interrupt")
+
+    @allow_interrupt.setter
+    def allow_interrupt(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_interrupt", value)
+
+    @property
+    @pulumi.getter(name="messageGroups")
+    def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]:
+        return pulumi.get(self, "message_groups")
+
+    @message_groups.setter
+    def message_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]):
+        pulumi.set(self, "message_groups", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
+        message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']
+        variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs:
+    def __init__(__self__, *,
+                 message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'],
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]] = None):
+        pulumi.set(__self__, "message", message)
+        if variations is not None:
+            pulumi.set(__self__, "variations", variations)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]:
+        return pulumi.get(self, "variations")
+
+    @variations.setter
+    def variations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]):
+        pulumi.set(self, "variations", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict(TypedDict):
+        custom_payload: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]
+        image_response_card: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]
+        plain_text_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]
+        ssml_message: NotRequired[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs:
+    def __init__(__self__, *,
+                 custom_payload: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']] = None,
+                 image_response_card: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
+                 plain_text_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
+                 ssml_message: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
+        if custom_payload is not None:
+            pulumi.set(__self__, "custom_payload", custom_payload)
+        if image_response_card is not None:
+            pulumi.set(__self__, "image_response_card", image_response_card)
+        if plain_text_message is not None:
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
+
+    @property
+    @pulumi.getter(name="customPayload")
+    def custom_payload(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]:
+        return pulumi.get(self, "custom_payload")
+
+    @custom_payload.setter
+    def custom_payload(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]):
+        pulumi.set(self, "custom_payload", value)
+
+    @property
+    @pulumi.getter(name="imageResponseCard")
+    def image_response_card(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]:
+        return pulumi.get(self, "image_response_card")
+
+    @image_response_card.setter
+    def image_response_card(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]):
+        pulumi.set(self, "image_response_card", value)
+
+    @property
+    @pulumi.getter(name="plainTextMessage")
+    def plain_text_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]:
+        return pulumi.get(self, "plain_text_message")
+
+    @plain_text_message.setter
+    def plain_text_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]):
+        pulumi.set(self, "plain_text_message", value)
+
+    @property
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
+
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
+        title: pulumi.Input[str]
+        buttons: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]
+        image_url: NotRequired[pulumi.Input[str]]
+        subtitle: NotRequired[pulumi.Input[str]]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs:
+    def __init__(__self__, *,
+                 title: pulumi.Input[str],
+                 buttons: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]] = None,
+                 image_url: Optional[pulumi.Input[str]] = None,
+                 subtitle: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "title", title)
+        if buttons is not None:
+            pulumi.set(__self__, "buttons", buttons)
+        if image_url is not None:
+            pulumi.set(__self__, "image_url", image_url)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter
+    def buttons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]:
+        return pulumi.get(self, "buttons")
+
+    @buttons.setter
+    def buttons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]):
+        pulumi.set(self, "buttons", value)
+
+    @property
+    @pulumi.getter(name="imageUrl")
+    def image_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_url")
+
+    @image_url.setter
+    def image_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_url", value)
+
+    @property
+    @pulumi.getter
+    def subtitle(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subtitle", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class V2modelsSlotTimeoutsArgsDict(TypedDict):
         create: NotRequired[pulumi.Input[str]]
         """
@@ -54409,7 +59316,7 @@ class V2modelsSlotTimeoutsArgs:
 
 if not MYPY:
     class V2modelsSlotTypeCompositeSlotTypeSettingArgsDict(TypedDict):
-        sub_slots: pulumi.Input[Sequence[Any]]
+        sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict']]]
         """
         Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         """
@@ -54419,23 +59326,72 @@ elif False:
 @pulumi.input_type
 class V2modelsSlotTypeCompositeSlotTypeSettingArgs:
     def __init__(__self__, *,
-                 sub_slots: pulumi.Input[Sequence[Any]]):
+                 sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]):
         """
-        :param pulumi.Input[Sequence[Any]] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         """
         pulumi.set(__self__, "sub_slots", sub_slots)
 
     @property
     @pulumi.getter(name="subSlots")
-    def sub_slots(self) -> pulumi.Input[Sequence[Any]]:
+    def sub_slots(self) -> pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]:
         """
         Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         """
         return pulumi.get(self, "sub_slots")
 
     @sub_slots.setter
-    def sub_slots(self, value: pulumi.Input[Sequence[Any]]):
+    def sub_slots(self, value: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]):
         pulumi.set(self, "sub_slots", value)
+
+
+if not MYPY:
+    class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the slot type
+
+        The following arguments are optional:
+        """
+        sub_slot_id: pulumi.Input[str]
+elif False:
+    V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 sub_slot_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the slot type
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sub_slot_id", sub_slot_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the slot type
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subSlotId")
+    def sub_slot_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sub_slot_id")
+
+    @sub_slot_id.setter
+    def sub_slot_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sub_slot_id", value)
 
 
 if not MYPY:
@@ -54505,8 +59461,17 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs:
 if not MYPY:
     class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict(TypedDict):
         kms_key_arn: pulumi.Input[str]
+        """
+        KMS key required to decrypt the contents of the grammar, if any.
+        """
         s3_bucket_name: pulumi.Input[str]
+        """
+        Name of the Amazon S3 bucket that contains the grammar source.
+        """
         s3_object_key: pulumi.Input[str]
+        """
+        Path to the grammar in the Amazon S3 bucket.
+        """
 elif False:
     V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -54516,6 +59481,11 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
                  kms_key_arn: pulumi.Input[str],
                  s3_bucket_name: pulumi.Input[str],
                  s3_object_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_key_arn: KMS key required to decrypt the contents of the grammar, if any.
+        :param pulumi.Input[str] s3_bucket_name: Name of the Amazon S3 bucket that contains the grammar source.
+        :param pulumi.Input[str] s3_object_key: Path to the grammar in the Amazon S3 bucket.
+        """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         pulumi.set(__self__, "s3_object_key", s3_object_key)
@@ -54523,6 +59493,9 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[str]:
+        """
+        KMS key required to decrypt the contents of the grammar, if any.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -54532,6 +59505,9 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        Name of the Amazon S3 bucket that contains the grammar source.
+        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -54541,6 +59517,9 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
     @property
     @pulumi.getter(name="s3ObjectKey")
     def s3_object_key(self) -> pulumi.Input[str]:
+        """
+        Path to the grammar in the Amazon S3 bucket.
+        """
         return pulumi.get(self, "s3_object_key")
 
     @s3_object_key.setter
@@ -54550,7 +59529,7 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
 
 if not MYPY:
     class V2modelsSlotTypeSlotTypeValuesArgsDict(TypedDict):
-        slot_type_values: pulumi.Input[Sequence[Any]]
+        slot_type_values: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict']]]
         """
         List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         """
@@ -54564,10 +59543,10 @@ elif False:
 @pulumi.input_type
 class V2modelsSlotTypeSlotTypeValuesArgs:
     def __init__(__self__, *,
-                 slot_type_values: pulumi.Input[Sequence[Any]],
+                 slot_type_values: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]],
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[Any]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
         """
         pulumi.set(__self__, "slot_type_values", slot_type_values)
@@ -54576,14 +59555,14 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
 
     @property
     @pulumi.getter(name="slotTypeValues")
-    def slot_type_values(self) -> pulumi.Input[Sequence[Any]]:
+    def slot_type_values(self) -> pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]]:
         """
         List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         """
         return pulumi.get(self, "slot_type_values")
 
     @slot_type_values.setter
-    def slot_type_values(self, value: pulumi.Input[Sequence[Any]]):
+    def slot_type_values(self, value: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs']]]):
         pulumi.set(self, "slot_type_values", value)
 
     @property
@@ -54600,8 +59579,42 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
 
 
 if not MYPY:
+    class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        Value that can be used for a slot type.
+        """
+elif False:
+    V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] value: Value that can be used for a slot type.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value that can be used for a slot type.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class V2modelsSlotTypeSlotTypeValuesSynonymArgsDict(TypedDict):
         value: pulumi.Input[str]
+        """
+        Value that can be used for a slot type.
+        """
 elif False:
     V2modelsSlotTypeSlotTypeValuesSynonymArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -54609,11 +59622,17 @@ elif False:
 class V2modelsSlotTypeSlotTypeValuesSynonymArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] value: Value that can be used for a slot type.
+        """
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        Value that can be used for a slot type.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -54790,6 +59809,10 @@ class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs:
 if not MYPY:
     class V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict(TypedDict):
         pattern: pulumi.Input[str]
+        """
+        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
+        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        """
 elif False:
     V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -54797,11 +59820,19 @@ elif False:
 class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] pattern: Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
+               Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        """
         pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[str]:
+        """
+        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
+        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter

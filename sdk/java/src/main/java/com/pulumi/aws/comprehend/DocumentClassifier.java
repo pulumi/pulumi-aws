@@ -330,7 +330,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DocumentClassifier(String name) {
+    public DocumentClassifier(java.lang.String name) {
         this(name, DocumentClassifierArgs.Empty);
     }
     /**
@@ -338,7 +338,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DocumentClassifier(String name, DocumentClassifierArgs args) {
+    public DocumentClassifier(java.lang.String name, DocumentClassifierArgs args) {
         this(name, args, null);
     }
     /**
@@ -347,15 +347,22 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DocumentClassifier(String name, DocumentClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:comprehend/documentClassifier:DocumentClassifier", name, args == null ? DocumentClassifierArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public DocumentClassifier(java.lang.String name, DocumentClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:comprehend/documentClassifier:DocumentClassifier", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DocumentClassifier(String name, Output<String> id, @Nullable DocumentClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("aws:comprehend/documentClassifier:DocumentClassifier", name, state, makeResourceOptions(options, id));
+    private DocumentClassifier(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("aws:comprehend/documentClassifier:DocumentClassifier", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static DocumentClassifierArgs makeArgs(DocumentClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DocumentClassifierArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -371,7 +378,7 @@ public class DocumentClassifier extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DocumentClassifier get(String name, Output<String> id, @Nullable DocumentClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DocumentClassifier get(java.lang.String name, Output<java.lang.String> id, @Nullable DocumentClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DocumentClassifier(name, id, state, options);
     }
 }
