@@ -197,6 +197,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * When using the forceNewDeployment property you also need to configure the Triggers property.
      * 
      */
     @Import(name="forceNewDeployment")
@@ -204,6 +205,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * When using the forceNewDeployment property you also need to configure the Triggers property.
      * 
      */
     public Optional<Output<Boolean>> forceNewDeployment() {
@@ -780,6 +782,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param forceNewDeployment Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+         * When using the forceNewDeployment property you also need to configure the Triggers property.
          * 
          * @return builder
          * 
@@ -791,6 +794,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param forceNewDeployment Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+         * When using the forceNewDeployment property you also need to configure the Triggers property.
          * 
          * @return builder
          * 
