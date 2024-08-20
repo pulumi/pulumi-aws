@@ -142,3 +142,117 @@ index d9f2424b7a..3e2b08ed08 100644
  
  	log.Printf("[INFO] Updating GameLift Matchmaking Rule Set: %s", d.Id())
  
+diff --git a/internal/service/gamelift/service_package_extra.go b/internal/service/gamelift/service_package_extra.go
+new file mode 100644
+index 0000000000..dc4c9b2230
+--- /dev/null
++++ b/internal/service/gamelift/service_package_extra.go
+@@ -0,0 +1,95 @@
++package gamelift
++
++import (
++	"context"
++	"fmt"
++	aws_sdkv1 "github.com/aws/aws-sdk-go/aws"
++	endpoints_sdkv1 "github.com/aws/aws-sdk-go/aws/endpoints"
++	session_sdkv1 "github.com/aws/aws-sdk-go/aws/session"
++	gamelift_sdkv1 "github.com/aws/aws-sdk-go/service/gamelift"
++	"github.com/hashicorp/terraform-plugin-log/tflog"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs"
++	"github.com/hashicorp/terraform-provider-aws/names"
++	"net"
++	"net/url"
++)
++
++// NewConn returns a new AWS SDK for Go v1 client for this service package's AWS API.
++func (p *servicePackage) NewConn(ctx context.Context, config map[string]any) (*gamelift_sdkv1.GameLift, error) {
++	sess := config[names.AttrSession].(*session_sdkv1.Session)
++
++	cfg := aws_sdkv1.Config{}
++
++	if endpoint := config[names.AttrEndpoint].(string); endpoint != "" {
++		tflog.Debug(ctx, "setting endpoint", map[string]any{
++			"tf_aws.endpoint": endpoint,
++		})
++		cfg.Endpoint = aws_sdkv1.String(endpoint)
++	} else {
++		cfg.EndpointResolver = newEndpointResolverSDKv1(ctx)
++	}
++
++	return gamelift_sdkv1.New(sess.Copy(&cfg)), nil
++}
++
++var _ endpoints_sdkv1.Resolver = resolverSDKv1{}
++
++type resolverSDKv1 struct {
++	ctx context.Context
++}
++
++func newEndpointResolverSDKv1(ctx context.Context) resolverSDKv1 {
++	return resolverSDKv1{
++		ctx: ctx,
++	}
++}
++
++func (r resolverSDKv1) EndpointFor(service, region string, opts ...func(*endpoints_sdkv1.Options)) (endpoint endpoints_sdkv1.ResolvedEndpoint, err error) {
++	ctx := r.ctx
++
++	var opt endpoints_sdkv1.Options
++	opt.Set(opts...)
++
++	useFIPS := opt.UseFIPSEndpoint == endpoints_sdkv1.FIPSEndpointStateEnabled
++
++	defaultResolver := endpoints_sdkv1.DefaultResolver()
++
++	if useFIPS {
++		ctx = tflog.SetField(ctx, "tf_aws.use_fips", useFIPS)
++
++		endpoint, err = defaultResolver.EndpointFor(service, region, opts...)
++		if err != nil {
++			return endpoint, err
++		}
++
++		tflog.Debug(ctx, "endpoint resolved", map[string]any{
++			"tf_aws.endpoint": endpoint.URL,
++		})
++
++		var endpointURL *url.URL
++		endpointURL, err = url.Parse(endpoint.URL)
++		if err != nil {
++			return endpoint, err
++		}
++
++		hostname := endpointURL.Hostname()
++		_, err = net.LookupHost(hostname)
++		if err != nil {
++			if dnsErr, ok := errs.As[*net.DNSError](err); ok && dnsErr.IsNotFound {
++				tflog.Debug(ctx, "default endpoint host not found, disabling FIPS", map[string]any{
++					"tf_aws.hostname": hostname,
++				})
++				opts = append(opts, func(o *endpoints_sdkv1.Options) {
++					o.UseFIPSEndpoint = endpoints_sdkv1.FIPSEndpointStateDisabled
++				})
++			} else {
++				err = fmt.Errorf("looking up accessanalyzer endpoint %q: %s", hostname, err)
++				return
++			}
++		} else {
++			return endpoint, err
++		}
++	}
++
++	return defaultResolver.EndpointFor(service, region, opts...)
++}
+diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
+index ffacb154d8..1ce9328e2c 100644
+--- a/names/data/names_data.hcl
++++ b/names/data/names_data.hcl
+@@ -4146,7 +4146,7 @@ service "gamelift" {
+ 
+   sdk {
+     id             = "GameLift"
+-    client_version = [2]
++    client_version = [1, 2]
+   }
+ 
+   names {
