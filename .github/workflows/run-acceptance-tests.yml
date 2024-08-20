@@ -411,7 +411,7 @@ jobs:
       - name: make upstream
         run: make upstream
       - id: find-services
-        run: echo "services=$(python scripts/services.py)" >> "$GITHUB_OUTPUT"
+        run: echo "services=$(python scripts/services.py)" | tee -a "$GITHUB_OUTPUT"
     outputs:
       services: ${{ steps.find-services.outputs.services }}
 
@@ -422,7 +422,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        service: ${{ needs.upstream_acceptance_tests_matrix.outputs.services }}
+        service: ${{ fromJson(needs.upstream_acceptance_tests_matrix.outputs.services) }}
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
