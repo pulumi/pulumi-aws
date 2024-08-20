@@ -400,9 +400,29 @@ jobs:
               make provider-lint
       timeout-minutes: 60
 
+  upstream_acceptance_tests_matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PR_COMMIT_SHA }}
+          submodules: true
+      - name: make upstream
+        run: make upstream
+      - id: find-services
+        run: echo "services=$(python scripts/services.py)" >> "$GITHUB_OUTPUT"
+    outputs:
+      services: ${{ steps.find-services.outputs.services }}
+
   upstream_acceptance_tests:
     name: Upstream acc tests
     runs-on: ubuntu-latest
+    needs: upstream_acceptance_tests_matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        service: ${{ needs.upstream_acceptance_tests_matrix.outputs.services }}
     steps:
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
@@ -430,10 +450,10 @@ jobs:
           role-duration-seconds: 3600
           role-session-name: aws@githubActions
           role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-      - name: make testacc
+      - name: test ${{ matrix.service }}
         run: |
           cd upstream
-          TF_ACC=1 make testacc
+          TF_ACC=1 make testacc PKG=${{ matrix.service }}
 
 name: run-acceptance-tests
 on:
