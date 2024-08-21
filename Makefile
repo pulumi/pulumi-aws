@@ -189,9 +189,9 @@ bin/pulumi-java-gen: .pulumi-java-gen.version
 # - Run make ci-mgmt to apply the change locally.
 #
 ci-mgmt: .ci-mgmt.yaml
-	rm .github/workflows/*.yml # Copied from update-workflows.yml
+	rm -f .github/workflows/*.yml # Copied from update-workflows.yml
 	go run github.com/pulumi/ci-mgmt/provider-ci@master generate \
-		--name pulumi/pulumi-$(PACK) \
+		--name $(ORG)/pulumi-$(PACK) \
 		--out . \
 		--template bridged-provider \
 		--config $<
