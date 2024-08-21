@@ -98,7 +98,7 @@ var fixUpEcsServiceNameForceNewDeployment = targetedSimpleReplace(
 		"This can be used to update tasks to use a newer Docker image with same image/tag combination "+
 		"(e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy "+
 		"`ordered_placement_strategy` and `placement_constraints` updates.\n"+
-		"When using the forceNewDeployment property you also need to configure the Triggers property.\n")
+		"When using the forceNewDeployment property you also need to configure the triggers property.\n")
 
 func reReplace(from string, to string) tfbridge.DocsEdit {
 	fromR, toB := regexp.MustCompile(from), []byte(to)

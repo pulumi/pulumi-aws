@@ -199,7 +199,7 @@ export class Service extends pulumi.CustomResource {
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-     * When using the forceNewDeployment property you also need to configure the Triggers property.
+     * When using the forceNewDeployment property you also need to configure the triggers property.
      */
     public readonly forceNewDeployment!: pulumi.Output<boolean | undefined>;
     /**
@@ -416,7 +416,7 @@ export interface ServiceState {
     forceDelete?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-     * When using the forceNewDeployment property you also need to configure the Triggers property.
+     * When using the forceNewDeployment property you also need to configure the triggers property.
      */
     forceNewDeployment?: pulumi.Input<boolean>;
     /**
@@ -551,7 +551,7 @@ export interface ServiceArgs {
     forceDelete?: pulumi.Input<boolean>;
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-     * When using the forceNewDeployment property you also need to configure the Triggers property.
+     * When using the forceNewDeployment property you also need to configure the triggers property.
      */
     forceNewDeployment?: pulumi.Input<boolean>;
     /**

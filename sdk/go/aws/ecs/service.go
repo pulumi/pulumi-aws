@@ -253,7 +253,7 @@ type Service struct {
 	// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-	// When using the forceNewDeployment property you also need to configure the Triggers property.
+	// When using the forceNewDeployment property you also need to configure the triggers property.
 	ForceNewDeployment pulumi.BoolPtrOutput `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
@@ -352,7 +352,7 @@ type serviceState struct {
 	// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-	// When using the forceNewDeployment property you also need to configure the Triggers property.
+	// When using the forceNewDeployment property you also need to configure the triggers property.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -422,7 +422,7 @@ type ServiceState struct {
 	// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
 	ForceDelete pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-	// When using the forceNewDeployment property you also need to configure the Triggers property.
+	// When using the forceNewDeployment property you also need to configure the triggers property.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
@@ -496,7 +496,7 @@ type serviceArgs struct {
 	// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-	// When using the forceNewDeployment property you also need to configure the Triggers property.
+	// When using the forceNewDeployment property you also need to configure the triggers property.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -563,7 +563,7 @@ type ServiceArgs struct {
 	// Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
 	ForceDelete pulumi.BoolPtrInput
 	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-	// When using the forceNewDeployment property you also need to configure the Triggers property.
+	// When using the forceNewDeployment property you also need to configure the triggers property.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
@@ -748,7 +748,7 @@ func (o ServiceOutput) ForceDelete() pulumi.BoolPtrOutput {
 }
 
 // Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
-// When using the forceNewDeployment property you also need to configure the Triggers property.
+// When using the forceNewDeployment property you also need to configure the triggers property.
 func (o ServiceOutput) ForceNewDeployment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.ForceNewDeployment }).(pulumi.BoolPtrOutput)
 }

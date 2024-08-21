@@ -65,7 +65,7 @@ class ServiceArgs:
         :param pulumi.Input[bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the Triggers property.
+               When using the forceNewDeployment property you also need to configure the triggers property.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
@@ -285,7 +285,7 @@ class ServiceArgs:
     def force_new_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the Triggers property.
+        When using the forceNewDeployment property you also need to configure the triggers property.
         """
         return pulumi.get(self, "force_new_deployment")
 
@@ -560,7 +560,7 @@ class _ServiceState:
         :param pulumi.Input[bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the Triggers property.
+               When using the forceNewDeployment property you also need to configure the triggers property.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
@@ -786,7 +786,7 @@ class _ServiceState:
     def force_new_deployment(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the Triggers property.
+        When using the forceNewDeployment property you also need to configure the triggers property.
         """
         return pulumi.get(self, "force_new_deployment")
 
@@ -1188,7 +1188,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the Triggers property.
+               When using the forceNewDeployment property you also need to configure the triggers property.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
@@ -1473,7 +1473,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
         :param pulumi.Input[bool] force_delete: Enable to delete a service even if it wasn't scaled down to zero tasks. It's only necessary to use this if the service uses the `REPLICA` scheduling strategy.
         :param pulumi.Input[bool] force_new_deployment: Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-               When using the forceNewDeployment property you also need to configure the Triggers property.
+               When using the forceNewDeployment property you also need to configure the triggers property.
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
@@ -1626,7 +1626,7 @@ class Service(pulumi.CustomResource):
     def force_new_deployment(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-        When using the forceNewDeployment property you also need to configure the Triggers property.
+        When using the forceNewDeployment property you also need to configure the triggers property.
         """
         return pulumi.get(self, "force_new_deployment")
 
