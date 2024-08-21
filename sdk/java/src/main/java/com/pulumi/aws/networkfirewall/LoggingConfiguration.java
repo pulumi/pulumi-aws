@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.of("deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.name()))
  *                     .logDestinationType("KinesisDataFirehose")
- *                     .logType("ALERT")
+ *                     .logType("TLS")
  *                     .build())
  *                 .build())
  *             .build());

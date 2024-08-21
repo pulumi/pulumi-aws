@@ -4,8 +4,11 @@
 package com.pulumi.aws.bedrock;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsPlainArgs;
 import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
 import com.pulumi.aws.bedrock.inputs.GetCustomModelPlainArgs;
+import com.pulumi.aws.bedrock.outputs.GetAgentAgentVersionsResult;
 import com.pulumi.aws.bedrock.outputs.GetCustomModelResult;
 import com.pulumi.aws.bedrock.outputs.GetCustomModelsResult;
 import com.pulumi.core.Output;
@@ -16,6 +19,182 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class BedrockFunctions {
+    /**
+     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAgentAgentVersionsResult> getAgentAgentVersions(GetAgentAgentVersionsArgs args) {
+        return getAgentAgentVersions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAgentAgentVersionsResult> getAgentAgentVersionsPlain(GetAgentAgentVersionsPlainArgs args) {
+        return getAgentAgentVersionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAgentAgentVersionsResult> getAgentAgentVersions(GetAgentAgentVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAgentAgentVersionsResult> getAgentAgentVersionsPlain(GetAgentAgentVersionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Returns properties of a specific Amazon Bedrock custom model.
      * 

@@ -108,14 +108,14 @@ public final class EmailChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * @return *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -279,7 +279,7 @@ public final class EmailChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+         * @param roleArn *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class EmailChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+         * @param roleArn *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
          * 
          * @return builder
          * 

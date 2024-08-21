@@ -294,6 +294,47 @@ import (
 //
 // ```
 //
+// ### SQS Source and Target Configuration Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
+//				Name:    pulumi.String("example-pipe"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				Source:  pulumi.Any(source.Arn),
+//				Target:  pulumi.Any(target.Arn),
+//				SourceParameters: &pipes.PipeSourceParametersArgs{
+//					SqsQueueParameters: &pipes.PipeSourceParametersSqsQueueParametersArgs{
+//						BatchSize:                      pulumi.Int(1),
+//						MaximumBatchingWindowInSeconds: pulumi.Int(2),
+//					},
+//				},
+//				TargetParameters: &pipes.PipeTargetParametersArgs{
+//					SqsQueueParameters: &pipes.PipeTargetParametersSqsQueueParametersArgs{
+//						MessageDeduplicationId: pulumi.String("example-dedupe"),
+//						MessageGroupId:         pulumi.String("example-group"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import pipes using the `name`. For example:

@@ -25,6 +25,7 @@ __all__ = [
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter',
     'AgentAgentAliasRoutingConfiguration',
     'AgentAgentAliasTimeouts',
+    'AgentAgentKnowledgeBaseAssociationTimeouts',
     'AgentAgentPromptOverrideConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration',
@@ -56,7 +57,22 @@ __all__ = [
     'CustomModelValidationDataConfigValidator',
     'CustomModelValidationMetric',
     'CustomModelVpcConfig',
+    'GuardrailContentPolicyConfig',
+    'GuardrailContentPolicyConfigFiltersConfig',
+    'GuardrailContextualGroundingPolicyConfig',
+    'GuardrailContextualGroundingPolicyConfigFiltersConfig',
+    'GuardrailSensitiveInformationPolicyConfig',
+    'GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig',
+    'GuardrailSensitiveInformationPolicyConfigRegexesConfig',
+    'GuardrailTimeouts',
+    'GuardrailTopicPolicyConfig',
+    'GuardrailTopicPolicyConfigTopicsConfig',
+    'GuardrailWordPolicyConfig',
+    'GuardrailWordPolicyConfigManagedWordListsConfig',
+    'GuardrailWordPolicyConfigWordsConfig',
     'ProvisionedModelThroughputTimeouts',
+    'GetAgentAgentVersionsAgentVersionSummaryResult',
+    'GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult',
     'GetCustomModelOutputDataConfigResult',
     'GetCustomModelTrainingDataConfigResult',
     'GetCustomModelTrainingMetricResult',
@@ -463,6 +479,37 @@ class AgentAgentAliasTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentAgentKnowledgeBaseAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
     @property
     @pulumi.getter
@@ -2096,6 +2143,514 @@ class CustomModelVpcConfig(dict):
 
 
 @pulumi.output_type
+class GuardrailContentPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfigs":
+            suggest = "filters_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContentPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContentPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None):
+        """
+        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: List of content filter configs in content policy. See Filters Config for more information.
+        """
+        if filters_configs is not None:
+            pulumi.set(__self__, "filters_configs", filters_configs)
+
+    @property
+    @pulumi.getter(name="filtersConfigs")
+    def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']]:
+        """
+        List of content filter configs in content policy. See Filters Config for more information.
+        """
+        return pulumi.get(self, "filters_configs")
+
+
+@pulumi.output_type
+class GuardrailContentPolicyConfigFiltersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputStrength":
+            suggest = "input_strength"
+        elif key == "outputStrength":
+            suggest = "output_strength"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContentPolicyConfigFiltersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContentPolicyConfigFiltersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContentPolicyConfigFiltersConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_strength: str,
+                 output_strength: str,
+                 type: str):
+        """
+        :param str input_strength: Strength for filters.
+        :param str output_strength: Strength for filters.
+        :param str type: Type of contextual grounding filter.
+        """
+        pulumi.set(__self__, "input_strength", input_strength)
+        pulumi.set(__self__, "output_strength", output_strength)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="inputStrength")
+    def input_strength(self) -> str:
+        """
+        Strength for filters.
+        """
+        return pulumi.get(self, "input_strength")
+
+    @property
+    @pulumi.getter(name="outputStrength")
+    def output_strength(self) -> str:
+        """
+        Strength for filters.
+        """
+        return pulumi.get(self, "output_strength")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of contextual grounding filter.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailContextualGroundingPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfigs":
+            suggest = "filters_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailContextualGroundingPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_configs: Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']] = None):
+        """
+        :param Sequence['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs'] filters_configs: List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        """
+        if filters_configs is not None:
+            pulumi.set(__self__, "filters_configs", filters_configs)
+
+    @property
+    @pulumi.getter(name="filtersConfigs")
+    def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContextualGroundingPolicyConfigFiltersConfig']]:
+        """
+        List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+        """
+        return pulumi.get(self, "filters_configs")
+
+
+@pulumi.output_type
+class GuardrailContextualGroundingPolicyConfigFiltersConfig(dict):
+    def __init__(__self__, *,
+                 threshold: float,
+                 type: str):
+        """
+        :param float threshold: The threshold for this filter.
+        :param str type: Type of contextual grounding filter.
+        """
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        The threshold for this filter.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of contextual grounding filter.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailSensitiveInformationPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "piiEntitiesConfigs":
+            suggest = "pii_entities_configs"
+        elif key == "regexesConfigs":
+            suggest = "regexes_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailSensitiveInformationPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pii_entities_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']] = None,
+                 regexes_configs: Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']] = None):
+        """
+        :param Sequence['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs'] pii_entities_configs: List of entities. See PII Entities Config for more information.
+        :param Sequence['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs'] regexes_configs: List of regex. See Regexes Config for more information.
+        """
+        if pii_entities_configs is not None:
+            pulumi.set(__self__, "pii_entities_configs", pii_entities_configs)
+        if regexes_configs is not None:
+            pulumi.set(__self__, "regexes_configs", regexes_configs)
+
+    @property
+    @pulumi.getter(name="piiEntitiesConfigs")
+    def pii_entities_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig']]:
+        """
+        List of entities. See PII Entities Config for more information.
+        """
+        return pulumi.get(self, "pii_entities_configs")
+
+    @property
+    @pulumi.getter(name="regexesConfigs")
+    def regexes_configs(self) -> Optional[Sequence['outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig']]:
+        """
+        List of regex. See Regexes Config for more information.
+        """
+        return pulumi.get(self, "regexes_configs")
+
+
+@pulumi.output_type
+class GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 type: str):
+        """
+        :param str action: Options for sensitive information action.
+        :param str type: The currently supported PII entities.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Options for sensitive information action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The currently supported PII entities.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailSensitiveInformationPolicyConfigRegexesConfig(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 pattern: str,
+                 description: Optional[str] = None):
+        """
+        :param str action: Options for sensitive information action.
+        :param str name: The regex name.
+        :param str pattern: The regex pattern.
+        :param str description: The regex description.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pattern", pattern)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Options for sensitive information action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The regex name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        The regex pattern.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The regex description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class GuardrailTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class GuardrailTopicPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicsConfigs":
+            suggest = "topics_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailTopicPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailTopicPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailTopicPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topics_configs: Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']] = None):
+        """
+        :param Sequence['GuardrailTopicPolicyConfigTopicsConfigArgs'] topics_configs: List of topic configs in topic policy. See Topics Config for more information.
+        """
+        if topics_configs is not None:
+            pulumi.set(__self__, "topics_configs", topics_configs)
+
+    @property
+    @pulumi.getter(name="topicsConfigs")
+    def topics_configs(self) -> Optional[Sequence['outputs.GuardrailTopicPolicyConfigTopicsConfig']]:
+        """
+        List of topic configs in topic policy. See Topics Config for more information.
+        """
+        return pulumi.get(self, "topics_configs")
+
+
+@pulumi.output_type
+class GuardrailTopicPolicyConfigTopicsConfig(dict):
+    def __init__(__self__, *,
+                 definition: str,
+                 name: str,
+                 type: str,
+                 examples: Optional[Sequence[str]] = None):
+        """
+        :param str definition: Definition of topic in topic policy.
+        :param str name: Name of topic in topic policy.
+        :param str type: Type of topic in a policy.
+        :param Sequence[str] examples: List of text examples.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
+        """
+        Definition of topic in topic policy.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of topic in topic policy.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of topic in a policy.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence[str]]:
+        """
+        List of text examples.
+        """
+        return pulumi.get(self, "examples")
+
+
+@pulumi.output_type
+class GuardrailWordPolicyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedWordListsConfigs":
+            suggest = "managed_word_lists_configs"
+        elif key == "wordsConfigs":
+            suggest = "words_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardrailWordPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardrailWordPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardrailWordPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_word_lists_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']] = None,
+                 words_configs: Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']] = None):
+        """
+        :param Sequence['GuardrailWordPolicyConfigManagedWordListsConfigArgs'] managed_word_lists_configs: A config for the list of managed words. See Managed Word Lists Config for more information.
+        :param Sequence['GuardrailWordPolicyConfigWordsConfigArgs'] words_configs: List of custom word configs. See Words Config for more information.
+        """
+        if managed_word_lists_configs is not None:
+            pulumi.set(__self__, "managed_word_lists_configs", managed_word_lists_configs)
+        if words_configs is not None:
+            pulumi.set(__self__, "words_configs", words_configs)
+
+    @property
+    @pulumi.getter(name="managedWordListsConfigs")
+    def managed_word_lists_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigManagedWordListsConfig']]:
+        """
+        A config for the list of managed words. See Managed Word Lists Config for more information.
+        """
+        return pulumi.get(self, "managed_word_lists_configs")
+
+    @property
+    @pulumi.getter(name="wordsConfigs")
+    def words_configs(self) -> Optional[Sequence['outputs.GuardrailWordPolicyConfigWordsConfig']]:
+        """
+        List of custom word configs. See Words Config for more information.
+        """
+        return pulumi.get(self, "words_configs")
+
+
+@pulumi.output_type
+class GuardrailWordPolicyConfigManagedWordListsConfig(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: Options for managed words.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Options for managed words.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuardrailWordPolicyConfigWordsConfig(dict):
+    def __init__(__self__, *,
+                 text: str):
+        """
+        :param str text: The custom word text.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        The custom word text.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
 class ProvisionedModelThroughputTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None):
@@ -2112,6 +2667,118 @@ class ProvisionedModelThroughputTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class GetAgentAgentVersionsAgentVersionSummaryResult(dict):
+    def __init__(__self__, *,
+                 agent_name: str,
+                 agent_status: str,
+                 agent_version: str,
+                 created_at: str,
+                 description: str,
+                 updated_at: str,
+                 guardrail_configurations: Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult']] = None):
+        """
+        :param str agent_name: Name of agent to which the version belongs.
+        :param str agent_status: Status of the agent to which the version belongs.
+        :param str agent_version: Version of the agent.
+        :param str created_at: Time at which the version was created.
+        :param str description: Description of the version of the agent.
+               * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
+        :param str updated_at: Time at which the version was last updated.
+        """
+        pulumi.set(__self__, "agent_name", agent_name)
+        pulumi.set(__self__, "agent_status", agent_status)
+        pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "updated_at", updated_at)
+        if guardrail_configurations is not None:
+            pulumi.set(__self__, "guardrail_configurations", guardrail_configurations)
+
+    @property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> str:
+        """
+        Name of agent to which the version belongs.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> str:
+        """
+        Status of the agent to which the version belongs.
+        """
+        return pulumi.get(self, "agent_status")
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
+        """
+        Version of the agent.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        Time at which the version was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the version of the agent.
+        * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Time at which the version was last updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="guardrailConfigurations")
+    def guardrail_configurations(self) -> Optional[Sequence['outputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult']]:
+        return pulumi.get(self, "guardrail_configurations")
+
+
+@pulumi.output_type
+class GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult(dict):
+    def __init__(__self__, *,
+                 guardrail_identifier: str,
+                 guardrail_version: str):
+        """
+        :param str guardrail_identifier: Unique identifier of the guardrail.
+        :param str guardrail_version: Version of the guardrail.
+        """
+        pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> str:
+        """
+        Unique identifier of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> str:
+        """
+        Version of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_version")
 
 
 @pulumi.output_type

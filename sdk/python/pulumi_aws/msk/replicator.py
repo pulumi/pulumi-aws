@@ -311,6 +311,9 @@ class Replicator(pulumi.CustomResource):
                 "target_compression_type": "NONE",
                 "topic_replications": [{
                     "topics_to_replicates": [".*"],
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
                 }],
                 "consumer_group_replications": [{
                     "consumer_groups_to_replicates": [".*"],
@@ -381,6 +384,9 @@ class Replicator(pulumi.CustomResource):
                 "target_compression_type": "NONE",
                 "topic_replications": [{
                     "topics_to_replicates": [".*"],
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
                 }],
                 "consumer_group_replications": [{
                     "consumer_groups_to_replicates": [".*"],

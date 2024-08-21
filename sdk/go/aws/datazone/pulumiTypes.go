@@ -317,6 +317,789 @@ func (o DomainTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EnvironmentProfileUserParameter struct {
+	// Name of the environment profile parameter.
+	Name *string `pulumi:"name"`
+	// Value of the environment profile parameter.
+	Value *string `pulumi:"value"`
+}
+
+// EnvironmentProfileUserParameterInput is an input type that accepts EnvironmentProfileUserParameterArgs and EnvironmentProfileUserParameterOutput values.
+// You can construct a concrete instance of `EnvironmentProfileUserParameterInput` via:
+//
+//	EnvironmentProfileUserParameterArgs{...}
+type EnvironmentProfileUserParameterInput interface {
+	pulumi.Input
+
+	ToEnvironmentProfileUserParameterOutput() EnvironmentProfileUserParameterOutput
+	ToEnvironmentProfileUserParameterOutputWithContext(context.Context) EnvironmentProfileUserParameterOutput
+}
+
+type EnvironmentProfileUserParameterArgs struct {
+	// Name of the environment profile parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the environment profile parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EnvironmentProfileUserParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentProfileUserParameter)(nil)).Elem()
+}
+
+func (i EnvironmentProfileUserParameterArgs) ToEnvironmentProfileUserParameterOutput() EnvironmentProfileUserParameterOutput {
+	return i.ToEnvironmentProfileUserParameterOutputWithContext(context.Background())
+}
+
+func (i EnvironmentProfileUserParameterArgs) ToEnvironmentProfileUserParameterOutputWithContext(ctx context.Context) EnvironmentProfileUserParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProfileUserParameterOutput)
+}
+
+// EnvironmentProfileUserParameterArrayInput is an input type that accepts EnvironmentProfileUserParameterArray and EnvironmentProfileUserParameterArrayOutput values.
+// You can construct a concrete instance of `EnvironmentProfileUserParameterArrayInput` via:
+//
+//	EnvironmentProfileUserParameterArray{ EnvironmentProfileUserParameterArgs{...} }
+type EnvironmentProfileUserParameterArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentProfileUserParameterArrayOutput() EnvironmentProfileUserParameterArrayOutput
+	ToEnvironmentProfileUserParameterArrayOutputWithContext(context.Context) EnvironmentProfileUserParameterArrayOutput
+}
+
+type EnvironmentProfileUserParameterArray []EnvironmentProfileUserParameterInput
+
+func (EnvironmentProfileUserParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentProfileUserParameter)(nil)).Elem()
+}
+
+func (i EnvironmentProfileUserParameterArray) ToEnvironmentProfileUserParameterArrayOutput() EnvironmentProfileUserParameterArrayOutput {
+	return i.ToEnvironmentProfileUserParameterArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentProfileUserParameterArray) ToEnvironmentProfileUserParameterArrayOutputWithContext(ctx context.Context) EnvironmentProfileUserParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProfileUserParameterArrayOutput)
+}
+
+type EnvironmentProfileUserParameterOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentProfileUserParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentProfileUserParameter)(nil)).Elem()
+}
+
+func (o EnvironmentProfileUserParameterOutput) ToEnvironmentProfileUserParameterOutput() EnvironmentProfileUserParameterOutput {
+	return o
+}
+
+func (o EnvironmentProfileUserParameterOutput) ToEnvironmentProfileUserParameterOutputWithContext(ctx context.Context) EnvironmentProfileUserParameterOutput {
+	return o
+}
+
+// Name of the environment profile parameter.
+func (o EnvironmentProfileUserParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentProfileUserParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Value of the environment profile parameter.
+func (o EnvironmentProfileUserParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentProfileUserParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentProfileUserParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentProfileUserParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentProfileUserParameter)(nil)).Elem()
+}
+
+func (o EnvironmentProfileUserParameterArrayOutput) ToEnvironmentProfileUserParameterArrayOutput() EnvironmentProfileUserParameterArrayOutput {
+	return o
+}
+
+func (o EnvironmentProfileUserParameterArrayOutput) ToEnvironmentProfileUserParameterArrayOutputWithContext(ctx context.Context) EnvironmentProfileUserParameterArrayOutput {
+	return o
+}
+
+func (o EnvironmentProfileUserParameterArrayOutput) Index(i pulumi.IntInput) EnvironmentProfileUserParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentProfileUserParameter {
+		return vs[0].([]EnvironmentProfileUserParameter)[vs[1].(int)]
+	}).(EnvironmentProfileUserParameterOutput)
+}
+
+type FormTypeImport struct {
+	// Name of the form type. Must be the name of the structure in smithy document.
+	Name string `pulumi:"name"`
+	// Revision of the Form Type.
+	Revision string `pulumi:"revision"`
+}
+
+// FormTypeImportInput is an input type that accepts FormTypeImportArgs and FormTypeImportOutput values.
+// You can construct a concrete instance of `FormTypeImportInput` via:
+//
+//	FormTypeImportArgs{...}
+type FormTypeImportInput interface {
+	pulumi.Input
+
+	ToFormTypeImportOutput() FormTypeImportOutput
+	ToFormTypeImportOutputWithContext(context.Context) FormTypeImportOutput
+}
+
+type FormTypeImportArgs struct {
+	// Name of the form type. Must be the name of the structure in smithy document.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Revision of the Form Type.
+	Revision pulumi.StringInput `pulumi:"revision"`
+}
+
+func (FormTypeImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeImport)(nil)).Elem()
+}
+
+func (i FormTypeImportArgs) ToFormTypeImportOutput() FormTypeImportOutput {
+	return i.ToFormTypeImportOutputWithContext(context.Background())
+}
+
+func (i FormTypeImportArgs) ToFormTypeImportOutputWithContext(ctx context.Context) FormTypeImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeImportOutput)
+}
+
+// FormTypeImportArrayInput is an input type that accepts FormTypeImportArray and FormTypeImportArrayOutput values.
+// You can construct a concrete instance of `FormTypeImportArrayInput` via:
+//
+//	FormTypeImportArray{ FormTypeImportArgs{...} }
+type FormTypeImportArrayInput interface {
+	pulumi.Input
+
+	ToFormTypeImportArrayOutput() FormTypeImportArrayOutput
+	ToFormTypeImportArrayOutputWithContext(context.Context) FormTypeImportArrayOutput
+}
+
+type FormTypeImportArray []FormTypeImportInput
+
+func (FormTypeImportArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormTypeImport)(nil)).Elem()
+}
+
+func (i FormTypeImportArray) ToFormTypeImportArrayOutput() FormTypeImportArrayOutput {
+	return i.ToFormTypeImportArrayOutputWithContext(context.Background())
+}
+
+func (i FormTypeImportArray) ToFormTypeImportArrayOutputWithContext(ctx context.Context) FormTypeImportArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeImportArrayOutput)
+}
+
+type FormTypeImportOutput struct{ *pulumi.OutputState }
+
+func (FormTypeImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeImport)(nil)).Elem()
+}
+
+func (o FormTypeImportOutput) ToFormTypeImportOutput() FormTypeImportOutput {
+	return o
+}
+
+func (o FormTypeImportOutput) ToFormTypeImportOutputWithContext(ctx context.Context) FormTypeImportOutput {
+	return o
+}
+
+// Name of the form type. Must be the name of the structure in smithy document.
+func (o FormTypeImportOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FormTypeImport) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Revision of the Form Type.
+func (o FormTypeImportOutput) Revision() pulumi.StringOutput {
+	return o.ApplyT(func(v FormTypeImport) string { return v.Revision }).(pulumi.StringOutput)
+}
+
+type FormTypeImportArrayOutput struct{ *pulumi.OutputState }
+
+func (FormTypeImportArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FormTypeImport)(nil)).Elem()
+}
+
+func (o FormTypeImportArrayOutput) ToFormTypeImportArrayOutput() FormTypeImportArrayOutput {
+	return o
+}
+
+func (o FormTypeImportArrayOutput) ToFormTypeImportArrayOutputWithContext(ctx context.Context) FormTypeImportArrayOutput {
+	return o
+}
+
+func (o FormTypeImportArrayOutput) Index(i pulumi.IntInput) FormTypeImportOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FormTypeImport {
+		return vs[0].([]FormTypeImport)[vs[1].(int)]
+	}).(FormTypeImportOutput)
+}
+
+type FormTypeModel struct {
+	// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+	//
+	// The following arguments are optional:
+	Smithy string `pulumi:"smithy"`
+}
+
+// FormTypeModelInput is an input type that accepts FormTypeModelArgs and FormTypeModelOutput values.
+// You can construct a concrete instance of `FormTypeModelInput` via:
+//
+//	FormTypeModelArgs{...}
+type FormTypeModelInput interface {
+	pulumi.Input
+
+	ToFormTypeModelOutput() FormTypeModelOutput
+	ToFormTypeModelOutputWithContext(context.Context) FormTypeModelOutput
+}
+
+type FormTypeModelArgs struct {
+	// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+	//
+	// The following arguments are optional:
+	Smithy pulumi.StringInput `pulumi:"smithy"`
+}
+
+func (FormTypeModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeModel)(nil)).Elem()
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelOutput() FormTypeModelOutput {
+	return i.ToFormTypeModelOutputWithContext(context.Background())
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelOutputWithContext(ctx context.Context) FormTypeModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeModelOutput)
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelPtrOutput() FormTypeModelPtrOutput {
+	return i.ToFormTypeModelPtrOutputWithContext(context.Background())
+}
+
+func (i FormTypeModelArgs) ToFormTypeModelPtrOutputWithContext(ctx context.Context) FormTypeModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeModelOutput).ToFormTypeModelPtrOutputWithContext(ctx)
+}
+
+// FormTypeModelPtrInput is an input type that accepts FormTypeModelArgs, FormTypeModelPtr and FormTypeModelPtrOutput values.
+// You can construct a concrete instance of `FormTypeModelPtrInput` via:
+//
+//	        FormTypeModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormTypeModelPtrInput interface {
+	pulumi.Input
+
+	ToFormTypeModelPtrOutput() FormTypeModelPtrOutput
+	ToFormTypeModelPtrOutputWithContext(context.Context) FormTypeModelPtrOutput
+}
+
+type formTypeModelPtrType FormTypeModelArgs
+
+func FormTypeModelPtr(v *FormTypeModelArgs) FormTypeModelPtrInput {
+	return (*formTypeModelPtrType)(v)
+}
+
+func (*formTypeModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeModel)(nil)).Elem()
+}
+
+func (i *formTypeModelPtrType) ToFormTypeModelPtrOutput() FormTypeModelPtrOutput {
+	return i.ToFormTypeModelPtrOutputWithContext(context.Background())
+}
+
+func (i *formTypeModelPtrType) ToFormTypeModelPtrOutputWithContext(ctx context.Context) FormTypeModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeModelPtrOutput)
+}
+
+type FormTypeModelOutput struct{ *pulumi.OutputState }
+
+func (FormTypeModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeModel)(nil)).Elem()
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelOutput() FormTypeModelOutput {
+	return o
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelOutputWithContext(ctx context.Context) FormTypeModelOutput {
+	return o
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelPtrOutput() FormTypeModelPtrOutput {
+	return o.ToFormTypeModelPtrOutputWithContext(context.Background())
+}
+
+func (o FormTypeModelOutput) ToFormTypeModelPtrOutputWithContext(ctx context.Context) FormTypeModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormTypeModel) *FormTypeModel {
+		return &v
+	}).(FormTypeModelPtrOutput)
+}
+
+// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+//
+// The following arguments are optional:
+func (o FormTypeModelOutput) Smithy() pulumi.StringOutput {
+	return o.ApplyT(func(v FormTypeModel) string { return v.Smithy }).(pulumi.StringOutput)
+}
+
+type FormTypeModelPtrOutput struct{ *pulumi.OutputState }
+
+func (FormTypeModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeModel)(nil)).Elem()
+}
+
+func (o FormTypeModelPtrOutput) ToFormTypeModelPtrOutput() FormTypeModelPtrOutput {
+	return o
+}
+
+func (o FormTypeModelPtrOutput) ToFormTypeModelPtrOutputWithContext(ctx context.Context) FormTypeModelPtrOutput {
+	return o
+}
+
+func (o FormTypeModelPtrOutput) Elem() FormTypeModelOutput {
+	return o.ApplyT(func(v *FormTypeModel) FormTypeModel {
+		if v != nil {
+			return *v
+		}
+		var ret FormTypeModel
+		return ret
+	}).(FormTypeModelOutput)
+}
+
+// Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+//
+// The following arguments are optional:
+func (o FormTypeModelPtrOutput) Smithy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormTypeModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Smithy
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormTypeTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// FormTypeTimeoutsInput is an input type that accepts FormTypeTimeoutsArgs and FormTypeTimeoutsOutput values.
+// You can construct a concrete instance of `FormTypeTimeoutsInput` via:
+//
+//	FormTypeTimeoutsArgs{...}
+type FormTypeTimeoutsInput interface {
+	pulumi.Input
+
+	ToFormTypeTimeoutsOutput() FormTypeTimeoutsOutput
+	ToFormTypeTimeoutsOutputWithContext(context.Context) FormTypeTimeoutsOutput
+}
+
+type FormTypeTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (FormTypeTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeTimeouts)(nil)).Elem()
+}
+
+func (i FormTypeTimeoutsArgs) ToFormTypeTimeoutsOutput() FormTypeTimeoutsOutput {
+	return i.ToFormTypeTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FormTypeTimeoutsArgs) ToFormTypeTimeoutsOutputWithContext(ctx context.Context) FormTypeTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeTimeoutsOutput)
+}
+
+func (i FormTypeTimeoutsArgs) ToFormTypeTimeoutsPtrOutput() FormTypeTimeoutsPtrOutput {
+	return i.ToFormTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FormTypeTimeoutsArgs) ToFormTypeTimeoutsPtrOutputWithContext(ctx context.Context) FormTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeTimeoutsOutput).ToFormTypeTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FormTypeTimeoutsPtrInput is an input type that accepts FormTypeTimeoutsArgs, FormTypeTimeoutsPtr and FormTypeTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FormTypeTimeoutsPtrInput` via:
+//
+//	        FormTypeTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FormTypeTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFormTypeTimeoutsPtrOutput() FormTypeTimeoutsPtrOutput
+	ToFormTypeTimeoutsPtrOutputWithContext(context.Context) FormTypeTimeoutsPtrOutput
+}
+
+type formTypeTimeoutsPtrType FormTypeTimeoutsArgs
+
+func FormTypeTimeoutsPtr(v *FormTypeTimeoutsArgs) FormTypeTimeoutsPtrInput {
+	return (*formTypeTimeoutsPtrType)(v)
+}
+
+func (*formTypeTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeTimeouts)(nil)).Elem()
+}
+
+func (i *formTypeTimeoutsPtrType) ToFormTypeTimeoutsPtrOutput() FormTypeTimeoutsPtrOutput {
+	return i.ToFormTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *formTypeTimeoutsPtrType) ToFormTypeTimeoutsPtrOutputWithContext(ctx context.Context) FormTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormTypeTimeoutsPtrOutput)
+}
+
+type FormTypeTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FormTypeTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormTypeTimeouts)(nil)).Elem()
+}
+
+func (o FormTypeTimeoutsOutput) ToFormTypeTimeoutsOutput() FormTypeTimeoutsOutput {
+	return o
+}
+
+func (o FormTypeTimeoutsOutput) ToFormTypeTimeoutsOutputWithContext(ctx context.Context) FormTypeTimeoutsOutput {
+	return o
+}
+
+func (o FormTypeTimeoutsOutput) ToFormTypeTimeoutsPtrOutput() FormTypeTimeoutsPtrOutput {
+	return o.ToFormTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FormTypeTimeoutsOutput) ToFormTypeTimeoutsPtrOutputWithContext(ctx context.Context) FormTypeTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormTypeTimeouts) *FormTypeTimeouts {
+		return &v
+	}).(FormTypeTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FormTypeTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormTypeTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type FormTypeTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FormTypeTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormTypeTimeouts)(nil)).Elem()
+}
+
+func (o FormTypeTimeoutsPtrOutput) ToFormTypeTimeoutsPtrOutput() FormTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o FormTypeTimeoutsPtrOutput) ToFormTypeTimeoutsPtrOutputWithContext(ctx context.Context) FormTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o FormTypeTimeoutsPtrOutput) Elem() FormTypeTimeoutsOutput {
+	return o.ApplyT(func(v *FormTypeTimeouts) FormTypeTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FormTypeTimeouts
+		return ret
+	}).(FormTypeTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FormTypeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FormTypeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+type GlossaryTermTermRelations struct {
+	// String array that calssifies the term relations.
+	Classifies []string `pulumi:"classifies"`
+	IsAs       []string `pulumi:"isAs"`
+}
+
+// GlossaryTermTermRelationsInput is an input type that accepts GlossaryTermTermRelationsArgs and GlossaryTermTermRelationsOutput values.
+// You can construct a concrete instance of `GlossaryTermTermRelationsInput` via:
+//
+//	GlossaryTermTermRelationsArgs{...}
+type GlossaryTermTermRelationsInput interface {
+	pulumi.Input
+
+	ToGlossaryTermTermRelationsOutput() GlossaryTermTermRelationsOutput
+	ToGlossaryTermTermRelationsOutputWithContext(context.Context) GlossaryTermTermRelationsOutput
+}
+
+type GlossaryTermTermRelationsArgs struct {
+	// String array that calssifies the term relations.
+	Classifies pulumi.StringArrayInput `pulumi:"classifies"`
+	IsAs       pulumi.StringArrayInput `pulumi:"isAs"`
+}
+
+func (GlossaryTermTermRelationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlossaryTermTermRelations)(nil)).Elem()
+}
+
+func (i GlossaryTermTermRelationsArgs) ToGlossaryTermTermRelationsOutput() GlossaryTermTermRelationsOutput {
+	return i.ToGlossaryTermTermRelationsOutputWithContext(context.Background())
+}
+
+func (i GlossaryTermTermRelationsArgs) ToGlossaryTermTermRelationsOutputWithContext(ctx context.Context) GlossaryTermTermRelationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTermRelationsOutput)
+}
+
+func (i GlossaryTermTermRelationsArgs) ToGlossaryTermTermRelationsPtrOutput() GlossaryTermTermRelationsPtrOutput {
+	return i.ToGlossaryTermTermRelationsPtrOutputWithContext(context.Background())
+}
+
+func (i GlossaryTermTermRelationsArgs) ToGlossaryTermTermRelationsPtrOutputWithContext(ctx context.Context) GlossaryTermTermRelationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTermRelationsOutput).ToGlossaryTermTermRelationsPtrOutputWithContext(ctx)
+}
+
+// GlossaryTermTermRelationsPtrInput is an input type that accepts GlossaryTermTermRelationsArgs, GlossaryTermTermRelationsPtr and GlossaryTermTermRelationsPtrOutput values.
+// You can construct a concrete instance of `GlossaryTermTermRelationsPtrInput` via:
+//
+//	        GlossaryTermTermRelationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlossaryTermTermRelationsPtrInput interface {
+	pulumi.Input
+
+	ToGlossaryTermTermRelationsPtrOutput() GlossaryTermTermRelationsPtrOutput
+	ToGlossaryTermTermRelationsPtrOutputWithContext(context.Context) GlossaryTermTermRelationsPtrOutput
+}
+
+type glossaryTermTermRelationsPtrType GlossaryTermTermRelationsArgs
+
+func GlossaryTermTermRelationsPtr(v *GlossaryTermTermRelationsArgs) GlossaryTermTermRelationsPtrInput {
+	return (*glossaryTermTermRelationsPtrType)(v)
+}
+
+func (*glossaryTermTermRelationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlossaryTermTermRelations)(nil)).Elem()
+}
+
+func (i *glossaryTermTermRelationsPtrType) ToGlossaryTermTermRelationsPtrOutput() GlossaryTermTermRelationsPtrOutput {
+	return i.ToGlossaryTermTermRelationsPtrOutputWithContext(context.Background())
+}
+
+func (i *glossaryTermTermRelationsPtrType) ToGlossaryTermTermRelationsPtrOutputWithContext(ctx context.Context) GlossaryTermTermRelationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTermRelationsPtrOutput)
+}
+
+type GlossaryTermTermRelationsOutput struct{ *pulumi.OutputState }
+
+func (GlossaryTermTermRelationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlossaryTermTermRelations)(nil)).Elem()
+}
+
+func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsOutput() GlossaryTermTermRelationsOutput {
+	return o
+}
+
+func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsOutputWithContext(ctx context.Context) GlossaryTermTermRelationsOutput {
+	return o
+}
+
+func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsPtrOutput() GlossaryTermTermRelationsPtrOutput {
+	return o.ToGlossaryTermTermRelationsPtrOutputWithContext(context.Background())
+}
+
+func (o GlossaryTermTermRelationsOutput) ToGlossaryTermTermRelationsPtrOutputWithContext(ctx context.Context) GlossaryTermTermRelationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlossaryTermTermRelations) *GlossaryTermTermRelations {
+		return &v
+	}).(GlossaryTermTermRelationsPtrOutput)
+}
+
+// String array that calssifies the term relations.
+func (o GlossaryTermTermRelationsOutput) Classifies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GlossaryTermTermRelations) []string { return v.Classifies }).(pulumi.StringArrayOutput)
+}
+
+func (o GlossaryTermTermRelationsOutput) IsAs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GlossaryTermTermRelations) []string { return v.IsAs }).(pulumi.StringArrayOutput)
+}
+
+type GlossaryTermTermRelationsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlossaryTermTermRelationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlossaryTermTermRelations)(nil)).Elem()
+}
+
+func (o GlossaryTermTermRelationsPtrOutput) ToGlossaryTermTermRelationsPtrOutput() GlossaryTermTermRelationsPtrOutput {
+	return o
+}
+
+func (o GlossaryTermTermRelationsPtrOutput) ToGlossaryTermTermRelationsPtrOutputWithContext(ctx context.Context) GlossaryTermTermRelationsPtrOutput {
+	return o
+}
+
+func (o GlossaryTermTermRelationsPtrOutput) Elem() GlossaryTermTermRelationsOutput {
+	return o.ApplyT(func(v *GlossaryTermTermRelations) GlossaryTermTermRelations {
+		if v != nil {
+			return *v
+		}
+		var ret GlossaryTermTermRelations
+		return ret
+	}).(GlossaryTermTermRelationsOutput)
+}
+
+// String array that calssifies the term relations.
+func (o GlossaryTermTermRelationsPtrOutput) Classifies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GlossaryTermTermRelations) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Classifies
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GlossaryTermTermRelationsPtrOutput) IsAs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GlossaryTermTermRelations) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IsAs
+	}).(pulumi.StringArrayOutput)
+}
+
+type GlossaryTermTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// GlossaryTermTimeoutsInput is an input type that accepts GlossaryTermTimeoutsArgs and GlossaryTermTimeoutsOutput values.
+// You can construct a concrete instance of `GlossaryTermTimeoutsInput` via:
+//
+//	GlossaryTermTimeoutsArgs{...}
+type GlossaryTermTimeoutsInput interface {
+	pulumi.Input
+
+	ToGlossaryTermTimeoutsOutput() GlossaryTermTimeoutsOutput
+	ToGlossaryTermTimeoutsOutputWithContext(context.Context) GlossaryTermTimeoutsOutput
+}
+
+type GlossaryTermTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (GlossaryTermTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlossaryTermTimeouts)(nil)).Elem()
+}
+
+func (i GlossaryTermTimeoutsArgs) ToGlossaryTermTimeoutsOutput() GlossaryTermTimeoutsOutput {
+	return i.ToGlossaryTermTimeoutsOutputWithContext(context.Background())
+}
+
+func (i GlossaryTermTimeoutsArgs) ToGlossaryTermTimeoutsOutputWithContext(ctx context.Context) GlossaryTermTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTimeoutsOutput)
+}
+
+func (i GlossaryTermTimeoutsArgs) ToGlossaryTermTimeoutsPtrOutput() GlossaryTermTimeoutsPtrOutput {
+	return i.ToGlossaryTermTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i GlossaryTermTimeoutsArgs) ToGlossaryTermTimeoutsPtrOutputWithContext(ctx context.Context) GlossaryTermTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTimeoutsOutput).ToGlossaryTermTimeoutsPtrOutputWithContext(ctx)
+}
+
+// GlossaryTermTimeoutsPtrInput is an input type that accepts GlossaryTermTimeoutsArgs, GlossaryTermTimeoutsPtr and GlossaryTermTimeoutsPtrOutput values.
+// You can construct a concrete instance of `GlossaryTermTimeoutsPtrInput` via:
+//
+//	        GlossaryTermTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlossaryTermTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToGlossaryTermTimeoutsPtrOutput() GlossaryTermTimeoutsPtrOutput
+	ToGlossaryTermTimeoutsPtrOutputWithContext(context.Context) GlossaryTermTimeoutsPtrOutput
+}
+
+type glossaryTermTimeoutsPtrType GlossaryTermTimeoutsArgs
+
+func GlossaryTermTimeoutsPtr(v *GlossaryTermTimeoutsArgs) GlossaryTermTimeoutsPtrInput {
+	return (*glossaryTermTimeoutsPtrType)(v)
+}
+
+func (*glossaryTermTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlossaryTermTimeouts)(nil)).Elem()
+}
+
+func (i *glossaryTermTimeoutsPtrType) ToGlossaryTermTimeoutsPtrOutput() GlossaryTermTimeoutsPtrOutput {
+	return i.ToGlossaryTermTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *glossaryTermTimeoutsPtrType) ToGlossaryTermTimeoutsPtrOutputWithContext(ctx context.Context) GlossaryTermTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlossaryTermTimeoutsPtrOutput)
+}
+
+type GlossaryTermTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (GlossaryTermTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlossaryTermTimeouts)(nil)).Elem()
+}
+
+func (o GlossaryTermTimeoutsOutput) ToGlossaryTermTimeoutsOutput() GlossaryTermTimeoutsOutput {
+	return o
+}
+
+func (o GlossaryTermTimeoutsOutput) ToGlossaryTermTimeoutsOutputWithContext(ctx context.Context) GlossaryTermTimeoutsOutput {
+	return o
+}
+
+func (o GlossaryTermTimeoutsOutput) ToGlossaryTermTimeoutsPtrOutput() GlossaryTermTimeoutsPtrOutput {
+	return o.ToGlossaryTermTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o GlossaryTermTimeoutsOutput) ToGlossaryTermTimeoutsPtrOutputWithContext(ctx context.Context) GlossaryTermTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlossaryTermTimeouts) *GlossaryTermTimeouts {
+		return &v
+	}).(GlossaryTermTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlossaryTermTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlossaryTermTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type GlossaryTermTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (GlossaryTermTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlossaryTermTimeouts)(nil)).Elem()
+}
+
+func (o GlossaryTermTimeoutsPtrOutput) ToGlossaryTermTimeoutsPtrOutput() GlossaryTermTimeoutsPtrOutput {
+	return o
+}
+
+func (o GlossaryTermTimeoutsPtrOutput) ToGlossaryTermTimeoutsPtrOutputWithContext(ctx context.Context) GlossaryTermTimeoutsPtrOutput {
+	return o
+}
+
+func (o GlossaryTermTimeoutsPtrOutput) Elem() GlossaryTermTimeoutsOutput {
+	return o.ApplyT(func(v *GlossaryTermTimeouts) GlossaryTermTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret GlossaryTermTimeouts
+		return ret
+	}).(GlossaryTermTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GlossaryTermTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlossaryTermTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProjectFailureReason struct {
 	Code    string `pulumi:"code"`
 	Message string `pulumi:"message"`
@@ -578,6 +1361,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsInput)(nil)).Elem(), DomainTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsPtrInput)(nil)).Elem(), DomainTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileUserParameterInput)(nil)).Elem(), EnvironmentProfileUserParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileUserParameterArrayInput)(nil)).Elem(), EnvironmentProfileUserParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeImportInput)(nil)).Elem(), FormTypeImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeImportArrayInput)(nil)).Elem(), FormTypeImportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeModelInput)(nil)).Elem(), FormTypeModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeModelPtrInput)(nil)).Elem(), FormTypeModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeTimeoutsInput)(nil)).Elem(), FormTypeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeTimeoutsPtrInput)(nil)).Elem(), FormTypeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTermRelationsInput)(nil)).Elem(), GlossaryTermTermRelationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTermRelationsPtrInput)(nil)).Elem(), GlossaryTermTermRelationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTimeoutsInput)(nil)).Elem(), GlossaryTermTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlossaryTermTimeoutsPtrInput)(nil)).Elem(), GlossaryTermTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonInput)(nil)).Elem(), ProjectFailureReasonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
@@ -586,6 +1381,18 @@ func init() {
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentProfileUserParameterOutput{})
+	pulumi.RegisterOutputType(EnvironmentProfileUserParameterArrayOutput{})
+	pulumi.RegisterOutputType(FormTypeImportOutput{})
+	pulumi.RegisterOutputType(FormTypeImportArrayOutput{})
+	pulumi.RegisterOutputType(FormTypeModelOutput{})
+	pulumi.RegisterOutputType(FormTypeModelPtrOutput{})
+	pulumi.RegisterOutputType(FormTypeTimeoutsOutput{})
+	pulumi.RegisterOutputType(FormTypeTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GlossaryTermTermRelationsOutput{})
+	pulumi.RegisterOutputType(GlossaryTermTermRelationsPtrOutput{})
+	pulumi.RegisterOutputType(GlossaryTermTimeoutsOutput{})
+	pulumi.RegisterOutputType(GlossaryTermTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFailureReasonOutput{})
 	pulumi.RegisterOutputType(ProjectFailureReasonArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})

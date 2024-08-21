@@ -85,14 +85,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.appName;
     }
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
     @Export(name="appType", refs={String.class}, tree="[0]")
     private Output<String> appType;
 
     /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
     public Output<String> appType() {

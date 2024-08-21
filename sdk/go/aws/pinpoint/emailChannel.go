@@ -128,7 +128,7 @@ type EmailChannel struct {
 	Identity pulumi.StringOutput `pulumi:"identity"`
 	// Messages per second that can be sent.
 	MessagesPerSecond pulumi.IntOutput `pulumi:"messagesPerSecond"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
 
@@ -183,7 +183,7 @@ type emailChannelState struct {
 	Identity *string `pulumi:"identity"`
 	// Messages per second that can be sent.
 	MessagesPerSecond *int `pulumi:"messagesPerSecond"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -200,7 +200,7 @@ type EmailChannelState struct {
 	Identity pulumi.StringPtrInput
 	// Messages per second that can be sent.
 	MessagesPerSecond pulumi.IntPtrInput
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -219,7 +219,7 @@ type emailChannelArgs struct {
 	FromAddress string `pulumi:"fromAddress"`
 	// The ARN of an identity verified with SES.
 	Identity string `pulumi:"identity"`
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -235,7 +235,7 @@ type EmailChannelArgs struct {
 	FromAddress pulumi.StringInput
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringInput
-	// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -356,7 +356,7 @@ func (o EmailChannelOutput) MessagesPerSecond() pulumi.IntOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.IntOutput { return v.MessagesPerSecond }).(pulumi.IntOutput)
 }
 
-// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 func (o EmailChannelOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

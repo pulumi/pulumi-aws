@@ -52,14 +52,14 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
     }
 
     /**
-     * The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+     * The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
      * 
      */
     @Import(name="logType", required=true)
     private Output<String> logType;
 
     /**
-     * @return The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+     * @return The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
      * 
      */
     public Output<String> logType() {
@@ -141,7 +141,7 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
         }
 
         /**
-         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfigA
         }
 
         /**
-         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+         * @param logType The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
          * 
          * @return builder
          * 

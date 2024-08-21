@@ -145,14 +145,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
     @Import(name="sslPolicy")
     private @Nullable Output<String> sslPolicy;
 
     /**
-     * @return Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * @return Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
     public Optional<Output<String>> sslPolicy() {
@@ -418,7 +418,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslPolicy Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+         * @param sslPolicy Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslPolicy Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+         * @param sslPolicy Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
          * 
          * @return builder
          * 

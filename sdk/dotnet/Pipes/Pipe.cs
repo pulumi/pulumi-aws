@@ -254,6 +254,43 @@ namespace Pulumi.Aws.Pipes
     /// });
     /// ```
     /// 
+    /// ### SQS Source and Target Configuration Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Pipes.Pipe("example", new()
+    ///     {
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
+    ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
+    ///         {
+    ///             SqsQueueParameters = new Aws.Pipes.Inputs.PipeSourceParametersSqsQueueParametersArgs
+    ///             {
+    ///                 BatchSize = 1,
+    ///                 MaximumBatchingWindowInSeconds = 2,
+    ///             },
+    ///         },
+    ///         TargetParameters = new Aws.Pipes.Inputs.PipeTargetParametersArgs
+    ///         {
+    ///             SqsQueueParameters = new Aws.Pipes.Inputs.PipeTargetParametersSqsQueueParametersArgs
+    ///             {
+    ///                 MessageDeduplicationId = "example-dedupe",
+    ///                 MessageGroupId = "example-group",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipes using the `name`. For example:

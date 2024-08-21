@@ -105,7 +105,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                         { "deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.Name },
     ///                     },
     ///                     LogDestinationType = "KinesisDataFirehose",
-    ///                     LogType = "ALERT",
+    ///                     LogType = "TLS",
     ///                 },
     ///             },
     ///         },

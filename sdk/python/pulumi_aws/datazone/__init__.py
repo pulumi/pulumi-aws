@@ -7,8 +7,11 @@ import typing
 # Export this package's modules as members:
 from .domain import *
 from .environment_blueprint_configuration import *
+from .environment_profile import *
+from .form_type import *
 from .get_environment_blueprint import *
 from .glossary import *
+from .glossary_term import *
 from .project import *
 from ._inputs import *
 from . import outputs

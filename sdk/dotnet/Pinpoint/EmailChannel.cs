@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<int> MessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string> Identity { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<int>? MessagesPerSecond { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

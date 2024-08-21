@@ -4343,7 +4343,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_vpclattice_listener_rule":                       {Tok: awsResource(vpclatticeMod, "ListenerRule")},
 		},
 		ExtraResources: resourceOverlays,
-		ExtraTypes: extraTypes,
+		ExtraTypes:     extraTypes,
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
@@ -5788,5 +5788,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 	prov.Resources["aws_chatbot_teams_channel_configuration"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "configurationName"), nil
+	}
+	prov.Resources["aws_bedrock_guardrail"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "guardrailId", "version"), nil
+	}
+	prov.Resources["aws_datazone_form_type"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "domainIdentifier", "name", "revision"), nil
+	}
+	prov.Resources["aws_pinpoint_email_template"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "templateName"), nil
 	}
 }

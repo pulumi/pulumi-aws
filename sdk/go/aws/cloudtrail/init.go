@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cloudtrail/eventDataStore:EventDataStore":
 		r = &EventDataStore{}
+	case "aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount":
+		r = &OrganizationDelegatedAdminAccount{}
 	case "aws:cloudtrail/trail:Trail":
 		r = &Trail{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudtrail/eventDataStore",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudtrail/organizationDelegatedAdminAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

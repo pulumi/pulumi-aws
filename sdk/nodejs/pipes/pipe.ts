@@ -159,6 +159,32 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### SQS Source and Target Configuration Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.pipes.Pipe("example", {
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
+ *     sourceParameters: {
+ *         sqsQueueParameters: {
+ *             batchSize: 1,
+ *             maximumBatchingWindowInSeconds: 2,
+ *         },
+ *     },
+ *     targetParameters: {
+ *         sqsQueueParameters: {
+ *             messageDeduplicationId: "example-dedupe",
+ *             messageGroupId: "example-group",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import pipes using the `name`. For example:

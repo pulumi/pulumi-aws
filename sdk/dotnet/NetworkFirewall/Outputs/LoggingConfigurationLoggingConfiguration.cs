@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class LoggingConfigurationLoggingConfiguration
     {
         /// <summary>
-        /// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+        /// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig> LogDestinationConfigs;
 

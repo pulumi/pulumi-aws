@@ -2176,7 +2176,7 @@ func (o FirewallSubnetMappingArrayOutput) Index(i pulumi.IntInput) FirewallSubne
 }
 
 type LoggingConfigurationLoggingConfiguration struct {
-	// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+	// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
 	LogDestinationConfigs []LoggingConfigurationLoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
 }
 
@@ -2192,7 +2192,7 @@ type LoggingConfigurationLoggingConfigurationInput interface {
 }
 
 type LoggingConfigurationLoggingConfigurationArgs struct {
-	// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+	// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
 	LogDestinationConfigs LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
 }
 
@@ -2273,7 +2273,7 @@ func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLo
 	}).(LoggingConfigurationLoggingConfigurationPtrOutput)
 }
 
-// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
 func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLoggingConfigurationLogDestinationConfig {
 		return v.LogDestinationConfigs
@@ -2304,7 +2304,7 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigu
 	}).(LoggingConfigurationLoggingConfigurationOutput)
 }
 
-// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
 func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs() LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLoggingConfigurationLogDestinationConfig {
 		if v == nil {
@@ -2322,7 +2322,7 @@ type LoggingConfigurationLoggingConfigurationLogDestinationConfig struct {
 	LogDestination map[string]string `pulumi:"logDestination"`
 	// The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
 	LogDestinationType string `pulumi:"logDestinationType"`
-	// The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+	// The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
 	LogType string `pulumi:"logType"`
 }
 
@@ -2345,7 +2345,7 @@ type LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs struct {
 	LogDestination pulumi.StringMapInput `pulumi:"logDestination"`
 	// The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
 	LogDestinationType pulumi.StringInput `pulumi:"logDestinationType"`
-	// The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+	// The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
 	LogType pulumi.StringInput `pulumi:"logType"`
 }
 
@@ -2417,7 +2417,7 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) LogD
 	}).(pulumi.StringOutput)
 }
 
-// The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+// The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationLoggingConfigurationLogDestinationConfig) string { return v.LogType }).(pulumi.StringOutput)
 }

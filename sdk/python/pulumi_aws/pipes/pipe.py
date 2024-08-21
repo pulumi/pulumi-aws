@@ -656,6 +656,31 @@ class Pipe(pulumi.CustomResource):
                 ]))
         ```
 
+        ### SQS Source and Target Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            source_parameters={
+                "sqs_queue_parameters": {
+                    "batch_size": 1,
+                    "maximum_batching_window_in_seconds": 2,
+                },
+            },
+            target_parameters={
+                "sqs_queue_parameters": {
+                    "message_deduplication_id": "example-dedupe",
+                    "message_group_id": "example-group",
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
@@ -832,6 +857,31 @@ class Pipe(pulumi.CustomResource):
                     source,
                     target,
                 ]))
+        ```
+
+        ### SQS Source and Target Configuration Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.pipes.Pipe("example",
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            source_parameters={
+                "sqs_queue_parameters": {
+                    "batch_size": 1,
+                    "maximum_batching_window_in_seconds": 2,
+                },
+            },
+            target_parameters={
+                "sqs_queue_parameters": {
+                    "message_deduplication_id": "example-dedupe",
+                    "message_group_id": "example-group",
+                },
+            })
         ```
 
         ## Import

@@ -275,37 +275,6 @@ index 54b86a0426..d9f2424b7a 100644
  	log.Printf("[INFO] Deleting GameLift Matchmaking Rule Set: %s", d.Id())
  	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
  		Name: aws.String(d.Id()),
-diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
-index 54d4e61495..4f04bdc861 100644
---- a/internal/service/rds/security_group.go
-+++ b/internal/service/rds/security_group.go
-@@ -142,7 +142,7 @@ func resourceSecurityGroupRead(ctx context.Context, d *schema.ResourceData, meta
- 
- func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	var diags diag.Diagnostics
--	conn := meta.(*conns.AWSClient).RDSConn()
-+	conn := meta.(*conns.AWSClient).RDSConn(ctx)
- 
- 	if d.HasChange("ingress") {
- 		sg, err := resourceSecurityGroupRetrieve(ctx, d, meta)
-@@ -185,7 +185,7 @@ func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, me
- 
- func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	var diags diag.Diagnostics
--	conn := meta.(*conns.AWSClient).RDSConn()
-+	conn := meta.(*conns.AWSClient).RDSConn(ctx)
- 
- 	log.Printf("[DEBUG] DB Security Group destroy: %v", d.Id())
- 
-@@ -203,7 +203,7 @@ func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, me
- }
- 
- func resourceSecurityGroupRetrieve(ctx context.Context, d *schema.ResourceData, meta interface{}) (*rds.DBSecurityGroup, error) {
--	conn := meta.(*conns.AWSClient).RDSConn()
-+	conn := meta.(*conns.AWSClient).RDSConn(ctx)
- 
- 	opts := rds.DescribeDBSecurityGroupsInput{
- 		DBSecurityGroupName: aws.String(d.Id()),
 diff --git a/internal/service/redshift/security_group.go b/internal/service/redshift/security_group.go
 index 47b5d7cda2..050fee663a 100644
 --- a/internal/service/redshift/security_group.go

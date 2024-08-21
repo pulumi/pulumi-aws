@@ -45,6 +45,11 @@ export type EmailChannel = import("./emailChannel").EmailChannel;
 export const EmailChannel: typeof import("./emailChannel").EmailChannel = null as any;
 utilities.lazyLoad(exports, ["EmailChannel"], () => require("./emailChannel"));
 
+export { EmailTemplateArgs, EmailTemplateState } from "./emailTemplate";
+export type EmailTemplate = import("./emailTemplate").EmailTemplate;
+export const EmailTemplate: typeof import("./emailTemplate").EmailTemplate = null as any;
+utilities.lazyLoad(exports, ["EmailTemplate"], () => require("./emailTemplate"));
+
 export { EventStreamArgs, EventStreamState } from "./eventStream";
 export type EventStream = import("./eventStream").EventStream;
 export const EventStream: typeof import("./eventStream").EventStream = null as any;
@@ -81,6 +86,8 @@ const _module = {
                 return new BaiduChannel(name, <any>undefined, { urn })
             case "aws:pinpoint/emailChannel:EmailChannel":
                 return new EmailChannel(name, <any>undefined, { urn })
+            case "aws:pinpoint/emailTemplate:EmailTemplate":
+                return new EmailTemplate(name, <any>undefined, { urn })
             case "aws:pinpoint/eventStream:EventStream":
                 return new EventStream(name, <any>undefined, { urn })
             case "aws:pinpoint/gcmChannel:GcmChannel":
@@ -100,6 +107,7 @@ pulumi.runtime.registerResourceModule("aws", "pinpoint/apnsVoipSandboxChannel", 
 pulumi.runtime.registerResourceModule("aws", "pinpoint/app", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/baiduChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/emailChannel", _module)
+pulumi.runtime.registerResourceModule("aws", "pinpoint/emailTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/eventStream", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/gcmChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsChannel", _module)

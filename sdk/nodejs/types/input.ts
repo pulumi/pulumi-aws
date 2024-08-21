@@ -10054,6 +10054,17 @@ export namespace bedrock {
         update?: pulumi.Input<string>;
     }
 
+    export interface AgentAgentKnowledgeBaseAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
     export interface AgentAgentPromptOverrideConfiguration {
         /**
          * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
@@ -10457,6 +10468,233 @@ export namespace bedrock {
          * VPC configuration subnets.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetAgentAgentVersionsAgentVersionSummary {
+        /**
+         * Name of agent to which the version belongs.
+         */
+        agentName?: string;
+        /**
+         * Status of the agent to which the version belongs.
+         */
+        agentStatus?: string;
+        /**
+         * Version of the agent.
+         */
+        agentVersion?: string;
+        /**
+         * Time at which the version was created.
+         */
+        createdAt?: string;
+        /**
+         * Description of the version of the agent.
+         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
+         */
+        description?: string;
+        guardrailConfigurations?: inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration[];
+        /**
+         * Time at which the version was last updated.
+         */
+        updatedAt?: string;
+    }
+
+    export interface GetAgentAgentVersionsAgentVersionSummaryArgs {
+        /**
+         * Name of agent to which the version belongs.
+         */
+        agentName?: pulumi.Input<string>;
+        /**
+         * Status of the agent to which the version belongs.
+         */
+        agentStatus?: pulumi.Input<string>;
+        /**
+         * Version of the agent.
+         */
+        agentVersion?: pulumi.Input<string>;
+        /**
+         * Time at which the version was created.
+         */
+        createdAt?: pulumi.Input<string>;
+        /**
+         * Description of the version of the agent.
+         * * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
+         */
+        description?: pulumi.Input<string>;
+        guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs>[]>;
+        /**
+         * Time at which the version was last updated.
+         */
+        updatedAt?: pulumi.Input<string>;
+    }
+
+    export interface GetAgentAgentVersionsAgentVersionSummaryGuardrailConfiguration {
+        /**
+         * Unique identifier of the guardrail.
+         */
+        guardrailIdentifier?: string;
+        /**
+         * Version of the guardrail.
+         */
+        guardrailVersion?: string;
+    }
+
+    export interface GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationArgs {
+        /**
+         * Unique identifier of the guardrail.
+         */
+        guardrailIdentifier?: pulumi.Input<string>;
+        /**
+         * Version of the guardrail.
+         */
+        guardrailVersion?: pulumi.Input<string>;
+    }
+
+    export interface GuardrailContentPolicyConfig {
+        /**
+         * List of content filter configs in content policy. See Filters Config for more information.
+         */
+        filtersConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigFiltersConfig>[]>;
+    }
+
+    export interface GuardrailContentPolicyConfigFiltersConfig {
+        /**
+         * Strength for filters.
+         */
+        inputStrength: pulumi.Input<string>;
+        /**
+         * Strength for filters.
+         */
+        outputStrength: pulumi.Input<string>;
+        /**
+         * Type of contextual grounding filter.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailContextualGroundingPolicyConfig {
+        /**
+         * List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
+         */
+        filtersConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContextualGroundingPolicyConfigFiltersConfig>[]>;
+    }
+
+    export interface GuardrailContextualGroundingPolicyConfigFiltersConfig {
+        /**
+         * The threshold for this filter.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * Type of contextual grounding filter.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfig {
+        /**
+         * List of entities. See PII Entities Config for more information.
+         */
+        piiEntitiesConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig>[]>;
+        /**
+         * List of regex. See Regexes Config for more information.
+         */
+        regexesConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailSensitiveInformationPolicyConfigRegexesConfig>[]>;
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig {
+        /**
+         * Options for sensitive information action.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The currently supported PII entities.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailSensitiveInformationPolicyConfigRegexesConfig {
+        /**
+         * Options for sensitive information action.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The regex description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The regex name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The regex pattern.
+         */
+        pattern: pulumi.Input<string>;
+    }
+
+    export interface GuardrailTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface GuardrailTopicPolicyConfig {
+        /**
+         * List of topic configs in topic policy. See Topics Config for more information.
+         */
+        topicsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfigTopicsConfig>[]>;
+    }
+
+    export interface GuardrailTopicPolicyConfigTopicsConfig {
+        /**
+         * Definition of topic in topic policy.
+         */
+        definition: pulumi.Input<string>;
+        /**
+         * List of text examples.
+         */
+        examples?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Name of topic in topic policy.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Type of topic in a policy.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailWordPolicyConfig {
+        /**
+         * A config for the list of managed words. See Managed Word Lists Config for more information.
+         */
+        managedWordListsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigManagedWordListsConfig>[]>;
+        /**
+         * List of custom word configs. See Words Config for more information.
+         */
+        wordsConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailWordPolicyConfigWordsConfig>[]>;
+    }
+
+    export interface GuardrailWordPolicyConfigManagedWordListsConfig {
+        /**
+         * Options for managed words.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailWordPolicyConfigWordsConfig {
+        /**
+         * The custom word text.
+         */
+        text: pulumi.Input<string>;
     }
 
     export interface ProvisionedModelThroughputTimeouts {
@@ -14612,7 +14850,7 @@ export namespace codepipeline {
          */
         category: pulumi.Input<string>;
         /**
-         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
+         * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
          */
         configuration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
@@ -18541,6 +18779,59 @@ export namespace datazone {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentProfileUserParameter {
+        /**
+         * Name of the environment profile parameter.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Value of the environment profile parameter.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface FormTypeImport {
+        /**
+         * Name of the form type. Must be the name of the structure in smithy document.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Revision of the Form Type.
+         */
+        revision: pulumi.Input<string>;
+    }
+
+    export interface FormTypeModel {
+        /**
+         * Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+         *
+         * The following arguments are optional:
+         */
+        smithy: pulumi.Input<string>;
+    }
+
+    export interface FormTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
+    export interface GlossaryTermTermRelations {
+        /**
+         * String array that calssifies the term relations.
+         */
+        classifies?: pulumi.Input<pulumi.Input<string>[]>;
+        isAs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GlossaryTermTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
     }
 
     export interface ProjectFailureReason {
@@ -51309,16 +51600,16 @@ export namespace lex {
 
     export interface V2modelsSlotTypeSlotTypeValues {
         /**
-         * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
+         * Value of the slot type entry.  See `sampleValue` argument reference below.
          */
-        slotTypeValues: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSlotTypeValue>[]>;
+        sampleValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSampleValue>[]>;
         /**
          * Additional values related to the slot type entry. See `sampleValue` argument reference below.
          */
         synonyms?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym>[]>;
     }
 
-    export interface V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+    export interface V2modelsSlotTypeSlotTypeValuesSampleValue {
         /**
          * Value that can be used for a slot type.
          */
@@ -56379,7 +56670,7 @@ export namespace networkfirewall {
 
     export interface LoggingConfigurationLoggingConfiguration {
         /**
-         * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+         * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
          */
         logDestinationConfigs: pulumi.Input<pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfig>[]>;
     }
@@ -56397,7 +56688,7 @@ export namespace networkfirewall {
          */
         logDestinationType: pulumi.Input<string>;
         /**
-         * The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+         * The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
          */
         logType: pulumi.Input<string>;
     }
@@ -59321,6 +59612,42 @@ export namespace pinpoint {
          * The default start time for quiet time in ISO 8601 format. Required if `end` is set
          */
         start?: pulumi.Input<string>;
+    }
+
+    export interface EmailTemplateEmailTemplate {
+        /**
+         * JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+         */
+        defaultSubstitutions?: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        headers?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplateHeader>[]>;
+        /**
+         * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+         */
+        htmlPart?: pulumi.Input<string>;
+        /**
+         * The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+         */
+        recommenderId?: pulumi.Input<string>;
+        /**
+         * Subject line, or title, to use in email messages that are based on the message template.
+         */
+        subject?: pulumi.Input<string>;
+        /**
+         * Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+         */
+        textPart?: pulumi.Input<string>;
+    }
+
+    export interface EmailTemplateEmailTemplateHeader {
+        /**
+         * Name of the message header. The header name can contain up to 126 characters.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -70964,7 +71291,7 @@ export namespace securitylake {
          */
         regions: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`.
+         * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
          */
         sourceName: pulumi.Input<string>;
         /**

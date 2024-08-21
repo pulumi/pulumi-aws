@@ -538,6 +538,257 @@ func (o AppQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EmailTemplateEmailTemplate struct {
+	// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+	DefaultSubstitutions *string                            `pulumi:"defaultSubstitutions"`
+	Description          *string                            `pulumi:"description"`
+	Headers              []EmailTemplateEmailTemplateHeader `pulumi:"headers"`
+	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	HtmlPart *string `pulumi:"htmlPart"`
+	// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+	RecommenderId *string `pulumi:"recommenderId"`
+	// Subject line, or title, to use in email messages that are based on the message template.
+	Subject *string `pulumi:"subject"`
+	// Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+	TextPart *string `pulumi:"textPart"`
+}
+
+// EmailTemplateEmailTemplateInput is an input type that accepts EmailTemplateEmailTemplateArgs and EmailTemplateEmailTemplateOutput values.
+// You can construct a concrete instance of `EmailTemplateEmailTemplateInput` via:
+//
+//	EmailTemplateEmailTemplateArgs{...}
+type EmailTemplateEmailTemplateInput interface {
+	pulumi.Input
+
+	ToEmailTemplateEmailTemplateOutput() EmailTemplateEmailTemplateOutput
+	ToEmailTemplateEmailTemplateOutputWithContext(context.Context) EmailTemplateEmailTemplateOutput
+}
+
+type EmailTemplateEmailTemplateArgs struct {
+	// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+	DefaultSubstitutions pulumi.StringPtrInput                      `pulumi:"defaultSubstitutions"`
+	Description          pulumi.StringPtrInput                      `pulumi:"description"`
+	Headers              EmailTemplateEmailTemplateHeaderArrayInput `pulumi:"headers"`
+	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	HtmlPart pulumi.StringPtrInput `pulumi:"htmlPart"`
+	// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+	RecommenderId pulumi.StringPtrInput `pulumi:"recommenderId"`
+	// Subject line, or title, to use in email messages that are based on the message template.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+	// Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+	TextPart pulumi.StringPtrInput `pulumi:"textPart"`
+}
+
+func (EmailTemplateEmailTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateEmailTemplate)(nil)).Elem()
+}
+
+func (i EmailTemplateEmailTemplateArgs) ToEmailTemplateEmailTemplateOutput() EmailTemplateEmailTemplateOutput {
+	return i.ToEmailTemplateEmailTemplateOutputWithContext(context.Background())
+}
+
+func (i EmailTemplateEmailTemplateArgs) ToEmailTemplateEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateEmailTemplateOutput)
+}
+
+// EmailTemplateEmailTemplateArrayInput is an input type that accepts EmailTemplateEmailTemplateArray and EmailTemplateEmailTemplateArrayOutput values.
+// You can construct a concrete instance of `EmailTemplateEmailTemplateArrayInput` via:
+//
+//	EmailTemplateEmailTemplateArray{ EmailTemplateEmailTemplateArgs{...} }
+type EmailTemplateEmailTemplateArrayInput interface {
+	pulumi.Input
+
+	ToEmailTemplateEmailTemplateArrayOutput() EmailTemplateEmailTemplateArrayOutput
+	ToEmailTemplateEmailTemplateArrayOutputWithContext(context.Context) EmailTemplateEmailTemplateArrayOutput
+}
+
+type EmailTemplateEmailTemplateArray []EmailTemplateEmailTemplateInput
+
+func (EmailTemplateEmailTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailTemplateEmailTemplate)(nil)).Elem()
+}
+
+func (i EmailTemplateEmailTemplateArray) ToEmailTemplateEmailTemplateArrayOutput() EmailTemplateEmailTemplateArrayOutput {
+	return i.ToEmailTemplateEmailTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i EmailTemplateEmailTemplateArray) ToEmailTemplateEmailTemplateArrayOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateEmailTemplateArrayOutput)
+}
+
+type EmailTemplateEmailTemplateOutput struct{ *pulumi.OutputState }
+
+func (EmailTemplateEmailTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateEmailTemplate)(nil)).Elem()
+}
+
+func (o EmailTemplateEmailTemplateOutput) ToEmailTemplateEmailTemplateOutput() EmailTemplateEmailTemplateOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateOutput) ToEmailTemplateEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateOutput {
+	return o
+}
+
+// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+func (o EmailTemplateEmailTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailTemplateEmailTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o EmailTemplateEmailTemplateOutput) Headers() EmailTemplateEmailTemplateHeaderArrayOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) []EmailTemplateEmailTemplateHeader { return v.Headers }).(EmailTemplateEmailTemplateHeaderArrayOutput)
+}
+
+// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+func (o EmailTemplateEmailTemplateOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+func (o EmailTemplateEmailTemplateOutput) RecommenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.RecommenderId }).(pulumi.StringPtrOutput)
+}
+
+// Subject line, or title, to use in email messages that are based on the message template.
+func (o EmailTemplateEmailTemplateOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+// Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+func (o EmailTemplateEmailTemplateOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.TextPart }).(pulumi.StringPtrOutput)
+}
+
+type EmailTemplateEmailTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailTemplateEmailTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailTemplateEmailTemplate)(nil)).Elem()
+}
+
+func (o EmailTemplateEmailTemplateArrayOutput) ToEmailTemplateEmailTemplateArrayOutput() EmailTemplateEmailTemplateArrayOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateArrayOutput) ToEmailTemplateEmailTemplateArrayOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateArrayOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateArrayOutput) Index(i pulumi.IntInput) EmailTemplateEmailTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailTemplateEmailTemplate {
+		return vs[0].([]EmailTemplateEmailTemplate)[vs[1].(int)]
+	}).(EmailTemplateEmailTemplateOutput)
+}
+
+type EmailTemplateEmailTemplateHeader struct {
+	// Name of the message header. The header name can contain up to 126 characters.
+	Name *string `pulumi:"name"`
+	// Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+	Value *string `pulumi:"value"`
+}
+
+// EmailTemplateEmailTemplateHeaderInput is an input type that accepts EmailTemplateEmailTemplateHeaderArgs and EmailTemplateEmailTemplateHeaderOutput values.
+// You can construct a concrete instance of `EmailTemplateEmailTemplateHeaderInput` via:
+//
+//	EmailTemplateEmailTemplateHeaderArgs{...}
+type EmailTemplateEmailTemplateHeaderInput interface {
+	pulumi.Input
+
+	ToEmailTemplateEmailTemplateHeaderOutput() EmailTemplateEmailTemplateHeaderOutput
+	ToEmailTemplateEmailTemplateHeaderOutputWithContext(context.Context) EmailTemplateEmailTemplateHeaderOutput
+}
+
+type EmailTemplateEmailTemplateHeaderArgs struct {
+	// Name of the message header. The header name can contain up to 126 characters.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EmailTemplateEmailTemplateHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateEmailTemplateHeader)(nil)).Elem()
+}
+
+func (i EmailTemplateEmailTemplateHeaderArgs) ToEmailTemplateEmailTemplateHeaderOutput() EmailTemplateEmailTemplateHeaderOutput {
+	return i.ToEmailTemplateEmailTemplateHeaderOutputWithContext(context.Background())
+}
+
+func (i EmailTemplateEmailTemplateHeaderArgs) ToEmailTemplateEmailTemplateHeaderOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateEmailTemplateHeaderOutput)
+}
+
+// EmailTemplateEmailTemplateHeaderArrayInput is an input type that accepts EmailTemplateEmailTemplateHeaderArray and EmailTemplateEmailTemplateHeaderArrayOutput values.
+// You can construct a concrete instance of `EmailTemplateEmailTemplateHeaderArrayInput` via:
+//
+//	EmailTemplateEmailTemplateHeaderArray{ EmailTemplateEmailTemplateHeaderArgs{...} }
+type EmailTemplateEmailTemplateHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEmailTemplateEmailTemplateHeaderArrayOutput() EmailTemplateEmailTemplateHeaderArrayOutput
+	ToEmailTemplateEmailTemplateHeaderArrayOutputWithContext(context.Context) EmailTemplateEmailTemplateHeaderArrayOutput
+}
+
+type EmailTemplateEmailTemplateHeaderArray []EmailTemplateEmailTemplateHeaderInput
+
+func (EmailTemplateEmailTemplateHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailTemplateEmailTemplateHeader)(nil)).Elem()
+}
+
+func (i EmailTemplateEmailTemplateHeaderArray) ToEmailTemplateEmailTemplateHeaderArrayOutput() EmailTemplateEmailTemplateHeaderArrayOutput {
+	return i.ToEmailTemplateEmailTemplateHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EmailTemplateEmailTemplateHeaderArray) ToEmailTemplateEmailTemplateHeaderArrayOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateEmailTemplateHeaderArrayOutput)
+}
+
+type EmailTemplateEmailTemplateHeaderOutput struct{ *pulumi.OutputState }
+
+func (EmailTemplateEmailTemplateHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailTemplateEmailTemplateHeader)(nil)).Elem()
+}
+
+func (o EmailTemplateEmailTemplateHeaderOutput) ToEmailTemplateEmailTemplateHeaderOutput() EmailTemplateEmailTemplateHeaderOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateHeaderOutput) ToEmailTemplateEmailTemplateHeaderOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateHeaderOutput {
+	return o
+}
+
+// Name of the message header. The header name can contain up to 126 characters.
+func (o EmailTemplateEmailTemplateHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplateHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+func (o EmailTemplateEmailTemplateHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailTemplateEmailTemplateHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EmailTemplateEmailTemplateHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EmailTemplateEmailTemplateHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EmailTemplateEmailTemplateHeader)(nil)).Elem()
+}
+
+func (o EmailTemplateEmailTemplateHeaderArrayOutput) ToEmailTemplateEmailTemplateHeaderArrayOutput() EmailTemplateEmailTemplateHeaderArrayOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateHeaderArrayOutput) ToEmailTemplateEmailTemplateHeaderArrayOutputWithContext(ctx context.Context) EmailTemplateEmailTemplateHeaderArrayOutput {
+	return o
+}
+
+func (o EmailTemplateEmailTemplateHeaderArrayOutput) Index(i pulumi.IntInput) EmailTemplateEmailTemplateHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EmailTemplateEmailTemplateHeader {
+		return vs[0].([]EmailTemplateEmailTemplateHeader)[vs[1].(int)]
+	}).(EmailTemplateEmailTemplateHeaderOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookInput)(nil)).Elem(), AppCampaignHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookPtrInput)(nil)).Elem(), AppCampaignHookArgs{})
@@ -545,10 +796,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppLimitsPtrInput)(nil)).Elem(), AppLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppQuietTimeInput)(nil)).Elem(), AppQuietTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppQuietTimePtrInput)(nil)).Elem(), AppQuietTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateInput)(nil)).Elem(), EmailTemplateEmailTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateArrayInput)(nil)).Elem(), EmailTemplateEmailTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateHeaderInput)(nil)).Elem(), EmailTemplateEmailTemplateHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateHeaderArrayInput)(nil)).Elem(), EmailTemplateEmailTemplateHeaderArray{})
 	pulumi.RegisterOutputType(AppCampaignHookOutput{})
 	pulumi.RegisterOutputType(AppCampaignHookPtrOutput{})
 	pulumi.RegisterOutputType(AppLimitsOutput{})
 	pulumi.RegisterOutputType(AppLimitsPtrOutput{})
 	pulumi.RegisterOutputType(AppQuietTimeOutput{})
 	pulumi.RegisterOutputType(AppQuietTimePtrOutput{})
+	pulumi.RegisterOutputType(EmailTemplateEmailTemplateOutput{})
+	pulumi.RegisterOutputType(EmailTemplateEmailTemplateArrayOutput{})
+	pulumi.RegisterOutputType(EmailTemplateEmailTemplateHeaderOutput{})
+	pulumi.RegisterOutputType(EmailTemplateEmailTemplateHeaderArrayOutput{})
 }

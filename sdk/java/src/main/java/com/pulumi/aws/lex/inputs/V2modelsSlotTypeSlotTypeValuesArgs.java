@@ -3,11 +3,10 @@
 
 package com.pulumi.aws.lex.inputs;
 
-import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs;
+import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,18 +18,18 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
     public static final V2modelsSlotTypeSlotTypeValuesArgs Empty = new V2modelsSlotTypeSlotTypeValuesArgs();
 
     /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * Value of the slot type entry.  See `sample_value` argument reference below.
      * 
      */
-    @Import(name="slotTypeValues", required=true)
-    private Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues;
+    @Import(name="sampleValues")
+    private @Nullable Output<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>> sampleValues;
 
     /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * @return Value of the slot type entry.  See `sample_value` argument reference below.
      * 
      */
-    public Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues() {
-        return this.slotTypeValues;
+    public Optional<Output<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>>> sampleValues() {
+        return Optional.ofNullable(this.sampleValues);
     }
 
     /**
@@ -51,7 +50,7 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
     private V2modelsSlotTypeSlotTypeValuesArgs() {}
 
     private V2modelsSlotTypeSlotTypeValuesArgs(V2modelsSlotTypeSlotTypeValuesArgs $) {
-        this.slotTypeValues = $.slotTypeValues;
+        this.sampleValues = $.sampleValues;
         this.synonyms = $.synonyms;
     }
 
@@ -74,34 +73,34 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder slotTypeValues(Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues) {
-            $.slotTypeValues = slotTypeValues;
+        public Builder sampleValues(@Nullable Output<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>> sampleValues) {
+            $.sampleValues = sampleValues;
             return this;
         }
 
         /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs> slotTypeValues) {
-            return slotTypeValues(Output.of(slotTypeValues));
+        public Builder sampleValues(List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs> sampleValues) {
+            return sampleValues(Output.of(sampleValues));
         }
 
         /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
          * 
          * @return builder
          * 
          */
-        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs... slotTypeValues) {
-            return slotTypeValues(List.of(slotTypeValues));
+        public Builder sampleValues(V2modelsSlotTypeSlotTypeValuesSampleValueArgs... sampleValues) {
+            return sampleValues(List.of(sampleValues));
         }
 
         /**
@@ -136,9 +135,6 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         public V2modelsSlotTypeSlotTypeValuesArgs build() {
-            if ($.slotTypeValues == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValuesArgs", "slotTypeValues");
-            }
             return $;
         }
     }

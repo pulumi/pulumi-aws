@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Fri, 17 May 2024 13:59:21 -0400
+Subject: [PATCH] Allow creating lambdas without code related properties
+
+
+diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
+index 8cbc84239c..cd8f37d3cd 100644
+--- a/internal/service/lambda/function.go
++++ b/internal/service/lambda/function.go
+@@ -171,9 +171,9 @@ func resourceFunction() *schema.Resource {
+ 				},
+ 			},
+ 			"filename": {
+-				Type:         schema.TypeString,
+-				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++				Type:          schema.TypeString,
++				Optional:      true,
++				ConflictsWith: []string{names.AttrS3Bucket, "s3_key", "s3_object_version", "image_uri"},
+ 			},
+ 			"function_name": {
+ 				Type:         schema.TypeString,
+@@ -210,9 +210,9 @@ func resourceFunction() *schema.Resource {
+ 				},
+ 			},
+ 			"image_uri": {
+-				Type:         schema.TypeString,
+-				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++				Type:          schema.TypeString,
++				Optional:      true,
++				ConflictsWith: []string{"filename", names.AttrS3Bucket, "s3_key", "s3_object_version"},
+ 			},
+ 			"invoke_arn": {
+ 				Type:     schema.TypeString,
+@@ -324,10 +324,10 @@ func resourceFunction() *schema.Resource {
+ 				ValidateDiagFunc: enum.Validate[awstypes.Runtime](),
+ 			},
+ 			names.AttrS3Bucket: {
+-				Type:         schema.TypeString,
+-				Optional:     true,
+-				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
+-				RequiredWith: []string{"s3_key"},
++				Type:          schema.TypeString,
++				Optional:      true,
++				ConflictsWith: []string{"filename", "image_uri"},
++				RequiredWith:  []string{"s3_key"},
+ 			},
+ 			"s3_key": {
+ 				Type:         schema.TypeString,

@@ -107,6 +107,7 @@ import javax.annotation.Nullable;
  *             .loadBalancerArn(frontEndAwsLb.arn())
  *             .port("443")
  *             .protocol("TLS")
+ *             .sslPolicy("ELBSecurityPolicy-2016-08")
  *             .certificateArn("arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4")
  *             .alpnPolicy("HTTP2Preferred")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
@@ -596,14 +597,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.protocol;
     }
     /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
     @Export(name="sslPolicy", refs={String.class}, tree="[0]")
     private Output<String> sslPolicy;
 
     /**
-     * @return Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
+     * @return Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
     public Output<String> sslPolicy() {

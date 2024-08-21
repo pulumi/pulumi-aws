@@ -25,8 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration":
 		r = &EnvironmentBlueprintConfiguration{}
+	case "aws:datazone/environmentProfile:EnvironmentProfile":
+		r = &EnvironmentProfile{}
+	case "aws:datazone/formType:FormType":
+		r = &FormType{}
 	case "aws:datazone/glossary:Glossary":
 		r = &Glossary{}
+	case "aws:datazone/glossaryTerm:GlossaryTerm":
+		r = &GlossaryTerm{}
 	case "aws:datazone/project:Project":
 		r = &Project{}
 	default:
@@ -54,7 +60,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"datazone/environmentProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/formType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"datazone/glossary",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/glossaryTerm",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

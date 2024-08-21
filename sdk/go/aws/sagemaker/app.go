@@ -57,7 +57,7 @@ type App struct {
 
 	// The name of the app.
 	AppName pulumi.StringOutput `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType pulumi.StringOutput `pulumi:"appType"`
 	// The Amazon Resource Name (ARN) of the app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -118,7 +118,7 @@ func GetApp(ctx *pulumi.Context,
 type appState struct {
 	// The name of the app.
 	AppName *string `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType *string `pulumi:"appType"`
 	// The Amazon Resource Name (ARN) of the app.
 	Arn *string `pulumi:"arn"`
@@ -141,7 +141,7 @@ type appState struct {
 type AppState struct {
 	// The name of the app.
 	AppName pulumi.StringPtrInput
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the app.
 	Arn pulumi.StringPtrInput
@@ -168,7 +168,7 @@ func (AppState) ElementType() reflect.Type {
 type appArgs struct {
 	// The name of the app.
 	AppName string `pulumi:"appName"`
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType string `pulumi:"appType"`
 	// The domain ID.
 	DomainId string `pulumi:"domainId"`
@@ -186,7 +186,7 @@ type appArgs struct {
 type AppArgs struct {
 	// The name of the app.
 	AppName pulumi.StringInput
-	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType pulumi.StringInput
 	// The domain ID.
 	DomainId pulumi.StringInput
@@ -292,7 +292,7 @@ func (o AppOutput) AppName() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppName }).(pulumi.StringOutput)
 }
 
-// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 func (o AppOutput) AppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppType }).(pulumi.StringOutput)
 }

@@ -12,16 +12,16 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeSlotTypeValuesGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("slotTypeValues", required: true)]
-        private InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs>? _slotTypeValues;
+        [Input("sampleValues")]
+        private InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueGetArgs>? _sampleValues;
 
         /// <summary>
-        /// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        /// Value of the slot type entry.  See `sample_value` argument reference below.
         /// </summary>
-        public InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs> SlotTypeValues
+        public InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueGetArgs> SampleValues
         {
-            get => _slotTypeValues ?? (_slotTypeValues = new InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValueGetArgs>());
-            set => _slotTypeValues = value;
+            get => _sampleValues ?? (_sampleValues = new InputList<Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueGetArgs>());
+            set => _sampleValues = value;
         }
 
         [Input("synonyms")]

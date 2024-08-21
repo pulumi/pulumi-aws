@@ -33,14 +33,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
     @Import(name="appType")
     private @Nullable Output<String> appType;
 
     /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
     public Optional<Output<String>> appType() {
@@ -214,7 +214,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
+         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
          * 
          * @return builder
          * 

@@ -198,14 +198,14 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
         return this.messagesPerSecond;
     }
     /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
     /**
-     * @return The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * @return *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
     public Output<Optional<String>> roleArn() {

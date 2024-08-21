@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BaiduChannel{}
 	case "aws:pinpoint/emailChannel:EmailChannel":
 		r = &EmailChannel{}
+	case "aws:pinpoint/emailTemplate:EmailTemplate":
+		r = &EmailTemplate{}
 	case "aws:pinpoint/eventStream:EventStream":
 		r = &EventStream{}
 	case "aws:pinpoint/gcmChannel:GcmChannel":
@@ -94,6 +96,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"pinpoint/emailChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"pinpoint/emailTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

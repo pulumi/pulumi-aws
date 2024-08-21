@@ -109,7 +109,7 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     public /*out*/ readonly messagesPerSecond!: pulumi.Output<number>;
     /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
 
@@ -186,7 +186,7 @@ export interface EmailChannelState {
      */
     messagesPerSecond?: pulumi.Input<number>;
     /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     roleArn?: pulumi.Input<string>;
 }
@@ -216,7 +216,7 @@ export interface EmailChannelArgs {
      */
     identity: pulumi.Input<string>;
     /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
     roleArn?: pulumi.Input<string>;
 }
