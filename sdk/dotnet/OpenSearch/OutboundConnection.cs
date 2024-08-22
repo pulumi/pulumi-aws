@@ -76,7 +76,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         /// </summary>
         [Output("connectionMode")]
-        public Output<string?> ConnectionMode { get; private set; } = null!;
+        public Output<string> ConnectionMode { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the outbound connection.

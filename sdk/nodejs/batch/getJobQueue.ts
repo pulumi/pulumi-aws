@@ -64,6 +64,14 @@ export interface GetJobQueueResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+     */
+    readonly jobStateTimeLimitActions: outputs.batch.GetJobQueueJobStateTimeLimitAction[];
     readonly name: string;
     /**
      * Priority of the job queue. Job queues with a higher priority are evaluated first when

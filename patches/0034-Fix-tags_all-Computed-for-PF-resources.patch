@@ -96,7 +96,7 @@ index 9ff71fe5d7..faba601773 100644
  		Blocks: map[string]schema.Block{
  			names.AttrConfiguration: schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index a9bf12da5f..05403ea048 100644
+index 0425a8a97f..8c5b93a1b8 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
 @@ -70,7 +70,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe

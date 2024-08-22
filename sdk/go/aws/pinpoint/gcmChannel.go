@@ -14,38 +14,7 @@ import (
 
 // Provides a Pinpoint GCM Channel resource.
 //
-// > **Note:** Api Key argument will be stored in the raw state as plain-text.
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ApiKey:        pulumi.String("api_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
+// > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -57,11 +26,13 @@ type GcmChannel struct {
 	pulumi.CustomResourceState
 
 	// Platform credential API key from Google.
-	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
 	// The application ID.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Enabled     pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	ServiceJson pulumi.StringPtrOutput `pulumi:"serviceJson"`
 }
 
 // NewGcmChannel registers a new resource with the given unique name, arguments, and options.
@@ -71,17 +42,18 @@ func NewGcmChannel(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApiKey == nil {
-		return nil, errors.New("invalid value for required argument 'ApiKey'")
-	}
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
 	if args.ApiKey != nil {
-		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringInput)
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
+	}
+	if args.ServiceJson != nil {
+		args.ServiceJson = pulumi.ToSecret(args.ServiceJson).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"apiKey",
+		"serviceJson",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -110,18 +82,22 @@ type gcmChannelState struct {
 	// Platform credential API key from Google.
 	ApiKey *string `pulumi:"apiKey"`
 	// The application ID.
-	ApplicationId *string `pulumi:"applicationId"`
+	ApplicationId               *string `pulumi:"applicationId"`
+	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled     *bool   `pulumi:"enabled"`
+	ServiceJson *string `pulumi:"serviceJson"`
 }
 
 type GcmChannelState struct {
 	// Platform credential API key from Google.
 	ApiKey pulumi.StringPtrInput
 	// The application ID.
-	ApplicationId pulumi.StringPtrInput
+	ApplicationId               pulumi.StringPtrInput
+	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
+	Enabled     pulumi.BoolPtrInput
+	ServiceJson pulumi.StringPtrInput
 }
 
 func (GcmChannelState) ElementType() reflect.Type {
@@ -130,21 +106,25 @@ func (GcmChannelState) ElementType() reflect.Type {
 
 type gcmChannelArgs struct {
 	// Platform credential API key from Google.
-	ApiKey string `pulumi:"apiKey"`
+	ApiKey *string `pulumi:"apiKey"`
 	// The application ID.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId               string  `pulumi:"applicationId"`
+	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled *bool `pulumi:"enabled"`
+	Enabled     *bool   `pulumi:"enabled"`
+	ServiceJson *string `pulumi:"serviceJson"`
 }
 
 // The set of arguments for constructing a GcmChannel resource.
 type GcmChannelArgs struct {
 	// Platform credential API key from Google.
-	ApiKey pulumi.StringInput
+	ApiKey pulumi.StringPtrInput
 	// The application ID.
-	ApplicationId pulumi.StringInput
+	ApplicationId               pulumi.StringInput
+	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled pulumi.BoolPtrInput
+	Enabled     pulumi.BoolPtrInput
+	ServiceJson pulumi.StringPtrInput
 }
 
 func (GcmChannelArgs) ElementType() reflect.Type {
@@ -235,8 +215,8 @@ func (o GcmChannelOutput) ToGcmChannelOutputWithContext(ctx context.Context) Gcm
 }
 
 // Platform credential API key from Google.
-func (o GcmChannelOutput) ApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+func (o GcmChannelOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
 // The application ID.
@@ -244,9 +224,17 @@ func (o GcmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+func (o GcmChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
 // Whether the channel is enabled or disabled. Defaults to `true`.
 func (o GcmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GcmChannelOutput) ServiceJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.ServiceJson }).(pulumi.StringPtrOutput)
 }
 
 type GcmChannelArrayOutput struct{ *pulumi.OutputState }

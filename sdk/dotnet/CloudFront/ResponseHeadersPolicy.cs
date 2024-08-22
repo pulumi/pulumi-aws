@@ -98,7 +98,7 @@ namespace Pulumi.Aws.CloudFront
     /// });
     /// ```
     /// 
-    /// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+    /// The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -120,6 +120,16 @@ namespace Pulumi.Aws.CloudFront
     ///                     Header = "X-Permitted-Cross-Domain-Policies",
     ///                     Override = true,
     ///                     Value = "none",
+    ///                 },
+    ///             },
+    ///         },
+    ///         RemoveHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs
+    ///         {
+    ///             Items = new[]
+    ///             {
+    ///                 new Aws.CloudFront.Inputs.ResponseHeadersPolicyRemoveHeadersConfigItemArgs
+    ///                 {
+    ///                     Header = "Set-Cookie",
     ///                 },
     ///             },
     ///         },

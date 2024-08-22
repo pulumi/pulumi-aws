@@ -88,10 +88,10 @@ index ffa236c568..5733dd6110 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 6a3347c16c..daad08c471 100644
+index 1e958241e4..e8c996ca8d 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
-@@ -95,7 +95,7 @@ func (r *jobQueueResource) Schema(ctx context.Context, request resource.SchemaRe
+@@ -96,7 +96,7 @@ func (r *jobQueueResource) Schema(ctx context.Context, request resource.SchemaRe
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -101,7 +101,7 @@ index 6a3347c16c..daad08c471 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/batch/job_queue_migrate.go b/internal/service/batch/job_queue_migrate.go
-index 4c20570739..2338b2a656 100644
+index c3d766b67d..5120ff20b5 100644
 --- a/internal/service/batch/job_queue_migrate.go
 +++ b/internal/service/batch/job_queue_migrate.go
 @@ -39,7 +39,7 @@ func jobQueueSchema0(ctx context.Context) schema.Schema {

@@ -47,18 +47,18 @@ class ManagedUserPoolClientArgs:
         The set of arguments for constructing a ManagedUserPoolClient resource.
         :param pulumi.Input[str] user_pool_id: User pool that the client belongs to.
         :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including code, implicit, and client_credentials.
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
         :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
                
@@ -142,7 +142,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth flows, including code, implicit, and client_credentials.
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -154,7 +154,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -166,7 +166,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -202,7 +202,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -274,7 +274,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 
@@ -411,19 +411,19 @@ class _ManagedUserPoolClientState:
         """
         Input properties used for looking up and filtering ManagedUserPoolClient resources.
         :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including code, implicit, and client_credentials.
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the user pool client.
         :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
         :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
@@ -502,7 +502,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth flows, including code, implicit, and client_credentials.
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -514,7 +514,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -526,7 +526,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -562,7 +562,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -646,7 +646,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 
@@ -872,18 +872,18 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including code, implicit, and client_credentials.
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
         :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
                
@@ -1082,19 +1082,19 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including code, implicit, and client_credentials.
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the user pool client.
         :param pulumi.Input[str] name_pattern: Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
         :param pulumi.Input[str] name_prefix: String that matches the beginning of the name of the desired User Pool Client. It must match only one User Pool Client.
@@ -1150,7 +1150,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed OAuth flows, including code, implicit, and client_credentials.
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -1158,7 +1158,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[bool]:
         """
-        Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -1166,7 +1166,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -1190,7 +1190,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -1246,7 +1246,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 

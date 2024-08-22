@@ -104,7 +104,7 @@ import (
 //
 // ```
 //
-// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+// The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
 //
 // ```go
 // package main
@@ -126,6 +126,13 @@ import (
 //							Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
 //							Override: pulumi.Bool(true),
 //							Value:    pulumi.String("none"),
+//						},
+//					},
+//				},
+//				RemoveHeadersConfig: &cloudfront.ResponseHeadersPolicyRemoveHeadersConfigArgs{
+//					Items: cloudfront.ResponseHeadersPolicyRemoveHeadersConfigItemArray{
+//						&cloudfront.ResponseHeadersPolicyRemoveHeadersConfigItemArgs{
+//							Header: pulumi.String("Set-Cookie"),
 //						},
 //					},
 //				},

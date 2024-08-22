@@ -19,31 +19,26 @@ __all__ = ['GcmChannelArgs', 'GcmChannel']
 @pulumi.input_type
 class GcmChannelArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[str],
                  application_id: pulumi.Input[str],
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 api_key: Optional[pulumi.Input[str]] = None,
+                 default_authentication_method: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 service_json: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GcmChannel resource.
-        :param pulumi.Input[str] api_key: Platform credential API key from Google.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input[str] api_key: Platform credential API key from Google.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         """
-        pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "application_id", application_id)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if default_authentication_method is not None:
+            pulumi.set(__self__, "default_authentication_method", default_authentication_method)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Input[str]:
-        """
-        Platform credential API key from Google.
-        """
-        return pulumi.get(self, "api_key")
-
-    @api_key.setter
-    def api_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "api_key", value)
+        if service_json is not None:
+            pulumi.set(__self__, "service_json", service_json)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -58,6 +53,27 @@ class GcmChannelArgs:
         pulumi.set(self, "application_id", value)
 
     @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Platform credential API key from Google.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="defaultAuthenticationMethod")
+    def default_authentication_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_authentication_method")
+
+    @default_authentication_method.setter
+    def default_authentication_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_authentication_method", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -69,13 +85,24 @@ class GcmChannelArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter(name="serviceJson")
+    def service_json(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_json")
+
+    @service_json.setter
+    def service_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_json", value)
+
 
 @pulumi.input_type
 class _GcmChannelState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 default_authentication_method: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 service_json: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GcmChannel resources.
         :param pulumi.Input[str] api_key: Platform credential API key from Google.
@@ -86,8 +113,12 @@ class _GcmChannelState:
             pulumi.set(__self__, "api_key", api_key)
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
+        if default_authentication_method is not None:
+            pulumi.set(__self__, "default_authentication_method", default_authentication_method)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if service_json is not None:
+            pulumi.set(__self__, "service_json", service_json)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -114,6 +145,15 @@ class _GcmChannelState:
         pulumi.set(self, "application_id", value)
 
     @property
+    @pulumi.getter(name="defaultAuthenticationMethod")
+    def default_authentication_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_authentication_method")
+
+    @default_authentication_method.setter
+    def default_authentication_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_authentication_method", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -125,6 +165,15 @@ class _GcmChannelState:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter(name="serviceJson")
+    def service_json(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_json")
+
+    @service_json.setter
+    def service_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_json", value)
+
 
 class GcmChannel(pulumi.CustomResource):
     @overload
@@ -133,24 +182,14 @@ class GcmChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 default_authentication_method: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 service_json: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a Pinpoint GCM Channel resource.
 
-        > **Note:** Api Key argument will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        gcm = aws.pinpoint.GcmChannel("gcm",
-            application_id=app.application_id,
-            api_key="api_key")
-        ```
-
+        > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
         ## Import
 
         Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -174,19 +213,7 @@ class GcmChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint GCM Channel resource.
 
-        > **Note:** Api Key argument will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        gcm = aws.pinpoint.GcmChannel("gcm",
-            application_id=app.application_id,
-            api_key="api_key")
-        ```
-
+        > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
         ## Import
 
         Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -212,7 +239,9 @@ class GcmChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 default_authentication_method: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 service_json: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,14 +251,14 @@ class GcmChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GcmChannelArgs.__new__(GcmChannelArgs)
 
-            if api_key is None and not opts.urn:
-                raise TypeError("Missing required property 'api_key'")
             __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["default_authentication_method"] = default_authentication_method
             __props__.__dict__["enabled"] = enabled
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey"])
+            __props__.__dict__["service_json"] = None if service_json is None else pulumi.Output.secret(service_json)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "serviceJson"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(GcmChannel, __self__).__init__(
             'aws:pinpoint/gcmChannel:GcmChannel',
@@ -243,7 +272,9 @@ class GcmChannel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             application_id: Optional[pulumi.Input[str]] = None,
-            enabled: Optional[pulumi.Input[bool]] = None) -> 'GcmChannel':
+            default_authentication_method: Optional[pulumi.Input[str]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            service_json: Optional[pulumi.Input[str]] = None) -> 'GcmChannel':
         """
         Get an existing GcmChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -261,12 +292,14 @@ class GcmChannel(pulumi.CustomResource):
 
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["application_id"] = application_id
+        __props__.__dict__["default_authentication_method"] = default_authentication_method
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["service_json"] = service_json
         return GcmChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> pulumi.Output[str]:
+    def api_key(self) -> pulumi.Output[Optional[str]]:
         """
         Platform credential API key from Google.
         """
@@ -281,10 +314,20 @@ class GcmChannel(pulumi.CustomResource):
         return pulumi.get(self, "application_id")
 
     @property
+    @pulumi.getter(name="defaultAuthenticationMethod")
+    def default_authentication_method(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "default_authentication_method")
+
+    @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="serviceJson")
+    def service_json(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "service_json")
 

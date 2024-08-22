@@ -80,6 +80,58 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Workspace configuration options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.grafana.Workspace;
+ * import com.pulumi.aws.grafana.WorkspaceArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
+ *             .accountAccessType("CURRENT_ACCOUNT")
+ *             .authenticationProviders("SAML")
+ *             .permissionType("SERVICE_MANAGED")
+ *             .roleArn(assume.arn())
+ *             .configuration(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("plugins", jsonObject(
+ *                         jsonProperty("pluginAdminEnabled", true)
+ *                     )),
+ *                     jsonProperty("unifiedAlerting", jsonObject(
+ *                         jsonProperty("enabled", false)
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+ * 
+ * For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Grafana Workspace using the workspace&#39;s `id`. For example:

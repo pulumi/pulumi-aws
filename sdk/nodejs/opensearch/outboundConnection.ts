@@ -83,7 +83,7 @@ export class OutboundConnection extends pulumi.CustomResource {
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      */
-    public readonly connectionMode!: pulumi.Output<string | undefined>;
+    public readonly connectionMode!: pulumi.Output<string>;
     /**
      * Configuration block for the outbound connection.
      */

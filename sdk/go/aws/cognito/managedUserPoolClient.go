@@ -138,17 +138,17 @@ type ManagedUserPoolClient struct {
 
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntOutput `pulumi:"accessTokenValidity"`
-	// List of allowed OAuth flows, including code, implicit, and client_credentials.
+	// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthFlows pulumi.StringArrayOutput `pulumi:"allowedOauthFlows"`
-	// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+	// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 	AllowedOauthFlowsUserPoolClient pulumi.BoolOutput `pulumi:"allowedOauthFlowsUserPoolClient"`
-	// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayOutput `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration ManagedUserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntOutput `pulumi:"authSessionValidity"`
-	// List of allowed callback URLs for the identity providers.
+	// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	CallbackUrls pulumi.StringArrayOutput `pulumi:"callbackUrls"`
 	// Client secret of the user pool client.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
@@ -162,7 +162,7 @@ type ManagedUserPoolClient struct {
 	ExplicitAuthFlows pulumi.StringArrayOutput `pulumi:"explicitAuthFlows"`
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntOutput `pulumi:"idTokenValidity"`
-	// List of allowed logout URLs for the identity providers.
+	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls pulumi.StringArrayOutput `pulumi:"logoutUrls"`
 	// Name of the user pool client.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -227,17 +227,17 @@ func GetManagedUserPoolClient(ctx *pulumi.Context,
 type managedUserPoolClientState struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
-	// List of allowed OAuth flows, including code, implicit, and client_credentials.
+	// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthFlows []string `pulumi:"allowedOauthFlows"`
-	// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+	// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
-	// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration *ManagedUserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
-	// List of allowed callback URLs for the identity providers.
+	// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Client secret of the user pool client.
 	ClientSecret *string `pulumi:"clientSecret"`
@@ -251,7 +251,7 @@ type managedUserPoolClientState struct {
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
-	// List of allowed logout URLs for the identity providers.
+	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	// Name of the user pool client.
 	Name *string `pulumi:"name"`
@@ -280,17 +280,17 @@ type managedUserPoolClientState struct {
 type ManagedUserPoolClientState struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntPtrInput
-	// List of allowed OAuth flows, including code, implicit, and client_credentials.
+	// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthFlows pulumi.StringArrayInput
-	// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+	// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
-	// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayInput
 	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration ManagedUserPoolClientAnalyticsConfigurationPtrInput
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntPtrInput
-	// List of allowed callback URLs for the identity providers.
+	// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	CallbackUrls pulumi.StringArrayInput
 	// Client secret of the user pool client.
 	ClientSecret pulumi.StringPtrInput
@@ -304,7 +304,7 @@ type ManagedUserPoolClientState struct {
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntPtrInput
-	// List of allowed logout URLs for the identity providers.
+	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls pulumi.StringArrayInput
 	// Name of the user pool client.
 	Name pulumi.StringPtrInput
@@ -337,17 +337,17 @@ func (ManagedUserPoolClientState) ElementType() reflect.Type {
 type managedUserPoolClientArgs struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
-	// List of allowed OAuth flows, including code, implicit, and client_credentials.
+	// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthFlows []string `pulumi:"allowedOauthFlows"`
-	// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+	// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
-	// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
 	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration *ManagedUserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
-	// List of allowed callback URLs for the identity providers.
+	// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Default redirect URI and must be included in the list of callback URLs.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
@@ -359,7 +359,7 @@ type managedUserPoolClientArgs struct {
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
-	// List of allowed logout URLs for the identity providers.
+	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
 	NamePattern *string `pulumi:"namePattern"`
@@ -387,17 +387,17 @@ type managedUserPoolClientArgs struct {
 type ManagedUserPoolClientArgs struct {
 	// Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
 	AccessTokenValidity pulumi.IntPtrInput
-	// List of allowed OAuth flows, including code, implicit, and client_credentials.
+	// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthFlows pulumi.StringArrayInput
-	// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+	// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
-	// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayInput
 	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration ManagedUserPoolClientAnalyticsConfigurationPtrInput
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntPtrInput
-	// List of allowed callback URLs for the identity providers.
+	// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	CallbackUrls pulumi.StringArrayInput
 	// Default redirect URI and must be included in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrInput
@@ -409,7 +409,7 @@ type ManagedUserPoolClientArgs struct {
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
 	IdTokenValidity pulumi.IntPtrInput
-	// List of allowed logout URLs for the identity providers.
+	// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	LogoutUrls pulumi.StringArrayInput
 	// Regular expression that matches the name of the desired User Pool Client. It must only match one User Pool Client.
 	NamePattern pulumi.StringPtrInput
@@ -525,17 +525,17 @@ func (o ManagedUserPoolClientOutput) AccessTokenValidity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.IntOutput { return v.AccessTokenValidity }).(pulumi.IntOutput)
 }
 
-// List of allowed OAuth flows, including code, implicit, and client_credentials.
+// List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 func (o ManagedUserPoolClientOutput) AllowedOauthFlows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringArrayOutput { return v.AllowedOauthFlows }).(pulumi.StringArrayOutput)
 }
 
-// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+// Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
 func (o ManagedUserPoolClientOutput) AllowedOauthFlowsUserPoolClient() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.BoolOutput { return v.AllowedOauthFlowsUserPoolClient }).(pulumi.BoolOutput)
 }
 
-// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 func (o ManagedUserPoolClientOutput) AllowedOauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringArrayOutput { return v.AllowedOauthScopes }).(pulumi.StringArrayOutput)
 }
@@ -552,7 +552,7 @@ func (o ManagedUserPoolClientOutput) AuthSessionValidity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.IntOutput { return v.AuthSessionValidity }).(pulumi.IntOutput)
 }
 
-// List of allowed callback URLs for the identity providers.
+// List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 func (o ManagedUserPoolClientOutput) CallbackUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringArrayOutput { return v.CallbackUrls }).(pulumi.StringArrayOutput)
 }
@@ -587,7 +587,7 @@ func (o ManagedUserPoolClientOutput) IdTokenValidity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.IntOutput { return v.IdTokenValidity }).(pulumi.IntOutput)
 }
 
-// List of allowed logout URLs for the identity providers.
+// List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 func (o ManagedUserPoolClientOutput) LogoutUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClient) pulumi.StringArrayOutput { return v.LogoutUrls }).(pulumi.StringArrayOutput)
 }

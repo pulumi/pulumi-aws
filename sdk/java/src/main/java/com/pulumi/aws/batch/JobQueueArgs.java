@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch;
 
 import com.pulumi.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;
+import com.pulumi.aws.batch.inputs.JobQueueJobStateTimeLimitActionArgs;
 import com.pulumi.aws.batch.inputs.JobQueueTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -57,6 +58,21 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
     public Optional<Output<List<String>>> computeEnvironments() {
         return Optional.ofNullable(this.computeEnvironments);
+    }
+
+    /**
+     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * 
+     */
+    @Import(name="jobStateTimeLimitActions")
+    private @Nullable Output<List<JobQueueJobStateTimeLimitActionArgs>> jobStateTimeLimitActions;
+
+    /**
+     * @return The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * 
+     */
+    public Optional<Output<List<JobQueueJobStateTimeLimitActionArgs>>> jobStateTimeLimitActions() {
+        return Optional.ofNullable(this.jobStateTimeLimitActions);
     }
 
     /**
@@ -148,6 +164,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     private JobQueueArgs(JobQueueArgs $) {
         this.computeEnvironmentOrders = $.computeEnvironmentOrders;
         this.computeEnvironments = $.computeEnvironments;
+        this.jobStateTimeLimitActions = $.jobStateTimeLimitActions;
         this.name = $.name;
         this.priority = $.priority;
         this.schedulingPolicyArn = $.schedulingPolicyArn;
@@ -246,6 +263,37 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
         public Builder computeEnvironments(String... computeEnvironments) {
             return computeEnvironments(List.of(computeEnvironments));
+        }
+
+        /**
+         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStateTimeLimitActions(@Nullable Output<List<JobQueueJobStateTimeLimitActionArgs>> jobStateTimeLimitActions) {
+            $.jobStateTimeLimitActions = jobStateTimeLimitActions;
+            return this;
+        }
+
+        /**
+         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStateTimeLimitActions(List<JobQueueJobStateTimeLimitActionArgs> jobStateTimeLimitActions) {
+            return jobStateTimeLimitActions(Output.of(jobStateTimeLimitActions));
+        }
+
+        /**
+         * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobStateTimeLimitActions(JobQueueJobStateTimeLimitActionArgs... jobStateTimeLimitActions) {
+            return jobStateTimeLimitActions(List.of(jobStateTimeLimitActions));
         }
 
         /**

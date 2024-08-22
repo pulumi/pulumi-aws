@@ -33,10 +33,10 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataZone Project using the `id`. For example:
+    /// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:datazone/project:Project example projectid123
+    /// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:datazone/project:Project")]
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.DataZone
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Output("domainIdentifier")]
         public Output<string> DomainIdentifier { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.DataZone
         public Output<ImmutableArray<Outputs.ProjectFailureReason>> FailureReasons { get; private set; } = null!;
 
         /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Output("glossaryTerms")]
         public Output<ImmutableArray<string>> GlossaryTerms { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.DataZone
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.DataZone
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         /// </summary>
         [Output("projectStatus")]
         public Output<string> ProjectStatus { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Input("domainIdentifier", required: true)]
         public Input<string> DomainIdentifier { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.DataZone
         private InputList<string>? _glossaryTerms;
 
         /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         public InputList<string> GlossaryTerms
         {
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.DataZone
         }
 
         /// <summary>
-        /// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         [Input("domainIdentifier")]
         public Input<string>? DomainIdentifier { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.DataZone
         private InputList<string>? _glossaryTerms;
 
         /// <summary>
-        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
         public InputList<string> GlossaryTerms
         {
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? LastUpdatedAt { get; set; }
 
         /// <summary>
-        /// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+        /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.DataZone
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         /// </summary>
         [Input("projectStatus")]
         public Input<string>? ProjectStatus { get; set; }

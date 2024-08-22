@@ -129,6 +129,12 @@ namespace Pulumi.Aws.Batch
         public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
 
         /// <summary>
+        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// </summary>
+        [Output("jobStateTimeLimitActions")]
+        public Output<ImmutableArray<Outputs.JobQueueJobStateTimeLimitAction>> JobStateTimeLimitActions { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the job queue.
         /// </summary>
         [Output("name")]
@@ -239,6 +245,18 @@ namespace Pulumi.Aws.Batch
             set => _computeEnvironments = value;
         }
 
+        [Input("jobStateTimeLimitActions")]
+        private InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>? _jobStateTimeLimitActions;
+
+        /// <summary>
+        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// </summary>
+        public InputList<Inputs.JobQueueJobStateTimeLimitActionArgs> JobStateTimeLimitActions
+        {
+            get => _jobStateTimeLimitActions ?? (_jobStateTimeLimitActions = new InputList<Inputs.JobQueueJobStateTimeLimitActionArgs>());
+            set => _jobStateTimeLimitActions = value;
+        }
+
         /// <summary>
         /// Specifies the name of the job queue.
         /// </summary>
@@ -316,6 +334,18 @@ namespace Pulumi.Aws.Batch
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
             set => _computeEnvironments = value;
+        }
+
+        [Input("jobStateTimeLimitActions")]
+        private InputList<Inputs.JobQueueJobStateTimeLimitActionGetArgs>? _jobStateTimeLimitActions;
+
+        /// <summary>
+        /// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// </summary>
+        public InputList<Inputs.JobQueueJobStateTimeLimitActionGetArgs> JobStateTimeLimitActions
+        {
+            get => _jobStateTimeLimitActions ?? (_jobStateTimeLimitActions = new InputList<Inputs.JobQueueJobStateTimeLimitActionGetArgs>());
+            set => _jobStateTimeLimitActions = value;
         }
 
         /// <summary>

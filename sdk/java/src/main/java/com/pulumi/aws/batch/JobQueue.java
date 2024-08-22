@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.batch.JobQueueArgs;
 import com.pulumi.aws.batch.inputs.JobQueueState;
 import com.pulumi.aws.batch.outputs.JobQueueComputeEnvironmentOrder;
+import com.pulumi.aws.batch.outputs.JobQueueJobStateTimeLimitAction;
 import com.pulumi.aws.batch.outputs.JobQueueTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -190,6 +191,20 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> computeEnvironments() {
         return Codegen.optional(this.computeEnvironments);
+    }
+    /**
+     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * 
+     */
+    @Export(name="jobStateTimeLimitActions", refs={List.class,JobQueueJobStateTimeLimitAction.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<JobQueueJobStateTimeLimitAction>> jobStateTimeLimitActions;
+
+    /**
+     * @return The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * 
+     */
+    public Output<Optional<List<JobQueueJobStateTimeLimitAction>>> jobStateTimeLimitActions() {
+        return Codegen.optional(this.jobStateTimeLimitActions);
     }
     /**
      * Specifies the name of the job queue.

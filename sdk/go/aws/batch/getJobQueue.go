@@ -67,8 +67,14 @@ type LookupJobQueueResult struct {
 	// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
 	ComputeEnvironmentOrders []GetJobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+	// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+	// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+	// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+	JobStateTimeLimitActions []GetJobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
+	Name                     string                               `pulumi:"name"`
 	// Priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
 	Priority int `pulumi:"priority"`
@@ -141,6 +147,15 @@ func (o LookupJobQueueResultOutput) ComputeEnvironmentOrders() GetJobQueueComput
 // The provider-assigned unique ID for this managed resource.
 func (o LookupJobQueueResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+func (o LookupJobQueueResultOutput) JobStateTimeLimitActions() GetJobQueueJobStateTimeLimitActionArrayOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) []GetJobQueueJobStateTimeLimitAction { return v.JobStateTimeLimitActions }).(GetJobQueueJobStateTimeLimitActionArrayOutput)
 }
 
 func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {

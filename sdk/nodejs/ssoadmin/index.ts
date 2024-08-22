@@ -60,6 +60,11 @@ export const getPermissionSet: typeof import("./getPermissionSet").getPermission
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
 
+export { GetPermissionSetsArgs, GetPermissionSetsResult, GetPermissionSetsOutputArgs } from "./getPermissionSets";
+export const getPermissionSets: typeof import("./getPermissionSets").getPermissionSets = null as any;
+export const getPermissionSetsOutput: typeof import("./getPermissionSets").getPermissionSetsOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissionSets","getPermissionSetsOutput"], () => require("./getPermissionSets"));
+
 export { GetPrincipalApplicationAssignmentsArgs, GetPrincipalApplicationAssignmentsResult, GetPrincipalApplicationAssignmentsOutputArgs } from "./getPrincipalApplicationAssignments";
 export const getPrincipalApplicationAssignments: typeof import("./getPrincipalApplicationAssignments").getPrincipalApplicationAssignments = null as any;
 export const getPrincipalApplicationAssignmentsOutput: typeof import("./getPrincipalApplicationAssignments").getPrincipalApplicationAssignmentsOutput = null as any;

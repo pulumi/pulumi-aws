@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+ * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -142,6 +142,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicy;
  * import com.pulumi.aws.cloudfront.ResponseHeadersPolicyArgs;
  * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -163,6 +164,11 @@ import javax.annotation.Nullable;
  *                     .header("X-Permitted-Cross-Domain-Policies")
  *                     .override(true)
  *                     .value("none")
+ *                     .build())
+ *                 .build())
+ *             .removeHeadersConfig(ResponseHeadersPolicyRemoveHeadersConfigArgs.builder()
+ *                 .items(ResponseHeadersPolicyRemoveHeadersConfigItemArgs.builder()
+ *                     .header("Set-Cookie")
  *                     .build())
  *                 .build())
  *             .serverTimingHeadersConfig(ResponseHeadersPolicyServerTimingHeadersConfigArgs.builder()

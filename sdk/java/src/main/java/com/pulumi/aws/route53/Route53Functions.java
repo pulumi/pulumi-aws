@@ -40,10 +40,12 @@ import com.pulumi.aws.route53.outputs.GetResolverRuleResult;
 import com.pulumi.aws.route53.outputs.GetResolverRulesResult;
 import com.pulumi.aws.route53.outputs.GetTrafficPolicyDocumentResult;
 import com.pulumi.aws.route53.outputs.GetZoneResult;
+import com.pulumi.aws.route53.outputs.GetZonesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class Route53Functions {
@@ -4526,5 +4528,257 @@ public final class Route53Functions {
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetZonesResult> getZones() {
+        return getZones(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain() {
+        return getZonesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetZonesResult> getZones(InvokeArgs args) {
+        return getZones(args, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain(InvokeArgs args) {
+        return getZonesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetZonesResult> getZones(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getZones:getZones", TypeShape.of(GetZonesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be useful for getting back a list of Route53 Hosted Zone IDs for a Region.
+     * 
+     * ## Example Usage
+     * 
+     * The following example retrieves a list of all Hosted Zone IDs.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var all = Route53Functions.getZones();
+     * 
+     *         ctx.export("example", all.applyValue(getZonesResult -> getZonesResult.ids()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetZonesResult> getZonesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getZones:getZones", TypeShape.of(GetZonesResult.class), args, Utilities.withVersion(options));
     }
 }

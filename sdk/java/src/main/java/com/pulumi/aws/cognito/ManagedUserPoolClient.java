@@ -160,42 +160,42 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.accessTokenValidity;
     }
     /**
-     * List of allowed OAuth flows, including code, implicit, and client_credentials.
+     * List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Export(name="allowedOauthFlows", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedOauthFlows;
 
     /**
-     * @return List of allowed OAuth flows, including code, implicit, and client_credentials.
+     * @return List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Output<List<String>> allowedOauthFlows() {
         return this.allowedOauthFlows;
     }
     /**
-     * Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
     @Export(name="allowedOauthFlowsUserPoolClient", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowedOauthFlowsUserPoolClient;
 
     /**
-     * @return Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+     * @return Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
     public Output<Boolean> allowedOauthFlowsUserPoolClient() {
         return this.allowedOauthFlowsUserPoolClient;
     }
     /**
-     * List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Export(name="allowedOauthScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedOauthScopes;
 
     /**
-     * @return List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+     * @return List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Output<List<String>> allowedOauthScopes() {
@@ -230,14 +230,14 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.authSessionValidity;
     }
     /**
-     * List of allowed callback URLs for the identity providers.
+     * List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Export(name="callbackUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> callbackUrls;
 
     /**
-     * @return List of allowed callback URLs for the identity providers.
+     * @return List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Output<List<String>> callbackUrls() {
@@ -328,14 +328,14 @@ public class ManagedUserPoolClient extends com.pulumi.resources.CustomResource {
         return this.idTokenValidity;
     }
     /**
-     * List of allowed logout URLs for the identity providers.
+     * List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Export(name="logoutUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logoutUrls;
 
     /**
-     * @return List of allowed logout URLs for the identity providers.
+     * @return List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Output<List<String>> logoutUrls() {

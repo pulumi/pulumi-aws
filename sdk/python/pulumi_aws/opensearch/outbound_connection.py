@@ -444,7 +444,7 @@ class OutboundConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> pulumi.Output[Optional[str]]:
+    def connection_mode(self) -> pulumi.Output[str]:
         """
         Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
         """

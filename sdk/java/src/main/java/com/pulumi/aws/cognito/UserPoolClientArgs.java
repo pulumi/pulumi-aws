@@ -22,18 +22,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     public static final UserPoolClientArgs Empty = new UserPoolClientArgs();
 
     /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-     * By default, the unit is hours.
-     * The unit can be overridden by a value in `token_validity_units.access_token`.
+     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
     @Import(name="accessTokenValidity")
     private @Nullable Output<Integer> accessTokenValidity;
 
     /**
-     * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-     * By default, the unit is hours.
-     * The unit can be overridden by a value in `token_validity_units.access_token`.
+     * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
     public Optional<Output<Integer>> accessTokenValidity() {
@@ -41,14 +37,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of allowed OAuth flows (code, implicit, client_credentials).
+     * List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="allowedOauthFlows")
     private @Nullable Output<List<String>> allowedOauthFlows;
 
     /**
-     * @return List of allowed OAuth flows (code, implicit, client_credentials).
+     * @return List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> allowedOauthFlows() {
@@ -56,14 +52,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
     @Import(name="allowedOauthFlowsUserPoolClient")
     private @Nullable Output<Boolean> allowedOauthFlowsUserPoolClient;
 
     /**
-     * @return Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+     * @return Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
     public Optional<Output<Boolean>> allowedOauthFlowsUserPoolClient() {
@@ -71,14 +67,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="allowedOauthScopes")
     private @Nullable Output<List<String>> allowedOauthScopes;
 
     /**
-     * @return List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+     * @return List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> allowedOauthScopes() {
@@ -86,14 +82,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      * 
      */
     @Import(name="analyticsConfiguration")
     private @Nullable Output<UserPoolClientAnalyticsConfigurationArgs> analyticsConfiguration;
 
     /**
-     * @return Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+     * @return Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      * 
      */
     public Optional<Output<UserPoolClientAnalyticsConfigurationArgs>> analyticsConfiguration() {
@@ -101,14 +97,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
      * 
      */
     @Import(name="authSessionValidity")
     private @Nullable Output<Integer> authSessionValidity;
 
     /**
-     * @return Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+     * @return Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
      * 
      */
     public Optional<Output<Integer>> authSessionValidity() {
@@ -116,14 +112,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of allowed callback URLs for the identity providers.
+     * List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="callbackUrls")
     private @Nullable Output<List<String>> callbackUrls;
 
     /**
-     * @return List of allowed callback URLs for the identity providers.
+     * @return List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> callbackUrls() {
@@ -131,14 +127,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Default redirect URI. Must be in the list of callback URLs.
+     * Default redirect URI and must be included in the list of callback URLs.
      * 
      */
     @Import(name="defaultRedirectUri")
     private @Nullable Output<String> defaultRedirectUri;
 
     /**
-     * @return Default redirect URI. Must be in the list of callback URLs.
+     * @return Default redirect URI and must be included in the list of callback URLs.
      * 
      */
     public Optional<Output<String>> defaultRedirectUri() {
@@ -146,14 +142,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Activates the propagation of additional user context data.
+     * Enables the propagation of additional user context data.
      * 
      */
     @Import(name="enablePropagateAdditionalUserContextData")
     private @Nullable Output<Boolean> enablePropagateAdditionalUserContextData;
 
     /**
-     * @return Activates the propagation of additional user context data.
+     * @return Enables the propagation of additional user context data.
      * 
      */
     public Optional<Output<Boolean>> enablePropagateAdditionalUserContextData() {
@@ -176,14 +172,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+     * List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      * 
      */
     @Import(name="explicitAuthFlows")
     private @Nullable Output<List<String>> explicitAuthFlows;
 
     /**
-     * @return List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+     * @return List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
      * 
      */
     public Optional<Output<List<String>>> explicitAuthFlows() {
@@ -191,14 +187,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Should an application secret be generated.
+     * Boolean flag indicating whether an application secret should be generated.
      * 
      */
     @Import(name="generateSecret")
     private @Nullable Output<Boolean> generateSecret;
 
     /**
-     * @return Should an application secret be generated.
+     * @return Boolean flag indicating whether an application secret should be generated.
      * 
      */
     public Optional<Output<Boolean>> generateSecret() {
@@ -206,18 +202,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-     * By default, the unit is hours.
-     * The unit can be overridden by a value in `token_validity_units.id_token`.
+     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
     @Import(name="idTokenValidity")
     private @Nullable Output<Integer> idTokenValidity;
 
     /**
-     * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-     * By default, the unit is hours.
-     * The unit can be overridden by a value in `token_validity_units.id_token`.
+     * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
     public Optional<Output<Integer>> idTokenValidity() {
@@ -225,14 +217,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of allowed logout URLs for the identity providers.
+     * List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     @Import(name="logoutUrls")
     private @Nullable Output<List<String>> logoutUrls;
 
     /**
-     * @return List of allowed logout URLs for the identity providers.
+     * @return List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
     public Optional<Output<List<String>>> logoutUrls() {
@@ -255,14 +247,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+     * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      * 
      */
     @Import(name="preventUserExistenceErrors")
     private @Nullable Output<String> preventUserExistenceErrors;
 
     /**
-     * @return Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+     * @return Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      * 
      */
     public Optional<Output<String>> preventUserExistenceErrors() {
@@ -270,14 +262,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of user pool attributes the application client can read from.
+     * List of user pool attributes that the application client can read from.
      * 
      */
     @Import(name="readAttributes")
     private @Nullable Output<List<String>> readAttributes;
 
     /**
-     * @return List of user pool attributes the application client can read from.
+     * @return List of user pool attributes that the application client can read from.
      * 
      */
     public Optional<Output<List<String>>> readAttributes() {
@@ -285,18 +277,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-     * By default, the unit is days.
-     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
+     * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
     @Import(name="refreshTokenValidity")
     private @Nullable Output<Integer> refreshTokenValidity;
 
     /**
-     * @return Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-     * By default, the unit is days.
-     * The unit can be overridden by a value in `token_validity_units.refresh_token`.
+     * @return Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
     public Optional<Output<Integer>> refreshTokenValidity() {
@@ -304,14 +292,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+     * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     @Import(name="supportedIdentityProviders")
     private @Nullable Output<List<String>> supportedIdentityProviders;
 
     /**
-     * @return List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+     * @return List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
     public Optional<Output<List<String>>> supportedIdentityProviders() {
@@ -319,14 +307,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for units in which the validity times are represented in. Detailed below.
+     * Configuration block for representing the validity times in units. See details below. Detailed below.
      * 
      */
     @Import(name="tokenValidityUnits")
     private @Nullable Output<UserPoolClientTokenValidityUnitsArgs> tokenValidityUnits;
 
     /**
-     * @return Configuration block for units in which the validity times are represented in. Detailed below.
+     * @return Configuration block for representing the validity times in units. See details below. Detailed below.
      * 
      */
     public Optional<Output<UserPoolClientTokenValidityUnitsArgs>> tokenValidityUnits() {
@@ -353,14 +341,14 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of user pool attributes the application client can write to.
+     * List of user pool attributes that the application client can write to.
      * 
      */
     @Import(name="writeAttributes")
     private @Nullable Output<List<String>> writeAttributes;
 
     /**
-     * @return List of user pool attributes the application client can write to.
+     * @return List of user pool attributes that the application client can write to.
      * 
      */
     public Optional<Output<List<String>>> writeAttributes() {
@@ -413,9 +401,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accessTokenValidity Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-         * By default, the unit is hours.
-         * The unit can be overridden by a value in `token_validity_units.access_token`.
+         * @param accessTokenValidity Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
          * 
          * @return builder
          * 
@@ -426,9 +412,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accessTokenValidity Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-         * By default, the unit is hours.
-         * The unit can be overridden by a value in `token_validity_units.access_token`.
+         * @param accessTokenValidity Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
          * 
          * @return builder
          * 
@@ -438,7 +422,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows (code, implicit, client_credentials).
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -449,7 +433,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows (code, implicit, client_credentials).
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -459,7 +443,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthFlows List of allowed OAuth flows (code, implicit, client_credentials).
+         * @param allowedOauthFlows List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -469,7 +453,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
          * 
          * @return builder
          * 
@@ -480,7 +464,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+         * @param allowedOauthFlowsUserPoolClient Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
          * 
          * @return builder
          * 
@@ -490,7 +474,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -501,7 +485,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -511,7 +495,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOauthScopes List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+         * @param allowedOauthScopes List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -521,7 +505,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
          * 
          * @return builder
          * 
@@ -532,7 +516,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
          * 
          * @return builder
          * 
@@ -542,7 +526,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authSessionValidity Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
          * 
          * @return builder
          * 
@@ -553,7 +537,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authSessionValidity Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+         * @param authSessionValidity Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
          * 
          * @return builder
          * 
@@ -563,7 +547,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -574,7 +558,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -584,7 +568,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param callbackUrls List of allowed callback URLs for the identity providers.
+         * @param callbackUrls List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -594,7 +578,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultRedirectUri Default redirect URI. Must be in the list of callback URLs.
+         * @param defaultRedirectUri Default redirect URI and must be included in the list of callback URLs.
          * 
          * @return builder
          * 
@@ -605,7 +589,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultRedirectUri Default redirect URI. Must be in the list of callback URLs.
+         * @param defaultRedirectUri Default redirect URI and must be included in the list of callback URLs.
          * 
          * @return builder
          * 
@@ -615,7 +599,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enablePropagateAdditionalUserContextData Activates the propagation of additional user context data.
+         * @param enablePropagateAdditionalUserContextData Enables the propagation of additional user context data.
          * 
          * @return builder
          * 
@@ -626,7 +610,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param enablePropagateAdditionalUserContextData Activates the propagation of additional user context data.
+         * @param enablePropagateAdditionalUserContextData Enables the propagation of additional user context data.
          * 
          * @return builder
          * 
@@ -657,7 +641,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param explicitAuthFlows List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+         * @param explicitAuthFlows List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
          * 
          * @return builder
          * 
@@ -668,7 +652,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param explicitAuthFlows List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+         * @param explicitAuthFlows List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
          * 
          * @return builder
          * 
@@ -678,7 +662,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param explicitAuthFlows List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+         * @param explicitAuthFlows List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
          * 
          * @return builder
          * 
@@ -688,7 +672,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param generateSecret Should an application secret be generated.
+         * @param generateSecret Boolean flag indicating whether an application secret should be generated.
          * 
          * @return builder
          * 
@@ -699,7 +683,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param generateSecret Should an application secret be generated.
+         * @param generateSecret Boolean flag indicating whether an application secret should be generated.
          * 
          * @return builder
          * 
@@ -709,9 +693,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param idTokenValidity Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-         * By default, the unit is hours.
-         * The unit can be overridden by a value in `token_validity_units.id_token`.
+         * @param idTokenValidity Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
          * 
          * @return builder
          * 
@@ -722,9 +704,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param idTokenValidity Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-         * By default, the unit is hours.
-         * The unit can be overridden by a value in `token_validity_units.id_token`.
+         * @param idTokenValidity Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
          * 
          * @return builder
          * 
@@ -734,7 +714,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -745,7 +725,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -755,7 +735,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logoutUrls List of allowed logout URLs for the identity providers.
+         * @param logoutUrls List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
          * 
          * @return builder
          * 
@@ -786,7 +766,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param preventUserExistenceErrors Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+         * @param preventUserExistenceErrors Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
          * 
          * @return builder
          * 
@@ -797,7 +777,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param preventUserExistenceErrors Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+         * @param preventUserExistenceErrors Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
          * 
          * @return builder
          * 
@@ -807,7 +787,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readAttributes List of user pool attributes the application client can read from.
+         * @param readAttributes List of user pool attributes that the application client can read from.
          * 
          * @return builder
          * 
@@ -818,7 +798,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readAttributes List of user pool attributes the application client can read from.
+         * @param readAttributes List of user pool attributes that the application client can read from.
          * 
          * @return builder
          * 
@@ -828,7 +808,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readAttributes List of user pool attributes the application client can read from.
+         * @param readAttributes List of user pool attributes that the application client can read from.
          * 
          * @return builder
          * 
@@ -838,9 +818,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param refreshTokenValidity Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-         * By default, the unit is days.
-         * The unit can be overridden by a value in `token_validity_units.refresh_token`.
+         * @param refreshTokenValidity Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
          * 
          * @return builder
          * 
@@ -851,9 +829,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param refreshTokenValidity Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-         * By default, the unit is days.
-         * The unit can be overridden by a value in `token_validity_units.refresh_token`.
+         * @param refreshTokenValidity Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
          * 
          * @return builder
          * 
@@ -863,7 +839,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 
@@ -874,7 +850,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 
@@ -884,7 +860,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
+         * @param supportedIdentityProviders List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
          * 
          * @return builder
          * 
@@ -894,7 +870,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tokenValidityUnits Configuration block for units in which the validity times are represented in. Detailed below.
+         * @param tokenValidityUnits Configuration block for representing the validity times in units. See details below. Detailed below.
          * 
          * @return builder
          * 
@@ -905,7 +881,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tokenValidityUnits Configuration block for units in which the validity times are represented in. Detailed below.
+         * @param tokenValidityUnits Configuration block for representing the validity times in units. See details below. Detailed below.
          * 
          * @return builder
          * 
@@ -940,7 +916,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param writeAttributes List of user pool attributes the application client can write to.
+         * @param writeAttributes List of user pool attributes that the application client can write to.
          * 
          * @return builder
          * 
@@ -951,7 +927,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param writeAttributes List of user pool attributes the application client can write to.
+         * @param writeAttributes List of user pool attributes that the application client can write to.
          * 
          * @return builder
          * 
@@ -961,7 +937,7 @@ public final class UserPoolClientArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param writeAttributes List of user pool attributes the application client can write to.
+         * @param writeAttributes List of user pool attributes that the application client can write to.
          * 
          * @return builder
          * 

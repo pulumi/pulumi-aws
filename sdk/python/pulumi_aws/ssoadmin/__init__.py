@@ -16,6 +16,7 @@ from .get_application_assignments import *
 from .get_application_providers import *
 from .get_instances import *
 from .get_permission_set import *
+from .get_permission_sets import *
 from .get_principal_application_assignments import *
 from .instance_access_control_attributes import *
 from .managed_policy_attachment import *

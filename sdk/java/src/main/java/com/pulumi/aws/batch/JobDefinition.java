@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Job Definitionn of type EKS
+ * ### Job Definition of type EKS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -317,6 +317,112 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Job definition of type container using `ecs_properties`
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new JobDefinition("test", JobDefinitionArgs.builder()
+ *             .name("my_test_batch_job_definition")
+ *             .type("container")
+ *             .platformCapabilities("FARGATE")
+ *             .ecsProperties(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("taskProperties", jsonArray(jsonObject(
+ *                         jsonProperty("executionRoleArn", ecsTaskExecutionRole.arn()),
+ *                         jsonProperty("containers", jsonArray(
+ *                             jsonObject(
+ *                                 jsonProperty("image", "public.ecr.aws/amazonlinux/amazonlinux:1"),
+ *                                 jsonProperty("command", jsonArray(
+ *                                     "sleep", 
+ *                                     "60"
+ *                                 )),
+ *                                 jsonProperty("dependsOn", jsonArray(jsonObject(
+ *                                     jsonProperty("containerName", "container_b"),
+ *                                     jsonProperty("condition", "COMPLETE")
+ *                                 ))),
+ *                                 jsonProperty("secrets", jsonArray(jsonObject(
+ *                                     jsonProperty("name", "TEST"),
+ *                                     jsonProperty("valueFrom", "DUMMY")
+ *                                 ))),
+ *                                 jsonProperty("environment", jsonArray(jsonObject(
+ *                                     jsonProperty("name", "test"),
+ *                                     jsonProperty("value", "Environment Variable")
+ *                                 ))),
+ *                                 jsonProperty("essential", true),
+ *                                 jsonProperty("logConfiguration", jsonObject(
+ *                                     jsonProperty("logDriver", "awslogs"),
+ *                                     jsonProperty("options", jsonObject(
+ *                                         jsonProperty("awslogs-group", "tf_test_batch_job"),
+ *                                         jsonProperty("awslogs-region", "us-west-2"),
+ *                                         jsonProperty("awslogs-stream-prefix", "ecs")
+ *                                     ))
+ *                                 )),
+ *                                 jsonProperty("name", "container_a"),
+ *                                 jsonProperty("privileged", false),
+ *                                 jsonProperty("readonlyRootFilesystem", false),
+ *                                 jsonProperty("resourceRequirements", jsonArray(
+ *                                     jsonObject(
+ *                                         jsonProperty("value", "1.0"),
+ *                                         jsonProperty("type", "VCPU")
+ *                                     ), 
+ *                                     jsonObject(
+ *                                         jsonProperty("value", "2048"),
+ *                                         jsonProperty("type", "MEMORY")
+ *                                     )
+ *                                 ))
+ *                             ), 
+ *                             jsonObject(
+ *                                 jsonProperty("image", "public.ecr.aws/amazonlinux/amazonlinux:1"),
+ *                                 jsonProperty("command", jsonArray(
+ *                                     "sleep", 
+ *                                     "360"
+ *                                 )),
+ *                                 jsonProperty("name", "container_b"),
+ *                                 jsonProperty("essential", false),
+ *                                 jsonProperty("resourceRequirements", jsonArray(
+ *                                     jsonObject(
+ *                                         jsonProperty("value", "1.0"),
+ *                                         jsonProperty("type", "VCPU")
+ *                                     ), 
+ *                                     jsonObject(
+ *                                         jsonProperty("value", "2048"),
+ *                                         jsonProperty("type", "MEMORY")
+ *                                     )
+ *                                 ))
+ *                             )
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -383,6 +489,20 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> deregisterOnNewRevision() {
         return Codegen.optional(this.deregisterOnNewRevision);
+    }
+    /**
+     * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    @Export(name="ecsProperties", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ecsProperties;
+
+    /**
+     * @return Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    public Output<Optional<String>> ecsProperties() {
+        return Codegen.optional(this.ecsProperties);
     }
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.

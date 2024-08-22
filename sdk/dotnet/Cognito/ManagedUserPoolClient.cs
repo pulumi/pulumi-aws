@@ -137,19 +137,19 @@ namespace Pulumi.Aws.Cognito
         public Output<int> AccessTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed OAuth flows, including code, implicit, and client_credentials.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("allowedOauthFlows")]
         public Output<ImmutableArray<string>> AllowedOauthFlows { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         /// </summary>
         [Output("allowedOauthFlowsUserPoolClient")]
         public Output<bool> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("allowedOauthScopes")]
         public Output<ImmutableArray<string>> AllowedOauthScopes { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Cognito
         public Output<int> AuthSessionValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers.
+        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("callbackUrls")]
         public Output<ImmutableArray<string>> CallbackUrls { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Cognito
         public Output<int> IdTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers.
+        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         [Output("logoutUrls")]
         public Output<ImmutableArray<string>> LogoutUrls { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthFlows;
 
         /// <summary>
-        /// List of allowed OAuth flows, including code, implicit, and client_credentials.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthFlows
         {
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         /// </summary>
         [Input("allowedOauthFlowsUserPoolClient")]
         public Input<bool>? AllowedOauthFlowsUserPoolClient { get; set; }
@@ -354,7 +354,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthScopes;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthScopes
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _callbackUrls;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers.
+        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> CallbackUrls
         {
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _logoutUrls;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers.
+        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> LogoutUrls
         {
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthFlows;
 
         /// <summary>
-        /// List of allowed OAuth flows, including code, implicit, and client_credentials.
+        /// List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthFlows
         {
@@ -535,7 +535,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+        /// Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         /// </summary>
         [Input("allowedOauthFlowsUserPoolClient")]
         public Input<bool>? AllowedOauthFlowsUserPoolClient { get; set; }
@@ -544,7 +544,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _allowedOauthScopes;
 
         /// <summary>
-        /// List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+        /// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> AllowedOauthScopes
         {
@@ -568,7 +568,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _callbackUrls;
 
         /// <summary>
-        /// List of allowed callback URLs for the identity providers.
+        /// List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> CallbackUrls
         {
@@ -632,7 +632,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _logoutUrls;
 
         /// <summary>
-        /// List of allowed logout URLs for the identity providers.
+        /// List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         /// </summary>
         public InputList<string> LogoutUrls
         {

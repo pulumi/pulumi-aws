@@ -122,14 +122,14 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectionMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> connectionMode;
+    private Output<String> connectionMode;
 
     /**
      * @return Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      * 
      */
-    public Output<Optional<String>> connectionMode() {
-        return Codegen.optional(this.connectionMode);
+    public Output<String> connectionMode() {
+        return this.connectionMode;
     }
     /**
      * Configuration block for the outbound connection.

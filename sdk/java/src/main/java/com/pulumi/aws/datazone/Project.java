@@ -64,10 +64,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import DataZone Project using the `id`. For example:
+ * Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:datazone/project:Project example projectid123
+ * $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
  * ```
  * 
  */
@@ -116,14 +116,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      * 
      */
     @Export(name="domainIdentifier", refs={String.class}, tree="[0]")
     private Output<String> domainIdentifier;
 
     /**
-     * @return Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+     * @return Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      * 
      */
     public Output<String> domainIdentifier() {
@@ -144,14 +144,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.failureReasons;
     }
     /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      * 
      */
     @Export(name="glossaryTerms", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> glossaryTerms;
 
     /**
-     * @return List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+     * @return List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      * 
      */
     public Output<Optional<List<String>>> glossaryTerms() {
@@ -172,7 +172,7 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.lastUpdatedAt;
     }
     /**
-     * Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      * 
      * The following arguments are optional:
      * 
@@ -181,7 +181,7 @@ public class Project extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+     * @return Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      * 
      * The following arguments are optional:
      * 
@@ -190,14 +190,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+     * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      * 
      */
     @Export(name="projectStatus", refs={String.class}, tree="[0]")
     private Output<String> projectStatus;
 
     /**
-     * @return Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+     * @return Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      * 
      */
     public Output<String> projectStatus() {

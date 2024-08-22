@@ -669,6 +669,32 @@ class Workspace(pulumi.CustomResource):
             role_arn=assume.arn)
         ```
 
+        ### Workspace configuration options
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.grafana.Workspace("example",
+            account_access_type="CURRENT_ACCOUNT",
+            authentication_providers=["SAML"],
+            permission_type="SERVICE_MANAGED",
+            role_arn=assume["arn"],
+            configuration=json.dumps({
+                "plugins": {
+                    "pluginAdminEnabled": True,
+                },
+                "unifiedAlerting": {
+                    "enabled": False,
+                },
+            }))
+        ```
+
+        The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+
+        For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
+
         ## Import
 
         Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
@@ -735,6 +761,32 @@ class Workspace(pulumi.CustomResource):
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
+
+        ### Workspace configuration options
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.grafana.Workspace("example",
+            account_access_type="CURRENT_ACCOUNT",
+            authentication_providers=["SAML"],
+            permission_type="SERVICE_MANAGED",
+            role_arn=assume["arn"],
+            configuration=json.dumps({
+                "plugins": {
+                    "pluginAdminEnabled": True,
+                },
+                "unifiedAlerting": {
+                    "enabled": False,
+                },
+            }))
+        ```
+
+        The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+
+        For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
 
         ## Import
 

@@ -59,6 +59,8 @@ __all__ = [
     'JobDefinitionTimeoutArgsDict',
     'JobQueueComputeEnvironmentOrderArgs',
     'JobQueueComputeEnvironmentOrderArgsDict',
+    'JobQueueJobStateTimeLimitActionArgs',
+    'JobQueueJobStateTimeLimitActionArgsDict',
     'JobQueueTimeoutsArgs',
     'JobQueueTimeoutsArgsDict',
     'SchedulingPolicyFairSharePolicyArgs',
@@ -1713,6 +1715,90 @@ class JobQueueComputeEnvironmentOrderArgs:
     @order.setter
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
+
+
+if not MYPY:
+    class JobQueueJobStateTimeLimitActionArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        """
+        max_time_seconds: pulumi.Input[int]
+        reason: pulumi.Input[str]
+        """
+        The reason to log for the action being taken.
+        """
+        state: pulumi.Input[str]
+        """
+        The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+        """
+elif False:
+    JobQueueJobStateTimeLimitActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobQueueJobStateTimeLimitActionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 max_time_seconds: pulumi.Input[int],
+                 reason: pulumi.Input[str],
+                 state: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action: The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+               * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        :param pulumi.Input[str] reason: The reason to log for the action being taken.
+        :param pulumi.Input[str] state: The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "max_time_seconds", max_time_seconds)
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="maxTimeSeconds")
+    def max_time_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_time_seconds")
+
+    @max_time_seconds.setter
+    def max_time_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_time_seconds", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> pulumi.Input[str]:
+        """
+        The reason to log for the action being taken.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reason", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[str]:
+        """
+        The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[str]):
+        pulumi.set(self, "state", value)
 
 
 if not MYPY:

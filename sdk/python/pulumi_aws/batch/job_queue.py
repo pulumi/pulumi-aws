@@ -25,6 +25,7 @@ class JobQueueArgs:
                  state: pulumi.Input[str],
                  compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -36,6 +37,7 @@ class JobQueueArgs:
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[str] scheduling_policy_arn: The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -49,6 +51,8 @@ class JobQueueArgs:
             pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
         if compute_environments is not None:
             pulumi.set(__self__, "compute_environments", compute_environments)
+        if job_state_time_limit_actions is not None:
+            pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if scheduling_policy_arn is not None:
@@ -109,6 +113,18 @@ class JobQueueArgs:
         pulumi.set(self, "compute_environments", value)
 
     @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]:
+        """
+        The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        """
+        return pulumi.get(self, "job_state_time_limit_actions")
+
+    @job_state_time_limit_actions.setter
+    def job_state_time_limit_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]):
+        pulumi.set(self, "job_state_time_limit_actions", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -160,6 +176,7 @@ class _JobQueueState:
                  arn: Optional[pulumi.Input[str]] = None,
                  compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
@@ -172,6 +189,7 @@ class _JobQueueState:
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
         :param pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -189,6 +207,8 @@ class _JobQueueState:
             pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
         if compute_environments is not None:
             pulumi.set(__self__, "compute_environments", compute_environments)
+        if job_state_time_limit_actions is not None:
+            pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -243,6 +263,18 @@ class _JobQueueState:
     @compute_environments.setter
     def compute_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "compute_environments", value)
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]:
+        """
+        The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        """
+        return pulumi.get(self, "job_state_time_limit_actions")
+
+    @job_state_time_limit_actions.setter
+    def job_state_time_limit_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueJobStateTimeLimitActionArgs']]]]):
+        pulumi.set(self, "job_state_time_limit_actions", value)
 
     @property
     @pulumi.getter
@@ -335,6 +367,7 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
@@ -414,6 +447,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -512,6 +546,7 @@ class JobQueue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
@@ -529,6 +564,7 @@ class JobQueue(pulumi.CustomResource):
 
             __props__.__dict__["compute_environment_orders"] = compute_environment_orders
             __props__.__dict__["compute_environments"] = compute_environments
+            __props__.__dict__["job_state_time_limit_actions"] = job_state_time_limit_actions
             __props__.__dict__["name"] = name
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
@@ -554,6 +590,7 @@ class JobQueue(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            job_state_time_limit_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
@@ -571,6 +608,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueJobStateTimeLimitActionArgs', 'JobQueueJobStateTimeLimitActionArgsDict']]]] job_state_time_limit_actions: The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -586,6 +624,7 @@ class JobQueue(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["compute_environment_orders"] = compute_environment_orders
         __props__.__dict__["compute_environments"] = compute_environments
+        __props__.__dict__["job_state_time_limit_actions"] = job_state_time_limit_actions
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
         __props__.__dict__["scheduling_policy_arn"] = scheduling_policy_arn
@@ -619,6 +658,14 @@ class JobQueue(pulumi.CustomResource):
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
         return pulumi.get(self, "compute_environments")
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> pulumi.Output[Optional[Sequence['outputs.JobQueueJobStateTimeLimitAction']]]:
+        """
+        The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        """
+        return pulumi.get(self, "job_state_time_limit_actions")
 
     @property
     @pulumi.getter

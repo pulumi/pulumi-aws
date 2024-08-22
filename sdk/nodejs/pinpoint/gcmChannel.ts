@@ -7,20 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint GCM Channel resource.
  *
- * > **Note:** Api Key argument will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const gcm = new aws.pinpoint.GcmChannel("gcm", {
- *     applicationId: app.applicationId,
- *     apiKey: "api_key",
- * });
- * ```
- *
+ * > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -60,15 +47,17 @@ export class GcmChannel extends pulumi.CustomResource {
     /**
      * Platform credential API key from Google.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
     /**
      * The application ID.
      */
     public readonly applicationId!: pulumi.Output<string>;
+    public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly serviceJson!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GcmChannel resource with the given unique name, arguments, and options.
@@ -85,21 +74,22 @@ export class GcmChannel extends pulumi.CustomResource {
             const state = argsOrState as GcmChannelState | undefined;
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["serviceJson"] = state ? state.serviceJson : undefined;
         } else {
             const args = argsOrState as GcmChannelArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["serviceJson"] = args?.serviceJson ? pulumi.secret(args.serviceJson) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey"] };
+        const secretOpts = { additionalSecretOutputs: ["apiKey", "serviceJson"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(GcmChannel.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,10 +107,12 @@ export interface GcmChannelState {
      * The application ID.
      */
     applicationId?: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    serviceJson?: pulumi.Input<string>;
 }
 
 /**
@@ -130,13 +122,15 @@ export interface GcmChannelArgs {
     /**
      * Platform credential API key from Google.
      */
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The application ID.
      */
     applicationId: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    serviceJson?: pulumi.Input<string>;
 }

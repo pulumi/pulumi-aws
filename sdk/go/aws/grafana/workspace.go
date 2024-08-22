@@ -74,6 +74,56 @@ import (
 //
 // ```
 //
+// ### Workspace configuration options
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"plugins": map[string]interface{}{
+//					"pluginAdminEnabled": true,
+//				},
+//				"unifiedAlerting": map[string]interface{}{
+//					"enabled": false,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = grafana.NewWorkspace(ctx, "example", &grafana.WorkspaceArgs{
+//				AccountAccessType: pulumi.String("CURRENT_ACCOUNT"),
+//				AuthenticationProviders: pulumi.StringArray{
+//					pulumi.String("SAML"),
+//				},
+//				PermissionType: pulumi.String("SERVICE_MANAGED"),
+//				RoleArn:        pulumi.Any(assume.Arn),
+//				Configuration:  pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+//
+// For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
+//
 // ## Import
 //
 // Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:

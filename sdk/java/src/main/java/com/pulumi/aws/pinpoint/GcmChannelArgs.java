@@ -21,15 +21,15 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
      * Platform credential API key from Google.
      * 
      */
-    @Import(name="apiKey", required=true)
-    private Output<String> apiKey;
+    @Import(name="apiKey")
+    private @Nullable Output<String> apiKey;
 
     /**
      * @return Platform credential API key from Google.
      * 
      */
-    public Output<String> apiKey() {
-        return this.apiKey;
+    public Optional<Output<String>> apiKey() {
+        return Optional.ofNullable(this.apiKey);
     }
 
     /**
@@ -47,6 +47,13 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
         return this.applicationId;
     }
 
+    @Import(name="defaultAuthenticationMethod")
+    private @Nullable Output<String> defaultAuthenticationMethod;
+
+    public Optional<Output<String>> defaultAuthenticationMethod() {
+        return Optional.ofNullable(this.defaultAuthenticationMethod);
+    }
+
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
@@ -62,12 +69,21 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.enabled);
     }
 
+    @Import(name="serviceJson")
+    private @Nullable Output<String> serviceJson;
+
+    public Optional<Output<String>> serviceJson() {
+        return Optional.ofNullable(this.serviceJson);
+    }
+
     private GcmChannelArgs() {}
 
     private GcmChannelArgs(GcmChannelArgs $) {
         this.apiKey = $.apiKey;
         this.applicationId = $.applicationId;
+        this.defaultAuthenticationMethod = $.defaultAuthenticationMethod;
         this.enabled = $.enabled;
+        this.serviceJson = $.serviceJson;
     }
 
     public static Builder builder() {
@@ -94,7 +110,7 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder apiKey(Output<String> apiKey) {
+        public Builder apiKey(@Nullable Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
@@ -130,6 +146,15 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
             return applicationId(Output.of(applicationId));
         }
 
+        public Builder defaultAuthenticationMethod(@Nullable Output<String> defaultAuthenticationMethod) {
+            $.defaultAuthenticationMethod = defaultAuthenticationMethod;
+            return this;
+        }
+
+        public Builder defaultAuthenticationMethod(String defaultAuthenticationMethod) {
+            return defaultAuthenticationMethod(Output.of(defaultAuthenticationMethod));
+        }
+
         /**
          * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
          * 
@@ -151,10 +176,16 @@ public final class GcmChannelArgs extends com.pulumi.resources.ResourceArgs {
             return enabled(Output.of(enabled));
         }
 
+        public Builder serviceJson(@Nullable Output<String> serviceJson) {
+            $.serviceJson = serviceJson;
+            return this;
+        }
+
+        public Builder serviceJson(String serviceJson) {
+            return serviceJson(Output.of(serviceJson));
+        }
+
         public GcmChannelArgs build() {
-            if ($.apiKey == null) {
-                throw new MissingRequiredPropertyException("GcmChannelArgs", "apiKey");
-            }
             if ($.applicationId == null) {
                 throw new MissingRequiredPropertyException("GcmChannelArgs", "applicationId");
             }

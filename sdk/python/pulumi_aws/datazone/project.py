@@ -29,10 +29,10 @@ class ProjectArgs:
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[str] description: Description of project.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
-        :param pulumi.Input[str] name: Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
+        :param pulumi.Input[str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
         :param pulumi.Input[bool] skip_deletion_check: Optional flag to delete all child entities within the project.
@@ -53,7 +53,7 @@ class ProjectArgs:
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Input[str]:
         """
-        Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "domain_identifier")
 
@@ -77,7 +77,7 @@ class ProjectArgs:
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "glossary_terms")
 
@@ -89,7 +89,7 @@ class ProjectArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
 
         The following arguments are optional:
         """
@@ -140,14 +140,14 @@ class _ProjectState:
         :param pulumi.Input[str] created_at: Timestamp of when the project was made.
         :param pulumi.Input[str] created_by: Creator of the project.
         :param pulumi.Input[str] description: Description of project.
-        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectFailureReasonArgs']]] failure_reasons: List of error messages if operation cannot be completed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[str] last_updated_at: Timestamp of when the project was last updated.
-        :param pulumi.Input[str] name: Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        :param pulumi.Input[str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
-        :param pulumi.Input[str] project_status: Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        :param pulumi.Input[str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         :param pulumi.Input[bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         if created_at is not None:
@@ -213,7 +213,7 @@ class _ProjectState:
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "domain_identifier")
 
@@ -237,7 +237,7 @@ class _ProjectState:
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "glossary_terms")
 
@@ -261,7 +261,7 @@ class _ProjectState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
 
         The following arguments are optional:
         """
@@ -275,7 +275,7 @@ class _ProjectState:
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         """
         return pulumi.get(self, "project_status")
 
@@ -333,18 +333,18 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DataZone Project using the `id`. For example:
+        Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
 
         ```sh
-        $ pulumi import aws:datazone/project:Project example projectid123
+        $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of project.
-        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
-        :param pulumi.Input[str] name: Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
+        :param pulumi.Input[str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
         :param pulumi.Input[bool] skip_deletion_check: Optional flag to delete all child entities within the project.
@@ -371,10 +371,10 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DataZone Project using the `id`. For example:
+        Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
 
         ```sh
-        $ pulumi import aws:datazone/project:Project example projectid123
+        $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -451,14 +451,14 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: Timestamp of when the project was made.
         :param pulumi.Input[str] created_by: Creator of the project.
         :param pulumi.Input[str] description: Description of project.
-        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        :param pulumi.Input[str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict']]]] failure_reasons: List of error messages if operation cannot be completed.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[str] last_updated_at: Timestamp of when the project was last updated.
-        :param pulumi.Input[str] name: Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        :param pulumi.Input[str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
-        :param pulumi.Input[str] project_status: Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        :param pulumi.Input[str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         :param pulumi.Input[bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -506,7 +506,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="domainIdentifier")
     def domain_identifier(self) -> pulumi.Output[str]:
         """
-        Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+        Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "domain_identifier")
 
@@ -522,7 +522,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="glossaryTerms")
     def glossary_terms(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+        List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         """
         return pulumi.get(self, "glossary_terms")
 
@@ -538,7 +538,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the project. Must follow the regex of ^[\\w -]+$. and have a length of at most 64.
+        Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
 
         The following arguments are optional:
         """
@@ -548,7 +548,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> pulumi.Output[str]:
         """
-        Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+        Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         """
         return pulumi.get(self, "project_status")
 

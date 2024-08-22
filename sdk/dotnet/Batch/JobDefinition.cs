@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
-    /// ### Job Definitionn of type EKS
+    /// ### Job Definition of type EKS
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -290,6 +290,127 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
+    /// ### Job definition of type container using `ecs_properties`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Name = "my_test_batch_job_definition",
+    ///         Type = "container",
+    ///         PlatformCapabilities = new[]
+    ///         {
+    ///             "FARGATE",
+    ///         },
+    ///         EcsProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["taskProperties"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["executionRoleArn"] = ecsTaskExecutionRole.Arn,
+    ///                     ["containers"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["image"] = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                             ["command"] = new[]
+    ///                             {
+    ///                                 "sleep",
+    ///                                 "60",
+    ///                             },
+    ///                             ["dependsOn"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["containerName"] = "container_b",
+    ///                                     ["condition"] = "COMPLETE",
+    ///                                 },
+    ///                             },
+    ///                             ["secrets"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["name"] = "TEST",
+    ///                                     ["valueFrom"] = "DUMMY",
+    ///                                 },
+    ///                             },
+    ///                             ["environment"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["name"] = "test",
+    ///                                     ["value"] = "Environment Variable",
+    ///                                 },
+    ///                             },
+    ///                             ["essential"] = true,
+    ///                             ["logConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["logDriver"] = "awslogs",
+    ///                                 ["options"] = new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["awslogs-group"] = "tf_test_batch_job",
+    ///                                     ["awslogs-region"] = "us-west-2",
+    ///                                     ["awslogs-stream-prefix"] = "ecs",
+    ///                                 },
+    ///                             },
+    ///                             ["name"] = "container_a",
+    ///                             ["privileged"] = false,
+    ///                             ["readonlyRootFilesystem"] = false,
+    ///                             ["resourceRequirements"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["value"] = "1.0",
+    ///                                     ["type"] = "VCPU",
+    ///                                 },
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["value"] = "2048",
+    ///                                     ["type"] = "MEMORY",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["image"] = "public.ecr.aws/amazonlinux/amazonlinux:1",
+    ///                             ["command"] = new[]
+    ///                             {
+    ///                                 "sleep",
+    ///                                 "360",
+    ///                             },
+    ///                             ["name"] = "container_b",
+    ///                             ["essential"] = false,
+    ///                             ["resourceRequirements"] = new[]
+    ///                             {
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["value"] = "1.0",
+    ///                                     ["type"] = "VCPU",
+    ///                                 },
+    ///                                 new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["value"] = "2048",
+    ///                                     ["type"] = "MEMORY",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -324,6 +445,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Output("deregisterOnNewRevision")]
         public Output<bool?> DeregisterOnNewRevision { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Output("ecsProperties")]
+        public Output<string?> EcsProperties { get; private set; } = null!;
 
         /// <summary>
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
@@ -464,6 +591,12 @@ namespace Pulumi.Aws.Batch
         public Input<bool>? DeregisterOnNewRevision { get; set; }
 
         /// <summary>
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("ecsProperties")]
+        public Input<string>? EcsProperties { get; set; }
+
+        /// <summary>
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
         [Input("eksProperties")]
@@ -580,6 +713,12 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("deregisterOnNewRevision")]
         public Input<bool>? DeregisterOnNewRevision { get; set; }
+
+        /// <summary>
+        /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        /// </summary>
+        [Input("ecsProperties")]
+        public Input<string>? EcsProperties { get; set; }
 
         /// <summary>
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.

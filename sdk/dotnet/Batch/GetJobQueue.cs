@@ -134,6 +134,14 @@ namespace Pulumi.Aws.Batch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        /// * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+        /// * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+        /// * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+        /// * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetJobQueueJobStateTimeLimitActionResult> JobStateTimeLimitActions;
         public readonly string Name;
         /// <summary>
         /// Priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -170,6 +178,8 @@ namespace Pulumi.Aws.Batch
 
             string id,
 
+            ImmutableArray<Outputs.GetJobQueueJobStateTimeLimitActionResult> jobStateTimeLimitActions,
+
             string name,
 
             int priority,
@@ -187,6 +197,7 @@ namespace Pulumi.Aws.Batch
             Arn = arn;
             ComputeEnvironmentOrders = computeEnvironmentOrders;
             Id = id;
+            JobStateTimeLimitActions = jobStateTimeLimitActions;
             Name = name;
             Priority = priority;
             SchedulingPolicyArn = schedulingPolicyArn;

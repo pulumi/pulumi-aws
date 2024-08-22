@@ -9795,6 +9795,23 @@ export namespace batch {
         order: pulumi.Input<number>;
     }
 
+    export interface JobQueueJobStateTimeLimitAction {
+        /**
+         * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+         * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+         */
+        action: pulumi.Input<string>;
+        maxTimeSeconds: pulumi.Input<number>;
+        /**
+         * The reason to log for the action being taken.
+         */
+        reason: pulumi.Input<string>;
+        /**
+         * The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+         */
+        state: pulumi.Input<string>;
+    }
+
     export interface JobQueueTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

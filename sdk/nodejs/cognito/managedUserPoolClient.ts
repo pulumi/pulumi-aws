@@ -112,15 +112,15 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
      */
     public readonly accessTokenValidity!: pulumi.Output<number>;
     /**
-     * List of allowed OAuth flows, including code, implicit, and client_credentials.
+     * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     public readonly allowedOauthFlows!: pulumi.Output<string[]>;
     /**
-     * Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
     public readonly allowedOauthFlowsUserPoolClient!: pulumi.Output<boolean>;
     /**
-     * List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     public readonly allowedOauthScopes!: pulumi.Output<string[]>;
     /**
@@ -132,7 +132,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
      */
     public readonly authSessionValidity!: pulumi.Output<number>;
     /**
-     * List of allowed callback URLs for the identity providers.
+     * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     public readonly callbackUrls!: pulumi.Output<string[]>;
     /**
@@ -160,7 +160,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
      */
     public readonly idTokenValidity!: pulumi.Output<number>;
     /**
-     * List of allowed logout URLs for the identity providers.
+     * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     public readonly logoutUrls!: pulumi.Output<string[]>;
     /**
@@ -289,15 +289,15 @@ export interface ManagedUserPoolClientState {
      */
     accessTokenValidity?: pulumi.Input<number>;
     /**
-     * List of allowed OAuth flows, including code, implicit, and client_credentials.
+     * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
     allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
     /**
-     * List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -309,7 +309,7 @@ export interface ManagedUserPoolClientState {
      */
     authSessionValidity?: pulumi.Input<number>;
     /**
-     * List of allowed callback URLs for the identity providers.
+     * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -337,7 +337,7 @@ export interface ManagedUserPoolClientState {
      */
     idTokenValidity?: pulumi.Input<number>;
     /**
-     * List of allowed logout URLs for the identity providers.
+     * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -393,15 +393,15 @@ export interface ManagedUserPoolClientArgs {
      */
     accessTokenValidity?: pulumi.Input<number>;
     /**
-     * List of allowed OAuth flows, including code, implicit, and client_credentials.
+     * List of allowed OAuth flows, including `code`, `implicit`, and `clientCredentials`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Whether the client is allowed to use the OAuth protocol when interacting with Cognito user pools.
+     * Whether the client is allowed to use OAuth 2.0 features. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure the following arguments: `callbackUrls`, `logoutUrls`, `allowedOauthScopes` and `allowedOauthFlows`.
      */
     allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
     /**
-     * List of allowed OAuth scopes, including phone, email, openid, profile, and aws.cognito.signin.user.admin.
+     * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -413,7 +413,7 @@ export interface ManagedUserPoolClientArgs {
      */
     authSessionValidity?: pulumi.Input<number>;
     /**
-     * List of allowed callback URLs for the identity providers.
+     * List of allowed callback URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -437,7 +437,7 @@ export interface ManagedUserPoolClientArgs {
      */
     idTokenValidity?: pulumi.Input<number>;
     /**
-     * List of allowed logout URLs for the identity providers.
+     * List of allowed logout URLs for the identity providers. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
      */
     logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**

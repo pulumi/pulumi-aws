@@ -12,6 +12,8 @@ import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetPlainArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
+import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsPlainArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsArgs;
 import com.pulumi.aws.ssoadmin.inputs.GetPrincipalApplicationAssignmentsPlainArgs;
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationAssignmentsResult;
@@ -19,6 +21,7 @@ import com.pulumi.aws.ssoadmin.outputs.GetApplicationProvidersResult;
 import com.pulumi.aws.ssoadmin.outputs.GetApplicationResult;
 import com.pulumi.aws.ssoadmin.outputs.GetInstancesResult;
 import com.pulumi.aws.ssoadmin.outputs.GetPermissionSetResult;
+import com.pulumi.aws.ssoadmin.outputs.GetPermissionSetsResult;
 import com.pulumi.aws.ssoadmin.outputs.GetPrincipalApplicationAssignmentsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1061,6 +1064,190 @@ public final class SsoadminFunctions {
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssoadmin/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source returning the ARN of all AWS SSO Admin Permission Sets.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets(GetPermissionSetsArgs args) {
+        return getPermissionSets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source returning the ARN of all AWS SSO Admin Permission Sets.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetsResult> getPermissionSetsPlain(GetPermissionSetsPlainArgs args) {
+        return getPermissionSetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source returning the ARN of all AWS SSO Admin Permission Sets.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPermissionSetsResult> getPermissionSets(GetPermissionSetsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssoadmin/getPermissionSets:getPermissionSets", TypeShape.of(GetPermissionSetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source returning the ARN of all AWS SSO Admin Permission Sets.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+     * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsoadminFunctions.getInstances();
+     * 
+     *         final var exampleGetPermissionSets = SsoadminFunctions.getPermissionSets(GetPermissionSetsArgs.builder()
+     *             .instanceArn(example.applyValue(getInstancesResult -> getInstancesResult.arns()[0]))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPermissionSetsResult> getPermissionSetsPlain(GetPermissionSetsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssoadmin/getPermissionSets:getPermissionSets", TypeShape.of(GetPermissionSetsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for viewing AWS SSO Admin Principal Application Assignments.

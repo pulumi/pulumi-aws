@@ -24,6 +24,7 @@ class JobDefinitionArgs:
                  type: pulumi.Input[str],
                  container_properties: Optional[pulumi.Input[str]] = None,
                  deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
+                 ecs_properties: Optional[pulumi.Input[str]] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class JobDefinitionArgs:
                The following arguments are optional:
         :param pulumi.Input[str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        :param pulumi.Input[str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Name of the job definition.
         :param pulumi.Input[str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
@@ -57,6 +59,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "container_properties", container_properties)
         if deregister_on_new_revision is not None:
             pulumi.set(__self__, "deregister_on_new_revision", deregister_on_new_revision)
+        if ecs_properties is not None:
+            pulumi.set(__self__, "ecs_properties", ecs_properties)
         if eks_properties is not None:
             pulumi.set(__self__, "eks_properties", eks_properties)
         if name is not None:
@@ -115,6 +119,18 @@ class JobDefinitionArgs:
     @deregister_on_new_revision.setter
     def deregister_on_new_revision(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deregister_on_new_revision", value)
+
+    @property
+    @pulumi.getter(name="ecsProperties")
+    def ecs_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        """
+        return pulumi.get(self, "ecs_properties")
+
+    @ecs_properties.setter
+    def ecs_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ecs_properties", value)
 
     @property
     @pulumi.getter(name="eksProperties")
@@ -244,6 +260,7 @@ class _JobDefinitionState:
                  arn_prefix: Optional[pulumi.Input[str]] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
                  deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
+                 ecs_properties: Optional[pulumi.Input[str]] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -263,6 +280,7 @@ class _JobDefinitionState:
         :param pulumi.Input[str] arn_prefix: ARN without the revision number.
         :param pulumi.Input[str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        :param pulumi.Input[str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Name of the job definition.
         :param pulumi.Input[str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
@@ -287,6 +305,8 @@ class _JobDefinitionState:
             pulumi.set(__self__, "container_properties", container_properties)
         if deregister_on_new_revision is not None:
             pulumi.set(__self__, "deregister_on_new_revision", deregister_on_new_revision)
+        if ecs_properties is not None:
+            pulumi.set(__self__, "ecs_properties", ecs_properties)
         if eks_properties is not None:
             pulumi.set(__self__, "eks_properties", eks_properties)
         if name is not None:
@@ -364,6 +384,18 @@ class _JobDefinitionState:
     @deregister_on_new_revision.setter
     def deregister_on_new_revision(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deregister_on_new_revision", value)
+
+    @property
+    @pulumi.getter(name="ecsProperties")
+    def ecs_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        """
+        return pulumi.get(self, "ecs_properties")
+
+    @ecs_properties.setter
+    def ecs_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ecs_properties", value)
 
     @property
     @pulumi.getter(name="eksProperties")
@@ -532,6 +564,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
                  deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
+                 ecs_properties: Optional[pulumi.Input[str]] = None,
                  eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -640,7 +673,7 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
 
-        ### Job Definitionn of type EKS
+        ### Job Definition of type EKS
 
         ```python
         import pulumi
@@ -722,6 +755,86 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
 
+        ### Job definition of type container using `ecs_properties`
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
+            type="container",
+            platform_capabilities=["FARGATE"],
+            ecs_properties=json.dumps({
+                "taskProperties": [{
+                    "executionRoleArn": ecs_task_execution_role["arn"],
+                    "containers": [
+                        {
+                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                            "command": [
+                                "sleep",
+                                "60",
+                            ],
+                            "dependsOn": [{
+                                "containerName": "container_b",
+                                "condition": "COMPLETE",
+                            }],
+                            "secrets": [{
+                                "name": "TEST",
+                                "valueFrom": "DUMMY",
+                            }],
+                            "environment": [{
+                                "name": "test",
+                                "value": "Environment Variable",
+                            }],
+                            "essential": True,
+                            "logConfiguration": {
+                                "logDriver": "awslogs",
+                                "options": {
+                                    "awslogs-group": "tf_test_batch_job",
+                                    "awslogs-region": "us-west-2",
+                                    "awslogs-stream-prefix": "ecs",
+                                },
+                            },
+                            "name": "container_a",
+                            "privileged": False,
+                            "readonlyRootFilesystem": False,
+                            "resourceRequirements": [
+                                {
+                                    "value": "1.0",
+                                    "type": "VCPU",
+                                },
+                                {
+                                    "value": "2048",
+                                    "type": "MEMORY",
+                                },
+                            ],
+                        },
+                        {
+                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                            "command": [
+                                "sleep",
+                                "360",
+                            ],
+                            "name": "container_b",
+                            "essential": False,
+                            "resourceRequirements": [
+                                {
+                                    "value": "1.0",
+                                    "type": "VCPU",
+                                },
+                                {
+                                    "value": "2048",
+                                    "type": "MEMORY",
+                                },
+                            ],
+                        },
+                    ],
+                }],
+            }))
+        ```
+
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -734,6 +847,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        :param pulumi.Input[str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Name of the job definition.
         :param pulumi.Input[str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
@@ -850,7 +964,7 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
 
-        ### Job Definitionn of type EKS
+        ### Job Definition of type EKS
 
         ```python
         import pulumi
@@ -932,6 +1046,86 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
 
+        ### Job definition of type container using `ecs_properties`
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.batch.JobDefinition("test",
+            name="my_test_batch_job_definition",
+            type="container",
+            platform_capabilities=["FARGATE"],
+            ecs_properties=json.dumps({
+                "taskProperties": [{
+                    "executionRoleArn": ecs_task_execution_role["arn"],
+                    "containers": [
+                        {
+                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                            "command": [
+                                "sleep",
+                                "60",
+                            ],
+                            "dependsOn": [{
+                                "containerName": "container_b",
+                                "condition": "COMPLETE",
+                            }],
+                            "secrets": [{
+                                "name": "TEST",
+                                "valueFrom": "DUMMY",
+                            }],
+                            "environment": [{
+                                "name": "test",
+                                "value": "Environment Variable",
+                            }],
+                            "essential": True,
+                            "logConfiguration": {
+                                "logDriver": "awslogs",
+                                "options": {
+                                    "awslogs-group": "tf_test_batch_job",
+                                    "awslogs-region": "us-west-2",
+                                    "awslogs-stream-prefix": "ecs",
+                                },
+                            },
+                            "name": "container_a",
+                            "privileged": False,
+                            "readonlyRootFilesystem": False,
+                            "resourceRequirements": [
+                                {
+                                    "value": "1.0",
+                                    "type": "VCPU",
+                                },
+                                {
+                                    "value": "2048",
+                                    "type": "MEMORY",
+                                },
+                            ],
+                        },
+                        {
+                            "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                            "command": [
+                                "sleep",
+                                "360",
+                            ],
+                            "name": "container_b",
+                            "essential": False,
+                            "resourceRequirements": [
+                                {
+                                    "value": "1.0",
+                                    "type": "VCPU",
+                                },
+                                {
+                                    "value": "2048",
+                                    "type": "MEMORY",
+                                },
+                            ],
+                        },
+                    ],
+                }],
+            }))
+        ```
+
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -957,6 +1151,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[str]] = None,
                  deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
+                 ecs_properties: Optional[pulumi.Input[str]] = None,
                  eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[str]] = None,
@@ -979,6 +1174,7 @@ class JobDefinition(pulumi.CustomResource):
 
             __props__.__dict__["container_properties"] = container_properties
             __props__.__dict__["deregister_on_new_revision"] = deregister_on_new_revision
+            __props__.__dict__["ecs_properties"] = ecs_properties
             __props__.__dict__["eks_properties"] = eks_properties
             __props__.__dict__["name"] = name
             __props__.__dict__["node_properties"] = node_properties
@@ -1010,6 +1206,7 @@ class JobDefinition(pulumi.CustomResource):
             arn_prefix: Optional[pulumi.Input[str]] = None,
             container_properties: Optional[pulumi.Input[str]] = None,
             deregister_on_new_revision: Optional[pulumi.Input[bool]] = None,
+            ecs_properties: Optional[pulumi.Input[str]] = None,
             eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_properties: Optional[pulumi.Input[str]] = None,
@@ -1034,6 +1231,7 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] arn_prefix: ARN without the revision number.
         :param pulumi.Input[str] container_properties: Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[bool] deregister_on_new_revision: When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
+        :param pulumi.Input[str] ecs_properties: Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']] eks_properties: Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Name of the job definition.
         :param pulumi.Input[str] node_properties: Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
@@ -1058,6 +1256,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["arn_prefix"] = arn_prefix
         __props__.__dict__["container_properties"] = container_properties
         __props__.__dict__["deregister_on_new_revision"] = deregister_on_new_revision
+        __props__.__dict__["ecs_properties"] = ecs_properties
         __props__.__dict__["eks_properties"] = eks_properties
         __props__.__dict__["name"] = name
         __props__.__dict__["node_properties"] = node_properties
@@ -1104,6 +1303,14 @@ class JobDefinition(pulumi.CustomResource):
         When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         """
         return pulumi.get(self, "deregister_on_new_revision")
+
+    @property
+    @pulumi.getter(name="ecsProperties")
+    def ecs_properties(self) -> pulumi.Output[Optional[str]]:
+        """
+        Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+        """
+        return pulumi.get(self, "ecs_properties")
 
     @property
     @pulumi.getter(name="eksProperties")
