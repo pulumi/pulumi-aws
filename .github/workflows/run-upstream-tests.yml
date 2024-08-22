@@ -1,0 +1,71 @@
+name: run-upstream-tests
+
+description: |
+  Run upstream tests against the patched version of the upstream (terraform-provider-aws) provider.
+
+  This job will run acceptance tests that do provision actual AWS resources.
+
+  One notable problem is that tag-related tests do not currently pass for the patched provider, since the Pulumi bridged
+  provider handles tagging at a higher level. These tests are currently skipped.
+
+  The job matrix is organized by service, corresponding to `ls ./upstream/internal/service` folders.
+
+  Note that adding new services needs to be done with care because test failures may leave unsupervised resources in the
+  test account causing an increase in burn rate, so that account cleaners need to be extended for each new service.
+
+  The primary goal for additional coverage is testing services that have Pulumi patches that may accidentally regress
+  desired upstream behavior.
+
+on:
+  pull_request:
+    paths-ignore:
+    - CHANGELOG.md
+
+env:
+  PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
+  AWS_REGION: us-west-2
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TF_APPEND_USER_AGENT: pulumi
+
+# This should cancel any previous runs of the same workflow on the same branch which are still running.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  upstream_tests:
+    name: upstream_tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        service:
+          - sqs
+          - waf
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PR_COMMIT_SHA }}
+          submodules: true
+      - name: make upstream
+        run: make upstream
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.22.x
+          cache-dependency-path: |
+            upstream/go.sum
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ${{ env.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: aws@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Test ${{ matrix.service }}
+        run: |
+          cd upstream
+          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTARGS="-skip 'tags|.*/.*/Tags'"
