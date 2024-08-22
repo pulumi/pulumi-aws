@@ -456,6 +456,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     }
     /**
      * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
     @Export(name="forceNewDeployment", refs={Boolean.class}, tree="[0]")
@@ -463,6 +464,7 @@ public class Service extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+     * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
     public Output<Optional<Boolean>> forceNewDeployment() {
