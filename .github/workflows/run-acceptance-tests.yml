@@ -435,7 +435,7 @@ jobs:
       - name: test ${{ matrix.service }}
         run: |
           cd upstream
-          TF_ACC=1 make testacc PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTARGS="-skip tags -skip '.*/.*/Tags'"
+          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTARGS="-skip tags -skip '.*/.*/Tags'"
 
 name: run-acceptance-tests
 on:
