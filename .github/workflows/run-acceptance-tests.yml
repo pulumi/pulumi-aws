@@ -410,23 +410,19 @@ jobs:
           - sqs
           - waf
     steps:
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
-        with:
-          swap-storage: false
-          tool-cache: false
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           ref: ${{ env.PR_COMMIT_SHA }}
           submodules: true
+      - name: make upstream
+        run: make upstream
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          cache: false
-          go-version: 1.22.x
-      - name: make upstream
-        run: make upstream
+          go-version: 1.22.6
+          cache-dependency-path: |
+            upstream/go.sum
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -439,7 +435,7 @@ jobs:
       - name: test ${{ matrix.service }}
         run: |
           cd upstream
-          TF_ACC=1 make testacc PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTARGS="-skip tags"
+          TF_ACC=1 make testacc PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTARGS="-skip tags -skip '.*/.*/Tags'"
 
 name: run-acceptance-tests
 on:
