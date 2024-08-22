@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags_all Computed for chatbot, timestreaminfluxdb
 
 
 diff --git a/internal/service/chatbot/slack_channel_configuration.go b/internal/service/chatbot/slack_channel_configuration.go
-index edd34ca88f..97e8afe082 100644
+index e3bdde8a19..01495c8171 100644
 --- a/internal/service/chatbot/slack_channel_configuration.go
 +++ b/internal/service/chatbot/slack_channel_configuration.go
 @@ -104,7 +104,7 @@ func (r *slackChannelConfigurationResource) Schema(ctx context.Context, request

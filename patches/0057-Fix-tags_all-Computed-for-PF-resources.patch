@@ -57,7 +57,7 @@ index 8722e6a2b6..09293cdecc 100644
  		Blocks: map[string]schema.Block{
  			"resource_set": resourceSetLNB,
 diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index 540f3a58f5..80ce86a332 100644
+index baaefd4d50..873f7b2eed 100644
 --- a/internal/service/guardduty/malware_protection_plan.go
 +++ b/internal/service/guardduty/malware_protection_plan.go
 @@ -88,7 +88,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
