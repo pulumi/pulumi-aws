@@ -38,6 +38,7 @@ __all__ = [
     'JobDefinitionRetryStrategyEvaluateOnExit',
     'JobDefinitionTimeout',
     'JobQueueComputeEnvironmentOrder',
+    'JobQueueJobStateTimeLimitAction',
     'JobQueueTimeouts',
     'SchedulingPolicyFairSharePolicy',
     'SchedulingPolicyFairSharePolicyShareDistribution',
@@ -79,6 +80,7 @@ __all__ = [
     'GetJobDefinitionRetryStrategyEvaluateOnExitResult',
     'GetJobDefinitionTimeoutResult',
     'GetJobQueueComputeEnvironmentOrderResult',
+    'GetJobQueueJobStateTimeLimitActionResult',
     'GetSchedulingPolicyFairSharePolicyResult',
     'GetSchedulingPolicyFairSharePolicyShareDistributionResult',
 ]
@@ -1403,6 +1405,72 @@ class JobQueueComputeEnvironmentOrder(dict):
         The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
         """
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class JobQueueJobStateTimeLimitAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTimeSeconds":
+            suggest = "max_time_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobQueueJobStateTimeLimitAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobQueueJobStateTimeLimitAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobQueueJobStateTimeLimitAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 max_time_seconds: int,
+                 reason: str,
+                 state: str):
+        """
+        :param str action: The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+               * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        :param str reason: The reason to log for the action being taken.
+        :param str state: The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "max_time_seconds", max_time_seconds)
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="maxTimeSeconds")
+    def max_time_seconds(self) -> int:
+        return pulumi.get(self, "max_time_seconds")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> str:
+        """
+        The reason to log for the action being taken.
+        """
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -3100,6 +3168,45 @@ class GetJobQueueComputeEnvironmentOrderResult(dict):
     @pulumi.getter
     def order(self) -> int:
         return pulumi.get(self, "order")
+
+
+@pulumi.output_type
+class GetJobQueueJobStateTimeLimitActionResult(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 max_time_seconds: int,
+                 reason: str,
+                 state: str):
+        """
+        :param str state: Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "max_time_seconds", max_time_seconds)
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="maxTimeSeconds")
+    def max_time_seconds(self) -> int:
+        return pulumi.get(self, "max_time_seconds")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> str:
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

@@ -77,7 +77,7 @@ type OutboundConnection struct {
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias pulumi.StringOutput `pulumi:"connectionAlias"`
 	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
+	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
 	// Configuration block for the outbound connection.
 	ConnectionProperties OutboundConnectionConnectionPropertiesOutput `pulumi:"connectionProperties"`
 	// Status of the connection request.
@@ -293,8 +293,8 @@ func (o OutboundConnectionOutput) ConnectionAlias() pulumi.StringOutput {
 }
 
 // Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
-func (o OutboundConnectionOutput) ConnectionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutboundConnection) pulumi.StringPtrOutput { return v.ConnectionMode }).(pulumi.StringPtrOutput)
+func (o OutboundConnectionOutput) ConnectionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionMode }).(pulumi.StringOutput)
 }
 
 // Configuration block for the outbound connection.

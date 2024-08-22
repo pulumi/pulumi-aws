@@ -10750,6 +10750,16 @@ export namespace batch {
         order: number;
     }
 
+    export interface GetJobQueueJobStateTimeLimitAction {
+        action: string;
+        maxTimeSeconds: number;
+        reason: string;
+        /**
+         * Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+         */
+        state: string;
+    }
+
     export interface GetSchedulingPolicyFairSharePolicy {
         /**
          * Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
@@ -10979,6 +10989,23 @@ export namespace batch {
          * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
          */
         order: number;
+    }
+
+    export interface JobQueueJobStateTimeLimitAction {
+        /**
+         * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
+         * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+         */
+        action: string;
+        maxTimeSeconds: number;
+        /**
+         * The reason to log for the action being taken.
+         */
+        reason: string;
+        /**
+         * The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
+         */
+        state: string;
     }
 
     export interface JobQueueTimeouts {

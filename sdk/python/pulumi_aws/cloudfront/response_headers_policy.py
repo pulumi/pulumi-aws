@@ -360,7 +360,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             })
         ```
 
-        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+        The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
 
         ```python
         import pulumi
@@ -373,6 +373,11 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                     "header": "X-Permitted-Cross-Domain-Policies",
                     "override": True,
                     "value": "none",
+                }],
+            },
+            remove_headers_config={
+                "items": [{
+                    "header": "Set-Cookie",
                 }],
             },
             server_timing_headers_config={
@@ -462,7 +467,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             })
         ```
 
-        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+        The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
 
         ```python
         import pulumi
@@ -475,6 +480,11 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                     "header": "X-Permitted-Cross-Domain-Policies",
                     "override": True,
                     "value": "none",
+                }],
+            },
+            remove_headers_config={
+                "items": [{
+                    "header": "Set-Cookie",
                 }],
             },
             server_timing_headers_config={

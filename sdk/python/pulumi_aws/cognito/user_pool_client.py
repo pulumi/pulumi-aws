@@ -48,33 +48,27 @@ class UserPoolClientArgs:
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
                
                The following arguments are optional:
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-        :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
-        :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-        :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
+        :param pulumi.Input[bool] generate_secret: Boolean flag indicating whether an application secret should be generated.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the application client.
-        :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-               By default, the unit is days.
-               The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes that the application client can write to.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if access_token_validity is not None:
@@ -138,9 +132,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.access_token`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -152,7 +144,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth flows (code, implicit, client_credentials).
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -164,7 +156,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -176,7 +168,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -188,7 +180,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]:
         """
-        Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -200,7 +192,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="authSessionValidity")
     def auth_session_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         """
         return pulumi.get(self, "auth_session_validity")
 
@@ -212,7 +204,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -224,7 +216,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Default redirect URI. Must be in the list of callback URLs.
+        Default redirect URI and must be included in the list of callback URLs.
         """
         return pulumi.get(self, "default_redirect_uri")
 
@@ -236,7 +228,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
     def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        Activates the propagation of additional user context data.
+        Enables the propagation of additional user context data.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
@@ -260,7 +252,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="explicitAuthFlows")
     def explicit_auth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         """
         return pulumi.get(self, "explicit_auth_flows")
 
@@ -272,7 +264,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="generateSecret")
     def generate_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should an application secret be generated.
+        Boolean flag indicating whether an application secret should be generated.
         """
         return pulumi.get(self, "generate_secret")
 
@@ -284,9 +276,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.id_token`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -298,7 +288,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 
@@ -322,7 +312,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="preventUserExistenceErrors")
     def prevent_user_existence_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         """
         return pulumi.get(self, "prevent_user_existence_errors")
 
@@ -334,7 +324,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user pool attributes the application client can read from.
+        List of user pool attributes that the application client can read from.
         """
         return pulumi.get(self, "read_attributes")
 
@@ -346,9 +336,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-        By default, the unit is days.
-        The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 
@@ -360,7 +348,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="supportedIdentityProviders")
     def supported_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
         return pulumi.get(self, "supported_identity_providers")
 
@@ -372,7 +360,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="tokenValidityUnits")
     def token_validity_units(self) -> Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']]:
         """
-        Configuration block for units in which the validity times are represented in. Detailed below.
+        Configuration block for representing the validity times in units. See details below. Detailed below.
         """
         return pulumi.get(self, "token_validity_units")
 
@@ -384,7 +372,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="writeAttributes")
     def write_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user pool attributes the application client can write to.
+        List of user pool attributes that the application client can write to.
         """
         return pulumi.get(self, "write_attributes")
 
@@ -421,37 +409,31 @@ class _UserPoolClientState:
                  write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering UserPoolClient resources.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-        :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
-        :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
+        :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-        :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
+        :param pulumi.Input[bool] generate_secret: Boolean flag indicating whether an application secret should be generated.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the application client.
-        :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-               By default, the unit is days.
-               The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
+        :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes that the application client can write to.
         """
         if access_token_validity is not None:
             pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -504,9 +486,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.access_token`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -518,7 +498,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth flows (code, implicit, client_credentials).
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -530,7 +510,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -542,7 +522,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -554,7 +534,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]:
         """
-        Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -566,7 +546,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="authSessionValidity")
     def auth_session_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         """
         return pulumi.get(self, "auth_session_validity")
 
@@ -578,7 +558,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -602,7 +582,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Default redirect URI. Must be in the list of callback URLs.
+        Default redirect URI and must be included in the list of callback URLs.
         """
         return pulumi.get(self, "default_redirect_uri")
 
@@ -614,7 +594,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
     def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        Activates the propagation of additional user context data.
+        Enables the propagation of additional user context data.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
@@ -638,7 +618,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="explicitAuthFlows")
     def explicit_auth_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         """
         return pulumi.get(self, "explicit_auth_flows")
 
@@ -650,7 +630,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="generateSecret")
     def generate_secret(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should an application secret be generated.
+        Boolean flag indicating whether an application secret should be generated.
         """
         return pulumi.get(self, "generate_secret")
 
@@ -662,9 +642,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.id_token`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -676,7 +654,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 
@@ -700,7 +678,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="preventUserExistenceErrors")
     def prevent_user_existence_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         """
         return pulumi.get(self, "prevent_user_existence_errors")
 
@@ -712,7 +690,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user pool attributes the application client can read from.
+        List of user pool attributes that the application client can read from.
         """
         return pulumi.get(self, "read_attributes")
 
@@ -724,9 +702,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> Optional[pulumi.Input[int]]:
         """
-        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-        By default, the unit is days.
-        The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 
@@ -738,7 +714,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="supportedIdentityProviders")
     def supported_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
         return pulumi.get(self, "supported_identity_providers")
 
@@ -750,7 +726,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="tokenValidityUnits")
     def token_validity_units(self) -> Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']]:
         """
-        Configuration block for units in which the validity times are represented in. Detailed below.
+        Configuration block for representing the validity times in units. See details below. Detailed below.
         """
         return pulumi.get(self, "token_validity_units")
 
@@ -776,7 +752,7 @@ class _UserPoolClientState:
     @pulumi.getter(name="writeAttributes")
     def write_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of user pool attributes the application client can write to.
+        List of user pool attributes that the application client can write to.
         """
         return pulumi.get(self, "write_attributes")
 
@@ -923,36 +899,30 @@ class UserPoolClient(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
-        :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-        :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
+        :param pulumi.Input[bool] generate_secret: Boolean flag indicating whether an application secret should be generated.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the application client.
-        :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-               By default, the unit is days.
-               The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
+        :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes that the application client can write to.
         """
         ...
     @overload
@@ -1181,37 +1151,31 @@ class UserPoolClient(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.access_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows (code, implicit, client_credentials).
-        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-        :param pulumi.Input[int] auth_session_validity: Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
+        :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
+        :param pulumi.Input[Union['UserPoolClientAnalyticsConfigurationArgs', 'UserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
-        :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
+        :param pulumi.Input[str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Enables the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-        :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
-        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-               By default, the unit is hours.
-               The unit can be overridden by a value in `token_validity_units.id_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
+        :param pulumi.Input[bool] generate_secret: Boolean flag indicating whether an application secret should be generated.
+        :param pulumi.Input[int] id_token_validity: Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] logout_urls: List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[str] name: Name of the application client.
-        :param pulumi.Input[str] prevent_user_existence_errors: Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes the application client can read from.
-        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-               By default, the unit is days.
-               The unit can be overridden by a value in `token_validity_units.refresh_token`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
-        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
+        :param pulumi.Input[str] prevent_user_existence_errors: Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: List of user pool attributes that the application client can read from.
+        :param pulumi.Input[int] refresh_token_validity: Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: Configuration block for representing the validity times in units. See details below. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes that the application client can write to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1246,9 +1210,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="accessTokenValidity")
     def access_token_validity(self) -> pulumi.Output[int]:
         """
-        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.access_token`.
+        Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
         """
         return pulumi.get(self, "access_token_validity")
 
@@ -1256,7 +1218,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthFlows")
     def allowed_oauth_flows(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed OAuth flows (code, implicit, client_credentials).
+        List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_flows")
 
@@ -1264,7 +1226,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
     def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[bool]:
         """
-        Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+        Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         """
         return pulumi.get(self, "allowed_oauth_flows_user_pool_client")
 
@@ -1272,7 +1234,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="allowedOauthScopes")
     def allowed_oauth_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
+        List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "allowed_oauth_scopes")
 
@@ -1280,7 +1242,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolClientAnalyticsConfiguration']]:
         """
-        Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -1288,7 +1250,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="authSessionValidity")
     def auth_session_validity(self) -> pulumi.Output[int]:
         """
-        Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
+        Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         """
         return pulumi.get(self, "auth_session_validity")
 
@@ -1296,7 +1258,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed callback URLs for the identity providers.
+        List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "callback_urls")
 
@@ -1312,7 +1274,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> pulumi.Output[str]:
         """
-        Default redirect URI. Must be in the list of callback URLs.
+        Default redirect URI and must be included in the list of callback URLs.
         """
         return pulumi.get(self, "default_redirect_uri")
 
@@ -1320,7 +1282,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
     def enable_propagate_additional_user_context_data(self) -> pulumi.Output[bool]:
         """
-        Activates the propagation of additional user context data.
+        Enables the propagation of additional user context data.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
@@ -1336,7 +1298,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="explicitAuthFlows")
     def explicit_auth_flows(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
+        List of authentication flows. The available options include ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, and ALLOW_REFRESH_TOKEN_AUTH.
         """
         return pulumi.get(self, "explicit_auth_flows")
 
@@ -1344,7 +1306,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="generateSecret")
     def generate_secret(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should an application secret be generated.
+        Boolean flag indicating whether an application secret should be generated.
         """
         return pulumi.get(self, "generate_secret")
 
@@ -1352,9 +1314,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="idTokenValidity")
     def id_token_validity(self) -> pulumi.Output[int]:
         """
-        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
-        By default, the unit is hours.
-        The unit can be overridden by a value in `token_validity_units.id_token`.
+        Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
         """
         return pulumi.get(self, "id_token_validity")
 
@@ -1362,7 +1322,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of allowed logout URLs for the identity providers.
+        List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         """
         return pulumi.get(self, "logout_urls")
 
@@ -1378,7 +1338,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="preventUserExistenceErrors")
     def prevent_user_existence_errors(self) -> pulumi.Output[str]:
         """
-        Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
         """
         return pulumi.get(self, "prevent_user_existence_errors")
 
@@ -1386,7 +1346,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of user pool attributes the application client can read from.
+        List of user pool attributes that the application client can read from.
         """
         return pulumi.get(self, "read_attributes")
 
@@ -1394,9 +1354,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="refreshTokenValidity")
     def refresh_token_validity(self) -> pulumi.Output[int]:
         """
-        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
-        By default, the unit is days.
-        The unit can be overridden by a value in `token_validity_units.refresh_token`.
+        Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
         """
         return pulumi.get(self, "refresh_token_validity")
 
@@ -1404,7 +1362,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="supportedIdentityProviders")
     def supported_identity_providers(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
+        List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
         return pulumi.get(self, "supported_identity_providers")
 
@@ -1412,7 +1370,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="tokenValidityUnits")
     def token_validity_units(self) -> pulumi.Output[Optional['outputs.UserPoolClientTokenValidityUnits']]:
         """
-        Configuration block for units in which the validity times are represented in. Detailed below.
+        Configuration block for representing the validity times in units. See details below. Detailed below.
         """
         return pulumi.get(self, "token_validity_units")
 
@@ -1430,7 +1388,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="writeAttributes")
     def write_attributes(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of user pool attributes the application client can write to.
+        List of user pool attributes that the application client can write to.
         """
         return pulumi.get(self, "write_attributes")
 

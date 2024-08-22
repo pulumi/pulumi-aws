@@ -24,10 +24,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DataZone Project using the `id`. For example:
+ * Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:datazone/project:Project example projectid123
+ * $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
  * ```
  */
 export class Project extends pulumi.CustomResource {
@@ -71,7 +71,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
     public readonly domainIdentifier!: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly failureReasons!: pulumi.Output<outputs.datazone.ProjectFailureReason[]>;
     /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
     public readonly glossaryTerms!: pulumi.Output<string[] | undefined>;
     /**
@@ -87,13 +87,13 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
-     * Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+     * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      */
     public /*out*/ readonly projectStatus!: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface ProjectState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
     domainIdentifier?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface ProjectState {
      */
     failureReasons?: pulumi.Input<pulumi.Input<inputs.datazone.ProjectFailureReason>[]>;
     /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
     glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -181,13 +181,13 @@ export interface ProjectState {
      */
     lastUpdatedAt?: pulumi.Input<string>;
     /**
-     * Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+     * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      */
     projectStatus?: pulumi.Input<string>;
     /**
@@ -206,15 +206,15 @@ export interface ProjectArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+     * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      */
     domainIdentifier: pulumi.Input<string>;
     /**
-     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+     * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      */
     glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+     * Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
      *
      * The following arguments are optional:
      */

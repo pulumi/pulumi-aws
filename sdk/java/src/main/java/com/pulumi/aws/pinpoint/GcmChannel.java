@@ -19,46 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint GCM Channel resource.
  * 
- * &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.GcmChannel;
- * import com.pulumi.aws.pinpoint.GcmChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App("app");
- * 
- *         var gcm = new GcmChannel("gcm", GcmChannelArgs.builder()
- *             .applicationId(app.applicationId())
- *             .apiKey("api_key")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
+ * &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -75,14 +36,14 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
-    private Output<String> apiKey;
+    private Output</* @Nullable */ String> apiKey;
 
     /**
      * @return Platform credential API key from Google.
      * 
      */
-    public Output<String> apiKey() {
-        return this.apiKey;
+    public Output<Optional<String>> apiKey() {
+        return Codegen.optional(this.apiKey);
     }
     /**
      * The application ID.
@@ -98,6 +59,12 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
     public Output<String> applicationId() {
         return this.applicationId;
     }
+    @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> defaultAuthenticationMethod;
+
+    public Output<Optional<String>> defaultAuthenticationMethod() {
+        return Codegen.optional(this.defaultAuthenticationMethod);
+    }
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
@@ -111,6 +78,12 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    @Export(name="serviceJson", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceJson;
+
+    public Output<Optional<String>> serviceJson() {
+        return Codegen.optional(this.serviceJson);
     }
 
     /**
@@ -153,7 +126,8 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "apiKey"
+                "apiKey",
+                "serviceJson"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

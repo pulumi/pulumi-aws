@@ -80,6 +80,11 @@ export const getZone: typeof import("./getZone").getZone = null as any;
 export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
 utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
 
+export { GetZonesResult } from "./getZones";
+export const getZones: typeof import("./getZones").getZones = null as any;
+export const getZonesOutput: typeof import("./getZones").getZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getZones","getZonesOutput"], () => require("./getZones"));
+
 export { HealthCheckArgs, HealthCheckState } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;

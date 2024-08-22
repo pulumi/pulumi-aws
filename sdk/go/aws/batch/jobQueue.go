@@ -127,6 +127,8 @@ type JobQueue struct {
 	//
 	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
+	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayOutput `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The priority of the job queue. Job queues with a higher priority
@@ -189,6 +191,8 @@ type jobQueueState struct {
 	//
 	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
+	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
 	// The priority of the job queue. Job queues with a higher priority
@@ -216,6 +220,8 @@ type JobQueueState struct {
 	//
 	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 	ComputeEnvironments pulumi.StringArrayInput
+	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
 	// The priority of the job queue. Job queues with a higher priority
@@ -245,6 +251,8 @@ type jobQueueArgs struct {
 	//
 	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
+	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	JobStateTimeLimitActions []JobQueueJobStateTimeLimitAction `pulumi:"jobStateTimeLimitActions"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
 	// The priority of the job queue. Job queues with a higher priority
@@ -267,6 +275,8 @@ type JobQueueArgs struct {
 	//
 	// Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 	ComputeEnvironments pulumi.StringArrayInput
+	// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+	JobStateTimeLimitActions JobQueueJobStateTimeLimitActionArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
 	// The priority of the job queue. Job queues with a higher priority
@@ -383,6 +393,11 @@ func (o JobQueueOutput) ComputeEnvironmentOrders() JobQueueComputeEnvironmentOrd
 // Deprecated: This parameter will be replaced by `computeEnvironmentOrder`.
 func (o JobQueueOutput) ComputeEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringArrayOutput { return v.ComputeEnvironments }).(pulumi.StringArrayOutput)
+}
+
+// The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+func (o JobQueueOutput) JobStateTimeLimitActions() JobQueueJobStateTimeLimitActionArrayOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueJobStateTimeLimitActionArrayOutput { return v.JobStateTimeLimitActions }).(JobQueueJobStateTimeLimitActionArrayOutput)
 }
 
 // Specifies the name of the job queue.

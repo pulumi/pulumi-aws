@@ -121,6 +121,10 @@ export class JobQueue extends pulumi.CustomResource {
      */
     public readonly computeEnvironments!: pulumi.Output<string[] | undefined>;
     /**
+     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     */
+    public readonly jobStateTimeLimitActions!: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
+    /**
      * Specifies the name of the job queue.
      */
     public readonly name!: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class JobQueue extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computeEnvironmentOrders"] = state ? state.computeEnvironmentOrders : undefined;
             resourceInputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
+            resourceInputs["jobStateTimeLimitActions"] = state ? state.jobStateTimeLimitActions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["schedulingPolicyArn"] = state ? state.schedulingPolicyArn : undefined;
@@ -182,6 +187,7 @@ export class JobQueue extends pulumi.CustomResource {
             }
             resourceInputs["computeEnvironmentOrders"] = args ? args.computeEnvironmentOrders : undefined;
             resourceInputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;
+            resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
@@ -214,6 +220,10 @@ export interface JobQueueState {
      * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     */
+    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
     /**
      * Specifies the name of the job queue.
      */
@@ -258,6 +268,10 @@ export interface JobQueueArgs {
      * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     */
+    jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
     /**
      * Specifies the name of the job queue.
      */

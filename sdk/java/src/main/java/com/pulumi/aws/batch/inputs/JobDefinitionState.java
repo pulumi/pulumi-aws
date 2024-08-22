@@ -83,6 +83,21 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    @Import(name="ecsProperties")
+    private @Nullable Output<String> ecsProperties;
+
+    /**
+     * @return Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     * 
+     */
+    public Optional<Output<String>> ecsProperties() {
+        return Optional.ofNullable(this.ecsProperties);
+    }
+
+    /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
@@ -296,6 +311,7 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
         this.arnPrefix = $.arnPrefix;
         this.containerProperties = $.containerProperties;
         this.deregisterOnNewRevision = $.deregisterOnNewRevision;
+        this.ecsProperties = $.ecsProperties;
         this.eksProperties = $.eksProperties;
         this.name = $.name;
         this.nodeProperties = $.nodeProperties;
@@ -411,6 +427,27 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder deregisterOnNewRevision(Boolean deregisterOnNewRevision) {
             return deregisterOnNewRevision(Output.of(deregisterOnNewRevision));
+        }
+
+        /**
+         * @param ecsProperties Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecsProperties(@Nullable Output<String> ecsProperties) {
+            $.ecsProperties = ecsProperties;
+            return this;
+        }
+
+        /**
+         * @param ecsProperties Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ecsProperties(String ecsProperties) {
+            return ecsProperties(Output.of(ecsProperties));
         }
 
         /**

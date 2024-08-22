@@ -27,7 +27,7 @@ class GetJobQueueResult:
     """
     A collection of values returned by getJobQueue.
     """
-    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, name=None, priority=None, scheduling_policy_arn=None, state=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, job_state_time_limit_actions=None, name=None, priority=None, scheduling_policy_arn=None, state=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetJobQueueResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if job_state_time_limit_actions and not isinstance(job_state_time_limit_actions, list):
+            raise TypeError("Expected argument 'job_state_time_limit_actions' to be a list")
+        pulumi.set(__self__, "job_state_time_limit_actions", job_state_time_limit_actions)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -85,6 +88,18 @@ class GetJobQueueResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="jobStateTimeLimitActions")
+    def job_state_time_limit_actions(self) -> Sequence['outputs.GetJobQueueJobStateTimeLimitActionResult']:
+        """
+        Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+        * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+        * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+        * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+        """
+        return pulumi.get(self, "job_state_time_limit_actions")
 
     @property
     @pulumi.getter
@@ -151,6 +166,7 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             arn=self.arn,
             compute_environment_orders=self.compute_environment_orders,
             id=self.id,
+            job_state_time_limit_actions=self.job_state_time_limit_actions,
             name=self.name,
             priority=self.priority,
             scheduling_policy_arn=self.scheduling_policy_arn,
@@ -190,6 +206,7 @@ def get_job_queue(name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         compute_environment_orders=pulumi.get(__ret__, 'compute_environment_orders'),
         id=pulumi.get(__ret__, 'id'),
+        job_state_time_limit_actions=pulumi.get(__ret__, 'job_state_time_limit_actions'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),

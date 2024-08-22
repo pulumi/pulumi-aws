@@ -43,10 +43,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DataZone Project using the `id`. For example:
+// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:datazone/project:Project example projectid123
+// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
 // ```
 type Project struct {
 	pulumi.CustomResourceState
@@ -57,19 +57,19 @@ type Project struct {
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// Description of project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
 	// List of error messages if operation cannot be completed.
 	FailureReasons ProjectFailureReasonArrayOutput `pulumi:"failureReasons"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 	GlossaryTerms pulumi.StringArrayOutput `pulumi:"glossaryTerms"`
 	// Timestamp of when the project was last updated.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
-	// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrOutput     `pulumi:"skipDeletionCheck"`
@@ -115,19 +115,19 @@ type projectState struct {
 	CreatedBy *string `pulumi:"createdBy"`
 	// Description of project.
 	Description *string `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 	DomainIdentifier *string `pulumi:"domainIdentifier"`
 	// List of error messages if operation cannot be completed.
 	FailureReasons []ProjectFailureReason `pulumi:"failureReasons"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
 	// Timestamp of when the project was last updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus *string `pulumi:"projectStatus"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
@@ -141,19 +141,19 @@ type ProjectState struct {
 	CreatedBy pulumi.StringPtrInput
 	// Description of project.
 	Description pulumi.StringPtrInput
-	// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 	DomainIdentifier pulumi.StringPtrInput
 	// List of error messages if operation cannot be completed.
 	FailureReasons ProjectFailureReasonArrayInput
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 	GlossaryTerms pulumi.StringArrayInput
 	// Timestamp of when the project was last updated.
 	LastUpdatedAt pulumi.StringPtrInput
-	// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringPtrInput
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrInput
@@ -167,11 +167,11 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	// Description of project.
 	Description *string `pulumi:"description"`
-	// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 	GlossaryTerms []string `pulumi:"glossaryTerms"`
-	// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -184,11 +184,11 @@ type projectArgs struct {
 type ProjectArgs struct {
 	// Description of project.
 	Description pulumi.StringPtrInput
-	// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+	// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 	DomainIdentifier pulumi.StringInput
-	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+	// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 	GlossaryTerms pulumi.StringArrayInput
-	// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+	// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of domain which the project is part of. Must follow the regex of ^dzd[-_][a-zA-Z0-9_-]{1,36}$.
+// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
 func (o ProjectOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
 }
@@ -309,7 +309,7 @@ func (o ProjectOutput) FailureReasons() ProjectFailureReasonArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectFailureReasonArrayOutput { return v.FailureReasons }).(ProjectFailureReasonArrayOutput)
 }
 
-// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of [a-zA-Z0-9_-]{1,36}$.
+// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
 func (o ProjectOutput) GlossaryTerms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringArrayOutput { return v.GlossaryTerms }).(pulumi.StringArrayOutput)
 }
@@ -319,14 +319,14 @@ func (o ProjectOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
-// Name of the project. Must follow the regex of ^[\w -]+$. and have a length of at most 64.
+// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
 //
 // The following arguments are optional:
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Enum that conveys state of project. Can be ACTIVE, DELETING, or DELETE_FAILED.
+// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 func (o ProjectOutput) ProjectStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectStatus }).(pulumi.StringOutput)
 }

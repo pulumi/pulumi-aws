@@ -40,6 +40,32 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Workspace configuration options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.grafana.Workspace("example", {
+ *     accountAccessType: "CURRENT_ACCOUNT",
+ *     authenticationProviders: ["SAML"],
+ *     permissionType: "SERVICE_MANAGED",
+ *     roleArn: assume.arn,
+ *     configuration: JSON.stringify({
+ *         plugins: {
+ *             pluginAdminEnabled: true,
+ *         },
+ *         unifiedAlerting: {
+ *             enabled: false,
+ *         },
+ *     }),
+ * });
+ * ```
+ *
+ * The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+ *
+ * For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
+ *
  * ## Import
  *
  * Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:

@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Job Definitionn of type EKS
+ * ### Job Definition of type EKS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -190,6 +190,86 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Job definition of type container using `ecsProperties`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.batch.JobDefinition("test", {
+ *     name: "my_test_batch_job_definition",
+ *     type: "container",
+ *     platformCapabilities: ["FARGATE"],
+ *     ecsProperties: JSON.stringify({
+ *         taskProperties: [{
+ *             executionRoleArn: ecsTaskExecutionRole.arn,
+ *             containers: [
+ *                 {
+ *                     image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                     command: [
+ *                         "sleep",
+ *                         "60",
+ *                     ],
+ *                     dependsOn: [{
+ *                         containerName: "container_b",
+ *                         condition: "COMPLETE",
+ *                     }],
+ *                     secrets: [{
+ *                         name: "TEST",
+ *                         valueFrom: "DUMMY",
+ *                     }],
+ *                     environment: [{
+ *                         name: "test",
+ *                         value: "Environment Variable",
+ *                     }],
+ *                     essential: true,
+ *                     logConfiguration: {
+ *                         logDriver: "awslogs",
+ *                         options: {
+ *                             "awslogs-group": "tf_test_batch_job",
+ *                             "awslogs-region": "us-west-2",
+ *                             "awslogs-stream-prefix": "ecs",
+ *                         },
+ *                     },
+ *                     name: "container_a",
+ *                     privileged: false,
+ *                     readonlyRootFilesystem: false,
+ *                     resourceRequirements: [
+ *                         {
+ *                             value: "1.0",
+ *                             type: "VCPU",
+ *                         },
+ *                         {
+ *                             value: "2048",
+ *                             type: "MEMORY",
+ *                         },
+ *                     ],
+ *                 },
+ *                 {
+ *                     image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                     command: [
+ *                         "sleep",
+ *                         "360",
+ *                     ],
+ *                     name: "container_b",
+ *                     essential: false,
+ *                     resourceRequirements: [
+ *                         {
+ *                             value: "1.0",
+ *                             type: "VCPU",
+ *                         },
+ *                         {
+ *                             value: "2048",
+ *                             type: "MEMORY",
+ *                         },
+ *                     ],
+ *                 },
+ *             ],
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
@@ -242,6 +322,10 @@ export class JobDefinition extends pulumi.CustomResource {
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      */
     public readonly deregisterOnNewRevision!: pulumi.Output<boolean | undefined>;
+    /**
+     * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     */
+    public readonly ecsProperties!: pulumi.Output<string | undefined>;
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
@@ -316,6 +400,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["arnPrefix"] = state ? state.arnPrefix : undefined;
             resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
             resourceInputs["deregisterOnNewRevision"] = state ? state.deregisterOnNewRevision : undefined;
+            resourceInputs["ecsProperties"] = state ? state.ecsProperties : undefined;
             resourceInputs["eksProperties"] = state ? state.eksProperties : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeProperties"] = state ? state.nodeProperties : undefined;
@@ -336,6 +421,7 @@ export class JobDefinition extends pulumi.CustomResource {
             }
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
             resourceInputs["deregisterOnNewRevision"] = args ? args.deregisterOnNewRevision : undefined;
+            resourceInputs["ecsProperties"] = args ? args.ecsProperties : undefined;
             resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
@@ -377,6 +463,10 @@ export interface JobDefinitionState {
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      */
     deregisterOnNewRevision?: pulumi.Input<boolean>;
+    /**
+     * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     */
+    ecsProperties?: pulumi.Input<string>;
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */
@@ -447,6 +537,10 @@ export interface JobDefinitionArgs {
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      */
     deregisterOnNewRevision?: pulumi.Input<boolean>;
+    /**
+     * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
+     */
+    ecsProperties?: pulumi.Input<string>;
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      */

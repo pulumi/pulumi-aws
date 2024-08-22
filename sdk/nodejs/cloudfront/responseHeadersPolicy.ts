@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+ * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -78,6 +78,11 @@ import * as utilities from "../utilities";
  *             header: "X-Permitted-Cross-Domain-Policies",
  *             override: true,
  *             value: "none",
+ *         }],
+ *     },
+ *     removeHeadersConfig: {
+ *         items: [{
+ *             header: "Set-Cookie",
  *         }],
  *     },
  *     serverTimingHeadersConfig: {

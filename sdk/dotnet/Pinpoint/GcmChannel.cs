@@ -12,28 +12,7 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint GCM Channel resource.
     /// 
-    /// &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var gcm = new Aws.Pinpoint.GcmChannel("gcm", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         ApiKey = "api_key",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
+    /// &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
@@ -49,7 +28,7 @@ namespace Pulumi.Aws.Pinpoint
         /// Platform credential API key from Google.
         /// </summary>
         [Output("apiKey")]
-        public Output<string> ApiKey { get; private set; } = null!;
+        public Output<string?> ApiKey { get; private set; } = null!;
 
         /// <summary>
         /// The application ID.
@@ -57,11 +36,17 @@ namespace Pulumi.Aws.Pinpoint
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("defaultAuthenticationMethod")]
+        public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
+
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        [Output("serviceJson")]
+        public Output<string?> ServiceJson { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,6 +74,7 @@ namespace Pulumi.Aws.Pinpoint
                 AdditionalSecretOutputs =
                 {
                     "apiKey",
+                    "serviceJson",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -113,7 +99,7 @@ namespace Pulumi.Aws.Pinpoint
 
     public sealed class GcmChannelArgs : global::Pulumi.ResourceArgs
     {
-        [Input("apiKey", required: true)]
+        [Input("apiKey")]
         private Input<string>? _apiKey;
 
         /// <summary>
@@ -135,11 +121,26 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        [Input("defaultAuthenticationMethod")]
+        public Input<string>? DefaultAuthenticationMethod { get; set; }
+
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("serviceJson")]
+        private Input<string>? _serviceJson;
+        public Input<string>? ServiceJson
+        {
+            get => _serviceJson;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceJson = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GcmChannelArgs()
         {
@@ -171,11 +172,26 @@ namespace Pulumi.Aws.Pinpoint
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        [Input("defaultAuthenticationMethod")]
+        public Input<string>? DefaultAuthenticationMethod { get; set; }
+
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("serviceJson")]
+        private Input<string>? _serviceJson;
+        public Input<string>? ServiceJson
+        {
+            get => _serviceJson;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceJson = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public GcmChannelState()
         {

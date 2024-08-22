@@ -4,6 +4,7 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.GetJobQueueComputeEnvironmentOrder;
+import com.pulumi.aws.batch.outputs.GetJobQueueJobStateTimeLimitAction;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -32,6 +33,15 @@ public final class GetJobQueueResult {
      * 
      */
     private String id;
+    /**
+     * @return Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+     * 
+     */
+    private List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions;
     private String name;
     /**
      * @return Priority of the job queue. Job queues with a higher priority are evaluated first when
@@ -90,6 +100,17 @@ public final class GetJobQueueResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
+     * * `job_state_time_limit_action.#.action` - The action to take when a job is at the head of the job queue in the specified state for the specified period of time.
+     * * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken.
+     * * `job_state_time_limit_action.#.reason` - The reason to log for the action being taken.
+     * * `job_state_time_limit_action.#.state` - The state of the job needed to trigger the action.
+     * 
+     */
+    public List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions() {
+        return this.jobStateTimeLimitActions;
     }
     public String name() {
         return this.name;
@@ -151,6 +172,7 @@ public final class GetJobQueueResult {
         private String arn;
         private List<GetJobQueueComputeEnvironmentOrder> computeEnvironmentOrders;
         private String id;
+        private List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions;
         private String name;
         private Integer priority;
         private String schedulingPolicyArn;
@@ -164,6 +186,7 @@ public final class GetJobQueueResult {
     	      this.arn = defaults.arn;
     	      this.computeEnvironmentOrders = defaults.computeEnvironmentOrders;
     	      this.id = defaults.id;
+    	      this.jobStateTimeLimitActions = defaults.jobStateTimeLimitActions;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
     	      this.schedulingPolicyArn = defaults.schedulingPolicyArn;
@@ -199,6 +222,17 @@ public final class GetJobQueueResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder jobStateTimeLimitActions(List<GetJobQueueJobStateTimeLimitAction> jobStateTimeLimitActions) {
+            if (jobStateTimeLimitActions == null) {
+              throw new MissingRequiredPropertyException("GetJobQueueResult", "jobStateTimeLimitActions");
+            }
+            this.jobStateTimeLimitActions = jobStateTimeLimitActions;
+            return this;
+        }
+        public Builder jobStateTimeLimitActions(GetJobQueueJobStateTimeLimitAction... jobStateTimeLimitActions) {
+            return jobStateTimeLimitActions(List.of(jobStateTimeLimitActions));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -261,6 +295,7 @@ public final class GetJobQueueResult {
             _resultValue.arn = arn;
             _resultValue.computeEnvironmentOrders = computeEnvironmentOrders;
             _resultValue.id = id;
+            _resultValue.jobStateTimeLimitActions = jobStateTimeLimitActions;
             _resultValue.name = name;
             _resultValue.priority = priority;
             _resultValue.schedulingPolicyArn = schedulingPolicyArn;

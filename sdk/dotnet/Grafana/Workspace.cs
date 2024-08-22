@@ -61,6 +61,46 @@ namespace Pulumi.Aws.Grafana
     /// });
     /// ```
     /// 
+    /// ### Workspace configuration options
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Grafana.Workspace("example", new()
+    ///     {
+    ///         AccountAccessType = "CURRENT_ACCOUNT",
+    ///         AuthenticationProviders = new[]
+    ///         {
+    ///             "SAML",
+    ///         },
+    ///         PermissionType = "SERVICE_MANAGED",
+    ///         RoleArn = assume.Arn,
+    ///         Configuration = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["plugins"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["pluginAdminEnabled"] = true,
+    ///             },
+    ///             ["unifiedAlerting"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["enabled"] = false,
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+    /// 
+    /// For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:

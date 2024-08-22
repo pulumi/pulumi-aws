@@ -21,6 +21,7 @@ from .get_resolver_rule import *
 from .get_resolver_rules import *
 from .get_traffic_policy_document import *
 from .get_zone import *
+from .get_zones import *
 from .health_check import *
 from .hosted_zone_dns_sec import *
 from .key_signing_key import *
