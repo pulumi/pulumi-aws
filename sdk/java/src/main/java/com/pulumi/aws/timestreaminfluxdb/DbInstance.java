@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+ * Resource for managing an Amazon Timestream for InfluxDB database instance.
  * 
  * ## Example Usage
  * 

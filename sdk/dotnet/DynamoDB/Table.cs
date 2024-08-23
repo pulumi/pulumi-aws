@@ -319,13 +319,19 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> RestoreSourceName { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the source table to restore. Must be supplied for cross-region restores.
+        /// </summary>
+        [Output("restoreSourceTableArn")]
+        public Output<string?> RestoreSourceTableArn { get; private set; } = null!;
+
+        /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
         [Output("restoreToLatestTime")]
         public Output<bool?> RestoreToLatestTime { get; private set; } = null!;
 
         /// <summary>
-        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
         [Output("serverSideEncryption")]
         public Output<Outputs.TableServerSideEncryption> ServerSideEncryption { get; private set; } = null!;
@@ -543,13 +549,19 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RestoreSourceName { get; set; }
 
         /// <summary>
+        /// ARN of the source table to restore. Must be supplied for cross-region restores.
+        /// </summary>
+        [Input("restoreSourceTableArn")]
+        public Input<string>? RestoreSourceTableArn { get; set; }
+
+        /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
         [Input("restoreToLatestTime")]
         public Input<bool>? RestoreToLatestTime { get; set; }
 
         /// <summary>
-        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.TableServerSideEncryptionArgs>? ServerSideEncryption { get; set; }
@@ -723,13 +735,19 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RestoreSourceName { get; set; }
 
         /// <summary>
+        /// ARN of the source table to restore. Must be supplied for cross-region restores.
+        /// </summary>
+        [Input("restoreSourceTableArn")]
+        public Input<string>? RestoreSourceTableArn { get; set; }
+
+        /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
         [Input("restoreToLatestTime")]
         public Input<bool>? RestoreToLatestTime { get; set; }
 
         /// <summary>
-        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
         [Input("serverSideEncryption")]
         public Input<Inputs.TableServerSideEncryptionGetArgs>? ServerSideEncryption { get; set; }

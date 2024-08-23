@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -168,6 +171,10 @@ export class Target extends pulumi.CustomResource {
      */
     public readonly serviceNamespace!: pulumi.Output<string>;
     /**
+     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     */
+    public readonly suspendedState!: pulumi.Output<outputs.appautoscaling.TargetSuspendedState>;
+    /**
      * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -198,6 +205,7 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
+            resourceInputs["suspendedState"] = state ? state.suspendedState : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -223,6 +231,7 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["suspendedState"] = args ? args.suspendedState : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -265,6 +274,10 @@ export interface TargetState {
      */
     serviceNamespace?: pulumi.Input<string>;
     /**
+     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     */
+    suspendedState?: pulumi.Input<inputs.appautoscaling.TargetSuspendedState>;
+    /**
      * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -304,6 +317,10 @@ export interface TargetArgs {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     serviceNamespace: pulumi.Input<string>;
+    /**
+     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     */
+    suspendedState?: pulumi.Input<inputs.appautoscaling.TargetSuspendedState>;
     /**
      * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

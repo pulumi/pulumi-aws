@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.appautoscaling;
 
+import com.pulumi.aws.appautoscaling.inputs.TargetSuspendedStateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -109,6 +110,21 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * 
+     */
+    @Import(name="suspendedState")
+    private @Nullable Output<TargetSuspendedStateArgs> suspendedState;
+
+    /**
+     * @return Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * 
+     */
+    public Optional<Output<TargetSuspendedStateArgs>> suspendedState() {
+        return Optional.ofNullable(this.suspendedState);
+    }
+
+    /**
      * Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -132,6 +148,7 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.scalableDimension = $.scalableDimension;
         this.serviceNamespace = $.serviceNamespace;
+        this.suspendedState = $.suspendedState;
         this.tags = $.tags;
     }
 
@@ -277,6 +294,27 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceNamespace(String serviceNamespace) {
             return serviceNamespace(Output.of(serviceNamespace));
+        }
+
+        /**
+         * @param suspendedState Specifies whether the scaling activities for a scalable target are in a suspended state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendedState(@Nullable Output<TargetSuspendedStateArgs> suspendedState) {
+            $.suspendedState = suspendedState;
+            return this;
+        }
+
+        /**
+         * @param suspendedState Specifies whether the scaling activities for a scalable target are in a suspended state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder suspendedState(TargetSuspendedStateArgs suspendedState) {
+            return suspendedState(Output.of(suspendedState));
         }
 
         /**

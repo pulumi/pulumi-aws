@@ -78,8 +78,12 @@ type LookupDomainResult struct {
 	Created bool `pulumi:"created"`
 	// Domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html).
 	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
+	// V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+	DashboardEndpointV2 string `pulumi:"dashboardEndpointV2"`
 	// Status of the deletion of the domain.
 	Deleted bool `pulumi:"deleted"`
+	// Dual stack hosted zone ID for the domain.
+	DomainEndpointV2HostedZoneId string `pulumi:"domainEndpointV2HostedZoneId"`
 	// Unique identifier for the domain.
 	DomainId   string `pulumi:"domainId"`
 	DomainName string `pulumi:"domainName"`
@@ -89,6 +93,8 @@ type LookupDomainResult struct {
 	EncryptionAtRests []GetDomainEncryptionAtRest `pulumi:"encryptionAtRests"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint string `pulumi:"endpoint"`
+	// V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+	EndpointV2 string `pulumi:"endpointV2"`
 	// OpenSearch version for the domain.
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
@@ -204,9 +210,19 @@ func (o LookupDomainResultOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
+// V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+func (o LookupDomainResultOutput) DashboardEndpointV2() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.DashboardEndpointV2 }).(pulumi.StringOutput)
+}
+
 // Status of the deletion of the domain.
 func (o LookupDomainResultOutput) Deleted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Deleted }).(pulumi.BoolOutput)
+}
+
+// Dual stack hosted zone ID for the domain.
+func (o LookupDomainResultOutput) DomainEndpointV2HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.DomainEndpointV2HostedZoneId }).(pulumi.StringOutput)
 }
 
 // Unique identifier for the domain.
@@ -231,6 +247,11 @@ func (o LookupDomainResultOutput) EncryptionAtRests() GetDomainEncryptionAtRestA
 // Domain-specific endpoint used to submit index, search, and data upload requests.
 func (o LookupDomainResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+func (o LookupDomainResultOutput) EndpointV2() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.EndpointV2 }).(pulumi.StringOutput)
 }
 
 // OpenSearch version for the domain.

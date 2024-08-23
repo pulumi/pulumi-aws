@@ -234,6 +234,8 @@ type Target struct {
 	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
+	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	SuspendedState TargetSuspendedStateOutput `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -301,6 +303,8 @@ type targetState struct {
 	ScalableDimension *string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace *string `pulumi:"serviceNamespace"`
+	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	SuspendedState *TargetSuspendedState `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -324,6 +328,8 @@ type TargetState struct {
 	ScalableDimension pulumi.StringPtrInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringPtrInput
+	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	SuspendedState TargetSuspendedStatePtrInput
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -349,6 +355,8 @@ type targetArgs struct {
 	ScalableDimension string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace string `pulumi:"serviceNamespace"`
+	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	SuspendedState *TargetSuspendedState `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -367,6 +375,8 @@ type TargetArgs struct {
 	ScalableDimension pulumi.StringInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringInput
+	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	SuspendedState TargetSuspendedStatePtrInput
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -491,6 +501,11 @@ func (o TargetOutput) ScalableDimension() pulumi.StringOutput {
 // AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 func (o TargetOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
+}
+
+// Specifies whether the scaling activities for a scalable target are in a suspended state.
+func (o TargetOutput) SuspendedState() TargetSuspendedStateOutput {
+	return o.ApplyT(func(v *Target) TargetSuspendedStateOutput { return v.SuspendedState }).(TargetSuspendedStateOutput)
 }
 
 // Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

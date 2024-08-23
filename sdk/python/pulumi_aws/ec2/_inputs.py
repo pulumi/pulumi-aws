@@ -5261,7 +5261,7 @@ if not MYPY:
         """
         http_tokens: NotRequired[pulumi.Input[str]]
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         """
         instance_metadata_tags: NotRequired[pulumi.Input[str]]
         """
@@ -5284,7 +5284,7 @@ class InstanceMetadataOptionsArgs:
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[str] http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
                
                For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
@@ -5340,7 +5340,7 @@ class InstanceMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         """
         return pulumi.get(self, "http_tokens")
 
@@ -19026,7 +19026,7 @@ if not MYPY:
         """
         http_tokens: NotRequired[pulumi.Input[str]]
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         """
         instance_metadata_tags: NotRequired[pulumi.Input[str]]
         """
@@ -19049,7 +19049,7 @@ class SpotInstanceRequestMetadataOptionsArgs:
         :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         :param pulumi.Input[str] http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param pulumi.Input[int] http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
                
                For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
@@ -19105,7 +19105,7 @@ class SpotInstanceRequestMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
         """
         return pulumi.get(self, "http_tokens")
 

@@ -37,6 +37,8 @@ __all__ = [
     'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict',
     'ScheduledActionScalableTargetActionArgs',
     'ScheduledActionScalableTargetActionArgsDict',
+    'TargetSuspendedStateArgs',
+    'TargetSuspendedStateArgsDict',
 ]
 
 MYPY = False
@@ -999,5 +1001,77 @@ class ScheduledActionScalableTargetActionArgs:
     @min_capacity.setter
     def min_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_capacity", value)
+
+
+if not MYPY:
+    class TargetSuspendedStateArgsDict(TypedDict):
+        dynamic_scaling_in_suspended: NotRequired[pulumi.Input[bool]]
+        """
+        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        dynamic_scaling_out_suspended: NotRequired[pulumi.Input[bool]]
+        """
+        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        scheduled_scaling_suspended: NotRequired[pulumi.Input[bool]]
+        """
+        Whether scheduled scaling is suspended. Default is `false`.
+        """
+elif False:
+    TargetSuspendedStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetSuspendedStateArgs:
+    def __init__(__self__, *,
+                 dynamic_scaling_in_suspended: Optional[pulumi.Input[bool]] = None,
+                 dynamic_scaling_out_suspended: Optional[pulumi.Input[bool]] = None,
+                 scheduled_scaling_suspended: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] dynamic_scaling_in_suspended: Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        :param pulumi.Input[bool] dynamic_scaling_out_suspended: Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        :param pulumi.Input[bool] scheduled_scaling_suspended: Whether scheduled scaling is suspended. Default is `false`.
+        """
+        if dynamic_scaling_in_suspended is not None:
+            pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
+        if dynamic_scaling_out_suspended is not None:
+            pulumi.set(__self__, "dynamic_scaling_out_suspended", dynamic_scaling_out_suspended)
+        if scheduled_scaling_suspended is not None:
+            pulumi.set(__self__, "scheduled_scaling_suspended", scheduled_scaling_suspended)
+
+    @property
+    @pulumi.getter(name="dynamicScalingInSuspended")
+    def dynamic_scaling_in_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "dynamic_scaling_in_suspended")
+
+    @dynamic_scaling_in_suspended.setter
+    def dynamic_scaling_in_suspended(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_scaling_in_suspended", value)
+
+    @property
+    @pulumi.getter(name="dynamicScalingOutSuspended")
+    def dynamic_scaling_out_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "dynamic_scaling_out_suspended")
+
+    @dynamic_scaling_out_suspended.setter
+    def dynamic_scaling_out_suspended(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_scaling_out_suspended", value)
+
+    @property
+    @pulumi.getter(name="scheduledScalingSuspended")
+    def scheduled_scaling_suspended(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether scheduled scaling is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "scheduled_scaling_suspended")
+
+    @scheduled_scaling_suspended.setter
+    def scheduled_scaling_suspended(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scheduled_scaling_suspended", value)
 
 

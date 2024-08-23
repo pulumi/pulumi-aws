@@ -609,6 +609,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.dashboardEndpoint;
     }
     /**
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * 
+     */
+    @Export(name="dashboardEndpointV2", refs={String.class}, tree="[0]")
+    private Output<String> dashboardEndpointV2;
+
+    /**
+     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * 
+     */
+    public Output<String> dashboardEndpointV2() {
+        return this.dashboardEndpointV2;
+    }
+    /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
@@ -621,6 +635,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<DomainDomainEndpointOptions> domainEndpointOptions() {
         return this.domainEndpointOptions;
+    }
+    /**
+     * Dual stack hosted zone ID for the domain.
+     * 
+     */
+    @Export(name="domainEndpointV2HostedZoneId", refs={String.class}, tree="[0]")
+    private Output<String> domainEndpointV2HostedZoneId;
+
+    /**
+     * @return Dual stack hosted zone ID for the domain.
+     * 
+     */
+    public Output<String> domainEndpointV2HostedZoneId() {
+        return this.domainEndpointV2HostedZoneId;
     }
     /**
      * Unique identifier for the domain.
@@ -695,6 +723,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<String> endpoint() {
         return this.endpoint;
+    }
+    /**
+     * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    @Export(name="endpointV2", refs={String.class}, tree="[0]")
+    private Output<String> endpointV2;
+
+    /**
+     * @return V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    public Output<String> endpointV2() {
+        return this.endpointV2;
     }
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.

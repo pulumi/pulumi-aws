@@ -151,6 +151,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * 
+     */
+    @Import(name="dashboardEndpointV2")
+    private @Nullable Output<String> dashboardEndpointV2;
+
+    /**
+     * @return V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     * 
+     */
+    public Optional<Output<String>> dashboardEndpointV2() {
+        return Optional.ofNullable(this.dashboardEndpointV2);
+    }
+
+    /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
@@ -163,6 +178,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainDomainEndpointOptionsArgs>> domainEndpointOptions() {
         return Optional.ofNullable(this.domainEndpointOptions);
+    }
+
+    /**
+     * Dual stack hosted zone ID for the domain.
+     * 
+     */
+    @Import(name="domainEndpointV2HostedZoneId")
+    private @Nullable Output<String> domainEndpointV2HostedZoneId;
+
+    /**
+     * @return Dual stack hosted zone ID for the domain.
+     * 
+     */
+    public Optional<Output<String>> domainEndpointV2HostedZoneId() {
+        return Optional.ofNullable(this.domainEndpointV2HostedZoneId);
     }
 
     /**
@@ -242,6 +272,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
+    }
+
+    /**
+     * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    @Import(name="endpointV2")
+    private @Nullable Output<String> endpointV2;
+
+    /**
+     * @return V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    public Optional<Output<String>> endpointV2() {
+        return Optional.ofNullable(this.endpointV2);
     }
 
     /**
@@ -440,12 +485,15 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.clusterConfig = $.clusterConfig;
         this.cognitoOptions = $.cognitoOptions;
         this.dashboardEndpoint = $.dashboardEndpoint;
+        this.dashboardEndpointV2 = $.dashboardEndpointV2;
         this.domainEndpointOptions = $.domainEndpointOptions;
+        this.domainEndpointV2HostedZoneId = $.domainEndpointV2HostedZoneId;
         this.domainId = $.domainId;
         this.domainName = $.domainName;
         this.ebsOptions = $.ebsOptions;
         this.encryptAtRest = $.encryptAtRest;
         this.endpoint = $.endpoint;
+        this.endpointV2 = $.endpointV2;
         this.engineVersion = $.engineVersion;
         this.ipAddressType = $.ipAddressType;
         this.kibanaEndpoint = $.kibanaEndpoint;
@@ -646,6 +694,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardEndpointV2(@Nullable Output<String> dashboardEndpointV2) {
+            $.dashboardEndpointV2 = dashboardEndpointV2;
+            return this;
+        }
+
+        /**
+         * @param dashboardEndpointV2 V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dashboardEndpointV2(String dashboardEndpointV2) {
+            return dashboardEndpointV2(Output.of(dashboardEndpointV2));
+        }
+
+        /**
          * @param domainEndpointOptions Configuration block for domain endpoint HTTP(S) related options. Detailed below.
          * 
          * @return builder
@@ -664,6 +733,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainEndpointOptions(DomainDomainEndpointOptionsArgs domainEndpointOptions) {
             return domainEndpointOptions(Output.of(domainEndpointOptions));
+        }
+
+        /**
+         * @param domainEndpointV2HostedZoneId Dual stack hosted zone ID for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainEndpointV2HostedZoneId(@Nullable Output<String> domainEndpointV2HostedZoneId) {
+            $.domainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
+            return this;
+        }
+
+        /**
+         * @param domainEndpointV2HostedZoneId Dual stack hosted zone ID for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainEndpointV2HostedZoneId(String domainEndpointV2HostedZoneId) {
+            return domainEndpointV2HostedZoneId(Output.of(domainEndpointV2HostedZoneId));
         }
 
         /**
@@ -773,6 +863,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param endpointV2 V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointV2(@Nullable Output<String> endpointV2) {
+            $.endpointV2 = endpointV2;
+            return this;
+        }
+
+        /**
+         * @param endpointV2 V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointV2(String endpointV2) {
+            return endpointV2(Output.of(endpointV2));
         }
 
         /**

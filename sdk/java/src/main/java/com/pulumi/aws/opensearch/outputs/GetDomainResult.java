@@ -73,10 +73,20 @@ public final class GetDomainResult {
      */
     private String dashboardEndpoint;
     /**
+     * @return V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+     * 
+     */
+    private String dashboardEndpointV2;
+    /**
      * @return Status of the deletion of the domain.
      * 
      */
     private Boolean deleted;
+    /**
+     * @return Dual stack hosted zone ID for the domain.
+     * 
+     */
+    private String domainEndpointV2HostedZoneId;
     /**
      * @return Unique identifier for the domain.
      * 
@@ -98,6 +108,11 @@ public final class GetDomainResult {
      * 
      */
     private String endpoint;
+    /**
+     * @return V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    private String endpointV2;
     /**
      * @return OpenSearch version for the domain.
      * 
@@ -228,11 +243,25 @@ public final class GetDomainResult {
         return this.dashboardEndpoint;
     }
     /**
+     * @return V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+     * 
+     */
+    public String dashboardEndpointV2() {
+        return this.dashboardEndpointV2;
+    }
+    /**
      * @return Status of the deletion of the domain.
      * 
      */
     public Boolean deleted() {
         return this.deleted;
+    }
+    /**
+     * @return Dual stack hosted zone ID for the domain.
+     * 
+     */
+    public String domainEndpointV2HostedZoneId() {
+        return this.domainEndpointV2HostedZoneId;
     }
     /**
      * @return Unique identifier for the domain.
@@ -264,6 +293,13 @@ public final class GetDomainResult {
      */
     public String endpoint() {
         return this.endpoint;
+    }
+    /**
+     * @return V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     * 
+     */
+    public String endpointV2() {
+        return this.endpointV2;
     }
     /**
      * @return OpenSearch version for the domain.
@@ -372,12 +408,15 @@ public final class GetDomainResult {
         private List<GetDomainCognitoOption> cognitoOptions;
         private Boolean created;
         private String dashboardEndpoint;
+        private String dashboardEndpointV2;
         private Boolean deleted;
+        private String domainEndpointV2HostedZoneId;
         private String domainId;
         private String domainName;
         private List<GetDomainEbsOption> ebsOptions;
         private List<GetDomainEncryptionAtRest> encryptionAtRests;
         private String endpoint;
+        private String endpointV2;
         private String engineVersion;
         private String id;
         private String ipAddressType;
@@ -402,12 +441,15 @@ public final class GetDomainResult {
     	      this.cognitoOptions = defaults.cognitoOptions;
     	      this.created = defaults.created;
     	      this.dashboardEndpoint = defaults.dashboardEndpoint;
+    	      this.dashboardEndpointV2 = defaults.dashboardEndpointV2;
     	      this.deleted = defaults.deleted;
+    	      this.domainEndpointV2HostedZoneId = defaults.domainEndpointV2HostedZoneId;
     	      this.domainId = defaults.domainId;
     	      this.domainName = defaults.domainName;
     	      this.ebsOptions = defaults.ebsOptions;
     	      this.encryptionAtRests = defaults.encryptionAtRests;
     	      this.endpoint = defaults.endpoint;
+    	      this.endpointV2 = defaults.endpointV2;
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
     	      this.ipAddressType = defaults.ipAddressType;
@@ -507,11 +549,27 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder dashboardEndpointV2(String dashboardEndpointV2) {
+            if (dashboardEndpointV2 == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "dashboardEndpointV2");
+            }
+            this.dashboardEndpointV2 = dashboardEndpointV2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder deleted(Boolean deleted) {
             if (deleted == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "deleted");
             }
             this.deleted = deleted;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder domainEndpointV2HostedZoneId(String domainEndpointV2HostedZoneId) {
+            if (domainEndpointV2HostedZoneId == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "domainEndpointV2HostedZoneId");
+            }
+            this.domainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
             return this;
         }
         @CustomType.Setter
@@ -558,6 +616,14 @@ public final class GetDomainResult {
               throw new MissingRequiredPropertyException("GetDomainResult", "endpoint");
             }
             this.endpoint = endpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointV2(String endpointV2) {
+            if (endpointV2 == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "endpointV2");
+            }
+            this.endpointV2 = endpointV2;
             return this;
         }
         @CustomType.Setter
@@ -680,12 +746,15 @@ public final class GetDomainResult {
             _resultValue.cognitoOptions = cognitoOptions;
             _resultValue.created = created;
             _resultValue.dashboardEndpoint = dashboardEndpoint;
+            _resultValue.dashboardEndpointV2 = dashboardEndpointV2;
             _resultValue.deleted = deleted;
+            _resultValue.domainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
             _resultValue.domainId = domainId;
             _resultValue.domainName = domainName;
             _resultValue.ebsOptions = ebsOptions;
             _resultValue.encryptionAtRests = encryptionAtRests;
             _resultValue.endpoint = endpoint;
+            _resultValue.endpointV2 = endpointV2;
             _resultValue.engineVersion = engineVersion;
             _resultValue.id = id;
             _resultValue.ipAddressType = ipAddressType;

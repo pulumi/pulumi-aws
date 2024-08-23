@@ -338,9 +338,17 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
     /**
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     */
+    public /*out*/ readonly dashboardEndpointV2!: pulumi.Output<string>;
+    /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearch.DomainDomainEndpointOptions>;
+    /**
+     * Dual stack hosted zone ID for the domain.
+     */
+    public /*out*/ readonly domainEndpointV2HostedZoneId!: pulumi.Output<string>;
     /**
      * Unique identifier for the domain.
      */
@@ -363,6 +371,10 @@ export class Domain extends pulumi.CustomResource {
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     */
+    public /*out*/ readonly endpointV2!: pulumi.Output<string>;
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
      * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
@@ -435,12 +447,15 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             resourceInputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
             resourceInputs["dashboardEndpoint"] = state ? state.dashboardEndpoint : undefined;
+            resourceInputs["dashboardEndpointV2"] = state ? state.dashboardEndpointV2 : undefined;
             resourceInputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
+            resourceInputs["domainEndpointV2HostedZoneId"] = state ? state.domainEndpointV2HostedZoneId : undefined;
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["ebsOptions"] = state ? state.ebsOptions : undefined;
             resourceInputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["endpointV2"] = state ? state.endpointV2 : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
@@ -475,8 +490,11 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
+            resourceInputs["dashboardEndpointV2"] = undefined /*out*/;
+            resourceInputs["domainEndpointV2HostedZoneId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["endpointV2"] = undefined /*out*/;
             resourceInputs["kibanaEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -522,9 +540,17 @@ export interface DomainState {
      */
     dashboardEndpoint?: pulumi.Input<string>;
     /**
+     * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+     */
+    dashboardEndpointV2?: pulumi.Input<string>;
+    /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      */
     domainEndpointOptions?: pulumi.Input<inputs.opensearch.DomainDomainEndpointOptions>;
+    /**
+     * Dual stack hosted zone ID for the domain.
+     */
+    domainEndpointV2HostedZoneId?: pulumi.Input<string>;
     /**
      * Unique identifier for the domain.
      */
@@ -547,6 +573,10 @@ export interface DomainState {
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     */
+    endpointV2?: pulumi.Input<string>;
     /**
      * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
      * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).

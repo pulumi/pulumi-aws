@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.TimestreamInfluxDB
 {
     /// <summary>
-    /// Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+    /// Resource for managing an Amazon Timestream for InfluxDB database instance.
     /// 
     /// ## Example Usage
     /// 

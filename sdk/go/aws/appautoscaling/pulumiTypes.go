@@ -2006,6 +2006,181 @@ func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+type TargetSuspendedState struct {
+	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+	DynamicScalingInSuspended *bool `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+	DynamicScalingOutSuspended *bool `pulumi:"dynamicScalingOutSuspended"`
+	// Whether scheduled scaling is suspended. Default is `false`.
+	ScheduledScalingSuspended *bool `pulumi:"scheduledScalingSuspended"`
+}
+
+// TargetSuspendedStateInput is an input type that accepts TargetSuspendedStateArgs and TargetSuspendedStateOutput values.
+// You can construct a concrete instance of `TargetSuspendedStateInput` via:
+//
+//	TargetSuspendedStateArgs{...}
+type TargetSuspendedStateInput interface {
+	pulumi.Input
+
+	ToTargetSuspendedStateOutput() TargetSuspendedStateOutput
+	ToTargetSuspendedStateOutputWithContext(context.Context) TargetSuspendedStateOutput
+}
+
+type TargetSuspendedStateArgs struct {
+	// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+	DynamicScalingInSuspended pulumi.BoolPtrInput `pulumi:"dynamicScalingInSuspended"`
+	// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+	DynamicScalingOutSuspended pulumi.BoolPtrInput `pulumi:"dynamicScalingOutSuspended"`
+	// Whether scheduled scaling is suspended. Default is `false`.
+	ScheduledScalingSuspended pulumi.BoolPtrInput `pulumi:"scheduledScalingSuspended"`
+}
+
+func (TargetSuspendedStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetSuspendedState)(nil)).Elem()
+}
+
+func (i TargetSuspendedStateArgs) ToTargetSuspendedStateOutput() TargetSuspendedStateOutput {
+	return i.ToTargetSuspendedStateOutputWithContext(context.Background())
+}
+
+func (i TargetSuspendedStateArgs) ToTargetSuspendedStateOutputWithContext(ctx context.Context) TargetSuspendedStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetSuspendedStateOutput)
+}
+
+func (i TargetSuspendedStateArgs) ToTargetSuspendedStatePtrOutput() TargetSuspendedStatePtrOutput {
+	return i.ToTargetSuspendedStatePtrOutputWithContext(context.Background())
+}
+
+func (i TargetSuspendedStateArgs) ToTargetSuspendedStatePtrOutputWithContext(ctx context.Context) TargetSuspendedStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetSuspendedStateOutput).ToTargetSuspendedStatePtrOutputWithContext(ctx)
+}
+
+// TargetSuspendedStatePtrInput is an input type that accepts TargetSuspendedStateArgs, TargetSuspendedStatePtr and TargetSuspendedStatePtrOutput values.
+// You can construct a concrete instance of `TargetSuspendedStatePtrInput` via:
+//
+//	        TargetSuspendedStateArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetSuspendedStatePtrInput interface {
+	pulumi.Input
+
+	ToTargetSuspendedStatePtrOutput() TargetSuspendedStatePtrOutput
+	ToTargetSuspendedStatePtrOutputWithContext(context.Context) TargetSuspendedStatePtrOutput
+}
+
+type targetSuspendedStatePtrType TargetSuspendedStateArgs
+
+func TargetSuspendedStatePtr(v *TargetSuspendedStateArgs) TargetSuspendedStatePtrInput {
+	return (*targetSuspendedStatePtrType)(v)
+}
+
+func (*targetSuspendedStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetSuspendedState)(nil)).Elem()
+}
+
+func (i *targetSuspendedStatePtrType) ToTargetSuspendedStatePtrOutput() TargetSuspendedStatePtrOutput {
+	return i.ToTargetSuspendedStatePtrOutputWithContext(context.Background())
+}
+
+func (i *targetSuspendedStatePtrType) ToTargetSuspendedStatePtrOutputWithContext(ctx context.Context) TargetSuspendedStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetSuspendedStatePtrOutput)
+}
+
+type TargetSuspendedStateOutput struct{ *pulumi.OutputState }
+
+func (TargetSuspendedStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetSuspendedState)(nil)).Elem()
+}
+
+func (o TargetSuspendedStateOutput) ToTargetSuspendedStateOutput() TargetSuspendedStateOutput {
+	return o
+}
+
+func (o TargetSuspendedStateOutput) ToTargetSuspendedStateOutputWithContext(ctx context.Context) TargetSuspendedStateOutput {
+	return o
+}
+
+func (o TargetSuspendedStateOutput) ToTargetSuspendedStatePtrOutput() TargetSuspendedStatePtrOutput {
+	return o.ToTargetSuspendedStatePtrOutputWithContext(context.Background())
+}
+
+func (o TargetSuspendedStateOutput) ToTargetSuspendedStatePtrOutputWithContext(ctx context.Context) TargetSuspendedStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetSuspendedState) *TargetSuspendedState {
+		return &v
+	}).(TargetSuspendedStatePtrOutput)
+}
+
+// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+func (o TargetSuspendedStateOutput) DynamicScalingInSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TargetSuspendedState) *bool { return v.DynamicScalingInSuspended }).(pulumi.BoolPtrOutput)
+}
+
+// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+func (o TargetSuspendedStateOutput) DynamicScalingOutSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TargetSuspendedState) *bool { return v.DynamicScalingOutSuspended }).(pulumi.BoolPtrOutput)
+}
+
+// Whether scheduled scaling is suspended. Default is `false`.
+func (o TargetSuspendedStateOutput) ScheduledScalingSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TargetSuspendedState) *bool { return v.ScheduledScalingSuspended }).(pulumi.BoolPtrOutput)
+}
+
+type TargetSuspendedStatePtrOutput struct{ *pulumi.OutputState }
+
+func (TargetSuspendedStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetSuspendedState)(nil)).Elem()
+}
+
+func (o TargetSuspendedStatePtrOutput) ToTargetSuspendedStatePtrOutput() TargetSuspendedStatePtrOutput {
+	return o
+}
+
+func (o TargetSuspendedStatePtrOutput) ToTargetSuspendedStatePtrOutputWithContext(ctx context.Context) TargetSuspendedStatePtrOutput {
+	return o
+}
+
+func (o TargetSuspendedStatePtrOutput) Elem() TargetSuspendedStateOutput {
+	return o.ApplyT(func(v *TargetSuspendedState) TargetSuspendedState {
+		if v != nil {
+			return *v
+		}
+		var ret TargetSuspendedState
+		return ret
+	}).(TargetSuspendedStateOutput)
+}
+
+// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+func (o TargetSuspendedStatePtrOutput) DynamicScalingInSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetSuspendedState) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicScalingInSuspended
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+func (o TargetSuspendedStatePtrOutput) DynamicScalingOutSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetSuspendedState) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicScalingOutSuspended
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether scheduled scaling is suspended. Default is `false`.
+func (o TargetSuspendedStatePtrOutput) ScheduledScalingSuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TargetSuspendedState) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledScalingSuspended
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationPtrInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationArgs{})
@@ -2029,6 +2204,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionPtrInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetSuspendedStateInput)(nil)).Elem(), TargetSuspendedStateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetSuspendedStatePtrInput)(nil)).Elem(), TargetSuspendedStateArgs{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationStepAdjustmentOutput{})
@@ -2051,4 +2228,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionScalableTargetActionOutput{})
 	pulumi.RegisterOutputType(ScheduledActionScalableTargetActionPtrOutput{})
+	pulumi.RegisterOutputType(TargetSuspendedStateOutput{})
+	pulumi.RegisterOutputType(TargetSuspendedStatePtrOutput{})
 }

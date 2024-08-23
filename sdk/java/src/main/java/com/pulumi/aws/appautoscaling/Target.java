@@ -6,6 +6,7 @@ package com.pulumi.aws.appautoscaling;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.appautoscaling.TargetArgs;
 import com.pulumi.aws.appautoscaling.inputs.TargetState;
+import com.pulumi.aws.appautoscaling.outputs.TargetSuspendedState;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -367,6 +368,20 @@ public class Target extends com.pulumi.resources.CustomResource {
      */
     public Output<String> serviceNamespace() {
         return this.serviceNamespace;
+    }
+    /**
+     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * 
+     */
+    @Export(name="suspendedState", refs={TargetSuspendedState.class}, tree="[0]")
+    private Output<TargetSuspendedState> suspendedState;
+
+    /**
+     * @return Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * 
+     */
+    public Output<TargetSuspendedState> suspendedState() {
+        return this.suspendedState;
     }
     /**
      * Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

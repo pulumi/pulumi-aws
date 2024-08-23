@@ -27,6 +27,7 @@ __all__ = [
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension',
     'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification',
     'ScheduledActionScalableTargetAction',
+    'TargetSuspendedState',
 ]
 
 @pulumi.output_type
@@ -762,5 +763,69 @@ class ScheduledActionScalableTargetAction(dict):
         Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         """
         return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class TargetSuspendedState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicScalingInSuspended":
+            suggest = "dynamic_scaling_in_suspended"
+        elif key == "dynamicScalingOutSuspended":
+            suggest = "dynamic_scaling_out_suspended"
+        elif key == "scheduledScalingSuspended":
+            suggest = "scheduled_scaling_suspended"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetSuspendedState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetSuspendedState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetSuspendedState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamic_scaling_in_suspended: Optional[bool] = None,
+                 dynamic_scaling_out_suspended: Optional[bool] = None,
+                 scheduled_scaling_suspended: Optional[bool] = None):
+        """
+        :param bool dynamic_scaling_in_suspended: Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        :param bool dynamic_scaling_out_suspended: Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        :param bool scheduled_scaling_suspended: Whether scheduled scaling is suspended. Default is `false`.
+        """
+        if dynamic_scaling_in_suspended is not None:
+            pulumi.set(__self__, "dynamic_scaling_in_suspended", dynamic_scaling_in_suspended)
+        if dynamic_scaling_out_suspended is not None:
+            pulumi.set(__self__, "dynamic_scaling_out_suspended", dynamic_scaling_out_suspended)
+        if scheduled_scaling_suspended is not None:
+            pulumi.set(__self__, "scheduled_scaling_suspended", scheduled_scaling_suspended)
+
+    @property
+    @pulumi.getter(name="dynamicScalingInSuspended")
+    def dynamic_scaling_in_suspended(self) -> Optional[bool]:
+        """
+        Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "dynamic_scaling_in_suspended")
+
+    @property
+    @pulumi.getter(name="dynamicScalingOutSuspended")
+    def dynamic_scaling_out_suspended(self) -> Optional[bool]:
+        """
+        Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "dynamic_scaling_out_suspended")
+
+    @property
+    @pulumi.getter(name="scheduledScalingSuspended")
+    def scheduled_scaling_suspended(self) -> Optional[bool]:
+        """
+        Whether scheduled scaling is suspended. Default is `false`.
+        """
+        return pulumi.get(self, "scheduled_scaling_suspended")
 
 

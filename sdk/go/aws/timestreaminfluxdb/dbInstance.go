@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+// Resource for managing an Amazon Timestream for InfluxDB database instance.
 //
 // ## Example Usage
 //
