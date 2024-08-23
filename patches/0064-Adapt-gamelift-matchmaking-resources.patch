@@ -244,7 +244,7 @@ index 0000000000..dc4c9b2230
 +	return defaultResolver.EndpointFor(service, region, opts...)
 +}
 diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
-index 4c4c37a182..034cf46c12 100644
+index 419903c359..293532bd59 100644
 --- a/names/data/names_data.hcl
 +++ b/names/data/names_data.hcl
 @@ -4146,7 +4146,7 @@ service "gamelift" {

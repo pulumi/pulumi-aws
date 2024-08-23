@@ -5,13 +5,13 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 27a5cb2552..573d25951e 100644
+index 3832c6d980..683d919582 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -236,6 +236,7 @@ import (
+@@ -240,6 +240,7 @@ import (
+ 	workspaces_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspaces"
  	workspacesweb_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspacesweb"
  	xray_sdkv2 "github.com/aws/aws-sdk-go-v2/service/xray"
- 	connect_sdkv1 "github.com/aws/aws-sdk-go/service/connect"
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
  	elasticsearchservice_sdkv1 "github.com/aws/aws-sdk-go/service/elasticsearchservice"
  	emr_sdkv1 "github.com/aws/aws-sdk-go/service/emr"

@@ -44,7 +44,7 @@ index 10307ebf61..642fd54cec 100644
  
  This resource supports the following arguments:
 diff --git a/website/docs/r/appautoscaling_target.html.markdown b/website/docs/r/appautoscaling_target.html.markdown
-index c8899c14fe..eec6f7ca46 100644
+index 18b00b2d4a..7acfb13f10 100644
 --- a/website/docs/r/appautoscaling_target.html.markdown
 +++ b/website/docs/r/appautoscaling_target.html.markdown
 @@ -82,6 +82,18 @@ resource "aws_appautoscaling_target" "ecs_target" {
