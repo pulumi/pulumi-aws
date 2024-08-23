@@ -3,7 +3,9 @@ name: run-upstream-tests
 description: |
   Run upstream tests against the patched version of the upstream (terraform-provider-aws) provider.
 
-  This job will run acceptance tests that do provision actual AWS resources.
+  This job will run acceptance tests that do provision actual AWS resources. See also:
+
+    ./upstream/docs/running-and-writing-acceptance-tests.md
 
   One notable problem is that tag-related tests do not currently pass for the patched provider, since the Pulumi bridged
   provider handles tagging at a higher level. These tests are currently skipped.
@@ -27,7 +29,9 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TF_APPEND_USER_AGENT: pulumi
 
-# This should cancel any previous runs of the same workflow on the same branch which are still running.
+# This should cancel any previous runs of the same workflow on the same branch which are still running. This exacerbates
+# the problem of leaked resources but results in better utilization of limited CI runner time in the case of rapid-fire
+# pushes, and currently is the preferred trade-off.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
