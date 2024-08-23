@@ -724,3 +724,12 @@ func TestRegress4011(t *testing.T) {
 	}
 	integration.ProgramTest(t, &test)
 }
+
+func TestServerlessAppRepositoryApplication(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
