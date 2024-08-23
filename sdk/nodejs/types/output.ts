@@ -1906,6 +1906,21 @@ export namespace appautoscaling {
         minCapacity?: number;
     }
 
+    export interface TargetSuspendedState {
+        /**
+         * Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+         */
+        dynamicScalingInSuspended?: boolean;
+        /**
+         * Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
+         */
+        dynamicScalingOutSuspended?: boolean;
+        /**
+         * Whether scheduled scaling is suspended. Default is `false`.
+         */
+        scheduledScalingSuspended?: boolean;
+    }
+
 }
 
 export namespace appconfig {
@@ -28161,7 +28176,7 @@ export namespace ec2 {
          */
         httpPutResponseHopLimit: number;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
          */
         httpTokens: string;
         /**
@@ -30595,7 +30610,7 @@ export namespace ec2 {
          */
         httpPutResponseHopLimit: number;
         /**
-         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
          */
         httpTokens: string;
         /**

@@ -349,12 +349,15 @@ class _DomainState:
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  dashboard_endpoint: Optional[pulumi.Input[str]] = None,
+                 dashboard_endpoint_v2: Optional[pulumi.Input[str]] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
+                 domain_endpoint_v2_hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  encrypt_at_rest: Optional[pulumi.Input['DomainEncryptAtRestArgs']] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 endpoint_v2: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  kibana_endpoint: Optional[pulumi.Input[str]] = None,
@@ -376,7 +379,9 @@ class _DomainState:
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
+        :param pulumi.Input[str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
@@ -384,6 +389,7 @@ class _DomainState:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
+        :param pulumi.Input[str] endpoint_v2: V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
@@ -414,8 +420,12 @@ class _DomainState:
             pulumi.set(__self__, "cognito_options", cognito_options)
         if dashboard_endpoint is not None:
             pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
+        if dashboard_endpoint_v2 is not None:
+            pulumi.set(__self__, "dashboard_endpoint_v2", dashboard_endpoint_v2)
         if domain_endpoint_options is not None:
             pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+        if domain_endpoint_v2_hosted_zone_id is not None:
+            pulumi.set(__self__, "domain_endpoint_v2_hosted_zone_id", domain_endpoint_v2_hosted_zone_id)
         if domain_id is not None:
             pulumi.set(__self__, "domain_id", domain_id)
         if domain_name is not None:
@@ -426,6 +436,8 @@ class _DomainState:
             pulumi.set(__self__, "encrypt_at_rest", encrypt_at_rest)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if endpoint_v2 is not None:
+            pulumi.set(__self__, "endpoint_v2", endpoint_v2)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if ip_address_type is not None:
@@ -552,6 +564,18 @@ class _DomainState:
         pulumi.set(self, "dashboard_endpoint", value)
 
     @property
+    @pulumi.getter(name="dashboardEndpointV2")
+    def dashboard_endpoint_v2(self) -> Optional[pulumi.Input[str]]:
+        """
+        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        """
+        return pulumi.get(self, "dashboard_endpoint_v2")
+
+    @dashboard_endpoint_v2.setter
+    def dashboard_endpoint_v2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_endpoint_v2", value)
+
+    @property
     @pulumi.getter(name="domainEndpointOptions")
     def domain_endpoint_options(self) -> Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]:
         """
@@ -562,6 +586,18 @@ class _DomainState:
     @domain_endpoint_options.setter
     def domain_endpoint_options(self, value: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']]):
         pulumi.set(self, "domain_endpoint_options", value)
+
+    @property
+    @pulumi.getter(name="domainEndpointV2HostedZoneId")
+    def domain_endpoint_v2_hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dual stack hosted zone ID for the domain.
+        """
+        return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
+
+    @domain_endpoint_v2_hosted_zone_id.setter
+    def domain_endpoint_v2_hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_endpoint_v2_hosted_zone_id", value)
 
     @property
     @pulumi.getter(name="domainId")
@@ -624,6 +660,18 @@ class _DomainState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="endpointV2")
+    def endpoint_v2(self) -> Optional[pulumi.Input[str]]:
+        """
+        V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        """
+        return pulumi.get(self, "endpoint_v2")
+
+    @endpoint_v2.setter
+    def endpoint_v2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_v2", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -1395,8 +1443,11 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["dashboard_endpoint"] = None
+            __props__.__dict__["dashboard_endpoint_v2"] = None
+            __props__.__dict__["domain_endpoint_v2_hosted_zone_id"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["endpoint_v2"] = None
             __props__.__dict__["kibana_endpoint"] = None
             __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
@@ -1417,12 +1468,15 @@ class Domain(pulumi.CustomResource):
             cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
             cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
             dashboard_endpoint: Optional[pulumi.Input[str]] = None,
+            dashboard_endpoint_v2: Optional[pulumi.Input[str]] = None,
             domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
+            domain_endpoint_v2_hosted_zone_id: Optional[pulumi.Input[str]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
             encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            endpoint_v2: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             kibana_endpoint: Optional[pulumi.Input[str]] = None,
@@ -1449,7 +1503,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
+        :param pulumi.Input[str] dashboard_endpoint_v2: V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
         :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[str] domain_endpoint_v2_hosted_zone_id: Dual stack hosted zone ID for the domain.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
@@ -1457,6 +1513,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
+        :param pulumi.Input[str] endpoint_v2: V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
@@ -1483,12 +1540,15 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["cluster_config"] = cluster_config
         __props__.__dict__["cognito_options"] = cognito_options
         __props__.__dict__["dashboard_endpoint"] = dashboard_endpoint
+        __props__.__dict__["dashboard_endpoint_v2"] = dashboard_endpoint_v2
         __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
+        __props__.__dict__["domain_endpoint_v2_hosted_zone_id"] = domain_endpoint_v2_hosted_zone_id
         __props__.__dict__["domain_id"] = domain_id
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["ebs_options"] = ebs_options
         __props__.__dict__["encrypt_at_rest"] = encrypt_at_rest
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["endpoint_v2"] = endpoint_v2
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["kibana_endpoint"] = kibana_endpoint
@@ -1567,12 +1627,28 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "dashboard_endpoint")
 
     @property
+    @pulumi.getter(name="dashboardEndpointV2")
+    def dashboard_endpoint_v2(self) -> pulumi.Output[str]:
+        """
+        V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        """
+        return pulumi.get(self, "dashboard_endpoint_v2")
+
+    @property
     @pulumi.getter(name="domainEndpointOptions")
     def domain_endpoint_options(self) -> pulumi.Output['outputs.DomainDomainEndpointOptions']:
         """
         Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         """
         return pulumi.get(self, "domain_endpoint_options")
+
+    @property
+    @pulumi.getter(name="domainEndpointV2HostedZoneId")
+    def domain_endpoint_v2_hosted_zone_id(self) -> pulumi.Output[str]:
+        """
+        Dual stack hosted zone ID for the domain.
+        """
+        return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
 
     @property
     @pulumi.getter(name="domainId")
@@ -1615,6 +1691,14 @@ class Domain(pulumi.CustomResource):
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointV2")
+    def endpoint_v2(self) -> pulumi.Output[str]:
+        """
+        V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        """
+        return pulumi.get(self, "endpoint_v2")
 
     @property
     @pulumi.getter(name="engineVersion")

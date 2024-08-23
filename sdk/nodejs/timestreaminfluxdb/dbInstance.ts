@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+ * Resource for managing an Amazon Timestream for InfluxDB database instance.
  *
  * ## Example Usage
  *

@@ -476,6 +476,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restoreSourceName);
     }
     /**
+     * ARN of the source table to restore. Must be supplied for cross-region restores.
+     * 
+     */
+    @Export(name="restoreSourceTableArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> restoreSourceTableArn;
+
+    /**
+     * @return ARN of the source table to restore. Must be supplied for cross-region restores.
+     * 
+     */
+    public Output<Optional<String>> restoreSourceTableArn() {
+        return Codegen.optional(this.restoreSourceTableArn);
+    }
+    /**
      * If set, restores table to the most recent point-in-time recovery point.
      * 
      */
@@ -490,14 +504,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restoreToLatestTime);
     }
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
     @Export(name="serverSideEncryption", refs={TableServerSideEncryption.class}, tree="[0]")
     private Output<TableServerSideEncryption> serverSideEncryption;
 
     /**
-     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
     public Output<TableServerSideEncryption> serverSideEncryption() {

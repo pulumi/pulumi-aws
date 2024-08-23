@@ -90,9 +90,17 @@ export interface GetDomainResult {
      */
     readonly dashboardEndpoint: string;
     /**
+     * V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+     */
+    readonly dashboardEndpointV2: string;
+    /**
      * Status of the deletion of the domain.
      */
     readonly deleted: boolean;
+    /**
+     * Dual stack hosted zone ID for the domain.
+     */
+    readonly domainEndpointV2HostedZoneId: string;
     /**
      * Unique identifier for the domain.
      */
@@ -110,6 +118,10 @@ export interface GetDomainResult {
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      */
     readonly endpoint: string;
+    /**
+     * V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+     */
+    readonly endpointV2: string;
     /**
      * OpenSearch version for the domain.
      */

@@ -28,7 +28,7 @@ public final class SpotInstanceRequestMetadataOptions {
      */
     private @Nullable Integer httpPutResponseHopLimit;
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
      * 
      */
     private @Nullable String httpTokens;
@@ -63,7 +63,7 @@ public final class SpotInstanceRequestMetadataOptions {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
      * 
      */
     public Optional<String> httpTokens() {

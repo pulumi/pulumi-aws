@@ -257,6 +257,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the source table to restore. Must be supplied for cross-region restores.
+     * 
+     */
+    @Import(name="restoreSourceTableArn")
+    private @Nullable Output<String> restoreSourceTableArn;
+
+    /**
+     * @return ARN of the source table to restore. Must be supplied for cross-region restores.
+     * 
+     */
+    public Optional<Output<String>> restoreSourceTableArn() {
+        return Optional.ofNullable(this.restoreSourceTableArn);
+    }
+
+    /**
      * If set, restores table to the most recent point-in-time recovery point.
      * 
      */
@@ -272,14 +287,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<TableServerSideEncryptionArgs> serverSideEncryption;
 
     /**
-     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
     public Optional<Output<TableServerSideEncryptionArgs>> serverSideEncryption() {
@@ -451,6 +466,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.replicas = $.replicas;
         this.restoreDateTime = $.restoreDateTime;
         this.restoreSourceName = $.restoreSourceName;
+        this.restoreSourceTableArn = $.restoreSourceTableArn;
         this.restoreToLatestTime = $.restoreToLatestTime;
         this.serverSideEncryption = $.serverSideEncryption;
         this.streamArn = $.streamArn;
@@ -842,6 +858,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param restoreSourceTableArn ARN of the source table to restore. Must be supplied for cross-region restores.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreSourceTableArn(@Nullable Output<String> restoreSourceTableArn) {
+            $.restoreSourceTableArn = restoreSourceTableArn;
+            return this;
+        }
+
+        /**
+         * @param restoreSourceTableArn ARN of the source table to restore. Must be supplied for cross-region restores.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreSourceTableArn(String restoreSourceTableArn) {
+            return restoreSourceTableArn(Output.of(restoreSourceTableArn));
+        }
+
+        /**
          * @param restoreToLatestTime If set, restores table to the most recent point-in-time recovery point.
          * 
          * @return builder
@@ -863,7 +900,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
          * 
          * @return builder
          * 
@@ -874,7 +911,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
+         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
          * 
          * @return builder
          * 

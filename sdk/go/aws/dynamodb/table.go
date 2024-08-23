@@ -267,9 +267,11 @@ type Table struct {
 	RestoreDateTime pulumi.StringPtrOutput `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
 	RestoreSourceName pulumi.StringPtrOutput `pulumi:"restoreSourceName"`
+	// ARN of the source table to restore. Must be supplied for cross-region restores.
+	RestoreSourceTableArn pulumi.StringPtrOutput `pulumi:"restoreSourceTableArn"`
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime pulumi.BoolPtrOutput `pulumi:"restoreToLatestTime"`
-	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 	ServerSideEncryption TableServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
 	// ARN of the Table Stream. Only available when `streamEnabled = true`
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
@@ -357,9 +359,11 @@ type tableState struct {
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
 	RestoreSourceName *string `pulumi:"restoreSourceName"`
+	// ARN of the source table to restore. Must be supplied for cross-region restores.
+	RestoreSourceTableArn *string `pulumi:"restoreSourceTableArn"`
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime *bool `pulumi:"restoreToLatestTime"`
-	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// ARN of the Table Stream. Only available when `streamEnabled = true`
 	StreamArn *string `pulumi:"streamArn"`
@@ -418,9 +422,11 @@ type TableState struct {
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
 	RestoreSourceName pulumi.StringPtrInput
+	// ARN of the source table to restore. Must be supplied for cross-region restores.
+	RestoreSourceTableArn pulumi.StringPtrInput
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime pulumi.BoolPtrInput
-	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// ARN of the Table Stream. Only available when `streamEnabled = true`
 	StreamArn pulumi.StringPtrInput
@@ -481,9 +487,11 @@ type tableArgs struct {
 	RestoreDateTime *string `pulumi:"restoreDateTime"`
 	// Name of the table to restore. Must match the name of an existing table.
 	RestoreSourceName *string `pulumi:"restoreSourceName"`
+	// ARN of the source table to restore. Must be supplied for cross-region restores.
+	RestoreSourceTableArn *string `pulumi:"restoreSourceTableArn"`
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime *bool `pulumi:"restoreToLatestTime"`
-	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Whether Streams are enabled.
 	StreamEnabled *bool `pulumi:"streamEnabled"`
@@ -533,9 +541,11 @@ type TableArgs struct {
 	RestoreDateTime pulumi.StringPtrInput
 	// Name of the table to restore. Must match the name of an existing table.
 	RestoreSourceName pulumi.StringPtrInput
+	// ARN of the source table to restore. Must be supplied for cross-region restores.
+	RestoreSourceTableArn pulumi.StringPtrInput
 	// If set, restores table to the most recent point-in-time recovery point.
 	RestoreToLatestTime pulumi.BoolPtrInput
-	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// Whether Streams are enabled.
 	StreamEnabled pulumi.BoolPtrInput
@@ -717,12 +727,17 @@ func (o TableOutput) RestoreSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.RestoreSourceName }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the source table to restore. Must be supplied for cross-region restores.
+func (o TableOutput) RestoreSourceTableArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.RestoreSourceTableArn }).(pulumi.StringPtrOutput)
+}
+
 // If set, restores table to the most recent point-in-time recovery point.
 func (o TableOutput) RestoreToLatestTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.RestoreToLatestTime }).(pulumi.BoolPtrOutput)
 }
 
-// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
 func (o TableOutput) ServerSideEncryption() TableServerSideEncryptionOutput {
 	return o.ApplyT(func(v *Table) TableServerSideEncryptionOutput { return v.ServerSideEncryption }).(TableServerSideEncryptionOutput)
 }

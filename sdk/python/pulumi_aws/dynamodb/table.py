@@ -35,6 +35,7 @@ class TableArgs:
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[str]] = None,
                  restore_source_name: Optional[pulumi.Input[str]] = None,
+                 restore_source_table_arn: Optional[pulumi.Input[str]] = None,
                  restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
                  server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
@@ -61,8 +62,9 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table.
@@ -100,6 +102,8 @@ class TableArgs:
             pulumi.set(__self__, "restore_date_time", restore_date_time)
         if restore_source_name is not None:
             pulumi.set(__self__, "restore_source_name", restore_source_name)
+        if restore_source_table_arn is not None:
+            pulumi.set(__self__, "restore_source_table_arn", restore_source_table_arn)
         if restore_to_latest_time is not None:
             pulumi.set(__self__, "restore_to_latest_time", restore_to_latest_time)
         if server_side_encryption is not None:
@@ -288,6 +292,18 @@ class TableArgs:
         pulumi.set(self, "restore_source_name", value)
 
     @property
+    @pulumi.getter(name="restoreSourceTableArn")
+    def restore_source_table_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the source table to restore. Must be supplied for cross-region restores.
+        """
+        return pulumi.get(self, "restore_source_table_arn")
+
+    @restore_source_table_arn.setter
+    def restore_source_table_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source_table_arn", value)
+
+    @property
     @pulumi.getter(name="restoreToLatestTime")
     def restore_to_latest_time(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -303,7 +319,7 @@ class TableArgs:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -404,6 +420,7 @@ class _TableState:
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[str]] = None,
                  restore_source_name: Optional[pulumi.Input[str]] = None,
+                 restore_source_table_arn: Optional[pulumi.Input[str]] = None,
                  restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
                  server_side_encryption: Optional[pulumi.Input['TableServerSideEncryptionArgs']] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None,
@@ -434,8 +451,9 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
@@ -478,6 +496,8 @@ class _TableState:
             pulumi.set(__self__, "restore_date_time", restore_date_time)
         if restore_source_name is not None:
             pulumi.set(__self__, "restore_source_name", restore_source_name)
+        if restore_source_table_arn is not None:
+            pulumi.set(__self__, "restore_source_table_arn", restore_source_table_arn)
         if restore_to_latest_time is not None:
             pulumi.set(__self__, "restore_to_latest_time", restore_to_latest_time)
         if server_side_encryption is not None:
@@ -687,6 +707,18 @@ class _TableState:
         pulumi.set(self, "restore_source_name", value)
 
     @property
+    @pulumi.getter(name="restoreSourceTableArn")
+    def restore_source_table_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the source table to restore. Must be supplied for cross-region restores.
+        """
+        return pulumi.get(self, "restore_source_table_arn")
+
+    @restore_source_table_arn.setter
+    def restore_source_table_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source_table_arn", value)
+
+    @property
     @pulumi.getter(name="restoreToLatestTime")
     def restore_to_latest_time(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -702,7 +734,7 @@ class _TableState:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -841,6 +873,7 @@ class Table(pulumi.CustomResource):
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[str]] = None,
                  restore_source_name: Optional[pulumi.Input[str]] = None,
+                 restore_source_table_arn: Optional[pulumi.Input[str]] = None,
                  restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']]] = None,
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1015,8 +1048,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[str] table_class: Storage class of the table.
@@ -1208,6 +1242,7 @@ class Table(pulumi.CustomResource):
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[str]] = None,
                  restore_source_name: Optional[pulumi.Input[str]] = None,
+                 restore_source_table_arn: Optional[pulumi.Input[str]] = None,
                  restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']]] = None,
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1239,6 +1274,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["replicas"] = replicas
             __props__.__dict__["restore_date_time"] = restore_date_time
             __props__.__dict__["restore_source_name"] = restore_source_name
+            __props__.__dict__["restore_source_table_arn"] = restore_source_table_arn
             __props__.__dict__["restore_to_latest_time"] = restore_to_latest_time
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["stream_enabled"] = stream_enabled
@@ -1276,6 +1312,7 @@ class Table(pulumi.CustomResource):
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
             restore_date_time: Optional[pulumi.Input[str]] = None,
             restore_source_name: Optional[pulumi.Input[str]] = None,
+            restore_source_table_arn: Optional[pulumi.Input[str]] = None,
             restore_to_latest_time: Optional[pulumi.Input[bool]] = None,
             server_side_encryption: Optional[pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']]] = None,
             stream_arn: Optional[pulumi.Input[str]] = None,
@@ -1311,8 +1348,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[str] restore_source_table_arn: ARN of the source table to restore. Must be supplied for cross-region restores.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
@@ -1344,6 +1382,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["restore_date_time"] = restore_date_time
         __props__.__dict__["restore_source_name"] = restore_source_name
+        __props__.__dict__["restore_source_table_arn"] = restore_source_table_arn
         __props__.__dict__["restore_to_latest_time"] = restore_to_latest_time
         __props__.__dict__["server_side_encryption"] = server_side_encryption
         __props__.__dict__["stream_arn"] = stream_arn
@@ -1480,6 +1519,14 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "restore_source_name")
 
     @property
+    @pulumi.getter(name="restoreSourceTableArn")
+    def restore_source_table_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the source table to restore. Must be supplied for cross-region restores.
+        """
+        return pulumi.get(self, "restore_source_table_arn")
+
+    @property
     @pulumi.getter(name="restoreToLatestTime")
     def restore_to_latest_time(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1491,7 +1538,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Output['outputs.TableServerSideEncryption']:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 

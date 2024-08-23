@@ -505,10 +505,22 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> DashboardEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        /// </summary>
+        [Output("dashboardEndpointV2")]
+        public Output<string> DashboardEndpointV2 { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Output("domainEndpointOptions")]
         public Output<Outputs.DomainDomainEndpointOptions> DomainEndpointOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Dual stack hosted zone ID for the domain.
+        /// </summary>
+        [Output("domainEndpointV2HostedZoneId")]
+        public Output<string> DomainEndpointV2HostedZoneId { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for the domain.
@@ -541,6 +553,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        /// </summary>
+        [Output("endpointV2")]
+        public Output<string> EndpointV2 { get; private set; } = null!;
 
         /// <summary>
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
@@ -855,10 +873,22 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? DashboardEndpoint { get; set; }
 
         /// <summary>
+        /// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+        /// </summary>
+        [Input("dashboardEndpointV2")]
+        public Input<string>? DashboardEndpointV2 { get; set; }
+
+        /// <summary>
         /// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         /// </summary>
         [Input("domainEndpointOptions")]
         public Input<Inputs.DomainDomainEndpointOptionsGetArgs>? DomainEndpointOptions { get; set; }
+
+        /// <summary>
+        /// Dual stack hosted zone ID for the domain.
+        /// </summary>
+        [Input("domainEndpointV2HostedZoneId")]
+        public Input<string>? DomainEndpointV2HostedZoneId { get; set; }
 
         /// <summary>
         /// Unique identifier for the domain.
@@ -891,6 +921,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        /// </summary>
+        [Input("endpointV2")]
+        public Input<string>? EndpointV2 { get; set; }
 
         /// <summary>
         /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.

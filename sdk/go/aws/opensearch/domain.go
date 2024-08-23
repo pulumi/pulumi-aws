@@ -494,8 +494,12 @@ type Domain struct {
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
 	// Domain-specific endpoint for Dashboard without https scheme.
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	DashboardEndpointV2 pulumi.StringOutput `pulumi:"dashboardEndpointV2"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsOutput `pulumi:"domainEndpointOptions"`
+	// Dual stack hosted zone ID for the domain.
+	DomainEndpointV2HostedZoneId pulumi.StringOutput `pulumi:"domainEndpointV2HostedZoneId"`
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
@@ -508,6 +512,8 @@ type Domain struct {
 	EncryptAtRest DomainEncryptAtRestOutput `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+	EndpointV2 pulumi.StringOutput `pulumi:"endpointV2"`
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
@@ -584,8 +590,12 @@ type domainState struct {
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
 	// Domain-specific endpoint for Dashboard without https scheme.
 	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	DashboardEndpointV2 *string `pulumi:"dashboardEndpointV2"`
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
+	// Dual stack hosted zone ID for the domain.
+	DomainEndpointV2HostedZoneId *string `pulumi:"domainEndpointV2HostedZoneId"`
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
@@ -598,6 +608,8 @@ type domainState struct {
 	EncryptAtRest *DomainEncryptAtRest `pulumi:"encryptAtRest"`
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint *string `pulumi:"endpoint"`
+	// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+	EndpointV2 *string `pulumi:"endpointV2"`
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
@@ -645,8 +657,12 @@ type DomainState struct {
 	CognitoOptions DomainCognitoOptionsPtrInput
 	// Domain-specific endpoint for Dashboard without https scheme.
 	DashboardEndpoint pulumi.StringPtrInput
+	// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+	DashboardEndpointV2 pulumi.StringPtrInput
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
+	// Dual stack hosted zone ID for the domain.
+	DomainEndpointV2HostedZoneId pulumi.StringPtrInput
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
@@ -659,6 +675,8 @@ type DomainState struct {
 	EncryptAtRest DomainEncryptAtRestPtrInput
 	// Domain-specific endpoint used to submit index, search, and data upload requests.
 	Endpoint pulumi.StringPtrInput
+	// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+	EndpointV2 pulumi.StringPtrInput
 	// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
@@ -911,9 +929,19 @@ func (o DomainOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
 
+// V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
+func (o DomainOutput) DashboardEndpointV2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DashboardEndpointV2 }).(pulumi.StringOutput)
+}
+
 // Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 func (o DomainOutput) DomainEndpointOptions() DomainDomainEndpointOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainDomainEndpointOptionsOutput { return v.DomainEndpointOptions }).(DomainDomainEndpointOptionsOutput)
+}
+
+// Dual stack hosted zone ID for the domain.
+func (o DomainOutput) DomainEndpointV2HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainEndpointV2HostedZoneId }).(pulumi.StringOutput)
 }
 
 // Unique identifier for the domain.
@@ -941,6 +969,11 @@ func (o DomainOutput) EncryptAtRest() DomainEncryptAtRestOutput {
 // Domain-specific endpoint used to submit index, search, and data upload requests.
 func (o DomainOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+func (o DomainOutput) EndpointV2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EndpointV2 }).(pulumi.StringOutput)
 }
 
 // Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.

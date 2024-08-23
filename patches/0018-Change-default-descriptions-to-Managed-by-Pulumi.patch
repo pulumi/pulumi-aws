@@ -161,10 +161,10 @@ index c4c6f7c64b..df3d2d3544 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index e87f859edf..23da80a091 100644
+index aa63ef7b8a..0aa99d67b0 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
-@@ -48,7 +48,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func resourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -174,10 +174,10 @@ index e87f859edf..23da80a091 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 1850017051..963b73dbbd 100644
+index 0c8e05589a..16d3c419ce 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
-@@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -55,7 +55,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -187,10 +187,10 @@ index 1850017051..963b73dbbd 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
-index fc60010e7d..0b213b1bf7 100644
+index 1d97895eea..45e74ae9ce 100644
 --- a/internal/service/neptune/subnet_group.go
 +++ b/internal/service/neptune/subnet_group.go
-@@ -44,7 +44,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -45,7 +45,7 @@ func resourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,

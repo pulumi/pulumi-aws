@@ -62,14 +62,14 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
      * 
      */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
      * 
      */
     public Optional<Output<String>> httpTokens() {
@@ -187,7 +187,7 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`.
          * 
          * @return builder
          * 

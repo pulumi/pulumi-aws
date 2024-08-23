@@ -204,6 +204,12 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ServiceNamespace { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// </summary>
+        [Output("suspendedState")]
+        public Output<Outputs.TargetSuspendedState> SuspendedState { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -297,6 +303,12 @@ namespace Pulumi.Aws.AppAutoScaling
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// </summary>
+        [Input("suspendedState")]
+        public Input<Inputs.TargetSuspendedStateArgs>? SuspendedState { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -358,6 +370,12 @@ namespace Pulumi.Aws.AppAutoScaling
         /// </summary>
         [Input("serviceNamespace")]
         public Input<string>? ServiceNamespace { get; set; }
+
+        /// <summary>
+        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// </summary>
+        [Input("suspendedState")]
+        public Input<Inputs.TargetSuspendedStateGetArgs>? SuspendedState { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

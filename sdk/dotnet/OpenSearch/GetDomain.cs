@@ -166,9 +166,17 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string DashboardEndpoint;
         /// <summary>
+        /// V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+        /// </summary>
+        public readonly string DashboardEndpointV2;
+        /// <summary>
         /// Status of the deletion of the domain.
         /// </summary>
         public readonly bool Deleted;
+        /// <summary>
+        /// Dual stack hosted zone ID for the domain.
+        /// </summary>
+        public readonly string DomainEndpointV2HostedZoneId;
         /// <summary>
         /// Unique identifier for the domain.
         /// </summary>
@@ -186,6 +194,10 @@ namespace Pulumi.Aws.OpenSearch
         /// Domain-specific endpoint used to submit index, search, and data upload requests.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        /// </summary>
+        public readonly string EndpointV2;
         /// <summary>
         /// OpenSearch version for the domain.
         /// </summary>
@@ -255,7 +267,11 @@ namespace Pulumi.Aws.OpenSearch
 
             string dashboardEndpoint,
 
+            string dashboardEndpointV2,
+
             bool deleted,
+
+            string domainEndpointV2HostedZoneId,
 
             string domainId,
 
@@ -266,6 +282,8 @@ namespace Pulumi.Aws.OpenSearch
             ImmutableArray<Outputs.GetDomainEncryptionAtRestResult> encryptionAtRests,
 
             string endpoint,
+
+            string endpointV2,
 
             string engineVersion,
 
@@ -300,12 +318,15 @@ namespace Pulumi.Aws.OpenSearch
             CognitoOptions = cognitoOptions;
             Created = created;
             DashboardEndpoint = dashboardEndpoint;
+            DashboardEndpointV2 = dashboardEndpointV2;
             Deleted = deleted;
+            DomainEndpointV2HostedZoneId = domainEndpointV2HostedZoneId;
             DomainId = domainId;
             DomainName = domainName;
             EbsOptions = ebsOptions;
             EncryptionAtRests = encryptionAtRests;
             Endpoint = endpoint;
+            EndpointV2 = endpointV2;
             EngineVersion = engineVersion;
             Id = id;
             IpAddressType = ipAddressType;

@@ -251,11 +251,15 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly restoreSourceName!: pulumi.Output<string | undefined>;
     /**
+     * ARN of the source table to restore. Must be supplied for cross-region restores.
+     */
+    public readonly restoreSourceTableArn!: pulumi.Output<string | undefined>;
+    /**
      * If set, restores table to the most recent point-in-time recovery point.
      */
     public readonly restoreToLatestTime!: pulumi.Output<boolean | undefined>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
     /**
@@ -327,6 +331,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["replicas"] = state ? state.replicas : undefined;
             resourceInputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
+            resourceInputs["restoreSourceTableArn"] = state ? state.restoreSourceTableArn : undefined;
             resourceInputs["restoreToLatestTime"] = state ? state.restoreToLatestTime : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["streamArn"] = state ? state.streamArn : undefined;
@@ -354,6 +359,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
+            resourceInputs["restoreSourceTableArn"] = args ? args.restoreSourceTableArn : undefined;
             resourceInputs["restoreToLatestTime"] = args ? args.restoreToLatestTime : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["streamEnabled"] = args ? args.streamEnabled : undefined;
@@ -439,11 +445,15 @@ export interface TableState {
      */
     restoreSourceName?: pulumi.Input<string>;
     /**
+     * ARN of the source table to restore. Must be supplied for cross-region restores.
+     */
+    restoreSourceTableArn?: pulumi.Input<string>;
+    /**
      * If set, restores table to the most recent point-in-time recovery point.
      */
     restoreToLatestTime?: pulumi.Input<boolean>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
      */
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
     /**
@@ -551,11 +561,15 @@ export interface TableArgs {
      */
     restoreSourceName?: pulumi.Input<string>;
     /**
+     * ARN of the source table to restore. Must be supplied for cross-region restores.
+     */
+    restoreSourceTableArn?: pulumi.Input<string>;
+    /**
      * If set, restores table to the most recent point-in-time recovery point.
      */
     restoreToLatestTime?: pulumi.Input<boolean>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
      */
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
     /**

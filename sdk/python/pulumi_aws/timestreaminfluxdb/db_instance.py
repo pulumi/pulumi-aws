@@ -661,7 +661,7 @@ class DbInstance(pulumi.CustomResource):
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+        Resource for managing an Amazon Timestream for InfluxDB database instance.
 
         ## Example Usage
 
@@ -815,7 +815,7 @@ class DbInstance(pulumi.CustomResource):
                  args: DbInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon Timestream for InfluxDB Db Instance.
+        Resource for managing an Amazon Timestream for InfluxDB database instance.
 
         ## Example Usage
 

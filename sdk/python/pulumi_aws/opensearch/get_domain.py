@@ -28,7 +28,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, ip_address_type=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -56,9 +56,15 @@ class GetDomainResult:
         if dashboard_endpoint and not isinstance(dashboard_endpoint, str):
             raise TypeError("Expected argument 'dashboard_endpoint' to be a str")
         pulumi.set(__self__, "dashboard_endpoint", dashboard_endpoint)
+        if dashboard_endpoint_v2 and not isinstance(dashboard_endpoint_v2, str):
+            raise TypeError("Expected argument 'dashboard_endpoint_v2' to be a str")
+        pulumi.set(__self__, "dashboard_endpoint_v2", dashboard_endpoint_v2)
         if deleted and not isinstance(deleted, bool):
             raise TypeError("Expected argument 'deleted' to be a bool")
         pulumi.set(__self__, "deleted", deleted)
+        if domain_endpoint_v2_hosted_zone_id and not isinstance(domain_endpoint_v2_hosted_zone_id, str):
+            raise TypeError("Expected argument 'domain_endpoint_v2_hosted_zone_id' to be a str")
+        pulumi.set(__self__, "domain_endpoint_v2_hosted_zone_id", domain_endpoint_v2_hosted_zone_id)
         if domain_id and not isinstance(domain_id, str):
             raise TypeError("Expected argument 'domain_id' to be a str")
         pulumi.set(__self__, "domain_id", domain_id)
@@ -74,6 +80,9 @@ class GetDomainResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if endpoint_v2 and not isinstance(endpoint_v2, str):
+            raise TypeError("Expected argument 'endpoint_v2' to be a str")
+        pulumi.set(__self__, "endpoint_v2", endpoint_v2)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -184,12 +193,28 @@ class GetDomainResult:
         return pulumi.get(self, "dashboard_endpoint")
 
     @property
+    @pulumi.getter(name="dashboardEndpointV2")
+    def dashboard_endpoint_v2(self) -> str:
+        """
+        V2 domain-specific endpoint used to access the [Dashboard application](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html)
+        """
+        return pulumi.get(self, "dashboard_endpoint_v2")
+
+    @property
     @pulumi.getter
     def deleted(self) -> bool:
         """
         Status of the deletion of the domain.
         """
         return pulumi.get(self, "deleted")
+
+    @property
+    @pulumi.getter(name="domainEndpointV2HostedZoneId")
+    def domain_endpoint_v2_hosted_zone_id(self) -> str:
+        """
+        Dual stack hosted zone ID for the domain.
+        """
+        return pulumi.get(self, "domain_endpoint_v2_hosted_zone_id")
 
     @property
     @pulumi.getter(name="domainId")
@@ -227,6 +252,14 @@ class GetDomainResult:
         Domain-specific endpoint used to submit index, search, and data upload requests.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="endpointV2")
+    def endpoint_v2(self) -> str:
+        """
+        V2 domain-specific endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
+        """
+        return pulumi.get(self, "endpoint_v2")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -341,12 +374,15 @@ class AwaitableGetDomainResult(GetDomainResult):
             cognito_options=self.cognito_options,
             created=self.created,
             dashboard_endpoint=self.dashboard_endpoint,
+            dashboard_endpoint_v2=self.dashboard_endpoint_v2,
             deleted=self.deleted,
+            domain_endpoint_v2_hosted_zone_id=self.domain_endpoint_v2_hosted_zone_id,
             domain_id=self.domain_id,
             domain_name=self.domain_name,
             ebs_options=self.ebs_options,
             encryption_at_rests=self.encryption_at_rests,
             endpoint=self.endpoint,
+            endpoint_v2=self.endpoint_v2,
             engine_version=self.engine_version,
             id=self.id,
             ip_address_type=self.ip_address_type,
@@ -399,12 +435,15 @@ def get_domain(domain_name: Optional[str] = None,
         cognito_options=pulumi.get(__ret__, 'cognito_options'),
         created=pulumi.get(__ret__, 'created'),
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
+        dashboard_endpoint_v2=pulumi.get(__ret__, 'dashboard_endpoint_v2'),
         deleted=pulumi.get(__ret__, 'deleted'),
+        domain_endpoint_v2_hosted_zone_id=pulumi.get(__ret__, 'domain_endpoint_v2_hosted_zone_id'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         ebs_options=pulumi.get(__ret__, 'ebs_options'),
         encryption_at_rests=pulumi.get(__ret__, 'encryption_at_rests'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        endpoint_v2=pulumi.get(__ret__, 'endpoint_v2'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
