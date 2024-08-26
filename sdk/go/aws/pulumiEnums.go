@@ -25,10 +25,9 @@ const (
 	RegionAPSoutheast2 = Region("ap-southeast-2")
 	RegionAPSoutheast3 = Region("ap-southeast-3")
 	RegionAPSoutheast4 = Region("ap-southeast-4")
+	RegionAPSoutheast5 = Region("ap-southeast-5")
 	RegionCACentral    = Region("ca-central-1")
 	RegionCAWest1      = Region("ca-west-1")
-	RegionCNNorth1     = Region("cn-north-1")
-	RegionCNNorthwest1 = Region("cn-northwest-1")
 	RegionEUCentral1   = Region("eu-central-1")
 	RegionEUCentral2   = Region("eu-central-2")
 	RegionEUNorth1     = Region("eu-north-1")
@@ -37,15 +36,22 @@ const (
 	RegionEUWest1      = Region("eu-west-1")
 	RegionEUWest2      = Region("eu-west-2")
 	RegionEUWest3      = Region("eu-west-3")
+	RegionILCentral1   = Region("il-central-1")
 	RegionMECentral1   = Region("me-central-1")
 	RegionMESouth1     = Region("me-south-1")
 	RegionSAEast1      = Region("sa-east-1")
-	RegionUSGovEast1   = Region("us-gov-east-1")
-	RegionUSGovWest1   = Region("us-gov-west-1")
 	RegionUSEast1      = Region("us-east-1")
 	RegionUSEast2      = Region("us-east-2")
 	RegionUSWest1      = Region("us-west-1")
 	RegionUSWest2      = Region("us-west-2")
+	RegionCNNorth1     = Region("cn-north-1")
+	RegionCNNorthwest1 = Region("cn-northwest-1")
+	RegionUSGovEast1   = Region("us-gov-east-1")
+	RegionUSGovWest1   = Region("us-gov-west-1")
+	RegionUSISOEast1   = Region("us-iso-east-1")
+	RegionUSISOWest1   = Region("us-iso-west-1")
+	RegionUSISOBEast1  = Region("us-isob-east-1")
+	RegionEUISOEWest1  = Region("eu-isoe-west-1")
 )
 
 func (Region) ElementType() reflect.Type {
@@ -181,10 +187,9 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //	RegionAPSoutheast2
 //	RegionAPSoutheast3
 //	RegionAPSoutheast4
+//	RegionAPSoutheast5
 //	RegionCACentral
 //	RegionCAWest1
-//	RegionCNNorth1
-//	RegionCNNorthwest1
 //	RegionEUCentral1
 //	RegionEUCentral2
 //	RegionEUNorth1
@@ -193,15 +198,22 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 //	RegionEUWest1
 //	RegionEUWest2
 //	RegionEUWest3
+//	RegionILCentral1
 //	RegionMECentral1
 //	RegionMESouth1
 //	RegionSAEast1
-//	RegionUSGovEast1
-//	RegionUSGovWest1
 //	RegionUSEast1
 //	RegionUSEast2
 //	RegionUSWest1
 //	RegionUSWest2
+//	RegionCNNorth1
+//	RegionCNNorthwest1
+//	RegionUSGovEast1
+//	RegionUSGovWest1
+//	RegionUSISOEast1
+//	RegionUSISOWest1
+//	RegionUSISOBEast1
+//	RegionEUISOEWest1
 type RegionInput interface {
 	pulumi.Input
 

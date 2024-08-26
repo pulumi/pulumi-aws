@@ -25,10 +25,9 @@ import java.util.StringJoiner;
         APSoutheast2("ap-southeast-2"),
         APSoutheast3("ap-southeast-3"),
         APSoutheast4("ap-southeast-4"),
+        APSoutheast5("ap-southeast-5"),
         CACentral("ca-central-1"),
         CAWest1("ca-west-1"),
-        CNNorth1("cn-north-1"),
-        CNNorthwest1("cn-northwest-1"),
         EUCentral1("eu-central-1"),
         EUCentral2("eu-central-2"),
         EUNorth1("eu-north-1"),
@@ -37,15 +36,22 @@ import java.util.StringJoiner;
         EUWest1("eu-west-1"),
         EUWest2("eu-west-2"),
         EUWest3("eu-west-3"),
+        ILCentral1("il-central-1"),
         MECentral1("me-central-1"),
         MESouth1("me-south-1"),
         SAEast1("sa-east-1"),
-        USGovEast1("us-gov-east-1"),
-        USGovWest1("us-gov-west-1"),
         USEast1("us-east-1"),
         USEast2("us-east-2"),
         USWest1("us-west-1"),
-        USWest2("us-west-2");
+        USWest2("us-west-2"),
+        CNNorth1("cn-north-1"),
+        CNNorthwest1("cn-northwest-1"),
+        USGovEast1("us-gov-east-1"),
+        USGovWest1("us-gov-west-1"),
+        USISOEast1("us-iso-east-1"),
+        USISOWest1("us-iso-west-1"),
+        USISOBEast1("us-isob-east-1"),
+        EUISOEWest1("eu-isoe-west-1");
 
         private final String value;
 

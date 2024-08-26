@@ -27,39 +27,52 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Type:        "string",
 			Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
 		},
+		// synced with https://github.com/hashicorp/aws-sdk-go-base/blob/fdf82b33b2d1b0c9165e3b465e0fa17191c6e5b8/internal/endpoints/endpoints.go
 		Enum: []schema.EnumValueSpec{
-			{Value: "af-south-1", Name: "AFSouth1"},
-			{Value: "ap-east-1", Name: "APEast1"},
-			{Value: "ap-northeast-1", Name: "APNortheast1"},
-			{Value: "ap-northeast-2", Name: "APNortheast2"},
-			{Value: "ap-northeast-3", Name: "APNortheast3"},
-			{Value: "ap-south-1", Name: "APSouth1"},
-			{Value: "ap-south-2", Name: "APSouth2"},
-			{Value: "ap-southeast-1", Name: "APSoutheast1"},
-			{Value: "ap-southeast-2", Name: "APSoutheast2"},
-			{Value: "ap-southeast-3", Name: "APSoutheast3"},
-			{Value: "ap-southeast-4", Name: "APSoutheast4"},
-			{Value: "ca-central-1", Name: "CACentral"},
-			{Value: "ca-west-1", Name: "CAWest1"},
-			{Value: "cn-north-1", Name: "CNNorth1"},
-			{Value: "cn-northwest-1", Name: "CNNorthwest1"},
-			{Value: "eu-central-1", Name: "EUCentral1"},
-			{Value: "eu-central-2", Name: "EUCentral2"},
-			{Value: "eu-north-1", Name: "EUNorth1"},
-			{Value: "eu-south-1", Name: "EUSouth1"},
-			{Value: "eu-south-2", Name: "EUSouth2"},
-			{Value: "eu-west-1", Name: "EUWest1"},
-			{Value: "eu-west-2", Name: "EUWest2"},
-			{Value: "eu-west-3", Name: "EUWest3"},
-			{Value: "me-central-1", Name: "MECentral1"},
-			{Value: "me-south-1", Name: "MESouth1"},
-			{Value: "sa-east-1", Name: "SAEast1"},
-			{Value: "us-gov-east-1", Name: "USGovEast1"},
-			{Value: "us-gov-west-1", Name: "USGovWest1"},
-			{Value: "us-east-1", Name: "USEast1"},
-			{Value: "us-east-2", Name: "USEast2"},
-			{Value: "us-west-1", Name: "USWest1"},
-			{Value: "us-west-2", Name: "USWest2"},
+			// aws partition
+			{Value: "af-south-1", Name: "AFSouth1"},         // Africa (Cape Town)
+			{Value: "ap-east-1", Name: "APEast1"},           // Asia Pacific (Hong Kong)
+			{Value: "ap-northeast-1", Name: "APNortheast1"}, // Asia Pacific (Tokyo)
+			{Value: "ap-northeast-2", Name: "APNortheast2"}, // Asia Pacific (Seoul)
+			{Value: "ap-northeast-3", Name: "APNortheast3"}, // Asia Pacific (Osaka)
+			{Value: "ap-south-1", Name: "APSouth1"},         // Asia Pacific (Mumbai)
+			{Value: "ap-south-2", Name: "APSouth2"},         // Asia Pacific (Hyderabad)
+			{Value: "ap-southeast-1", Name: "APSoutheast1"}, // Asia Pacific (Singapore)
+			{Value: "ap-southeast-2", Name: "APSoutheast2"}, // Asia Pacific (Sydney)
+			{Value: "ap-southeast-3", Name: "APSoutheast3"}, // Asia Pacific (Jakarta)
+			{Value: "ap-southeast-4", Name: "APSoutheast4"}, // Asia Pacific (Melbourne)
+			{Value: "ap-southeast-5", Name: "APSoutheast5"}, // Asia Pacific (Malaysia)
+			{Value: "ca-central-1", Name: "CACentral"},      // Canada (Central)
+			{Value: "ca-west-1", Name: "CAWest1"},           // Canada (Calgary)
+			{Value: "eu-central-1", Name: "EUCentral1"},     // Europe (Frankfurt)
+			{Value: "eu-central-2", Name: "EUCentral2"},     // Europe (Zurich)
+			{Value: "eu-north-1", Name: "EUNorth1"},         // Europe (Stockholm)
+			{Value: "eu-south-1", Name: "EUSouth1"},         // Europe (Milan)
+			{Value: "eu-south-2", Name: "EUSouth2"},         // Europe (Spain)
+			{Value: "eu-west-1", Name: "EUWest1"},           // Europe (Ireland)
+			{Value: "eu-west-2", Name: "EUWest2"},           // Europe (London)
+			{Value: "eu-west-3", Name: "EUWest3"},           // Europe (Paris)
+			{Value: "il-central-1", Name: "ILCentral1"},     // Israel (Tel Aviv)
+			{Value: "me-central-1", Name: "MECentral1"},     // Middle East (UAE)
+			{Value: "me-south-1", Name: "MESouth1"},         // Middle East (Bahrain)
+			{Value: "sa-east-1", Name: "SAEast1"},           // South America (Sao Paulo)
+			{Value: "us-east-1", Name: "USEast1"},           // US East (N. Virginia)
+			{Value: "us-east-2", Name: "USEast2"},           // US East (Ohio)
+			{Value: "us-west-1", Name: "USWest1"},           // US West (N. California)
+			{Value: "us-west-2", Name: "USWest2"},           // US West (Oregon)
+			// aws-cn partition
+			{Value: "cn-north-1", Name: "CNNorth1"},         // China (Beijing)
+			{Value: "cn-northwest-1", Name: "CNNorthwest1"}, // China (Ningxia)
+			// aws-us-gov partition
+			{Value: "us-gov-east-1", Name: "USGovEast1"}, // AWS GovCloud (US-East)
+			{Value: "us-gov-west-1", Name: "USGovWest1"}, // AWS GovCloud (US-West)
+			// aws-iso partition
+			{Value: "us-iso-east-1", Name: "USISOEast1"}, // US ISO East
+			{Value: "us-iso-west-1", Name: "USISOWest1"}, // US ISO West
+			// aws-iso-b partition
+			{Value: "us-isob-east-1", Name: "USISOBEast1"}, // US ISOB East (Ohio)
+			// aws-iso-e partition
+			{Value: "eu-isoe-west-1", Name: "EUISOEWest1"}, // EU ISOE West
 		},
 	},
 	"aws:autoscaling/MetricsGranularity:MetricsGranularity": {
