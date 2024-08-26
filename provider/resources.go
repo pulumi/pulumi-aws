@@ -819,20 +819,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
 		shimv2.WithDiffStrategy(shimv2.PlanState),
-		shimv2.WithPlanResourceChange(func(s string) bool {
-			switch s {
-			case "aws_ssm_document",
-				"aws_wafv2_web_acl",
-				"aws_wafv2_rule_group",
-				"aws_batch_job_definition",
-				"aws_lb_listener",
-				"aws_lb_listener_rule",
-				"aws_alb_listener",
-				"aws_alb_listener_rule":
-				return true
-			default:
-				return false
-			}
+		shimv2.WithPlanResourceChange(func(string) bool {
+			return true
 		}))
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
