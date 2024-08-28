@@ -268,7 +268,7 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 		Dir:                    dir,
 		ExtraRuntimeValidation: editDirs[0].ExtraRuntimeValidation,
 		EditDirs:               editDirs[1:],
-		// see https://github.com/pulumi/pulumi-aws/issues/4080
+		// see [[https://github.com/pulumi/pulumi-aws/issues/4080][pulumi/pulumi-aws#4080: Refresh shows permanent diff for tagsAll in pulumi@3.120.0]]
 		ExpectRefreshChanges: true,
 		Config:               map[string]string{"aws:region": getEnvRegion(t)},
 		Quick:                true,
@@ -378,12 +378,12 @@ outputs:
 // This replicates the diff when running `pulumi preview` on a aws.rds.Instance with
 // pulumi-aws v6.0.0 and state from pulumi-aws 5.42.0.
 //
-// The first test ensures we don't regress on https://github.com/pulumi/pulumi-aws/issues/2682
+// The first test ensures we don't regress on [[https://github.com/pulumi/pulumi-aws/issues/2682][pulumi/pulumi-aws#2682: RDS Instance replacement when upgrading to 6.0]]
 //
 // The second test is when upgrading from pulumi-aws version <5.0.0 to v6.x.x, and
-// prevents regressions on https://github.com/pulumi/pulumi-aws/issues/2823.
+// prevents regressions on [[https://github.com/pulumi/pulumi-aws/issues/2823][pulumi/pulumi-aws#2823: aws.rds.Instance replacement when upgrading from 5.42.0 to 6.2.0]].
 //
-// Updated in https://github.com/pulumi/pulumi-aws/pull/3881 to accept CHANGES_SOME so long as they are not
+// Updated in [[https://github.com/pulumi/pulumi-aws/pull/3881][pulumi/pulumi-aws#3881: Upstream v5.47.0]] to accept CHANGES_SOME so long as they are not
 // replacements.
 func TestMigrateRdsInstance(t *testing.T) {
 	case1 := `[{
@@ -662,151 +662,8 @@ func TestMigrateRdsInstance(t *testing.T) {
 	  }
 	]`
 
-	// Like case2 but permits detailedDiff.
-	case2a := `[{
-	    "method": "/pulumirpc.ResourceProvider/Diff",
-	    "request": {
-	      "id": "rds2f5ed54",
-	      "urn": "urn:pulumi:exp2::secret-random-yaml::aws:rds/instance:Instance::rds",
-	      "olds": {
-		"__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-		"address": "rds2f5ed54.c1xxca33i6kr.us-east-2.rds.amazonaws.com",
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"arn": "arn:aws:rds:us-east-2:616138583583:db:rds2f5ed54",
-		"autoMinorVersionUpgrade": true,
-		"availabilityZone": "us-east-2c",
-		"backupRetentionPeriod": 0,
-		"backupWindow": "07:34-08:04",
-		"caCertIdentifier": "rds-ca-2019",
-		"copyTagsToSnapshot": false,
-		"dbSubnetGroupName": "default",
-		"deleteAutomatedBackups": true,
-		"deletionProtection": false,
-		"domain": "",
-		"domainIamRoleName": "",
-		"enabledCloudwatchLogsExports": [],
-		"endpoint": "rds2f5ed54.c1xxca33i6kr.us-east-2.rds.amazonaws.com:3306",
-		"engine": "mysql",
-		"engineVersion": "8.0.33",
-		"hostedZoneId": "Z2XHWR1WZ565X2",
-		"iamDatabaseAuthenticationEnabled": false,
-		"id": "rds2f5ed54",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"iops": 0,
-		"kmsKeyId": "",
-		"latestRestorableTime": "0001-01-01T00:00:00Z",
-		"licenseModel": "general-public-license",
-		"maintenanceWindow": "sun:03:59-sun:04:29",
-		"maxAllocatedStorage": 0,
-		"monitoringInterval": 0,
-		"monitoringRoleArn": "",
-		"multiAz": false,
-		"name": "name",
-		"optionGroupName": "default:mysql-8-0",
-		"parameterGroupName": "default.mysql8.0",
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"performanceInsightsKmsKeyId": "",
-		"performanceInsightsRetentionPeriod": 0,
-		"port": 3306,
-		"publiclyAccessible": false,
-		"replicas": [],
-		"replicateSourceDb": "",
-		"resourceId": "db-N57SF65OZ5KO3TPK73R7DQMLZA",
-		"securityGroupNames": [],
-		"skipFinalSnapshot": true,
-		"status": "available",
-		"storageEncrypted": false,
-		"storageType": "gp2",
-		"tags": {
-		  "some": "change"
-		},
-		"timezone": "",
-		"username": "root",
-		"vpcSecurityGroupIds": [
-		  "sg-1928d262"
-		]
-	      },
-	      "news": {
-		"__defaults": [
-		  "applyImmediately",
-		  "autoMinorVersionUpgrade",
-		  "copyTagsToSnapshot",
-		  "deleteAutomatedBackups",
-		  "identifier",
-		  "monitoringInterval",
-		  "performanceInsightsEnabled",
-		  "publiclyAccessible"
-		],
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"autoMinorVersionUpgrade": true,
-		"copyTagsToSnapshot": false,
-		"dbName": "name",
-		"deleteAutomatedBackups": true,
-		"engine": "mysql",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"monitoringInterval": 0,
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"publiclyAccessible": false,
-		"skipFinalSnapshot": true,
-		"tags": {
-		  "__defaults": [],
-		  "some": "change"
-		},
-		"username": "root"
-	      },
-	      "oldInputs": {
-		"__defaults": [
-		  "applyImmediately",
-		  "autoMinorVersionUpgrade",
-		  "copyTagsToSnapshot",
-		  "deleteAutomatedBackups",
-		  "identifier",
-		  "monitoringInterval",
-		  "performanceInsightsEnabled",
-		  "publiclyAccessible"
-		],
-		"allocatedStorage": 16,
-		"applyImmediately": false,
-		"autoMinorVersionUpgrade": true,
-		"copyTagsToSnapshot": false,
-		"deleteAutomatedBackups": true,
-		"engine": "mysql",
-		"identifier": "rds2f5ed54",
-		"instanceClass": "db.t3.micro",
-		"monitoringInterval": 0,
-		"name": "name",
-		"password": "FOO-BAR-FIZZ1!2",
-		"performanceInsightsEnabled": false,
-		"publiclyAccessible": false,
-		"skipFinalSnapshot": true,
-		"tags": {
-		  "__defaults": [],
-		  "some": "change"
-		},
-		"username": "root"
-	      }
-	    },
-	    "response": {
-              "diffs": "*",
-	      "stables": "*",
-	      "changes": "*",
-	      "hasDetailedDiff": true,
-              "detailedDiff": "*"
-	    }
-	  }
-	]`
-
 	t.Run("case1", func(t *testing.T) { replay(t, case1) })
 	t.Run("case2", func(t *testing.T) { replay(t, case2) })
-	t.Setenv("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true")
-	t.Run("case1-plan-resource-change", func(t *testing.T) { replay(t, case1) })
-	t.Run("case2-plan-resource-change", func(t *testing.T) { replay(t, case2a) })
 }
 
 func TestRegressUnknownTags(t *testing.T) {
