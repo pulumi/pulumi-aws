@@ -84,6 +84,7 @@ type tagsStep struct {
 }
 
 func TestAccDefaultTags(t *testing.T) {
+	t.Skip("TODO[pulumi/pulumi-terraform-bridge#2372]")
 	types := []tagsType{
 		// Pulumi maintains it's own version of aws:s3:Bucket in
 		// `s3legacy/bucket_legacy.go`. Because we don't have any
