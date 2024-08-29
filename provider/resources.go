@@ -2192,6 +2192,18 @@ compatibility shim in favor of the new "name" field.`)
 					"node_group_name": tfbridge.AutoName("nodeGroupName", 255, "-"),
 				},
 			},
+			"aws_eks_cluster": {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// if the defaultOutboundAccessEnabled property is not set, set it to the default value of true
+					// this prevents an unnecessary replacement when upgrading the provider
+					// There is a TF migration which should handle this but due to [pulumi/pulumi-terraform-bridge#1667]
+					// it does not work as expected.
+					if _, ok := pm["bootstrapSelfManagedAddons"]; !ok {
+						pm["bootstrapSelfManagedAddons"] = resource.NewBoolProperty(true)
+					}
+					return pm, nil
+				},
+			},
 			"aws_eks_fargate_profile": {
 				Tok: awsResource(eksMod, "FargateProfile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
