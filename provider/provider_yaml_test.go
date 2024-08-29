@@ -548,8 +548,7 @@ type tagsTestStep struct {
 
 // TestAccDefaultTags tries to test all the scenarios that might affect provider defaultTags / resource tags
 // i.e. up, refresh, preview, import, etc
-func TestAccDefaultTags(t *testing.T) {
-	t.Skip("TODO[pulumi/pulumi-terraform-bridge#2372]")
+func TestAccDefaultTagsWithImport(t *testing.T) {
 	t.Parallel()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
