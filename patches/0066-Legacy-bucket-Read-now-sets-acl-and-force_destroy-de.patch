@@ -5,7 +5,7 @@ Subject: [PATCH] Legacy bucket Read now sets acl and force_destroy defaults
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index d5c03b22fb..078819d641 100644
+index d5c03b22fb..8c26fee574 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -35,6 +35,10 @@ import (
@@ -37,9 +37,9 @@ index d5c03b22fb..078819d641 100644
  		if err := d.Set("grant", nil); err != nil {
  			return diag.Errorf("error resetting grant %s", err)
  		}
-@@ -1450,6 +1454,18 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
- 		return diag.Errorf("error deleting S3 Bucket (%s): %s", d.Id(), err)
- 	}
+@@ -1403,6 +1407,18 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 	}.String()
+ 	d.Set("arn", arn)
  
 +	// Set ACL default if unset, this fixes resource import option operation under Pulumi.
 +	_, gotGrant := d.GetOk("grant")
