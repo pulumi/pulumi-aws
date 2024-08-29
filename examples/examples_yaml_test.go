@@ -267,7 +267,7 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 		Dir:                    dir,
 		ExtraRuntimeValidation: editDirs[0].ExtraRuntimeValidation,
 		EditDirs:               editDirs[1:],
-		// see [[https://github.com/pulumi/pulumi-aws/issues/4080][pulumi/pulumi-aws#4080: Refresh shows permanent diff for tagsAll in pulumi@3.120.0]]
+		// see https://github.com/pulumi/pulumi-aws/issues/4080
 		ExpectRefreshChanges: true,
 		Config:               map[string]string{"aws:region": getEnvRegion(t)},
 		Quick:                true,
@@ -377,12 +377,12 @@ outputs:
 // This replicates the diff when running `pulumi preview` on a aws.rds.Instance with
 // pulumi-aws v6.0.0 and state from pulumi-aws 5.42.0.
 //
-// The first test ensures we don't regress on [[https://github.com/pulumi/pulumi-aws/issues/2682][pulumi/pulumi-aws#2682: RDS Instance replacement when upgrading to 6.0]]
+// The first test ensures we don't regress on https://github.com/pulumi/pulumi-aws/issues/2682
 //
 // The second test is when upgrading from pulumi-aws version <5.0.0 to v6.x.x, and
-// prevents regressions on [[https://github.com/pulumi/pulumi-aws/issues/2823][pulumi/pulumi-aws#2823: aws.rds.Instance replacement when upgrading from 5.42.0 to 6.2.0]].
+// prevents regressions on https://github.com/pulumi/pulumi-aws/issues/2823
 //
-// Updated in [[https://github.com/pulumi/pulumi-aws/pull/3881][pulumi/pulumi-aws#3881: Upstream v5.47.0]] to accept CHANGES_SOME so long as they are not
+// Updated in https://github.com/pulumi/pulumi-aws/pull/3881
 // replacements.
 func TestMigrateRdsInstance(t *testing.T) {
 	case1 := `[{
