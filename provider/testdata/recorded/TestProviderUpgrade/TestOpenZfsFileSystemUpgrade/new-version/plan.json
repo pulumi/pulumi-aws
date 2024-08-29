@@ -1,11 +1,11 @@
 {
+    "manifest": {
+        "time": "2024-08-28T10:55:18.06234+01:00",
+        "magic": "59ab42470ec682a2eb8566128a64ecaee8e5d25c6d5902576977eb325cf4d7b3",
+        "version": "v3.130.0"
+    },
     "config": {
         "aws:region": "us-east-2"
-    },
-    "manifest": {
-        "time": "2024-06-21T11:53:56.242051-04:00",
-        "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",
-        "version": "v3.120.0"
     },
     "resourcePlans": {
         "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet": {
@@ -52,16 +52,29 @@
                 "create"
             ],
             "state": {
+                "__meta": "{\"_new_extra_shim\":{},\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000}}",
+                "arn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "assignIpv6AddressOnCreation": false,
+                "availabilityZone": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "availabilityZoneId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "cidrBlock": "10.0.1.0/24",
+                "customerOwnedIpv4Pool": null,
                 "enableDns64": false,
+                "enableLniAtDeviceIndex": null,
                 "enableResourceNameDnsARecordOnLaunch": false,
                 "enableResourceNameDnsAaaaRecordOnLaunch": false,
-                "id": "",
+                "id": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ipv6CidrBlock": null,
+                "ipv6CidrBlockAssociationId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "ipv6Native": false,
-                "mapPublicIpOnLaunch": false
+                "mapCustomerOwnedIpOnLaunch": null,
+                "mapPublicIpOnLaunch": false,
+                "outpostArn": null,
+                "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "privateDnsHostnameTypeOnLaunch": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "A/8WUtf+VHqLjHFCAuMN/H4nGq+hqtjY6QEh8Os/gL4="
+            "seed": "jVbviX6tLd0yo1zAT6cHjeYo9zoCVQLaL0klusIpqDM="
         },
         "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC": {
             "goal": {
@@ -90,12 +103,29 @@
                 "create"
             ],
             "state": {
+                "arn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "assignGeneratedIpv6CidrBlock": null,
                 "cidrBlock": "10.0.0.0/16",
+                "defaultNetworkAclId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "defaultRouteTableId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "defaultSecurityGroupId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "dhcpOptionsId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "enableDnsHostnames": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "enableDnsSupport": true,
-                "id": "",
-                "instanceTenancy": "default"
+                "enableNetworkAddressUsageMetrics": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "id": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "instanceTenancy": "default",
+                "ipv4IpamPoolId": null,
+                "ipv4NetmaskLength": null,
+                "ipv6AssociationId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ipv6CidrBlock": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ipv6CidrBlockNetworkBorderGroup": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ipv6IpamPoolId": null,
+                "ipv6NetmaskLength": null,
+                "mainRouteTableId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "HRRxtNXyCA/albslvw9oRcNpmS+ZdRFdAcgnfB8FoIE="
+            "seed": "2y7HlC8cCdGzxTqSoVpRwDpKtdWckb53R4zcyAz/odk="
         },
         "urn:pulumi:test::openzfs::aws:fsx/openZfsFileSystem:OpenZfsFileSystem::MyFileSystem": {
             "goal": {
@@ -145,17 +175,38 @@
                 "create"
             ],
             "state": {
+                "__meta": "{\"_new_extra_shim\":{},\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"update\":3600000000000}}",
+                "arn": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
                 "automaticBackupRetentionDays": 0,
+                "backupId": null,
                 "copyTagsToBackups": false,
                 "copyTagsToVolumes": false,
+                "dailyAutomaticBackupStartTime": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "deleteOptions": null,
                 "deploymentType": "SINGLE_AZ_1",
-                "id": "",
+                "diskIopsConfiguration": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "dnsName": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "endpointIpAddress": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "endpointIpAddressRange": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "finalBackupTags": null,
+                "id": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "kmsKeyId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "networkInterfaceIds": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "ownerId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "preferredSubnetId": null,
+                "rootVolumeConfiguration": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "rootVolumeId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "routeTableIds": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "securityGroupIds": null,
                 "skipFinalBackup": false,
                 "storageCapacity": 64,
                 "storageType": "SSD",
-                "throughputCapacity": 64
+                "subnetIds": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "throughputCapacity": 64,
+                "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "weeklyMaintenanceStartTime": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
             },
-            "seed": "NS4cTu4tsZzJ3zXCCYZ4HRNa+pvgcsfy8WCM1CXgaZM="
+            "seed": "0s+0wM6MlNBQWWeGJq+RPJG59yJWeBUn5Y3iChwx7ds="
         },
         "urn:pulumi:test::openzfs::pulumi:providers:aws::default": {
             "goal": {
@@ -181,7 +232,7 @@
                 "skipCredentialsValidation": "false",
                 "skipRegionValidation": "true"
             },
-            "seed": "JSoHt3w+sEo4jC1wjZar653mfk7+3s9KJhvV186L+Zs="
+            "seed": "P7e3NwkTiq1KjpRIeyhpwdalaUH5DxN2cphLiJo5IjY="
         },
         "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test": {
             "goal": {
@@ -197,7 +248,7 @@
                 "create"
             ],
             "state": {},
-            "seed": "O8GPxHK8Ggd/nl1FsTnBkwVPMj0BPEyPFbDKEnhS3iQ="
+            "seed": "XgKFfV/aFt4GXqWlV8zHoLDOGPU6vgN517bCZ1RpuRI="
         }
     }
 }

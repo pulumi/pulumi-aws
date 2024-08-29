@@ -371,13 +371,13 @@ resources:
 		})
 
 		res := pulumiTest.Preview()
-		fmt.Printf("stdout: %s \n", res.StdOut)
-		fmt.Printf("stderr: %s \n", res.StdErr)
+		t.Logf("stdout: %s \n", res.StdOut)
+		t.Logf("stderr: %s \n", res.StdErr)
 		assertpreview.HasNoChanges(t, res)
 
 		upResult := pulumiTest.Up()
-		fmt.Printf("stdout: %s \n", upResult.StdOut)
-		fmt.Printf("stderr: %s \n", upResult.StdErr)
+		t.Logf("stdout: %s \n", upResult.StdOut)
+		t.Logf("stderr: %s \n", upResult.StdErr)
 	})
 
 	// test that we can deploy a new filesystem with a list of subnetIds
@@ -549,6 +549,7 @@ type tagsTestStep struct {
 // TestAccDefaultTags tries to test all the scenarios that might affect provider defaultTags / resource tags
 // i.e. up, refresh, preview, import, etc
 func TestAccDefaultTags(t *testing.T) {
+	t.Skip("TODO[pulumi/pulumi-terraform-bridge#2372]")
 	t.Parallel()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")

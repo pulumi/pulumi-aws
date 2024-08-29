@@ -205,8 +205,8 @@ func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
 	}
 	pulumiTest.Preview(optpreview.Plan(planFile))
 	upResult := pulumiTest.Up(optup.Plan(planFile))
-	fmt.Printf("stdout: %s \n", upResult.StdOut)
-	fmt.Printf("stderr: %s \n", upResult.StdErr)
+	t.Logf("stdout: %s \n", upResult.StdOut)
+	t.Logf("stderr: %s \n", upResult.StdErr)
 }
 
 func pulumiTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {

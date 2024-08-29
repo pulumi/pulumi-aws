@@ -5331,6 +5331,7 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			Namespaces: namespaceMap,
 		},
+		EnableZeroDefaultSchemaVersion: true,
 	}
 
 	rAlias := func(token string, prev, current tokens.Type, info *tfbridge.ResourceInfo) {
