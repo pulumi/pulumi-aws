@@ -10,17 +10,19 @@ linters:
   - govet
   - ineffassign
   - lll
-  - megacheck
+  - gosimple
+  - staticcheck
   - misspell
   - nakedret
   - revive
   - unconvert
   - unused
   enable-all: false
-run:
-  skip-files:
+issues:
+  exclude-files:
   - schema.go
   - pulumiManifest.go
+run:
   timeout: 20m
 linters-settings:
   gci:

@@ -130,12 +130,12 @@ install_plugins: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi plugin install converter terraform 1.0.17
 
 lint_provider: provider
-	cd provider && golangci-lint run -c ../.golangci.yml
+	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
 
 # `lint_provider.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
 lint_provider.fix:
-	cd provider && golangci-lint run -c ../.golangci.yml --fix
+	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
 
 # `make provider_no_deps` builds the provider binary directly, without ensuring that
 # `cmd/pulumi-resource-aws/schema.json` is valid and up to date.
