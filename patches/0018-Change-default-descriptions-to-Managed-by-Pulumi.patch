@@ -70,7 +70,7 @@ index 70a69db303..5f1045af17 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 6730abbc03..1ed388d36b 100644
+index 044afe933a..aeb16673fc 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -69,7 +69,7 @@ func resourceSecurityGroup() *schema.Resource {

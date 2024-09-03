@@ -5,10 +5,10 @@ Subject: [PATCH] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index f64c912033..ee14629100 100644
+index 5557727b6f..7d8a8552fa 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -315,7 +315,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -314,7 +314,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			interceptors := interceptorItems{}
  
  			if v.Tags != nil {
@@ -17,7 +17,7 @@ index f64c912033..ee14629100 100644
  
  				// The data source has opted in to transparent tagging.
  				// Ensure that the schema look OK.
-@@ -392,7 +392,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -390,7 +390,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			interceptors := interceptorItems{}
  
  			if v.Tags != nil {

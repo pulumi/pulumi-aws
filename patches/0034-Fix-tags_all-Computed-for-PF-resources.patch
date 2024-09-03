@@ -83,7 +83,7 @@ index 69d6b912ac..6323d7c399 100644
  		Blocks: map[string]schema.Block{
  			names.AttrActions: schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index 9ff71fe5d7..faba601773 100644
+index 1850f8d71f..4183d3da8d 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -75,7 +75,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
