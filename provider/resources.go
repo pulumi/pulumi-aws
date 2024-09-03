@@ -819,20 +819,8 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
 		shimv2.WithDiffStrategy(shimv2.PlanState),
-		shimv2.WithPlanResourceChange(func(s string) bool {
-			switch s {
-			case "aws_ssm_document",
-				"aws_wafv2_web_acl",
-				"aws_wafv2_rule_group",
-				"aws_batch_job_definition",
-				"aws_lb_listener",
-				"aws_lb_listener_rule",
-				"aws_alb_listener",
-				"aws_alb_listener_rule":
-				return true
-			default:
-				return false
-			}
+		shimv2.WithPlanResourceChange(func(string) bool {
+			return true
 		}))
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
@@ -2202,6 +2190,18 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"node_group_name": tfbridge.AutoName("nodeGroupName", 255, "-"),
+				},
+			},
+			"aws_eks_cluster": {
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// if the defaultOutboundAccessEnabled property is not set, set it to the default value of true
+					// this prevents an unnecessary replacement when upgrading the provider
+					// There is a TF migration which should handle this but due to [pulumi/pulumi-terraform-bridge#1667]
+					// it does not work as expected.
+					if _, ok := pm["bootstrapSelfManagedAddons"]; !ok {
+						pm["bootstrapSelfManagedAddons"] = resource.NewBoolProperty(true)
+					}
+					return pm, nil
 				},
 			},
 			"aws_eks_fargate_profile": {

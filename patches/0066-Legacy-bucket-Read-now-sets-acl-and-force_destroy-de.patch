@@ -1,0 +1,58 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Thu, 29 Aug 2024 13:17:47 -0400
+Subject: [PATCH] Legacy bucket Read now sets acl and force_destroy defaults
+
+
+diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
+index d5c03b22fb..8c26fee574 100644
+--- a/internal/service/s3legacy/bucket_legacy.go
++++ b/internal/service/s3legacy/bucket_legacy.go
+@@ -35,6 +35,10 @@ import (
+ 	"github.com/hashicorp/terraform-provider-aws/internal/verify"
+ )
+ 
++const (
++	bucketACLDefaultValue = "private"
++)
++
+ func ResourceBucketLegacy() *schema.Resource {
+ 	return &schema.Resource{
+ 		CreateWithoutTimeout: resourceBucketLegacyCreate,
+@@ -80,7 +84,7 @@ func ResourceBucketLegacy() *schema.Resource {
+ 
+ 			"acl": {
+ 				Type:          schema.TypeString,
+-				Default:       "private",
++				Default:       bucketACLDefaultValue,
+ 				Optional:      true,
+ 				ConflictsWith: []string{"grant"},
+ 				ValidateFunc:  validation.StringInSlice(BucketCannedACL_Values(), false),
+@@ -943,7 +947,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 	}
+ 
+ 	//Read the Grant ACL. Reset if `acl` (canned ACL) is set.
+-	if acl, ok := d.GetOk("acl"); ok && acl.(string) != "private" {
++	if acl, ok := d.GetOk("acl"); ok && acl.(string) != bucketACLDefaultValue {
+ 		if err := d.Set("grant", nil); err != nil {
+ 			return diag.Errorf("error resetting grant %s", err)
+ 		}
+@@ -1403,6 +1407,18 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 	}.String()
+ 	d.Set("arn", arn)
+ 
++	// Set ACL default if unset, this fixes resource import option operation under Pulumi.
++	_, gotGrant := d.GetOk("grant")
++	_, gotACL := d.GetOk("acl")
++	if !gotGrant && !gotACL {
++		d.Set("acl", bucketACLDefaultValue)
++	}
++
++	// Similarly, set force_destroy to default value if unset, to fix resource import operation.
++	if _, fdSet := d.GetOk("force_destroy"); !fdSet {
++		d.Set("force_destroy", false)
++	}
++
+ 	return nil
+ }
+ 
