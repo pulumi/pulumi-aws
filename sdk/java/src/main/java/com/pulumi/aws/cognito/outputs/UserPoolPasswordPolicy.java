@@ -18,6 +18,13 @@ public final class UserPoolPasswordPolicy {
      */
     private @Nullable Integer minimumLength;
     /**
+     * @return Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+     * 
+     * **Note:** This argument requires advanced security features to be active in the user pool.
+     * 
+     */
+    private @Nullable Integer passwordHistorySize;
+    /**
      * @return Whether you have required users to use at least one lowercase letter in their password.
      * 
      */
@@ -50,6 +57,15 @@ public final class UserPoolPasswordPolicy {
      */
     public Optional<Integer> minimumLength() {
         return Optional.ofNullable(this.minimumLength);
+    }
+    /**
+     * @return Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+     * 
+     * **Note:** This argument requires advanced security features to be active in the user pool.
+     * 
+     */
+    public Optional<Integer> passwordHistorySize() {
+        return Optional.ofNullable(this.passwordHistorySize);
     }
     /**
      * @return Whether you have required users to use at least one lowercase letter in their password.
@@ -97,6 +113,7 @@ public final class UserPoolPasswordPolicy {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer minimumLength;
+        private @Nullable Integer passwordHistorySize;
         private @Nullable Boolean requireLowercase;
         private @Nullable Boolean requireNumbers;
         private @Nullable Boolean requireSymbols;
@@ -106,6 +123,7 @@ public final class UserPoolPasswordPolicy {
         public Builder(UserPoolPasswordPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minimumLength = defaults.minimumLength;
+    	      this.passwordHistorySize = defaults.passwordHistorySize;
     	      this.requireLowercase = defaults.requireLowercase;
     	      this.requireNumbers = defaults.requireNumbers;
     	      this.requireSymbols = defaults.requireSymbols;
@@ -117,6 +135,12 @@ public final class UserPoolPasswordPolicy {
         public Builder minimumLength(@Nullable Integer minimumLength) {
 
             this.minimumLength = minimumLength;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordHistorySize(@Nullable Integer passwordHistorySize) {
+
+            this.passwordHistorySize = passwordHistorySize;
             return this;
         }
         @CustomType.Setter
@@ -152,6 +176,7 @@ public final class UserPoolPasswordPolicy {
         public UserPoolPasswordPolicy build() {
             final var _resultValue = new UserPoolPasswordPolicy();
             _resultValue.minimumLength = minimumLength;
+            _resultValue.passwordHistorySize = passwordHistorySize;
             _resultValue.requireLowercase = requireLowercase;
             _resultValue.requireNumbers = requireNumbers;
             _resultValue.requireSymbols = requireSymbols;

@@ -105,7 +105,7 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      */
-    public readonly stagingAreaTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly stagingAreaTags!: pulumi.Output<{[key: string]: string}>;
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      */
@@ -183,6 +183,9 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
             }
             if ((!args || args.stagingAreaSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stagingAreaSubnetId'");
+            }
+            if ((!args || args.stagingAreaTags === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'stagingAreaTags'");
             }
             if ((!args || args.useDedicatedReplicationServer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'useDedicatedReplicationServer'");
@@ -345,7 +348,7 @@ export interface ReplicationConfigurationTemplateArgs {
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      */
-    stagingAreaTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    stagingAreaTags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      */

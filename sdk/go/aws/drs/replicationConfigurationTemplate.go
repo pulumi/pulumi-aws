@@ -103,6 +103,9 @@ func NewReplicationConfigurationTemplate(ctx *pulumi.Context,
 	if args.StagingAreaSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'StagingAreaSubnetId'")
 	}
+	if args.StagingAreaTags == nil {
+		return nil, errors.New("invalid value for required argument 'StagingAreaTags'")
+	}
 	if args.UseDedicatedReplicationServer == nil {
 		return nil, errors.New("invalid value for required argument 'UseDedicatedReplicationServer'")
 	}

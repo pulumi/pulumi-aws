@@ -1839,6 +1839,7 @@ class Instance(pulumi.CustomResource):
         this_instance = aws.ec2.Instance("this",
             ami=this.id,
             instance_market_options={
+                "market_type": "spot",
                 "spot_options": {
                     "max_price": "0.0031",
                 },
@@ -2072,6 +2073,7 @@ class Instance(pulumi.CustomResource):
         this_instance = aws.ec2.Instance("this",
             ami=this.id,
             instance_market_options={
+                "market_type": "spot",
                 "spot_options": {
                     "max_price": "0.0031",
                 },

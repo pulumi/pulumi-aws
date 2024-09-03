@@ -142,18 +142,6 @@ class RoleAssociation(pulumi.CustomResource):
 
         > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoring_role_arn` argument instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.RoleAssociation("example",
-            db_instance_identifier=example_aws_db_instance["identifier"],
-            feature_name="S3_INTEGRATION",
-            role_arn=example_aws_iam_role["arn"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
@@ -181,18 +169,6 @@ class RoleAssociation(pulumi.CustomResource):
         * [Importing Amazon S3 Data into an RDS PostgreSQL DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
 
         > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `rds.Instance` resource `monitoring_role_arn` argument instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.RoleAssociation("example",
-            db_instance_identifier=example_aws_db_instance["identifier"],
-            feature_name="S3_INTEGRATION",
-            role_arn=example_aws_iam_role["arn"])
-        ```
 
         ## Import
 

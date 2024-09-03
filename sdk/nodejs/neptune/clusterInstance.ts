@@ -134,7 +134,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * The name of the neptune parameter group to associate with this instance.
      */
-    public readonly neptuneParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly neptuneParameterGroupName!: pulumi.Output<string>;
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `aws.neptune.Cluster`.
      */

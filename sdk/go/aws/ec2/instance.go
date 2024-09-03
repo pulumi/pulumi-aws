@@ -108,6 +108,7 @@ import (
 //			_, err = ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
 //				Ami: pulumi.String(this.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
+//					MarketType: pulumi.String("spot"),
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
 //						MaxPrice: pulumi.String("0.0031"),
 //					},

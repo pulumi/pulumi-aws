@@ -32,6 +32,25 @@ public final class UserPoolPasswordPolicyArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+     * 
+     * **Note:** This argument requires advanced security features to be active in the user pool.
+     * 
+     */
+    @Import(name="passwordHistorySize")
+    private @Nullable Output<Integer> passwordHistorySize;
+
+    /**
+     * @return Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+     * 
+     * **Note:** This argument requires advanced security features to be active in the user pool.
+     * 
+     */
+    public Optional<Output<Integer>> passwordHistorySize() {
+        return Optional.ofNullable(this.passwordHistorySize);
+    }
+
+    /**
      * Whether you have required users to use at least one lowercase letter in their password.
      * 
      */
@@ -110,6 +129,7 @@ public final class UserPoolPasswordPolicyArgs extends com.pulumi.resources.Resou
 
     private UserPoolPasswordPolicyArgs(UserPoolPasswordPolicyArgs $) {
         this.minimumLength = $.minimumLength;
+        this.passwordHistorySize = $.passwordHistorySize;
         this.requireLowercase = $.requireLowercase;
         this.requireNumbers = $.requireNumbers;
         this.requireSymbols = $.requireSymbols;
@@ -154,6 +174,31 @@ public final class UserPoolPasswordPolicyArgs extends com.pulumi.resources.Resou
          */
         public Builder minimumLength(Integer minimumLength) {
             return minimumLength(Output.of(minimumLength));
+        }
+
+        /**
+         * @param passwordHistorySize Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+         * 
+         * **Note:** This argument requires advanced security features to be active in the user pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordHistorySize(@Nullable Output<Integer> passwordHistorySize) {
+            $.passwordHistorySize = passwordHistorySize;
+            return this;
+        }
+
+        /**
+         * @param passwordHistorySize Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can&#39;t set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+         * 
+         * **Note:** This argument requires advanced security features to be active in the user pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordHistorySize(Integer passwordHistorySize) {
+            return passwordHistorySize(Output.of(passwordHistorySize));
         }
 
         /**

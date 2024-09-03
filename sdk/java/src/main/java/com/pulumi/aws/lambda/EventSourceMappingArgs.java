@@ -178,6 +178,21 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      * 
      */
@@ -385,6 +400,7 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         this.filterCriteria = $.filterCriteria;
         this.functionName = $.functionName;
         this.functionResponseTypes = $.functionResponseTypes;
+        this.kmsKeyArn = $.kmsKeyArn;
         this.maximumBatchingWindowInSeconds = $.maximumBatchingWindowInSeconds;
         this.maximumRecordAgeInSeconds = $.maximumRecordAgeInSeconds;
         this.maximumRetryAttempts = $.maximumRetryAttempts;
@@ -636,6 +652,27 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
          */
         public Builder functionResponseTypes(String... functionResponseTypes) {
             return functionResponseTypes(List.of(functionResponseTypes));
+        }
+
+        /**
+         * @param kmsKeyArn The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
         /**

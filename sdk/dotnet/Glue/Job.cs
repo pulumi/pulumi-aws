@@ -208,6 +208,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+        /// </summary>
+        [Output("jobRunQueuingEnabled")]
+        public Output<bool?> JobRunQueuingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
         /// </summary>
         [Output("maintenanceWindow")]
@@ -393,6 +399,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
+        /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+        /// </summary>
+        [Input("jobRunQueuingEnabled")]
+        public Input<bool>? JobRunQueuingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
         /// </summary>
         [Input("maintenanceWindow")]
@@ -550,6 +562,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
+
+        /// <summary>
+        /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+        /// </summary>
+        [Input("jobRunQueuingEnabled")]
+        public Input<bool>? JobRunQueuingEnabled { get; set; }
 
         /// <summary>
         /// Specifies the day of the week and hour for the maintenance window for streaming jobs.

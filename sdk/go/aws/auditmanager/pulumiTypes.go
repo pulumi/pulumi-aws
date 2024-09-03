@@ -895,7 +895,7 @@ func (o ControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) Control
 }
 
 type ControlControlMappingSourceSourceKeyword struct {
-	// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType string `pulumi:"keywordInputType"`
 	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 	KeywordValue string `pulumi:"keywordValue"`
@@ -913,7 +913,7 @@ type ControlControlMappingSourceSourceKeywordInput interface {
 }
 
 type ControlControlMappingSourceSourceKeywordArgs struct {
-	// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+	// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 	KeywordInputType pulumi.StringInput `pulumi:"keywordInputType"`
 	// The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
 	KeywordValue pulumi.StringInput `pulumi:"keywordValue"`
@@ -996,7 +996,7 @@ func (o ControlControlMappingSourceSourceKeywordOutput) ToControlControlMappingS
 	}).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
-// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 func (o ControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
 }
@@ -1030,7 +1030,7 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) Elem() ControlControl
 	}).(ControlControlMappingSourceSourceKeywordOutput)
 }
 
-// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) KeywordInputType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ControlControlMappingSourceSourceKeyword) *string {
 		if v == nil {

@@ -108,6 +108,7 @@ namespace Pulumi.Aws.Ec2
     ///         Ami = @this.Apply(@this =&gt; @this.Apply(getAmiResult =&gt; getAmiResult.Id)),
     ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
     ///         {
+    ///             MarketType = "spot",
     ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
     ///             {
     ///                 MaxPrice = "0.0031",

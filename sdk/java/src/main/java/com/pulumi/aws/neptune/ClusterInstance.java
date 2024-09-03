@@ -293,14 +293,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="neptuneParameterGroupName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> neptuneParameterGroupName;
+    private Output<String> neptuneParameterGroupName;
 
     /**
      * @return The name of the neptune parameter group to associate with this instance.
      * 
      */
-    public Output<Optional<String>> neptuneParameterGroupName() {
-        return Codegen.optional(this.neptuneParameterGroupName);
+    public Output<String> neptuneParameterGroupName() {
+        return this.neptuneParameterGroupName;
     }
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.

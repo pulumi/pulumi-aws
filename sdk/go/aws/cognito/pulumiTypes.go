@@ -5107,6 +5107,10 @@ func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaVersion() p
 type UserPoolPasswordPolicy struct {
 	// Minimum length of the password policy that you have set.
 	MinimumLength *int `pulumi:"minimumLength"`
+	// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+	//
+	// **Note:** This argument requires advanced security features to be active in the user pool.
+	PasswordHistorySize *int `pulumi:"passwordHistorySize"`
 	// Whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
 	// Whether you have required users to use at least one number in their password.
@@ -5133,6 +5137,10 @@ type UserPoolPasswordPolicyInput interface {
 type UserPoolPasswordPolicyArgs struct {
 	// Minimum length of the password policy that you have set.
 	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
+	// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+	//
+	// **Note:** This argument requires advanced security features to be active in the user pool.
+	PasswordHistorySize pulumi.IntPtrInput `pulumi:"passwordHistorySize"`
 	// Whether you have required users to use at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
 	// Whether you have required users to use at least one number in their password.
@@ -5227,6 +5235,13 @@ func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.MinimumLength }).(pulumi.IntPtrOutput)
 }
 
+// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+//
+// **Note:** This argument requires advanced security features to be active in the user pool.
+func (o UserPoolPasswordPolicyOutput) PasswordHistorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.PasswordHistorySize }).(pulumi.IntPtrOutput)
+}
+
 // Whether you have required users to use at least one lowercase letter in their password.
 func (o UserPoolPasswordPolicyOutput) RequireLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *bool { return v.RequireLowercase }).(pulumi.BoolPtrOutput)
@@ -5283,6 +5298,18 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.MinimumLength
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+//
+// **Note:** This argument requires advanced security features to be active in the user pool.
+func (o UserPoolPasswordPolicyPtrOutput) PasswordHistorySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordHistorySize
 	}).(pulumi.IntPtrOutput)
 }
 

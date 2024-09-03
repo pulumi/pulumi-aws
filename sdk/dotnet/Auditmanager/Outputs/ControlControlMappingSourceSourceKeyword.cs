@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     public sealed class ControlControlMappingSourceSourceKeyword
     {
         /// <summary>
-        /// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+        /// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
         /// </summary>
         public readonly string KeywordInputType;
         /// <summary>

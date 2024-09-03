@@ -253,6 +253,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly functionResponseTypes!: pulumi.Output<string[] | undefined>;
     /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     */
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * The date this resource was last modified.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
@@ -349,6 +353,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["functionArn"] = state ? state.functionArn : undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["functionResponseTypes"] = state ? state.functionResponseTypes : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["lastProcessingResult"] = state ? state.lastProcessingResult : undefined;
             resourceInputs["maximumBatchingWindowInSeconds"] = state ? state.maximumBatchingWindowInSeconds : undefined;
@@ -382,6 +387,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
             resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
@@ -455,6 +461,10 @@ export interface EventSourceMappingState {
      * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The date this resource was last modified.
      */
@@ -573,6 +583,10 @@ export interface EventSourceMappingArgs {
      * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+     */
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximumBatchingWindowInSeconds` expires or `batchSize` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      */

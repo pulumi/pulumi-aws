@@ -886,6 +886,162 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogTableOptimizerConfiguration struct {
+	// Indicates whether the table optimizer is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The ARN of the IAM role to use for the table optimizer.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// CatalogTableOptimizerConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationArgs and CatalogTableOptimizerConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationOutput() CatalogTableOptimizerConfigurationOutput
+	ToCatalogTableOptimizerConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationArgs struct {
+	// Indicates whether the table optimizer is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ARN of the IAM role to use for the table optimizer.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (CatalogTableOptimizerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationArgs) ToCatalogTableOptimizerConfigurationOutput() CatalogTableOptimizerConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationArgs) ToCatalogTableOptimizerConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationArgs) ToCatalogTableOptimizerConfigurationPtrOutput() CatalogTableOptimizerConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationArgs) ToCatalogTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOutput).ToCatalogTableOptimizerConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationArgs, CatalogTableOptimizerConfigurationPtr and CatalogTableOptimizerConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationPtrOutput() CatalogTableOptimizerConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationPtrType CatalogTableOptimizerConfigurationArgs
+
+func CatalogTableOptimizerConfigurationPtr(v *CatalogTableOptimizerConfigurationArgs) CatalogTableOptimizerConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationPtrType) ToCatalogTableOptimizerConfigurationPtrOutput() CatalogTableOptimizerConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationPtrType) ToCatalogTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigurationOutput() CatalogTableOptimizerConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigurationPtrOutput() CatalogTableOptimizerConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationPtrOutput)
+}
+
+// Indicates whether the table optimizer is enabled.
+func (o CatalogTableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ARN of the IAM role to use for the table optimizer.
+func (o CatalogTableOptimizerConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type CatalogTableOptimizerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationPtrOutput() CatalogTableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) CatalogTableOptimizerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationOutput)
+}
+
+// Indicates whether the table optimizer is enabled.
+func (o CatalogTableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the IAM role to use for the table optimizer.
+func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogTablePartitionIndex struct {
 	// Name of the partition index.
 	IndexName   string  `pulumi:"indexName"`
@@ -11475,6 +11631,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexInput)(nil)).Elem(), CatalogTablePartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexArrayInput)(nil)).Elem(), CatalogTablePartitionIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionKeyInput)(nil)).Elem(), CatalogTablePartitionKeyArgs{})
@@ -11629,6 +11787,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputOutput{})
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyOutput{})

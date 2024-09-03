@@ -343,6 +343,12 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<string>> FunctionResponseTypes { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The date this resource was last modified.
         /// </summary>
         [Output("lastModified")]
@@ -563,6 +569,12 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
+        /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
         /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
@@ -731,6 +743,12 @@ namespace Pulumi.Aws.Lambda
             get => _functionResponseTypes ?? (_functionResponseTypes = new InputList<string>());
             set => _functionResponseTypes = value;
         }
+
+        /// <summary>
+        /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// The date this resource was last modified.

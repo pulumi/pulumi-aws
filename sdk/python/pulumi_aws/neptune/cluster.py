@@ -1657,7 +1657,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="neptuneClusterParameterGroupName")
-    def neptune_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+    def neptune_cluster_parameter_group_name(self) -> pulumi.Output[str]:
         """
         A cluster parameter group to associate with the cluster.
         """

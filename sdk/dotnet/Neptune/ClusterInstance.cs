@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Neptune
         /// The name of the neptune parameter group to associate with this instance.
         /// </summary>
         [Output("neptuneParameterGroupName")]
-        public Output<string?> NeptuneParameterGroupName { get; private set; } = null!;
+        public Output<string> NeptuneParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.

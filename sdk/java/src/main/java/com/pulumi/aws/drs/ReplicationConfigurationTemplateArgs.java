@@ -206,15 +206,15 @@ public final class ReplicationConfigurationTemplateArgs extends com.pulumi.resou
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      * 
      */
-    @Import(name="stagingAreaTags")
-    private @Nullable Output<Map<String,String>> stagingAreaTags;
+    @Import(name="stagingAreaTags", required=true)
+    private Output<Map<String,String>> stagingAreaTags;
 
     /**
      * @return Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      * 
      */
-    public Optional<Output<Map<String,String>>> stagingAreaTags() {
-        return Optional.ofNullable(this.stagingAreaTags);
+    public Output<Map<String,String>> stagingAreaTags() {
+        return this.stagingAreaTags;
     }
 
     /**
@@ -575,7 +575,7 @@ public final class ReplicationConfigurationTemplateArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder stagingAreaTags(@Nullable Output<Map<String,String>> stagingAreaTags) {
+        public Builder stagingAreaTags(Output<Map<String,String>> stagingAreaTags) {
             $.stagingAreaTags = stagingAreaTags;
             return this;
         }
@@ -672,6 +672,9 @@ public final class ReplicationConfigurationTemplateArgs extends com.pulumi.resou
             }
             if ($.stagingAreaSubnetId == null) {
                 throw new MissingRequiredPropertyException("ReplicationConfigurationTemplateArgs", "stagingAreaSubnetId");
+            }
+            if ($.stagingAreaTags == null) {
+                throw new MissingRequiredPropertyException("ReplicationConfigurationTemplateArgs", "stagingAreaTags");
             }
             if ($.useDedicatedReplicationServer == null) {
                 throw new MissingRequiredPropertyException("ReplicationConfigurationTemplateArgs", "useDedicatedReplicationServer");

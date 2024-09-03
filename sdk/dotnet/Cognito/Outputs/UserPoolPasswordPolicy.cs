@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly int? MinimumLength;
         /// <summary>
+        /// Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+        /// 
+        /// **Note:** This argument requires advanced security features to be active in the user pool.
+        /// </summary>
+        public readonly int? PasswordHistorySize;
+        /// <summary>
         /// Whether you have required users to use at least one lowercase letter in their password.
         /// </summary>
         public readonly bool? RequireLowercase;
@@ -42,6 +48,8 @@ namespace Pulumi.Aws.Cognito.Outputs
         private UserPoolPasswordPolicy(
             int? minimumLength,
 
+            int? passwordHistorySize,
+
             bool? requireLowercase,
 
             bool? requireNumbers,
@@ -53,6 +61,7 @@ namespace Pulumi.Aws.Cognito.Outputs
             int? temporaryPasswordValidityDays)
         {
             MinimumLength = minimumLength;
+            PasswordHistorySize = passwordHistorySize;
             RequireLowercase = requireLowercase;
             RequireNumbers = requireNumbers;
             RequireSymbols = requireSymbols;

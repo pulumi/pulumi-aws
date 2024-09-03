@@ -66,6 +66,7 @@ import {InstanceProfile} from "../iam";
  * const thisInstance = new aws.ec2.Instance("this", {
  *     ami: _this.then(_this => _this.id),
  *     instanceMarketOptions: {
+ *         marketType: "spot",
  *         spotOptions: {
  *             maxPrice: "0.0031",
  *         },

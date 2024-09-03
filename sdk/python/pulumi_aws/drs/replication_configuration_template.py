@@ -30,11 +30,11 @@ class ReplicationConfigurationTemplateArgs:
                  replication_server_instance_type: pulumi.Input[str],
                  replication_servers_security_groups_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  staging_area_subnet_id: pulumi.Input[str],
+                 staging_area_tags: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  use_dedicated_replication_server: pulumi.Input[bool],
                  auto_replicate_new_disks: Optional[pulumi.Input[bool]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
-                 staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
         """
@@ -48,13 +48,13 @@ class ReplicationConfigurationTemplateArgs:
         :param pulumi.Input[str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[str] staging_area_subnet_id: Subnet to be used by the replication staging area.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         :param pulumi.Input[bool] use_dedicated_replication_server: Whether to use a dedicated Replication Server in the replication staging area.
                
                The following arguments are optional:
         :param pulumi.Input[bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
         :param pulumi.Input[str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] staging_area_tags: Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
         """
         pulumi.set(__self__, "associate_default_security_group", associate_default_security_group)
@@ -66,6 +66,7 @@ class ReplicationConfigurationTemplateArgs:
         pulumi.set(__self__, "replication_server_instance_type", replication_server_instance_type)
         pulumi.set(__self__, "replication_servers_security_groups_ids", replication_servers_security_groups_ids)
         pulumi.set(__self__, "staging_area_subnet_id", staging_area_subnet_id)
+        pulumi.set(__self__, "staging_area_tags", staging_area_tags)
         pulumi.set(__self__, "use_dedicated_replication_server", use_dedicated_replication_server)
         if auto_replicate_new_disks is not None:
             pulumi.set(__self__, "auto_replicate_new_disks", auto_replicate_new_disks)
@@ -73,8 +74,6 @@ class ReplicationConfigurationTemplateArgs:
             pulumi.set(__self__, "ebs_encryption_key_arn", ebs_encryption_key_arn)
         if pit_policies is not None:
             pulumi.set(__self__, "pit_policies", pit_policies)
-        if staging_area_tags is not None:
-            pulumi.set(__self__, "staging_area_tags", staging_area_tags)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -189,6 +188,18 @@ class ReplicationConfigurationTemplateArgs:
         pulumi.set(self, "staging_area_subnet_id", value)
 
     @property
+    @pulumi.getter(name="stagingAreaTags")
+    def staging_area_tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
+        """
+        return pulumi.get(self, "staging_area_tags")
+
+    @staging_area_tags.setter
+    def staging_area_tags(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "staging_area_tags", value)
+
+    @property
     @pulumi.getter(name="useDedicatedReplicationServer")
     def use_dedicated_replication_server(self) -> pulumi.Input[bool]:
         """
@@ -237,18 +248,6 @@ class ReplicationConfigurationTemplateArgs:
     @pit_policies.setter
     def pit_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]]):
         pulumi.set(self, "pit_policies", value)
-
-    @property
-    @pulumi.getter(name="stagingAreaTags")
-    def staging_area_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
-        """
-        return pulumi.get(self, "staging_area_tags")
-
-    @staging_area_tags.setter
-    def staging_area_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "staging_area_tags", value)
 
     @property
     @pulumi.getter
@@ -720,6 +719,8 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
             if staging_area_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'staging_area_subnet_id'")
             __props__.__dict__["staging_area_subnet_id"] = staging_area_subnet_id
+            if staging_area_tags is None and not opts.urn:
+                raise TypeError("Missing required property 'staging_area_tags'")
             __props__.__dict__["staging_area_tags"] = staging_area_tags
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -913,7 +914,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stagingAreaTags")
-    def staging_area_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def staging_area_tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         """

@@ -896,7 +896,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig struct {
 	Iops *int `pulumi:"iops"`
 	// Volume size, in gibibytes (GiB).
 	Size int `pulumi:"size"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type string `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
@@ -918,7 +918,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Volume size, in gibibytes (GiB).
 	Size pulumi.IntInput `pulumi:"size"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type pulumi.StringInput `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
@@ -985,7 +985,7 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulumi
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1662,7 +1662,7 @@ type ClusterCoreInstanceGroupEbsConfig struct {
 	Size int `pulumi:"size"`
 	// The throughput, in mebibyte per second (MiB/s).
 	Throughput *int `pulumi:"throughput"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type string `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
@@ -1686,7 +1686,7 @@ type ClusterCoreInstanceGroupEbsConfigArgs struct {
 	Size pulumi.IntInput `pulumi:"size"`
 	// The throughput, in mebibyte per second (MiB/s).
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type pulumi.StringInput `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
@@ -1758,7 +1758,7 @@ func (o ClusterCoreInstanceGroupEbsConfigOutput) Throughput() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterCoreInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2825,7 +2825,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig struct {
 	Iops *int `pulumi:"iops"`
 	// Volume size, in gibibytes (GiB).
 	Size int `pulumi:"size"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type string `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
@@ -2847,7 +2847,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Volume size, in gibibytes (GiB).
 	Size pulumi.IntInput `pulumi:"size"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type pulumi.StringInput `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
@@ -2914,7 +2914,7 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Size() pulu
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3572,7 +3572,7 @@ type ClusterMasterInstanceGroupEbsConfig struct {
 	Size int `pulumi:"size"`
 	// The throughput, in mebibyte per second (MiB/s).
 	Throughput *int `pulumi:"throughput"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type string `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
@@ -3596,7 +3596,7 @@ type ClusterMasterInstanceGroupEbsConfigArgs struct {
 	Size pulumi.IntInput `pulumi:"size"`
 	// The throughput, in mebibyte per second (MiB/s).
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
-	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+	// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 	Type pulumi.StringInput `pulumi:"type"`
 	// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
 	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
@@ -3668,7 +3668,7 @@ func (o ClusterMasterInstanceGroupEbsConfigOutput) Throughput() pulumi.IntPtrOut
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
-// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
 func (o ClusterMasterInstanceGroupEbsConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceGroupEbsConfig) string { return v.Type }).(pulumi.StringOutput)
 }

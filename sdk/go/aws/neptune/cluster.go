@@ -109,7 +109,7 @@ type Cluster struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyArn`, `storageEncrypted` needs to be set to true.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// A cluster parameter group to associate with the cluster.
-	NeptuneClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneClusterParameterGroupName"`
+	NeptuneClusterParameterGroupName pulumi.StringOutput `pulumi:"neptuneClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster.
 	NeptuneInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneInstanceParameterGroupName"`
 	// A Neptune subnet group to associate with this Neptune instance.
@@ -655,8 +655,8 @@ func (o ClusterOutput) KmsKeyArn() pulumi.StringOutput {
 }
 
 // A cluster parameter group to associate with the cluster.
-func (o ClusterOutput) NeptuneClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NeptuneClusterParameterGroupName }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) NeptuneClusterParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NeptuneClusterParameterGroupName }).(pulumi.StringOutput)
 }
 
 // The name of the DB parameter group to apply to all instances of the DB cluster.

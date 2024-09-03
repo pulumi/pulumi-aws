@@ -551,6 +551,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.functionResponseTypes);
     }
     /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyArn;
+
+    /**
+     * @return The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
+    }
+    /**
      * The date this resource was last modified.
      * 
      */

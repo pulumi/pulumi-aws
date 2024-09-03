@@ -225,14 +225,14 @@ public class ReplicationConfigurationTemplate extends com.pulumi.resources.Custo
      * 
      */
     @Export(name="stagingAreaTags", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> stagingAreaTags;
+    private Output<Map<String,String>> stagingAreaTags;
 
     /**
      * @return Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      * 
      */
-    public Output<Optional<Map<String,String>>> stagingAreaTags() {
-        return Codegen.optional(this.stagingAreaTags);
+    public Output<Map<String,String>> stagingAreaTags() {
+        return this.stagingAreaTags;
     }
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.

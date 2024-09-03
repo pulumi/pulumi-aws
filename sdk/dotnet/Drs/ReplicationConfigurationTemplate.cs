@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Drs
         /// Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
         /// </summary>
         [Output("stagingAreaTags")]
-        public Output<ImmutableDictionary<string, string>?> StagingAreaTags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> StagingAreaTags { get; private set; } = null!;
 
         /// <summary>
         /// Set of tags to be associated with the Replication Configuration Template resource.
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Drs
         [Input("stagingAreaSubnetId", required: true)]
         public Input<string> StagingAreaSubnetId { get; set; } = null!;
 
-        [Input("stagingAreaTags")]
+        [Input("stagingAreaTags", required: true)]
         private InputMap<string>? _stagingAreaTags;
 
         /// <summary>
