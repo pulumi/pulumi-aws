@@ -5,17 +5,9 @@ Subject: [PATCH] Restore legacy bucket
 
 
 diff --git a/go.mod b/go.mod
-index 0d8ccda18d..ee2ff5cbfc 100644
+index 0d8ccda18d..85b3de0453 100644
 --- a/go.mod
 +++ b/go.mod
-@@ -1,6 +1,6 @@
- module github.com/hashicorp/terraform-provider-aws
- 
--go 1.23.0
-+go 1.22.6
- 
- require (
- 	github.com/ProtonMail/go-crypto v1.1.0-alpha.5-proton
 @@ -8,23 +8,23 @@ require (
  	github.com/YakDriver/regexache v0.24.0
  	github.com/aws/aws-sdk-go v1.55.5
