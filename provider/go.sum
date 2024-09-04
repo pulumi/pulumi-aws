@@ -2439,6 +2439,8 @@ github.com/pulumi/pulumi-java/pkg v0.14.0 h1:CKL7lLF81Fq6VRhA5TNFsSMnHraTNCUzIhq
 github.com/pulumi/pulumi-java/pkg v0.14.0/go.mod h1:VybuJMWJtJc9ZNbt1kcYH4TbpocMx9mEi7YWL2Co99c=
 github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1 h1:IMn3MmvoO66iptcU5kBdun60PqwNJBJ20A4hD3AqkDE=
 github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1/go.mod h1:SXxx1PJNNdGoD4/CxELgy0F46uzcTbDkz63DJsjIRXE=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.42.2-0.20240904150107-a6e625c5eeff h1:BXOPnc/WpMI1chAnejnCoE34zCly1Y8NWzW59k6c7qk=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.42.2-0.20240904150107-a6e625c5eeff/go.mod h1:6ieEKF1ypM+qjrP7l71s/gfp46QqUSdAJSdn60/xjKY=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1 h1:FLQknb6r3r/uaj1XLbouFF88eF1Fk0h4JOVS9kHKDRY=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.1/go.mod h1:JAxygKR/XGW6zIv6iOP6sHAYjZ7OCtqU7j6Od1lUk38=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.89.2-0.20240904150107-a6e625c5eeff h1:fVeK2VXY5Uk8eQ0j7vzuE58LdoywtBRYqEXe1CBnug0=
