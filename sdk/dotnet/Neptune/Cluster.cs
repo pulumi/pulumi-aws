@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Neptune
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("neptuneClusterParameterGroupName")]
-        public Output<string?> NeptuneClusterParameterGroupName { get; private set; } = null!;
+        public Output<string> NeptuneClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the DB parameter group to apply to all instances of the DB cluster.

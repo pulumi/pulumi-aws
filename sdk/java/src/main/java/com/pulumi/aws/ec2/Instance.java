@@ -135,6 +135,7 @@ import javax.annotation.Nullable;
  *         var thisInstance = new Instance("thisInstance", InstanceArgs.builder()
  *             .ami(this_.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
+ *                 .marketType("spot")
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
  *                     .maxPrice(0.0031)
  *                     .build())

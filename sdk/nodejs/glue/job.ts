@@ -170,6 +170,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
+     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     */
+    public readonly jobRunQueuingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the day of the week and hour for the maintenance window for streaming jobs.
      */
     public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
@@ -252,6 +256,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = state ? state.executionClass : undefined;
             resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
             resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["jobRunQueuingEnabled"] = state ? state.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
@@ -280,6 +285,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = args ? args.executionClass : undefined;
             resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
             resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["jobRunQueuingEnabled"] = args ? args.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
@@ -336,6 +342,10 @@ export interface JobState {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     */
+    jobRunQueuingEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the day of the week and hour for the maintenance window for streaming jobs.
      */
@@ -431,6 +441,10 @@ export interface JobArgs {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     */
+    jobRunQueuingEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the day of the week and hour for the maintenance window for streaming jobs.
      */

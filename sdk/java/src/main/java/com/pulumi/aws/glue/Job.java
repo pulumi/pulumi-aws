@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -364,6 +365,20 @@ public class Job extends com.pulumi.resources.CustomResource {
      */
     public Output<String> glueVersion() {
         return this.glueVersion;
+    }
+    /**
+     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * 
+     */
+    @Export(name="jobRunQueuingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> jobRunQueuingEnabled;
+
+    /**
+     * @return Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * 
+     */
+    public Output<Optional<Boolean>> jobRunQueuingEnabled() {
+        return Codegen.optional(this.jobRunQueuingEnabled);
     }
     /**
      * Specifies the day of the week and hour for the maintenance window for streaming jobs.

@@ -15,14 +15,14 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
     public static final ControlControlMappingSourceSourceKeywordArgs Empty = new ControlControlMappingSourceSourceKeywordArgs();
 
     /**
-     * Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+     * Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
      * 
      */
     @Import(name="keywordInputType", required=true)
     private Output<String> keywordInputType;
 
     /**
-     * @return Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+     * @return Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
      * 
      */
     public Output<String> keywordInputType() {
@@ -70,7 +70,7 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
         }
 
         /**
-         * @param keywordInputType Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+         * @param keywordInputType Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
         }
 
         /**
-         * @param keywordInputType Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+         * @param keywordInputType Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        /// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         /// </summary>
         public readonly string Type;
         /// <summary>

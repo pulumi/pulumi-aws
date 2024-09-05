@@ -5907,6 +5907,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "glue/catalogTableOptimizer",
+  "fqn": "pulumi_aws.glue",
+  "classes": {
+   "aws:glue/catalogTableOptimizer:CatalogTableOptimizer": "CatalogTableOptimizer"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "glue/classifier",
   "fqn": "pulumi_aws.glue",
   "classes": {

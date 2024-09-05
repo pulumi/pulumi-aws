@@ -15,6 +15,11 @@ export type CatalogTable = import("./catalogTable").CatalogTable;
 export const CatalogTable: typeof import("./catalogTable").CatalogTable = null as any;
 utilities.lazyLoad(exports, ["CatalogTable"], () => require("./catalogTable"));
 
+export { CatalogTableOptimizerArgs, CatalogTableOptimizerState } from "./catalogTableOptimizer";
+export type CatalogTableOptimizer = import("./catalogTableOptimizer").CatalogTableOptimizer;
+export const CatalogTableOptimizer: typeof import("./catalogTableOptimizer").CatalogTableOptimizer = null as any;
+utilities.lazyLoad(exports, ["CatalogTableOptimizer"], () => require("./catalogTableOptimizer"));
+
 export { ClassifierArgs, ClassifierState } from "./classifier";
 export type Classifier = import("./classifier").Classifier;
 export const Classifier: typeof import("./classifier").Classifier = null as any;
@@ -129,6 +134,8 @@ const _module = {
                 return new CatalogDatabase(name, <any>undefined, { urn })
             case "aws:glue/catalogTable:CatalogTable":
                 return new CatalogTable(name, <any>undefined, { urn })
+            case "aws:glue/catalogTableOptimizer:CatalogTableOptimizer":
+                return new CatalogTableOptimizer(name, <any>undefined, { urn })
             case "aws:glue/classifier:Classifier":
                 return new Classifier(name, <any>undefined, { urn })
             case "aws:glue/connection:Connection":
@@ -170,6 +177,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "glue/catalogDatabase", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/catalogTable", _module)
+pulumi.runtime.registerResourceModule("aws", "glue/catalogTableOptimizer", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/classifier", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/crawler", _module)

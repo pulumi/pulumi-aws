@@ -2342,9 +2342,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pul
 
 type LifecyclePolicyPolicyDetailsScheduleShareRule struct {
 	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts      []string `pulumi:"targetAccounts"`
-	UnshareInterval     *int     `pulumi:"unshareInterval"`
-	UnshareIntervalUnit *string  `pulumi:"unshareIntervalUnit"`
+	TargetAccounts []string `pulumi:"targetAccounts"`
+	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+	UnshareInterval *int `pulumi:"unshareInterval"`
+	// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+	UnshareIntervalUnit *string `pulumi:"unshareIntervalUnit"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleShareRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleShareRuleArgs and LifecyclePolicyPolicyDetailsScheduleShareRuleOutput values.
@@ -2360,9 +2362,11 @@ type LifecyclePolicyPolicyDetailsScheduleShareRuleInput interface {
 
 type LifecyclePolicyPolicyDetailsScheduleShareRuleArgs struct {
 	// The IDs of the AWS accounts with which to share the snapshots.
-	TargetAccounts      pulumi.StringArrayInput `pulumi:"targetAccounts"`
-	UnshareInterval     pulumi.IntPtrInput      `pulumi:"unshareInterval"`
-	UnshareIntervalUnit pulumi.StringPtrInput   `pulumi:"unshareIntervalUnit"`
+	TargetAccounts pulumi.StringArrayInput `pulumi:"targetAccounts"`
+	// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+	UnshareInterval pulumi.IntPtrInput `pulumi:"unshareInterval"`
+	// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+	UnshareIntervalUnit pulumi.StringPtrInput `pulumi:"unshareIntervalUnit"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ElementType() reflect.Type {
@@ -2447,10 +2451,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) TargetAccounts() pu
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) []string { return v.TargetAccounts }).(pulumi.StringArrayOutput)
 }
 
+// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *int { return v.UnshareInterval }).(pulumi.IntPtrOutput)
 }
 
+// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *string { return v.UnshareIntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2489,6 +2495,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) TargetAccounts()
 	}).(pulumi.StringArrayOutput)
 }
 
+// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *int {
 		if v == nil {
@@ -2498,6 +2505,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareInterval(
 	}).(pulumi.IntPtrOutput)
 }
 
+// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *string {
 		if v == nil {

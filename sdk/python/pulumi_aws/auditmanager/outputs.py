@@ -433,7 +433,7 @@ class ControlControlMappingSourceSourceKeyword(dict):
                  keyword_input_type: str,
                  keyword_value: str):
         """
-        :param str keyword_input_type: Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+        :param str keyword_input_type: Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
         :param str keyword_value: The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
         """
         pulumi.set(__self__, "keyword_input_type", keyword_input_type)
@@ -443,7 +443,7 @@ class ControlControlMappingSourceSourceKeyword(dict):
     @pulumi.getter(name="keywordInputType")
     def keyword_input_type(self) -> str:
         """
-        Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+        Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
         """
         return pulumi.get(self, "keyword_input_type")
 

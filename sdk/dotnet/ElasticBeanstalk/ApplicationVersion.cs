@@ -110,6 +110,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+        /// </summary>
+        [Output("process")]
+        public Output<bool?> Process { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -205,6 +211,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+        /// </summary>
+        [Input("process")]
+        public Input<bool>? Process { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -268,6 +280,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+        /// </summary>
+        [Input("process")]
+        public Input<bool>? Process { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

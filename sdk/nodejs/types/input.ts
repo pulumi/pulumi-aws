@@ -7983,7 +7983,7 @@ export namespace auditmanager {
 
     export interface ControlControlMappingSourceSourceKeyword {
         /**
-         * Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+         * Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
          */
         keywordInputType: pulumi.Input<string>;
         /**
@@ -15583,6 +15583,12 @@ export namespace cognito {
          */
         minimumLength?: pulumi.Input<number>;
         /**
+         * Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+         *
+         * **Note:** This argument requires advanced security features to be active in the user pool.
+         */
+        passwordHistorySize?: pulumi.Input<number>;
+        /**
          * Whether you have required users to use at least one lowercase letter in their password.
          */
         requireLowercase?: pulumi.Input<boolean>;
@@ -19351,7 +19357,13 @@ export namespace dlm {
          * The IDs of the AWS accounts with which to share the snapshots.
          */
         targetAccounts: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+         */
         unshareInterval?: pulumi.Input<number>;
+        /**
+         * The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+         */
         unshareIntervalUnit?: pulumi.Input<string>;
     }
 }
@@ -28317,7 +28329,7 @@ export namespace emr {
          */
         size: pulumi.Input<number>;
         /**
-         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
@@ -28408,7 +28420,7 @@ export namespace emr {
          */
         throughput?: pulumi.Input<number>;
         /**
-         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
@@ -28558,7 +28570,7 @@ export namespace emr {
          */
         size: pulumi.Input<number>;
         /**
-         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
@@ -28645,7 +28657,7 @@ export namespace emr {
          */
         throughput?: pulumi.Input<number>;
         /**
-         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
@@ -30953,6 +30965,17 @@ export namespace glue {
          * The table version for the Iceberg table. Defaults to 2.
          */
         version?: pulumi.Input<string>;
+    }
+
+    export interface CatalogTableOptimizerConfiguration {
+        /**
+         * Indicates whether the table optimizer is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The ARN of the IAM role to use for the table optimizer.
+         */
+        roleArn: pulumi.Input<string>;
     }
 
     export interface CatalogTablePartitionIndex {

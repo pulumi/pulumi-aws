@@ -12,19 +12,6 @@ import * as utilities from "../utilities";
  *
  * > To manage the RDS DB Instance IAM Role for [Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html), see the `aws.rds.Instance` resource `monitoringRoleArn` argument instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.RoleAssociation("example", {
- *     dbInstanceIdentifier: exampleAwsDbInstance.identifier,
- *     featureName: "S3_INTEGRATION",
- *     roleArn: exampleAwsIamRole.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:

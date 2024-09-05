@@ -1981,6 +1981,8 @@ class UserPoolPasswordPolicy(dict):
         suggest = None
         if key == "minimumLength":
             suggest = "minimum_length"
+        elif key == "passwordHistorySize":
+            suggest = "password_history_size"
         elif key == "requireLowercase":
             suggest = "require_lowercase"
         elif key == "requireNumbers":
@@ -2005,6 +2007,7 @@ class UserPoolPasswordPolicy(dict):
 
     def __init__(__self__, *,
                  minimum_length: Optional[int] = None,
+                 password_history_size: Optional[int] = None,
                  require_lowercase: Optional[bool] = None,
                  require_numbers: Optional[bool] = None,
                  require_symbols: Optional[bool] = None,
@@ -2012,6 +2015,9 @@ class UserPoolPasswordPolicy(dict):
                  temporary_password_validity_days: Optional[int] = None):
         """
         :param int minimum_length: Minimum length of the password policy that you have set.
+        :param int password_history_size: Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+               
+               **Note:** This argument requires advanced security features to be active in the user pool.
         :param bool require_lowercase: Whether you have required users to use at least one lowercase letter in their password.
         :param bool require_numbers: Whether you have required users to use at least one number in their password.
         :param bool require_symbols: Whether you have required users to use at least one symbol in their password.
@@ -2020,6 +2026,8 @@ class UserPoolPasswordPolicy(dict):
         """
         if minimum_length is not None:
             pulumi.set(__self__, "minimum_length", minimum_length)
+        if password_history_size is not None:
+            pulumi.set(__self__, "password_history_size", password_history_size)
         if require_lowercase is not None:
             pulumi.set(__self__, "require_lowercase", require_lowercase)
         if require_numbers is not None:
@@ -2038,6 +2046,16 @@ class UserPoolPasswordPolicy(dict):
         Minimum length of the password policy that you have set.
         """
         return pulumi.get(self, "minimum_length")
+
+    @property
+    @pulumi.getter(name="passwordHistorySize")
+    def password_history_size(self) -> Optional[int]:
+        """
+        Number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of number of previous passwords specified by this argument. A value of 0 means that password history is not enforced. Valid values are between 0 and 24.
+
+        **Note:** This argument requires advanced security features to be active in the user pool.
+        """
+        return pulumi.get(self, "password_history_size")
 
     @property
     @pulumi.getter(name="requireLowercase")

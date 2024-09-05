@@ -384,14 +384,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="neptuneClusterParameterGroupName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> neptuneClusterParameterGroupName;
+    private Output<String> neptuneClusterParameterGroupName;
 
     /**
      * @return A cluster parameter group to associate with the cluster.
      * 
      */
-    public Output<Optional<String>> neptuneClusterParameterGroupName() {
-        return Codegen.optional(this.neptuneClusterParameterGroupName);
+    public Output<String> neptuneClusterParameterGroupName() {
+        return this.neptuneClusterParameterGroupName;
     }
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster.

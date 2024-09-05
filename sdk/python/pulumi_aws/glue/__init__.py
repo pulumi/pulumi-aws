@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .catalog_database import *
 from .catalog_table import *
+from .catalog_table_optimizer import *
 from .classifier import *
 from .connection import *
 from .crawler import *

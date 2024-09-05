@@ -127,6 +127,21 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+     * 
+     */
+    @Import(name="process")
+    private @Nullable Output<Boolean> process;
+
+    /**
+     * @return Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+     * 
+     */
+    public Optional<Output<Boolean>> process() {
+        return Optional.ofNullable(this.process);
+    }
+
+    /**
      * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -174,6 +189,7 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
         this.forceDelete = $.forceDelete;
         this.key = $.key;
         this.name = $.name;
+        this.process = $.process;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -345,6 +361,27 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param process Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder process(@Nullable Output<Boolean> process) {
+            $.process = process;
+            return this;
+        }
+
+        /**
+         * @param process Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder process(Boolean process) {
+            return process(Output.of(process));
         }
 
         /**

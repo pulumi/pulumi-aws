@@ -22,6 +22,7 @@ __all__ = [
     'CatalogDatabaseTargetDatabase',
     'CatalogTableOpenTableFormatInput',
     'CatalogTableOpenTableFormatInputIcebergInput',
+    'CatalogTableOptimizerConfiguration',
     'CatalogTablePartitionIndex',
     'CatalogTablePartitionKey',
     'CatalogTableStorageDescriptor',
@@ -350,6 +351,52 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
         The table version for the Iceberg table. Defaults to 2.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 role_arn: str):
+        """
+        :param bool enabled: Indicates whether the table optimizer is enabled.
+        :param str role_arn: The ARN of the IAM role to use for the table optimizer.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Indicates whether the table optimizer is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the IAM role to use for the table optimizer.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

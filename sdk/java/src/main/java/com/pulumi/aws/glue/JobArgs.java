@@ -9,6 +9,7 @@ import com.pulumi.aws.glue.inputs.JobNotificationPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -126,6 +127,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> glueVersion() {
         return Optional.ofNullable(this.glueVersion);
+    }
+
+    /**
+     * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * 
+     */
+    @Import(name="jobRunQueuingEnabled")
+    private @Nullable Output<Boolean> jobRunQueuingEnabled;
+
+    /**
+     * @return Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+     * 
+     */
+    public Optional<Output<Boolean>> jobRunQueuingEnabled() {
+        return Optional.ofNullable(this.jobRunQueuingEnabled);
     }
 
     /**
@@ -332,6 +348,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.executionClass = $.executionClass;
         this.executionProperty = $.executionProperty;
         this.glueVersion = $.glueVersion;
+        this.jobRunQueuingEnabled = $.jobRunQueuingEnabled;
         this.maintenanceWindow = $.maintenanceWindow;
         this.maxCapacity = $.maxCapacity;
         this.maxRetries = $.maxRetries;
@@ -519,6 +536,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder glueVersion(String glueVersion) {
             return glueVersion(Output.of(glueVersion));
+        }
+
+        /**
+         * @param jobRunQueuingEnabled Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobRunQueuingEnabled(@Nullable Output<Boolean> jobRunQueuingEnabled) {
+            $.jobRunQueuingEnabled = jobRunQueuingEnabled;
+            return this;
+        }
+
+        /**
+         * @param jobRunQueuingEnabled Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobRunQueuingEnabled(Boolean jobRunQueuingEnabled) {
+            return jobRunQueuingEnabled(Output.of(jobRunQueuingEnabled));
         }
 
         /**

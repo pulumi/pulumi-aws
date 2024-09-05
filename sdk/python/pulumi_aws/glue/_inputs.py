@@ -27,6 +27,8 @@ __all__ = [
     'CatalogTableOpenTableFormatInputArgsDict',
     'CatalogTableOpenTableFormatInputIcebergInputArgs',
     'CatalogTableOpenTableFormatInputIcebergInputArgsDict',
+    'CatalogTableOptimizerConfigurationArgs',
+    'CatalogTableOptimizerConfigurationArgsDict',
     'CatalogTablePartitionIndexArgs',
     'CatalogTablePartitionIndexArgsDict',
     'CatalogTablePartitionKeyArgs',
@@ -431,6 +433,56 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class CatalogTableOptimizerConfigurationArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Indicates whether the table optimizer is enabled.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role to use for the table optimizer.
+        """
+elif False:
+    CatalogTableOptimizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogTableOptimizerConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether the table optimizer is enabled.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to use for the table optimizer.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the table optimizer is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role to use for the table optimizer.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
 
 
 if not MYPY:

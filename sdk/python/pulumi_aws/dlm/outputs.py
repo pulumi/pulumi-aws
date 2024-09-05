@@ -1014,6 +1014,8 @@ class LifecyclePolicyPolicyDetailsScheduleShareRule(dict):
                  unshare_interval_unit: Optional[str] = None):
         """
         :param Sequence[str] target_accounts: The IDs of the AWS accounts with which to share the snapshots.
+        :param int unshare_interval: The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        :param str unshare_interval_unit: The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
         """
         pulumi.set(__self__, "target_accounts", target_accounts)
         if unshare_interval is not None:
@@ -1032,11 +1034,17 @@ class LifecyclePolicyPolicyDetailsScheduleShareRule(dict):
     @property
     @pulumi.getter(name="unshareInterval")
     def unshare_interval(self) -> Optional[int]:
+        """
+        The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        """
         return pulumi.get(self, "unshare_interval")
 
     @property
     @pulumi.getter(name="unshareIntervalUnit")
     def unshare_interval_unit(self) -> Optional[str]:
+        """
+        The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+        """
         return pulumi.get(self, "unshare_interval_unit")
 
 

@@ -161,7 +161,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A cluster parameter group to associate with the cluster.
      */
-    public readonly neptuneClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly neptuneClusterParameterGroupName!: pulumi.Output<string>;
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster.
      */

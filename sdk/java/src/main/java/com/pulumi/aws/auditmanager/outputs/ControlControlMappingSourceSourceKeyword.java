@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ControlControlMappingSourceSourceKeyword {
     /**
-     * @return Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+     * @return Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
      * 
      */
     private String keywordInputType;
@@ -23,7 +23,7 @@ public final class ControlControlMappingSourceSourceKeyword {
 
     private ControlControlMappingSourceSourceKeyword() {}
     /**
-     * @return Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+     * @return Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
      * 
      */
     public String keywordInputType() {

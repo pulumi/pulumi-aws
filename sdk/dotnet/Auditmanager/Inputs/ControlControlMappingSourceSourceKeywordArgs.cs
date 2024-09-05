@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
     public sealed class ControlControlMappingSourceSourceKeywordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+        /// Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
         /// </summary>
         [Input("keywordInputType", required: true)]
         public Input<string> KeywordInputType { get; set; } = null!;

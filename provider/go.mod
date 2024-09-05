@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/v6
 
-go 1.22.6
+go 1.23.0
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.30.4
@@ -166,6 +166,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.40.6 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.26.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.26.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.30.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elastictranscoder v1.25.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emr v1.42.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emrcontainers v1.30.5 // indirect

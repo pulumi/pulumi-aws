@@ -1165,7 +1165,13 @@ if not MYPY:
         The IDs of the AWS accounts with which to share the snapshots.
         """
         unshare_interval: NotRequired[pulumi.Input[int]]
+        """
+        The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        """
         unshare_interval_unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1177,6 +1183,8 @@ class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
                  unshare_interval_unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_accounts: The IDs of the AWS accounts with which to share the snapshots.
+        :param pulumi.Input[int] unshare_interval: The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        :param pulumi.Input[str] unshare_interval_unit: The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
         """
         pulumi.set(__self__, "target_accounts", target_accounts)
         if unshare_interval is not None:
@@ -1199,6 +1207,9 @@ class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
     @property
     @pulumi.getter(name="unshareInterval")
     def unshare_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        """
         return pulumi.get(self, "unshare_interval")
 
     @unshare_interval.setter
@@ -1208,6 +1219,9 @@ class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
     @property
     @pulumi.getter(name="unshareIntervalUnit")
     def unshare_interval_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+        """
         return pulumi.get(self, "unshare_interval_unit")
 
     @unshare_interval_unit.setter

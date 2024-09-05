@@ -20,6 +20,11 @@ export type DrtAccessRoleArnAssociation = import("./drtAccessRoleArnAssociation"
 export const DrtAccessRoleArnAssociation: typeof import("./drtAccessRoleArnAssociation").DrtAccessRoleArnAssociation = null as any;
 utilities.lazyLoad(exports, ["DrtAccessRoleArnAssociation"], () => require("./drtAccessRoleArnAssociation"));
 
+export { GetProtectionArgs, GetProtectionResult, GetProtectionOutputArgs } from "./getProtection";
+export const getProtection: typeof import("./getProtection").getProtection = null as any;
+export const getProtectionOutput: typeof import("./getProtection").getProtectionOutput = null as any;
+utilities.lazyLoad(exports, ["getProtection","getProtectionOutput"], () => require("./getProtection"));
+
 export { ProactiveEngagementArgs, ProactiveEngagementState } from "./proactiveEngagement";
 export type ProactiveEngagement = import("./proactiveEngagement").ProactiveEngagement;
 export const ProactiveEngagement: typeof import("./proactiveEngagement").ProactiveEngagement = null as any;

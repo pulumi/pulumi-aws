@@ -24,9 +24,15 @@ namespace Pulumi.Aws.Dlm.Inputs
             set => _targetAccounts = value;
         }
 
+        /// <summary>
+        /// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+        /// </summary>
         [Input("unshareInterval")]
         public Input<int>? UnshareInterval { get; set; }
 
+        /// <summary>
+        /// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
+        /// </summary>
         [Input("unshareIntervalUnit")]
         public Input<string>? UnshareIntervalUnit { get; set; }
 

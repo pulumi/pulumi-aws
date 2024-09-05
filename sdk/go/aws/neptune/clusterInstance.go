@@ -106,7 +106,7 @@ type ClusterInstance struct {
 	// The ARN for the KMS encryption key if one is set to the neptune cluster.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the neptune parameter group to associate with this instance.
-	NeptuneParameterGroupName pulumi.StringPtrOutput `pulumi:"neptuneParameterGroupName"`
+	NeptuneParameterGroupName pulumi.StringOutput `pulumi:"neptuneParameterGroupName"`
 	// A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the DB accepts connections. Defaults to `8182`.
@@ -539,8 +539,8 @@ func (o ClusterInstanceOutput) KmsKeyArn() pulumi.StringOutput {
 }
 
 // The name of the neptune parameter group to associate with this instance.
-func (o ClusterInstanceOutput) NeptuneParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.NeptuneParameterGroupName }).(pulumi.StringPtrOutput)
+func (o ClusterInstanceOutput) NeptuneParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.NeptuneParameterGroupName }).(pulumi.StringOutput)
 }
 
 // A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptuneSubnetGroupName` of the attached `neptune.Cluster`.

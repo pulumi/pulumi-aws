@@ -192,6 +192,21 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    @Import(name="kmsKeyArn")
+    private @Nullable Output<String> kmsKeyArn;
+
+    /**
+     * @return The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+     * 
+     */
+    public Optional<Output<String>> kmsKeyArn() {
+        return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
      * The date this resource was last modified.
      * 
      */
@@ -475,6 +490,7 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
         this.functionArn = $.functionArn;
         this.functionName = $.functionName;
         this.functionResponseTypes = $.functionResponseTypes;
+        this.kmsKeyArn = $.kmsKeyArn;
         this.lastModified = $.lastModified;
         this.lastProcessingResult = $.lastProcessingResult;
         this.maximumBatchingWindowInSeconds = $.maximumBatchingWindowInSeconds;
@@ -752,6 +768,27 @@ public final class EventSourceMappingState extends com.pulumi.resources.Resource
          */
         public Builder functionResponseTypes(String... functionResponseTypes) {
             return functionResponseTypes(List.of(functionResponseTypes));
+        }
+
+        /**
+         * @param kmsKeyArn The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
+            $.kmsKeyArn = kmsKeyArn;
+            return this;
+        }
+
+        /**
+         * @param kmsKeyArn The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsKeyArn(String kmsKeyArn) {
+            return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
         /**

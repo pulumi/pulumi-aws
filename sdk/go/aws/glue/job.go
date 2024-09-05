@@ -220,6 +220,8 @@ type Job struct {
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
+	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+	JobRunQueuingEnabled pulumi.BoolPtrOutput `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
 	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
@@ -309,6 +311,8 @@ type jobState struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+	JobRunQueuingEnabled *bool `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
@@ -363,6 +367,8 @@ type JobState struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+	JobRunQueuingEnabled pulumi.BoolPtrInput
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
 	MaintenanceWindow pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
@@ -419,6 +425,8 @@ type jobArgs struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+	JobRunQueuingEnabled *bool `pulumi:"jobRunQueuingEnabled"`
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
@@ -468,6 +476,8 @@ type JobArgs struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+	JobRunQueuingEnabled pulumi.BoolPtrInput
 	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
 	MaintenanceWindow pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
@@ -626,6 +636,11 @@ func (o JobOutput) ExecutionProperty() JobExecutionPropertyOutput {
 // The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o JobOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
+}
+
+// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
+func (o JobOutput) JobRunQueuingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolPtrOutput { return v.JobRunQueuingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the day of the week and hour for the maintenance window for streaming jobs.

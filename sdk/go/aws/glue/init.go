@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CatalogDatabase{}
 	case "aws:glue/catalogTable:CatalogTable":
 		r = &CatalogTable{}
+	case "aws:glue/catalogTableOptimizer:CatalogTableOptimizer":
+		r = &CatalogTableOptimizer{}
 	case "aws:glue/classifier:Classifier":
 		r = &Classifier{}
 	case "aws:glue/connection:Connection":
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"glue/catalogTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"glue/catalogTableOptimizer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

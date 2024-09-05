@@ -5798,4 +5798,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_pinpoint_email_template"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "templateName"), nil
 	}
+	prov.Resources["aws_glue_catalog_table_optimizer"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "catalogId", "databaseName", "tableName", "type"), nil
+	}
 }
