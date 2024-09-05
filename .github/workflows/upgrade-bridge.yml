@@ -63,6 +63,10 @@ jobs:
       with:
         tool-cache: false
         swap-storage: false
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+      with:
+        submodules: true
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
