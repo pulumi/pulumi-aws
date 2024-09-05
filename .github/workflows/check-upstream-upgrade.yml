@@ -27,8 +27,9 @@ jobs:
       shell: bash
     - name: Run upgrade-provider upstream check
       id: upstream_version
+      # Using --repo-path=. skips git pull steps since the Checkout Repo steps has done those.
       run: |
-        upgrade-provider "$REPO" --kind=check-upstream-version
+        upgrade-provider "$REPO" --kind=check-upstream-version --repo-path=.
       env:
         REPO: ${{ github.repository }}
       shell: bash
