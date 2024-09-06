@@ -46,7 +46,7 @@ jobs:
 
   test:
     name: test
-    needs: 
+    needs:
       - prerequisites
       - build_sdk
     permissions:
@@ -85,11 +85,6 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -102,8 +97,7 @@ jobs:
     - name: Make upstream
       run: make upstream
     - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4
     strategy:
       fail-fast: false
       matrix:
