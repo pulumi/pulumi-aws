@@ -244,11 +244,11 @@ index 0000000000..dc4c9b2230
 +	return defaultResolver.EndpointFor(service, region, opts...)
 +}
 diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
-index 60afe86048..1cd7ce5773 100644
+index 5e39e18d5b..7e52012afc 100644
 --- a/names/data/names_data.hcl
 +++ b/names/data/names_data.hcl
-@@ -4146,7 +4146,7 @@ service "gamelift" {
- 
+@@ -4002,7 +4002,7 @@ service "fsx" {
+ service "gamelift" {
    sdk {
      id             = "GameLift"
 -    client_version = [2]

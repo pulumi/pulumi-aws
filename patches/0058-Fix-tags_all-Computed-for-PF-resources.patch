@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
-index e23391e0e2..50d387f30b 100644
+index c6a45a54c7..497d9ca099 100644
 --- a/internal/service/drs/replication_configuration_template.go
 +++ b/internal/service/drs/replication_configuration_template.go
 @@ -104,7 +104,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
