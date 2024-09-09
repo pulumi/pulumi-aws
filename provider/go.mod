@@ -15,7 +15,7 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.43.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.0
 	github.com/pulumi/pulumi/pkg/v3 v3.130.0
 	github.com/pulumi/pulumi/sdk/v3 v3.130.0
