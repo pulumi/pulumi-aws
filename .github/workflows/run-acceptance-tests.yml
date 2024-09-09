@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76
-      with:
+      with: 
         authToken: ${{secrets.GITHUB_TOKEN}}
         # Write an explicit status check called "Sentinel" which will only pass if this code really runs.
         # This should always be a required check for PRs.
@@ -145,6 +145,11 @@ jobs:
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
+    - name: Install gotestfmt
+      uses: GoTestTools/gotestfmt-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -158,10 +163,11 @@ jobs:
       run: make upstream
     - name: Run tests
       if: matrix.testTarget == 'local'
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
+        matrix.language }} -run TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     strategy:
       fail-fast: false
       matrix:
