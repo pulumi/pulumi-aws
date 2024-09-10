@@ -2,6 +2,8 @@ module github.com/pulumi/pulumi-aws/provider/v6
 
 go 1.23.0
 
+toolchain go1.23.1
+
 require (
 	github.com/aws/aws-sdk-go-v2 v1.30.4
 	github.com/aws/aws-sdk-go-v2/config v1.27.28
@@ -15,8 +17,8 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.43.1-0.20240911150014-7864bb06caa7
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.1-0.20240911150014-7864bb06caa7
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.43.1-0.20240912152522-f0fee4fb1db9
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.1-0.20240912152522-f0fee4fb1db9
 	github.com/pulumi/pulumi/pkg/v3 v3.130.0
 	github.com/pulumi/pulumi/sdk/v3 v3.130.0
 	github.com/stretchr/testify v1.9.0
