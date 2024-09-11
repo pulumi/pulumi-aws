@@ -2439,12 +2439,8 @@ github.com/pulumi/providertest v0.0.14 h1:5QlAPAAs82jkQraHsJvq1xgVfC7xtW8sFJwv2p
 github.com/pulumi/providertest v0.0.14/go.mod h1:GcsqEGgSngwaNOD+kICJPIUQlnA911fGBU8HDlJvVL0=
 github.com/pulumi/pulumi-java/pkg v0.14.0 h1:CKL7lLF81Fq6VRhA5TNFsSMnHraTNCUzIhqCzYX8Wzk=
 github.com/pulumi/pulumi-java/pkg v0.14.0/go.mod h1:VybuJMWJtJc9ZNbt1kcYH4TbpocMx9mEi7YWL2Co99c=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1 h1:IMn3MmvoO66iptcU5kBdun60PqwNJBJ20A4hD3AqkDE=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.42.1/go.mod h1:SXxx1PJNNdGoD4/CxELgy0F46uzcTbDkz63DJsjIRXE=
 github.com/pulumi/pulumi-terraform-bridge/pf v0.43.1-0.20240911150014-7864bb06caa7 h1:DWbPzzS1OBBa/q9jty33wIXamrXhqn5mVCWiUOwvJYA=
 github.com/pulumi/pulumi-terraform-bridge/pf v0.43.1-0.20240911150014-7864bb06caa7/go.mod h1:xdU2rcUBjPX/alXMiywUK1GvN4goUHZxos8ZfT6sVXM=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.0 h1:e7xfYAiXCE8LCwfKvbGeNAjdPmKwPM3kavEXECt3wvs=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.0/go.mod h1:dIVp4qG+GsUwmpz40L7Z+PZnzHf3cQq1CAFwhz++ris=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.1-0.20240911150014-7864bb06caa7 h1:XAog9hKRAAV0D/wulmrFbn+dZAALBg/MMJpLPmUxLPg=
 github.com/pulumi/pulumi-terraform-bridge/v3 v3.90.1-0.20240911150014-7864bb06caa7/go.mod h1:dIVp4qG+GsUwmpz40L7Z+PZnzHf3cQq1CAFwhz++ris=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 h1:mav2tSitA9BPJPLLahKgepHyYsMzwaTm4cvp0dcTMYw=
