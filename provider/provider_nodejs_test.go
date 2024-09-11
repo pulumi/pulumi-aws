@@ -20,6 +20,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/stretchr/testify/require"
 )
 
@@ -255,6 +256,23 @@ func TestGameLift(t *testing.T) {
 	ptest.SetConfig("customData", "B")
 	result2 := ptest.Up()
 	require.Equal(t, "B", result2.Outputs["CustomEventData"].Value)
+}
+
+func TestRegress4446(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "regress-4446")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	upResult := test.Up()
+	t.Logf("#%v", upResult.Summary)
+	result := test.Preview(optpreview.ExpectNoChanges())
+	t.Logf("#%v", result.ChangeSummary)
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
