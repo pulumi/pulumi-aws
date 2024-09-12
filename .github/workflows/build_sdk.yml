@@ -62,7 +62,7 @@ jobs:
       - name: Setup tools
         uses: ./.github/actions/setup-tools
         with:
-          tools: pulumictl, pulumicli, go, node, dotnet, python, java
+          tools: pulumictl, pulumicli, ${{ matrix.language }}
       - name: Download bin
         uses: ./.github/actions/download-bin
       - name: Install plugins
