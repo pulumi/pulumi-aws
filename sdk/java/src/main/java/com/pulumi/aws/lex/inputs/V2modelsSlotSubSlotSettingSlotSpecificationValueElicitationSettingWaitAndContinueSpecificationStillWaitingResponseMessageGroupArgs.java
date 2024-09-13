@@ -18,16 +18,38 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     public static final V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs Empty = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs();
 
+    /**
+     * Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     @Import(name="message", required=true)
     private Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs> message;
 
+    /**
+     * @return Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     public Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs> message() {
         return this.message;
     }
 
+    /**
+     * Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     @Import(name="variations")
     private @Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>> variations;
 
+    /**
+     * @return Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>>> variations() {
         return Optional.ofNullable(this.variations);
     }
@@ -57,24 +79,62 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             $ = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param message Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder message(Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
 
+        /**
+         * @param message Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder message(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs message) {
             return message(Output.of(message));
         }
 
+        /**
+         * @param variations Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variations(@Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>> variations) {
             $.variations = variations;
             return this;
         }
 
+        /**
+         * @param variations Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variations(List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs> variations) {
             return variations(Output.of(variations));
         }
 
+        /**
+         * @param variations Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         * 
+         * @return builder
+         * 
+         */
         public Builder variations(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs... variations) {
             return variations(List.of(variations));
         }

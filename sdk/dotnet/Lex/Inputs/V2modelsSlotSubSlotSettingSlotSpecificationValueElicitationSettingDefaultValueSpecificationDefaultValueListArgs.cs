@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Default value to use when a user doesn't provide a value for a slot.
+        /// </summary>
         [Input("defaultValue", required: true)]
         public Input<string> DefaultValue { get; set; } = null!;
 

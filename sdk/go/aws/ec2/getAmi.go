@@ -33,7 +33,7 @@ import (
 //					"self",
 //				},
 //				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+//				NameRegex:  pulumi.StringRef("^myami-[0-9]{3}"),
 //				Owners: []string{
 //					"self",
 //				},

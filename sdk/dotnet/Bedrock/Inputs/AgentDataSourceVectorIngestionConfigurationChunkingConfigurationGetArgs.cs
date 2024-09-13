@@ -13,16 +13,28 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
         /// </summary>
         [Input("chunkingStrategy", required: true)]
         public Input<string> ChunkingStrategy { get; set; } = null!;
 
         /// <summary>
-        /// Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        /// Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
         /// </summary>
         [Input("fixedSizeChunkingConfiguration")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationGetArgs>? FixedSizeChunkingConfiguration { get; set; }
+
+        /// <summary>
+        /// Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        /// </summary>
+        [Input("hierarchicalChunkingConfiguration")]
+        public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationGetArgs>? HierarchicalChunkingConfiguration { get; set; }
+
+        /// <summary>
+        /// Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+        /// </summary>
+        [Input("semanticChunkingConfiguration")]
+        public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationGetArgs>? SemanticChunkingConfiguration { get; set; }
 
         public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationGetArgs()
         {

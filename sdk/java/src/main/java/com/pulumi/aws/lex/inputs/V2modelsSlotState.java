@@ -97,14 +97,16 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+     * Whether the slot returns multiple values in one response.
+     * See the `multiple_values_setting` argument reference below.
      * 
      */
     @Import(name="multipleValuesSettings")
     private @Nullable Output<List<V2modelsSlotMultipleValuesSettingArgs>> multipleValuesSettings;
 
     /**
-     * @return Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+     * @return Whether the slot returns multiple values in one response.
+     * See the `multiple_values_setting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotMultipleValuesSettingArgs>>> multipleValuesSettings() {
@@ -127,14 +129,16 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+     * Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscation_setting` argument reference below.
      * 
      */
     @Import(name="obfuscationSettings")
     private @Nullable Output<List<V2modelsSlotObfuscationSettingArgs>> obfuscationSettings;
 
     /**
-     * @return Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+     * @return Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscation_setting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotObfuscationSettingArgs>>> obfuscationSettings() {
@@ -173,6 +177,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `sub_slot_setting` argument reference below.
      * 
      */
     @Import(name="subSlotSettings")
@@ -180,6 +185,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `sub_slot_setting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingArgs>>> subSlotSettings() {
@@ -193,21 +199,9 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Import(name="valueElicitationSetting")
     private @Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting;
 
-    /**
-     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Optional<Output<V2modelsSlotValueElicitationSettingArgs>> valueElicitationSetting() {
         return Optional.ofNullable(this.valueElicitationSetting);
     }
@@ -354,7 +348,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
+         * See the `multiple_values_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -365,7 +360,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
+         * See the `multiple_values_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -375,7 +371,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multipleValuesSettings Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+         * @param multipleValuesSettings Whether the slot returns multiple values in one response.
+         * See the `multiple_values_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -406,7 +403,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
+         * See the `obfuscation_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -417,7 +415,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
+         * See the `obfuscation_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -427,7 +426,8 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+         * @param obfuscationSettings Determines how slot values are used in Amazon CloudWatch logs.
+         * See the `obfuscation_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -480,6 +480,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * See the `sub_slot_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -491,6 +492,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * See the `sub_slot_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -501,6 +503,7 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subSlotSettings Specifications for the constituent sub slots and the expression for the composite slot.
+         * See the `sub_slot_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -518,27 +521,11 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        /**
-         * @param valueElicitationSetting Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueElicitationSetting(@Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting) {
             $.valueElicitationSetting = valueElicitationSetting;
             return this;
         }
 
-        /**
-         * @param valueElicitationSetting Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueElicitationSetting(V2modelsSlotValueElicitationSettingArgs valueElicitationSetting) {
             return valueElicitationSetting(Output.of(valueElicitationSetting));
         }

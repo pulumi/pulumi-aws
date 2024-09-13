@@ -19,26 +19,25 @@ __all__ = ['ProfileArgs', 'Profile']
 @pulumi.input_type
 class ProfileArgs:
     def __init__(__self__, *,
-                 role_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  duration_seconds: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  require_instance_properties: Optional[pulumi.Input[bool]] = None,
+                 role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  session_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[bool] enabled: Whether or not the Profile is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of managed policy ARNs that apply to the vended session credentials.
         :param pulumi.Input[str] name: The name of the Profile.
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM roles that this profile can assume
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "role_arns", role_arns)
         if duration_seconds is not None:
             pulumi.set(__self__, "duration_seconds", duration_seconds)
         if enabled is not None:
@@ -49,22 +48,12 @@ class ProfileArgs:
             pulumi.set(__self__, "name", name)
         if require_instance_properties is not None:
             pulumi.set(__self__, "require_instance_properties", require_instance_properties)
+        if role_arns is not None:
+            pulumi.set(__self__, "role_arns", role_arns)
         if session_policy is not None:
             pulumi.set(__self__, "session_policy", session_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="roleArns")
-    def role_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of IAM roles that this profile can assume
-        """
-        return pulumi.get(self, "role_arns")
-
-    @role_arns.setter
-    def role_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "role_arns", value)
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -125,6 +114,18 @@ class ProfileArgs:
     @require_instance_properties.setter
     def require_instance_properties(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "require_instance_properties", value)
+
+    @property
+    @pulumi.getter(name="roleArns")
+    def role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IAM roles that this profile can assume
+        """
+        return pulumi.get(self, "role_arns")
+
+    @role_arns.setter
+    def role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "role_arns", value)
 
     @property
     @pulumi.getter(name="sessionPolicy")
@@ -393,7 +394,7 @@ class Profile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProfileArgs,
+                 args: Optional[ProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a Roles Anywhere Profile.
@@ -473,8 +474,6 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["managed_policy_arns"] = managed_policy_arns
             __props__.__dict__["name"] = name
             __props__.__dict__["require_instance_properties"] = require_instance_properties
-            if role_arns is None and not opts.urn:
-                raise TypeError("Missing required property 'role_arns'")
             __props__.__dict__["role_arns"] = role_arns
             __props__.__dict__["session_policy"] = session_policy
             __props__.__dict__["tags"] = tags
@@ -584,7 +583,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="roleArns")
-    def role_arns(self) -> pulumi.Output[Sequence[str]]:
+    def role_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of IAM roles that this profile can assume
         """

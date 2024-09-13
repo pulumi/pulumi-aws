@@ -13,11 +13,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'DomainSingleSignOn',
     'DomainTimeouts',
+    'EnvironmentLastDeployment',
+    'EnvironmentLastDeploymentFailureReason',
     'EnvironmentProfileUserParameter',
+    'EnvironmentProvisionedResource',
+    'EnvironmentTimeouts',
+    'EnvironmentUserParameter',
     'FormTypeImport',
     'FormTypeModel',
     'FormTypeTimeouts',
@@ -97,6 +103,97 @@ class DomainTimeouts(dict):
 
 
 @pulumi.output_type
+class EnvironmentLastDeployment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "failureReasons":
+            suggest = "failure_reasons"
+        elif key == "isDeploymentComplete":
+            suggest = "is_deployment_complete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentLastDeployment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentLastDeployment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentLastDeployment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_id: str,
+                 deployment_status: str,
+                 deployment_type: str,
+                 failure_reasons: Sequence['outputs.EnvironmentLastDeploymentFailureReason'],
+                 is_deployment_complete: bool,
+                 messages: Sequence[str]):
+        pulumi.set(__self__, "deployment_id", deployment_id)
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "failure_reasons", failure_reasons)
+        pulumi.set(__self__, "is_deployment_complete", is_deployment_complete)
+        pulumi.set(__self__, "messages", messages)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> str:
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> str:
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="failureReasons")
+    def failure_reasons(self) -> Sequence['outputs.EnvironmentLastDeploymentFailureReason']:
+        return pulumi.get(self, "failure_reasons")
+
+    @property
+    @pulumi.getter(name="isDeploymentComplete")
+    def is_deployment_complete(self) -> bool:
+        return pulumi.get(self, "is_deployment_complete")
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Sequence[str]:
+        return pulumi.get(self, "messages")
+
+
+@pulumi.output_type
+class EnvironmentLastDeploymentFailureReason(dict):
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
 class EnvironmentProfileUserParameter(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
@@ -123,6 +220,123 @@ class EnvironmentProfileUserParameter(dict):
     def value(self) -> Optional[str]:
         """
         Value of the environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentProvisionedResource(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 provider: str,
+                 type: str,
+                 value: str):
+        """
+        :param str name: The name of the environment.
+        :param str value: The value of an environment profile parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def provider(self) -> str:
+        return pulumi.get(self, "provider")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of an environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class EnvironmentUserParameter(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of an environment profile parameter.
+        :param str value: The value of an environment profile parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of an environment profile parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
 

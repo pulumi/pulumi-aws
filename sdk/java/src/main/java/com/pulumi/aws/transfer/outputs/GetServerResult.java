@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -72,6 +73,11 @@ public final class GetServerResult {
      * 
      */
     private List<String> structuredLogDestinations;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
     /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
@@ -167,6 +173,13 @@ public final class GetServerResult {
         return this.structuredLogDestinations;
     }
     /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
@@ -196,6 +209,7 @@ public final class GetServerResult {
         private String securityPolicyName;
         private String serverId;
         private List<String> structuredLogDestinations;
+        private Map<String,String> tags;
         private String url;
         public Builder() {}
         public Builder(GetServerResult defaults) {
@@ -213,6 +227,7 @@ public final class GetServerResult {
     	      this.securityPolicyName = defaults.securityPolicyName;
     	      this.serverId = defaults.serverId;
     	      this.structuredLogDestinations = defaults.structuredLogDestinations;
+    	      this.tags = defaults.tags;
     	      this.url = defaults.url;
         }
 
@@ -327,6 +342,14 @@ public final class GetServerResult {
             return structuredLogDestinations(List.of(structuredLogDestinations));
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             if (url == null) {
               throw new MissingRequiredPropertyException("GetServerResult", "url");
@@ -349,6 +372,7 @@ public final class GetServerResult {
             _resultValue.securityPolicyName = securityPolicyName;
             _resultValue.serverId = serverId;
             _resultValue.structuredLogDestinations = structuredLogDestinations;
+            _resultValue.tags = tags;
             _resultValue.url = url;
             return _resultValue;
         }

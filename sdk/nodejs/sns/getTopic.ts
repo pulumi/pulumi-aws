@@ -25,6 +25,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetTopicArgs {
      * Friendly name of the topic to match.
      */
     name: string;
+    /**
+     * Map of tags for the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -51,6 +56,10 @@ export interface GetTopicResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Map of tags for the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Use this data source to get the ARN of a topic in AWS Simple Notification
@@ -80,4 +89,8 @@ export interface GetTopicOutputArgs {
      * Friendly name of the topic to match.
      */
     name: pulumi.Input<string>;
+    /**
+     * Map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

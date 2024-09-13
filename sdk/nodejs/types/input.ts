@@ -971,6 +971,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    pcs?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     pinpoint?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -3039,7 +3043,7 @@ export namespace appconfig {
         /**
          * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
          */
-        roleArn: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
         /**
          * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
          */
@@ -10222,17 +10226,29 @@ export namespace bedrock {
          * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
          */
         chunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration>;
+        /**
+         * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+         */
+        parsingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
          */
         chunkingStrategy: pulumi.Input<string>;
         /**
-         * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+         * Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
          */
         fixedSizeChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration>;
+        /**
+         * Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+         */
+        hierarchicalChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration>;
+        /**
+         * Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+         */
+        semanticChunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
@@ -10244,6 +10260,65 @@ export namespace bedrock {
          * Percentage of overlap between adjacent chunks of a data source.
          */
         overlapPercentage: pulumi.Input<number>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+        /**
+         * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         */
+        levelConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>[]>;
+        /**
+         * The number of tokens to repeat across chunks in the same layer.
+         */
+        overlapTokens: pulumi.Input<number>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+        /**
+         * The maximum number of tokens that a chunk can contain in this layer.
+         */
+        maxTokens: pulumi.Input<number>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+        /**
+         * The dissimilarity threshold for splitting chunks.
+         */
+        breakpointPercentileThreshold: pulumi.Input<number>;
+        /**
+         * The buffer size.
+         */
+        bufferSize: pulumi.Input<number>;
+        maxToken: pulumi.Input<number>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+        /**
+         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         */
+        bedrockFoundationModelConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration>;
+        /**
+         * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+         */
+        parsingStrategy: pulumi.Input<string>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+        /**
+         * The ARN of the model used to parse documents
+         */
+        modelArn: pulumi.Input<string>;
+        /**
+         * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         */
+        parsingPrompt?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+        /**
+         * Instructions for interpreting the contents of the document.
+         */
+        parsingPromptString: pulumi.Input<string>;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
@@ -18819,6 +18894,20 @@ export namespace datazone {
         delete?: pulumi.Input<string>;
     }
 
+    export interface EnvironmentLastDeployment {
+        deploymentId: pulumi.Input<string>;
+        deploymentStatus: pulumi.Input<string>;
+        deploymentType: pulumi.Input<string>;
+        failureReasons: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentLastDeploymentFailureReason>[]>;
+        isDeploymentComplete: pulumi.Input<boolean>;
+        messages: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EnvironmentLastDeploymentFailureReason {
+        code: pulumi.Input<string>;
+        message: pulumi.Input<string>;
+    }
+
     export interface EnvironmentProfileUserParameter {
         /**
          * Name of the environment profile parameter.
@@ -18826,6 +18915,45 @@ export namespace datazone {
         name?: pulumi.Input<string>;
         /**
          * Value of the environment profile parameter.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentProvisionedResource {
+        /**
+         * The name of the environment.
+         */
+        name: pulumi.Input<string>;
+        provider: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+        /**
+         * The value of an environment profile parameter.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentUserParameter {
+        /**
+         * The name of an environment profile parameter.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of an environment profile parameter.
          */
         value?: pulumi.Input<string>;
     }
@@ -27728,7 +27856,7 @@ export namespace elasticsearch {
          */
         enforceHttps?: pulumi.Input<boolean>;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy?: pulumi.Input<string>;
     }
@@ -51220,36 +51348,62 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSetting {
+        /**
+         * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+         */
         expression?: pulumi.Input<string>;
+        /**
+         * Specifications for the constituent sub slots of a composite slot.
+         * See the `slotSpecification` argument reference below.
+         */
         slotSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecification>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecification {
         mapBlockKey: pulumi.Input<string>;
         /**
-         * Unique identifier for the slot type associated with this slot.
+         * Unique identifier assigned to the slot type.
          */
         slotTypeId: pulumi.Input<string>;
         /**
-         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         *
-         * The following arguments are optional:
+         * Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `valueElicitationSetting` argument reference below.
          */
         valueElicitationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification>[]>;
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification>;
         sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance>[]>;
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: pulumi.Input<string>;
     }
 
@@ -51262,7 +51416,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation>[]>;
     }
 
@@ -51364,23 +51527,60 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: pulumi.Input<boolean>;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse>[]>;
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>[]>;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation>[]>;
     }
 
@@ -51447,14 +51647,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: pulumi.Input<number>;
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup>[]>;
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: pulumi.Input<number>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation>[]>;
     }
 
@@ -51521,12 +51739,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup>[]>;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation>[]>;
     }
 
@@ -51721,19 +51956,46 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecification>[]>;
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecification>;
         sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingSampleUtterance>[]>;
+        /**
+         * Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+         */
         slotConstraint: pulumi.Input<string>;
+        /**
+         * Information about whether assisted slot resolution is turned on for the slot or not.
+         * See the `slotResolutionSetting` argument reference below.
+         */
         slotResolutionSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingSlotResolutionSetting>[]>;
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification>[]>;
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList>[]>;
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: pulumi.Input<string>;
     }
 
@@ -51746,7 +52008,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation>[]>;
     }
 
@@ -51848,27 +52119,70 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingSlotResolutionSetting {
+        /**
+         * Specifies whether assisted slot resolution is turned on for the slot or not.
+         * Valid values are `EnhancedFallback` or `Default`.
+         * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+         * If the value is `Default`, assisted slot resolution is turned off.
+         */
         slotResolutionStrategy: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: pulumi.Input<boolean>;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse>[]>;
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse>[]>;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse>[]>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup>[]>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation>[]>;
     }
 
@@ -51935,14 +52249,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: pulumi.Input<number>;
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup>[]>;
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: pulumi.Input<number>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation>[]>;
     }
 
@@ -52009,12 +52341,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: pulumi.Input<boolean>;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup>[]>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage>;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation>[]>;
     }
 
@@ -57738,24 +58087,36 @@ export namespace networkmanager {
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
         /**
-         * A list of strings. The list of edges associated with the network function group.
+         * A list of a list of strings. The list of edges associated with the network function group.
          */
-        edgeSets?: string[];
+        edgeSets?: string[][];
+        /**
+         * The preferred edge to use.
+         *
+         * @deprecated Use use_edge_location
+         */
+        useEdge?: string;
         /**
          * The preferred edge to use.
          */
-        useEdge?: string;
+        useEdgeLocation?: string;
     }
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs {
         /**
-         * A list of strings. The list of edges associated with the network function group.
+         * A list of a list of strings. The list of edges associated with the network function group.
          */
-        edgeSets?: pulumi.Input<pulumi.Input<string>[]>;
+        edgeSets?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[]>;
+        /**
+         * The preferred edge to use.
+         *
+         * @deprecated Use use_edge_location
+         */
+        useEdge?: pulumi.Input<string>;
         /**
          * The preferred edge to use.
          */
-        useEdge?: pulumi.Input<string>;
+        useEdgeLocation?: pulumi.Input<string>;
     }
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
@@ -61545,6 +61906,10 @@ export namespace quicksight {
          */
         awsIotAnalytics?: pulumi.Input<inputs.quicksight.DataSourceParametersAwsIotAnalytics>;
         /**
+         * Parameters for connecting to Databricks.
+         */
+        databricks?: pulumi.Input<inputs.quicksight.DataSourceParametersDatabricks>;
+        /**
          * Parameters for connecting to Jira.
          */
         jira?: pulumi.Input<inputs.quicksight.DataSourceParametersJira>;
@@ -61655,6 +62020,21 @@ export namespace quicksight {
          * The name of the data set to which to connect.
          */
         dataSetName: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersDatabricks {
+        /**
+         * The host name of the Databricks data source.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port for the Databricks data source.
+         */
+        port: pulumi.Input<number>;
+        /**
+         * The HTTP path of the Databricks data source.
+         */
+        sqlEndpointPath: pulumi.Input<string>;
     }
 
     export interface DataSourceParametersJira {
@@ -61895,16 +62275,6 @@ export namespace quicksight {
          * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
          */
         principal: pulumi.Input<string>;
-    }
-
-    export interface GetDataSetColumnLevelPermissionRule {
-        columnNames?: string[];
-        principals?: string[];
-    }
-
-    export interface GetDataSetColumnLevelPermissionRuleArgs {
-        columnNames?: pulumi.Input<pulumi.Input<string>[]>;
-        principals?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IamPolicyAssignmentIdentities {
@@ -63283,6 +63653,17 @@ export namespace resourcegroupstaggingapi {
 }
 
 export namespace rolesanywhere {
+    export interface TrustAnchorNotificationSetting {
+        channel?: pulumi.Input<string>;
+        configuredBy?: pulumi.Input<string>;
+        /**
+         * Whether or not the Trust Anchor should be enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        event?: pulumi.Input<string>;
+        threshold?: pulumi.Input<number>;
+    }
+
     export interface TrustAnchorSource {
         /**
          * The data denoting the source of trust, documented below

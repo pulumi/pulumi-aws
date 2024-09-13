@@ -16,9 +16,21 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
 
     public static final V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs Empty = new V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs();
 
+    /**
+     * List of default values.
+     * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+     * See the `default_value_list` argument reference below.
+     * 
+     */
     @Import(name="defaultValueLists")
     private @Nullable Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
 
+    /**
+     * @return List of default values.
+     * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+     * See the `default_value_list` argument reference below.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>>> defaultValueLists() {
         return Optional.ofNullable(this.defaultValueLists);
     }
@@ -47,15 +59,39 @@ public final class V2modelsSlotValueElicitationSettingDefaultValueSpecificationA
             $ = new V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultValueLists List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `default_value_list` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValueLists(@Nullable Output<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists) {
             $.defaultValueLists = defaultValueLists;
             return this;
         }
 
+        /**
+         * @param defaultValueLists List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `default_value_list` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValueLists(List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs> defaultValueLists) {
             return defaultValueLists(Output.of(defaultValueLists));
         }
 
+        /**
+         * @param defaultValueLists List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `default_value_list` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValueLists(V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs... defaultValueLists) {
             return defaultValueLists(List.of(defaultValueLists));
         }

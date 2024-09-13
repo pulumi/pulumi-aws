@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.quicksight.inputs;
 
-import com.pulumi.aws.quicksight.inputs.GetDataSetColumnLevelPermissionRule;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,13 +29,6 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<String> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
-    }
-
-    @Import(name="columnLevelPermissionRules")
-    private @Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
-
-    public Optional<List<GetDataSetColumnLevelPermissionRule>> columnLevelPermissionRules() {
-        return Optional.ofNullable(this.columnLevelPermissionRules);
     }
 
     /**
@@ -89,7 +80,6 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDataSetPlainArgs(GetDataSetPlainArgs $) {
         this.awsAccountId = $.awsAccountId;
-        this.columnLevelPermissionRules = $.columnLevelPermissionRules;
         this.dataSetId = $.dataSetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -122,15 +112,6 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
-        }
-
-        public Builder columnLevelPermissionRules(@Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules) {
-            $.columnLevelPermissionRules = columnLevelPermissionRules;
-            return this;
-        }
-
-        public Builder columnLevelPermissionRules(GetDataSetColumnLevelPermissionRule... columnLevelPermissionRules) {
-            return columnLevelPermissionRules(List.of(columnLevelPermissionRules));
         }
 
         /**

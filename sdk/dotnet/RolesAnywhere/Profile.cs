@@ -142,7 +142,7 @@ namespace Pulumi.Aws.RolesAnywhere
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Profile(string name, ProfileArgs args, CustomResourceOptions? options = null)
+        public Profile(string name, ProfileArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:rolesanywhere/profile:Profile", name, args ?? new ProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.RolesAnywhere
         [Input("requireInstanceProperties")]
         public Input<bool>? RequireInstanceProperties { get; set; }
 
-        [Input("roleArns", required: true)]
+        [Input("roleArns")]
         private InputList<string>? _roleArns;
 
         /// <summary>

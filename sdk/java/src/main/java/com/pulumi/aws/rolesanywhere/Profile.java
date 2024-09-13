@@ -181,14 +181,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="roleArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> roleArns;
+    private Output</* @Nullable */ List<String>> roleArns;
 
     /**
      * @return A list of IAM roles that this profile can assume
      * 
      */
-    public Output<List<String>> roleArns() {
-        return this.roleArns;
+    public Output<Optional<List<String>>> roleArns() {
+        return Codegen.optional(this.roleArns);
     }
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
@@ -249,7 +249,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Profile(java.lang.String name, ProfileArgs args) {
+    public Profile(java.lang.String name, @Nullable ProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -258,7 +258,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Profile(java.lang.String name, ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Profile(java.lang.String name, @Nullable ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:rolesanywhere/profile:Profile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -266,7 +266,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
         super("aws:rolesanywhere/profile:Profile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ProfileArgs makeArgs(ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ProfileArgs makeArgs(@Nullable ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

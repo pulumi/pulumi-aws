@@ -13,13 +13,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+    /**
+     * @return Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message;
+    /**
+     * @return Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation> variations;
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup() {}
+    /**
+     * @return Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     public V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage message() {
         return this.message;
     }
+    /**
+     * @return Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }

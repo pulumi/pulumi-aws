@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -113,12 +112,9 @@ type Profile struct {
 func NewProfile(ctx *pulumi.Context,
 	name string, args *ProfileArgs, opts ...pulumi.ResourceOption) (*Profile, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ProfileArgs{}
 	}
 
-	if args.RoleArns == nil {
-		return nil, errors.New("invalid value for required argument 'RoleArns'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws:rolesanywhere/profile:Profile", name, args, &resource, opts...)

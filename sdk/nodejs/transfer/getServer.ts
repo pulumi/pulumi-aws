@@ -24,6 +24,7 @@ export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
         "serverId": args.serverId,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetServerArgs {
      * ID for an SFTP server.
      */
     serverId: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -91,6 +96,10 @@ export interface GetServerResult {
      */
     readonly structuredLogDestinations: string[];
     /**
+     * Map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
+    /**
      * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     readonly url: string;
@@ -122,4 +131,8 @@ export interface GetServerOutputArgs {
      * ID for an SFTP server.
      */
     serverId: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

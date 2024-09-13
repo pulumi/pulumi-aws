@@ -71,6 +71,18 @@ namespace Pulumi.Aws.Transfer
         [Input("serverId", required: true)]
         public string ServerId { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetServerArgs()
         {
         }
@@ -84,6 +96,18 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetServerInvokeArgs()
         {
@@ -145,6 +169,10 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly ImmutableArray<string> StructuredLogDestinations;
         /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
         public readonly string Url;
@@ -177,6 +205,8 @@ namespace Pulumi.Aws.Transfer
 
             ImmutableArray<string> structuredLogDestinations,
 
+            ImmutableDictionary<string, string> tags,
+
             string url)
         {
             Arn = arn;
@@ -192,6 +222,7 @@ namespace Pulumi.Aws.Transfer
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
             StructuredLogDestinations = structuredLogDestinations;
+            Tags = tags;
             Url = url;
         }
     }

@@ -13,9 +13,18 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse
     {
+        /// <summary>
+        /// Whether the user can interrupt a speech response from Amazon Lex.
+        /// </summary>
         public readonly bool? AllowInterrupt;
+        /// <summary>
+        /// How often a message should be sent to the user.
+        /// </summary>
         public readonly int FrequencyInSeconds;
         public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup> MessageGroups;
+        /// <summary>
+        /// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        /// </summary>
         public readonly int TimeoutInSeconds;
 
         [OutputConstructor]

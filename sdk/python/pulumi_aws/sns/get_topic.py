@@ -26,7 +26,7 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, arn=None, id=None, name=None):
+    def __init__(__self__, arn=None, id=None, name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetTopicResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -58,6 +61,14 @@ class GetTopicResult:
     def name(self) -> str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetTopicResult(GetTopicResult):
     # pylint: disable=using-constant-test
@@ -67,10 +78,12 @@ class AwaitableGetTopicResult(GetTopicResult):
         return GetTopicResult(
             arn=self.arn,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_topic(name: Optional[str] = None,
+              tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Use this data source to get the ARN of a topic in AWS Simple Notification
@@ -88,20 +101,24 @@ def get_topic(name: Optional[str] = None,
 
 
     :param str name: Friendly name of the topic to match.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sns/getTopic:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_topic)
 def get_topic_output(name: Optional[pulumi.Input[str]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
     """
     Use this data source to get the ARN of a topic in AWS Simple Notification
@@ -119,5 +136,6 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Friendly name of the topic to match.
+    :param Mapping[str, str] tags: Map of tags for the resource.
     """
     ...

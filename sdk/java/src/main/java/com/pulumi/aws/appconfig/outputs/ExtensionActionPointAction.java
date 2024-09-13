@@ -26,7 +26,7 @@ public final class ExtensionActionPointAction {
      * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
-    private String roleArn;
+    private @Nullable String roleArn;
     /**
      * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
      * 
@@ -52,8 +52,8 @@ public final class ExtensionActionPointAction {
      * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
-    public String roleArn() {
-        return this.roleArn;
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
     /**
      * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
@@ -74,7 +74,7 @@ public final class ExtensionActionPointAction {
     public static final class Builder {
         private @Nullable String description;
         private String name;
-        private String roleArn;
+        private @Nullable String roleArn;
         private String uri;
         public Builder() {}
         public Builder(ExtensionActionPointAction defaults) {
@@ -100,10 +100,8 @@ public final class ExtensionActionPointAction {
             return this;
         }
         @CustomType.Setter
-        public Builder roleArn(String roleArn) {
-            if (roleArn == null) {
-              throw new MissingRequiredPropertyException("ExtensionActionPointAction", "roleArn");
-            }
+        public Builder roleArn(@Nullable String roleArn) {
+
             this.roleArn = roleArn;
             return this;
         }

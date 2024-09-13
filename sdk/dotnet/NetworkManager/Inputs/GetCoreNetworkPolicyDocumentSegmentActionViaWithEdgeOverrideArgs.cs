@@ -13,14 +13,14 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("edgeSets")]
-        private InputList<string>? _edgeSets;
+        private InputList<ImmutableArray<string>>? _edgeSets;
 
         /// <summary>
-        /// A list of strings. The list of edges associated with the network function group.
+        /// A list of a list of strings. The list of edges associated with the network function group.
         /// </summary>
-        public InputList<string> EdgeSets
+        public InputList<ImmutableArray<string>> EdgeSets
         {
-            get => _edgeSets ?? (_edgeSets = new InputList<string>());
+            get => _edgeSets ?? (_edgeSets = new InputList<ImmutableArray<string>>());
             set => _edgeSets = value;
         }
 
@@ -29,6 +29,12 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         /// </summary>
         [Input("useEdge")]
         public Input<string>? UseEdge { get; set; }
+
+        /// <summary>
+        /// The preferred edge to use.
+        /// </summary>
+        [Input("useEdgeLocation")]
+        public Input<string>? UseEdgeLocation { get; set; }
 
         public GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInputArgs()
         {

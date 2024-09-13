@@ -15,13 +15,12 @@ namespace Pulumi.Aws.Lex.Outputs
     {
         public readonly string MapBlockKey;
         /// <summary>
-        /// Unique identifier for the slot type associated with this slot.
+        /// Unique identifier assigned to the slot type.
         /// </summary>
         public readonly string SlotTypeId;
         /// <summary>
-        /// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-        /// 
-        /// The following arguments are optional:
+        /// Elicitation setting details for constituent sub slots of a composite slot.
+        /// See the `value_elicitation_setting` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> ValueElicitationSettings;
 

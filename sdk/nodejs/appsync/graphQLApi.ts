@@ -36,9 +36,13 @@ export class GraphQLApi extends pulumi.CustomResource {
     }
 
     /**
-     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      */
     public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
+    /**
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+     */
+    public readonly apiType!: pulumi.Output<string | undefined>;
     /**
      * ARN
      */
@@ -64,7 +68,11 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     /**
-     * User-supplied name for the GraphSQL API.
+     * ARN of the execution role when `apiType` is set to `MERGED`.
+     */
+    public readonly mergedApiExecutionRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * User-supplied name for the GraphQL API.
      *
      * The following arguments are optional:
      */
@@ -98,7 +106,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -128,12 +136,14 @@ export class GraphQLApi extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GraphQLApiState | undefined;
             resourceInputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
+            resourceInputs["apiType"] = state ? state.apiType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
             resourceInputs["enhancedMetricsConfig"] = state ? state.enhancedMetricsConfig : undefined;
             resourceInputs["introspectionConfig"] = state ? state.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = state ? state.logConfig : undefined;
+            resourceInputs["mergedApiExecutionRoleArn"] = state ? state.mergedApiExecutionRoleArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
             resourceInputs["queryDepthLimit"] = state ? state.queryDepthLimit : undefined;
@@ -151,11 +161,13 @@ export class GraphQLApi extends pulumi.CustomResource {
                 throw new Error("Missing required property 'authenticationType'");
             }
             resourceInputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
+            resourceInputs["apiType"] = args ? args.apiType : undefined;
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["enhancedMetricsConfig"] = args ? args.enhancedMetricsConfig : undefined;
             resourceInputs["introspectionConfig"] = args ? args.introspectionConfig : undefined;
             resourceInputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             resourceInputs["logConfig"] = args ? args.logConfig : undefined;
+            resourceInputs["mergedApiExecutionRoleArn"] = args ? args.mergedApiExecutionRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
             resourceInputs["queryDepthLimit"] = args ? args.queryDepthLimit : undefined;
@@ -179,9 +191,13 @@ export class GraphQLApi extends pulumi.CustomResource {
  */
 export interface GraphQLApiState {
     /**
-     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    /**
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+     */
+    apiType?: pulumi.Input<string>;
     /**
      * ARN
      */
@@ -207,7 +223,11 @@ export interface GraphQLApiState {
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * User-supplied name for the GraphSQL API.
+     * ARN of the execution role when `apiType` is set to `MERGED`.
+     */
+    mergedApiExecutionRoleArn?: pulumi.Input<string>;
+    /**
+     * User-supplied name for the GraphQL API.
      *
      * The following arguments are optional:
      */
@@ -241,7 +261,7 @@ export interface GraphQLApiState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -263,9 +283,13 @@ export interface GraphQLApiState {
  */
 export interface GraphQLApiArgs {
     /**
-     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    /**
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+     */
+    apiType?: pulumi.Input<string>;
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
@@ -287,7 +311,11 @@ export interface GraphQLApiArgs {
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * User-supplied name for the GraphSQL API.
+     * ARN of the execution role when `apiType` is set to `MERGED`.
+     */
+    mergedApiExecutionRoleArn?: pulumi.Input<string>;
+    /**
+     * User-supplied name for the GraphQL API.
      *
      * The following arguments are optional:
      */

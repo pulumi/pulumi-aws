@@ -28,7 +28,6 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
-        "columnLevelPermissionRules": args.columnLevelPermissionRules,
         "dataSetId": args.dataSetId,
         "tags": args.tags,
         "tagsAll": args.tagsAll,
@@ -43,7 +42,6 @@ export interface GetDataSetArgs {
      * AWS account ID.
      */
     awsAccountId?: string;
-    columnLevelPermissionRules?: inputs.quicksight.GetDataSetColumnLevelPermissionRule[];
     /**
      * Identifier for the data set.
      *
@@ -64,7 +62,7 @@ export interface GetDataSetResult {
     readonly arn: string;
     readonly awsAccountId: string;
     readonly columnGroups: outputs.quicksight.GetDataSetColumnGroup[];
-    readonly columnLevelPermissionRules?: outputs.quicksight.GetDataSetColumnLevelPermissionRule[];
+    readonly columnLevelPermissionRules: outputs.quicksight.GetDataSetColumnLevelPermissionRule[];
     readonly dataSetId: string;
     readonly dataSetUsageConfigurations: outputs.quicksight.GetDataSetDataSetUsageConfiguration[];
     readonly fieldFolders: outputs.quicksight.GetDataSetFieldFolder[];
@@ -113,7 +111,6 @@ export interface GetDataSetOutputArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.GetDataSetColumnLevelPermissionRuleArgs>[]>;
     /**
      * Identifier for the data set.
      *

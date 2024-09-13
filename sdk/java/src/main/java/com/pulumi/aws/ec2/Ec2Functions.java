@@ -231,7 +231,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -290,7 +290,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -349,7 +349,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -408,7 +408,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -467,7 +467,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -526,7 +526,7 @@ public final class Ec2Functions {
      *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers("self")
      *             .mostRecent(true)
-     *             .nameRegex("^myami-\\d{3}")
+     *             .nameRegex("^myami-[0-9]{3}")
      *             .owners("self")
      *             .filters(            
      *                 GetAmiFilterArgs.builder()

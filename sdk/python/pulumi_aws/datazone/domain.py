@@ -26,6 +26,7 @@ class DomainArgs:
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
+                 skip_deletion_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['DomainTimeoutsArgs']] = None):
         """
@@ -37,6 +38,7 @@ class DomainArgs:
         :param pulumi.Input[str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[str] name: Name of the Domain.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         """
         pulumi.set(__self__, "domain_execution_role", domain_execution_role)
         if description is not None:
@@ -47,6 +49,8 @@ class DomainArgs:
             pulumi.set(__self__, "name", name)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
+        if skip_deletion_check is not None:
+            pulumi.set(__self__, "skip_deletion_check", skip_deletion_check)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -115,6 +119,18 @@ class DomainArgs:
         pulumi.set(self, "single_sign_on", value)
 
     @property
+    @pulumi.getter(name="skipDeletionCheck")
+    def skip_deletion_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to skip the deletion check for the Domain.
+        """
+        return pulumi.get(self, "skip_deletion_check")
+
+    @skip_deletion_check.setter
+    def skip_deletion_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_deletion_check", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
@@ -143,6 +159,7 @@ class _DomainState:
                  name: Optional[pulumi.Input[str]] = None,
                  portal_url: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input['DomainSingleSignOnArgs']] = None,
+                 skip_deletion_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['DomainTimeoutsArgs']] = None):
@@ -157,6 +174,7 @@ class _DomainState:
         :param pulumi.Input[str] name: Name of the Domain.
         :param pulumi.Input[str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input['DomainSingleSignOnArgs'] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -173,6 +191,8 @@ class _DomainState:
             pulumi.set(__self__, "portal_url", portal_url)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
+        if skip_deletion_check is not None:
+            pulumi.set(__self__, "skip_deletion_check", skip_deletion_check)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -270,6 +290,18 @@ class _DomainState:
         pulumi.set(self, "single_sign_on", value)
 
     @property
+    @pulumi.getter(name="skipDeletionCheck")
+    def skip_deletion_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to skip the deletion check for the Domain.
+        """
+        return pulumi.get(self, "skip_deletion_check")
+
+    @skip_deletion_check.setter
+    def skip_deletion_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_deletion_check", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
@@ -311,6 +343,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+                 skip_deletion_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -391,6 +424,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[str] name: Name of the Domain.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         """
         ...
     @overload
@@ -486,6 +520,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+                 skip_deletion_check: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -504,6 +539,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["single_sign_on"] = single_sign_on
+            __props__.__dict__["skip_deletion_check"] = skip_deletion_check
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -526,6 +562,7 @@ class Domain(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
             single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
+            skip_deletion_check: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None) -> 'Domain':
@@ -545,6 +582,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Domain.
         :param pulumi.Input[str] portal_url: URL of the data portal for the Domain.
         :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[bool] skip_deletion_check: Whether to skip the deletion check for the Domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -558,6 +596,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["portal_url"] = portal_url
         __props__.__dict__["single_sign_on"] = single_sign_on
+        __props__.__dict__["skip_deletion_check"] = skip_deletion_check
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -620,6 +659,14 @@ class Domain(pulumi.CustomResource):
         Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         """
         return pulumi.get(self, "single_sign_on")
+
+    @property
+    @pulumi.getter(name="skipDeletionCheck")
+    def skip_deletion_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to skip the deletion check for the Domain.
+        """
+        return pulumi.get(self, "skip_deletion_check")
 
     @property
     @pulumi.getter

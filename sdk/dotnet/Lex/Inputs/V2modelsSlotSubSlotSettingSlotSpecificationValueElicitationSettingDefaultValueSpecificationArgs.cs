@@ -14,6 +14,12 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("defaultValueLists")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>? _defaultValueLists;
+
+        /// <summary>
+        /// List of default values.
+        /// Amazon Lex chooses the default value to use in the order that they are presented in the list.
+        /// See the `default_value_list` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs> DefaultValueLists
         {
             get => _defaultValueLists ?? (_defaultValueLists = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>());

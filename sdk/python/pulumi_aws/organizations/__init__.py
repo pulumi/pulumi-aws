@@ -13,6 +13,7 @@ from .get_organization import *
 from .get_organizational_unit import *
 from .get_organizational_unit_child_accounts import *
 from .get_organizational_unit_descendant_accounts import *
+from .get_organizational_unit_descendant_organizational_units import *
 from .get_organizational_units import *
 from .get_policies import *
 from .get_policies_for_target import *

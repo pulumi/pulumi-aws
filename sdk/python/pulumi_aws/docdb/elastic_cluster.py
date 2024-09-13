@@ -26,8 +26,10 @@ class ElasticClusterArgs:
                  auth_type: pulumi.Input[str],
                  shard_capacity: pulumi.Input[int],
                  shard_count: pulumi.Input[int],
+                 backup_retention_period: Optional[pulumi.Input[float]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -42,8 +44,10 @@ class ElasticClusterArgs:
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
                The following arguments are optional:
+        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -54,10 +58,14 @@ class ElasticClusterArgs:
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "shard_capacity", shard_capacity)
         pulumi.set(__self__, "shard_count", shard_count)
+        if backup_retention_period is not None:
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if preferred_backup_window is not None:
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if subnet_ids is not None:
@@ -132,6 +140,18 @@ class ElasticClusterArgs:
         pulumi.set(self, "shard_count", value)
 
     @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        """
+        return pulumi.get(self, "backup_retention_period")
+
+    @backup_retention_period.setter
+    def backup_retention_period(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "backup_retention_period", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -154,6 +174,18 @@ class ElasticClusterArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        """
+        return pulumi.get(self, "preferred_backup_window")
+
+    @preferred_backup_window.setter
+    def preferred_backup_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_backup_window", value)
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -220,9 +252,11 @@ class _ElasticClusterState:
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[float]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  shard_capacity: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -237,9 +271,11 @@ class _ElasticClusterState:
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] arn: ARN of the DocumentDB Elastic Cluster
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
+        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
@@ -257,12 +293,16 @@ class _ElasticClusterState:
             pulumi.set(__self__, "arn", arn)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
+        if backup_retention_period is not None:
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if preferred_backup_window is not None:
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if shard_capacity is not None:
@@ -332,6 +372,18 @@ class _ElasticClusterState:
         pulumi.set(self, "auth_type", value)
 
     @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        """
+        return pulumi.get(self, "backup_retention_period")
+
+    @backup_retention_period.setter
+    def backup_retention_period(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "backup_retention_period", value)
+
+    @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -366,6 +418,18 @@ class _ElasticClusterState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        """
+        return pulumi.get(self, "preferred_backup_window")
+
+    @preferred_backup_window.setter
+    def preferred_backup_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_backup_window", value)
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -469,8 +533,10 @@ class ElasticCluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[float]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  shard_capacity: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -512,8 +578,10 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_user_name: Name of the Elastic DocumentDB cluster administrator
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
+        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
@@ -575,8 +643,10 @@ class ElasticCluster(pulumi.CustomResource):
                  admin_user_name: Optional[pulumi.Input[str]] = None,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
+                 backup_retention_period: Optional[pulumi.Input[float]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  shard_capacity: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
@@ -602,8 +672,10 @@ class ElasticCluster(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
+            __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             if shard_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'shard_capacity'")
@@ -634,9 +706,11 @@ class ElasticCluster(pulumi.CustomResource):
             admin_user_password: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auth_type: Optional[pulumi.Input[str]] = None,
+            backup_retention_period: Optional[pulumi.Input[float]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            preferred_backup_window: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             shard_capacity: Optional[pulumi.Input[int]] = None,
             shard_count: Optional[pulumi.Input[int]] = None,
@@ -656,9 +730,11 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[str] admin_user_password: Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         :param pulumi.Input[str] arn: ARN of the DocumentDB Elastic Cluster
         :param pulumi.Input[str] auth_type: Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
+        :param pulumi.Input[float] backup_retention_period: The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         :param pulumi.Input[str] endpoint: The DNS address of the DocDB instance
         :param pulumi.Input[str] kms_key_id: ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         :param pulumi.Input[str] name: Name of the Elastic DocumentDB cluster
+        :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         :param pulumi.Input[int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
@@ -676,9 +752,11 @@ class ElasticCluster(pulumi.CustomResource):
         __props__.__dict__["admin_user_password"] = admin_user_password
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auth_type"] = auth_type
+        __props__.__dict__["backup_retention_period"] = backup_retention_period
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["shard_capacity"] = shard_capacity
         __props__.__dict__["shard_count"] = shard_count
@@ -722,6 +800,14 @@ class ElasticCluster(pulumi.CustomResource):
         return pulumi.get(self, "auth_type")
 
     @property
+    @pulumi.getter(name="backupRetentionPeriod")
+    def backup_retention_period(self) -> pulumi.Output[float]:
+        """
+        The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        """
+        return pulumi.get(self, "backup_retention_period")
+
+    @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
         """
@@ -744,6 +830,14 @@ class ElasticCluster(pulumi.CustomResource):
         Name of the Elastic DocumentDB cluster
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="preferredBackupWindow")
+    def preferred_backup_window(self) -> pulumi.Output[str]:
+        """
+        The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        """
+        return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")

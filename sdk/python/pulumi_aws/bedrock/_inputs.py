@@ -57,6 +57,18 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
@@ -1282,18 +1294,26 @@ if not MYPY:
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
         """
+        parsing_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict']]
+        """
+        Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+        """
 elif False:
     AgentDataSourceVectorIngestionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
-                 chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']] = None):
+                 chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']] = None,
+                 parsing_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs']] = None):
         """
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs'] parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if parsing_configuration is not None:
+            pulumi.set(__self__, "parsing_configuration", parsing_configuration)
 
     @property
     @pulumi.getter(name="chunkingConfiguration")
@@ -1307,16 +1327,36 @@ class AgentDataSourceVectorIngestionConfigurationArgs:
     def chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
 
+    @property
+    @pulumi.getter(name="parsingConfiguration")
+    def parsing_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs']]:
+        """
+        Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+        """
+        return pulumi.get(self, "parsing_configuration")
+
+    @parsing_configuration.setter
+    def parsing_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs']]):
+        pulumi.set(self, "parsing_configuration", value)
+
 
 if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict(TypedDict):
         chunking_strategy: pulumi.Input[str]
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
         """
         fixed_size_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict']]
         """
-        Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
+        """
+        hierarchical_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict']]
+        """
+        Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        """
+        semantic_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict']]
+        """
+        Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
         """
 elif False:
     AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1325,20 +1365,28 @@ elif False:
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
     def __init__(__self__, *,
                  chunking_strategy: pulumi.Input[str],
-                 fixed_size_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']] = None):
+                 fixed_size_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']] = None,
+                 hierarchical_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs']] = None,
+                 semantic_chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
-        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs'] fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        :param pulumi.Input[str] chunking_strategy: Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs'] fixed_size_chunking_configuration: Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs'] hierarchical_chunking_configuration: Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs'] semantic_chunking_configuration: Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
         """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
             pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
+        if hierarchical_chunking_configuration is not None:
+            pulumi.set(__self__, "hierarchical_chunking_configuration", hierarchical_chunking_configuration)
+        if semantic_chunking_configuration is not None:
+            pulumi.set(__self__, "semantic_chunking_configuration", semantic_chunking_configuration)
 
     @property
     @pulumi.getter(name="chunkingStrategy")
     def chunking_strategy(self) -> pulumi.Input[str]:
         """
-        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
         """
         return pulumi.get(self, "chunking_strategy")
 
@@ -1350,13 +1398,37 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
     @pulumi.getter(name="fixedSizeChunkingConfiguration")
     def fixed_size_chunking_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']]:
         """
-        Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
         """
         return pulumi.get(self, "fixed_size_chunking_configuration")
 
     @fixed_size_chunking_configuration.setter
     def fixed_size_chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']]):
         pulumi.set(self, "fixed_size_chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="hierarchicalChunkingConfiguration")
+    def hierarchical_chunking_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs']]:
+        """
+        Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        """
+        return pulumi.get(self, "hierarchical_chunking_configuration")
+
+    @hierarchical_chunking_configuration.setter
+    def hierarchical_chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs']]):
+        pulumi.set(self, "hierarchical_chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="semanticChunkingConfiguration")
+    def semantic_chunking_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs']]:
+        """
+        Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+        """
+        return pulumi.get(self, "semantic_chunking_configuration")
+
+    @semantic_chunking_configuration.setter
+    def semantic_chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs']]):
+        pulumi.set(self, "semantic_chunking_configuration", value)
 
 
 if not MYPY:
@@ -1407,6 +1479,282 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeC
     @overlap_percentage.setter
     def overlap_percentage(self, value: pulumi.Input[int]):
         pulumi.set(self, "overlap_percentage", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict(TypedDict):
+        level_configurations: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict']]]
+        """
+        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        """
+        overlap_tokens: pulumi.Input[float]
+        """
+        The number of tokens to repeat across chunks in the same layer.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 level_configurations: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]],
+                 overlap_tokens: pulumi.Input[float]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        :param pulumi.Input[float] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        """
+        pulumi.set(__self__, "level_configurations", level_configurations)
+        pulumi.set(__self__, "overlap_tokens", overlap_tokens)
+
+    @property
+    @pulumi.getter(name="levelConfigurations")
+    def level_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]:
+        """
+        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        """
+        return pulumi.get(self, "level_configurations")
+
+    @level_configurations.setter
+    def level_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]):
+        pulumi.set(self, "level_configurations", value)
+
+    @property
+    @pulumi.getter(name="overlapTokens")
+    def overlap_tokens(self) -> pulumi.Input[float]:
+        """
+        The number of tokens to repeat across chunks in the same layer.
+        """
+        return pulumi.get(self, "overlap_tokens")
+
+    @overlap_tokens.setter
+    def overlap_tokens(self, value: pulumi.Input[float]):
+        pulumi.set(self, "overlap_tokens", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict(TypedDict):
+        max_tokens: pulumi.Input[float]
+        """
+        The maximum number of tokens that a chunk can contain in this layer.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs:
+    def __init__(__self__, *,
+                 max_tokens: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        """
+        pulumi.set(__self__, "max_tokens", max_tokens)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[float]:
+        """
+        The maximum number of tokens that a chunk can contain in this layer.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_tokens", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict(TypedDict):
+        breakpoint_percentile_threshold: pulumi.Input[float]
+        """
+        The dissimilarity threshold for splitting chunks.
+        """
+        buffer_size: pulumi.Input[float]
+        """
+        The buffer size.
+        """
+        max_token: pulumi.Input[float]
+elif False:
+    AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs:
+    def __init__(__self__, *,
+                 breakpoint_percentile_threshold: pulumi.Input[float],
+                 buffer_size: pulumi.Input[float],
+                 max_token: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
+        :param pulumi.Input[float] buffer_size: The buffer size.
+        """
+        pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
+        pulumi.set(__self__, "buffer_size", buffer_size)
+        pulumi.set(__self__, "max_token", max_token)
+
+    @property
+    @pulumi.getter(name="breakpointPercentileThreshold")
+    def breakpoint_percentile_threshold(self) -> pulumi.Input[float]:
+        """
+        The dissimilarity threshold for splitting chunks.
+        """
+        return pulumi.get(self, "breakpoint_percentile_threshold")
+
+    @breakpoint_percentile_threshold.setter
+    def breakpoint_percentile_threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "breakpoint_percentile_threshold", value)
+
+    @property
+    @pulumi.getter(name="bufferSize")
+    def buffer_size(self) -> pulumi.Input[float]:
+        """
+        The buffer size.
+        """
+        return pulumi.get(self, "buffer_size")
+
+    @buffer_size.setter
+    def buffer_size(self, value: pulumi.Input[float]):
+        pulumi.set(self, "buffer_size", value)
+
+    @property
+    @pulumi.getter(name="maxToken")
+    def max_token(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "max_token")
+
+    @max_token.setter
+    def max_token(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_token", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict(TypedDict):
+        parsing_strategy: pulumi.Input[str]
+        """
+        Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        """
+        bedrock_foundation_model_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict']]
+        """
+        Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs:
+    def __init__(__self__, *,
+                 parsing_strategy: pulumi.Input[str],
+                 bedrock_foundation_model_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[str] parsing_strategy: Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        """
+        pulumi.set(__self__, "parsing_strategy", parsing_strategy)
+        if bedrock_foundation_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
+
+    @property
+    @pulumi.getter(name="parsingStrategy")
+    def parsing_strategy(self) -> pulumi.Input[str]:
+        """
+        Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        """
+        return pulumi.get(self, "parsing_strategy")
+
+    @parsing_strategy.setter
+    def parsing_strategy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parsing_strategy", value)
+
+    @property
+    @pulumi.getter(name="bedrockFoundationModelConfiguration")
+    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs']]:
+        """
+        Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
+        """
+        return pulumi.get(self, "bedrock_foundation_model_configuration")
+
+    @bedrock_foundation_model_configuration.setter
+    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs']]):
+        pulumi.set(self, "bedrock_foundation_model_configuration", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict(TypedDict):
+        model_arn: pulumi.Input[str]
+        """
+        The ARN of the model used to parse documents
+        """
+        parsing_prompt: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict']]
+        """
+        Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[str],
+                 parsing_prompt: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs']] = None):
+        """
+        :param pulumi.Input[str] model_arn: The ARN of the model used to parse documents
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs'] parsing_prompt: Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+        if parsing_prompt is not None:
+            pulumi.set(__self__, "parsing_prompt", parsing_prompt)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the model used to parse documents
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_arn", value)
+
+    @property
+    @pulumi.getter(name="parsingPrompt")
+    def parsing_prompt(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs']]:
+        """
+        Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
+        """
+        return pulumi.get(self, "parsing_prompt")
+
+    @parsing_prompt.setter
+    def parsing_prompt(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs']]):
+        pulumi.set(self, "parsing_prompt", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict(TypedDict):
+        parsing_prompt_string: pulumi.Input[str]
+        """
+        Instructions for interpreting the contents of the document.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs:
+    def __init__(__self__, *,
+                 parsing_prompt_string: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parsing_prompt_string: Instructions for interpreting the contents of the document.
+        """
+        pulumi.set(__self__, "parsing_prompt_string", parsing_prompt_string)
+
+    @property
+    @pulumi.getter(name="parsingPromptString")
+    def parsing_prompt_string(self) -> pulumi.Input[str]:
+        """
+        Instructions for interpreting the contents of the document.
+        """
+        return pulumi.get(self, "parsing_prompt_string")
+
+    @parsing_prompt_string.setter
+    def parsing_prompt_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parsing_prompt_string", value)
 
 
 if not MYPY:

@@ -6,6 +6,7 @@ package com.pulumi.aws.sns.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -21,6 +22,11 @@ public final class GetTopicResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetTopicResult() {}
     /**
@@ -40,6 +46,13 @@ public final class GetTopicResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Map of tags for the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,12 +66,14 @@ public final class GetTopicResult {
         private String arn;
         private String id;
         private String name;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -85,11 +100,20 @@ public final class GetTopicResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetTopicResult build() {
             final var _resultValue = new GetTopicResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

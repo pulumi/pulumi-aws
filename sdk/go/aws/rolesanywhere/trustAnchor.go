@@ -106,7 +106,8 @@ type TrustAnchor struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The name of the Trust Anchor.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                 pulumi.StringOutput                       `pulumi:"name"`
+	NotificationSettings TrustAnchorNotificationSettingArrayOutput `pulumi:"notificationSettings"`
 	// The source of trust, documented below
 	Source TrustAnchorSourceOutput `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -155,7 +156,8 @@ type trustAnchorState struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Trust Anchor.
-	Name *string `pulumi:"name"`
+	Name                 *string                          `pulumi:"name"`
+	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
 	// The source of trust, documented below
 	Source *TrustAnchorSource `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -172,7 +174,8 @@ type TrustAnchorState struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Trust Anchor.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NotificationSettings TrustAnchorNotificationSettingArrayInput
 	// The source of trust, documented below
 	Source TrustAnchorSourcePtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -191,7 +194,8 @@ type trustAnchorArgs struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Trust Anchor.
-	Name *string `pulumi:"name"`
+	Name                 *string                          `pulumi:"name"`
+	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
 	// The source of trust, documented below
 	Source TrustAnchorSource `pulumi:"source"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -203,7 +207,8 @@ type TrustAnchorArgs struct {
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolPtrInput
 	// The name of the Trust Anchor.
-	Name pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	NotificationSettings TrustAnchorNotificationSettingArrayInput
 	// The source of trust, documented below
 	Source TrustAnchorSourceInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -310,6 +315,10 @@ func (o TrustAnchorOutput) Enabled() pulumi.BoolOutput {
 // The name of the Trust Anchor.
 func (o TrustAnchorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o TrustAnchorOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
+	return o.ApplyT(func(v *TrustAnchor) TrustAnchorNotificationSettingArrayOutput { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
 // The source of trust, documented below

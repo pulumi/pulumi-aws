@@ -173,20 +173,21 @@ class ExtensionActionPointAction(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 role_arn: str,
                  uri: str,
-                 description: Optional[str] = None):
+                 description: Optional[str] = None,
+                 role_arn: Optional[str] = None):
         """
         :param str name: The action name.
-        :param str role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         :param str uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         :param str description: Information about the action.
+        :param str role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "uri", uri)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
@@ -195,14 +196,6 @@ class ExtensionActionPointAction(dict):
         The action name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> str:
-        """
-        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-        """
-        return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
@@ -219,6 +212,14 @@ class ExtensionActionPointAction(dict):
         Information about the action.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type

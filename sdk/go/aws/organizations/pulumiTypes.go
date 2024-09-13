@@ -1655,6 +1655,121 @@ func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) Index(i pulum
 	}).(GetOrganizationalUnitDescendantAccountsAccountOutput)
 }
 
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildren struct {
+	// ARN of the organizational unit
+	Arn string `pulumi:"arn"`
+	// Parent identifier of the organizational units.
+	Id string `pulumi:"id"`
+	// Name of the organizational unit
+	Name string `pulumi:"name"`
+}
+
+// GetOrganizationalUnitDescendantOrganizationalUnitsChildrenInput is an input type that accepts GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs and GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitDescendantOrganizationalUnitsChildrenInput` via:
+//
+//	GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs{...}
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput
+	ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutputWithContext(context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput
+}
+
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs struct {
+	// ARN of the organizational unit
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Parent identifier of the organizational units.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the organizational unit
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitDescendantOrganizationalUnitsChildren)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput {
+	return i.ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput)
+}
+
+// GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayInput is an input type that accepts GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray and GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput values.
+// You can construct a concrete instance of `GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayInput` via:
+//
+//	GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray{ GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs{...} }
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayInput interface {
+	pulumi.Input
+
+	ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput
+	ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutputWithContext(context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput
+}
+
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray []GetOrganizationalUnitDescendantOrganizationalUnitsChildrenInput
+
+func (GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitDescendantOrganizationalUnitsChildren)(nil)).Elem()
+}
+
+func (i GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput {
+	return i.ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput)
+}
+
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitDescendantOrganizationalUnitsChildren)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput {
+	return o
+}
+
+// ARN of the organizational unit
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantOrganizationalUnitsChildren) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Parent identifier of the organizational units.
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantOrganizationalUnitsChildren) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the organizational unit
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitDescendantOrganizationalUnitsChildren) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrganizationalUnitDescendantOrganizationalUnitsChildren)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput() GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput) ToGetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrganizationalUnitDescendantOrganizationalUnitsChildren {
+		return vs[0].([]GetOrganizationalUnitDescendantOrganizationalUnitsChildren)[vs[1].(int)]
+	}).(GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput)
+}
+
 type GetOrganizationalUnitsChild struct {
 	// ARN of the organizational unit
 	Arn string `pulumi:"arn"`
@@ -1797,6 +1912,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitChildAccountsAccountArrayInput)(nil)).Elem(), GetOrganizationalUnitChildAccountsAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccountInput)(nil)).Elem(), GetOrganizationalUnitDescendantAccountsAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantAccountsAccountArrayInput)(nil)).Elem(), GetOrganizationalUnitDescendantAccountsAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantOrganizationalUnitsChildrenInput)(nil)).Elem(), GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayInput)(nil)).Elem(), GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitsChildInput)(nil)).Elem(), GetOrganizationalUnitsChildArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrganizationalUnitsChildArrayInput)(nil)).Elem(), GetOrganizationalUnitsChildArray{})
 	pulumi.RegisterOutputType(OrganizationAccountOutput{})
@@ -1825,6 +1942,8 @@ func init() {
 	pulumi.RegisterOutputType(GetOrganizationalUnitChildAccountsAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantAccountsAccountOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantAccountsAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantOrganizationalUnitsChildrenOutput{})
+	pulumi.RegisterOutputType(GetOrganizationalUnitDescendantOrganizationalUnitsChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitsChildOutput{})
 	pulumi.RegisterOutputType(GetOrganizationalUnitsChildArrayOutput{})
 }

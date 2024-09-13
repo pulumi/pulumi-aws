@@ -73,14 +73,6 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
-        [Input("columnLevelPermissionRules")]
-        private List<Inputs.GetDataSetColumnLevelPermissionRuleArgs>? _columnLevelPermissionRules;
-        public List<Inputs.GetDataSetColumnLevelPermissionRuleArgs> ColumnLevelPermissionRules
-        {
-            get => _columnLevelPermissionRules ?? (_columnLevelPermissionRules = new List<Inputs.GetDataSetColumnLevelPermissionRuleArgs>());
-            set => _columnLevelPermissionRules = value;
-        }
-
         /// <summary>
         /// Identifier for the data set.
         /// 
@@ -119,14 +111,6 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
-
-        [Input("columnLevelPermissionRules")]
-        private InputList<Inputs.GetDataSetColumnLevelPermissionRuleInputArgs>? _columnLevelPermissionRules;
-        public InputList<Inputs.GetDataSetColumnLevelPermissionRuleInputArgs> ColumnLevelPermissionRules
-        {
-            get => _columnLevelPermissionRules ?? (_columnLevelPermissionRules = new InputList<Inputs.GetDataSetColumnLevelPermissionRuleInputArgs>());
-            set => _columnLevelPermissionRules = value;
-        }
 
         /// <summary>
         /// Identifier for the data set.

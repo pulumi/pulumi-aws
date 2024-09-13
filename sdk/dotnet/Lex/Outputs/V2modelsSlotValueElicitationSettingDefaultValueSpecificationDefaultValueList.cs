@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList
     {
+        /// <summary>
+        /// Default value to use when a user doesn't provide a value for a slot.
+        /// </summary>
         public readonly string DefaultValue;
 
         [OutputConstructor]

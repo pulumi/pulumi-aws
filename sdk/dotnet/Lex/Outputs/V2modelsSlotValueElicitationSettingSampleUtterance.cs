@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingSampleUtterance
     {
+        /// <summary>
+        /// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        /// </summary>
         public readonly string Utterance;
 
         [OutputConstructor]

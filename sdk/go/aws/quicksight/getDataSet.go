@@ -53,8 +53,7 @@ func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetArgs struct {
 	// AWS account ID.
-	AwsAccountId               *string                               `pulumi:"awsAccountId"`
-	ColumnLevelPermissionRules []GetDataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
 	//
 	// The following arguments are optional:
@@ -103,8 +102,7 @@ func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetOutputArgs struct {
 	// AWS account ID.
-	AwsAccountId               pulumi.StringPtrInput                         `pulumi:"awsAccountId"`
-	ColumnLevelPermissionRules GetDataSetColumnLevelPermissionRuleArrayInput `pulumi:"columnLevelPermissionRules"`
+	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
 	//
 	// The following arguments are optional:

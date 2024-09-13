@@ -10,11 +10,14 @@ import com.pulumi.aws.glue.inputs.GetConnectionArgs;
 import com.pulumi.aws.glue.inputs.GetConnectionPlainArgs;
 import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsArgs;
 import com.pulumi.aws.glue.inputs.GetDataCatalogEncryptionSettingsPlainArgs;
+import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+import com.pulumi.aws.glue.inputs.GetRegistryPlainArgs;
 import com.pulumi.aws.glue.inputs.GetScriptArgs;
 import com.pulumi.aws.glue.inputs.GetScriptPlainArgs;
 import com.pulumi.aws.glue.outputs.GetCatalogTableResult;
 import com.pulumi.aws.glue.outputs.GetConnectionResult;
 import com.pulumi.aws.glue.outputs.GetDataCatalogEncryptionSettingsResult;
+import com.pulumi.aws.glue.outputs.GetRegistryResult;
 import com.pulumi.aws.glue.outputs.GetScriptResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -530,6 +533,182 @@ public final class GlueFunctions {
      */
     public static CompletableFuture<GetDataCatalogEncryptionSettingsResult> getDataCatalogEncryptionSettingsPlain(GetDataCatalogEncryptionSettingsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", TypeShape.of(GetDataCatalogEncryptionSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Glue Registry.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
+        return getRegistry(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Glue Registry.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
+        return getRegistryPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Glue Registry.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:glue/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Glue Registry.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.glue.GlueFunctions;
+     * import com.pulumi.aws.glue.inputs.GetRegistryArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = GlueFunctions.getRegistry(GetRegistryArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:glue/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).

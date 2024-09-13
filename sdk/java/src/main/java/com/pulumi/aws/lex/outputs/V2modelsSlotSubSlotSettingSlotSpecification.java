@@ -15,14 +15,13 @@ import javax.annotation.Nullable;
 public final class V2modelsSlotSubSlotSettingSlotSpecification {
     private String mapBlockKey;
     /**
-     * @return Unique identifier for the slot type associated with this slot.
+     * @return Unique identifier assigned to the slot type.
      * 
      */
     private String slotTypeId;
     /**
-     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
+     * @return Elicitation setting details for constituent sub slots of a composite slot.
+     * See the `value_elicitation_setting` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings;
@@ -32,16 +31,15 @@ public final class V2modelsSlotSubSlotSettingSlotSpecification {
         return this.mapBlockKey;
     }
     /**
-     * @return Unique identifier for the slot type associated with this slot.
+     * @return Unique identifier assigned to the slot type.
      * 
      */
     public String slotTypeId() {
         return this.slotTypeId;
     }
     /**
-     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
+     * @return Elicitation setting details for constituent sub slots of a composite slot.
+     * See the `value_elicitation_setting` argument reference below.
      * 
      */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings() {

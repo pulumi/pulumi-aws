@@ -27,18 +27,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
 public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
-     * One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     @Export(name="additionalAuthenticationProviders", refs={List.class,GraphQLApiAdditionalAuthenticationProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+     * @return One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     public Output<Optional<List<GraphQLApiAdditionalAuthenticationProvider>>> additionalAuthenticationProviders() {
         return Codegen.optional(this.additionalAuthenticationProviders);
+    }
+    /**
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * 
+     */
+    @Export(name="apiType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> apiType;
+
+    /**
+     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * 
+     */
+    public Output<Optional<String>> apiType() {
+        return Codegen.optional(this.apiType);
     }
     /**
      * ARN
@@ -125,7 +139,21 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logConfig);
     }
     /**
-     * User-supplied name for the GraphSQL API.
+     * ARN of the execution role when `api_type` is set to `MERGED`.
+     * 
+     */
+    @Export(name="mergedApiExecutionRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> mergedApiExecutionRoleArn;
+
+    /**
+     * @return ARN of the execution role when `api_type` is set to `MERGED`.
+     * 
+     */
+    public Output<Optional<String>> mergedApiExecutionRoleArn() {
+        return Codegen.optional(this.mergedApiExecutionRoleArn);
+    }
+    /**
+     * User-supplied name for the GraphQL API.
      * 
      * The following arguments are optional:
      * 
@@ -134,7 +162,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return User-supplied name for the GraphSQL API.
+     * @return User-supplied name for the GraphQL API.
      * 
      * The following arguments are optional:
      * 
@@ -235,14 +263,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * Map of URIs associated with the API E.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      * 
      */
     @Export(name="uris", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> uris;
 
     /**
-     * @return Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * @return Map of URIs associated with the API E.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      * 
      */
     public Output<Map<String,String>> uris() {

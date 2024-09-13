@@ -73,6 +73,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> AuthType { get; private set; } = null!;
 
         /// <summary>
+        /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        /// </summary>
+        [Output("backupRetentionPeriod")]
+        public Output<double> BackupRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS address of the DocDB instance
         /// </summary>
         [Output("endpoint")]
@@ -89,6 +95,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        /// </summary>
+        [Output("preferredBackupWindow")]
+        public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
@@ -213,6 +225,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string> AuthType { get; set; } = null!;
 
         /// <summary>
+        /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        /// </summary>
+        [Input("backupRetentionPeriod")]
+        public Input<double>? BackupRetentionPeriod { get; set; }
+
+        /// <summary>
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         /// </summary>
         [Input("kmsKeyId")]
@@ -223,6 +241,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
@@ -326,6 +350,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
+        /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+        /// </summary>
+        [Input("backupRetentionPeriod")]
+        public Input<double>? BackupRetentionPeriod { get; set; }
+
+        /// <summary>
         /// The DNS address of the DocDB instance
         /// </summary>
         [Input("endpoint")]
@@ -342,6 +372,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+        /// </summary>
+        [Input("preferredBackupWindow")]
+        public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.

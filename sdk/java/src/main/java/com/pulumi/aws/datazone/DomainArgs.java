@@ -8,6 +8,7 @@ import com.pulumi.aws.datazone.inputs.DomainTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -98,6 +99,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.singleSignOn);
     }
 
+    /**
+     * Whether to skip the deletion check for the Domain.
+     * 
+     */
+    @Import(name="skipDeletionCheck")
+    private @Nullable Output<Boolean> skipDeletionCheck;
+
+    /**
+     * @return Whether to skip the deletion check for the Domain.
+     * 
+     */
+    public Optional<Output<Boolean>> skipDeletionCheck() {
+        return Optional.ofNullable(this.skipDeletionCheck);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -120,6 +136,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.name = $.name;
         this.singleSignOn = $.singleSignOn;
+        this.skipDeletionCheck = $.skipDeletionCheck;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
     }
@@ -249,6 +266,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder singleSignOn(DomainSingleSignOnArgs singleSignOn) {
             return singleSignOn(Output.of(singleSignOn));
+        }
+
+        /**
+         * @param skipDeletionCheck Whether to skip the deletion check for the Domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDeletionCheck(@Nullable Output<Boolean> skipDeletionCheck) {
+            $.skipDeletionCheck = skipDeletionCheck;
+            return this;
+        }
+
+        /**
+         * @param skipDeletionCheck Whether to skip the deletion check for the Domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipDeletionCheck(Boolean skipDeletionCheck) {
+            return skipDeletionCheck(Output.of(skipDeletionCheck));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

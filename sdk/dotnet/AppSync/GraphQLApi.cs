@@ -13,10 +13,16 @@ namespace Pulumi.Aws.AppSync
     public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         [Output("additionalAuthenticationProviders")]
         public Output<ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider>> AdditionalAuthenticationProviders { get; private set; } = null!;
+
+        /// <summary>
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// </summary>
+        [Output("apiType")]
+        public Output<string?> ApiType { get; private set; } = null!;
 
         /// <summary>
         /// ARN
@@ -55,7 +61,13 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.GraphQLApiLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
-        /// User-supplied name for the GraphSQL API.
+        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// </summary>
+        [Output("mergedApiExecutionRoleArn")]
+        public Output<string?> MergedApiExecutionRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// User-supplied name for the GraphQL API.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -101,7 +113,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        /// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         [Output("uris")]
         public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
@@ -174,13 +186,19 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs> AdditionalAuthenticationProviders
         {
             get => _additionalAuthenticationProviders ?? (_additionalAuthenticationProviders = new InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>());
             set => _additionalAuthenticationProviders = value;
         }
+
+        /// <summary>
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// </summary>
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
 
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -213,7 +231,13 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// User-supplied name for the GraphSQL API.
+        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// </summary>
+        [Input("mergedApiExecutionRoleArn")]
+        public Input<string>? MergedApiExecutionRoleArn { get; set; }
+
+        /// <summary>
+        /// User-supplied name for the GraphQL API.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -288,13 +312,19 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs> AdditionalAuthenticationProviders
         {
             get => _additionalAuthenticationProviders ?? (_additionalAuthenticationProviders = new InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs>());
             set => _additionalAuthenticationProviders = value;
         }
+
+        /// <summary>
+        /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        /// </summary>
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
 
         /// <summary>
         /// ARN
@@ -333,7 +363,13 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// User-supplied name for the GraphSQL API.
+        /// ARN of the execution role when `api_type` is set to `MERGED`.
+        /// </summary>
+        [Input("mergedApiExecutionRoleArn")]
+        public Input<string>? MergedApiExecutionRoleArn { get; set; }
+
+        /// <summary>
+        /// User-supplied name for the GraphQL API.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -395,7 +431,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _uris;
 
         /// <summary>
-        /// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        /// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         public InputMap<string> Uris
         {

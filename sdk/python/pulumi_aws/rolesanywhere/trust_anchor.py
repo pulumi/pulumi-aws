@@ -24,6 +24,7 @@ class TrustAnchorArgs:
                  source: pulumi.Input['TrustAnchorSourceArgs'],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
@@ -37,6 +38,8 @@ class TrustAnchorArgs:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_settings is not None:
+            pulumi.set(__self__, "notification_settings", notification_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -77,6 +80,15 @@ class TrustAnchorArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]:
+        return pulumi.get(self, "notification_settings")
+
+    @notification_settings.setter
+    def notification_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]):
+        pulumi.set(self, "notification_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -95,6 +107,7 @@ class _TrustAnchorState:
                  arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
                  source: Optional[pulumi.Input['TrustAnchorSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -113,6 +126,8 @@ class _TrustAnchorState:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_settings is not None:
+            pulumi.set(__self__, "notification_settings", notification_settings)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
@@ -160,6 +175,15 @@ class _TrustAnchorState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]:
+        return pulumi.get(self, "notification_settings")
+
+    @notification_settings.setter
+    def notification_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]):
+        pulumi.set(self, "notification_settings", value)
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['TrustAnchorSourceArgs']]:
         """
@@ -204,6 +228,7 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
                  source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -341,6 +366,7 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
                  source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -354,6 +380,7 @@ class TrustAnchor(pulumi.CustomResource):
 
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
+            __props__.__dict__["notification_settings"] = notification_settings
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -373,6 +400,7 @@ class TrustAnchor(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
             source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrustAnchor':
@@ -397,6 +425,7 @@ class TrustAnchor(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["name"] = name
+        __props__.__dict__["notification_settings"] = notification_settings
         __props__.__dict__["source"] = source
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -425,6 +454,11 @@ class TrustAnchor(pulumi.CustomResource):
         The name of the Trust Anchor.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> pulumi.Output[Sequence['outputs.TrustAnchorNotificationSetting']]:
+        return pulumi.get(self, "notification_settings")
 
     @property
     @pulumi.getter

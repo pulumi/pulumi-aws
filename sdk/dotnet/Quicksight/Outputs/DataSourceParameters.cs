@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly Outputs.DataSourceParametersAwsIotAnalytics? AwsIotAnalytics;
         /// <summary>
+        /// Parameters for connecting to Databricks.
+        /// </summary>
+        public readonly Outputs.DataSourceParametersDatabricks? Databricks;
+        /// <summary>
         /// Parameters for connecting to Jira.
         /// </summary>
         public readonly Outputs.DataSourceParametersJira? Jira;
@@ -106,6 +110,8 @@ namespace Pulumi.Aws.Quicksight.Outputs
 
             Outputs.DataSourceParametersAwsIotAnalytics? awsIotAnalytics,
 
+            Outputs.DataSourceParametersDatabricks? databricks,
+
             Outputs.DataSourceParametersJira? jira,
 
             Outputs.DataSourceParametersMariaDb? mariaDb,
@@ -141,6 +147,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
             Aurora = aurora;
             AuroraPostgresql = auroraPostgresql;
             AwsIotAnalytics = awsIotAnalytics;
+            Databricks = databricks;
             Jira = jira;
             MariaDb = mariaDb;
             Mysql = mysql;

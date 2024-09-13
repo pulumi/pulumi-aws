@@ -1976,7 +1976,7 @@ export namespace appconfig {
         /**
          * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
          */
@@ -11420,17 +11420,29 @@ export namespace bedrock {
          * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
          */
         chunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
+        /**
+         * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+         */
+        parsingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
          */
         chunkingStrategy: string;
         /**
-         * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+         * Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
          */
         fixedSizeChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration;
+        /**
+         * Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+         */
+        hierarchicalChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration;
+        /**
+         * Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+         */
+        semanticChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
@@ -11442,6 +11454,65 @@ export namespace bedrock {
          * Percentage of overlap between adjacent chunks of a data source.
          */
         overlapPercentage: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+        /**
+         * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         */
+        levelConfigurations: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration[];
+        /**
+         * The number of tokens to repeat across chunks in the same layer.
+         */
+        overlapTokens: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+        /**
+         * The maximum number of tokens that a chunk can contain in this layer.
+         */
+        maxTokens: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+        /**
+         * The dissimilarity threshold for splitting chunks.
+         */
+        breakpointPercentileThreshold: number;
+        /**
+         * The buffer size.
+         */
+        bufferSize: number;
+        maxToken: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+        /**
+         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         */
+        bedrockFoundationModelConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration;
+        /**
+         * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+         */
+        parsingStrategy: string;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+        /**
+         * The ARN of the model used to parse documents
+         */
+        modelArn: string;
+        /**
+         * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         */
+        parsingPrompt?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+        /**
+         * Instructions for interpreting the contents of the document.
+         */
+        parsingPromptString: string;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
@@ -18787,6 +18858,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        pcs?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         pinpoint?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -23154,6 +23229,20 @@ export namespace datazone {
         delete?: string;
     }
 
+    export interface EnvironmentLastDeployment {
+        deploymentId: string;
+        deploymentStatus: string;
+        deploymentType: string;
+        failureReasons: outputs.datazone.EnvironmentLastDeploymentFailureReason[];
+        isDeploymentComplete: boolean;
+        messages: string[];
+    }
+
+    export interface EnvironmentLastDeploymentFailureReason {
+        code: string;
+        message: string;
+    }
+
     export interface EnvironmentProfileUserParameter {
         /**
          * Name of the environment profile parameter.
@@ -23161,6 +23250,45 @@ export namespace datazone {
         name?: string;
         /**
          * Value of the environment profile parameter.
+         */
+        value?: string;
+    }
+
+    export interface EnvironmentProvisionedResource {
+        /**
+         * The name of the environment.
+         */
+        name: string;
+        provider: string;
+        type: string;
+        /**
+         * The value of an environment profile parameter.
+         */
+        value: string;
+    }
+
+    export interface EnvironmentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface EnvironmentUserParameter {
+        /**
+         * The name of an environment profile parameter.
+         */
+        name?: string;
+        /**
+         * The value of an environment profile parameter.
          */
         value?: string;
     }
@@ -33384,7 +33512,7 @@ export namespace elasticsearch {
          */
         enforceHttps?: boolean;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy: string;
     }
@@ -58236,36 +58364,62 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSetting {
+        /**
+         * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+         */
         expression?: string;
+        /**
+         * Specifications for the constituent sub slots of a composite slot.
+         * See the `slotSpecification` argument reference below.
+         */
         slotSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecification[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecification {
         mapBlockKey: string;
         /**
-         * Unique identifier for the slot type associated with this slot.
+         * Unique identifier assigned to the slot type.
          */
         slotTypeId: string;
         /**
-         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         *
-         * The following arguments are optional:
+         * Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `valueElicitationSetting` argument reference below.
          */
         valueElicitationSettings?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification[];
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification;
         sampleUtterances?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance[];
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: string;
     }
 
@@ -58278,7 +58432,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation[];
     }
 
@@ -58380,23 +58543,60 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: string;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: boolean;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
     }
 
@@ -58463,14 +58663,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: number;
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: number;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
     }
 
@@ -58537,12 +58755,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
     }
 
@@ -58737,19 +58972,46 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecification[];
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecification;
         sampleUtterances?: outputs.lex.V2modelsSlotValueElicitationSettingSampleUtterance[];
+        /**
+         * Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+         */
         slotConstraint: string;
+        /**
+         * Information about whether assisted slot resolution is turned on for the slot or not.
+         * See the `slotResolutionSetting` argument reference below.
+         */
         slotResolutionSettings?: outputs.lex.V2modelsSlotValueElicitationSettingSlotResolutionSetting[];
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification[];
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: string;
     }
 
@@ -58762,7 +59024,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation[];
     }
 
@@ -58864,27 +59135,70 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingSlotResolutionSetting {
+        /**
+         * Specifies whether assisted slot resolution is turned on for the slot or not.
+         * Valid values are `EnhancedFallback` or `Default`.
+         * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+         * If the value is `Default`, assisted slot resolution is turned off.
+         */
         slotResolutionStrategy: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: boolean;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
     }
 
@@ -58951,14 +59265,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: number;
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: number;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
     }
 
@@ -59025,12 +59357,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
     }
 
@@ -65107,13 +65456,19 @@ export namespace networkmanager {
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
         /**
-         * A list of strings. The list of edges associated with the network function group.
+         * A list of a list of strings. The list of edges associated with the network function group.
          */
-        edgeSets?: string[];
+        edgeSets?: string[][];
+        /**
+         * The preferred edge to use.
+         *
+         * @deprecated Use use_edge_location
+         */
+        useEdge?: string;
         /**
          * The preferred edge to use.
          */
-        useEdge?: string;
+        useEdgeLocation?: string;
     }
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
@@ -67238,6 +67593,21 @@ export namespace organizations {
         status: string;
     }
 
+    export interface GetOrganizationalUnitDescendantOrganizationalUnitsChildren {
+        /**
+         * ARN of the organizational unit
+         */
+        arn: string;
+        /**
+         * Parent identifier of the organizational units.
+         */
+        id: string;
+        /**
+         * Name of the organizational unit
+         */
+        name: string;
+    }
+
     export interface GetOrganizationalUnitsChild {
         /**
          * ARN of the organizational unit
@@ -69308,6 +69678,10 @@ export namespace quicksight {
          */
         awsIotAnalytics?: outputs.quicksight.DataSourceParametersAwsIotAnalytics;
         /**
+         * Parameters for connecting to Databricks.
+         */
+        databricks?: outputs.quicksight.DataSourceParametersDatabricks;
+        /**
          * Parameters for connecting to Jira.
          */
         jira?: outputs.quicksight.DataSourceParametersJira;
@@ -69418,6 +69792,21 @@ export namespace quicksight {
          * The name of the data set to which to connect.
          */
         dataSetName: string;
+    }
+
+    export interface DataSourceParametersDatabricks {
+        /**
+         * The host name of the Databricks data source.
+         */
+        host: string;
+        /**
+         * The port for the Databricks data source.
+         */
+        port: number;
+        /**
+         * The HTTP path of the Databricks data source.
+         */
+        sqlEndpointPath: string;
     }
 
     export interface DataSourceParametersJira {
@@ -69660,6 +70049,11 @@ export namespace quicksight {
         principal: string;
     }
 
+    export interface GetAnalysisPermission {
+        actions: string[];
+        principal: string;
+    }
+
     export interface GetDataSetColumnGroup {
         geoSpatialColumnGroups: outputs.quicksight.GetDataSetColumnGroupGeoSpatialColumnGroup[];
     }
@@ -69848,6 +70242,11 @@ export namespace quicksight {
         matchAllValue: string;
         tagKey: string;
         tagMultiValueDelimiter: string;
+    }
+
+    export interface GetQuicksightAnalysisPermission {
+        actions: string[];
+        principal: string;
     }
 
     export interface GetThemeConfiguration {
@@ -71509,6 +71908,17 @@ export namespace resourcegroupstaggingapi {
 }
 
 export namespace rolesanywhere {
+    export interface TrustAnchorNotificationSetting {
+        channel: string;
+        configuredBy: string;
+        /**
+         * Whether or not the Trust Anchor should be enabled.
+         */
+        enabled: boolean;
+        event: string;
+        threshold: number;
+    }
+
     export interface TrustAnchorSource {
         /**
          * The data denoting the source of trust, documented below
@@ -82135,7 +82545,7 @@ export namespace synthetics {
         /**
          * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
          */
-        timeoutInSeconds?: number;
+        timeoutInSeconds: number;
     }
 
     export interface CanarySchedule {

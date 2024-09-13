@@ -5,7 +5,6 @@ package com.pulumi.aws.rolesanywhere;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -99,15 +98,15 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
      * A list of IAM roles that this profile can assume
      * 
      */
-    @Import(name="roleArns", required=true)
-    private Output<List<String>> roleArns;
+    @Import(name="roleArns")
+    private @Nullable Output<List<String>> roleArns;
 
     /**
      * @return A list of IAM roles that this profile can assume
      * 
      */
-    public Output<List<String>> roleArns() {
-        return this.roleArns;
+    public Optional<Output<List<String>>> roleArns() {
+        return Optional.ofNullable(this.roleArns);
     }
 
     /**
@@ -292,7 +291,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder roleArns(Output<List<String>> roleArns) {
+        public Builder roleArns(@Nullable Output<List<String>> roleArns) {
             $.roleArns = roleArns;
             return this;
         }
@@ -360,9 +359,6 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProfileArgs build() {
-            if ($.roleArns == null) {
-                throw new MissingRequiredPropertyException("ProfileArgs", "roleArns");
-            }
             return $;
         }
     }

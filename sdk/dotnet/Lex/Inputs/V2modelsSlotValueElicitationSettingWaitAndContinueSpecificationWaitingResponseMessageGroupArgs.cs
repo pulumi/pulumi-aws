@@ -12,11 +12,21 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block for the primary message that Amazon Lex should send to the user.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        /// </summary>
         [Input("message", required: true)]
         public Input<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs> Message { get; set; } = null!;
 
         [Input("variations")]
         private InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs>? _variations;
+
+        /// <summary>
+        /// Configuration blocks for message variations to send to the user.
+        /// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs> Variations
         {
             get => _variations ?? (_variations = new InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs>());

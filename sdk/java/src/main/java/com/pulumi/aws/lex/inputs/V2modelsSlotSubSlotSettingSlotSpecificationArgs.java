@@ -26,14 +26,14 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
     }
 
     /**
-     * Unique identifier for the slot type associated with this slot.
+     * Unique identifier assigned to the slot type.
      * 
      */
     @Import(name="slotTypeId", required=true)
     private Output<String> slotTypeId;
 
     /**
-     * @return Unique identifier for the slot type associated with this slot.
+     * @return Unique identifier assigned to the slot type.
      * 
      */
     public Output<String> slotTypeId() {
@@ -41,18 +41,16 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
     }
 
     /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
+     * Elicitation setting details for constituent sub slots of a composite slot.
+     * See the `value_elicitation_setting` argument reference below.
      * 
      */
     @Import(name="valueElicitationSettings")
     private @Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>> valueElicitationSettings;
 
     /**
-     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
+     * @return Elicitation setting details for constituent sub slots of a composite slot.
+     * See the `value_elicitation_setting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>>> valueElicitationSettings() {
@@ -95,7 +93,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         }
 
         /**
-         * @param slotTypeId Unique identifier for the slot type associated with this slot.
+         * @param slotTypeId Unique identifier assigned to the slot type.
          * 
          * @return builder
          * 
@@ -106,7 +104,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         }
 
         /**
-         * @param slotTypeId Unique identifier for the slot type associated with this slot.
+         * @param slotTypeId Unique identifier assigned to the slot type.
          * 
          * @return builder
          * 
@@ -116,9 +114,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         }
 
         /**
-         * @param valueElicitationSettings Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         * 
-         * The following arguments are optional:
+         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `value_elicitation_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -129,9 +126,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         }
 
         /**
-         * @param valueElicitationSettings Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         * 
-         * The following arguments are optional:
+         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `value_elicitation_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -141,9 +137,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationArgs extends com.p
         }
 
         /**
-         * @param valueElicitationSettings Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         * 
-         * The following arguments are optional:
+         * @param valueElicitationSettings Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `value_elicitation_setting` argument reference below.
          * 
          * @return builder
          * 

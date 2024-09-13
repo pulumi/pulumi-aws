@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
         ///             "self",
         ///         },
         ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
+        ///         NameRegex = "^myami-[0-9]{3}",
         ///         Owners = new[]
         ///         {
         ///             "self",
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         ///             "self",
         ///         },
         ///         MostRecent = true,
-        ///         NameRegex = "^myami-\\d{3}",
+        ///         NameRegex = "^myami-[0-9]{3}",
         ///         Owners = new[]
         ///         {
         ///             "self",

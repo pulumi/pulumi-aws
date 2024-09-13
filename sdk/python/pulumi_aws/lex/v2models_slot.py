@@ -40,14 +40,14 @@ class V2modelsSlotArgs:
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
         :param pulumi.Input[str] description: Description of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response.
+               See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
+               See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-        :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-               
-               The following arguments are optional:
+               See the `sub_slot_setting` argument reference below.
         """
         pulumi.set(__self__, "bot_id", bot_id)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -134,7 +134,8 @@ class V2modelsSlotArgs:
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]]:
         """
-        Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        Whether the slot returns multiple values in one response.
+        See the `multiple_values_setting` argument reference below.
         """
         return pulumi.get(self, "multiple_values_settings")
 
@@ -158,7 +159,8 @@ class V2modelsSlotArgs:
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]]:
         """
-        Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        Determines how slot values are used in Amazon CloudWatch logs.
+        See the `obfuscation_setting` argument reference below.
         """
         return pulumi.get(self, "obfuscation_settings")
 
@@ -183,6 +185,7 @@ class V2modelsSlotArgs:
     def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
         """
         Specifications for the constituent sub slots and the expression for the composite slot.
+        See the `sub_slot_setting` argument reference below.
         """
         return pulumi.get(self, "sub_slot_settings")
 
@@ -202,11 +205,6 @@ class V2modelsSlotArgs:
     @property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']]:
-        """
-        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value_elicitation_setting")
 
     @value_elicitation_setting.setter
@@ -237,15 +235,15 @@ class _V2modelsSlotState:
         :param pulumi.Input[str] description: Description of the slot.
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response.
+               See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
+               See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-        :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-               
-               The following arguments are optional:
+               See the `sub_slot_setting` argument reference below.
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -338,7 +336,8 @@ class _V2modelsSlotState:
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]]:
         """
-        Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        Whether the slot returns multiple values in one response.
+        See the `multiple_values_setting` argument reference below.
         """
         return pulumi.get(self, "multiple_values_settings")
 
@@ -362,7 +361,8 @@ class _V2modelsSlotState:
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]]:
         """
-        Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        Determines how slot values are used in Amazon CloudWatch logs.
+        See the `obfuscation_setting` argument reference below.
         """
         return pulumi.get(self, "obfuscation_settings")
 
@@ -399,6 +399,7 @@ class _V2modelsSlotState:
     def sub_slot_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]]:
         """
         Specifications for the constituent sub slots and the expression for the composite slot.
+        See the `sub_slot_setting` argument reference below.
         """
         return pulumi.get(self, "sub_slot_settings")
 
@@ -418,11 +419,6 @@ class _V2modelsSlotState:
     @property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']]:
-        """
-        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value_elicitation_setting")
 
     @value_elicitation_setting.setter
@@ -449,24 +445,6 @@ class V2modelsSlot(pulumi.CustomResource):
                  value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lex V2 Models Slot.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsSlot("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_version["botVersion"],
-            intent_id=example_aws_lexv2models_intent["id"],
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
-            name="example")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -482,14 +460,14 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the slot.
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response.
+               See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
+               See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-               
-               The following arguments are optional:
+               See the `sub_slot_setting` argument reference below.
         """
         ...
     @overload
@@ -498,24 +476,6 @@ class V2modelsSlot(pulumi.CustomResource):
                  args: V2modelsSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lex V2 Models Slot.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lex.V2modelsSlot("example",
-            bot_id=example_aws_lexv2models_bot["id"],
-            bot_version=example_aws_lexv2models_bot_version["botVersion"],
-            intent_id=example_aws_lexv2models_intent["id"],
-            locale_id=example_aws_lexv2models_bot_locale["localeId"],
-            name="example")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -616,15 +576,15 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the slot.
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response.
+               See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
+               See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
-        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-               
-               The following arguments are optional:
+               See the `sub_slot_setting` argument reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -689,7 +649,8 @@ class V2modelsSlot(pulumi.CustomResource):
     @pulumi.getter(name="multipleValuesSettings")
     def multiple_values_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotMultipleValuesSetting']]]:
         """
-        Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        Whether the slot returns multiple values in one response.
+        See the `multiple_values_setting` argument reference below.
         """
         return pulumi.get(self, "multiple_values_settings")
 
@@ -705,7 +666,8 @@ class V2modelsSlot(pulumi.CustomResource):
     @pulumi.getter(name="obfuscationSettings")
     def obfuscation_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotObfuscationSetting']]]:
         """
-        Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        Determines how slot values are used in Amazon CloudWatch logs.
+        See the `obfuscation_setting` argument reference below.
         """
         return pulumi.get(self, "obfuscation_settings")
 
@@ -730,6 +692,7 @@ class V2modelsSlot(pulumi.CustomResource):
     def sub_slot_settings(self) -> pulumi.Output[Optional[Sequence['outputs.V2modelsSlotSubSlotSetting']]]:
         """
         Specifications for the constituent sub slots and the expression for the composite slot.
+        See the `sub_slot_setting` argument reference below.
         """
         return pulumi.get(self, "sub_slot_settings")
 
@@ -741,10 +704,5 @@ class V2modelsSlot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> pulumi.Output[Optional['outputs.V2modelsSlotValueElicitationSetting']]:
-        """
-        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-
-        The following arguments are optional:
-        """
         return pulumi.get(self, "value_elicitation_setting")
 

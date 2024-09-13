@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -30,10 +31,26 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
         return Optional.ofNullable(this.chunkingConfiguration);
     }
 
+    /**
+     * Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+     * 
+     */
+    @Import(name="parsingConfiguration")
+    private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs> parsingConfiguration;
+
+    /**
+     * @return Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs>> parsingConfiguration() {
+        return Optional.ofNullable(this.parsingConfiguration);
+    }
+
     private AgentDataSourceVectorIngestionConfigurationArgs() {}
 
     private AgentDataSourceVectorIngestionConfigurationArgs(AgentDataSourceVectorIngestionConfigurationArgs $) {
         this.chunkingConfiguration = $.chunkingConfiguration;
+        this.parsingConfiguration = $.parsingConfiguration;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class AgentDataSourceVectorIngestionConfigurationArgs extends com.p
          */
         public Builder chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs chunkingConfiguration) {
             return chunkingConfiguration(Output.of(chunkingConfiguration));
+        }
+
+        /**
+         * @param parsingConfiguration Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parsingConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs> parsingConfiguration) {
+            $.parsingConfiguration = parsingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param parsingConfiguration Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs parsingConfiguration) {
+            return parsingConfiguration(Output.of(parsingConfiguration));
         }
 
         public AgentDataSourceVectorIngestionConfigurationArgs build() {

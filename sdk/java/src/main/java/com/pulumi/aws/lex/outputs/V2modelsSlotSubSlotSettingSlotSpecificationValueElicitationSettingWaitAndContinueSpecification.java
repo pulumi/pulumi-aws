@@ -15,21 +15,63 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+    /**
+     * @return Specifies whether the bot will wait for a user to respond.
+     * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+     * If the active field isn&#39;t specified, the default is `true`.
+     * 
+     */
     private @Nullable Boolean active;
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+     * See the `continue_response` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse> continueResponses;
+    /**
+     * @return Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+     * See the `still_waiting_response` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> stillWaitingResponses;
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+     * See the `waiting_response` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> waitingResponses;
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification() {}
+    /**
+     * @return Specifies whether the bot will wait for a user to respond.
+     * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+     * If the active field isn&#39;t specified, the default is `true`.
+     * 
+     */
     public Optional<Boolean> active() {
         return Optional.ofNullable(this.active);
     }
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+     * See the `continue_response` argument reference below.
+     * 
+     */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse> continueResponses() {
         return this.continueResponses == null ? List.of() : this.continueResponses;
     }
+    /**
+     * @return Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+     * See the `still_waiting_response` argument reference below.
+     * 
+     */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse> stillWaitingResponses() {
         return this.stillWaitingResponses == null ? List.of() : this.stillWaitingResponses;
     }
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+     * See the `waiting_response` argument reference below.
+     * 
+     */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse> waitingResponses() {
         return this.waitingResponses == null ? List.of() : this.waitingResponses;
     }

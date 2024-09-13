@@ -474,7 +474,7 @@ type ExtensionActionPointAction struct {
 	// The action name.
 	Name string `pulumi:"name"`
 	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
 	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri string `pulumi:"uri"`
 }
@@ -496,7 +496,7 @@ type ExtensionActionPointActionArgs struct {
 	// The action name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -563,8 +563,8 @@ func (o ExtensionActionPointActionOutput) Name() pulumi.StringOutput {
 }
 
 // An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.

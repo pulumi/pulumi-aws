@@ -54,6 +54,8 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 type LookupTopicArgs struct {
 	// Friendly name of the topic to match.
 	Name string `pulumi:"name"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getTopic.
@@ -63,6 +65,8 @@ type LookupTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+	// Map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
@@ -82,6 +86,8 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 type LookupTopicOutputArgs struct {
 	// Friendly name of the topic to match.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -115,6 +121,11 @@ func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Map of tags for the resource.
+func (o LookupTopicResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTopicResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

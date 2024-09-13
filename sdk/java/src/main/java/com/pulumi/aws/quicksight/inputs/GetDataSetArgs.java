@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.quicksight.inputs;
 
-import com.pulumi.aws.quicksight.inputs.GetDataSetColumnLevelPermissionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,13 +30,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
-    }
-
-    @Import(name="columnLevelPermissionRules")
-    private @Nullable Output<List<GetDataSetColumnLevelPermissionRuleArgs>> columnLevelPermissionRules;
-
-    public Optional<Output<List<GetDataSetColumnLevelPermissionRuleArgs>>> columnLevelPermissionRules() {
-        return Optional.ofNullable(this.columnLevelPermissionRules);
     }
 
     /**
@@ -90,7 +81,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetDataSetArgs(GetDataSetArgs $) {
         this.awsAccountId = $.awsAccountId;
-        this.columnLevelPermissionRules = $.columnLevelPermissionRules;
         this.dataSetId = $.dataSetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -133,19 +123,6 @@ public final class GetDataSetArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
-        }
-
-        public Builder columnLevelPermissionRules(@Nullable Output<List<GetDataSetColumnLevelPermissionRuleArgs>> columnLevelPermissionRules) {
-            $.columnLevelPermissionRules = columnLevelPermissionRules;
-            return this;
-        }
-
-        public Builder columnLevelPermissionRules(List<GetDataSetColumnLevelPermissionRuleArgs> columnLevelPermissionRules) {
-            return columnLevelPermissionRules(Output.of(columnLevelPermissionRules));
-        }
-
-        public Builder columnLevelPermissionRules(GetDataSetColumnLevelPermissionRuleArgs... columnLevelPermissionRules) {
-            return columnLevelPermissionRules(List.of(columnLevelPermissionRules));
         }
 
         /**

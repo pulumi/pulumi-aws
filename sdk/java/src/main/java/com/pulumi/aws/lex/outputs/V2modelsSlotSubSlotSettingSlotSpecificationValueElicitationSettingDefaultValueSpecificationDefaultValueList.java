@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+    /**
+     * @return Default value to use when a user doesn&#39;t provide a value for a slot.
+     * 
+     */
     private String defaultValue;
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList() {}
+    /**
+     * @return Default value to use when a user doesn&#39;t provide a value for a slot.
+     * 
+     */
     public String defaultValue() {
         return this.defaultValue;
     }

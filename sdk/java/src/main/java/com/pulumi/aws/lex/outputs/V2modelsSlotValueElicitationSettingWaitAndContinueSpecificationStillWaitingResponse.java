@@ -15,21 +15,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+    /**
+     * @return Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     private @Nullable Boolean allowInterrupt;
+    /**
+     * @return How often a message should be sent to the user.
+     * 
+     */
     private Integer frequencyInSeconds;
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup> messageGroups;
+    /**
+     * @return If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+     * 
+     */
     private Integer timeoutInSeconds;
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse() {}
+    /**
+     * @return Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     public Optional<Boolean> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
+    /**
+     * @return How often a message should be sent to the user.
+     * 
+     */
     public Integer frequencyInSeconds() {
         return this.frequencyInSeconds;
     }
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup> messageGroups() {
         return this.messageGroups == null ? List.of() : this.messageGroups;
     }
+    /**
+     * @return If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+     * 
+     */
     public Integer timeoutInSeconds() {
         return this.timeoutInSeconds;
     }

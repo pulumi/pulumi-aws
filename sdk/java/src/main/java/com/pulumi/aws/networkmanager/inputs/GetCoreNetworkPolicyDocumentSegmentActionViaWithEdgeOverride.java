@@ -16,33 +16,56 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     public static final GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride Empty = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride();
 
     /**
-     * A list of strings. The list of edges associated with the network function group.
+     * A list of a list of strings. The list of edges associated with the network function group.
      * 
      */
     @Import(name="edgeSets")
-    private @Nullable List<String> edgeSets;
+    private @Nullable List<List<String>> edgeSets;
 
     /**
-     * @return A list of strings. The list of edges associated with the network function group.
+     * @return A list of a list of strings. The list of edges associated with the network function group.
      * 
      */
-    public Optional<List<String>> edgeSets() {
+    public Optional<List<List<String>>> edgeSets() {
         return Optional.ofNullable(this.edgeSets);
     }
 
     /**
      * The preferred edge to use.
      * 
+     * @deprecated
+     * Use use_edge_location
+     * 
      */
+    @Deprecated /* Use use_edge_location */
     @Import(name="useEdge")
     private @Nullable String useEdge;
 
     /**
      * @return The preferred edge to use.
      * 
+     * @deprecated
+     * Use use_edge_location
+     * 
      */
+    @Deprecated /* Use use_edge_location */
     public Optional<String> useEdge() {
         return Optional.ofNullable(this.useEdge);
+    }
+
+    /**
+     * The preferred edge to use.
+     * 
+     */
+    @Import(name="useEdgeLocation")
+    private @Nullable String useEdgeLocation;
+
+    /**
+     * @return The preferred edge to use.
+     * 
+     */
+    public Optional<String> useEdgeLocation() {
+        return Optional.ofNullable(this.useEdgeLocation);
     }
 
     private GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride() {}
@@ -50,6 +73,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     private GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride $) {
         this.edgeSets = $.edgeSets;
         this.useEdge = $.useEdge;
+        this.useEdgeLocation = $.useEdgeLocation;
     }
 
     public static Builder builder() {
@@ -71,23 +95,23 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
         }
 
         /**
-         * @param edgeSets A list of strings. The list of edges associated with the network function group.
+         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
          * 
          * @return builder
          * 
          */
-        public Builder edgeSets(@Nullable List<String> edgeSets) {
+        public Builder edgeSets(@Nullable List<List<String>> edgeSets) {
             $.edgeSets = edgeSets;
             return this;
         }
 
         /**
-         * @param edgeSets A list of strings. The list of edges associated with the network function group.
+         * @param edgeSets A list of a list of strings. The list of edges associated with the network function group.
          * 
          * @return builder
          * 
          */
-        public Builder edgeSets(String... edgeSets) {
+        public Builder edgeSets(List<String>... edgeSets) {
             return edgeSets(List.of(edgeSets));
         }
 
@@ -96,9 +120,24 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use use_edge_location
+         * 
          */
+        @Deprecated /* Use use_edge_location */
         public Builder useEdge(@Nullable String useEdge) {
             $.useEdge = useEdge;
+            return this;
+        }
+
+        /**
+         * @param useEdgeLocation The preferred edge to use.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useEdgeLocation(@Nullable String useEdgeLocation) {
+            $.useEdgeLocation = useEdgeLocation;
             return this;
         }
 

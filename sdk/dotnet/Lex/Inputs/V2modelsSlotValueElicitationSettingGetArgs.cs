@@ -14,12 +14,21 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("defaultValueSpecifications")]
         private InputList<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationGetArgs>? _defaultValueSpecifications;
+
+        /// <summary>
+        /// List of default values for a slot.
+        /// See the `default_value_specification` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationGetArgs> DefaultValueSpecifications
         {
             get => _defaultValueSpecifications ?? (_defaultValueSpecifications = new InputList<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationGetArgs>());
             set => _defaultValueSpecifications = value;
         }
 
+        /// <summary>
+        /// Prompt that Amazon Lex uses to elicit the slot value from the user.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        /// </summary>
         [Input("promptSpecification", required: true)]
         public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationGetArgs> PromptSpecification { get; set; } = null!;
 
@@ -31,11 +40,19 @@ namespace Pulumi.Aws.Lex.Inputs
             set => _sampleUtterances = value;
         }
 
+        /// <summary>
+        /// Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+        /// </summary>
         [Input("slotConstraint", required: true)]
         public Input<string> SlotConstraint { get; set; } = null!;
 
         [Input("slotResolutionSettings")]
         private InputList<Inputs.V2modelsSlotValueElicitationSettingSlotResolutionSettingGetArgs>? _slotResolutionSettings;
+
+        /// <summary>
+        /// Information about whether assisted slot resolution is turned on for the slot or not.
+        /// See the `slot_resolution_setting` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotValueElicitationSettingSlotResolutionSettingGetArgs> SlotResolutionSettings
         {
             get => _slotResolutionSettings ?? (_slotResolutionSettings = new InputList<Inputs.V2modelsSlotValueElicitationSettingSlotResolutionSettingGetArgs>());
@@ -44,6 +61,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
         [Input("waitAndContinueSpecifications")]
         private InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationGetArgs>? _waitAndContinueSpecifications;
+
+        /// <summary>
+        /// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        /// See the `wait_and_continue_specification` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationGetArgs> WaitAndContinueSpecifications
         {
             get => _waitAndContinueSpecifications ?? (_waitAndContinueSpecifications = new InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationGetArgs>());

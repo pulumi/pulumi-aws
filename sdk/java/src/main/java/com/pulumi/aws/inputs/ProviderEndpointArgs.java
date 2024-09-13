@@ -3094,6 +3094,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="pcs")
+    private @Nullable Output<String> pcs;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> pcs() {
+        return Optional.ofNullable(this.pcs);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="pinpoint")
     private @Nullable Output<String> pinpoint;
 
@@ -4543,6 +4558,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.outposts = $.outposts;
         this.paymentcryptography = $.paymentcryptography;
         this.pcaconnectorad = $.pcaconnectorad;
+        this.pcs = $.pcs;
         this.pinpoint = $.pinpoint;
         this.pipes = $.pipes;
         this.polly = $.polly;
@@ -8949,6 +8965,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder pcaconnectorad(String pcaconnectorad) {
             return pcaconnectorad(Output.of(pcaconnectorad));
+        }
+
+        /**
+         * @param pcs Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pcs(@Nullable Output<String> pcs) {
+            $.pcs = pcs;
+            return this;
+        }
+
+        /**
+         * @param pcs Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pcs(String pcs) {
+            return pcs(Output.of(pcs));
         }
 
         /**

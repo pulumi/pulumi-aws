@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+    /**
+     * @return The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+     * 
+     */
     private String utterance;
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance() {}
+    /**
+     * @return The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+     * 
+     */
     public String utterance() {
         return this.utterance;
     }

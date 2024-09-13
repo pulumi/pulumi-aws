@@ -13,13 +13,35 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+    /**
+     * @return Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage message;
+    /**
+     * @return Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation> variations;
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup() {}
+    /**
+     * @return Configuration block for the primary message that Amazon Lex should send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+     * 
+     */
     public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage message() {
         return this.message;
     }
+    /**
+     * @return Configuration blocks for message variations to send to the user.
+     * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+     * 
+     */
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation> variations() {
         return this.variations == null ? List.of() : this.variations;
     }

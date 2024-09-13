@@ -14,22 +14,29 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult
     {
         /// <summary>
-        /// A list of strings. The list of edges associated with the network function group.
+        /// A list of a list of strings. The list of edges associated with the network function group.
         /// </summary>
-        public readonly ImmutableArray<string> EdgeSets;
+        public readonly ImmutableArray<ImmutableArray<string>> EdgeSets;
         /// <summary>
         /// The preferred edge to use.
         /// </summary>
         public readonly string? UseEdge;
+        /// <summary>
+        /// The preferred edge to use.
+        /// </summary>
+        public readonly string? UseEdgeLocation;
 
         [OutputConstructor]
         private GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult(
-            ImmutableArray<string> edgeSets,
+            ImmutableArray<ImmutableArray<string>> edgeSets,
 
-            string? useEdge)
+            string? useEdge,
+
+            string? useEdgeLocation)
         {
             EdgeSets = edgeSets;
             UseEdge = useEdge;
+            UseEdgeLocation = useEdgeLocation;
         }
     }
 }

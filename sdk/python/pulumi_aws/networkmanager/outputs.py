@@ -1183,32 +1183,45 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaResult(dict):
 @pulumi.output_type
 class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult(dict):
     def __init__(__self__, *,
-                 edge_sets: Optional[Sequence[str]] = None,
-                 use_edge: Optional[str] = None):
+                 edge_sets: Optional[Sequence[Sequence[str]]] = None,
+                 use_edge: Optional[str] = None,
+                 use_edge_location: Optional[str] = None):
         """
-        :param Sequence[str] edge_sets: A list of strings. The list of edges associated with the network function group.
+        :param Sequence[Sequence[str]] edge_sets: A list of a list of strings. The list of edges associated with the network function group.
         :param str use_edge: The preferred edge to use.
+        :param str use_edge_location: The preferred edge to use.
         """
         if edge_sets is not None:
             pulumi.set(__self__, "edge_sets", edge_sets)
         if use_edge is not None:
             pulumi.set(__self__, "use_edge", use_edge)
+        if use_edge_location is not None:
+            pulumi.set(__self__, "use_edge_location", use_edge_location)
 
     @property
     @pulumi.getter(name="edgeSets")
-    def edge_sets(self) -> Optional[Sequence[str]]:
+    def edge_sets(self) -> Optional[Sequence[Sequence[str]]]:
         """
-        A list of strings. The list of edges associated with the network function group.
+        A list of a list of strings. The list of edges associated with the network function group.
         """
         return pulumi.get(self, "edge_sets")
 
     @property
     @pulumi.getter(name="useEdge")
+    @_utilities.deprecated("""Use use_edge_location""")
     def use_edge(self) -> Optional[str]:
         """
         The preferred edge to use.
         """
         return pulumi.get(self, "use_edge")
+
+    @property
+    @pulumi.getter(name="useEdgeLocation")
+    def use_edge_location(self) -> Optional[str]:
+        """
+        The preferred edge to use.
+        """
+        return pulumi.get(self, "use_edge_location")
 
 
 @pulumi.output_type

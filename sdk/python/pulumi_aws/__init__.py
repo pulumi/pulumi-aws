@@ -3339,6 +3339,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/environment",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datazone/environmentBlueprintConfiguration",
   "fqn": "pulumi_aws.datazone",
   "classes": {

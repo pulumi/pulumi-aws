@@ -9790,6 +9790,8 @@ type DataSourceParameters struct {
 	AuroraPostgresql *DataSourceParametersAuroraPostgresql `pulumi:"auroraPostgresql"`
 	// Parameters for connecting to AWS IOT Analytics.
 	AwsIotAnalytics *DataSourceParametersAwsIotAnalytics `pulumi:"awsIotAnalytics"`
+	// Parameters for connecting to Databricks.
+	Databricks *DataSourceParametersDatabricks `pulumi:"databricks"`
 	// Parameters for connecting to Jira.
 	Jira *DataSourceParametersJira `pulumi:"jira"`
 	// Parameters for connecting to MariaDB.
@@ -9844,6 +9846,8 @@ type DataSourceParametersArgs struct {
 	AuroraPostgresql DataSourceParametersAuroraPostgresqlPtrInput `pulumi:"auroraPostgresql"`
 	// Parameters for connecting to AWS IOT Analytics.
 	AwsIotAnalytics DataSourceParametersAwsIotAnalyticsPtrInput `pulumi:"awsIotAnalytics"`
+	// Parameters for connecting to Databricks.
+	Databricks DataSourceParametersDatabricksPtrInput `pulumi:"databricks"`
 	// Parameters for connecting to Jira.
 	Jira DataSourceParametersJiraPtrInput `pulumi:"jira"`
 	// Parameters for connecting to MariaDB.
@@ -9976,6 +9980,11 @@ func (o DataSourceParametersOutput) AuroraPostgresql() DataSourceParametersAuror
 // Parameters for connecting to AWS IOT Analytics.
 func (o DataSourceParametersOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersAwsIotAnalytics { return v.AwsIotAnalytics }).(DataSourceParametersAwsIotAnalyticsPtrOutput)
+}
+
+// Parameters for connecting to Databricks.
+func (o DataSourceParametersOutput) Databricks() DataSourceParametersDatabricksPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersDatabricks { return v.Databricks }).(DataSourceParametersDatabricksPtrOutput)
 }
 
 // Parameters for connecting to Jira.
@@ -10125,6 +10134,16 @@ func (o DataSourceParametersPtrOutput) AwsIotAnalytics() DataSourceParametersAws
 		}
 		return v.AwsIotAnalytics
 	}).(DataSourceParametersAwsIotAnalyticsPtrOutput)
+}
+
+// Parameters for connecting to Databricks.
+func (o DataSourceParametersPtrOutput) Databricks() DataSourceParametersDatabricksPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersDatabricks {
+		if v == nil {
+			return nil
+		}
+		return v.Databricks
+	}).(DataSourceParametersDatabricksPtrOutput)
 }
 
 // Parameters for connecting to Jira.
@@ -11035,6 +11054,181 @@ func (o DataSourceParametersAwsIotAnalyticsPtrOutput) DataSetName() pulumi.Strin
 			return nil
 		}
 		return &v.DataSetName
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceParametersDatabricks struct {
+	// The host name of the Databricks data source.
+	Host string `pulumi:"host"`
+	// The port for the Databricks data source.
+	Port int `pulumi:"port"`
+	// The HTTP path of the Databricks data source.
+	SqlEndpointPath string `pulumi:"sqlEndpointPath"`
+}
+
+// DataSourceParametersDatabricksInput is an input type that accepts DataSourceParametersDatabricksArgs and DataSourceParametersDatabricksOutput values.
+// You can construct a concrete instance of `DataSourceParametersDatabricksInput` via:
+//
+//	DataSourceParametersDatabricksArgs{...}
+type DataSourceParametersDatabricksInput interface {
+	pulumi.Input
+
+	ToDataSourceParametersDatabricksOutput() DataSourceParametersDatabricksOutput
+	ToDataSourceParametersDatabricksOutputWithContext(context.Context) DataSourceParametersDatabricksOutput
+}
+
+type DataSourceParametersDatabricksArgs struct {
+	// The host name of the Databricks data source.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The port for the Databricks data source.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The HTTP path of the Databricks data source.
+	SqlEndpointPath pulumi.StringInput `pulumi:"sqlEndpointPath"`
+}
+
+func (DataSourceParametersDatabricksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParametersDatabricks)(nil)).Elem()
+}
+
+func (i DataSourceParametersDatabricksArgs) ToDataSourceParametersDatabricksOutput() DataSourceParametersDatabricksOutput {
+	return i.ToDataSourceParametersDatabricksOutputWithContext(context.Background())
+}
+
+func (i DataSourceParametersDatabricksArgs) ToDataSourceParametersDatabricksOutputWithContext(ctx context.Context) DataSourceParametersDatabricksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersDatabricksOutput)
+}
+
+func (i DataSourceParametersDatabricksArgs) ToDataSourceParametersDatabricksPtrOutput() DataSourceParametersDatabricksPtrOutput {
+	return i.ToDataSourceParametersDatabricksPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceParametersDatabricksArgs) ToDataSourceParametersDatabricksPtrOutputWithContext(ctx context.Context) DataSourceParametersDatabricksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersDatabricksOutput).ToDataSourceParametersDatabricksPtrOutputWithContext(ctx)
+}
+
+// DataSourceParametersDatabricksPtrInput is an input type that accepts DataSourceParametersDatabricksArgs, DataSourceParametersDatabricksPtr and DataSourceParametersDatabricksPtrOutput values.
+// You can construct a concrete instance of `DataSourceParametersDatabricksPtrInput` via:
+//
+//	        DataSourceParametersDatabricksArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceParametersDatabricksPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParametersDatabricksPtrOutput() DataSourceParametersDatabricksPtrOutput
+	ToDataSourceParametersDatabricksPtrOutputWithContext(context.Context) DataSourceParametersDatabricksPtrOutput
+}
+
+type dataSourceParametersDatabricksPtrType DataSourceParametersDatabricksArgs
+
+func DataSourceParametersDatabricksPtr(v *DataSourceParametersDatabricksArgs) DataSourceParametersDatabricksPtrInput {
+	return (*dataSourceParametersDatabricksPtrType)(v)
+}
+
+func (*dataSourceParametersDatabricksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParametersDatabricks)(nil)).Elem()
+}
+
+func (i *dataSourceParametersDatabricksPtrType) ToDataSourceParametersDatabricksPtrOutput() DataSourceParametersDatabricksPtrOutput {
+	return i.ToDataSourceParametersDatabricksPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceParametersDatabricksPtrType) ToDataSourceParametersDatabricksPtrOutputWithContext(ctx context.Context) DataSourceParametersDatabricksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersDatabricksPtrOutput)
+}
+
+type DataSourceParametersDatabricksOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParametersDatabricksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParametersDatabricks)(nil)).Elem()
+}
+
+func (o DataSourceParametersDatabricksOutput) ToDataSourceParametersDatabricksOutput() DataSourceParametersDatabricksOutput {
+	return o
+}
+
+func (o DataSourceParametersDatabricksOutput) ToDataSourceParametersDatabricksOutputWithContext(ctx context.Context) DataSourceParametersDatabricksOutput {
+	return o
+}
+
+func (o DataSourceParametersDatabricksOutput) ToDataSourceParametersDatabricksPtrOutput() DataSourceParametersDatabricksPtrOutput {
+	return o.ToDataSourceParametersDatabricksPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParametersDatabricksOutput) ToDataSourceParametersDatabricksPtrOutputWithContext(ctx context.Context) DataSourceParametersDatabricksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParametersDatabricks) *DataSourceParametersDatabricks {
+		return &v
+	}).(DataSourceParametersDatabricksPtrOutput)
+}
+
+// The host name of the Databricks data source.
+func (o DataSourceParametersDatabricksOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceParametersDatabricks) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The port for the Databricks data source.
+func (o DataSourceParametersDatabricksOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourceParametersDatabricks) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The HTTP path of the Databricks data source.
+func (o DataSourceParametersDatabricksOutput) SqlEndpointPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceParametersDatabricks) string { return v.SqlEndpointPath }).(pulumi.StringOutput)
+}
+
+type DataSourceParametersDatabricksPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParametersDatabricksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParametersDatabricks)(nil)).Elem()
+}
+
+func (o DataSourceParametersDatabricksPtrOutput) ToDataSourceParametersDatabricksPtrOutput() DataSourceParametersDatabricksPtrOutput {
+	return o
+}
+
+func (o DataSourceParametersDatabricksPtrOutput) ToDataSourceParametersDatabricksPtrOutputWithContext(ctx context.Context) DataSourceParametersDatabricksPtrOutput {
+	return o
+}
+
+func (o DataSourceParametersDatabricksPtrOutput) Elem() DataSourceParametersDatabricksOutput {
+	return o.ApplyT(func(v *DataSourceParametersDatabricks) DataSourceParametersDatabricks {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParametersDatabricks
+		return ret
+	}).(DataSourceParametersDatabricksOutput)
+}
+
+// The host name of the Databricks data source.
+func (o DataSourceParametersDatabricksPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceParametersDatabricks) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port for the Databricks data source.
+func (o DataSourceParametersDatabricksPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceParametersDatabricks) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The HTTP path of the Databricks data source.
+func (o DataSourceParametersDatabricksPtrOutput) SqlEndpointPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceParametersDatabricks) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlEndpointPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17823,6 +18017,106 @@ func (o VpcConnectionTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAnalysisPermission struct {
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
+}
+
+// GetAnalysisPermissionInput is an input type that accepts GetAnalysisPermissionArgs and GetAnalysisPermissionOutput values.
+// You can construct a concrete instance of `GetAnalysisPermissionInput` via:
+//
+//	GetAnalysisPermissionArgs{...}
+type GetAnalysisPermissionInput interface {
+	pulumi.Input
+
+	ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput
+	ToGetAnalysisPermissionOutputWithContext(context.Context) GetAnalysisPermissionOutput
+}
+
+type GetAnalysisPermissionArgs struct {
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
+}
+
+func (GetAnalysisPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAnalysisPermission)(nil)).Elem()
+}
+
+func (i GetAnalysisPermissionArgs) ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput {
+	return i.ToGetAnalysisPermissionOutputWithContext(context.Background())
+}
+
+func (i GetAnalysisPermissionArgs) ToGetAnalysisPermissionOutputWithContext(ctx context.Context) GetAnalysisPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAnalysisPermissionOutput)
+}
+
+// GetAnalysisPermissionArrayInput is an input type that accepts GetAnalysisPermissionArray and GetAnalysisPermissionArrayOutput values.
+// You can construct a concrete instance of `GetAnalysisPermissionArrayInput` via:
+//
+//	GetAnalysisPermissionArray{ GetAnalysisPermissionArgs{...} }
+type GetAnalysisPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput
+	ToGetAnalysisPermissionArrayOutputWithContext(context.Context) GetAnalysisPermissionArrayOutput
+}
+
+type GetAnalysisPermissionArray []GetAnalysisPermissionInput
+
+func (GetAnalysisPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAnalysisPermission)(nil)).Elem()
+}
+
+func (i GetAnalysisPermissionArray) ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput {
+	return i.ToGetAnalysisPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAnalysisPermissionArray) ToGetAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetAnalysisPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAnalysisPermissionArrayOutput)
+}
+
+type GetAnalysisPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetAnalysisPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAnalysisPermission)(nil)).Elem()
+}
+
+func (o GetAnalysisPermissionOutput) ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput {
+	return o
+}
+
+func (o GetAnalysisPermissionOutput) ToGetAnalysisPermissionOutputWithContext(ctx context.Context) GetAnalysisPermissionOutput {
+	return o
+}
+
+func (o GetAnalysisPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAnalysisPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAnalysisPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAnalysisPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type GetAnalysisPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAnalysisPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAnalysisPermission)(nil)).Elem()
+}
+
+func (o GetAnalysisPermissionArrayOutput) ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput {
+	return o
+}
+
+func (o GetAnalysisPermissionArrayOutput) ToGetAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetAnalysisPermissionArrayOutput {
+	return o
+}
+
+func (o GetAnalysisPermissionArrayOutput) Index(i pulumi.IntInput) GetAnalysisPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAnalysisPermission {
+		return vs[0].([]GetAnalysisPermission)[vs[1].(int)]
+	}).(GetAnalysisPermissionOutput)
+}
+
 type GetDataSetColumnGroup struct {
 	GeoSpatialColumnGroups []GetDataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroups"`
 }
@@ -21317,6 +21611,106 @@ func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i 
 	}).(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput)
 }
 
+type GetQuicksightAnalysisPermission struct {
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
+}
+
+// GetQuicksightAnalysisPermissionInput is an input type that accepts GetQuicksightAnalysisPermissionArgs and GetQuicksightAnalysisPermissionOutput values.
+// You can construct a concrete instance of `GetQuicksightAnalysisPermissionInput` via:
+//
+//	GetQuicksightAnalysisPermissionArgs{...}
+type GetQuicksightAnalysisPermissionInput interface {
+	pulumi.Input
+
+	ToGetQuicksightAnalysisPermissionOutput() GetQuicksightAnalysisPermissionOutput
+	ToGetQuicksightAnalysisPermissionOutputWithContext(context.Context) GetQuicksightAnalysisPermissionOutput
+}
+
+type GetQuicksightAnalysisPermissionArgs struct {
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
+}
+
+func (GetQuicksightAnalysisPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQuicksightAnalysisPermission)(nil)).Elem()
+}
+
+func (i GetQuicksightAnalysisPermissionArgs) ToGetQuicksightAnalysisPermissionOutput() GetQuicksightAnalysisPermissionOutput {
+	return i.ToGetQuicksightAnalysisPermissionOutputWithContext(context.Background())
+}
+
+func (i GetQuicksightAnalysisPermissionArgs) ToGetQuicksightAnalysisPermissionOutputWithContext(ctx context.Context) GetQuicksightAnalysisPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQuicksightAnalysisPermissionOutput)
+}
+
+// GetQuicksightAnalysisPermissionArrayInput is an input type that accepts GetQuicksightAnalysisPermissionArray and GetQuicksightAnalysisPermissionArrayOutput values.
+// You can construct a concrete instance of `GetQuicksightAnalysisPermissionArrayInput` via:
+//
+//	GetQuicksightAnalysisPermissionArray{ GetQuicksightAnalysisPermissionArgs{...} }
+type GetQuicksightAnalysisPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetQuicksightAnalysisPermissionArrayOutput() GetQuicksightAnalysisPermissionArrayOutput
+	ToGetQuicksightAnalysisPermissionArrayOutputWithContext(context.Context) GetQuicksightAnalysisPermissionArrayOutput
+}
+
+type GetQuicksightAnalysisPermissionArray []GetQuicksightAnalysisPermissionInput
+
+func (GetQuicksightAnalysisPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQuicksightAnalysisPermission)(nil)).Elem()
+}
+
+func (i GetQuicksightAnalysisPermissionArray) ToGetQuicksightAnalysisPermissionArrayOutput() GetQuicksightAnalysisPermissionArrayOutput {
+	return i.ToGetQuicksightAnalysisPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetQuicksightAnalysisPermissionArray) ToGetQuicksightAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetQuicksightAnalysisPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQuicksightAnalysisPermissionArrayOutput)
+}
+
+type GetQuicksightAnalysisPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetQuicksightAnalysisPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQuicksightAnalysisPermission)(nil)).Elem()
+}
+
+func (o GetQuicksightAnalysisPermissionOutput) ToGetQuicksightAnalysisPermissionOutput() GetQuicksightAnalysisPermissionOutput {
+	return o
+}
+
+func (o GetQuicksightAnalysisPermissionOutput) ToGetQuicksightAnalysisPermissionOutputWithContext(ctx context.Context) GetQuicksightAnalysisPermissionOutput {
+	return o
+}
+
+func (o GetQuicksightAnalysisPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetQuicksightAnalysisPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetQuicksightAnalysisPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightAnalysisPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type GetQuicksightAnalysisPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetQuicksightAnalysisPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQuicksightAnalysisPermission)(nil)).Elem()
+}
+
+func (o GetQuicksightAnalysisPermissionArrayOutput) ToGetQuicksightAnalysisPermissionArrayOutput() GetQuicksightAnalysisPermissionArrayOutput {
+	return o
+}
+
+func (o GetQuicksightAnalysisPermissionArrayOutput) ToGetQuicksightAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetQuicksightAnalysisPermissionArrayOutput {
+	return o
+}
+
+func (o GetQuicksightAnalysisPermissionArrayOutput) Index(i pulumi.IntInput) GetQuicksightAnalysisPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetQuicksightAnalysisPermission {
+		return vs[0].([]GetQuicksightAnalysisPermission)[vs[1].(int)]
+	}).(GetQuicksightAnalysisPermissionOutput)
+}
+
 type GetThemeConfiguration struct {
 	// Color properties that apply to chart data colors. See data_color_palette.
 	DataColorPalettes []GetThemeConfigurationDataColorPalette `pulumi:"dataColorPalettes"`
@@ -22844,6 +23238,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAuroraPostgresqlPtrInput)(nil)).Elem(), DataSourceParametersAuroraPostgresqlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAwsIotAnalyticsInput)(nil)).Elem(), DataSourceParametersAwsIotAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAwsIotAnalyticsPtrInput)(nil)).Elem(), DataSourceParametersAwsIotAnalyticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersDatabricksInput)(nil)).Elem(), DataSourceParametersDatabricksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersDatabricksPtrInput)(nil)).Elem(), DataSourceParametersDatabricksArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersJiraInput)(nil)).Elem(), DataSourceParametersJiraArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersJiraPtrInput)(nil)).Elem(), DataSourceParametersJiraArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersMariaDbInput)(nil)).Elem(), DataSourceParametersMariaDbArgs{})
@@ -22930,6 +23326,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemePermissionArrayInput)(nil)).Elem(), ThemePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsPtrInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAnalysisPermissionInput)(nil)).Elem(), GetAnalysisPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAnalysisPermissionArrayInput)(nil)).Elem(), GetAnalysisPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArgs{})
@@ -22996,6 +23394,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQuicksightAnalysisPermissionInput)(nil)).Elem(), GetQuicksightAnalysisPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQuicksightAnalysisPermissionArrayInput)(nil)).Elem(), GetQuicksightAnalysisPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationInput)(nil)).Elem(), GetThemeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationArrayInput)(nil)).Elem(), GetThemeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationDataColorPaletteInput)(nil)).Elem(), GetThemeConfigurationDataColorPaletteArgs{})
@@ -23169,6 +23569,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceParametersAuroraPostgresqlPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersAwsIotAnalyticsOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersAwsIotAnalyticsPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParametersDatabricksOutput{})
+	pulumi.RegisterOutputType(DataSourceParametersDatabricksPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersJiraOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersJiraPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersMariaDbOutput{})
@@ -23255,6 +23657,8 @@ func init() {
 	pulumi.RegisterOutputType(ThemePermissionArrayOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetAnalysisPermissionOutput{})
+	pulumi.RegisterOutputType(GetAnalysisPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupOutput{})
@@ -23321,6 +23725,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput{})
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetQuicksightAnalysisPermissionOutput{})
+	pulumi.RegisterOutputType(GetQuicksightAnalysisPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetThemeConfigurationOutput{})
 	pulumi.RegisterOutputType(GetThemeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetThemeConfigurationDataColorPaletteOutput{})

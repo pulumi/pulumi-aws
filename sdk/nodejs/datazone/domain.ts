@@ -134,6 +134,10 @@ export class Domain extends pulumi.CustomResource {
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
+    /**
+     * Whether to skip the deletion check for the Domain.
+     */
+    public readonly skipDeletionCheck!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,6 +167,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
             resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
+            resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -176,6 +181,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
+            resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -221,6 +227,10 @@ export interface DomainState {
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
+    /**
+     * Whether to skip the deletion check for the Domain.
+     */
+    skipDeletionCheck?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -257,6 +267,10 @@ export interface DomainArgs {
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
+    /**
+     * Whether to skip the deletion check for the Domain.
+     */
+    skipDeletionCheck?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts>;
 }

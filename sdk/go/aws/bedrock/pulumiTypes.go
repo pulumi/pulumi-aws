@@ -2674,6 +2674,8 @@ func (o AgentDataSourceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 type AgentDataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+	ParsingConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfiguration `pulumi:"parsingConfiguration"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationArgs and AgentDataSourceVectorIngestionConfigurationOutput values.
@@ -2690,6 +2692,8 @@ type AgentDataSourceVectorIngestionConfigurationInput interface {
 type AgentDataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+	ParsingConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput `pulumi:"parsingConfiguration"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationArgs) ElementType() reflect.Type {
@@ -2776,6 +2780,13 @@ func (o AgentDataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+		return v.ParsingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
+}
+
 type AgentDataSourceVectorIngestionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AgentDataSourceVectorIngestionConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2810,11 +2821,25 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
+}
+
 type AgentDataSourceVectorIngestionConfigurationChunkingConfiguration struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy string `pulumi:"chunkingStrategy"`
-	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+	// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration `pulumi:"fixedSizeChunkingConfiguration"`
+	// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+	HierarchicalChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration `pulumi:"hierarchicalChunkingConfiguration"`
+	// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+	SemanticChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration `pulumi:"semanticChunkingConfiguration"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput values.
@@ -2829,10 +2854,14 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationInput inter
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs struct {
-	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+	// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 	ChunkingStrategy pulumi.StringInput `pulumi:"chunkingStrategy"`
-	// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+	// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
 	FixedSizeChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput `pulumi:"fixedSizeChunkingConfiguration"`
+	// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+	HierarchicalChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput `pulumi:"hierarchicalChunkingConfiguration"`
+	// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+	SemanticChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput `pulumi:"semanticChunkingConfiguration"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -2912,18 +2941,32 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) 
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) ChunkingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) string {
 		return v.ChunkingStrategy
 	}).(pulumi.StringOutput)
 }
 
-// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		return v.FixedSizeChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) HierarchicalChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+		return v.HierarchicalChunkingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput) SemanticChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+		return v.SemanticChunkingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2950,7 +2993,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationOutput)
 }
 
-// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) ChunkingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *string {
 		if v == nil {
@@ -2960,7 +3003,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+// Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) FixedSizeChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
 		if v == nil {
@@ -2968,6 +3011,26 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutpu
 		}
 		return v.FixedSizeChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) HierarchicalChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchicalChunkingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
+}
+
+// Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput) SemanticChunkingConfiguration() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SemanticChunkingConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration struct {
@@ -3128,6 +3191,901 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSiz
 		}
 		return &v.OverlapPercentage
 	}).(pulumi.IntPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration struct {
+	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+	LevelConfigurations []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration `pulumi:"levelConfigurations"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens float64 `pulumi:"overlapTokens"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs struct {
+	// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+	LevelConfigurations AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens pulumi.Float64Input `pulumi:"overlapTokens"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs, AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtr and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrType AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput)
+}
+
+// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) LevelConfigurations() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+		return v.LevelConfigurations
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput)
+}
+
+// The number of tokens to repeat across chunks in the same layer.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) float64 {
+		return v.OverlapTokens
+	}).(pulumi.Float64Output)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput)
+}
+
+// Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) LevelConfigurations() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LevelConfigurations
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput)
+}
+
+// The number of tokens to repeat across chunks in the same layer.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.OverlapTokens
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
+	MaxTokens float64 `pulumi:"maxTokens"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
+	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput)
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray{ AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs{...} }
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray []AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput {
+	return o
+}
+
+// The maximum number of tokens that a chunk can contain in this layer.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput) MaxTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration) float64 {
+		return v.MaxTokens
+	}).(pulumi.Float64Output)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput) Index(i pulumi.IntInput) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+		return vs[0].([]AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration)[vs[1].(int)]
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration struct {
+	// The dissimilarity threshold for splitting chunks.
+	BreakpointPercentileThreshold float64 `pulumi:"breakpointPercentileThreshold"`
+	// The buffer size.
+	BufferSize float64 `pulumi:"bufferSize"`
+	MaxToken   float64 `pulumi:"maxToken"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs struct {
+	// The dissimilarity threshold for splitting chunks.
+	BreakpointPercentileThreshold pulumi.Float64Input `pulumi:"breakpointPercentileThreshold"`
+	// The buffer size.
+	BufferSize pulumi.Float64Input `pulumi:"bufferSize"`
+	MaxToken   pulumi.Float64Input `pulumi:"maxToken"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs, AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtr and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrType AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput)
+}
+
+// The dissimilarity threshold for splitting chunks.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+		return v.BreakpointPercentileThreshold
+	}).(pulumi.Float64Output)
+}
+
+// The buffer size.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) BufferSize() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+		return v.BufferSize
+	}).(pulumi.Float64Output)
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) MaxToken() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
+		return v.MaxToken
+	}).(pulumi.Float64Output)
+}
+
+type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput)
+}
+
+// The dissimilarity threshold for splitting chunks.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BreakpointPercentileThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The buffer size.
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BufferSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) MaxToken() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxToken
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfiguration struct {
+	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+	BedrockFoundationModelConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
+	// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+	ParsingStrategy string `pulumi:"parsingStrategy"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs struct {
+	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+	BedrockFoundationModelConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
+	// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+	ParsingStrategy pulumi.StringInput `pulumi:"parsingStrategy"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs, AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtr and AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationParsingConfigurationPtrType AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationParsingConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationParsingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
+}
+
+// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+		return v.BedrockFoundationModelConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ParsingStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) string {
+		return v.ParsingStrategy
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationParsingConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput)
+}
+
+// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockFoundationModelConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ParsingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration struct {
+	// The ARN of the model used to parse documents
+	ModelArn string `pulumi:"modelArn"`
+	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+	ParsingPrompt *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt `pulumi:"parsingPrompt"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs struct {
+	// The ARN of the model used to parse documents
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+	ParsingPrompt AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput `pulumi:"parsingPrompt"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs, AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtr and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrType AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
+}
+
+// The ARN of the model used to parse documents
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) string {
+		return v.ModelArn
+	}).(pulumi.StringOutput)
+}
+
+// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ParsingPrompt() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+		return v.ParsingPrompt
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput)
+}
+
+// The ARN of the model used to parse documents
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingPrompt
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt struct {
+	// Instructions for interpreting the contents of the document.
+	ParsingPromptString string `pulumi:"parsingPromptString"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{...}
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs struct {
+	// Instructions for interpreting the contents of the document.
+	ParsingPromptString pulumi.StringInput `pulumi:"parsingPromptString"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput).ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs, AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtr and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrType AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs
+
+func AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtr(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput)
+}
+
+// Instructions for interpreting the contents of the document.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput) ParsingPromptString() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt) string {
+		return v.ParsingPromptString
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput)
+}
+
+// Instructions for interpreting the contents of the document.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput) ParsingPromptString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingPromptString
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfiguration struct {
@@ -9176,6 +10134,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs{})
@@ -9304,6 +10274,18 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationOutput{})
