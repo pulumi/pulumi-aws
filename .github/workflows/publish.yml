@@ -119,7 +119,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, go, node, dotnet, python, java
+        tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
     - name: Publish SDKs
       uses: pulumi/pulumi-package-publisher@v0.0.20
       with:
