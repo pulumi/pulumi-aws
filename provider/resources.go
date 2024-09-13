@@ -5168,6 +5168,15 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_quicksight_group":    {Tok: awsDataSource(quicksightMod, "getQuicksightGroup")},
 			"aws_quicksight_user":     {Tok: awsDataSource(quicksightMod, "getQuicksightUser")},
 
+			"aws_quicksight_analysis": {
+				Tok: awsDataSource(quicksightMod, "getQuicksightAnalysis"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {Omit: true},
+				},
+			},
+
 			// VpcLattice
 			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
 			"aws_vpclattice_listener": {Tok: awsDataSource(vpclatticeMod, "getListener")},
