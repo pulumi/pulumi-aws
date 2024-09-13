@@ -32,7 +32,7 @@ index 08eae51ad4..d0b212ddda 100644
  		Blocks: map[string]schema.Block{
  			"destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/networkfirewall/tls_inspection_configuration.go b/internal/service/networkfirewall/tls_inspection_configuration.go
-index a1bd1b65a4..11dc4a67de 100644
+index e729b2a7b0..5f4ffe9901 100644
 --- a/internal/service/networkfirewall/tls_inspection_configuration.go
 +++ b/internal/service/networkfirewall/tls_inspection_configuration.go
 @@ -118,7 +118,7 @@ func (r *tlsInspectionConfigurationResource) Schema(ctx context.Context, request
@@ -45,10 +45,10 @@ index a1bd1b65a4..11dc4a67de 100644
  			"update_token": schema.StringAttribute{
  				Computed: true,
 diff --git a/internal/service/networkmonitor/monitor.go b/internal/service/networkmonitor/monitor.go
-index 1cdb74daf6..cf9c98116c 100644
+index 83bf8577da..fba50e09bc 100644
 --- a/internal/service/networkmonitor/monitor.go
 +++ b/internal/service/networkmonitor/monitor.go
-@@ -69,7 +69,7 @@ func (r *monitorResource) Schema(ctx context.Context, request resource.SchemaReq
+@@ -74,7 +74,7 @@ func (r *monitorResource) Schema(ctx context.Context, request resource.SchemaReq
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -58,7 +58,7 @@ index 1cdb74daf6..cf9c98116c 100644
  	}
  }
 diff --git a/internal/service/networkmonitor/probe.go b/internal/service/networkmonitor/probe.go
-index be5daa5093..701e8c4cbd 100644
+index e07e500122..1cabc845d8 100644
 --- a/internal/service/networkmonitor/probe.go
 +++ b/internal/service/networkmonitor/probe.go
 @@ -109,7 +109,7 @@ func (r *probeResource) Schema(ctx context.Context, request resource.SchemaReque

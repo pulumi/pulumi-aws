@@ -21,10 +21,10 @@ index 6e3610bc82..594f516660 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 702305fc56..e566d84a9b 100644
+index efd99ae8c8..1876032e5c 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -433,8 +433,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -101,7 +101,7 @@ index 768e0c55b8..709da2cef4 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/batch/job_queue_migrate.go b/internal/service/batch/job_queue_migrate.go
-index 7e9f1861a0..607b4e5d0b 100644
+index 3d442ce442..d4c8454958 100644
 --- a/internal/service/batch/job_queue_migrate.go
 +++ b/internal/service/batch/job_queue_migrate.go
 @@ -39,7 +39,7 @@ func jobQueueSchema0(ctx context.Context) schema.Schema {
@@ -179,10 +179,10 @@ index a3ad529129..8d2e1d913e 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 48ad5dba45..a8fb664513 100644
+index 73509e4d42..0dc1d90384 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
-@@ -141,7 +141,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
+@@ -139,7 +139,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

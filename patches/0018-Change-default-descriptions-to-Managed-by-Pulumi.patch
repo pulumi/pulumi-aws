@@ -44,7 +44,7 @@ index 837e79c057..8fc8280900 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 910dec1a1b..c67bc4cfde 100644
+index d530b2a85c..c14f298606 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -161,7 +161,7 @@ index c4c6f7c64b..df3d2d3544 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index b31cd660ef..8ec5d31fae 100644
+index aa63ef7b8a..0aa99d67b0 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
 @@ -49,7 +49,7 @@ func resourceClusterParameterGroup() *schema.Resource {
@@ -174,7 +174,7 @@ index b31cd660ef..8ec5d31fae 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index df81d7c11b..518b7c2f11 100644
+index 0c8e05589a..16d3c419ce 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -55,7 +55,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -200,7 +200,7 @@ index 1d97895eea..45e74ae9ce 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 28a4a0c6ae..26112e8db5 100644
+index ccfdc6bfcd..609718eef3 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -51,7 +51,7 @@ func resourceClusterParameterGroup() *schema.Resource {
@@ -309,7 +309,7 @@ index aeef59b958..abac8702c5 100644
  		HostedZoneId: aws.String(zoneID),
  	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 940e3bf78d..626ad3f819 100644
+index 15edc9f2af..db519dc744 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -53,7 +53,7 @@ func resourceZone() *schema.Resource {

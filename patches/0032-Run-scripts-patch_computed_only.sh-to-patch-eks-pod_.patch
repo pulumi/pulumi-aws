@@ -6,7 +6,7 @@ Subject: [PATCH] Run scripts/patch_computed_only.sh to patch
 
 
 diff --git a/internal/service/docdbelastic/cluster.go b/internal/service/docdbelastic/cluster.go
-index f9658f12a6..ae5ead4cb0 100644
+index a8cdeec386..6d8306a0a9 100644
 --- a/internal/service/docdbelastic/cluster.go
 +++ b/internal/service/docdbelastic/cluster.go
 @@ -147,7 +147,7 @@ func (r *resourceCluster) Schema(ctx context.Context, _ resource.SchemaRequest,
