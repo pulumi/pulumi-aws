@@ -49,18 +49,18 @@ namespace Pulumi.Aws
             set => _allowedAccountIds.Set(value);
         }
 
+        private static readonly __Value<Pulumi.Aws.Config.Types.AssumeRole?> _assumeRole = new __Value<Pulumi.Aws.Config.Types.AssumeRole?>(() => __config.GetObject<Pulumi.Aws.Config.Types.AssumeRole>("assumeRole"));
+        public static Pulumi.Aws.Config.Types.AssumeRole? AssumeRole
+        {
+            get => _assumeRole.Get();
+            set => _assumeRole.Set(value);
+        }
+
         private static readonly __Value<Pulumi.Aws.Config.Types.AssumeRoleWithWebIdentity?> _assumeRoleWithWebIdentity = new __Value<Pulumi.Aws.Config.Types.AssumeRoleWithWebIdentity?>(() => __config.GetObject<Pulumi.Aws.Config.Types.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity"));
         public static Pulumi.Aws.Config.Types.AssumeRoleWithWebIdentity? AssumeRoleWithWebIdentity
         {
             get => _assumeRoleWithWebIdentity.Get();
             set => _assumeRoleWithWebIdentity.Set(value);
-        }
-
-        private static readonly __Value<ImmutableArray<Pulumi.Aws.Config.Types.AssumeRoles>> _assumeRoles = new __Value<ImmutableArray<Pulumi.Aws.Config.Types.AssumeRoles>>(() => __config.GetObject<ImmutableArray<Pulumi.Aws.Config.Types.AssumeRoles>>("assumeRoles"));
-        public static ImmutableArray<Pulumi.Aws.Config.Types.AssumeRoles> AssumeRoles
-        {
-            get => _assumeRoles.Get();
-            set => _assumeRoles.Set(value);
         }
 
         private static readonly __Value<string?> _customCaBundle = new __Value<string?>(() => __config.Get("customCaBundle"));
@@ -363,33 +363,7 @@ namespace Pulumi.Aws
         public static class Types
         {
 
-             public class AssumeRoleWithWebIdentity
-             {
-            /// <summary>
-            /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-            /// </summary>
-                public string? Duration { get; set; } = null!;
-            /// <summary>
-            /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
-                public string? Policy { get; set; } = null!;
-            /// <summary>
-            /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-            /// </summary>
-                public ImmutableArray<string> PolicyArns { get; set; }
-            /// <summary>
-            /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-            /// </summary>
-                public string? RoleArn { get; set; } = null!;
-            /// <summary>
-            /// An identifier for the assumed role session.
-            /// </summary>
-                public string? SessionName { get; set; } = null!;
-                public string? WebIdentityToken { get; set; } = null!;
-                public string? WebIdentityTokenFile { get; set; } = null!;
-            }
-
-             public class AssumeRoles
+             public class AssumeRole
              {
             /// <summary>
             /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
@@ -427,6 +401,32 @@ namespace Pulumi.Aws
             /// Assume role session tag keys to pass to any subsequent sessions.
             /// </summary>
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
+            }
+
+             public class AssumeRoleWithWebIdentity
+             {
+            /// <summary>
+            /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+            /// </summary>
+                public string? Duration { get; set; } = null!;
+            /// <summary>
+            /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+            /// </summary>
+                public string? Policy { get; set; } = null!;
+            /// <summary>
+            /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+            /// </summary>
+                public ImmutableArray<string> PolicyArns { get; set; }
+            /// <summary>
+            /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+            /// </summary>
+                public string? RoleArn { get; set; } = null!;
+            /// <summary>
+            /// An identifier for the assumed role session.
+            /// </summary>
+                public string? SessionName { get; set; } = null!;
+                public string? WebIdentityToken { get; set; } = null!;
+                public string? WebIdentityTokenFile { get; set; } = null!;
             }
 
              public class DefaultTags

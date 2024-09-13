@@ -22,8 +22,8 @@ class ProviderArgs:
     def __init__(__self__, *,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
                  assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -101,10 +101,10 @@ class ProviderArgs:
             pulumi.set(__self__, "access_key", access_key)
         if allowed_account_ids is not None:
             pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
+        if assume_role is not None:
+            pulumi.set(__self__, "assume_role", assume_role)
         if assume_role_with_web_identity is not None:
             pulumi.set(__self__, "assume_role_with_web_identity", assume_role_with_web_identity)
-        if assume_roles is not None:
-            pulumi.set(__self__, "assume_roles", assume_roles)
         if custom_ca_bundle is not None:
             pulumi.set(__self__, "custom_ca_bundle", custom_ca_bundle)
         if default_tags is not None:
@@ -192,6 +192,15 @@ class ProviderArgs:
         pulumi.set(self, "allowed_account_ids", value)
 
     @property
+    @pulumi.getter(name="assumeRole")
+    def assume_role(self) -> Optional[pulumi.Input['ProviderAssumeRoleArgs']]:
+        return pulumi.get(self, "assume_role")
+
+    @assume_role.setter
+    def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
+        pulumi.set(self, "assume_role", value)
+
+    @property
     @pulumi.getter(name="assumeRoleWithWebIdentity")
     def assume_role_with_web_identity(self) -> Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]:
         return pulumi.get(self, "assume_role_with_web_identity")
@@ -199,15 +208,6 @@ class ProviderArgs:
     @assume_role_with_web_identity.setter
     def assume_role_with_web_identity(self, value: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]):
         pulumi.set(self, "assume_role_with_web_identity", value)
-
-    @property
-    @pulumi.getter(name="assumeRoles")
-    def assume_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]:
-        return pulumi.get(self, "assume_roles")
-
-    @assume_roles.setter
-    def assume_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderAssumeRoleArgs']]]]):
-        pulumi.set(self, "assume_roles", value)
 
     @property
     @pulumi.getter(name="customCaBundle")
@@ -572,8 +572,8 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
                  assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -683,8 +683,8 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
                  assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
-                 assume_roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]]]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -725,8 +725,8 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
+            __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
             __props__.__dict__["assume_role_with_web_identity"] = pulumi.Output.from_input(assume_role_with_web_identity).apply(pulumi.runtime.to_json) if assume_role_with_web_identity is not None else None
-            __props__.__dict__["assume_roles"] = pulumi.Output.from_input(assume_roles).apply(pulumi.runtime.to_json) if assume_roles is not None else None
             __props__.__dict__["custom_ca_bundle"] = custom_ca_bundle
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["ec2_metadata_service_endpoint"] = ec2_metadata_service_endpoint

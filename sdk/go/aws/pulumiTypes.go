@@ -78,29 +78,45 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRoleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput)
 }
 
-// ProviderAssumeRoleArrayInput is an input type that accepts ProviderAssumeRoleArray and ProviderAssumeRoleArrayOutput values.
-// You can construct a concrete instance of `ProviderAssumeRoleArrayInput` via:
+func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
+	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput).ToProviderAssumeRolePtrOutputWithContext(ctx)
+}
+
+// ProviderAssumeRolePtrInput is an input type that accepts ProviderAssumeRoleArgs, ProviderAssumeRolePtr and ProviderAssumeRolePtrOutput values.
+// You can construct a concrete instance of `ProviderAssumeRolePtrInput` via:
 //
-//	ProviderAssumeRoleArray{ ProviderAssumeRoleArgs{...} }
-type ProviderAssumeRoleArrayInput interface {
+//	        ProviderAssumeRoleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderAssumeRolePtrInput interface {
 	pulumi.Input
 
-	ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput
-	ToProviderAssumeRoleArrayOutputWithContext(context.Context) ProviderAssumeRoleArrayOutput
+	ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput
+	ToProviderAssumeRolePtrOutputWithContext(context.Context) ProviderAssumeRolePtrOutput
 }
 
-type ProviderAssumeRoleArray []ProviderAssumeRoleInput
+type providerAssumeRolePtrType ProviderAssumeRoleArgs
 
-func (ProviderAssumeRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProviderAssumeRole)(nil)).Elem()
+func ProviderAssumeRolePtr(v *ProviderAssumeRoleArgs) ProviderAssumeRolePtrInput {
+	return (*providerAssumeRolePtrType)(v)
 }
 
-func (i ProviderAssumeRoleArray) ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput {
-	return i.ToProviderAssumeRoleArrayOutputWithContext(context.Background())
+func (*providerAssumeRolePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAssumeRole)(nil)).Elem()
 }
 
-func (i ProviderAssumeRoleArray) ToProviderAssumeRoleArrayOutputWithContext(ctx context.Context) ProviderAssumeRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleArrayOutput)
+func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
+	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRolePtrOutput)
 }
 
 type ProviderAssumeRoleOutput struct{ *pulumi.OutputState }
@@ -115,6 +131,16 @@ func (o ProviderAssumeRoleOutput) ToProviderAssumeRoleOutput() ProviderAssumeRol
 
 func (o ProviderAssumeRoleOutput) ToProviderAssumeRoleOutputWithContext(ctx context.Context) ProviderAssumeRoleOutput {
 	return o
+}
+
+func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
+	return o.ToProviderAssumeRolePtrOutputWithContext(context.Background())
+}
+
+func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRole) *ProviderAssumeRole {
+		return &v
+	}).(ProviderAssumeRolePtrOutput)
 }
 
 // The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
@@ -162,24 +188,118 @@ func (o ProviderAssumeRoleOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderAssumeRole) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
 }
 
-type ProviderAssumeRoleArrayOutput struct{ *pulumi.OutputState }
+type ProviderAssumeRolePtrOutput struct{ *pulumi.OutputState }
 
-func (ProviderAssumeRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProviderAssumeRole)(nil)).Elem()
+func (ProviderAssumeRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAssumeRole)(nil)).Elem()
 }
 
-func (o ProviderAssumeRoleArrayOutput) ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput {
+func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
 	return o
 }
 
-func (o ProviderAssumeRoleArrayOutput) ToProviderAssumeRoleArrayOutputWithContext(ctx context.Context) ProviderAssumeRoleArrayOutput {
+func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
 	return o
 }
 
-func (o ProviderAssumeRoleArrayOutput) Index(i pulumi.IntInput) ProviderAssumeRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderAssumeRole {
-		return vs[0].([]ProviderAssumeRole)[vs[1].(int)]
+func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) ProviderAssumeRole {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderAssumeRole
+		return ret
 	}).(ProviderAssumeRoleOutput)
+}
+
+// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+func (o ProviderAssumeRolePtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier that might be required when you assume a role in another account.
+func (o ProviderAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+func (o ProviderAssumeRolePtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Policy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+func (o ProviderAssumeRolePtrOutput) PolicyArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+func (o ProviderAssumeRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the assumed role session.
+func (o ProviderAssumeRolePtrOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source identity specified by the principal assuming the role.
+func (o ProviderAssumeRolePtrOutput) SourceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Assume role session tags.
+func (o ProviderAssumeRolePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// Assume role session tag keys to pass to any subsequent sessions.
+func (o ProviderAssumeRolePtrOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProviderAssumeRole) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitiveTagKeys
+	}).(pulumi.StringArrayOutput)
 }
 
 type ProviderAssumeRoleWithWebIdentity struct {
@@ -3727,7 +3847,7 @@ func (o GetRegionsFilterArrayOutput) Index(i pulumi.IntInput) GetRegionsFilterOu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleArrayInput)(nil)).Elem(), ProviderAssumeRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleWithWebIdentityInput)(nil)).Elem(), ProviderAssumeRoleWithWebIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleWithWebIdentityPtrInput)(nil)).Elem(), ProviderAssumeRoleWithWebIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
@@ -3743,7 +3863,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsFilterInput)(nil)).Elem(), GetRegionsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsFilterArrayInput)(nil)).Elem(), GetRegionsFilterArray{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
-	pulumi.RegisterOutputType(ProviderAssumeRoleArrayOutput{})
+	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleWithWebIdentityOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleWithWebIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})

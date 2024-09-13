@@ -109,8 +109,8 @@ export class Provider extends pulumi.ProviderResource {
         {
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
+            resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             resourceInputs["assumeRoleWithWebIdentity"] = pulumi.output(args ? args.assumeRoleWithWebIdentity : undefined).apply(JSON.stringify);
-            resourceInputs["assumeRoles"] = pulumi.output(args ? args.assumeRoles : undefined).apply(JSON.stringify);
             resourceInputs["customCaBundle"] = args ? args.customCaBundle : undefined;
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["ec2MetadataServiceEndpoint"] = args ? args.ec2MetadataServiceEndpoint : undefined;
@@ -157,8 +157,8 @@ export interface ProviderArgs {
      */
     accessKey?: pulumi.Input<string>;
     allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    assumeRole?: pulumi.Input<inputs.ProviderAssumeRole>;
     assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity>;
-    assumeRoles?: pulumi.Input<pulumi.Input<inputs.ProviderAssumeRole>[]>;
     /**
      * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
      * variable. (Setting `caBundle` in the shared config file is not supported.)

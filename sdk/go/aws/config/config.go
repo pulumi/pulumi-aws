@@ -18,11 +18,11 @@ func GetAccessKey(ctx *pulumi.Context) string {
 func GetAllowedAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:allowedAccountIds")
 }
+func GetAssumeRole(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:assumeRole")
+}
 func GetAssumeRoleWithWebIdentity(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRoleWithWebIdentity")
-}
-func GetAssumeRoles(ctx *pulumi.Context) string {
-	return config.Get(ctx, "aws:assumeRoles")
 }
 
 // File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment

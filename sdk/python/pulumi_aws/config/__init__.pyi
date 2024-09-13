@@ -22,9 +22,9 @@ The access key for API operations. You can retrieve this from the 'Security & Cr
 
 allowedAccountIds: Optional[str]
 
-assumeRoleWithWebIdentity: Optional[str]
+assumeRole: Optional[str]
 
-assumeRoles: Optional[str]
+assumeRoleWithWebIdentity: Optional[str]
 
 customCaBundle: Optional[str]
 """

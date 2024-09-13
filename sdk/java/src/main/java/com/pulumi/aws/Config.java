@@ -3,8 +3,8 @@
 
 package com.pulumi.aws;
 
+import com.pulumi.aws.config.inputs.AssumeRole;
 import com.pulumi.aws.config.inputs.AssumeRoleWithWebIdentity;
-import com.pulumi.aws.config.inputs.AssumeRoles;
 import com.pulumi.aws.config.inputs.DefaultTags;
 import com.pulumi.aws.config.inputs.Endpoints;
 import com.pulumi.aws.config.inputs.IgnoreTags;
@@ -29,11 +29,11 @@ public final class Config {
     public Optional<List<String>> allowedAccountIds() {
         return Codegen.objectProp("allowedAccountIds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
+    public Optional<AssumeRole> assumeRole() {
+        return Codegen.objectProp("assumeRole", AssumeRole.class).config(config).get();
+    }
     public Optional<AssumeRoleWithWebIdentity> assumeRoleWithWebIdentity() {
         return Codegen.objectProp("assumeRoleWithWebIdentity", AssumeRoleWithWebIdentity.class).config(config).get();
-    }
-    public Optional<List<AssumeRoles>> assumeRoles() {
-        return Codegen.objectProp("assumeRoles", TypeShape.<List<AssumeRoles>>builder(List.class).addParameter(AssumeRoles.class).build()).config(config).get();
     }
 /**
  * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
