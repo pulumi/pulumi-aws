@@ -632,8 +632,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		if duration != nil {
 			assumeRole.Duration = *duration
 		}
-
-		config.AssumeRole = &assumeRole
+		config.AssumeRole = []awsbase.AssumeRole{assumeRole}
 	}
 
 	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
