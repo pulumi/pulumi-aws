@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.AnalysisArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisState;
+import com.pulumi.aws.quicksight.outputs.AnalysisDefinition;
 import com.pulumi.aws.quicksight.outputs.AnalysisParameters;
 import com.pulumi.aws.quicksight.outputs.AnalysisPermission;
 import com.pulumi.aws.quicksight.outputs.AnalysisSourceEntity;
@@ -75,6 +76,83 @@ import javax.annotation.Nullable;
  * ### With Definition
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.Analysis;
+ * import com.pulumi.aws.quicksight.AnalysisArgs;
+ * import com.pulumi.aws.quicksight.inputs.AnalysisDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Analysis("example", AnalysisArgs.builder()
+ *             .analysisId("example-id")
+ *             .name("example-name")
+ *             .definition(AnalysisDefinitionArgs.builder()
+ *                 .dataSetIdentifiersDeclarations(AnalysisDefinitionDataSetIdentifiersDeclarationArgs.builder()
+ *                     .dataSetArn(dataset.arn())
+ *                     .identifier("1")
+ *                     .build())
+ *                 .sheets(AnalysisDefinitionSheetArgs.builder()
+ *                     .title("Example")
+ *                     .sheetId("Example1")
+ *                     .visuals(VisualsArgs.builder()
+ *                         .lineChartVisual(VisualsLineChartVisualArgs.builder()
+ *                             .visualId("LineChart")
+ *                             .title(SubtitleArgs.builder()
+ *                                 .formatText(SubtitleFormatTextArgs.builder()
+ *                                     .plainText("Line Chart Example")
+ *                                     .build())
+ *                                 .build())
+ *                             .chartConfiguration(VisualsLineChartVisualChartConfigurationArgs.builder()
+ *                                 .fieldWells(VisualsLineChartVisualChartConfigurationFieldWellsArgs.builder()
+ *                                     .lineChartAggregatedFieldWells(VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs.builder()
+ *                                         .categories(DimensionFieldSchemaArgs.builder()
+ *                                             .categoricalDimensionField(DimensionFieldSchemaCategoricalDimensionFieldArgs.builder()
+ *                                                 .fieldId("1")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .columnName("Column1")
+ *                                                     .build())
+ *                                                 .build())
+ *                                             .build())
+ *                                         .values(MeasureFieldSchemaArgs.builder()
+ *                                             .categoricalMeasureField(MeasureFieldSchemaCategoricalMeasureFieldArgs.builder()
+ *                                                 .fieldId("2")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .columnName("Column1")
+ *                                                     .build())
+ *                                                 .aggregationFunction("COUNT")
+ *                                                 .build())
+ *                                             .build())
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -143,6 +221,20 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdTime() {
         return this.createdTime;
+    }
+    /**
+     * A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Export(name="definition", refs={AnalysisDefinition.class}, tree="[0]")
+    private Output<AnalysisDefinition> definition;
+
+    /**
+     * @return A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Output<AnalysisDefinition> definition() {
+        return this.definition;
     }
     @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
     private Output<String> lastPublishedTime;

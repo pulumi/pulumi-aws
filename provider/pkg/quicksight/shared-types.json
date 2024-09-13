@@ -1,0 +1,445 @@
+{
+  "sharing": [
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.null_value_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NullValueFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration.$.currency_display_format_configuration.$.separator_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "SeparatorConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration.$.currency_display_format_configuration.$.negative_value_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NegativeValueConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration.$.currency_display_format_configuration.$.decimal_places_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DecimalPlacesConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.column",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Column"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration.$.number_display_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NumberDisplayFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration.$.percentage_display_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "PercentageDisplayFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration.$.numeric_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NumericFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.pivot_table_visual.$.chart_configuration.$.table_options.$.cell_style.$.border.$.uniform_border",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "TableBorderOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls.$.date_time_picker.$.display_options.$.title_options.$.font_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "FontConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.filter_groups.$.filters.$.numeric_equality_filter.$.aggregation_function.$.numerical_aggregation_function",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NumericalAggregation"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.date_time_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DateTimeFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.string_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "StringFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.column_configurations.$.format_configuration.$.number_format_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NumberFormatConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls.$.dropdown.$.display_options.$.select_all_options",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "SelectAllOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies.$.date_time_hierarchy.$.drill_down_filters.$.numeric_equality_filter",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "NumericEqualityFilter"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies.$.date_time_hierarchy.$.drill_down_filters.$.time_range_filter",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "TimeRangeFilter"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies.$.date_time_hierarchy.$.drill_down_filters.$.category_filter",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "CategoryFilter"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies.$.date_time_hierarchy.$.drill_down_filters",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DrillDownFilters"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.subtitle",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Subtitle"
+    },
+    {
+      "location": {
+        "path": "definition.$.filter_groups.$.filters.$.numeric_equality_filter.$.aggregation_function",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "AggregationFunction"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls.$.date_time_picker.$.display_options.$.title_options",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "LabelOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.category_label_options",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ChartAxisLabelOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.sort_configuration.$.category_sort.$.field_sort",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "FieldSort"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.sort_configuration.$.category_sort.$.column_sort",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ColumnSort"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.actions",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "VisualCustomActions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.sort_configuration.$.category_sort",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "FieldSortOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.field_wells.$.bar_chart_aggregated_field_wells.$.small_multiples",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "SmallMultiplesOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.sort_configuration.$.category_items_limit",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ItemsLimitConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.pivot_table_visual.$.chart_configuration.$.table_options.$.cell_style",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "CellStyle"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.category_axis",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "AxisDisplayOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.kpi_visual.$.chart_configuration.$.field_wells.$.trend_groups",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DimensionFieldSchema"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.gauge_chart_visual.$.chart_configuration.$.field_wells.$.target_values",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "MeasureFieldSchema"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.filled_map_visual.$.chart_configuration.$.field_wells.$.filled_map_aggregated_field_wells.$.values",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "MeasureFieldSchema2"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies.$.predefined_hierarchy.$.columns",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DimensionFieldSchema2"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.column_hierarchies",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ColumnHierarchies"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.tooltip",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "TooltipOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.gauge_chart_visual.$.conditional_formatting.$.conditional_formatting_options.$.arc.$.foreground_color",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ConditionalFormattingColor"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.data_labels",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DataLabelsOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.visual_palette",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "VisualPalette"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.legend",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "LegendOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.visual_palette.$.color_map.$.element",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DataPathValue"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.gauge_chart_visual.$.conditional_formatting.$.conditional_formatting_options.$.primary_value.$.icon",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ConditionalFormattingIcon"
+    },
+    {
+      "location": {
+        "path": "definition.$.analysis_defaults.$.default_new_sheet_configuration.$.paginated_layout_configuration.$.section_based.$.canvas_size_options.$.paper_canvas_size_options.$.paper_margin",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Spacing"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls.$.text_area.$.display_options",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "TextAreaControlDisplayOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.parameter_declarations.$.date_time_parameter_declaration.$.default_values.$.dynamic_value",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DynamicValue"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.reference_lines",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ReferenceLine"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.layouts.$.configuration.$.free_form_layout.$.elements",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "FreeFormLayoutElements"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls.$.dropdown.$.cascading_control_configuration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "CascadingControlConfiguration"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.line_chart_visual.$.chart_configuration.$.default_series_settings.$.line_style_settings",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "LineChartLineStyleSettings"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.line_chart_visual.$.chart_configuration.$.default_series_settings.$.marker_style_settings",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "LineChartMarkerStyleSettings"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.contribution_analysis_defaults",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ContributionAnalysisDefaults"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.bar_chart_visual.$.chart_configuration.$.small_multiples_options",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "SmallMultiplesOptions"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals.$.heat_map_visual.$.chart_configuration.$.color_scale",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "ColorScale"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.visuals",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Visuals"
+    },
+    {
+      "location": {
+        "path": "definition.$.filter_groups.$.filters",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Filters"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.filter_controls",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "FilterControls"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.layouts",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "Layouts"
+    },
+    {
+      "location": {
+        "path": "definition.$.sheets.$.layouts.$.configuration.$.grid_layout",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "GridLayout"
+    },
+    {
+      "location": {
+        "path": "definition.$.parameter_declarations.$.date_time_parameter_declaration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DateTimeParameterDeclaration"
+    },
+    {
+      "location": {
+        "path": "definition.$.parameter_declarations.$.string_parameter_declaration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "StringParameterDeclaration"
+    },
+    {
+      "location": {
+        "path": "definition.$.parameter_declarations.$.integer_parameter_declaration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "IntegerParameterDeclaration"
+    },
+    {
+      "location": {
+        "path": "definition.$.parameter_declarations.$.decimal_parameter_declaration",
+        "resource": "aws_quicksight_dashboard"
+      },
+      "typeName": "DecimalParameterDeclaration"
+    }
+  ]
+}

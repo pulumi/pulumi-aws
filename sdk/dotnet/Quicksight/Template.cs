@@ -41,6 +41,113 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// 
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Template("example", new()
+    ///     {
+    ///         TemplateId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
+    ///         Definition = new Aws.Quicksight.Inputs.TemplateDefinitionArgs
+    ///         {
+    ///             DataSetConfigurations = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.TemplateDefinitionDataSetConfigurationArgs
+    ///                 {
+    ///                     DataSetSchema = new Aws.Quicksight.Inputs.TemplateDefinitionDataSetConfigurationDataSetSchemaArgs
+    ///                     {
+    ///                         ColumnSchemaLists = new[]
+    ///                         {
+    ///                             new Aws.Quicksight.Inputs.TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs
+    ///                             {
+    ///                                 Name = "Column1",
+    ///                                 DataType = "STRING",
+    ///                             },
+    ///                             new Aws.Quicksight.Inputs.TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs
+    ///                             {
+    ///                                 Name = "Column2",
+    ///                                 DataType = "INTEGER",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Placeholder = "1",
+    ///                 },
+    ///             },
+    ///             Sheets = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.TemplateDefinitionSheetArgs
+    ///                 {
+    ///                     Title = "Test",
+    ///                     SheetId = "Test1",
+    ///                     Visuals = new[]
+    ///                     {
+    ///                         new Aws.Quicksight.Inputs.VisualsArgs
+    ///                         {
+    ///                             BarChartVisual = new Aws.Quicksight.Inputs.VisualsBarChartVisualArgs
+    ///                             {
+    ///                                 VisualId = "BarChart",
+    ///                                 ChartConfiguration = new Aws.Quicksight.Inputs.VisualsBarChartVisualChartConfigurationArgs
+    ///                                 {
+    ///                                     FieldWells = new Aws.Quicksight.Inputs.VisualsBarChartVisualChartConfigurationFieldWellsArgs
+    ///                                     {
+    ///                                         BarChartAggregatedFieldWells = new Aws.Quicksight.Inputs.VisualsBarChartVisualChartConfigurationFieldWellsBarChartAggregatedFieldWellsArgs
+    ///                                         {
+    ///                                             Categories = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.DimensionFieldSchemaArgs
+    ///                                                 {
+    ///                                                     CategoricalDimensionField = new Aws.Quicksight.Inputs.DimensionFieldSchemaCategoricalDimensionFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "1",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             ColumnName = "Column1",
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                             Values = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.MeasureFieldSchemaArgs
+    ///                                                 {
+    ///                                                     NumericalMeasureField = new Aws.Quicksight.Inputs.MeasureFieldSchemaNumericalMeasureFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "2",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             ColumnName = "Column2",
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                         },
+    ///                                                         AggregationFunction = new Aws.Quicksight.Inputs.NumericalAggregationArgs
+    ///                                                         {
+    ///                                                             SimpleNumericalAggregation = "SUM",
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
@@ -69,6 +176,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.TemplateDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
         /// The time that the template was last updated.
@@ -191,6 +304,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
+        /// A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.TemplateDefinitionArgs>? Definition { get; set; }
+
+        /// <summary>
         /// Display name for the template.
         /// </summary>
         [Input("name")]
@@ -265,6 +384,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
+
+        /// <summary>
+        /// A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.TemplateDefinitionGetArgs>? Definition { get; set; }
 
         /// <summary>
         /// The time that the template was last updated.

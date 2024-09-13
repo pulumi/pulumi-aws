@@ -33,6 +33,63 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Analysis("example", {
+ *     analysisId: "example-id",
+ *     name: "example-name",
+ *     definition: {
+ *         dataSetIdentifiersDeclarations: [{
+ *             dataSetArn: dataset.arn,
+ *             identifier: "1",
+ *         }],
+ *         sheets: [{
+ *             title: "Example",
+ *             sheetId: "Example1",
+ *             visuals: [{
+ *                 lineChartVisual: {
+ *                     visualId: "LineChart",
+ *                     title: {
+ *                         formatText: {
+ *                             plainText: "Line Chart Example",
+ *                         },
+ *                     },
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             lineChartAggregatedFieldWells: {
+ *                                 categories: [{
+ *                                     categoricalDimensionField: {
+ *                                         fieldId: "1",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     categoricalMeasureField: {
+ *                                         fieldId: "2",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                         aggregationFunction: "COUNT",
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             }],
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -85,6 +142,10 @@ export class Analysis extends pulumi.CustomResource {
      * The time that the analysis was created.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     /**
      * The time that the analysis was last updated.
@@ -148,6 +209,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["lastPublishedTime"] = state ? state.lastPublishedTime : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -166,6 +228,7 @@ export class Analysis extends pulumi.CustomResource {
             }
             resourceInputs["analysisId"] = args ? args.analysisId : undefined;
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -205,6 +268,10 @@ export interface AnalysisState {
      * The time that the analysis was created.
      */
     createdTime?: pulumi.Input<string>;
+    /**
+     * A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.AnalysisDefinition>;
     lastPublishedTime?: pulumi.Input<string>;
     /**
      * The time that the analysis was last updated.
@@ -264,6 +331,10 @@ export interface AnalysisArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.AnalysisDefinition>;
     /**
      * Display name for the analysis.
      *

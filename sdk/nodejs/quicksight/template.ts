@@ -30,6 +30,72 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Template("example", {
+ *     templateId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
+ *     definition: {
+ *         dataSetConfigurations: [{
+ *             dataSetSchema: {
+ *                 columnSchemaLists: [
+ *                     {
+ *                         name: "Column1",
+ *                         dataType: "STRING",
+ *                     },
+ *                     {
+ *                         name: "Column2",
+ *                         dataType: "INTEGER",
+ *                     },
+ *                 ],
+ *             },
+ *             placeholder: "1",
+ *         }],
+ *         sheets: [{
+ *             title: "Test",
+ *             sheetId: "Test1",
+ *             visuals: [{
+ *                 barChartVisual: {
+ *                     visualId: "BarChart",
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             barChartAggregatedFieldWells: {
+ *                                 categories: [{
+ *                                     categoricalDimensionField: {
+ *                                         fieldId: "1",
+ *                                         column: {
+ *                                             columnName: "Column1",
+ *                                             dataSetIdentifier: "1",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     numericalMeasureField: {
+ *                                         fieldId: "2",
+ *                                         column: {
+ *                                             columnName: "Column2",
+ *                                             dataSetIdentifier: "1",
+ *                                         },
+ *                                         aggregationFunction: {
+ *                                             simpleNumericalAggregation: "SUM",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             }],
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
@@ -78,6 +144,10 @@ export class Template extends pulumi.CustomResource {
      * The time that the template was created.
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    public readonly definition!: pulumi.Output<outputs.quicksight.TemplateDefinition>;
     /**
      * The time that the template was last updated.
      */
@@ -143,6 +213,7 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
@@ -163,6 +234,7 @@ export class Template extends pulumi.CustomResource {
                 throw new Error("Missing required property 'versionDescription'");
             }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
@@ -198,6 +270,10 @@ export interface TemplateState {
      * The time that the template was created.
      */
     createdTime?: pulumi.Input<string>;
+    /**
+     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.TemplateDefinition>;
     /**
      * The time that the template was last updated.
      */
@@ -256,6 +332,10 @@ export interface TemplateArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.TemplateDefinition>;
     /**
      * Display name for the template.
      */

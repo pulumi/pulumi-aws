@@ -25,6 +25,7 @@ class DashboardArgs:
                  version_description: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']] = None,
+                 definition: Optional[pulumi.Input['DashboardDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]]] = None,
@@ -39,6 +40,7 @@ class DashboardArgs:
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input['DashboardDefinitionArgs'] definition: A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the dashboard.
         :param pulumi.Input['DashboardParametersArgs'] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
@@ -52,6 +54,8 @@ class DashboardArgs:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if dashboard_publish_options is not None:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -114,6 +118,18 @@ class DashboardArgs:
     @dashboard_publish_options.setter
     def dashboard_publish_options(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']]):
         pulumi.set(self, "dashboard_publish_options", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['DashboardDefinitionArgs']]:
+        """
+        A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['DashboardDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter
@@ -196,6 +212,7 @@ class _DashboardState:
                  created_time: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']] = None,
+                 definition: Optional[pulumi.Input['DashboardDefinitionArgs']] = None,
                  last_published_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -216,6 +233,7 @@ class _DashboardState:
         :param pulumi.Input[str] created_time: The time that the dashboard was created.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input['DashboardDefinitionArgs'] definition: A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the dashboard was last updated.
         :param pulumi.Input[str] name: Display name for the dashboard.
         :param pulumi.Input['DashboardParametersArgs'] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
@@ -241,6 +259,8 @@ class _DashboardState:
             pulumi.set(__self__, "dashboard_id", dashboard_id)
         if dashboard_publish_options is not None:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if last_published_time is not None:
             pulumi.set(__self__, "last_published_time", last_published_time)
         if last_updated_time is not None:
@@ -330,6 +350,18 @@ class _DashboardState:
     @dashboard_publish_options.setter
     def dashboard_publish_options(self, value: Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']]):
         pulumi.set(self, "dashboard_publish_options", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['DashboardDefinitionArgs']]:
+        """
+        A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['DashboardDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter(name="lastPublishedTime")
@@ -496,6 +528,7 @@ class Dashboard(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['DashboardDefinitionArgs', 'DashboardDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
@@ -530,6 +563,63 @@ class Dashboard(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Dashboard("example",
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "data_set_identifiers_declarations": [{
+                    "data_set_arn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheet_id": "Example1",
+                    "visuals": [{
+                        "line_chart_visual": {
+                            "visual_id": "LineChart",
+                            "title": {
+                                "format_text": {
+                                    "plain_text": "Line Chart Example",
+                                },
+                            },
+                            "chart_configuration": {
+                                "field_wells": {
+                                    "line_chart_aggregated_field_wells": {
+                                        "categories": [{
+                                            "categorical_dimension_field": {
+                                                "field_id": "1",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categorical_measure_field": {
+                                                "field_id": "2",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                                "aggregation_function": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -543,6 +633,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input[Union['DashboardDefinitionArgs', 'DashboardDefinitionArgsDict']] definition: A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the dashboard.
         :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
@@ -585,6 +676,63 @@ class Dashboard(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Dashboard("example",
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version",
+            definition={
+                "data_set_identifiers_declarations": [{
+                    "data_set_arn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheet_id": "Example1",
+                    "visuals": [{
+                        "line_chart_visual": {
+                            "visual_id": "LineChart",
+                            "title": {
+                                "format_text": {
+                                    "plain_text": "Line Chart Example",
+                                },
+                            },
+                            "chart_configuration": {
+                                "field_wells": {
+                                    "line_chart_aggregated_field_wells": {
+                                        "categories": [{
+                                            "categorical_dimension_field": {
+                                                "field_id": "1",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categorical_measure_field": {
+                                                "field_id": "2",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                                "aggregation_function": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -611,6 +759,7 @@ class Dashboard(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['DashboardDefinitionArgs', 'DashboardDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
@@ -632,6 +781,7 @@ class Dashboard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dashboard_id'")
             __props__.__dict__["dashboard_id"] = dashboard_id
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
+            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
@@ -664,6 +814,7 @@ class Dashboard(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[str]] = None,
             dashboard_id: Optional[pulumi.Input[str]] = None,
             dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
+            definition: Optional[pulumi.Input[Union['DashboardDefinitionArgs', 'DashboardDefinitionArgsDict']]] = None,
             last_published_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -689,6 +840,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] created_time: The time that the dashboard was created.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
         :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input[Union['DashboardDefinitionArgs', 'DashboardDefinitionArgsDict']] definition: A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the dashboard was last updated.
         :param pulumi.Input[str] name: Display name for the dashboard.
         :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
@@ -713,6 +865,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["dashboard_id"] = dashboard_id
         __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
+        __props__.__dict__["definition"] = definition
         __props__.__dict__["last_published_time"] = last_published_time
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["name"] = name
@@ -767,6 +920,14 @@ class Dashboard(pulumi.CustomResource):
         Options for publishing the dashboard. See dashboard_publish_options.
         """
         return pulumi.get(self, "dashboard_publish_options")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Output['outputs.DashboardDefinition']:
+        """
+        A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="lastPublishedTime")

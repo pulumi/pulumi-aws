@@ -54,6 +54,88 @@ import (
 //
 // ```
 //
+// ### With Definition
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
+//				AnalysisId: pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
+//				Definition: &quicksight.AnalysisDefinitionArgs{
+//					DataSetIdentifiersDeclarations: quicksight.AnalysisDefinitionDataSetIdentifiersDeclarationArray{
+//						&quicksight.AnalysisDefinitionDataSetIdentifiersDeclarationArgs{
+//							DataSetArn: pulumi.Any(dataset.Arn),
+//							Identifier: pulumi.String("1"),
+//						},
+//					},
+//					Sheets: quicksight.AnalysisDefinitionSheetArray{
+//						&quicksight.AnalysisDefinitionSheetArgs{
+//							Title:   pulumi.String("Example"),
+//							SheetId: pulumi.String("Example1"),
+//							Visuals: quicksight.VisualsArray{
+//								&quicksight.VisualsArgs{
+//									LineChartVisual: &quicksight.VisualsLineChartVisualArgs{
+//										VisualId: pulumi.String("LineChart"),
+//										Title: &quicksight.SubtitleArgs{
+//											FormatText: &quicksight.SubtitleFormatTextArgs{
+//												PlainText: pulumi.String("Line Chart Example"),
+//											},
+//										},
+//										ChartConfiguration: &quicksight.VisualsLineChartVisualChartConfigurationArgs{
+//											FieldWells: &quicksight.VisualsLineChartVisualChartConfigurationFieldWellsArgs{
+//												LineChartAggregatedFieldWells: &quicksight.VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs{
+//													Categories: quicksight.DimensionFieldSchemaArray{
+//														&quicksight.DimensionFieldSchemaArgs{
+//															CategoricalDimensionField: &quicksight.DimensionFieldSchemaCategoricalDimensionFieldArgs{
+//																FieldId: pulumi.String("1"),
+//																Column: &quicksight.ColumnArgs{
+//																	DataSetIdentifier: pulumi.String("1"),
+//																	ColumnName:        pulumi.String("Column1"),
+//																},
+//															},
+//														},
+//													},
+//													Values: quicksight.MeasureFieldSchemaArray{
+//														&quicksight.MeasureFieldSchemaArgs{
+//															CategoricalMeasureField: &quicksight.MeasureFieldSchemaCategoricalMeasureFieldArgs{
+//																FieldId: pulumi.String("2"),
+//																Column: &quicksight.ColumnArgs{
+//																	DataSetIdentifier: pulumi.String("1"),
+//																	ColumnName:        pulumi.String("Column1"),
+//																},
+//																AggregationFunction: pulumi.String("COUNT"),
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -71,8 +153,10 @@ type Analysis struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
-	CreatedTime       pulumi.StringOutput `pulumi:"createdTime"`
-	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        AnalysisDefinitionOutput `pulumi:"definition"`
+	LastPublishedTime pulumi.StringOutput      `pulumi:"lastPublishedTime"`
 	// The time that the analysis was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the analysis.
@@ -139,8 +223,10 @@ type analysisState struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
-	CreatedTime       *string `pulumi:"createdTime"`
-	LastPublishedTime *string `pulumi:"lastPublishedTime"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        *AnalysisDefinition `pulumi:"definition"`
+	LastPublishedTime *string             `pulumi:"lastPublishedTime"`
 	// The time that the analysis was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name for the analysis.
@@ -175,7 +261,9 @@ type AnalysisState struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the analysis was created.
-	CreatedTime       pulumi.StringPtrInput
+	CreatedTime pulumi.StringPtrInput
+	// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        AnalysisDefinitionPtrInput
 	LastPublishedTime pulumi.StringPtrInput
 	// The time that the analysis was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
@@ -212,6 +300,8 @@ type analysisArgs struct {
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
+	// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition *AnalysisDefinition `pulumi:"definition"`
 	// Display name for the analysis.
 	//
 	// The following arguments are optional:
@@ -236,6 +326,8 @@ type AnalysisArgs struct {
 	AnalysisId pulumi.StringInput
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
+	// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition AnalysisDefinitionPtrInput
 	// Display name for the analysis.
 	//
 	// The following arguments are optional:
@@ -359,6 +451,11 @@ func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 // The time that the analysis was created.
 func (o AnalysisOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A detailed analysis definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+func (o AnalysisOutput) Definition() AnalysisDefinitionOutput {
+	return o.ApplyT(func(v *Analysis) AnalysisDefinitionOutput { return v.Definition }).(AnalysisDefinitionOutput)
 }
 
 func (o AnalysisOutput) LastPublishedTime() pulumi.StringOutput {

@@ -48,6 +48,101 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// 
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Analysis("example", new()
+    ///     {
+    ///         AnalysisId = "example-id",
+    ///         Name = "example-name",
+    ///         Definition = new Aws.Quicksight.Inputs.AnalysisDefinitionArgs
+    ///         {
+    ///             DataSetIdentifiersDeclarations = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.AnalysisDefinitionDataSetIdentifiersDeclarationArgs
+    ///                 {
+    ///                     DataSetArn = dataset.Arn,
+    ///                     Identifier = "1",
+    ///                 },
+    ///             },
+    ///             Sheets = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.AnalysisDefinitionSheetArgs
+    ///                 {
+    ///                     Title = "Example",
+    ///                     SheetId = "Example1",
+    ///                     Visuals = new[]
+    ///                     {
+    ///                         new Aws.Quicksight.Inputs.VisualsArgs
+    ///                         {
+    ///                             LineChartVisual = new Aws.Quicksight.Inputs.VisualsLineChartVisualArgs
+    ///                             {
+    ///                                 VisualId = "LineChart",
+    ///                                 Title = new Aws.Quicksight.Inputs.SubtitleArgs
+    ///                                 {
+    ///                                     FormatText = new Aws.Quicksight.Inputs.SubtitleFormatTextArgs
+    ///                                     {
+    ///                                         PlainText = "Line Chart Example",
+    ///                                     },
+    ///                                 },
+    ///                                 ChartConfiguration = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationArgs
+    ///                                 {
+    ///                                     FieldWells = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationFieldWellsArgs
+    ///                                     {
+    ///                                         LineChartAggregatedFieldWells = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs
+    ///                                         {
+    ///                                             Categories = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.DimensionFieldSchemaArgs
+    ///                                                 {
+    ///                                                     CategoricalDimensionField = new Aws.Quicksight.Inputs.DimensionFieldSchemaCategoricalDimensionFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "1",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                             ColumnName = "Column1",
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                             Values = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.MeasureFieldSchemaArgs
+    ///                                                 {
+    ///                                                     CategoricalMeasureField = new Aws.Quicksight.Inputs.MeasureFieldSchemaCategoricalMeasureFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "2",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                             ColumnName = "Column1",
+    ///                                                         },
+    ///                                                         AggregationFunction = "COUNT",
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -82,6 +177,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.AnalysisDefinition> Definition { get; private set; } = null!;
 
         [Output("lastPublishedTime")]
         public Output<string> LastPublishedTime { get; private set; } = null!;
@@ -207,6 +308,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
+        /// A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.AnalysisDefinitionArgs>? Definition { get; set; }
+
+        /// <summary>
         /// Display name for the analysis.
         /// 
         /// The following arguments are optional:
@@ -293,6 +400,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
+
+        /// <summary>
+        /// A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.AnalysisDefinitionGetArgs>? Definition { get; set; }
 
         [Input("lastPublishedTime")]
         public Input<string>? LastPublishedTime { get; set; }

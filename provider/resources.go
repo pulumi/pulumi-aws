@@ -34,6 +34,7 @@ import (
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/quicksight"
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
@@ -4037,38 +4038,9 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_mskconnect_connector":            {Tok: awsResource(mskConnectMod, "Connector")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
-			// Quicksight
-			"aws_quicksight_account_subscription": {Tok: awsResource(quicksightMod, "AccountSubscription")},
-			"aws_quicksight_data_set":             {Tok: awsResource(quicksightMod, "DataSet")},
-			"aws_quicksight_group":                {Tok: awsResource(quicksightMod, "Group")},
-			"aws_quicksight_user":                 {Tok: awsResource(quicksightMod, "User")},
-			"aws_quicksight_group_membership":     {Tok: awsResource(quicksightMod, "GroupMembership")},
-			"aws_quicksight_data_source":          {Tok: awsResource(quicksightMod, "DataSource")},
-			"aws_quicksight_folder":               {Tok: awsResource(quicksightMod, "Folder")},
-			"aws_quicksight_template": {
-				Tok: awsResource(quicksightMod, "Template"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
-					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {Omit: true},
-				},
-			},
-			"aws_quicksight_analysis": {
-				Tok: awsResource(quicksightMod, "Analysis"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
-					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {Omit: true},
-				},
-			},
-			"aws_quicksight_dashboard": {
-				Tok: awsResource(quicksightMod, "Dashboard"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
-					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
-					"definition": {Omit: true},
-				},
-			},
+
+			// Quicksight - configured below
+
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// Fis
@@ -5163,10 +5135,7 @@ compatibility shim in favor of the new "name" field.`)
 			// Interactive Video Service
 			"aws_ivs_stream_key": {Tok: awsDataSource(ivsMod, "getStreamKey")},
 
-			// Quicksight
-			"aws_quicksight_data_set": {Tok: awsDataSource(quicksightMod, "getDataSet")},
-			"aws_quicksight_group":    {Tok: awsDataSource(quicksightMod, "getQuicksightGroup")},
-			"aws_quicksight_user":     {Tok: awsDataSource(quicksightMod, "getQuicksightUser")},
+			// Quicksight - configured below
 
 			// VpcLattice
 			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
@@ -5334,6 +5303,8 @@ compatibility shim in favor of the new "name" field.`)
 			Namespaces: namespaceMap,
 		},
 	}
+
+	quicksight.ConfigureQuicksight(&prov, awsResource, awsDataSource)
 
 	rAlias := func(token string, prev, current tokens.Type, info *tfbridge.ResourceInfo) {
 		_, ok := prov.Resources[token]

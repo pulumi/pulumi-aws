@@ -55,6 +55,89 @@ import (
 //
 // ```
 //
+// ### With Definition
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewDashboard(ctx, "example", &quicksight.DashboardArgs{
+//				DashboardId:        pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
+//				Definition: &quicksight.DashboardDefinitionArgs{
+//					DataSetIdentifiersDeclarations: quicksight.DashboardDefinitionDataSetIdentifiersDeclarationArray{
+//						&quicksight.DashboardDefinitionDataSetIdentifiersDeclarationArgs{
+//							DataSetArn: pulumi.Any(dataset.Arn),
+//							Identifier: pulumi.String("1"),
+//						},
+//					},
+//					Sheets: quicksight.DashboardDefinitionSheetArray{
+//						&quicksight.DashboardDefinitionSheetArgs{
+//							Title:   pulumi.String("Example"),
+//							SheetId: pulumi.String("Example1"),
+//							Visuals: quicksight.VisualsArray{
+//								&quicksight.VisualsArgs{
+//									LineChartVisual: &quicksight.VisualsLineChartVisualArgs{
+//										VisualId: pulumi.String("LineChart"),
+//										Title: &quicksight.SubtitleArgs{
+//											FormatText: &quicksight.SubtitleFormatTextArgs{
+//												PlainText: pulumi.String("Line Chart Example"),
+//											},
+//										},
+//										ChartConfiguration: &quicksight.VisualsLineChartVisualChartConfigurationArgs{
+//											FieldWells: &quicksight.VisualsLineChartVisualChartConfigurationFieldWellsArgs{
+//												LineChartAggregatedFieldWells: &quicksight.VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs{
+//													Categories: quicksight.DimensionFieldSchemaArray{
+//														&quicksight.DimensionFieldSchemaArgs{
+//															CategoricalDimensionField: &quicksight.DimensionFieldSchemaCategoricalDimensionFieldArgs{
+//																FieldId: pulumi.String("1"),
+//																Column: &quicksight.ColumnArgs{
+//																	DataSetIdentifier: pulumi.String("1"),
+//																	ColumnName:        pulumi.String("Column1"),
+//																},
+//															},
+//														},
+//													},
+//													Values: quicksight.MeasureFieldSchemaArray{
+//														&quicksight.MeasureFieldSchemaArgs{
+//															CategoricalMeasureField: &quicksight.MeasureFieldSchemaCategoricalMeasureFieldArgs{
+//																FieldId: pulumi.String("2"),
+//																Column: &quicksight.ColumnArgs{
+//																	DataSetIdentifier: pulumi.String("1"),
+//																	ColumnName:        pulumi.String("Column1"),
+//																},
+//																AggregationFunction: pulumi.String("COUNT"),
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -75,7 +158,9 @@ type Dashboard struct {
 	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
 	// Options for publishing the dashboard. See dashboard_publish_options.
 	DashboardPublishOptions DashboardDashboardPublishOptionsOutput `pulumi:"dashboardPublishOptions"`
-	LastPublishedTime       pulumi.StringOutput                    `pulumi:"lastPublishedTime"`
+	// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        DashboardDefinitionOutput `pulumi:"definition"`
+	LastPublishedTime pulumi.StringOutput       `pulumi:"lastPublishedTime"`
 	// The time that the dashboard was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the dashboard.
@@ -152,7 +237,9 @@ type dashboardState struct {
 	DashboardId *string `pulumi:"dashboardId"`
 	// Options for publishing the dashboard. See dashboard_publish_options.
 	DashboardPublishOptions *DashboardDashboardPublishOptions `pulumi:"dashboardPublishOptions"`
-	LastPublishedTime       *string                           `pulumi:"lastPublishedTime"`
+	// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        *DashboardDefinition `pulumi:"definition"`
+	LastPublishedTime *string              `pulumi:"lastPublishedTime"`
 	// The time that the dashboard was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name for the dashboard.
@@ -194,7 +281,9 @@ type DashboardState struct {
 	DashboardId pulumi.StringPtrInput
 	// Options for publishing the dashboard. See dashboard_publish_options.
 	DashboardPublishOptions DashboardDashboardPublishOptionsPtrInput
-	LastPublishedTime       pulumi.StringPtrInput
+	// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition        DashboardDefinitionPtrInput
+	LastPublishedTime pulumi.StringPtrInput
 	// The time that the dashboard was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Display name for the dashboard.
@@ -236,6 +325,8 @@ type dashboardArgs struct {
 	DashboardId string `pulumi:"dashboardId"`
 	// Options for publishing the dashboard. See dashboard_publish_options.
 	DashboardPublishOptions *DashboardDashboardPublishOptions `pulumi:"dashboardPublishOptions"`
+	// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition *DashboardDefinition `pulumi:"definition"`
 	// Display name for the dashboard.
 	Name *string `pulumi:"name"`
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
@@ -262,6 +353,8 @@ type DashboardArgs struct {
 	DashboardId pulumi.StringInput
 	// Options for publishing the dashboard. See dashboard_publish_options.
 	DashboardPublishOptions DashboardDashboardPublishOptionsPtrInput
+	// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition DashboardDefinitionPtrInput
 	// Display name for the dashboard.
 	Name pulumi.StringPtrInput
 	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
@@ -390,6 +483,11 @@ func (o DashboardOutput) DashboardId() pulumi.StringOutput {
 // Options for publishing the dashboard. See dashboard_publish_options.
 func (o DashboardOutput) DashboardPublishOptions() DashboardDashboardPublishOptionsOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardDashboardPublishOptionsOutput { return v.DashboardPublishOptions }).(DashboardDashboardPublishOptionsOutput)
+}
+
+// A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+func (o DashboardOutput) Definition() DashboardDefinitionOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardDefinitionOutput { return v.Definition }).(DashboardDefinitionOutput)
 }
 
 func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {

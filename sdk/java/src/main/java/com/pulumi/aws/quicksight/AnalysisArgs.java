@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.quicksight;
 
+import com.pulumi.aws.quicksight.inputs.AnalysisDefinitionArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisParametersArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
@@ -50,6 +51,21 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
+    }
+
+    /**
+     * A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Import(name="definition")
+    private @Nullable Output<AnalysisDefinitionArgs> definition;
+
+    /**
+     * @return A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Optional<Output<AnalysisDefinitionArgs>> definition() {
+        return Optional.ofNullable(this.definition);
     }
 
     /**
@@ -166,6 +182,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
     private AnalysisArgs(AnalysisArgs $) {
         this.analysisId = $.analysisId;
         this.awsAccountId = $.awsAccountId;
+        this.definition = $.definition;
         this.name = $.name;
         this.parameters = $.parameters;
         this.permissions = $.permissions;
@@ -233,6 +250,27 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
+        }
+
+        /**
+         * @param definition A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(@Nullable Output<AnalysisDefinitionArgs> definition) {
+            $.definition = definition;
+            return this;
+        }
+
+        /**
+         * @param definition A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(AnalysisDefinitionArgs definition) {
+            return definition(Output.of(definition));
         }
 
         /**

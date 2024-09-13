@@ -4,6 +4,7 @@
 package com.pulumi.aws.quicksight;
 
 import com.pulumi.aws.quicksight.inputs.DashboardDashboardPublishOptionsArgs;
+import com.pulumi.aws.quicksight.inputs.DashboardDefinitionArgs;
 import com.pulumi.aws.quicksight.inputs.DashboardParametersArgs;
 import com.pulumi.aws.quicksight.inputs.DashboardPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.DashboardSourceEntityArgs;
@@ -65,6 +66,21 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DashboardDashboardPublishOptionsArgs>> dashboardPublishOptions() {
         return Optional.ofNullable(this.dashboardPublishOptions);
+    }
+
+    /**
+     * A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Import(name="definition")
+    private @Nullable Output<DashboardDefinitionArgs> definition;
+
+    /**
+     * @return A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Optional<Output<DashboardDefinitionArgs>> definition() {
+        return Optional.ofNullable(this.definition);
     }
 
     /**
@@ -182,6 +198,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         this.awsAccountId = $.awsAccountId;
         this.dashboardId = $.dashboardId;
         this.dashboardPublishOptions = $.dashboardPublishOptions;
+        this.definition = $.definition;
         this.name = $.name;
         this.parameters = $.parameters;
         this.permissions = $.permissions;
@@ -270,6 +287,27 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dashboardPublishOptions(DashboardDashboardPublishOptionsArgs dashboardPublishOptions) {
             return dashboardPublishOptions(Output.of(dashboardPublishOptions));
+        }
+
+        /**
+         * @param definition A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(@Nullable Output<DashboardDefinitionArgs> definition) {
+            $.definition = definition;
+            return this;
+        }
+
+        /**
+         * @param definition A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(DashboardDefinitionArgs definition) {
+            return definition(Output.of(definition));
         }
 
         /**

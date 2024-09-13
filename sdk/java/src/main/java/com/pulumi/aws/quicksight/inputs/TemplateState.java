@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.quicksight.inputs;
 
+import com.pulumi.aws.quicksight.inputs.TemplateDefinitionArgs;
 import com.pulumi.aws.quicksight.inputs.TemplatePermissionArgs;
 import com.pulumi.aws.quicksight.inputs.TemplateSourceEntityArgs;
 import com.pulumi.core.Output;
@@ -63,6 +64,21 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
+    }
+
+    /**
+     * A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Import(name="definition")
+    private @Nullable Output<TemplateDefinitionArgs> definition;
+
+    /**
+     * @return A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Optional<Output<TemplateDefinitionArgs>> definition() {
+        return Optional.ofNullable(this.definition);
     }
 
     /**
@@ -248,6 +264,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.awsAccountId = $.awsAccountId;
         this.createdTime = $.createdTime;
+        this.definition = $.definition;
         this.lastUpdatedTime = $.lastUpdatedTime;
         this.name = $.name;
         this.permissions = $.permissions;
@@ -340,6 +357,27 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
+        }
+
+        /**
+         * @param definition A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(@Nullable Output<TemplateDefinitionArgs> definition) {
+            $.definition = definition;
+            return this;
+        }
+
+        /**
+         * @param definition A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definition(TemplateDefinitionArgs definition) {
+            return definition(Output.of(definition));
         }
 
         /**
