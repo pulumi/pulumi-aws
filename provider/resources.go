@@ -101,6 +101,8 @@ const (
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
 	codestarConnectionsMod      = "CodeStarConnections"      // CodeStar Connections
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
+	computeOptimizerMod         = "ComputeOptimizer"         // Compute Optimizer
+	costOptimizationHubMod      = "CostOptimizationHub"      // Cost Optimization Hub
 	cognitoMod                  = "Cognito"                  // Cognito
 	comprehendMod               = "Comprehend"               // Comprehend
 	connectMod                  = "Connect"                  // Connect
@@ -322,6 +324,8 @@ var moduleMap = map[string]string{
 	"codepipeline":                    codepipelineMod,
 	"codestarconnections":             codestarConnectionsMod,
 	"codestarnotifications":           codestarNotificationsMod,
+	"computeoptimizer":                computeOptimizerMod,
+	"costoptimizationhub":             costOptimizationHubMod,
 	"cognito":                         cognitoMod,
 	"comprehend":                      comprehendMod,
 	"config":                          cfgMod,
