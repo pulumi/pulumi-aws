@@ -5813,4 +5813,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_glue_catalog_table_optimizer"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "catalogId", "databaseName", "tableName", "type"), nil
 	}
+	prov.Resources["aws_datazone_asset_type"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "domainIdentifier", "name"), nil
+	}
+	prov.Resources["aws_lambda_function_recursion_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "functionName"), nil
+	}
 }
