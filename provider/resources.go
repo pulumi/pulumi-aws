@@ -876,6 +876,9 @@ compatibility shim in favor of the new "name" field.`)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
+			"assume_role": {
+				MaxItemsOne: tfbridge.True(),
+			},
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
