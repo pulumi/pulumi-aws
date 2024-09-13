@@ -54,7 +54,7 @@ type Monitor struct {
 	pulumi.CustomResourceState
 
 	// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-	AggregationPeriod pulumi.IntPtrOutput `pulumi:"aggregationPeriod"`
+	AggregationPeriod pulumi.IntOutput `pulumi:"aggregationPeriod"`
 	// The ARN of the monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the monitor.
@@ -250,8 +250,8 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 }
 
 // The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
-func (o MonitorOutput) AggregationPeriod() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Monitor) pulumi.IntPtrOutput { return v.AggregationPeriod }).(pulumi.IntPtrOutput)
+func (o MonitorOutput) AggregationPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AggregationPeriod }).(pulumi.IntOutput)
 }
 
 // The ARN of the monitor.

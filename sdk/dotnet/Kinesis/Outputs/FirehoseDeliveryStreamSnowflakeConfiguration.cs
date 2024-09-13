@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string AccountUrl;
         /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        /// </summary>
+        public readonly int? BufferingInterval;
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+        /// </summary>
+        public readonly int? BufferingSize;
+        /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
@@ -94,6 +102,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         private FirehoseDeliveryStreamSnowflakeConfiguration(
             string accountUrl,
 
+            int? bufferingInterval,
+
+            int? bufferingSize,
+
             Outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions? cloudwatchLoggingOptions,
 
             string? contentColumnName,
@@ -131,6 +143,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
             string? user)
         {
             AccountUrl = accountUrl;
+            BufferingInterval = bufferingInterval;
+            BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             ContentColumnName = contentColumnName;
             DataLoadingOption = dataLoadingOption;

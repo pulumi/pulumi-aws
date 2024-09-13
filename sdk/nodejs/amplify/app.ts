@@ -209,7 +209,7 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+     * Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      */
     public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
     /**
@@ -225,11 +225,15 @@ export class App extends pulumi.CustomResource {
      */
     public readonly buildSpec!: pulumi.Output<string>;
     /**
+     * Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+     */
+    public readonly cacheConfig!: pulumi.Output<outputs.amplify.AppCacheConfig>;
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      */
     public readonly customHeaders!: pulumi.Output<string>;
     /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      */
     public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
     /**
@@ -314,6 +318,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationPatterns"] = state ? state.autoBranchCreationPatterns : undefined;
             resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
             resourceInputs["buildSpec"] = state ? state.buildSpec : undefined;
+            resourceInputs["cacheConfig"] = state ? state.cacheConfig : undefined;
             resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
             resourceInputs["customRules"] = state ? state.customRules : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
@@ -338,6 +343,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
             resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["cacheConfig"] = args ? args.cacheConfig : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -377,7 +383,7 @@ export interface AppState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+     * Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
     /**
@@ -393,11 +399,15 @@ export interface AppState {
      */
     buildSpec?: pulumi.Input<string>;
     /**
+     * Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+     */
+    cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfig>;
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      */
     customHeaders?: pulumi.Input<string>;
     /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
     /**
@@ -473,7 +483,7 @@ export interface AppArgs {
      */
     accessToken?: pulumi.Input<string>;
     /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+     * Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
      */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
     /**
@@ -489,11 +499,15 @@ export interface AppArgs {
      */
     buildSpec?: pulumi.Input<string>;
     /**
+     * Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+     */
+    cacheConfig?: pulumi.Input<inputs.amplify.AppCacheConfig>;
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      */
     customHeaders?: pulumi.Input<string>;
     /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
     /**

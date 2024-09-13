@@ -2044,7 +2044,7 @@ class ImageRecipeSystemsManagerAgent(dict):
     def __init__(__self__, *,
                  uninstall_after_build: bool):
         """
-        :param bool uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        :param bool uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built.
         """
         pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
 
@@ -2052,7 +2052,7 @@ class ImageRecipeSystemsManagerAgent(dict):
     @pulumi.getter(name="uninstallAfterBuild")
     def uninstall_after_build(self) -> bool:
         """
-        Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        Whether to remove the Systems Manager Agent after the image has been built.
         """
         return pulumi.get(self, "uninstall_after_build")
 

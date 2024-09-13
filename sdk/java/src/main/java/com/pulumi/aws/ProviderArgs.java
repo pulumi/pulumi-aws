@@ -46,18 +46,18 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.allowedAccountIds);
     }
 
-    @Import(name="assumeRole", json=true)
-    private @Nullable Output<ProviderAssumeRoleArgs> assumeRole;
-
-    public Optional<Output<ProviderAssumeRoleArgs>> assumeRole() {
-        return Optional.ofNullable(this.assumeRole);
-    }
-
     @Import(name="assumeRoleWithWebIdentity", json=true)
     private @Nullable Output<ProviderAssumeRoleWithWebIdentityArgs> assumeRoleWithWebIdentity;
 
     public Optional<Output<ProviderAssumeRoleWithWebIdentityArgs>> assumeRoleWithWebIdentity() {
         return Optional.ofNullable(this.assumeRoleWithWebIdentity);
+    }
+
+    @Import(name="assumeRoles", json=true)
+    private @Nullable Output<List<ProviderAssumeRoleArgs>> assumeRoles;
+
+    public Optional<Output<List<ProviderAssumeRoleArgs>>> assumeRoles() {
+        return Optional.ofNullable(this.assumeRoles);
     }
 
     /**
@@ -510,8 +510,8 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private ProviderArgs(ProviderArgs $) {
         this.accessKey = $.accessKey;
         this.allowedAccountIds = $.allowedAccountIds;
-        this.assumeRole = $.assumeRole;
         this.assumeRoleWithWebIdentity = $.assumeRoleWithWebIdentity;
+        this.assumeRoles = $.assumeRoles;
         this.customCaBundle = $.customCaBundle;
         this.defaultTags = $.defaultTags;
         this.ec2MetadataServiceEndpoint = $.ec2MetadataServiceEndpoint;
@@ -595,15 +595,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return allowedAccountIds(List.of(allowedAccountIds));
         }
 
-        public Builder assumeRole(@Nullable Output<ProviderAssumeRoleArgs> assumeRole) {
-            $.assumeRole = assumeRole;
-            return this;
-        }
-
-        public Builder assumeRole(ProviderAssumeRoleArgs assumeRole) {
-            return assumeRole(Output.of(assumeRole));
-        }
-
         public Builder assumeRoleWithWebIdentity(@Nullable Output<ProviderAssumeRoleWithWebIdentityArgs> assumeRoleWithWebIdentity) {
             $.assumeRoleWithWebIdentity = assumeRoleWithWebIdentity;
             return this;
@@ -611,6 +602,19 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder assumeRoleWithWebIdentity(ProviderAssumeRoleWithWebIdentityArgs assumeRoleWithWebIdentity) {
             return assumeRoleWithWebIdentity(Output.of(assumeRoleWithWebIdentity));
+        }
+
+        public Builder assumeRoles(@Nullable Output<List<ProviderAssumeRoleArgs>> assumeRoles) {
+            $.assumeRoles = assumeRoles;
+            return this;
+        }
+
+        public Builder assumeRoles(List<ProviderAssumeRoleArgs> assumeRoles) {
+            return assumeRoles(Output.of(assumeRoles));
+        }
+
+        public Builder assumeRoles(ProviderAssumeRoleArgs... assumeRoles) {
+            return assumeRoles(List.of(assumeRoles));
         }
 
         /**

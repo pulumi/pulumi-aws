@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .asset_type import *
 from .domain import *
 from .environment import *
 from .environment_blueprint_configuration import *

@@ -79,6 +79,20 @@ __all__ = [
     'DeviceFleetOutputConfigArgsDict',
     'DomainDefaultSpaceSettingsArgs',
     'DomainDefaultSpaceSettingsArgsDict',
+    'DomainDefaultSpaceSettingsCustomFileSystemConfigArgs',
+    'DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict',
+    'DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs',
+    'DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict',
+    'DomainDefaultSpaceSettingsCustomPosixUserConfigArgs',
+    'DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict',
     'DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs',
     'DomainDefaultSpaceSettingsJupyterServerAppSettingsArgsDict',
     'DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs',
@@ -91,6 +105,10 @@ __all__ = [
     'DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict',
     'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict',
+    'DomainDefaultSpaceSettingsSpaceStorageSettingsArgs',
+    'DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict',
+    'DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs',
+    'DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict',
     'DomainDefaultUserSettingsArgs',
     'DomainDefaultUserSettingsArgsDict',
     'DomainDefaultUserSettingsCanvasAppSettingsArgs',
@@ -155,12 +173,16 @@ __all__ = [
     'DomainDefaultUserSettingsSpaceStorageSettingsArgsDict',
     'DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs',
     'DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict',
+    'DomainDefaultUserSettingsStudioWebPortalSettingsArgs',
+    'DomainDefaultUserSettingsStudioWebPortalSettingsArgsDict',
     'DomainDefaultUserSettingsTensorBoardAppSettingsArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict',
     'DomainDomainSettingsArgs',
     'DomainDomainSettingsArgsDict',
+    'DomainDomainSettingsDockerSettingsArgs',
+    'DomainDomainSettingsDockerSettingsArgsDict',
     'DomainDomainSettingsRStudioServerProDomainSettingsArgs',
     'DomainDomainSettingsRStudioServerProDomainSettingsArgsDict',
     'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs',
@@ -185,6 +207,8 @@ __all__ = [
     'EndpointConfigurationProductionVariantArgsDict',
     'EndpointConfigurationProductionVariantCoreDumpConfigArgs',
     'EndpointConfigurationProductionVariantCoreDumpConfigArgsDict',
+    'EndpointConfigurationProductionVariantManagedInstanceScalingArgs',
+    'EndpointConfigurationProductionVariantManagedInstanceScalingArgsDict',
     'EndpointConfigurationProductionVariantRoutingConfigArgs',
     'EndpointConfigurationProductionVariantRoutingConfigArgsDict',
     'EndpointConfigurationProductionVariantServerlessConfigArgs',
@@ -193,6 +217,8 @@ __all__ = [
     'EndpointConfigurationShadowProductionVariantArgsDict',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict',
+    'EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs',
+    'EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgsDict',
     'EndpointConfigurationShadowProductionVariantRoutingConfigArgs',
     'EndpointConfigurationShadowProductionVariantRoutingConfigArgsDict',
     'EndpointConfigurationShadowProductionVariantServerlessConfigArgs',
@@ -257,6 +283,10 @@ __all__ = [
     'ModelContainerModelDataSourceArgsDict',
     'ModelContainerModelDataSourceS3DataSourceArgs',
     'ModelContainerModelDataSourceS3DataSourceArgsDict',
+    'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs',
+    'ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict',
+    'ModelContainerMultiModelConfigArgs',
+    'ModelContainerMultiModelConfigArgsDict',
     'ModelInferenceExecutionConfigArgs',
     'ModelInferenceExecutionConfigArgsDict',
     'ModelPrimaryContainerArgs',
@@ -269,6 +299,10 @@ __all__ = [
     'ModelPrimaryContainerModelDataSourceArgsDict',
     'ModelPrimaryContainerModelDataSourceS3DataSourceArgs',
     'ModelPrimaryContainerModelDataSourceS3DataSourceArgsDict',
+    'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs',
+    'ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict',
+    'ModelPrimaryContainerMultiModelConfigArgs',
+    'ModelPrimaryContainerMultiModelConfigArgsDict',
     'ModelVpcConfigArgs',
     'ModelVpcConfigArgsDict',
     'MonitoringScheduleMonitoringScheduleConfigArgs',
@@ -385,6 +419,8 @@ __all__ = [
     'UserProfileUserSettingsSpaceStorageSettingsArgsDict',
     'UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs',
     'UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict',
+    'UserProfileUserSettingsStudioWebPortalSettingsArgs',
+    'UserProfileUserSettingsStudioWebPortalSettingsArgsDict',
     'UserProfileUserSettingsTensorBoardAppSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsArgsDict',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
@@ -2313,6 +2349,18 @@ if not MYPY:
         """
         The execution role for the space.
         """
+        custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict']]]]
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        """
+        custom_posix_user_config: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict']]
+        """
+        Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        """
+        jupyter_lab_app_settings: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict']]
+        """
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        """
         jupyter_server_app_settings: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgsDict']]
         """
         The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
@@ -2325,6 +2373,10 @@ if not MYPY:
         """
         The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
+        space_storage_settings: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict']]
+        """
+        The storage settings for a private space. See `space_storage_settings` Block below.
+        """
 elif False:
     DomainDefaultSpaceSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2332,22 +2384,38 @@ elif False:
 class DomainDefaultSpaceSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs']] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs']] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role for the space.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+        :param pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See `space_storage_settings` Block below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -2360,6 +2428,42 @@ class DomainDefaultSpaceSettingsArgs:
     @execution_role.setter
     def execution_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]]]:
+        """
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        """
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs']]:
+        """
+        Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        """
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs']]:
+        """
+        The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -2396,6 +2500,455 @@ class DomainDefaultSpaceSettingsArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs']]:
+        """
+        The storage settings for a private space. See `space_storage_settings` Block below.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict(TypedDict):
+        efs_file_system_config: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict']]
+        """
+        The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+        """
+elif False:
+    DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsCustomFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 efs_file_system_config: Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']] = None):
+        """
+        :param pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs'] efs_file_system_config: The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+        """
+        if efs_file_system_config is not None:
+            pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+
+    @property
+    @pulumi.getter(name="efsFileSystemConfig")
+    def efs_file_system_config(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]:
+        """
+        The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
+        """
+        return pulumi.get(self, "efs_file_system_config")
+
+    @efs_file_system_config.setter
+    def efs_file_system_config(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]):
+        pulumi.set(self, "efs_file_system_config", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        """
+        The ID of your Amazon EFS file system.
+        """
+        file_system_path: pulumi.Input[str]
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+elif False:
+    DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] file_system_id: The ID of your Amazon EFS file system.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The ID of your Amazon EFS file system.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> pulumi.Input[str]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_path", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict(TypedDict):
+        gid: pulumi.Input[int]
+        """
+        The POSIX group ID.
+        """
+        uid: pulumi.Input[int]
+        """
+        The POSIX user ID.
+        """
+elif False:
+    DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsCustomPosixUserConfigArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID.
+        :param pulumi.Input[int] uid: The POSIX user ID.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
+        code_repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        """
+        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]
+        """
+        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        """
+        default_resource_spec: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        """
+        lifecycle_config_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+elif False:
+    DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]] = None,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        :param pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]:
+        """
+        A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict(TypedDict):
+        repository_url: pulumi.Input[str]
+        """
+        The URL of the Git repository.
+        """
+elif False:
+    DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: The URL of the Git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Git repository.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict(TypedDict):
+        app_image_config_name: pulumi.Input[str]
+        """
+        The name of the App Image Config.
+        """
+        image_name: pulumi.Input[str]
+        """
+        The name of the Custom Image.
+        """
+        image_version_number: NotRequired[pulumi.Input[int]]
+        """
+        The version number of the Custom Image.
+        """
+elif False:
+    DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
+        :param pulumi.Input[str] image_name: The name of the Custom Image.
+        :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict(TypedDict):
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        lifecycle_config_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        sagemaker_image_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        sagemaker_image_version_alias: NotRequired[pulumi.Input[str]]
+        """
+        The SageMaker Image Version Alias.
+        """
+        sagemaker_image_version_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the image version created on the instance.
+        """
+elif False:
+    DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs:
+    def __init__(__self__, *,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_alias: Optional[pulumi.Input[str]] = None,
+                 sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param pulumi.Input[str] sagemaker_image_version_alias: The SageMaker Image Version Alias.
+        :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_alias is not None:
+            pulumi.set(__self__, "sagemaker_image_version_alias", sagemaker_image_version_alias)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @lifecycle_config_arn.setter
+    def lifecycle_config_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_config_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @sagemaker_image_arn.setter
+    def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_arn", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionAlias")
+    def sagemaker_image_version_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SageMaker Image Version Alias.
+        """
+        return pulumi.get(self, "sagemaker_image_version_alias")
+
+    @sagemaker_image_version_alias.setter
+    def sagemaker_image_version_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_alias", value)
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
+
+    @sagemaker_image_version_arn.setter
+    def sagemaker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sagemaker_image_version_arn", value)
 
 
 if not MYPY:
@@ -2868,6 +3421,88 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
 
 
 if not MYPY:
+    class DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict(TypedDict):
+        default_ebs_storage_settings: NotRequired[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict']]
+        """
+        The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+        """
+elif False:
+    DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']] = None):
+        """
+        :param pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs'] default_ebs_storage_settings: The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+        """
+        if default_ebs_storage_settings is not None:
+            pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="defaultEbsStorageSettings")
+    def default_ebs_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]:
+        """
+        The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
+        """
+        return pulumi.get(self, "default_ebs_storage_settings")
+
+    @default_ebs_storage_settings.setter
+    def default_ebs_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]):
+        pulumi.set(self, "default_ebs_storage_settings", value)
+
+
+if not MYPY:
+    class DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict(TypedDict):
+        default_ebs_volume_size_in_gb: pulumi.Input[int]
+        """
+        The default size of the EBS storage volume for a private space.
+        """
+        maximum_ebs_volume_size_in_gb: pulumi.Input[int]
+        """
+        The maximum size of the EBS storage volume for a private space.
+        """
+elif False:
+    DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_volume_size_in_gb: pulumi.Input[int],
+                 maximum_ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] default_ebs_volume_size_in_gb: The default size of the EBS storage volume for a private space.
+        :param pulumi.Input[int] maximum_ebs_volume_size_in_gb: The maximum size of the EBS storage volume for a private space.
+        """
+        pulumi.set(__self__, "default_ebs_volume_size_in_gb", default_ebs_volume_size_in_gb)
+        pulumi.set(__self__, "maximum_ebs_volume_size_in_gb", maximum_ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="defaultEbsVolumeSizeInGb")
+    def default_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The default size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "default_ebs_volume_size_in_gb")
+
+    @default_ebs_volume_size_in_gb.setter
+    def default_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_ebs_volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maximumEbsVolumeSizeInGb")
+    def maximum_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        The maximum size of the EBS storage volume for a private space.
+        """
+        return pulumi.get(self, "maximum_ebs_volume_size_in_gb")
+
+    @maximum_ebs_volume_size_in_gb.setter
+    def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
+
+
+if not MYPY:
     class DomainDefaultUserSettingsArgsDict(TypedDict):
         execution_role: pulumi.Input[str]
         """
@@ -2929,6 +3564,10 @@ if not MYPY:
         """
         Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
         """
+        studio_web_portal_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsStudioWebPortalSettingsArgsDict']]
+        """
+        The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        """
         tensor_board_app_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict']]
         """
         The TensorBoard app settings. See `tensor_board_app_settings` Block below.
@@ -2954,6 +3593,7 @@ class DomainDefaultUserSettingsArgs:
                  sharing_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs']] = None,
                  space_storage_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs']] = None,
                  studio_web_portal: Optional[pulumi.Input[str]] = None,
+                 studio_web_portal_settings: Optional[pulumi.Input['DomainDefaultUserSettingsStudioWebPortalSettingsArgs']] = None,
                  tensor_board_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role ARN for the user.
@@ -2971,6 +3611,7 @@ class DomainDefaultUserSettingsArgs:
         :param pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See `sharing_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See `space_storage_settings` Block below.
         :param pulumi.Input[str] studio_web_portal: Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input['DomainDefaultUserSettingsStudioWebPortalSettingsArgs'] studio_web_portal_settings: The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -3002,6 +3643,8 @@ class DomainDefaultUserSettingsArgs:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
         if studio_web_portal is not None:
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
+        if studio_web_portal_settings is not None:
+            pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
         if tensor_board_app_settings is not None:
             pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
 
@@ -3184,6 +3827,18 @@ class DomainDefaultUserSettingsArgs:
     @studio_web_portal.setter
     def studio_web_portal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "studio_web_portal", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortalSettings")
+    def studio_web_portal_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsStudioWebPortalSettingsArgs']]:
+        """
+        The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        """
+        return pulumi.get(self, "studio_web_portal_settings")
+
+    @studio_web_portal_settings.setter
+    def studio_web_portal_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsStudioWebPortalSettingsArgs']]):
+        pulumi.set(self, "studio_web_portal_settings", value)
 
     @property
     @pulumi.getter(name="tensorBoardAppSettings")
@@ -5258,6 +5913,58 @@ class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs
 
 
 if not MYPY:
+    class DomainDefaultUserSettingsStudioWebPortalSettingsArgsDict(TypedDict):
+        hidden_app_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+elif False:
+    DomainDefaultUserSettingsStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultUserSettingsStudioWebPortalSettingsArgs:
+    def __init__(__self__, *,
+                 hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hidden_app_types: The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        if hidden_app_types is not None:
+            pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_ml_tools is not None:
+            pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+
+    @property
+    @pulumi.getter(name="hiddenAppTypes")
+    def hidden_app_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_app_types")
+
+    @hidden_app_types.setter
+    def hidden_app_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_app_types", value)
+
+    @property
+    @pulumi.getter(name="hiddenMlTools")
+    def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_ml_tools")
+
+    @hidden_ml_tools.setter
+    def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_ml_tools", value)
+
+
+if not MYPY:
     class DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict(TypedDict):
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict']]
         """
@@ -5403,6 +6110,10 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
 
 if not MYPY:
     class DomainDomainSettingsArgsDict(TypedDict):
+        docker_settings: NotRequired[pulumi.Input['DomainDomainSettingsDockerSettingsArgsDict']]
+        """
+        A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        """
         execution_role_identity_config: NotRequired[pulumi.Input[str]]
         """
         The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
@@ -5421,20 +6132,36 @@ elif False:
 @pulumi.input_type
 class DomainDomainSettingsArgs:
     def __init__(__self__, *,
+                 docker_settings: Optional[pulumi.Input['DomainDomainSettingsDockerSettingsArgs']] = None,
                  execution_role_identity_config: Optional[pulumi.Input[str]] = None,
                  r_studio_server_pro_domain_settings: Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input['DomainDomainSettingsDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
         :param pulumi.Input[str] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
+        if docker_settings is not None:
+            pulumi.set(__self__, "docker_settings", docker_settings)
         if execution_role_identity_config is not None:
             pulumi.set(__self__, "execution_role_identity_config", execution_role_identity_config)
         if r_studio_server_pro_domain_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="dockerSettings")
+    def docker_settings(self) -> Optional[pulumi.Input['DomainDomainSettingsDockerSettingsArgs']]:
+        """
+        A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        """
+        return pulumi.get(self, "docker_settings")
+
+    @docker_settings.setter
+    def docker_settings(self, value: Optional[pulumi.Input['DomainDomainSettingsDockerSettingsArgs']]):
+        pulumi.set(self, "docker_settings", value)
 
     @property
     @pulumi.getter(name="executionRoleIdentityConfig")
@@ -5471,6 +6198,58 @@ class DomainDomainSettingsArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+
+if not MYPY:
+    class DomainDomainSettingsDockerSettingsArgsDict(TypedDict):
+        enable_docker_access: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+        """
+        vpc_only_trusted_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+        """
+elif False:
+    DomainDomainSettingsDockerSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDomainSettingsDockerSettingsArgs:
+    def __init__(__self__, *,
+                 enable_docker_access: Optional[pulumi.Input[str]] = None,
+                 vpc_only_trusted_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] enable_docker_access: Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_only_trusted_accounts: The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+        """
+        if enable_docker_access is not None:
+            pulumi.set(__self__, "enable_docker_access", enable_docker_access)
+        if vpc_only_trusted_accounts is not None:
+            pulumi.set(__self__, "vpc_only_trusted_accounts", vpc_only_trusted_accounts)
+
+    @property
+    @pulumi.getter(name="enableDockerAccess")
+    def enable_docker_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "enable_docker_access")
+
+    @enable_docker_access.setter
+    def enable_docker_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_docker_access", value)
+
+    @property
+    @pulumi.getter(name="vpcOnlyTrustedAccounts")
+    def vpc_only_trusted_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+        """
+        return pulumi.get(self, "vpc_only_trusted_accounts")
+
+    @vpc_only_trusted_accounts.setter
+    def vpc_only_trusted_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_only_trusted_accounts", value)
 
 
 if not MYPY:
@@ -6204,6 +6983,10 @@ if not MYPY:
         """
         The type of instance to start.
         """
+        managed_instance_scaling: NotRequired[pulumi.Input['EndpointConfigurationProductionVariantManagedInstanceScalingArgsDict']]
+        """
+        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        """
         model_data_download_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         """
         The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
@@ -6239,6 +7022,7 @@ class EndpointConfigurationProductionVariantArgs:
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 managed_instance_scaling: Optional[pulumi.Input['EndpointConfigurationProductionVariantManagedInstanceScalingArgs']] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  routing_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]]] = None,
                  serverless_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']] = None,
@@ -6254,6 +7038,7 @@ class EndpointConfigurationProductionVariantArgs:
         :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
         :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param pulumi.Input[str] instance_type: The type of instance to start.
+        :param pulumi.Input['EndpointConfigurationProductionVariantManagedInstanceScalingArgs'] managed_instance_scaling: Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
@@ -6277,6 +7062,8 @@ class EndpointConfigurationProductionVariantArgs:
             pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if managed_instance_scaling is not None:
+            pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if routing_configs is not None:
@@ -6397,6 +7184,18 @@ class EndpointConfigurationProductionVariantArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="managedInstanceScaling")
+    def managed_instance_scaling(self) -> Optional[pulumi.Input['EndpointConfigurationProductionVariantManagedInstanceScalingArgs']]:
+        """
+        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        """
+        return pulumi.get(self, "managed_instance_scaling")
+
+    @managed_instance_scaling.setter
+    def managed_instance_scaling(self, value: Optional[pulumi.Input['EndpointConfigurationProductionVariantManagedInstanceScalingArgs']]):
+        pulumi.set(self, "managed_instance_scaling", value)
+
+    @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -6506,6 +7305,78 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+if not MYPY:
+    class EndpointConfigurationProductionVariantManagedInstanceScalingArgsDict(TypedDict):
+        max_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        """
+        min_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+elif False:
+    EndpointConfigurationProductionVariantManagedInstanceScalingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointConfigurationProductionVariantManagedInstanceScalingArgs:
+    def __init__(__self__, *,
+                 max_instance_count: Optional[pulumi.Input[int]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_instance_count: The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        :param pulumi.Input[str] status: Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -6647,6 +7518,10 @@ if not MYPY:
         """
         The type of instance to start.
         """
+        managed_instance_scaling: NotRequired[pulumi.Input['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgsDict']]
+        """
+        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        """
         model_data_download_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         """
         The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
@@ -6682,6 +7557,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 managed_instance_scaling: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs']] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  routing_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]] = None,
                  serverless_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']] = None,
@@ -6697,6 +7573,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
         :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
         :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param pulumi.Input[str] instance_type: The type of instance to start.
+        :param pulumi.Input['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs'] managed_instance_scaling: Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         :param pulumi.Input[int] model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]] routing_configs: Sets how the endpoint routes incoming traffic. See routing_config below.
         :param pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
@@ -6720,6 +7597,8 @@ class EndpointConfigurationShadowProductionVariantArgs:
             pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if managed_instance_scaling is not None:
+            pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if routing_configs is not None:
@@ -6840,6 +7719,18 @@ class EndpointConfigurationShadowProductionVariantArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="managedInstanceScaling")
+    def managed_instance_scaling(self) -> Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs']]:
+        """
+        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        """
+        return pulumi.get(self, "managed_instance_scaling")
+
+    @managed_instance_scaling.setter
+    def managed_instance_scaling(self, value: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs']]):
+        pulumi.set(self, "managed_instance_scaling", value)
+
+    @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -6948,6 +7839,78 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key_id", value)
+
+
+if not MYPY:
+    class EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgsDict(TypedDict):
+        max_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        """
+        min_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+elif False:
+    EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs:
+    def __init__(__self__, *,
+                 max_instance_count: Optional[pulumi.Input[int]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] max_instance_count: The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        :param pulumi.Input[int] min_instance_count: The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        :param pulumi.Input[str] status: Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -8619,6 +9582,10 @@ if not MYPY:
         """
         Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         """
+        inference_specification_name: NotRequired[pulumi.Input[str]]
+        """
+        The inference specification name in the model package version.
+        """
         mode: NotRequired[pulumi.Input[str]]
         """
         The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
@@ -8635,6 +9602,10 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
+        multi_model_config: NotRequired[pulumi.Input['ModelContainerMultiModelConfigArgsDict']]
+        """
+        Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        """
 elif False:
     ModelContainerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8645,20 +9616,24 @@ class ModelContainerArgs:
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
+                 inference_specification_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_data_source: Optional[pulumi.Input['ModelContainerModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
-                 model_package_name: Optional[pulumi.Input[str]] = None):
+                 model_package_name: Optional[pulumi.Input[str]] = None,
+                 multi_model_config: Optional[pulumi.Input['ModelContainerMultiModelConfigArgs']] = None):
         """
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        :param pulumi.Input[str] inference_specification_name: The inference specification name in the model package version.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input['ModelContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
+        :param pulumi.Input['ModelContainerMultiModelConfigArgs'] multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
@@ -8668,6 +9643,8 @@ class ModelContainerArgs:
             pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
+        if inference_specification_name is not None:
+            pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_source is not None:
@@ -8676,6 +9653,8 @@ class ModelContainerArgs:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
             pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -8727,6 +9706,18 @@ class ModelContainerArgs:
         pulumi.set(self, "image_config", value)
 
     @property
+    @pulumi.getter(name="inferenceSpecificationName")
+    def inference_specification_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inference specification name in the model package version.
+        """
+        return pulumi.get(self, "inference_specification_name")
+
+    @inference_specification_name.setter
+    def inference_specification_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inference_specification_name", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -8773,6 +9764,18 @@ class ModelContainerArgs:
     @model_package_name.setter
     def model_package_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_package_name", value)
+
+    @property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional[pulumi.Input['ModelContainerMultiModelConfigArgs']]:
+        """
+        Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        """
+        return pulumi.get(self, "multi_model_config")
+
+    @multi_model_config.setter
+    def multi_model_config(self, value: Optional[pulumi.Input['ModelContainerMultiModelConfigArgs']]):
+        pulumi.set(self, "multi_model_config", value)
 
 
 if not MYPY:
@@ -8902,6 +9905,10 @@ if not MYPY:
         """
         The S3 path of model data to deploy.
         """
+        model_access_config: NotRequired[pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        """
 elif False:
     ModelContainerModelDataSourceS3DataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8910,15 +9917,19 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
     def __init__(__self__, *,
                  compression_type: pulumi.Input[str],
                  s3_data_type: pulumi.Input[str],
-                 s3_uri: pulumi.Input[str]):
+                 s3_uri: pulumi.Input[str],
+                 model_access_config: Optional[pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[str] s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
 
     @property
     @pulumi.getter(name="compressionType")
@@ -8955,6 +9966,81 @@ class ModelContainerModelDataSourceS3DataSourceArgs:
     @s3_uri.setter
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional[pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]:
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        """
+        return pulumi.get(self, "model_access_config")
+
+    @model_access_config.setter
+    def model_access_config(self, value: Optional[pulumi.Input['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]):
+        pulumi.set(self, "model_access_config", value)
+
+
+if not MYPY:
+    class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
+        accept_eula: pulumi.Input[bool]
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+elif False:
+    ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs:
+    def __init__(__self__, *,
+                 accept_eula: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] accept_eula: Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> pulumi.Input[bool]:
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "accept_eula", value)
+
+
+if not MYPY:
+    class ModelContainerMultiModelConfigArgsDict(TypedDict):
+        model_cache_setting: NotRequired[pulumi.Input[str]]
+        """
+        Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+elif False:
+    ModelContainerMultiModelConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ModelContainerMultiModelConfigArgs:
+    def __init__(__self__, *,
+                 model_cache_setting: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] model_cache_setting: Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+        return pulumi.get(self, "model_cache_setting")
+
+    @model_cache_setting.setter
+    def model_cache_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_cache_setting", value)
 
 
 if not MYPY:
@@ -9007,6 +10093,10 @@ if not MYPY:
         """
         Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         """
+        inference_specification_name: NotRequired[pulumi.Input[str]]
+        """
+        The inference specification name in the model package version.
+        """
         mode: NotRequired[pulumi.Input[str]]
         """
         The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
@@ -9023,6 +10113,10 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
+        multi_model_config: NotRequired[pulumi.Input['ModelPrimaryContainerMultiModelConfigArgsDict']]
+        """
+        Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        """
 elif False:
     ModelPrimaryContainerArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9033,20 +10127,24 @@ class ModelPrimaryContainerArgs:
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
+                 inference_specification_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_data_source: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
-                 model_package_name: Optional[pulumi.Input[str]] = None):
+                 model_package_name: Optional[pulumi.Input[str]] = None,
+                 multi_model_config: Optional[pulumi.Input['ModelPrimaryContainerMultiModelConfigArgs']] = None):
         """
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        :param pulumi.Input[str] inference_specification_name: The inference specification name in the model package version.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input['ModelPrimaryContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
+        :param pulumi.Input['ModelPrimaryContainerMultiModelConfigArgs'] multi_model_config: Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         """
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
@@ -9056,6 +10154,8 @@ class ModelPrimaryContainerArgs:
             pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
+        if inference_specification_name is not None:
+            pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_source is not None:
@@ -9064,6 +10164,8 @@ class ModelPrimaryContainerArgs:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
             pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -9115,6 +10217,18 @@ class ModelPrimaryContainerArgs:
         pulumi.set(self, "image_config", value)
 
     @property
+    @pulumi.getter(name="inferenceSpecificationName")
+    def inference_specification_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The inference specification name in the model package version.
+        """
+        return pulumi.get(self, "inference_specification_name")
+
+    @inference_specification_name.setter
+    def inference_specification_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inference_specification_name", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -9161,6 +10275,18 @@ class ModelPrimaryContainerArgs:
     @model_package_name.setter
     def model_package_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_package_name", value)
+
+    @property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional[pulumi.Input['ModelPrimaryContainerMultiModelConfigArgs']]:
+        """
+        Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        """
+        return pulumi.get(self, "multi_model_config")
+
+    @multi_model_config.setter
+    def multi_model_config(self, value: Optional[pulumi.Input['ModelPrimaryContainerMultiModelConfigArgs']]):
+        pulumi.set(self, "multi_model_config", value)
 
 
 if not MYPY:
@@ -9290,6 +10416,10 @@ if not MYPY:
         """
         The S3 path of model data to deploy.
         """
+        model_access_config: NotRequired[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        """
 elif False:
     ModelPrimaryContainerModelDataSourceS3DataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9298,15 +10428,19 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
     def __init__(__self__, *,
                  compression_type: pulumi.Input[str],
                  s3_data_type: pulumi.Input[str],
-                 s3_uri: pulumi.Input[str]):
+                 s3_uri: pulumi.Input[str],
+                 model_access_config: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']] = None):
         """
         :param pulumi.Input[str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
         :param pulumi.Input[str] s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         :param pulumi.Input[str] s3_uri: The S3 path of model data to deploy.
+        :param pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs'] model_access_config: Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
         """
         pulumi.set(__self__, "compression_type", compression_type)
         pulumi.set(__self__, "s3_data_type", s3_data_type)
         pulumi.set(__self__, "s3_uri", s3_uri)
+        if model_access_config is not None:
+            pulumi.set(__self__, "model_access_config", model_access_config)
 
     @property
     @pulumi.getter(name="compressionType")
@@ -9343,6 +10477,81 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
     @s3_uri.setter
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
+
+    @property
+    @pulumi.getter(name="modelAccessConfig")
+    def model_access_config(self) -> Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]:
+        """
+        Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        """
+        return pulumi.get(self, "model_access_config")
+
+    @model_access_config.setter
+    def model_access_config(self, value: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]):
+        pulumi.set(self, "model_access_config", value)
+
+
+if not MYPY:
+    class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict(TypedDict):
+        accept_eula: pulumi.Input[bool]
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+elif False:
+    ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs:
+    def __init__(__self__, *,
+                 accept_eula: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] accept_eula: Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        pulumi.set(__self__, "accept_eula", accept_eula)
+
+    @property
+    @pulumi.getter(name="acceptEula")
+    def accept_eula(self) -> pulumi.Input[bool]:
+        """
+        Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+        """
+        return pulumi.get(self, "accept_eula")
+
+    @accept_eula.setter
+    def accept_eula(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "accept_eula", value)
+
+
+if not MYPY:
+    class ModelPrimaryContainerMultiModelConfigArgsDict(TypedDict):
+        model_cache_setting: NotRequired[pulumi.Input[str]]
+        """
+        Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+elif False:
+    ModelPrimaryContainerMultiModelConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ModelPrimaryContainerMultiModelConfigArgs:
+    def __init__(__self__, *,
+                 model_cache_setting: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] model_cache_setting: Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+        """
+        return pulumi.get(self, "model_cache_setting")
+
+    @model_cache_setting.setter
+    def model_cache_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_cache_setting", value)
 
 
 if not MYPY:
@@ -10959,6 +12168,10 @@ if not MYPY:
         """
         Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
         """
+        studio_web_portal_settings: NotRequired[pulumi.Input['UserProfileUserSettingsStudioWebPortalSettingsArgsDict']]
+        """
+        The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        """
         tensor_board_app_settings: NotRequired[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgsDict']]
         """
         The TensorBoard app settings. See TensorBoard App Settings below.
@@ -10984,6 +12197,7 @@ class UserProfileUserSettingsArgs:
                  sharing_settings: Optional[pulumi.Input['UserProfileUserSettingsSharingSettingsArgs']] = None,
                  space_storage_settings: Optional[pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs']] = None,
                  studio_web_portal: Optional[pulumi.Input[str]] = None,
+                 studio_web_portal_settings: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortalSettingsArgs']] = None,
                  tensor_board_app_settings: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs']] = None):
         """
         :param pulumi.Input[str] execution_role: The execution role ARN for the user.
@@ -11001,6 +12215,7 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
         :param pulumi.Input['UserProfileUserSettingsSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a private space. See Space Storage Settings below.
         :param pulumi.Input[str] studio_web_portal: Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input['UserProfileUserSettingsStudioWebPortalSettingsArgs'] studio_web_portal_settings: The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
         :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -11032,6 +12247,8 @@ class UserProfileUserSettingsArgs:
             pulumi.set(__self__, "space_storage_settings", space_storage_settings)
         if studio_web_portal is not None:
             pulumi.set(__self__, "studio_web_portal", studio_web_portal)
+        if studio_web_portal_settings is not None:
+            pulumi.set(__self__, "studio_web_portal_settings", studio_web_portal_settings)
         if tensor_board_app_settings is not None:
             pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
 
@@ -11214,6 +12431,18 @@ class UserProfileUserSettingsArgs:
     @studio_web_portal.setter
     def studio_web_portal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "studio_web_portal", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortalSettings")
+    def studio_web_portal_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortalSettingsArgs']]:
+        """
+        The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        """
+        return pulumi.get(self, "studio_web_portal_settings")
+
+    @studio_web_portal_settings.setter
+    def studio_web_portal_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortalSettingsArgs']]):
+        pulumi.set(self, "studio_web_portal_settings", value)
 
     @property
     @pulumi.getter(name="tensorBoardAppSettings")
@@ -13279,6 +14508,58 @@ class UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs:
     @maximum_ebs_volume_size_in_gb.setter
     def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
+
+
+if not MYPY:
+    class UserProfileUserSettingsStudioWebPortalSettingsArgsDict(TypedDict):
+        hidden_app_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        hidden_ml_tools: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+elif False:
+    UserProfileUserSettingsStudioWebPortalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileUserSettingsStudioWebPortalSettingsArgs:
+    def __init__(__self__, *,
+                 hidden_app_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hidden_ml_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hidden_app_types: The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        if hidden_app_types is not None:
+            pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_ml_tools is not None:
+            pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
+
+    @property
+    @pulumi.getter(name="hiddenAppTypes")
+    def hidden_app_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_app_types")
+
+    @hidden_app_types.setter
+    def hidden_app_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_app_types", value)
+
+    @property
+    @pulumi.getter(name="hiddenMlTools")
+    def hidden_ml_tools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The machine learning tools that are hidden from the Studio left navigation pane.
+        """
+        return pulumi.get(self, "hidden_ml_tools")
+
+    @hidden_ml_tools.setter
+    def hidden_ml_tools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_ml_tools", value)
 
 
 if not MYPY:

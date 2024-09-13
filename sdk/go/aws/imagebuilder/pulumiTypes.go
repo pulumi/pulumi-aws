@@ -4759,7 +4759,7 @@ func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Image
 }
 
 type ImageRecipeSystemsManagerAgent struct {
-	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+	// Whether to remove the Systems Manager Agent after the image has been built.
 	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
 }
 
@@ -4775,7 +4775,7 @@ type ImageRecipeSystemsManagerAgentInput interface {
 }
 
 type ImageRecipeSystemsManagerAgentArgs struct {
-	// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+	// Whether to remove the Systems Manager Agent after the image has been built.
 	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
 }
 
@@ -4856,7 +4856,7 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+// Whether to remove the Systems Manager Agent after the image has been built.
 func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
 }
@@ -4885,7 +4885,7 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManage
 	}).(ImageRecipeSystemsManagerAgentOutput)
 }
 
-// Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+// Whether to remove the Systems Manager Agent after the image has been built.
 func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
 		if v == nil {

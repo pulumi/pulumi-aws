@@ -30,6 +30,11 @@ export type FunctionEventInvokeConfig = import("./functionEventInvokeConfig").Fu
 export const FunctionEventInvokeConfig: typeof import("./functionEventInvokeConfig").FunctionEventInvokeConfig = null as any;
 utilities.lazyLoad(exports, ["FunctionEventInvokeConfig"], () => require("./functionEventInvokeConfig"));
 
+export { FunctionRecursionConfigArgs, FunctionRecursionConfigState } from "./functionRecursionConfig";
+export type FunctionRecursionConfig = import("./functionRecursionConfig").FunctionRecursionConfig;
+export const FunctionRecursionConfig: typeof import("./functionRecursionConfig").FunctionRecursionConfig = null as any;
+utilities.lazyLoad(exports, ["FunctionRecursionConfig"], () => require("./functionRecursionConfig"));
+
 export { FunctionUrlArgs, FunctionUrlState } from "./functionUrl";
 export type FunctionUrl = import("./functionUrl").FunctionUrl;
 export const FunctionUrl: typeof import("./functionUrl").FunctionUrl = null as any;
@@ -120,6 +125,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
                 return new FunctionEventInvokeConfig(name, <any>undefined, { urn })
+            case "aws:lambda/functionRecursionConfig:FunctionRecursionConfig":
+                return new FunctionRecursionConfig(name, <any>undefined, { urn })
             case "aws:lambda/functionUrl:FunctionUrl":
                 return new FunctionUrl(name, <any>undefined, { urn })
             case "aws:lambda/invocation:Invocation":
@@ -144,6 +151,7 @@ pulumi.runtime.registerResourceModule("aws", "lambda/codeSigningConfig", _module
 pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionEventInvokeConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/functionRecursionConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionUrl", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/invocation", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)

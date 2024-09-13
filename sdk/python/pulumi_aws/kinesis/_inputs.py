@@ -8478,6 +8478,14 @@ if not MYPY:
         """
         The Snowflake table name.
         """
+        buffering_interval: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        """
+        buffering_size: NotRequired[pulumi.Input[int]]
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+        """
         cloudwatch_logging_options: NotRequired[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgsDict']]
         """
         The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
@@ -8542,6 +8550,8 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
                  s3_configuration: pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs'],
                  schema: pulumi.Input[str],
                  table: pulumi.Input[str],
+                 buffering_interval: Optional[pulumi.Input[int]] = None,
+                 buffering_size: Optional[pulumi.Input[int]] = None,
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  content_column_name: Optional[pulumi.Input[str]] = None,
                  data_loading_option: Optional[pulumi.Input[str]] = None,
@@ -8562,6 +8572,8 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs'] s3_configuration: The S3 configuration. See `s3_configuration` block below for details.
         :param pulumi.Input[str] schema: The Snowflake schema name.
         :param pulumi.Input[str] table: The Snowflake table name.
+        :param pulumi.Input[int] buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        :param pulumi.Input[int] buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param pulumi.Input[str] content_column_name: The name of the content column.
         :param pulumi.Input[str] data_loading_option: The data loading option.
@@ -8582,6 +8594,10 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "table", table)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if content_column_name is not None:
@@ -8680,6 +8696,30 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgs:
     @table.setter
     def table(self, value: pulumi.Input[str]):
         pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @buffering_interval.setter
+    def buffering_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_interval", value)
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+        """
+        return pulumi.get(self, "buffering_size")
+
+    @buffering_size.setter
+    def buffering_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buffering_size", value)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")

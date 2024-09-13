@@ -13,130 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type AssumeRole struct {
-	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-	Duration *string `pulumi:"duration"`
-	// A unique identifier that might be required when you assume a role in another account.
-	ExternalId *string `pulumi:"externalId"`
-	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-	Policy *string `pulumi:"policy"`
-	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-	PolicyArns []string `pulumi:"policyArns"`
-	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-	RoleArn *string `pulumi:"roleArn"`
-	// An identifier for the assumed role session.
-	SessionName *string `pulumi:"sessionName"`
-	// Source identity specified by the principal assuming the role.
-	SourceIdentity *string `pulumi:"sourceIdentity"`
-	// Assume role session tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Assume role session tag keys to pass to any subsequent sessions.
-	TransitiveTagKeys []string `pulumi:"transitiveTagKeys"`
-}
-
-// AssumeRoleInput is an input type that accepts AssumeRoleArgs and AssumeRoleOutput values.
-// You can construct a concrete instance of `AssumeRoleInput` via:
-//
-//	AssumeRoleArgs{...}
-type AssumeRoleInput interface {
-	pulumi.Input
-
-	ToAssumeRoleOutput() AssumeRoleOutput
-	ToAssumeRoleOutputWithContext(context.Context) AssumeRoleOutput
-}
-
-type AssumeRoleArgs struct {
-	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// A unique identifier that might be required when you assume a role in another account.
-	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-	Policy pulumi.StringPtrInput `pulumi:"policy"`
-	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-	PolicyArns pulumi.StringArrayInput `pulumi:"policyArns"`
-	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// An identifier for the assumed role session.
-	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
-	// Source identity specified by the principal assuming the role.
-	SourceIdentity pulumi.StringPtrInput `pulumi:"sourceIdentity"`
-	// Assume role session tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Assume role session tag keys to pass to any subsequent sessions.
-	TransitiveTagKeys pulumi.StringArrayInput `pulumi:"transitiveTagKeys"`
-}
-
-func (AssumeRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssumeRole)(nil)).Elem()
-}
-
-func (i AssumeRoleArgs) ToAssumeRoleOutput() AssumeRoleOutput {
-	return i.ToAssumeRoleOutputWithContext(context.Background())
-}
-
-func (i AssumeRoleArgs) ToAssumeRoleOutputWithContext(ctx context.Context) AssumeRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssumeRoleOutput)
-}
-
-type AssumeRoleOutput struct{ *pulumi.OutputState }
-
-func (AssumeRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssumeRole)(nil)).Elem()
-}
-
-func (o AssumeRoleOutput) ToAssumeRoleOutput() AssumeRoleOutput {
-	return o
-}
-
-func (o AssumeRoleOutput) ToAssumeRoleOutputWithContext(ctx context.Context) AssumeRoleOutput {
-	return o
-}
-
-// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-func (o AssumeRoleOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.Duration }).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier that might be required when you assume a role in another account.
-func (o AssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
-}
-
-// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-func (o AssumeRoleOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.Policy }).(pulumi.StringPtrOutput)
-}
-
-// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-func (o AssumeRoleOutput) PolicyArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AssumeRole) []string { return v.PolicyArns }).(pulumi.StringArrayOutput)
-}
-
-// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-func (o AssumeRoleOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
-}
-
-// An identifier for the assumed role session.
-func (o AssumeRoleOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.SessionName }).(pulumi.StringPtrOutput)
-}
-
-// Source identity specified by the principal assuming the role.
-func (o AssumeRoleOutput) SourceIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *string { return v.SourceIdentity }).(pulumi.StringPtrOutput)
-}
-
-// Assume role session tags.
-func (o AssumeRoleOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AssumeRole) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Assume role session tag keys to pass to any subsequent sessions.
-func (o AssumeRoleOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AssumeRole) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
-}
-
 type AssumeRoleWithWebIdentity struct {
 	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
 	Duration *string `pulumi:"duration"`
@@ -235,6 +111,175 @@ func (o AssumeRoleWithWebIdentityOutput) WebIdentityToken() pulumi.StringPtrOutp
 
 func (o AssumeRoleWithWebIdentityOutput) WebIdentityTokenFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRoleWithWebIdentity) *string { return v.WebIdentityTokenFile }).(pulumi.StringPtrOutput)
+}
+
+type AssumeRoles struct {
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration *string `pulumi:"duration"`
+	// A unique identifier that might be required when you assume a role in another account.
+	ExternalId *string `pulumi:"externalId"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy *string `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns []string `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn *string `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName *string `pulumi:"sessionName"`
+	// Source identity specified by the principal assuming the role.
+	SourceIdentity *string `pulumi:"sourceIdentity"`
+	// Assume role session tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Assume role session tag keys to pass to any subsequent sessions.
+	TransitiveTagKeys []string `pulumi:"transitiveTagKeys"`
+}
+
+// AssumeRolesInput is an input type that accepts AssumeRolesArgs and AssumeRolesOutput values.
+// You can construct a concrete instance of `AssumeRolesInput` via:
+//
+//	AssumeRolesArgs{...}
+type AssumeRolesInput interface {
+	pulumi.Input
+
+	ToAssumeRolesOutput() AssumeRolesOutput
+	ToAssumeRolesOutputWithContext(context.Context) AssumeRolesOutput
+}
+
+type AssumeRolesArgs struct {
+	// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// A unique identifier that might be required when you assume a role in another account.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+	PolicyArns pulumi.StringArrayInput `pulumi:"policyArns"`
+	// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// An identifier for the assumed role session.
+	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
+	// Source identity specified by the principal assuming the role.
+	SourceIdentity pulumi.StringPtrInput `pulumi:"sourceIdentity"`
+	// Assume role session tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Assume role session tag keys to pass to any subsequent sessions.
+	TransitiveTagKeys pulumi.StringArrayInput `pulumi:"transitiveTagKeys"`
+}
+
+func (AssumeRolesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssumeRoles)(nil)).Elem()
+}
+
+func (i AssumeRolesArgs) ToAssumeRolesOutput() AssumeRolesOutput {
+	return i.ToAssumeRolesOutputWithContext(context.Background())
+}
+
+func (i AssumeRolesArgs) ToAssumeRolesOutputWithContext(ctx context.Context) AssumeRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssumeRolesOutput)
+}
+
+// AssumeRolesArrayInput is an input type that accepts AssumeRolesArray and AssumeRolesArrayOutput values.
+// You can construct a concrete instance of `AssumeRolesArrayInput` via:
+//
+//	AssumeRolesArray{ AssumeRolesArgs{...} }
+type AssumeRolesArrayInput interface {
+	pulumi.Input
+
+	ToAssumeRolesArrayOutput() AssumeRolesArrayOutput
+	ToAssumeRolesArrayOutputWithContext(context.Context) AssumeRolesArrayOutput
+}
+
+type AssumeRolesArray []AssumeRolesInput
+
+func (AssumeRolesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssumeRoles)(nil)).Elem()
+}
+
+func (i AssumeRolesArray) ToAssumeRolesArrayOutput() AssumeRolesArrayOutput {
+	return i.ToAssumeRolesArrayOutputWithContext(context.Background())
+}
+
+func (i AssumeRolesArray) ToAssumeRolesArrayOutputWithContext(ctx context.Context) AssumeRolesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssumeRolesArrayOutput)
+}
+
+type AssumeRolesOutput struct{ *pulumi.OutputState }
+
+func (AssumeRolesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssumeRoles)(nil)).Elem()
+}
+
+func (o AssumeRolesOutput) ToAssumeRolesOutput() AssumeRolesOutput {
+	return o
+}
+
+func (o AssumeRolesOutput) ToAssumeRolesOutputWithContext(ctx context.Context) AssumeRolesOutput {
+	return o
+}
+
+// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+func (o AssumeRolesOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier that might be required when you assume a role in another account.
+func (o AssumeRolesOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+func (o AssumeRolesOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+func (o AssumeRolesOutput) PolicyArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssumeRoles) []string { return v.PolicyArns }).(pulumi.StringArrayOutput)
+}
+
+// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+func (o AssumeRolesOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the assumed role session.
+func (o AssumeRolesOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.SessionName }).(pulumi.StringPtrOutput)
+}
+
+// Source identity specified by the principal assuming the role.
+func (o AssumeRolesOutput) SourceIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssumeRoles) *string { return v.SourceIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Assume role session tags.
+func (o AssumeRolesOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssumeRoles) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Assume role session tag keys to pass to any subsequent sessions.
+func (o AssumeRolesOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssumeRoles) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
+}
+
+type AssumeRolesArrayOutput struct{ *pulumi.OutputState }
+
+func (AssumeRolesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssumeRoles)(nil)).Elem()
+}
+
+func (o AssumeRolesArrayOutput) ToAssumeRolesArrayOutput() AssumeRolesArrayOutput {
+	return o
+}
+
+func (o AssumeRolesArrayOutput) ToAssumeRolesArrayOutputWithContext(ctx context.Context) AssumeRolesArrayOutput {
+	return o
+}
+
+func (o AssumeRolesArrayOutput) Index(i pulumi.IntInput) AssumeRolesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssumeRoles {
+		return vs[0].([]AssumeRoles)[vs[1].(int)]
+	}).(AssumeRolesOutput)
 }
 
 type DefaultTags struct {
@@ -3040,14 +3085,16 @@ func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AssumeRoleInput)(nil)).Elem(), AssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssumeRoleWithWebIdentityInput)(nil)).Elem(), AssumeRoleWithWebIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssumeRolesInput)(nil)).Elem(), AssumeRolesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssumeRolesArrayInput)(nil)).Elem(), AssumeRolesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultTagsInput)(nil)).Elem(), DefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsInput)(nil)).Elem(), EndpointsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsArrayInput)(nil)).Elem(), EndpointsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IgnoreTagsInput)(nil)).Elem(), IgnoreTagsArgs{})
-	pulumi.RegisterOutputType(AssumeRoleOutput{})
 	pulumi.RegisterOutputType(AssumeRoleWithWebIdentityOutput{})
+	pulumi.RegisterOutputType(AssumeRolesOutput{})
+	pulumi.RegisterOutputType(AssumeRolesArrayOutput{})
 	pulumi.RegisterOutputType(DefaultTagsOutput{})
 	pulumi.RegisterOutputType(EndpointsOutput{})
 	pulumi.RegisterOutputType(EndpointsArrayOutput{})

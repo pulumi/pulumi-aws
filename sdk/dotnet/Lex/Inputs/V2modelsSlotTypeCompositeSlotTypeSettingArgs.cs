@@ -16,7 +16,8 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>? _subSlots;
 
         /// <summary>
-        /// Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        /// Sub slots in the composite slot.
+        /// See `sub_slots` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> SubSlots
         {

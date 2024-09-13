@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { FleetArgs, FleetState } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
+export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
+export const getFleet: typeof import("./getFleet").getFleet = null as any;
+export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
+utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -35,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:codebuild/fleet:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
             case "aws:codebuild/project:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws:codebuild/reportGroup:ReportGroup":
@@ -50,6 +62,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "codebuild/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/project", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/reportGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "codebuild/resourcePolicy", _module)

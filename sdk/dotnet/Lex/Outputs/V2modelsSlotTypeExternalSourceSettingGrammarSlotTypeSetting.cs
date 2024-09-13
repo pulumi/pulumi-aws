@@ -14,7 +14,8 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting
     {
         /// <summary>
-        /// Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        /// Source of the grammar used to create the slot type.
+        /// See `source` argument reference below.
         /// </summary>
         public readonly Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource? Source;
 

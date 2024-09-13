@@ -45127,7 +45127,8 @@ class V2modelsSlotTypeCompositeSlotTypeSetting(dict):
     def __init__(__self__, *,
                  sub_slots: Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']):
         """
-        :param Sequence['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs'] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        :param Sequence['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs'] sub_slots: Sub slots in the composite slot.
+               See `sub_slots` argument reference below.
         """
         pulumi.set(__self__, "sub_slots", sub_slots)
 
@@ -45135,7 +45136,8 @@ class V2modelsSlotTypeCompositeSlotTypeSetting(dict):
     @pulumi.getter(name="subSlots")
     def sub_slots(self) -> Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']:
         """
-        Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        Sub slots in the composite slot.
+        See `sub_slots` argument reference below.
         """
         return pulumi.get(self, "sub_slots")
 
@@ -45163,9 +45165,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
                  name: str,
                  sub_slot_id: str):
         """
-        :param str name: Name of the slot type
-               
-               The following arguments are optional:
+        :param str name: Name of a constituent sub slot inside a composite slot.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sub_slot_id", sub_slot_id)
@@ -45174,9 +45174,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the slot type
-
-        The following arguments are optional:
+        Name of a constituent sub slot inside a composite slot.
         """
         return pulumi.get(self, "name")
 
@@ -45208,7 +45206,8 @@ class V2modelsSlotTypeExternalSourceSetting(dict):
     def __init__(__self__, *,
                  grammar_slot_type_setting: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting'] = None):
         """
-        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs' grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs' grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide.
+               See `grammar_slot_type_setting` argument reference below.
         """
         if grammar_slot_type_setting is not None:
             pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
@@ -45217,7 +45216,8 @@ class V2modelsSlotTypeExternalSourceSetting(dict):
     @pulumi.getter(name="grammarSlotTypeSetting")
     def grammar_slot_type_setting(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting']:
         """
-        Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        Settings required for a slot type based on a grammar that you provide.
+        See `grammar_slot_type_setting` argument reference below.
         """
         return pulumi.get(self, "grammar_slot_type_setting")
 
@@ -45227,7 +45227,8 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting(dict):
     def __init__(__self__, *,
                  source: Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource'] = None):
         """
-        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs' source: Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        :param 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs' source: Source of the grammar used to create the slot type.
+               See `source` argument reference below.
         """
         if source is not None:
             pulumi.set(__self__, "source", source)
@@ -45236,7 +45237,8 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting(dict):
     @pulumi.getter
     def source(self) -> Optional['outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource']:
         """
-        Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        Source of the grammar used to create the slot type.
+        See `source` argument reference below.
         """
         return pulumi.get(self, "source")
 
@@ -45325,8 +45327,10 @@ class V2modelsSlotTypeSlotTypeValues(dict):
                  sample_values: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']] = None,
                  synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']] = None):
         """
-        :param Sequence['V2modelsSlotTypeSlotTypeValuesSampleValueArgs'] sample_values: Value of the slot type entry.  See `sample_value` argument reference below.
-        :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
+        :param Sequence['V2modelsSlotTypeSlotTypeValuesSampleValueArgs'] sample_values: Value of the slot type entry.
+               See `sample_value` argument reference below.
+        :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: A list of additional values related to the slot type entry.
+               See `synonyms` argument reference below.
         """
         if sample_values is not None:
             pulumi.set(__self__, "sample_values", sample_values)
@@ -45337,7 +45341,8 @@ class V2modelsSlotTypeSlotTypeValues(dict):
     @pulumi.getter(name="sampleValues")
     def sample_values(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSampleValue']]:
         """
-        Value of the slot type entry.  See `sample_value` argument reference below.
+        Value of the slot type entry.
+        See `sample_value` argument reference below.
         """
         return pulumi.get(self, "sample_values")
 
@@ -45345,7 +45350,8 @@ class V2modelsSlotTypeSlotTypeValues(dict):
     @pulumi.getter
     def synonyms(self) -> Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']]:
         """
-        Additional values related to the slot type entry. See `sample_value` argument reference below.
+        A list of additional values related to the slot type entry.
+        See `synonyms` argument reference below.
         """
         return pulumi.get(self, "synonyms")
 
@@ -45457,9 +45463,13 @@ class V2modelsSlotTypeValueSelectionSetting(dict):
                  advanced_recognition_settings: Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting']] = None,
                  regex_filters: Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter']] = None):
         """
-        :param str resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-        :param Sequence['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs'] advanced_recognition_settings: Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
-        :param Sequence['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs'] regex_filters: Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        :param str resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+               Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        :param Sequence['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs'] advanced_recognition_settings: Provides settings that enable advanced recognition settings for slot values.
+               You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+               See `advanced_recognition_setting` argument reference below.
+        :param Sequence['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs'] regex_filters: Used to validate the value of the slot.
+               See `regex_filter` argument reference below.
         """
         pulumi.set(__self__, "resolution_strategy", resolution_strategy)
         if advanced_recognition_settings is not None:
@@ -45471,7 +45481,8 @@ class V2modelsSlotTypeValueSelectionSetting(dict):
     @pulumi.getter(name="resolutionStrategy")
     def resolution_strategy(self) -> str:
         """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+        Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
         """
         return pulumi.get(self, "resolution_strategy")
 
@@ -45479,7 +45490,9 @@ class V2modelsSlotTypeValueSelectionSetting(dict):
     @pulumi.getter(name="advancedRecognitionSettings")
     def advanced_recognition_settings(self) -> Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting']]:
         """
-        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        Provides settings that enable advanced recognition settings for slot values.
+        You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        See `advanced_recognition_setting` argument reference below.
         """
         return pulumi.get(self, "advanced_recognition_settings")
 
@@ -45487,7 +45500,8 @@ class V2modelsSlotTypeValueSelectionSetting(dict):
     @pulumi.getter(name="regexFilters")
     def regex_filters(self) -> Optional[Sequence['outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter']]:
         """
-        Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        Used to validate the value of the slot.
+        See `regex_filter` argument reference below.
         """
         return pulumi.get(self, "regex_filters")
 
@@ -45497,8 +45511,8 @@ class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "audioRecognitionSetting":
-            suggest = "audio_recognition_setting"
+        if key == "audioRecognitionStrategy":
+            suggest = "audio_recognition_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting. Access the value via the '{suggest}' property getter instead.")
@@ -45512,14 +45526,22 @@ class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 audio_recognition_setting: Optional[str] = None):
-        if audio_recognition_setting is not None:
-            pulumi.set(__self__, "audio_recognition_setting", audio_recognition_setting)
+                 audio_recognition_strategy: Optional[str] = None):
+        """
+        :param str audio_recognition_strategy: Enables using the slot values as a custom vocabulary for recognizing user utterances.
+               Valid value is `UseSlotValuesAsCustomVocabulary`.
+        """
+        if audio_recognition_strategy is not None:
+            pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
 
     @property
-    @pulumi.getter(name="audioRecognitionSetting")
-    def audio_recognition_setting(self) -> Optional[str]:
-        return pulumi.get(self, "audio_recognition_setting")
+    @pulumi.getter(name="audioRecognitionStrategy")
+    def audio_recognition_strategy(self) -> Optional[str]:
+        """
+        Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        Valid value is `UseSlotValuesAsCustomVocabulary`.
+        """
+        return pulumi.get(self, "audio_recognition_strategy")
 
 
 @pulumi.output_type
@@ -45527,8 +45549,7 @@ class V2modelsSlotTypeValueSelectionSettingRegexFilter(dict):
     def __init__(__self__, *,
                  pattern: str):
         """
-        :param str pattern: Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
-               Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        :param str pattern: A regular expression used to validate the value of a slot.
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -45536,8 +45557,7 @@ class V2modelsSlotTypeValueSelectionSettingRegexFilter(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
-        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        A regular expression used to validate the value of a slot.
         """
         return pulumi.get(self, "pattern")
 

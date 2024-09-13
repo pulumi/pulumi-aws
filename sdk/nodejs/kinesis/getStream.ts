@@ -64,9 +64,17 @@ export interface GetStreamResult {
      */
     readonly creationTimestamp: number;
     /**
+     * Encryption type used.
+     */
+    readonly encryptionType: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * GUID for the customer-managed AWS KMS key to use for encryption.
+     */
+    readonly kmsKeyId: string;
     /**
      * Name of the Kinesis Stream.
      */

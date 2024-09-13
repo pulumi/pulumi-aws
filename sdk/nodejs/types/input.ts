@@ -2311,6 +2311,13 @@ export namespace amplify {
         stage?: pulumi.Input<string>;
     }
 
+    export interface AppCacheConfig {
+        /**
+         * Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface AppCustomRule {
         /**
          * Condition for a URL rewrite or redirect rule, such as a country code.
@@ -11766,6 +11773,95 @@ export namespace cloudformation {
         logRoleArn: pulumi.Input<string>;
     }
 
+    export interface StackInstancesDeploymentTargets {
+        /**
+         * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         */
+        accountFilterType?: pulumi.Input<string>;
+        /**
+         * List of accounts to deploy stack set updates.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * S3 URL of the file containing the list of accounts.
+         */
+        accountsUrl?: pulumi.Input<string>;
+        /**
+         * Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+         */
+        organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StackInstancesOperationPreferences {
+        /**
+         * How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         */
+        concurrencyMode?: pulumi.Input<string>;
+        /**
+         * Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureToleranceCount?: pulumi.Input<number>;
+        /**
+         * Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureTolerancePercentage?: pulumi.Input<number>;
+        /**
+         * Maximum number of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentCount?: pulumi.Input<number>;
+        /**
+         * Maximum percentage of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentPercentage?: pulumi.Input<number>;
+        /**
+         * Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         */
+        regionConcurrencyType?: pulumi.Input<string>;
+        /**
+         * Order of the regions where you want to perform the stack operation.
+         */
+        regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StackInstancesStackInstanceSummary {
+        /**
+         * Account ID in which the instance is deployed.
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+         */
+        detailedStatus?: pulumi.Input<string>;
+        /**
+         * Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+         */
+        driftStatus?: pulumi.Input<string>;
+        /**
+         * Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+         */
+        organizationalUnitId?: pulumi.Input<string>;
+        /**
+         * Region that the stack instance is associated with.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * ID of the stack instance.
+         */
+        stackId?: pulumi.Input<string>;
+        /**
+         * Name or unique ID of the stack set that the stack instance is associated with.
+         */
+        stackSetId?: pulumi.Input<string>;
+        /**
+         * Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * Explanation for the specific status code assigned to this stack instance.
+         */
+        statusReason?: pulumi.Input<string>;
+    }
+
     export interface StackSetAutoDeployment {
         /**
          * Whether or not auto-deployment is enabled.
@@ -13917,6 +14013,63 @@ export namespace codeartifact {
 }
 
 export namespace codebuild {
+    export interface FleetScalingConfiguration {
+        desiredCapacity?: pulumi.Input<number>;
+        /**
+         * Maximum number of instances in the ﬂeet when auto-scaling.
+         */
+        maxCapacity?: pulumi.Input<number>;
+        /**
+         * Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+         */
+        scalingType?: pulumi.Input<string>;
+        /**
+         * Configuration block. Detailed below.
+         */
+        targetTrackingScalingConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetScalingConfigurationTargetTrackingScalingConfig>[]>;
+    }
+
+    export interface FleetScalingConfigurationTargetTrackingScalingConfig {
+        /**
+         * Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+         */
+        metricType?: pulumi.Input<string>;
+        /**
+         * Value of metricType when to start scaling.
+         */
+        targetValue?: pulumi.Input<number>;
+    }
+
+    export interface FleetStatus {
+        /**
+         * Additional information about a compute fleet.
+         */
+        context?: pulumi.Input<string>;
+        /**
+         * Message associated with the status of a compute fleet.
+         */
+        message?: pulumi.Input<string>;
+        /**
+         * Status code of the compute fleet.
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
     export interface ProjectArtifacts {
         /**
          * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -14019,6 +14172,10 @@ export namespace codebuild {
          */
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
+         * Configuration block. Detailed below.
+         */
+        fleet?: pulumi.Input<inputs.codebuild.ProjectEnvironmentFleet>;
+        /**
          * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: pulumi.Input<string>;
@@ -14053,6 +14210,13 @@ export namespace codebuild {
          * Environment variable's value.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ProjectEnvironmentFleet {
+        /**
+         * Compute fleet ARN for the build project.
+         */
+        fleetArn?: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentRegistryCredential {
@@ -16005,6 +16169,71 @@ export namespace comprehend {
          * List of VPC subnets.
          */
         subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+}
+
+export namespace computeoptimizer {
+    export interface EnrollmentStatusTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface RecommendationPreferencesExternalMetricsPreference {
+        /**
+         * The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
+         */
+        source: pulumi.Input<string>;
+    }
+
+    export interface RecommendationPreferencesPreferredResource {
+        /**
+         * The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
+         */
+        excludeLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
+         */
+        includeLists?: pulumi.Input<pulumi.Input<string>[]>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface RecommendationPreferencesScope {
+        /**
+         * The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreference {
+        /**
+         * The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The parameters to set when customizing the resource utilization thresholds.
+         */
+        metricParameters?: pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesUtilizationPreferenceMetricParameters>;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreferenceMetricParameters {
+        /**
+         * The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
+         */
+        headroom: pulumi.Input<string>;
+        /**
+         * The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+         */
+        threshold?: pulumi.Input<string>;
     }
 }
 
@@ -18878,6 +19107,20 @@ export namespace datasync {
 }
 
 export namespace datazone {
+    export interface AssetTypeFormsInput {
+        mapBlockKey: pulumi.Input<string>;
+        required?: pulumi.Input<boolean>;
+        typeIdentifier: pulumi.Input<string>;
+        typeRevision: pulumi.Input<string>;
+    }
+
+    export interface AssetTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
     export interface DomainSingleSignOn {
         type?: pulumi.Input<string>;
         userAssignment?: pulumi.Input<string>;
@@ -33451,7 +33694,7 @@ export namespace imagebuilder {
 
     export interface ImageRecipeSystemsManagerAgent {
         /**
-         * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         * Whether to remove the Systems Manager Agent after the image has been built.
          */
         uninstallAfterBuild: pulumi.Input<boolean>;
     }
@@ -37131,6 +37374,14 @@ export namespace kinesis {
          * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          */
         accountUrl: pulumi.Input<string>;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+         */
+        bufferingSize?: pulumi.Input<number>;
         /**
          * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
@@ -51844,16 +52095,15 @@ export namespace lex {
 
     export interface V2modelsSlotTypeCompositeSlotTypeSetting {
         /**
-         * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+         * Sub slots in the composite slot.
+         * See `subSlots` argument reference below.
          */
         subSlots: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>[]>;
     }
 
     export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
         /**
-         * Name of the slot type
-         *
-         * The following arguments are optional:
+         * Name of a constituent sub slot inside a composite slot.
          */
         name: pulumi.Input<string>;
         subSlotId: pulumi.Input<string>;
@@ -51861,14 +52111,16 @@ export namespace lex {
 
     export interface V2modelsSlotTypeExternalSourceSetting {
         /**
-         * Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+         * Settings required for a slot type based on a grammar that you provide.
+         * See `grammarSlotTypeSetting` argument reference below.
          */
         grammarSlotTypeSetting?: pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting>;
     }
 
     export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
         /**
-         * Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+         * Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
          */
         source?: pulumi.Input<inputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource>;
     }
@@ -51890,11 +52142,13 @@ export namespace lex {
 
     export interface V2modelsSlotTypeSlotTypeValues {
         /**
-         * Value of the slot type entry.  See `sampleValue` argument reference below.
+         * Value of the slot type entry.
+         * See `sampleValue` argument reference below.
          */
         sampleValues?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSampleValue>[]>;
         /**
-         * Additional values related to the slot type entry. See `sampleValue` argument reference below.
+         * A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          */
         synonyms?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym>[]>;
     }
@@ -51930,27 +52184,34 @@ export namespace lex {
 
     export interface V2modelsSlotTypeValueSelectionSetting {
         /**
-         * Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+         * Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advancedRecognitionSetting` argument reference below.
          */
         advancedRecognitionSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting>[]>;
         /**
-         * Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+         * Used to validate the value of the slot.
+         * See `regexFilter` argument reference below.
          */
         regexFilters?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeValueSelectionSettingRegexFilter>[]>;
         /**
-         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
          */
         resolutionStrategy: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
-        audioRecognitionSetting?: pulumi.Input<string>;
+        /**
+         * Enables using the slot values as a custom vocabulary for recognizing user utterances.
+         * Valid value is `UseSlotValuesAsCustomVocabulary`.
+         */
+        audioRecognitionStrategy?: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
         /**
-         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         * A regular expression used to validate the value of a slot.
          */
         pattern: pulumi.Input<string>;
     }
@@ -67110,9 +67371,21 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettings {
         /**
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
+         */
+        customFileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfig>[]>;
+        /**
+         * Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
+         */
+        customPosixUserConfig?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsCustomPosixUserConfig>;
+        /**
          * The execution role for the space.
          */
         executionRole: pulumi.Input<string>;
+        /**
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
+         */
+        jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettings>;
         /**
          * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
@@ -67125,6 +67398,103 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The storage settings for a private space. See `spaceStorageSettings` Block below.
+         */
+        spaceStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettings>;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfig {
+        /**
+         * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
+         */
+        efsFileSystemConfig?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig>;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: pulumi.Input<string>;
+        /**
+         * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         */
+        fileSystemPath: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomPosixUserConfig {
+        /**
+         * The POSIX group ID.
+         */
+        gid: pulumi.Input<number>;
+        /**
+         * The POSIX user ID.
+         */
+        uid: pulumi.Input<number>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
+         */
+        codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
+        /**
+         * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: pulumi.Input<string>;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: pulumi.Input<string>;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: pulumi.Input<string>;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: pulumi.Input<string>;
     }
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
@@ -67225,6 +67595,24 @@ export namespace sagemaker {
         sagemakerImageVersionArn?: pulumi.Input<string>;
     }
 
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettings {
+        /**
+         * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
+         */
+        defaultEbsStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings>;
+    }
+
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+        /**
+         * The default size of the EBS storage volume for a private space.
+         */
+        defaultEbsVolumeSizeInGb: pulumi.Input<number>;
+        /**
+         * The maximum size of the EBS storage volume for a private space.
+         */
+        maximumEbsVolumeSizeInGb: pulumi.Input<number>;
+    }
+
     export interface DomainDefaultUserSettings {
         /**
          * The Canvas app settings. See `canvasAppSettings` Block below.
@@ -67286,6 +67674,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal?: pulumi.Input<string>;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsStudioWebPortalSettings>;
         /**
          * The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
          */
@@ -67723,6 +68115,17 @@ export namespace sagemaker {
         maximumEbsVolumeSizeInGb: pulumi.Input<number>;
     }
 
+    export interface DomainDefaultUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
@@ -67755,6 +68158,10 @@ export namespace sagemaker {
 
     export interface DomainDomainSettings {
         /**
+         * A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
+         */
+        dockerSettings?: pulumi.Input<inputs.sagemaker.DomainDomainSettingsDockerSettings>;
+        /**
          * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
          */
         executionRoleIdentityConfig?: pulumi.Input<string>;
@@ -67766,6 +68173,17 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainDomainSettingsDockerSettings {
+        /**
+         * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+         */
+        enableDockerAccess?: pulumi.Input<string>;
+        /**
+         * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+         */
+        vpcOnlyTrustedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
@@ -67948,6 +68366,10 @@ export namespace sagemaker {
          */
         instanceType?: pulumi.Input<string>;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariantManagedInstanceScaling>;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
@@ -67982,6 +68404,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigurationProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: pulumi.Input<number>;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: pulumi.Input<number>;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigurationProductionVariantRoutingConfig {
@@ -68040,6 +68477,10 @@ export namespace sagemaker {
          */
         instanceType?: pulumi.Input<string>;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariantManagedInstanceScaling>;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
@@ -68074,6 +68515,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigurationShadowProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: pulumi.Input<number>;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: pulumi.Input<number>;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigurationShadowProductionVariantRoutingConfig {
@@ -68445,6 +68901,10 @@ export namespace sagemaker {
          */
         imageConfig?: pulumi.Input<inputs.sagemaker.ModelContainerImageConfig>;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: pulumi.Input<string>;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: pulumi.Input<string>;
@@ -68460,6 +68920,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: pulumi.Input<string>;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: pulumi.Input<inputs.sagemaker.ModelContainerMultiModelConfig>;
     }
 
     export interface ModelContainerImageConfig {
@@ -68493,6 +68957,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig>;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: pulumi.Input<string>;
@@ -68500,6 +68968,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: pulumi.Input<boolean>;
+    }
+
+    export interface ModelContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: pulumi.Input<string>;
     }
 
     export interface ModelInferenceExecutionConfig {
@@ -68528,6 +69010,10 @@ export namespace sagemaker {
          */
         imageConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerImageConfig>;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: pulumi.Input<string>;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: pulumi.Input<string>;
@@ -68543,6 +69029,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: pulumi.Input<string>;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerMultiModelConfig>;
     }
 
     export interface ModelPrimaryContainerImageConfig {
@@ -68576,6 +69066,10 @@ export namespace sagemaker {
          */
         compressionType: pulumi.Input<string>;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig>;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: pulumi.Input<string>;
@@ -68583,6 +69077,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: pulumi.Input<string>;
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: pulumi.Input<boolean>;
+    }
+
+    export interface ModelPrimaryContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: pulumi.Input<string>;
     }
 
     export interface ModelVpcConfig {
@@ -68974,6 +69482,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal?: pulumi.Input<string>;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsStudioWebPortalSettings>;
         /**
          * The TensorBoard app settings. See TensorBoard App Settings below.
          */
@@ -69406,6 +69918,17 @@ export namespace sagemaker {
          * The maximum size of the EBS storage volume for a private space.
          */
         maximumEbsVolumeSizeInGb: pulumi.Input<number>;
+    }
+
+    export interface UserProfileUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface UserProfileUserSettingsTensorBoardAppSettings {

@@ -96,11 +96,20 @@ public final class GetUserPoolResult {
      * 
      */
     private String smsVerificationMessage;
-    private String userPoolId;
     /**
-     * @return The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+     * @return Map of tags assigned to the resource.
      * 
      */
+    private Map<String,String> tags;
+    private String userPoolId;
+    /**
+     * @return (Deprecated) Map of tags assigned to the resource.
+     * 
+     * @deprecated
+     * Use the attribute &#34;tags&#34; instead
+     * 
+     */
+    @Deprecated /* Use the attribute ""tags"" instead */
     private Map<String,String> userPoolTags;
     /**
      * @return Specifies whether a user can use an email address or phone number as a username when they sign up.
@@ -226,13 +235,24 @@ public final class GetUserPoolResult {
     public String smsVerificationMessage() {
         return this.smsVerificationMessage;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
     public String userPoolId() {
         return this.userPoolId;
     }
     /**
-     * @return The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+     * @return (Deprecated) Map of tags assigned to the resource.
+     * 
+     * @deprecated
+     * Use the attribute &#34;tags&#34; instead
      * 
      */
+    @Deprecated /* Use the attribute ""tags"" instead */
     public Map<String,String> userPoolTags() {
         return this.userPoolTags;
     }
@@ -273,6 +293,7 @@ public final class GetUserPoolResult {
         private String smsAuthenticationMessage;
         private String smsConfigurationFailure;
         private String smsVerificationMessage;
+        private Map<String,String> tags;
         private String userPoolId;
         private Map<String,String> userPoolTags;
         private List<String> usernameAttributes;
@@ -299,6 +320,7 @@ public final class GetUserPoolResult {
     	      this.smsAuthenticationMessage = defaults.smsAuthenticationMessage;
     	      this.smsConfigurationFailure = defaults.smsConfigurationFailure;
     	      this.smsVerificationMessage = defaults.smsVerificationMessage;
+    	      this.tags = defaults.tags;
     	      this.userPoolId = defaults.userPoolId;
     	      this.userPoolTags = defaults.userPoolTags;
     	      this.usernameAttributes = defaults.usernameAttributes;
@@ -486,6 +508,14 @@ public final class GetUserPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userPoolId(String userPoolId) {
             if (userPoolId == null) {
               throw new MissingRequiredPropertyException("GetUserPoolResult", "userPoolId");
@@ -534,6 +564,7 @@ public final class GetUserPoolResult {
             _resultValue.smsAuthenticationMessage = smsAuthenticationMessage;
             _resultValue.smsConfigurationFailure = smsConfigurationFailure;
             _resultValue.smsVerificationMessage = smsVerificationMessage;
+            _resultValue.tags = tags;
             _resultValue.userPoolId = userPoolId;
             _resultValue.userPoolTags = userPoolTags;
             _resultValue.usernameAttributes = usernameAttributes;

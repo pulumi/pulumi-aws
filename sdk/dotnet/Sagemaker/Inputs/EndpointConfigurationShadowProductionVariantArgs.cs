@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
+        /// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+        /// </summary>
+        [Input("managedInstanceScaling")]
+        public Input<Inputs.EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs>? ManagedInstanceScaling { get; set; }
+
+        /// <summary>
         /// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         /// </summary>
         [Input("modelDataDownloadTimeoutInSeconds")]

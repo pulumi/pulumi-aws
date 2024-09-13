@@ -3198,7 +3198,8 @@ func (o V2modelsSlotTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSetting struct {
-	// Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+	// Sub slots in the composite slot.
+	// See `subSlots` argument reference below.
 	SubSlots []V2modelsSlotTypeCompositeSlotTypeSettingSubSlot `pulumi:"subSlots"`
 }
 
@@ -3214,7 +3215,8 @@ type V2modelsSlotTypeCompositeSlotTypeSettingInput interface {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingArgs struct {
-	// Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+	// Sub slots in the composite slot.
+	// See `subSlots` argument reference below.
 	SubSlots V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayInput `pulumi:"subSlots"`
 }
 
@@ -3295,7 +3297,8 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingOutput) ToV2modelsSlotTypeCompos
 	}).(V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput)
 }
 
-// Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+// Sub slots in the composite slot.
+// See `subSlots` argument reference below.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingOutput) SubSlots() V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSetting) []V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
 		return v.SubSlots
@@ -3326,7 +3329,8 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput) Elem() V2modelsSlotTy
 	}).(V2modelsSlotTypeCompositeSlotTypeSettingOutput)
 }
 
-// Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+// Sub slots in the composite slot.
+// See `subSlots` argument reference below.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput) SubSlots() V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeCompositeSlotTypeSetting) []V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
 		if v == nil {
@@ -3337,9 +3341,7 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput) SubSlots() V2modelsSl
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlot struct {
-	// Name of the slot type
-	//
-	// The following arguments are optional:
+	// Name of a constituent sub slot inside a composite slot.
 	Name      string `pulumi:"name"`
 	SubSlotId string `pulumi:"subSlotId"`
 }
@@ -3356,9 +3358,7 @@ type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotInput interface {
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs struct {
-	// Name of the slot type
-	//
-	// The following arguments are optional:
+	// Name of a constituent sub slot inside a composite slot.
 	Name      pulumi.StringInput `pulumi:"name"`
 	SubSlotId pulumi.StringInput `pulumi:"subSlotId"`
 }
@@ -3414,9 +3414,7 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) ToV2modelsSlotTyp
 	return o
 }
 
-// Name of the slot type
-//
-// The following arguments are optional:
+// Name of a constituent sub slot inside a composite slot.
 func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3446,7 +3444,8 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput) Index(i pulu
 }
 
 type V2modelsSlotTypeExternalSourceSetting struct {
-	// Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+	// Settings required for a slot type based on a grammar that you provide.
+	// See `grammarSlotTypeSetting` argument reference below.
 	GrammarSlotTypeSetting *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting `pulumi:"grammarSlotTypeSetting"`
 }
 
@@ -3462,7 +3461,8 @@ type V2modelsSlotTypeExternalSourceSettingInput interface {
 }
 
 type V2modelsSlotTypeExternalSourceSettingArgs struct {
-	// Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+	// Settings required for a slot type based on a grammar that you provide.
+	// See `grammarSlotTypeSetting` argument reference below.
 	GrammarSlotTypeSetting V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrInput `pulumi:"grammarSlotTypeSetting"`
 }
 
@@ -3543,7 +3543,8 @@ func (o V2modelsSlotTypeExternalSourceSettingOutput) ToV2modelsSlotTypeExternalS
 	}).(V2modelsSlotTypeExternalSourceSettingPtrOutput)
 }
 
-// Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+// Settings required for a slot type based on a grammar that you provide.
+// See `grammarSlotTypeSetting` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingOutput) GrammarSlotTypeSetting() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSetting) *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
 		return v.GrammarSlotTypeSetting
@@ -3574,7 +3575,8 @@ func (o V2modelsSlotTypeExternalSourceSettingPtrOutput) Elem() V2modelsSlotTypeE
 	}).(V2modelsSlotTypeExternalSourceSettingOutput)
 }
 
-// Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+// Settings required for a slot type based on a grammar that you provide.
+// See `grammarSlotTypeSetting` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingPtrOutput) GrammarSlotTypeSetting() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeExternalSourceSetting) *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
 		if v == nil {
@@ -3585,7 +3587,8 @@ func (o V2modelsSlotTypeExternalSourceSettingPtrOutput) GrammarSlotTypeSetting()
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting struct {
-	// Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+	// Source of the grammar used to create the slot type.
+	// See `source` argument reference below.
 	Source *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource `pulumi:"source"`
 }
 
@@ -3601,7 +3604,8 @@ type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingInput interface 
 }
 
 type V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs struct {
-	// Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+	// Source of the grammar used to create the slot type.
+	// See `source` argument reference below.
 	Source V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrInput `pulumi:"source"`
 }
 
@@ -3682,7 +3686,8 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingOutput) ToV2m
 	}).(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrOutput)
 }
 
-// Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+// Source of the grammar used to create the slot type.
+// See `source` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingOutput) Source() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting) *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
 		return v.Source
@@ -3713,7 +3718,8 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrOutput) El
 	}).(V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingOutput)
 }
 
-// Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+// Source of the grammar used to create the slot type.
+// See `source` argument reference below.
 func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingPtrOutput) Source() V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting) *V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource {
 		if v == nil {
@@ -3901,9 +3907,11 @@ func (o V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourcePtrOutp
 }
 
 type V2modelsSlotTypeSlotTypeValues struct {
-	// Value of the slot type entry.  See `sampleValue` argument reference below.
+	// Value of the slot type entry.
+	// See `sampleValue` argument reference below.
 	SampleValues []V2modelsSlotTypeSlotTypeValuesSampleValue `pulumi:"sampleValues"`
-	// Additional values related to the slot type entry. See `sampleValue` argument reference below.
+	// A list of additional values related to the slot type entry.
+	// See `synonyms` argument reference below.
 	Synonyms []V2modelsSlotTypeSlotTypeValuesSynonym `pulumi:"synonyms"`
 }
 
@@ -3919,9 +3927,11 @@ type V2modelsSlotTypeSlotTypeValuesInput interface {
 }
 
 type V2modelsSlotTypeSlotTypeValuesArgs struct {
-	// Value of the slot type entry.  See `sampleValue` argument reference below.
+	// Value of the slot type entry.
+	// See `sampleValue` argument reference below.
 	SampleValues V2modelsSlotTypeSlotTypeValuesSampleValueArrayInput `pulumi:"sampleValues"`
-	// Additional values related to the slot type entry. See `sampleValue` argument reference below.
+	// A list of additional values related to the slot type entry.
+	// See `synonyms` argument reference below.
 	Synonyms V2modelsSlotTypeSlotTypeValuesSynonymArrayInput `pulumi:"synonyms"`
 }
 
@@ -4002,14 +4012,16 @@ func (o V2modelsSlotTypeSlotTypeValuesOutput) ToV2modelsSlotTypeSlotTypeValuesPt
 	}).(V2modelsSlotTypeSlotTypeValuesPtrOutput)
 }
 
-// Value of the slot type entry.  See `sampleValue` argument reference below.
+// Value of the slot type entry.
+// See `sampleValue` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValuesOutput) SampleValues() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSampleValue {
 		return v.SampleValues
 	}).(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput)
 }
 
-// Additional values related to the slot type entry. See `sampleValue` argument reference below.
+// A list of additional values related to the slot type entry.
+// See `synonyms` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValuesOutput) Synonyms() V2modelsSlotTypeSlotTypeValuesSynonymArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSynonym { return v.Synonyms }).(V2modelsSlotTypeSlotTypeValuesSynonymArrayOutput)
 }
@@ -4038,7 +4050,8 @@ func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) Elem() V2modelsSlotTypeSlotType
 	}).(V2modelsSlotTypeSlotTypeValuesOutput)
 }
 
-// Value of the slot type entry.  See `sampleValue` argument reference below.
+// Value of the slot type entry.
+// See `sampleValue` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) SampleValues() V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSampleValue {
 		if v == nil {
@@ -4048,7 +4061,8 @@ func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) SampleValues() V2modelsSlotType
 	}).(V2modelsSlotTypeSlotTypeValuesSampleValueArrayOutput)
 }
 
-// Additional values related to the slot type entry. See `sampleValue` argument reference below.
+// A list of additional values related to the slot type entry.
+// See `synonyms` argument reference below.
 func (o V2modelsSlotTypeSlotTypeValuesPtrOutput) Synonyms() V2modelsSlotTypeSlotTypeValuesSynonymArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeSlotTypeValues) []V2modelsSlotTypeSlotTypeValuesSynonym {
 		if v == nil {
@@ -4428,11 +4442,15 @@ func (o V2modelsSlotTypeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type V2modelsSlotTypeValueSelectionSetting struct {
-	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+	// Provides settings that enable advanced recognition settings for slot values.
+	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+	// See `advancedRecognitionSetting` argument reference below.
 	AdvancedRecognitionSettings []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting `pulumi:"advancedRecognitionSettings"`
-	// Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+	// Used to validate the value of the slot.
+	// See `regexFilter` argument reference below.
 	RegexFilters []V2modelsSlotTypeValueSelectionSettingRegexFilter `pulumi:"regexFilters"`
-	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+	// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 	ResolutionStrategy string `pulumi:"resolutionStrategy"`
 }
 
@@ -4448,11 +4466,15 @@ type V2modelsSlotTypeValueSelectionSettingInput interface {
 }
 
 type V2modelsSlotTypeValueSelectionSettingArgs struct {
-	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+	// Provides settings that enable advanced recognition settings for slot values.
+	// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+	// See `advancedRecognitionSetting` argument reference below.
 	AdvancedRecognitionSettings V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayInput `pulumi:"advancedRecognitionSettings"`
-	// Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+	// Used to validate the value of the slot.
+	// See `regexFilter` argument reference below.
 	RegexFilters V2modelsSlotTypeValueSelectionSettingRegexFilterArrayInput `pulumi:"regexFilters"`
-	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+	// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 	ResolutionStrategy pulumi.StringInput `pulumi:"resolutionStrategy"`
 }
 
@@ -4533,21 +4555,25 @@ func (o V2modelsSlotTypeValueSelectionSettingOutput) ToV2modelsSlotTypeValueSele
 	}).(V2modelsSlotTypeValueSelectionSettingPtrOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+// Provides settings that enable advanced recognition settings for slot values.
+// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+// See `advancedRecognitionSetting` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) AdvancedRecognitionSettings() V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
 		return v.AdvancedRecognitionSettings
 	}).(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput)
 }
 
-// Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+// Used to validate the value of the slot.
+// See `regexFilter` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) RegexFilters() V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingRegexFilter {
 		return v.RegexFilters
 	}).(V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput)
 }
 
-// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 func (o V2modelsSlotTypeValueSelectionSettingOutput) ResolutionStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSetting) string { return v.ResolutionStrategy }).(pulumi.StringOutput)
 }
@@ -4576,7 +4602,9 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) Elem() V2modelsSlotTypeV
 	}).(V2modelsSlotTypeValueSelectionSettingOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+// Provides settings that enable advanced recognition settings for slot values.
+// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+// See `advancedRecognitionSetting` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) AdvancedRecognitionSettings() V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
 		if v == nil {
@@ -4586,7 +4614,8 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) AdvancedRecognitionSetti
 	}).(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutput)
 }
 
-// Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+// Used to validate the value of the slot.
+// See `regexFilter` argument reference below.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) RegexFilters() V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) []V2modelsSlotTypeValueSelectionSettingRegexFilter {
 		if v == nil {
@@ -4596,7 +4625,8 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) RegexFilters() V2modelsS
 	}).(V2modelsSlotTypeValueSelectionSettingRegexFilterArrayOutput)
 }
 
-// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
 func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) ResolutionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlotTypeValueSelectionSetting) *string {
 		if v == nil {
@@ -4607,7 +4637,9 @@ func (o V2modelsSlotTypeValueSelectionSettingPtrOutput) ResolutionStrategy() pul
 }
 
 type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting struct {
-	AudioRecognitionSetting *string `pulumi:"audioRecognitionSetting"`
+	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+	// Valid value is `UseSlotValuesAsCustomVocabulary`.
+	AudioRecognitionStrategy *string `pulumi:"audioRecognitionStrategy"`
 }
 
 // V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingInput is an input type that accepts V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs and V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput values.
@@ -4622,7 +4654,9 @@ type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingInput interf
 }
 
 type V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs struct {
-	AudioRecognitionSetting pulumi.StringPtrInput `pulumi:"audioRecognitionSetting"`
+	// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+	// Valid value is `UseSlotValuesAsCustomVocabulary`.
+	AudioRecognitionStrategy pulumi.StringPtrInput `pulumi:"audioRecognitionStrategy"`
 }
 
 func (V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs) ElementType() reflect.Type {
@@ -4676,9 +4710,11 @@ func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput) T
 	return o
 }
 
-func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput) AudioRecognitionSetting() pulumi.StringPtrOutput {
+// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+// Valid value is `UseSlotValuesAsCustomVocabulary`.
+func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingOutput) AudioRecognitionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting) *string {
-		return v.AudioRecognitionSetting
+		return v.AudioRecognitionStrategy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4703,8 +4739,7 @@ func (o V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArrayOutp
 }
 
 type V2modelsSlotTypeValueSelectionSettingRegexFilter struct {
-	// Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-	// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+	// A regular expression used to validate the value of a slot.
 	Pattern string `pulumi:"pattern"`
 }
 
@@ -4720,8 +4755,7 @@ type V2modelsSlotTypeValueSelectionSettingRegexFilterInput interface {
 }
 
 type V2modelsSlotTypeValueSelectionSettingRegexFilterArgs struct {
-	// Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-	// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+	// A regular expression used to validate the value of a slot.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
 }
 
@@ -4776,8 +4810,7 @@ func (o V2modelsSlotTypeValueSelectionSettingRegexFilterOutput) ToV2modelsSlotTy
 	return o
 }
 
-// Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-// Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+// A regular expression used to validate the value of a slot.
 func (o V2modelsSlotTypeValueSelectionSettingRegexFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v V2modelsSlotTypeValueSelectionSettingRegexFilter) string { return v.Pattern }).(pulumi.StringOutput)
 }

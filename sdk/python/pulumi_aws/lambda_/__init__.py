@@ -11,6 +11,7 @@ from .code_signing_config import *
 from .event_source_mapping import *
 from .function import *
 from .function_event_invoke_config import *
+from .function_recursion_config import *
 from .function_url import *
 from .get_alias import *
 from .get_code_signing_config import *

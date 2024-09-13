@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> UserName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
         /// </summary>
         [Output("userRole")]
         public Output<string> UserRole { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
         /// </summary>
         [Input("userRole", required: true)]
         public Input<string> UserRole { get; set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? UserName { get; set; }
 
         /// <summary>
-        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+        /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
         /// </summary>
         [Input("userRole")]
         public Input<string>? UserRole { get; set; }

@@ -11,11 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
-    private @Nullable String audioRecognitionSetting;
+    /**
+     * @return Enables using the slot values as a custom vocabulary for recognizing user utterances.
+     * Valid value is `UseSlotValuesAsCustomVocabulary`.
+     * 
+     */
+    private @Nullable String audioRecognitionStrategy;
 
     private V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting() {}
-    public Optional<String> audioRecognitionSetting() {
-        return Optional.ofNullable(this.audioRecognitionSetting);
+    /**
+     * @return Enables using the slot values as a custom vocabulary for recognizing user utterances.
+     * Valid value is `UseSlotValuesAsCustomVocabulary`.
+     * 
+     */
+    public Optional<String> audioRecognitionStrategy() {
+        return Optional.ofNullable(this.audioRecognitionStrategy);
     }
 
     public static Builder builder() {
@@ -27,22 +37,22 @@ public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetti
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String audioRecognitionSetting;
+        private @Nullable String audioRecognitionStrategy;
         public Builder() {}
         public Builder(V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.audioRecognitionSetting = defaults.audioRecognitionSetting;
+    	      this.audioRecognitionStrategy = defaults.audioRecognitionStrategy;
         }
 
         @CustomType.Setter
-        public Builder audioRecognitionSetting(@Nullable String audioRecognitionSetting) {
+        public Builder audioRecognitionStrategy(@Nullable String audioRecognitionStrategy) {
 
-            this.audioRecognitionSetting = audioRecognitionSetting;
+            this.audioRecognitionStrategy = audioRecognitionStrategy;
             return this;
         }
         public V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting build() {
             final var _resultValue = new V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting();
-            _resultValue.audioRecognitionSetting = audioRecognitionSetting;
+            _resultValue.audioRecognitionStrategy = audioRecognitionStrategy;
             return _resultValue;
         }
     }

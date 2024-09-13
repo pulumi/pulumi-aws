@@ -1201,6 +1201,13 @@ export namespace amplify {
         stage?: string;
     }
 
+    export interface AppCacheConfig {
+        /**
+         * Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+         */
+        type: string;
+    }
+
     export interface AppCustomRule {
         /**
          * Condition for a URL rewrite or redirect rule, such as a country code.
@@ -13185,6 +13192,95 @@ export namespace cloudformation {
         logRoleArn: string;
     }
 
+    export interface StackInstancesDeploymentTargets {
+        /**
+         * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         */
+        accountFilterType?: string;
+        /**
+         * List of accounts to deploy stack set updates.
+         */
+        accounts?: string[];
+        /**
+         * S3 URL of the file containing the list of accounts.
+         */
+        accountsUrl?: string;
+        /**
+         * Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+         */
+        organizationalUnitIds?: string[];
+    }
+
+    export interface StackInstancesOperationPreferences {
+        /**
+         * How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         */
+        concurrencyMode?: string;
+        /**
+         * Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureToleranceCount?: number;
+        /**
+         * Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureTolerancePercentage?: number;
+        /**
+         * Maximum number of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentCount?: number;
+        /**
+         * Maximum percentage of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentPercentage?: number;
+        /**
+         * Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         */
+        regionConcurrencyType?: string;
+        /**
+         * Order of the regions where you want to perform the stack operation.
+         */
+        regionOrders?: string[];
+    }
+
+    export interface StackInstancesStackInstanceSummary {
+        /**
+         * Account ID in which the instance is deployed.
+         */
+        accountId: string;
+        /**
+         * Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+         */
+        detailedStatus: string;
+        /**
+         * Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+         */
+        driftStatus: string;
+        /**
+         * Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+         */
+        organizationalUnitId: string;
+        /**
+         * Region that the stack instance is associated with.
+         */
+        region: string;
+        /**
+         * ID of the stack instance.
+         */
+        stackId: string;
+        /**
+         * Name or unique ID of the stack set that the stack instance is associated with.
+         */
+        stackSetId: string;
+        /**
+         * Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+         */
+        status: string;
+        /**
+         * Explanation for the specific status code assigned to this stack instance.
+         */
+        statusReason: string;
+    }
+
     export interface StackSetAutoDeployment {
         /**
          * Whether or not auto-deployment is enabled.
@@ -15602,6 +15698,123 @@ export namespace codeartifact {
 }
 
 export namespace codebuild {
+    export interface FleetScalingConfiguration {
+        desiredCapacity: number;
+        /**
+         * Maximum number of instances in the ﬂeet when auto-scaling.
+         */
+        maxCapacity?: number;
+        /**
+         * Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+         */
+        scalingType?: string;
+        /**
+         * Configuration block. Detailed below.
+         */
+        targetTrackingScalingConfigs?: outputs.codebuild.FleetScalingConfigurationTargetTrackingScalingConfig[];
+    }
+
+    export interface FleetScalingConfigurationTargetTrackingScalingConfig {
+        /**
+         * Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+         */
+        metricType?: string;
+        /**
+         * Value of metricType when to start scaling.
+         */
+        targetValue?: number;
+    }
+
+    export interface FleetStatus {
+        /**
+         * Additional information about a compute fleet.
+         */
+        context: string;
+        /**
+         * Message associated with the status of a compute fleet.
+         */
+        message: string;
+        /**
+         * Status code of the compute fleet.
+         */
+        statusCode: string;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
+        subnets: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: string;
+    }
+
+    export interface GetFleetScalingConfiguration {
+        /**
+         * The desired number of instances in the ﬂeet when auto-scaling.
+         */
+        desiredCapacity: number;
+        /**
+         * The maximum number of instances in the ﬂeet when auto-scaling.
+         */
+        maxCapacity: number;
+        /**
+         * The scaling type for a compute fleet.
+         */
+        scalingType: string;
+        /**
+         * Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+         */
+        targetTrackingScalingConfigs: outputs.codebuild.GetFleetScalingConfigurationTargetTrackingScalingConfig[];
+    }
+
+    export interface GetFleetScalingConfigurationTargetTrackingScalingConfig {
+        /**
+         * The metric type to determine auto-scaling.
+         */
+        metricType: string;
+        /**
+         * The value of metricType when to start scaling.
+         */
+        targetValue: number;
+    }
+
+    export interface GetFleetStatus {
+        /**
+         * Additional information about a compute fleet.
+         */
+        context: string;
+        /**
+         * Message associated with the status of a compute fleet.
+         */
+        message: string;
+        /**
+         * Status code of the compute fleet.
+         */
+        statusCode: string;
+    }
+
+    export interface GetFleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
+        subnets: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: string;
+    }
+
     export interface ProjectArtifacts {
         /**
          * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -15704,6 +15917,10 @@ export namespace codebuild {
          */
         environmentVariables?: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
         /**
+         * Configuration block. Detailed below.
+         */
+        fleet?: outputs.codebuild.ProjectEnvironmentFleet;
+        /**
          * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: string;
@@ -15738,6 +15955,13 @@ export namespace codebuild {
          * Environment variable's value.
          */
         value: string;
+    }
+
+    export interface ProjectEnvironmentFleet {
+        /**
+         * Compute fleet ARN for the build project.
+         */
+        fleetArn?: string;
     }
 
     export interface ProjectEnvironmentRegistryCredential {
@@ -17962,8 +18186,99 @@ export namespace comprehend {
 
 }
 
+export namespace computeoptimizer {
+    export interface EnrollmentStatusTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface RecommendationPreferencesExternalMetricsPreference {
+        /**
+         * The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
+         */
+        source: string;
+    }
+
+    export interface RecommendationPreferencesPreferredResource {
+        /**
+         * The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
+         */
+        excludeLists?: string[];
+        /**
+         * The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
+         */
+        includeLists?: string[];
+        name: string;
+    }
+
+    export interface RecommendationPreferencesScope {
+        /**
+         * The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
+         */
+        name: string;
+        /**
+         * The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+         */
+        value: string;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreference {
+        /**
+         * The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
+         */
+        metricName: string;
+        /**
+         * The parameters to set when customizing the resource utilization thresholds.
+         */
+        metricParameters?: outputs.computeoptimizer.RecommendationPreferencesUtilizationPreferenceMetricParameters;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreferenceMetricParameters {
+        /**
+         * The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
+         */
+        headroom: string;
+        /**
+         * The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+         */
+        threshold?: string;
+    }
+
+}
+
 export namespace config {
-    export interface AssumeRole {
+    export interface AssumeRoleWithWebIdentity {
+        /**
+         * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+         */
+        duration?: string;
+        /**
+         * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+         */
+        policy?: string;
+        /**
+         * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+         */
+        policyArns?: string[];
+        /**
+         * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+         */
+        roleArn?: string;
+        /**
+         * An identifier for the assumed role session.
+         */
+        sessionName?: string;
+        webIdentityToken?: string;
+        webIdentityTokenFile?: string;
+    }
+
+    export interface AssumeRoles {
         /**
          * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
          */
@@ -18000,31 +18315,6 @@ export namespace config {
          * Assume role session tag keys to pass to any subsequent sessions.
          */
         transitiveTagKeys?: string[];
-    }
-
-    export interface AssumeRoleWithWebIdentity {
-        /**
-         * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-         */
-        duration?: string;
-        /**
-         * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-         */
-        policy?: string;
-        /**
-         * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-         */
-        policyArns?: string[];
-        /**
-         * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-         */
-        roleArn?: string;
-        /**
-         * An identifier for the assumed role session.
-         */
-        sessionName?: string;
-        webIdentityToken?: string;
-        webIdentityTokenFile?: string;
     }
 
     export interface DefaultTags {
@@ -23213,6 +23503,20 @@ export namespace datasync {
 }
 
 export namespace datazone {
+    export interface AssetTypeFormsInput {
+        mapBlockKey: string;
+        required?: boolean;
+        typeIdentifier: string;
+        typeRevision: string;
+    }
+
+    export interface AssetTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface DomainSingleSignOn {
         type: string;
         userAssignment?: string;
@@ -40130,7 +40434,7 @@ export namespace imagebuilder {
 
     export interface ImageRecipeSystemsManagerAgent {
         /**
-         * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         * Whether to remove the Systems Manager Agent after the image has been built.
          */
         uninstallAfterBuild: boolean;
     }
@@ -44063,6 +44367,14 @@ export namespace kinesis {
          * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          */
         accountUrl: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+         */
+        bufferingSize?: number;
         /**
          * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
@@ -58860,16 +59172,15 @@ export namespace lex {
 
     export interface V2modelsSlotTypeCompositeSlotTypeSetting {
         /**
-         * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+         * Sub slots in the composite slot.
+         * See `subSlots` argument reference below.
          */
         subSlots: outputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot[];
     }
 
     export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
         /**
-         * Name of the slot type
-         *
-         * The following arguments are optional:
+         * Name of a constituent sub slot inside a composite slot.
          */
         name: string;
         subSlotId: string;
@@ -58877,14 +59188,16 @@ export namespace lex {
 
     export interface V2modelsSlotTypeExternalSourceSetting {
         /**
-         * Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+         * Settings required for a slot type based on a grammar that you provide.
+         * See `grammarSlotTypeSetting` argument reference below.
          */
         grammarSlotTypeSetting?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting;
     }
 
     export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
         /**
-         * Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+         * Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
          */
         source?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource;
     }
@@ -58906,11 +59219,13 @@ export namespace lex {
 
     export interface V2modelsSlotTypeSlotTypeValues {
         /**
-         * Value of the slot type entry.  See `sampleValue` argument reference below.
+         * Value of the slot type entry.
+         * See `sampleValue` argument reference below.
          */
         sampleValues?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSampleValue[];
         /**
-         * Additional values related to the slot type entry. See `sampleValue` argument reference below.
+         * A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          */
         synonyms?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym[];
     }
@@ -58946,27 +59261,34 @@ export namespace lex {
 
     export interface V2modelsSlotTypeValueSelectionSetting {
         /**
-         * Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+         * Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advancedRecognitionSetting` argument reference below.
          */
         advancedRecognitionSettings?: outputs.lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting[];
         /**
-         * Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+         * Used to validate the value of the slot.
+         * See `regexFilter` argument reference below.
          */
         regexFilters?: outputs.lex.V2modelsSlotTypeValueSelectionSettingRegexFilter[];
         /**
-         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
          */
         resolutionStrategy: string;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
-        audioRecognitionSetting?: string;
+        /**
+         * Enables using the slot values as a custom vocabulary for recognizing user utterances.
+         * Valid value is `UseSlotValuesAsCustomVocabulary`.
+         */
+        audioRecognitionStrategy?: string;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
         /**
-         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         * A regular expression used to validate the value of a slot.
          */
         pattern: string;
     }
@@ -75277,9 +75599,21 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettings {
         /**
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
+         */
+        customFileSystemConfigs?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfig[];
+        /**
+         * Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
+         */
+        customPosixUserConfig?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomPosixUserConfig;
+        /**
          * The execution role for the space.
          */
         executionRole: string;
+        /**
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
@@ -75292,6 +75626,103 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          */
         securityGroups?: string[];
+        /**
+         * The storage settings for a private space. See `spaceStorageSettings` Block below.
+         */
+        spaceStorageSettings: outputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettings;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfig {
+        /**
+         * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
+         */
+        efsFileSystemConfig?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: string;
+        /**
+         * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         */
+        fileSystemPath: string;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomPosixUserConfig {
+        /**
+         * The POSIX group ID.
+         */
+        gid: number;
+        /**
+         * The POSIX user ID.
+         */
+        uid: number;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
+         */
+        codeRepositories?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository[];
+        /**
+         * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
+         */
+        customImages?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
@@ -75392,6 +75823,24 @@ export namespace sagemaker {
         sagemakerImageVersionArn?: string;
     }
 
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettings {
+        /**
+         * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
+         */
+        defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings;
+    }
+
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+        /**
+         * The default size of the EBS storage volume for a private space.
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * The maximum size of the EBS storage volume for a private space.
+         */
+        maximumEbsVolumeSizeInGb: number;
+    }
+
     export interface DomainDefaultUserSettings {
         /**
          * The Canvas app settings. See `canvasAppSettings` Block below.
@@ -75453,6 +75902,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal: string;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.DomainDefaultUserSettingsStudioWebPortalSettings;
         /**
          * The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
          */
@@ -75890,6 +76343,17 @@ export namespace sagemaker {
         maximumEbsVolumeSizeInGb: number;
     }
 
+    export interface DomainDefaultUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: string[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: string[];
+    }
+
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
@@ -75922,6 +76386,10 @@ export namespace sagemaker {
 
     export interface DomainDomainSettings {
         /**
+         * A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
+         */
+        dockerSettings?: outputs.sagemaker.DomainDomainSettingsDockerSettings;
+        /**
          * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
          */
         executionRoleIdentityConfig?: string;
@@ -75933,6 +76401,17 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
          */
         securityGroupIds?: string[];
+    }
+
+    export interface DomainDomainSettingsDockerSettings {
+        /**
+         * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+         */
+        enableDockerAccess?: string;
+        /**
+         * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+         */
+        vpcOnlyTrustedAccounts?: string[];
     }
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
@@ -76115,6 +76594,10 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigurationProductionVariantManagedInstanceScaling;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: number;
@@ -76149,6 +76632,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
+    }
+
+    export interface EndpointConfigurationProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: number;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: number;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface EndpointConfigurationProductionVariantRoutingConfig {
@@ -76207,6 +76705,10 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantManagedInstanceScaling;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: number;
@@ -76241,6 +76743,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId: string;
+    }
+
+    export interface EndpointConfigurationShadowProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: number;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: number;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface EndpointConfigurationShadowProductionVariantRoutingConfig {
@@ -76612,6 +77129,10 @@ export namespace sagemaker {
          */
         imageConfig?: outputs.sagemaker.ModelContainerImageConfig;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: string;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -76627,6 +77148,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: string;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: outputs.sagemaker.ModelContainerMultiModelConfig;
     }
 
     export interface ModelContainerImageConfig {
@@ -76660,6 +77185,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: outputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: string;
@@ -76667,6 +77196,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: boolean;
+    }
+
+    export interface ModelContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: string;
     }
 
     export interface ModelInferenceExecutionConfig {
@@ -76695,6 +77238,10 @@ export namespace sagemaker {
          */
         imageConfig?: outputs.sagemaker.ModelPrimaryContainerImageConfig;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: string;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -76710,6 +77257,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: string;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: outputs.sagemaker.ModelPrimaryContainerMultiModelConfig;
     }
 
     export interface ModelPrimaryContainerImageConfig {
@@ -76743,6 +77294,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: string;
@@ -76750,6 +77305,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: boolean;
+    }
+
+    export interface ModelPrimaryContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: string;
     }
 
     export interface ModelVpcConfig {
@@ -77141,6 +77710,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal: string;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.UserProfileUserSettingsStudioWebPortalSettings;
         /**
          * The TensorBoard app settings. See TensorBoard App Settings below.
          */
@@ -77573,6 +78146,17 @@ export namespace sagemaker {
          * The maximum size of the EBS storage volume for a private space.
          */
         maximumEbsVolumeSizeInGb: number;
+    }
+
+    export interface UserProfileUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: string[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: string[];
     }
 
     export interface UserProfileUserSettingsTensorBoardAppSettings {

@@ -169,11 +169,16 @@ namespace Pulumi.Aws
             set => _allowedAccountIds = value;
         }
 
-        [Input("assumeRole", json: true)]
-        public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
-
         [Input("assumeRoleWithWebIdentity", json: true)]
         public Input<Inputs.ProviderAssumeRoleWithWebIdentityArgs>? AssumeRoleWithWebIdentity { get; set; }
+
+        [Input("assumeRoles", json: true)]
+        private InputList<Inputs.ProviderAssumeRoleArgs>? _assumeRoles;
+        public InputList<Inputs.ProviderAssumeRoleArgs> AssumeRoles
+        {
+            get => _assumeRoles ?? (_assumeRoles = new InputList<Inputs.ProviderAssumeRoleArgs>());
+            set => _assumeRoles = value;
+        }
 
         /// <summary>
         /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment

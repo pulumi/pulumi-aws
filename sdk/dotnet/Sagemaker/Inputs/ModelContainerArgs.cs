@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.ModelContainerImageConfigArgs>? ImageConfig { get; set; }
 
         /// <summary>
+        /// The inference specification name in the model package version.
+        /// </summary>
+        [Input("inferenceSpecificationName")]
+        public Input<string>? InferenceSpecificationName { get; set; }
+
+        /// <summary>
         /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         /// </summary>
         [Input("mode")]
@@ -66,6 +72,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("modelPackageName")]
         public Input<string>? ModelPackageName { get; set; }
+
+        /// <summary>
+        /// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        /// </summary>
+        [Input("multiModelConfig")]
+        public Input<Inputs.ModelContainerMultiModelConfigArgs>? MultiModelConfig { get; set; }
 
         public ModelContainerArgs()
         {

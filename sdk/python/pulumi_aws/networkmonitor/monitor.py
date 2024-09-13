@@ -319,7 +319,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aggregationPeriod")
-    def aggregation_period(self) -> pulumi.Output[Optional[int]]:
+    def aggregation_period(self) -> pulumi.Output[int]:
         """
         The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         """

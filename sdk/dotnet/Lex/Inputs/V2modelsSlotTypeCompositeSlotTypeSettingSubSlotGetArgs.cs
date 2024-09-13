@@ -13,9 +13,7 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the slot type
-        /// 
-        /// The following arguments are optional:
+        /// Name of a constituent sub slot inside a composite slot.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

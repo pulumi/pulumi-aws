@@ -135,10 +135,12 @@ import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
+import * as computeoptimizer from "./computeoptimizer";
 import * as config from "./config";
 import * as connect from "./connect";
 import * as controltower from "./controltower";
 import * as costexplorer from "./costexplorer";
+import * as costoptimizationhub from "./costoptimizationhub";
 import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as dataexchange from "./dataexchange";
@@ -350,10 +352,12 @@ export {
     codestarnotifications,
     cognito,
     comprehend,
+    computeoptimizer,
     config,
     connect,
     controltower,
     costexplorer,
+    costoptimizationhub,
     cur,
     customerprofiles,
     dataexchange,

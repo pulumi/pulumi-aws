@@ -298,7 +298,7 @@ type App struct {
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
 	// ARN of the Amplify app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigOutput `pulumi:"autoBranchCreationConfig"`
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayOutput `pulumi:"autoBranchCreationPatterns"`
@@ -306,9 +306,11 @@ type App struct {
 	BasicAuthCredentials pulumi.StringPtrOutput `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringOutput `pulumi:"buildSpec"`
+	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+	CacheConfig AppCacheConfigOutput `pulumi:"cacheConfig"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringOutput `pulumi:"customHeaders"`
-	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 	CustomRules AppCustomRuleArrayOutput `pulumi:"customRules"`
 	// Default domain for the Amplify app.
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
@@ -393,7 +395,7 @@ type appState struct {
 	AccessToken *string `pulumi:"accessToken"`
 	// ARN of the Amplify app.
 	Arn *string `pulumi:"arn"`
-	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
@@ -401,9 +403,11 @@ type appState struct {
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
 	// Default domain for the Amplify app.
 	DefaultDomain *string `pulumi:"defaultDomain"`
@@ -444,7 +448,7 @@ type AppState struct {
 	AccessToken pulumi.StringPtrInput
 	// ARN of the Amplify app.
 	Arn pulumi.StringPtrInput
-	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayInput
@@ -452,9 +456,11 @@ type AppState struct {
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
+	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+	CacheConfig AppCacheConfigPtrInput
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
-	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 	CustomRules AppCustomRuleArrayInput
 	// Default domain for the Amplify app.
 	DefaultDomain pulumi.StringPtrInput
@@ -497,7 +503,7 @@ func (AppState) ElementType() reflect.Type {
 type appArgs struct {
 	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken *string `pulumi:"accessToken"`
-	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
@@ -505,9 +511,11 @@ type appArgs struct {
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+	CacheConfig *AppCacheConfig `pulumi:"cacheConfig"`
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
 	// Description for an Amplify app.
 	Description *string `pulumi:"description"`
@@ -539,7 +547,7 @@ type appArgs struct {
 type AppArgs struct {
 	// Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
 	AccessToken pulumi.StringPtrInput
-	// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+	// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
 	// Automated branch creation glob patterns for an Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayInput
@@ -547,9 +555,11 @@ type AppArgs struct {
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
+	// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+	CacheConfig AppCacheConfigPtrInput
 	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 	CustomHeaders pulumi.StringPtrInput
-	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+	// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 	CustomRules AppCustomRuleArrayInput
 	// Description for an Amplify app.
 	Description pulumi.StringPtrInput
@@ -674,7 +684,7 @@ func (o AppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
+// Automated branch creation configuration for an Amplify app. See `autoBranchCreationConfig` Block for details.
 func (o AppOutput) AutoBranchCreationConfig() AppAutoBranchCreationConfigOutput {
 	return o.ApplyT(func(v *App) AppAutoBranchCreationConfigOutput { return v.AutoBranchCreationConfig }).(AppAutoBranchCreationConfigOutput)
 }
@@ -694,12 +704,17 @@ func (o AppOutput) BuildSpec() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.BuildSpec }).(pulumi.StringOutput)
 }
 
+// Cache configuration for the Amplify app. See `cacheConfig` Block for details.
+func (o AppOutput) CacheConfig() AppCacheConfigOutput {
+	return o.ApplyT(func(v *App) AppCacheConfigOutput { return v.CacheConfig }).(AppCacheConfigOutput)
+}
+
 // The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
 func (o AppOutput) CustomHeaders() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.CustomHeaders }).(pulumi.StringOutput)
 }
 
-// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
+// Custom rewrite and redirect rules for an Amplify app. See `customRule` Block for details.
 func (o AppOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v *App) AppCustomRuleArrayOutput { return v.CustomRules }).(AppCustomRuleArrayOutput)
 }

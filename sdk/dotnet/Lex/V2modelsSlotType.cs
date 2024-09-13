@@ -24,17 +24,11 @@ namespace Pulumi.Aws.Lex
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.Iam.RolePolicyAttachment("test", new()
+    ///     var example = new Aws.Lex.V2modelsBot("example", new()
     ///     {
-    ///         Role = testAwsIamRole.Name,
-    ///         PolicyArn = $"arn:{current.Partition}:iam::aws:policy/AmazonLexFullAccess",
-    ///     });
-    /// 
-    ///     var testV2modelsBot = new Aws.Lex.V2modelsBot("test", new()
-    ///     {
-    ///         Name = "testbot",
+    ///         Name = "example",
     ///         IdleSessionTtlInSeconds = 60,
-    ///         RoleArn = testAwsIamRole.Arn,
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -44,18 +38,18 @@ namespace Pulumi.Aws.Lex
     ///         },
     ///     });
     /// 
-    ///     var testV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("test", new()
+    ///     var exampleV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("example", new()
     ///     {
     ///         LocaleId = "en_US",
-    ///         BotId = testV2modelsBot.Id,
+    ///         BotId = example.Id,
     ///         BotVersion = "DRAFT",
     ///         NLuIntentConfidenceThreshold = 0.7,
     ///     });
     /// 
-    ///     var testV2modelsBotVersion = new Aws.Lex.V2modelsBotVersion("test", new()
+    ///     var exampleV2modelsBotVersion = new Aws.Lex.V2modelsBotVersion("example", new()
     ///     {
-    ///         BotId = testV2modelsBot.Id,
-    ///         LocaleSpecification = testV2modelsBotLocale.LocaleId.Apply(localeId =&gt; 
+    ///         BotId = example.Id,
+    ///         LocaleSpecification = exampleV2modelsBotLocale.LocaleId.Apply(localeId =&gt; 
     ///         {
     ///             { localeId, 
     ///             {
@@ -64,12 +58,54 @@ namespace Pulumi.Aws.Lex
     ///         }),
     ///     });
     /// 
-    ///     var testV2modelsSlotType = new Aws.Lex.V2modelsSlotType("test", new()
+    ///     var exampleV2modelsSlotType = new Aws.Lex.V2modelsSlotType("example", new()
     ///     {
-    ///         BotId = testV2modelsBot.Id,
-    ///         BotVersion = testV2modelsBotLocale.BotVersion,
-    ///         Name = "test",
-    ///         LocaleId = testV2modelsBotLocale.LocaleId,
+    ///         BotId = example.Id,
+    ///         BotVersion = exampleV2modelsBotLocale.BotVersion,
+    ///         Name = "example",
+    ///         LocaleId = exampleV2modelsBotLocale.LocaleId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### `value_selection_setting` Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lex.V2modelsSlotType("example", new()
+    ///     {
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = exampleAwsLexv2modelsBotLocale.BotVersion,
+    ///         Name = "example",
+    ///         LocaleId = exampleAwsLexv2modelsBotLocale.LocaleId,
+    ///         ValueSelectionSetting = new Aws.Lex.Inputs.V2modelsSlotTypeValueSelectionSettingArgs
+    ///         {
+    ///             ResolutionStrategy = "OriginalValue",
+    ///             AdvancedRecognitionSettings = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs
+    ///                 {
+    ///                     AudioRecognitionStrategy = "UseSlotValuesAsCustomVocabulary",
+    ///                 },
+    ///             },
+    ///         },
+    ///         SlotTypeValues = new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValuesArgs
+    ///         {
+    ///             SampleValues = new[]
+    ///             {
+    ///                 new Aws.Lex.Inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs
+    ///                 {
+    ///                     Value = "exampleValue",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -77,7 +113,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Slot Type using the `example_id_arg`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
@@ -99,7 +135,8 @@ namespace Pulumi.Aws.Lex
         public Output<string> BotVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+        /// Specifications for a composite slot type.
+        /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
         [Output("compositeSlotTypeSetting")]
         public Output<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting?> CompositeSlotTypeSetting { get; private set; } = null!;
@@ -111,19 +148,21 @@ namespace Pulumi.Aws.Lex
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+        /// Type of external information used to create the slot type.
+        /// See `external_source_setting` argument reference below.
         /// </summary>
         [Output("externalSourceSetting")]
         public Output<Outputs.V2modelsSlotTypeExternalSourceSetting?> ExternalSourceSetting { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+        /// Identifier of the language and locale where this slot type is used.
+        /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
         [Output("localeId")]
         public Output<string> LocaleId { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the slot type
+        /// Name of the slot type.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -131,16 +170,23 @@ namespace Pulumi.Aws.Lex
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+        /// Built-in slot type used as a parent of this slot type.
+        /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+        /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
         [Output("parentSlotTypeSignature")]
         public Output<string?> ParentSlotTypeSignature { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier for the slot type.
+        /// </summary>
         [Output("slotTypeId")]
         public Output<string> SlotTypeId { get; private set; } = null!;
 
         /// <summary>
-        /// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        /// List of SlotTypeValue objects that defines the values that the slot type can take.
+        /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+        /// See `slot_type_values` argument reference below.
         /// </summary>
         [Output("slotTypeValues")]
         public Output<Outputs.V2modelsSlotTypeSlotTypeValues?> SlotTypeValues { get; private set; } = null!;
@@ -149,7 +195,8 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.V2modelsSlotTypeTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don't specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        /// See `value_selection_setting` argument reference below.
         /// </summary>
         [Output("valueSelectionSetting")]
         public Output<Outputs.V2modelsSlotTypeValueSelectionSetting?> ValueSelectionSetting { get; private set; } = null!;
@@ -213,7 +260,8 @@ namespace Pulumi.Aws.Lex
         public Input<string> BotVersion { get; set; } = null!;
 
         /// <summary>
-        /// Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+        /// Specifications for a composite slot type.
+        /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
         [Input("compositeSlotTypeSetting")]
         public Input<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs>? CompositeSlotTypeSetting { get; set; }
@@ -225,19 +273,21 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+        /// Type of external information used to create the slot type.
+        /// See `external_source_setting` argument reference below.
         /// </summary>
         [Input("externalSourceSetting")]
         public Input<Inputs.V2modelsSlotTypeExternalSourceSettingArgs>? ExternalSourceSetting { get; set; }
 
         /// <summary>
-        /// Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+        /// Identifier of the language and locale where this slot type is used.
+        /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
         [Input("localeId", required: true)]
         public Input<string> LocaleId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the slot type
+        /// Name of the slot type.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -245,13 +295,17 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+        /// Built-in slot type used as a parent of this slot type.
+        /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+        /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
         /// <summary>
-        /// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        /// List of SlotTypeValue objects that defines the values that the slot type can take.
+        /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+        /// See `slot_type_values` argument reference below.
         /// </summary>
         [Input("slotTypeValues")]
         public Input<Inputs.V2modelsSlotTypeSlotTypeValuesArgs>? SlotTypeValues { get; set; }
@@ -260,7 +314,8 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsSlotTypeTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don't specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        /// See `value_selection_setting` argument reference below.
         /// </summary>
         [Input("valueSelectionSetting")]
         public Input<Inputs.V2modelsSlotTypeValueSelectionSettingArgs>? ValueSelectionSetting { get; set; }
@@ -286,7 +341,8 @@ namespace Pulumi.Aws.Lex
         public Input<string>? BotVersion { get; set; }
 
         /// <summary>
-        /// Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+        /// Specifications for a composite slot type.
+        /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
         [Input("compositeSlotTypeSetting")]
         public Input<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingGetArgs>? CompositeSlotTypeSetting { get; set; }
@@ -298,19 +354,21 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+        /// Type of external information used to create the slot type.
+        /// See `external_source_setting` argument reference below.
         /// </summary>
         [Input("externalSourceSetting")]
         public Input<Inputs.V2modelsSlotTypeExternalSourceSettingGetArgs>? ExternalSourceSetting { get; set; }
 
         /// <summary>
-        /// Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+        /// Identifier of the language and locale where this slot type is used.
+        /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
         [Input("localeId")]
         public Input<string>? LocaleId { get; set; }
 
         /// <summary>
-        /// Name of the slot type
+        /// Name of the slot type.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -318,16 +376,23 @@ namespace Pulumi.Aws.Lex
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+        /// Built-in slot type used as a parent of this slot type.
+        /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+        /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
         [Input("parentSlotTypeSignature")]
         public Input<string>? ParentSlotTypeSignature { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the slot type.
+        /// </summary>
         [Input("slotTypeId")]
         public Input<string>? SlotTypeId { get; set; }
 
         /// <summary>
-        /// List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        /// List of SlotTypeValue objects that defines the values that the slot type can take.
+        /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+        /// See `slot_type_values` argument reference below.
         /// </summary>
         [Input("slotTypeValues")]
         public Input<Inputs.V2modelsSlotTypeSlotTypeValuesGetArgs>? SlotTypeValues { get; set; }
@@ -336,7 +401,8 @@ namespace Pulumi.Aws.Lex
         public Input<Inputs.V2modelsSlotTypeTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don't specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+        /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+        /// See `value_selection_setting` argument reference below.
         /// </summary>
         [Input("valueSelectionSetting")]
         public Input<Inputs.V2modelsSlotTypeValueSelectionSettingGetArgs>? ValueSelectionSetting { get; set; }

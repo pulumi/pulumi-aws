@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsDockerSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class DomainDomainSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDomainSettingsArgs Empty = new DomainDomainSettingsArgs();
+
+    /**
+     * A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * 
+     */
+    @Import(name="dockerSettings")
+    private @Nullable Output<DomainDomainSettingsDockerSettingsArgs> dockerSettings;
+
+    /**
+     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDomainSettingsDockerSettingsArgs>> dockerSettings() {
+        return Optional.ofNullable(this.dockerSettings);
+    }
 
     /**
      * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
@@ -65,6 +81,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     private DomainDomainSettingsArgs() {}
 
     private DomainDomainSettingsArgs(DomainDomainSettingsArgs $) {
+        this.dockerSettings = $.dockerSettings;
         this.executionRoleIdentityConfig = $.executionRoleIdentityConfig;
         this.rStudioServerProDomainSettings = $.rStudioServerProDomainSettings;
         this.securityGroupIds = $.securityGroupIds;
@@ -86,6 +103,27 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
 
         public Builder(DomainDomainSettingsArgs defaults) {
             $ = new DomainDomainSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerSettings(@Nullable Output<DomainDomainSettingsDockerSettingsArgs> dockerSettings) {
+            $.dockerSettings = dockerSettings;
+            return this;
+        }
+
+        /**
+         * @param dockerSettings A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerSettings(DomainDomainSettingsDockerSettingsArgs dockerSettings) {
+            return dockerSettings(Output.of(dockerSettings));
         }
 
         /**

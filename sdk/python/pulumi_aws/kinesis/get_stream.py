@@ -27,7 +27,7 @@ class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, encryption_type=None, id=None, kms_key_id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,9 +37,15 @@ class GetStreamResult:
         if creation_timestamp and not isinstance(creation_timestamp, int):
             raise TypeError("Expected argument 'creation_timestamp' to be a int")
         pulumi.set(__self__, "creation_timestamp", creation_timestamp)
+        if encryption_type and not isinstance(encryption_type, str):
+            raise TypeError("Expected argument 'encryption_type' to be a str")
+        pulumi.set(__self__, "encryption_type", encryption_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -87,12 +93,28 @@ class GetStreamResult:
         return pulumi.get(self, "creation_timestamp")
 
     @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> str:
+        """
+        Encryption type used.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> str:
+        """
+        GUID for the customer-managed AWS KMS key to use for encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
@@ -160,7 +182,9 @@ class AwaitableGetStreamResult(GetStreamResult):
             arn=self.arn,
             closed_shards=self.closed_shards,
             creation_timestamp=self.creation_timestamp,
+            encryption_type=self.encryption_type,
             id=self.id,
+            kms_key_id=self.kms_key_id,
             name=self.name,
             open_shards=self.open_shards,
             retention_period=self.retention_period,
@@ -202,7 +226,9 @@ def get_stream(name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         closed_shards=pulumi.get(__ret__, 'closed_shards'),
         creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
+        encryption_type=pulumi.get(__ret__, 'encryption_type'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         name=pulumi.get(__ret__, 'name'),
         open_shards=pulumi.get(__ret__, 'open_shards'),
         retention_period=pulumi.get(__ret__, 'retention_period'),

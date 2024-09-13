@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantCoreDumpConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantManagedInstanceScalingArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantRoutingConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
@@ -144,6 +145,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
+     * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * 
+     */
+    @Import(name="managedInstanceScaling")
+    private @Nullable Output<EndpointConfigurationProductionVariantManagedInstanceScalingArgs> managedInstanceScaling;
+
+    /**
+     * @return Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * 
+     */
+    public Optional<Output<EndpointConfigurationProductionVariantManagedInstanceScalingArgs>> managedInstanceScaling() {
+        return Optional.ofNullable(this.managedInstanceScaling);
+    }
+
+    /**
      * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
      */
@@ -244,6 +260,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         this.initialInstanceCount = $.initialInstanceCount;
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
+        this.managedInstanceScaling = $.managedInstanceScaling;
         this.modelDataDownloadTimeoutInSeconds = $.modelDataDownloadTimeoutInSeconds;
         this.modelName = $.modelName;
         this.routingConfigs = $.routingConfigs;
@@ -436,6 +453,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
+        }
+
+        /**
+         * @param managedInstanceScaling Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedInstanceScaling(@Nullable Output<EndpointConfigurationProductionVariantManagedInstanceScalingArgs> managedInstanceScaling) {
+            $.managedInstanceScaling = managedInstanceScaling;
+            return this;
+        }
+
+        /**
+         * @param managedInstanceScaling Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedInstanceScaling(EndpointConfigurationProductionVariantManagedInstanceScalingArgs managedInstanceScaling) {
+            return managedInstanceScaling(Output.of(managedInstanceScaling));
         }
 
         /**

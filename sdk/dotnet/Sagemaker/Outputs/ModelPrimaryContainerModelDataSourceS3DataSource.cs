@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string CompressionType;
         /// <summary>
+        /// Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+        /// </summary>
+        public readonly Outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig? ModelAccessConfig;
+        /// <summary>
         /// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
         /// </summary>
         public readonly string S3DataType;
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private ModelPrimaryContainerModelDataSourceS3DataSource(
             string compressionType,
 
+            Outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig? modelAccessConfig,
+
             string s3DataType,
 
             string s3Uri)
         {
             CompressionType = compressionType;
+            ModelAccessConfig = modelAccessConfig;
             S3DataType = s3DataType;
             S3Uri = s3Uri;
         }

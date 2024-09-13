@@ -16,14 +16,16 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
     public static final V2modelsSlotTypeCompositeSlotTypeSettingArgs Empty = new V2modelsSlotTypeCompositeSlotTypeSettingArgs();
 
     /**
-     * Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+     * Sub slots in the composite slot.
+     * See `sub_slots` argument reference below.
      * 
      */
     @Import(name="subSlots", required=true)
     private Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
 
     /**
-     * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+     * @return Sub slots in the composite slot.
+     * See `sub_slots` argument reference below.
      * 
      */
     public Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots() {
@@ -55,7 +57,8 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
         }
 
         /**
-         * @param subSlots Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+         * @param subSlots Sub slots in the composite slot.
+         * See `sub_slots` argument reference below.
          * 
          * @return builder
          * 
@@ -66,7 +69,8 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
         }
 
         /**
-         * @param subSlots Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+         * @param subSlots Sub slots in the composite slot.
+         * See `sub_slots` argument reference below.
          * 
          * @return builder
          * 
@@ -76,7 +80,8 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
         }
 
         /**
-         * @param subSlots Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+         * @param subSlots Sub slots in the composite slot.
+         * See `sub_slots` argument reference below.
          * 
          * @return builder
          * 

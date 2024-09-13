@@ -109,9 +109,15 @@ export interface GetUserPoolResult {
      * The contents of the SMS authentication message.
      */
     readonly smsVerificationMessage: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
     readonly userPoolId: string;
     /**
-     * The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+     * (Deprecated) Map of tags assigned to the resource.
+     *
+     * @deprecated Use the attribute "tags" instead
      */
     readonly userPoolTags: {[key: string]: string};
     /**

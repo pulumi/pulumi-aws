@@ -169,6 +169,620 @@ func (o CloudFormationTypeLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type StackInstancesDeploymentTargets struct {
+	// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+	AccountFilterType *string `pulumi:"accountFilterType"`
+	// List of accounts to deploy stack set updates.
+	Accounts []string `pulumi:"accounts"`
+	// S3 URL of the file containing the list of accounts.
+	AccountsUrl *string `pulumi:"accountsUrl"`
+	// Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
+}
+
+// StackInstancesDeploymentTargetsInput is an input type that accepts StackInstancesDeploymentTargetsArgs and StackInstancesDeploymentTargetsOutput values.
+// You can construct a concrete instance of `StackInstancesDeploymentTargetsInput` via:
+//
+//	StackInstancesDeploymentTargetsArgs{...}
+type StackInstancesDeploymentTargetsInput interface {
+	pulumi.Input
+
+	ToStackInstancesDeploymentTargetsOutput() StackInstancesDeploymentTargetsOutput
+	ToStackInstancesDeploymentTargetsOutputWithContext(context.Context) StackInstancesDeploymentTargetsOutput
+}
+
+type StackInstancesDeploymentTargetsArgs struct {
+	// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+	AccountFilterType pulumi.StringPtrInput `pulumi:"accountFilterType"`
+	// List of accounts to deploy stack set updates.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// S3 URL of the file containing the list of accounts.
+	AccountsUrl pulumi.StringPtrInput `pulumi:"accountsUrl"`
+	// Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
+}
+
+func (StackInstancesDeploymentTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesDeploymentTargets)(nil)).Elem()
+}
+
+func (i StackInstancesDeploymentTargetsArgs) ToStackInstancesDeploymentTargetsOutput() StackInstancesDeploymentTargetsOutput {
+	return i.ToStackInstancesDeploymentTargetsOutputWithContext(context.Background())
+}
+
+func (i StackInstancesDeploymentTargetsArgs) ToStackInstancesDeploymentTargetsOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesDeploymentTargetsOutput)
+}
+
+func (i StackInstancesDeploymentTargetsArgs) ToStackInstancesDeploymentTargetsPtrOutput() StackInstancesDeploymentTargetsPtrOutput {
+	return i.ToStackInstancesDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i StackInstancesDeploymentTargetsArgs) ToStackInstancesDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesDeploymentTargetsOutput).ToStackInstancesDeploymentTargetsPtrOutputWithContext(ctx)
+}
+
+// StackInstancesDeploymentTargetsPtrInput is an input type that accepts StackInstancesDeploymentTargetsArgs, StackInstancesDeploymentTargetsPtr and StackInstancesDeploymentTargetsPtrOutput values.
+// You can construct a concrete instance of `StackInstancesDeploymentTargetsPtrInput` via:
+//
+//	        StackInstancesDeploymentTargetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackInstancesDeploymentTargetsPtrInput interface {
+	pulumi.Input
+
+	ToStackInstancesDeploymentTargetsPtrOutput() StackInstancesDeploymentTargetsPtrOutput
+	ToStackInstancesDeploymentTargetsPtrOutputWithContext(context.Context) StackInstancesDeploymentTargetsPtrOutput
+}
+
+type stackInstancesDeploymentTargetsPtrType StackInstancesDeploymentTargetsArgs
+
+func StackInstancesDeploymentTargetsPtr(v *StackInstancesDeploymentTargetsArgs) StackInstancesDeploymentTargetsPtrInput {
+	return (*stackInstancesDeploymentTargetsPtrType)(v)
+}
+
+func (*stackInstancesDeploymentTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackInstancesDeploymentTargets)(nil)).Elem()
+}
+
+func (i *stackInstancesDeploymentTargetsPtrType) ToStackInstancesDeploymentTargetsPtrOutput() StackInstancesDeploymentTargetsPtrOutput {
+	return i.ToStackInstancesDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *stackInstancesDeploymentTargetsPtrType) ToStackInstancesDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesDeploymentTargetsPtrOutput)
+}
+
+type StackInstancesDeploymentTargetsOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesDeploymentTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesDeploymentTargets)(nil)).Elem()
+}
+
+func (o StackInstancesDeploymentTargetsOutput) ToStackInstancesDeploymentTargetsOutput() StackInstancesDeploymentTargetsOutput {
+	return o
+}
+
+func (o StackInstancesDeploymentTargetsOutput) ToStackInstancesDeploymentTargetsOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsOutput {
+	return o
+}
+
+func (o StackInstancesDeploymentTargetsOutput) ToStackInstancesDeploymentTargetsPtrOutput() StackInstancesDeploymentTargetsPtrOutput {
+	return o.ToStackInstancesDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o StackInstancesDeploymentTargetsOutput) ToStackInstancesDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackInstancesDeploymentTargets) *StackInstancesDeploymentTargets {
+		return &v
+	}).(StackInstancesDeploymentTargetsPtrOutput)
+}
+
+// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+func (o StackInstancesDeploymentTargetsOutput) AccountFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesDeploymentTargets) *string { return v.AccountFilterType }).(pulumi.StringPtrOutput)
+}
+
+// List of accounts to deploy stack set updates.
+func (o StackInstancesDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackInstancesDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// S3 URL of the file containing the list of accounts.
+func (o StackInstancesDeploymentTargetsOutput) AccountsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesDeploymentTargets) *string { return v.AccountsUrl }).(pulumi.StringPtrOutput)
+}
+
+// Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+func (o StackInstancesDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackInstancesDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
+}
+
+type StackInstancesDeploymentTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesDeploymentTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackInstancesDeploymentTargets)(nil)).Elem()
+}
+
+func (o StackInstancesDeploymentTargetsPtrOutput) ToStackInstancesDeploymentTargetsPtrOutput() StackInstancesDeploymentTargetsPtrOutput {
+	return o
+}
+
+func (o StackInstancesDeploymentTargetsPtrOutput) ToStackInstancesDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackInstancesDeploymentTargetsPtrOutput {
+	return o
+}
+
+func (o StackInstancesDeploymentTargetsPtrOutput) Elem() StackInstancesDeploymentTargetsOutput {
+	return o.ApplyT(func(v *StackInstancesDeploymentTargets) StackInstancesDeploymentTargets {
+		if v != nil {
+			return *v
+		}
+		var ret StackInstancesDeploymentTargets
+		return ret
+	}).(StackInstancesDeploymentTargetsOutput)
+}
+
+// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+func (o StackInstancesDeploymentTargetsPtrOutput) AccountFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackInstancesDeploymentTargets) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountFilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of accounts to deploy stack set updates.
+func (o StackInstancesDeploymentTargetsPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackInstancesDeploymentTargets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// S3 URL of the file containing the list of accounts.
+func (o StackInstancesDeploymentTargetsPtrOutput) AccountsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackInstancesDeploymentTargets) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountsUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+func (o StackInstancesDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackInstancesDeploymentTargets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type StackInstancesOperationPreferences struct {
+	// How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+	ConcurrencyMode *string `pulumi:"concurrencyMode"`
+	// Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
+	// Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
+	// Maximum number of accounts in which to perform this operation at one time.
+	MaxConcurrentCount *int `pulumi:"maxConcurrentCount"`
+	// Maximum percentage of accounts in which to perform this operation at one time.
+	MaxConcurrentPercentage *int `pulumi:"maxConcurrentPercentage"`
+	// Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+	RegionConcurrencyType *string `pulumi:"regionConcurrencyType"`
+	// Order of the regions where you want to perform the stack operation.
+	RegionOrders []string `pulumi:"regionOrders"`
+}
+
+// StackInstancesOperationPreferencesInput is an input type that accepts StackInstancesOperationPreferencesArgs and StackInstancesOperationPreferencesOutput values.
+// You can construct a concrete instance of `StackInstancesOperationPreferencesInput` via:
+//
+//	StackInstancesOperationPreferencesArgs{...}
+type StackInstancesOperationPreferencesInput interface {
+	pulumi.Input
+
+	ToStackInstancesOperationPreferencesOutput() StackInstancesOperationPreferencesOutput
+	ToStackInstancesOperationPreferencesOutputWithContext(context.Context) StackInstancesOperationPreferencesOutput
+}
+
+type StackInstancesOperationPreferencesArgs struct {
+	// How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+	ConcurrencyMode pulumi.StringPtrInput `pulumi:"concurrencyMode"`
+	// Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
+	// Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
+	// Maximum number of accounts in which to perform this operation at one time.
+	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"maxConcurrentCount"`
+	// Maximum percentage of accounts in which to perform this operation at one time.
+	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"maxConcurrentPercentage"`
+	// Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+	RegionConcurrencyType pulumi.StringPtrInput `pulumi:"regionConcurrencyType"`
+	// Order of the regions where you want to perform the stack operation.
+	RegionOrders pulumi.StringArrayInput `pulumi:"regionOrders"`
+}
+
+func (StackInstancesOperationPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesOperationPreferences)(nil)).Elem()
+}
+
+func (i StackInstancesOperationPreferencesArgs) ToStackInstancesOperationPreferencesOutput() StackInstancesOperationPreferencesOutput {
+	return i.ToStackInstancesOperationPreferencesOutputWithContext(context.Background())
+}
+
+func (i StackInstancesOperationPreferencesArgs) ToStackInstancesOperationPreferencesOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesOperationPreferencesOutput)
+}
+
+func (i StackInstancesOperationPreferencesArgs) ToStackInstancesOperationPreferencesPtrOutput() StackInstancesOperationPreferencesPtrOutput {
+	return i.ToStackInstancesOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i StackInstancesOperationPreferencesArgs) ToStackInstancesOperationPreferencesPtrOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesOperationPreferencesOutput).ToStackInstancesOperationPreferencesPtrOutputWithContext(ctx)
+}
+
+// StackInstancesOperationPreferencesPtrInput is an input type that accepts StackInstancesOperationPreferencesArgs, StackInstancesOperationPreferencesPtr and StackInstancesOperationPreferencesPtrOutput values.
+// You can construct a concrete instance of `StackInstancesOperationPreferencesPtrInput` via:
+//
+//	        StackInstancesOperationPreferencesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackInstancesOperationPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToStackInstancesOperationPreferencesPtrOutput() StackInstancesOperationPreferencesPtrOutput
+	ToStackInstancesOperationPreferencesPtrOutputWithContext(context.Context) StackInstancesOperationPreferencesPtrOutput
+}
+
+type stackInstancesOperationPreferencesPtrType StackInstancesOperationPreferencesArgs
+
+func StackInstancesOperationPreferencesPtr(v *StackInstancesOperationPreferencesArgs) StackInstancesOperationPreferencesPtrInput {
+	return (*stackInstancesOperationPreferencesPtrType)(v)
+}
+
+func (*stackInstancesOperationPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackInstancesOperationPreferences)(nil)).Elem()
+}
+
+func (i *stackInstancesOperationPreferencesPtrType) ToStackInstancesOperationPreferencesPtrOutput() StackInstancesOperationPreferencesPtrOutput {
+	return i.ToStackInstancesOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackInstancesOperationPreferencesPtrType) ToStackInstancesOperationPreferencesPtrOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesOperationPreferencesPtrOutput)
+}
+
+type StackInstancesOperationPreferencesOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesOperationPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesOperationPreferences)(nil)).Elem()
+}
+
+func (o StackInstancesOperationPreferencesOutput) ToStackInstancesOperationPreferencesOutput() StackInstancesOperationPreferencesOutput {
+	return o
+}
+
+func (o StackInstancesOperationPreferencesOutput) ToStackInstancesOperationPreferencesOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesOutput {
+	return o
+}
+
+func (o StackInstancesOperationPreferencesOutput) ToStackInstancesOperationPreferencesPtrOutput() StackInstancesOperationPreferencesPtrOutput {
+	return o.ToStackInstancesOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o StackInstancesOperationPreferencesOutput) ToStackInstancesOperationPreferencesPtrOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackInstancesOperationPreferences) *StackInstancesOperationPreferences {
+		return &v
+	}).(StackInstancesOperationPreferencesPtrOutput)
+}
+
+// How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+func (o StackInstancesOperationPreferencesOutput) ConcurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *string { return v.ConcurrencyMode }).(pulumi.StringPtrOutput)
+}
+
+// Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+func (o StackInstancesOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
+}
+
+// Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+func (o StackInstancesOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of accounts in which to perform this operation at one time.
+func (o StackInstancesOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of accounts in which to perform this operation at one time.
+func (o StackInstancesOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
+}
+
+// Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+func (o StackInstancesOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
+}
+
+// Order of the regions where you want to perform the stack operation.
+func (o StackInstancesOperationPreferencesOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackInstancesOperationPreferences) []string { return v.RegionOrders }).(pulumi.StringArrayOutput)
+}
+
+type StackInstancesOperationPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesOperationPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackInstancesOperationPreferences)(nil)).Elem()
+}
+
+func (o StackInstancesOperationPreferencesPtrOutput) ToStackInstancesOperationPreferencesPtrOutput() StackInstancesOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackInstancesOperationPreferencesPtrOutput) ToStackInstancesOperationPreferencesPtrOutputWithContext(ctx context.Context) StackInstancesOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackInstancesOperationPreferencesPtrOutput) Elem() StackInstancesOperationPreferencesOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) StackInstancesOperationPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret StackInstancesOperationPreferences
+		return ret
+	}).(StackInstancesOperationPreferencesOutput)
+}
+
+// How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+func (o StackInstancesOperationPreferencesPtrOutput) ConcurrencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrencyMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+func (o StackInstancesOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureToleranceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+func (o StackInstancesOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureTolerancePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of accounts in which to perform this operation at one time.
+func (o StackInstancesOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of accounts in which to perform this operation at one time.
+func (o StackInstancesOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+func (o StackInstancesOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionConcurrencyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Order of the regions where you want to perform the stack operation.
+func (o StackInstancesOperationPreferencesPtrOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackInstancesOperationPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionOrders
+	}).(pulumi.StringArrayOutput)
+}
+
+type StackInstancesStackInstanceSummary struct {
+	// Account ID in which the instance is deployed.
+	AccountId *string `pulumi:"accountId"`
+	// Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+	DetailedStatus *string `pulumi:"detailedStatus"`
+	// Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+	DriftStatus *string `pulumi:"driftStatus"`
+	// Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
+	// Region that the stack instance is associated with.
+	Region *string `pulumi:"region"`
+	// ID of the stack instance.
+	StackId *string `pulumi:"stackId"`
+	// Name or unique ID of the stack set that the stack instance is associated with.
+	StackSetId *string `pulumi:"stackSetId"`
+	// Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+	Status *string `pulumi:"status"`
+	// Explanation for the specific status code assigned to this stack instance.
+	StatusReason *string `pulumi:"statusReason"`
+}
+
+// StackInstancesStackInstanceSummaryInput is an input type that accepts StackInstancesStackInstanceSummaryArgs and StackInstancesStackInstanceSummaryOutput values.
+// You can construct a concrete instance of `StackInstancesStackInstanceSummaryInput` via:
+//
+//	StackInstancesStackInstanceSummaryArgs{...}
+type StackInstancesStackInstanceSummaryInput interface {
+	pulumi.Input
+
+	ToStackInstancesStackInstanceSummaryOutput() StackInstancesStackInstanceSummaryOutput
+	ToStackInstancesStackInstanceSummaryOutputWithContext(context.Context) StackInstancesStackInstanceSummaryOutput
+}
+
+type StackInstancesStackInstanceSummaryArgs struct {
+	// Account ID in which the instance is deployed.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+	DetailedStatus pulumi.StringPtrInput `pulumi:"detailedStatus"`
+	// Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+	DriftStatus pulumi.StringPtrInput `pulumi:"driftStatus"`
+	// Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+	OrganizationalUnitId pulumi.StringPtrInput `pulumi:"organizationalUnitId"`
+	// Region that the stack instance is associated with.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// ID of the stack instance.
+	StackId pulumi.StringPtrInput `pulumi:"stackId"`
+	// Name or unique ID of the stack set that the stack instance is associated with.
+	StackSetId pulumi.StringPtrInput `pulumi:"stackSetId"`
+	// Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Explanation for the specific status code assigned to this stack instance.
+	StatusReason pulumi.StringPtrInput `pulumi:"statusReason"`
+}
+
+func (StackInstancesStackInstanceSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackInstancesStackInstanceSummaryArgs) ToStackInstancesStackInstanceSummaryOutput() StackInstancesStackInstanceSummaryOutput {
+	return i.ToStackInstancesStackInstanceSummaryOutputWithContext(context.Background())
+}
+
+func (i StackInstancesStackInstanceSummaryArgs) ToStackInstancesStackInstanceSummaryOutputWithContext(ctx context.Context) StackInstancesStackInstanceSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesStackInstanceSummaryOutput)
+}
+
+// StackInstancesStackInstanceSummaryArrayInput is an input type that accepts StackInstancesStackInstanceSummaryArray and StackInstancesStackInstanceSummaryArrayOutput values.
+// You can construct a concrete instance of `StackInstancesStackInstanceSummaryArrayInput` via:
+//
+//	StackInstancesStackInstanceSummaryArray{ StackInstancesStackInstanceSummaryArgs{...} }
+type StackInstancesStackInstanceSummaryArrayInput interface {
+	pulumi.Input
+
+	ToStackInstancesStackInstanceSummaryArrayOutput() StackInstancesStackInstanceSummaryArrayOutput
+	ToStackInstancesStackInstanceSummaryArrayOutputWithContext(context.Context) StackInstancesStackInstanceSummaryArrayOutput
+}
+
+type StackInstancesStackInstanceSummaryArray []StackInstancesStackInstanceSummaryInput
+
+func (StackInstancesStackInstanceSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackInstancesStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackInstancesStackInstanceSummaryArray) ToStackInstancesStackInstanceSummaryArrayOutput() StackInstancesStackInstanceSummaryArrayOutput {
+	return i.ToStackInstancesStackInstanceSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i StackInstancesStackInstanceSummaryArray) ToStackInstancesStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackInstancesStackInstanceSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackInstancesStackInstanceSummaryArrayOutput)
+}
+
+type StackInstancesStackInstanceSummaryOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesStackInstanceSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackInstancesStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackInstancesStackInstanceSummaryOutput) ToStackInstancesStackInstanceSummaryOutput() StackInstancesStackInstanceSummaryOutput {
+	return o
+}
+
+func (o StackInstancesStackInstanceSummaryOutput) ToStackInstancesStackInstanceSummaryOutputWithContext(ctx context.Context) StackInstancesStackInstanceSummaryOutput {
+	return o
+}
+
+// Account ID in which the instance is deployed.
+func (o StackInstancesStackInstanceSummaryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+func (o StackInstancesStackInstanceSummaryOutput) DetailedStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.DetailedStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+func (o StackInstancesStackInstanceSummaryOutput) DriftStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.DriftStatus }).(pulumi.StringPtrOutput)
+}
+
+// Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+func (o StackInstancesStackInstanceSummaryOutput) OrganizationalUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.OrganizationalUnitId }).(pulumi.StringPtrOutput)
+}
+
+// Region that the stack instance is associated with.
+func (o StackInstancesStackInstanceSummaryOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// ID of the stack instance.
+func (o StackInstancesStackInstanceSummaryOutput) StackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.StackId }).(pulumi.StringPtrOutput)
+}
+
+// Name or unique ID of the stack set that the stack instance is associated with.
+func (o StackInstancesStackInstanceSummaryOutput) StackSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.StackSetId }).(pulumi.StringPtrOutput)
+}
+
+// Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+func (o StackInstancesStackInstanceSummaryOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Explanation for the specific status code assigned to this stack instance.
+func (o StackInstancesStackInstanceSummaryOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
+}
+
+type StackInstancesStackInstanceSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (StackInstancesStackInstanceSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackInstancesStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackInstancesStackInstanceSummaryArrayOutput) ToStackInstancesStackInstanceSummaryArrayOutput() StackInstancesStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackInstancesStackInstanceSummaryArrayOutput) ToStackInstancesStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackInstancesStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackInstancesStackInstanceSummaryArrayOutput) Index(i pulumi.IntInput) StackInstancesStackInstanceSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackInstancesStackInstanceSummary {
+		return vs[0].([]StackInstancesStackInstanceSummary)[vs[1].(int)]
+	}).(StackInstancesStackInstanceSummaryOutput)
+}
+
 type StackSetAutoDeployment struct {
 	// Whether or not auto-deployment is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -1363,6 +1977,12 @@ func (o GetCloudFormationTypeLoggingConfigArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeLoggingConfigInput)(nil)).Elem(), CloudFormationTypeLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeLoggingConfigPtrInput)(nil)).Elem(), CloudFormationTypeLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesDeploymentTargetsInput)(nil)).Elem(), StackInstancesDeploymentTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesDeploymentTargetsPtrInput)(nil)).Elem(), StackInstancesDeploymentTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesOperationPreferencesInput)(nil)).Elem(), StackInstancesOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesOperationPreferencesPtrInput)(nil)).Elem(), StackInstancesOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesStackInstanceSummaryInput)(nil)).Elem(), StackInstancesStackInstanceSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackInstancesStackInstanceSummaryArrayInput)(nil)).Elem(), StackInstancesStackInstanceSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
@@ -1379,6 +1999,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigArrayInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArray{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(StackInstancesDeploymentTargetsOutput{})
+	pulumi.RegisterOutputType(StackInstancesDeploymentTargetsPtrOutput{})
+	pulumi.RegisterOutputType(StackInstancesOperationPreferencesOutput{})
+	pulumi.RegisterOutputType(StackInstancesOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackInstancesStackInstanceSummaryOutput{})
+	pulumi.RegisterOutputType(StackInstancesStackInstanceSummaryArrayOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsOutput{})

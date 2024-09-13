@@ -52,14 +52,16 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+     * Specifications for a composite slot type.
+     * See `composite_slot_type_setting` argument reference below.
      * 
      */
     @Import(name="compositeSlotTypeSetting")
     private @Nullable Output<V2modelsSlotTypeCompositeSlotTypeSettingArgs> compositeSlotTypeSetting;
 
     /**
-     * @return Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+     * @return Specifications for a composite slot type.
+     * See `composite_slot_type_setting` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeCompositeSlotTypeSettingArgs>> compositeSlotTypeSetting() {
@@ -82,14 +84,16 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+     * Type of external information used to create the slot type.
+     * See `external_source_setting` argument reference below.
      * 
      */
     @Import(name="externalSourceSetting")
     private @Nullable Output<V2modelsSlotTypeExternalSourceSettingArgs> externalSourceSetting;
 
     /**
-     * @return Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+     * @return Type of external information used to create the slot type.
+     * See `external_source_setting` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeExternalSourceSettingArgs>> externalSourceSetting() {
@@ -97,14 +101,16 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+     * Identifier of the language and locale where this slot type is used.
+     * All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
     @Import(name="localeId", required=true)
     private Output<String> localeId;
 
     /**
-     * @return Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+     * @return Identifier of the language and locale where this slot type is used.
+     * All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
     public Output<String> localeId() {
@@ -112,7 +118,7 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Name of the slot type
+     * Name of the slot type.
      * 
      * The following arguments are optional:
      * 
@@ -121,7 +127,7 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the slot type
+     * @return Name of the slot type.
      * 
      * The following arguments are optional:
      * 
@@ -131,14 +137,18 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+     * Built-in slot type used as a parent of this slot type.
+     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+     * Only `AMAZON.AlphaNumeric` is supported.
      * 
      */
     @Import(name="parentSlotTypeSignature")
     private @Nullable Output<String> parentSlotTypeSignature;
 
     /**
-     * @return Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+     * @return Built-in slot type used as a parent of this slot type.
+     * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+     * Only `AMAZON.AlphaNumeric` is supported.
      * 
      */
     public Optional<Output<String>> parentSlotTypeSignature() {
@@ -146,14 +156,18 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * List of SlotTypeValue objects that defines the values that the slot type can take.
+     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+     * See `slot_type_values` argument reference below.
      * 
      */
     @Import(name="slotTypeValues")
     private @Nullable Output<V2modelsSlotTypeSlotTypeValuesArgs> slotTypeValues;
 
     /**
-     * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+     * @return List of SlotTypeValue objects that defines the values that the slot type can take.
+     * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+     * See `slot_type_values` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeSlotTypeValuesArgs>> slotTypeValues() {
@@ -168,14 +182,16 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don&#39;t specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+     * Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+     * See `value_selection_setting` argument reference below.
      * 
      */
     @Import(name="valueSelectionSetting")
     private @Nullable Output<V2modelsSlotTypeValueSelectionSettingArgs> valueSelectionSetting;
 
     /**
-     * @return Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don&#39;t specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+     * @return Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+     * See `value_selection_setting` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeValueSelectionSettingArgs>> valueSelectionSetting() {
@@ -259,7 +275,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param compositeSlotTypeSetting Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+         * @param compositeSlotTypeSetting Specifications for a composite slot type.
+         * See `composite_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -270,7 +287,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param compositeSlotTypeSetting Specifications for a composite slot type. See `composite_slot_type_setting` argument reference below.
+         * @param compositeSlotTypeSetting Specifications for a composite slot type.
+         * See `composite_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -301,7 +319,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param externalSourceSetting Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+         * @param externalSourceSetting Type of external information used to create the slot type.
+         * See `external_source_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -312,7 +331,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param externalSourceSetting Type of external information used to create the slot type. See `external_source_setting` argument reference below.
+         * @param externalSourceSetting Type of external information used to create the slot type.
+         * See `external_source_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -322,7 +342,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param localeId Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+         * @param localeId Identifier of the language and locale where this slot type is used.
+         * All of the bots, slot types, and slots used by the intent must have the same locale.
          * 
          * @return builder
          * 
@@ -333,7 +354,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param localeId Identifier of the language and locale where this slot type is used. All of the bots, slot types, and slots used by the intent must have the same locale.
+         * @param localeId Identifier of the language and locale where this slot type is used.
+         * All of the bots, slot types, and slots used by the intent must have the same locale.
          * 
          * @return builder
          * 
@@ -343,7 +365,7 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the slot type
+         * @param name Name of the slot type.
          * 
          * The following arguments are optional:
          * 
@@ -356,7 +378,7 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Name of the slot type
+         * @param name Name of the slot type.
          * 
          * The following arguments are optional:
          * 
@@ -368,7 +390,9 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type.
+         * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+         * Only `AMAZON.AlphaNumeric` is supported.
          * 
          * @return builder
          * 
@@ -379,7 +403,9 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type. When you define a parent slot type, the new slot type has the configuration of the parent slot type. Only AMAZON.AlphaNumeric is supported.
+         * @param parentSlotTypeSignature Built-in slot type used as a parent of this slot type.
+         * When you define a parent slot type, the new slot type has the configuration of the parent slot type.
+         * Only `AMAZON.AlphaNumeric` is supported.
          * 
          * @return builder
          * 
@@ -389,7 +415,9 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
+         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+         * See `slot_type_values` argument reference below.
          * 
          * @return builder
          * 
@@ -400,7 +428,9 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+         * @param slotTypeValues List of SlotTypeValue objects that defines the values that the slot type can take.
+         * Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
+         * See `slot_type_values` argument reference below.
          * 
          * @return builder
          * 
@@ -419,7 +449,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don&#39;t specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+         * See `value_selection_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -430,7 +461,8 @@ public final class V2modelsSlotTypeArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values. The field can be set to one of the following values: `ORIGINAL_VALUE` returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` if there is a resolution list for the slot, return the first value in the resolution list. If there is no resolution list, return null. If you don&#39;t specify the valueSelectionSetting parameter, the default is ORIGINAL_VALUE. See `value_selection_setting` argument reference below.
+         * @param valueSelectionSetting Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
+         * See `value_selection_setting` argument reference below.
          * 
          * @return builder
          * 

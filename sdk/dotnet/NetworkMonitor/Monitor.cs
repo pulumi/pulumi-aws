@@ -48,7 +48,7 @@ namespace Pulumi.Aws.NetworkMonitor
         /// The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
         /// </summary>
         [Output("aggregationPeriod")]
-        public Output<int?> AggregationPeriod { get; private set; } = null!;
+        public Output<int> AggregationPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the monitor.

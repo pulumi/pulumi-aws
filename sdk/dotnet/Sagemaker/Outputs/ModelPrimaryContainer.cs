@@ -31,6 +31,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.ModelPrimaryContainerImageConfig? ImageConfig;
         /// <summary>
+        /// The inference specification name in the model package version.
+        /// </summary>
+        public readonly string? InferenceSpecificationName;
+        /// <summary>
         /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         /// </summary>
         public readonly string? Mode;
@@ -46,6 +50,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The Amazon Resource Name (ARN) of the model package to use to create the model.
         /// </summary>
         public readonly string? ModelPackageName;
+        /// <summary>
+        /// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+        /// </summary>
+        public readonly Outputs.ModelPrimaryContainerMultiModelConfig? MultiModelConfig;
 
         [OutputConstructor]
         private ModelPrimaryContainer(
@@ -57,22 +65,28 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.ModelPrimaryContainerImageConfig? imageConfig,
 
+            string? inferenceSpecificationName,
+
             string? mode,
 
             Outputs.ModelPrimaryContainerModelDataSource? modelDataSource,
 
             string? modelDataUrl,
 
-            string? modelPackageName)
+            string? modelPackageName,
+
+            Outputs.ModelPrimaryContainerMultiModelConfig? multiModelConfig)
         {
             ContainerHostname = containerHostname;
             Environment = environment;
             Image = image;
             ImageConfig = imageConfig;
+            InferenceSpecificationName = inferenceSpecificationName;
             Mode = mode;
             ModelDataSource = modelDataSource;
             ModelDataUrl = modelDataUrl;
             ModelPackageName = modelPackageName;
+            MultiModelConfig = multiModelConfig;
         }
     }
 }

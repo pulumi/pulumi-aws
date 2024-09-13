@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.inputs;
 
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentEnvironmentVariableArgs;
+import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentFleetArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentRegistryCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -63,6 +64,21 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<List<ProjectEnvironmentEnvironmentVariableArgs>>> environmentVariables() {
         return Optional.ofNullable(this.environmentVariables);
+    }
+
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
+    @Import(name="fleet")
+    private @Nullable Output<ProjectEnvironmentFleetArgs> fleet;
+
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    public Optional<Output<ProjectEnvironmentFleetArgs>> fleet() {
+        return Optional.ofNullable(this.fleet);
     }
 
     /**
@@ -146,6 +162,7 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
         this.certificate = $.certificate;
         this.computeType = $.computeType;
         this.environmentVariables = $.environmentVariables;
+        this.fleet = $.fleet;
         this.image = $.image;
         this.imagePullCredentialsType = $.imagePullCredentialsType;
         this.privilegedMode = $.privilegedMode;
@@ -242,6 +259,27 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
          */
         public Builder environmentVariables(ProjectEnvironmentEnvironmentVariableArgs... environmentVariables) {
             return environmentVariables(List.of(environmentVariables));
+        }
+
+        /**
+         * @param fleet Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleet(@Nullable Output<ProjectEnvironmentFleetArgs> fleet) {
+            $.fleet = fleet;
+            return this;
+        }
+
+        /**
+         * @param fleet Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fleet(ProjectEnvironmentFleetArgs fleet) {
+            return fleet(Output.of(fleet));
         }
 
         /**

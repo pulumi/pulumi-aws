@@ -13,6 +13,255 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AssetTypeFormsInput struct {
+	MapBlockKey    string `pulumi:"mapBlockKey"`
+	Required       *bool  `pulumi:"required"`
+	TypeIdentifier string `pulumi:"typeIdentifier"`
+	TypeRevision   string `pulumi:"typeRevision"`
+}
+
+// AssetTypeFormsInputInput is an input type that accepts AssetTypeFormsInputArgs and AssetTypeFormsInputOutput values.
+// You can construct a concrete instance of `AssetTypeFormsInputInput` via:
+//
+//	AssetTypeFormsInputArgs{...}
+type AssetTypeFormsInputInput interface {
+	pulumi.Input
+
+	ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput
+	ToAssetTypeFormsInputOutputWithContext(context.Context) AssetTypeFormsInputOutput
+}
+
+type AssetTypeFormsInputArgs struct {
+	MapBlockKey    pulumi.StringInput  `pulumi:"mapBlockKey"`
+	Required       pulumi.BoolPtrInput `pulumi:"required"`
+	TypeIdentifier pulumi.StringInput  `pulumi:"typeIdentifier"`
+	TypeRevision   pulumi.StringInput  `pulumi:"typeRevision"`
+}
+
+func (AssetTypeFormsInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (i AssetTypeFormsInputArgs) ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput {
+	return i.ToAssetTypeFormsInputOutputWithContext(context.Background())
+}
+
+func (i AssetTypeFormsInputArgs) ToAssetTypeFormsInputOutputWithContext(ctx context.Context) AssetTypeFormsInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeFormsInputOutput)
+}
+
+// AssetTypeFormsInputArrayInput is an input type that accepts AssetTypeFormsInputArray and AssetTypeFormsInputArrayOutput values.
+// You can construct a concrete instance of `AssetTypeFormsInputArrayInput` via:
+//
+//	AssetTypeFormsInputArray{ AssetTypeFormsInputArgs{...} }
+type AssetTypeFormsInputArrayInput interface {
+	pulumi.Input
+
+	ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput
+	ToAssetTypeFormsInputArrayOutputWithContext(context.Context) AssetTypeFormsInputArrayOutput
+}
+
+type AssetTypeFormsInputArray []AssetTypeFormsInputInput
+
+func (AssetTypeFormsInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (i AssetTypeFormsInputArray) ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput {
+	return i.ToAssetTypeFormsInputArrayOutputWithContext(context.Background())
+}
+
+func (i AssetTypeFormsInputArray) ToAssetTypeFormsInputArrayOutputWithContext(ctx context.Context) AssetTypeFormsInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeFormsInputArrayOutput)
+}
+
+type AssetTypeFormsInputOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeFormsInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (o AssetTypeFormsInputOutput) ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputOutput) ToAssetTypeFormsInputOutputWithContext(ctx context.Context) AssetTypeFormsInputOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputOutput) MapBlockKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.MapBlockKey }).(pulumi.StringOutput)
+}
+
+func (o AssetTypeFormsInputOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+func (o AssetTypeFormsInputOutput) TypeIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.TypeIdentifier }).(pulumi.StringOutput)
+}
+
+func (o AssetTypeFormsInputOutput) TypeRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.TypeRevision }).(pulumi.StringOutput)
+}
+
+type AssetTypeFormsInputArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeFormsInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (o AssetTypeFormsInputArrayOutput) ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputArrayOutput) ToAssetTypeFormsInputArrayOutputWithContext(ctx context.Context) AssetTypeFormsInputArrayOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputArrayOutput) Index(i pulumi.IntInput) AssetTypeFormsInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetTypeFormsInput {
+		return vs[0].([]AssetTypeFormsInput)[vs[1].(int)]
+	}).(AssetTypeFormsInputOutput)
+}
+
+type AssetTypeTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// AssetTypeTimeoutsInput is an input type that accepts AssetTypeTimeoutsArgs and AssetTypeTimeoutsOutput values.
+// You can construct a concrete instance of `AssetTypeTimeoutsInput` via:
+//
+//	AssetTypeTimeoutsArgs{...}
+type AssetTypeTimeoutsInput interface {
+	pulumi.Input
+
+	ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput
+	ToAssetTypeTimeoutsOutputWithContext(context.Context) AssetTypeTimeoutsOutput
+}
+
+type AssetTypeTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (AssetTypeTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput {
+	return i.ToAssetTypeTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsOutputWithContext(ctx context.Context) AssetTypeTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsOutput)
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return i.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsOutput).ToAssetTypeTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AssetTypeTimeoutsPtrInput is an input type that accepts AssetTypeTimeoutsArgs, AssetTypeTimeoutsPtr and AssetTypeTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AssetTypeTimeoutsPtrInput` via:
+//
+//	        AssetTypeTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssetTypeTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput
+	ToAssetTypeTimeoutsPtrOutputWithContext(context.Context) AssetTypeTimeoutsPtrOutput
+}
+
+type assetTypeTimeoutsPtrType AssetTypeTimeoutsArgs
+
+func AssetTypeTimeoutsPtr(v *AssetTypeTimeoutsArgs) AssetTypeTimeoutsPtrInput {
+	return (*assetTypeTimeoutsPtrType)(v)
+}
+
+func (*assetTypeTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (i *assetTypeTimeoutsPtrType) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return i.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *assetTypeTimeoutsPtrType) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsPtrOutput)
+}
+
+type AssetTypeTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsOutputWithContext(ctx context.Context) AssetTypeTimeoutsOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return o.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetTypeTimeouts) *AssetTypeTimeouts {
+		return &v
+	}).(AssetTypeTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AssetTypeTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetTypeTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type AssetTypeTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (o AssetTypeTimeoutsPtrOutput) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsPtrOutput) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsPtrOutput) Elem() AssetTypeTimeoutsOutput {
+	return o.ApplyT(func(v *AssetTypeTimeouts) AssetTypeTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AssetTypeTimeouts
+		return ret
+	}).(AssetTypeTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AssetTypeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetTypeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainSingleSignOn struct {
 	Type           *string `pulumi:"type"`
 	UserAssignment *string `pulumi:"userAssignment"`
@@ -1980,6 +2229,10 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputInput)(nil)).Elem(), AssetTypeFormsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputArrayInput)(nil)).Elem(), AssetTypeFormsInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeTimeoutsInput)(nil)).Elem(), AssetTypeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeTimeoutsPtrInput)(nil)).Elem(), AssetTypeTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsInput)(nil)).Elem(), DomainTimeoutsArgs{})
@@ -2010,6 +2263,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterOutputType(AssetTypeFormsInputOutput{})
+	pulumi.RegisterOutputType(AssetTypeFormsInputArrayOutput{})
+	pulumi.RegisterOutputType(AssetTypeTimeoutsOutput{})
+	pulumi.RegisterOutputType(AssetTypeTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsOutput{})

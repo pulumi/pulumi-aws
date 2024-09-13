@@ -4,7 +4,6 @@
 package com.pulumi.aws.acm.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -19,18 +18,18 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetCertificatePlainArgs Empty = new GetCertificatePlainArgs();
 
     /**
-     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
      * 
      */
-    @Import(name="domain", required=true)
-    private String domain;
+    @Import(name="domain")
+    private @Nullable String domain;
 
     /**
-     * @return Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * @return Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
      * 
      */
-    public String domain() {
-        return this.domain;
+    public Optional<String> domain() {
+        return Optional.ofNullable(this.domain);
     }
 
     /**
@@ -83,14 +82,14 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Mapping of tags for the resource.
+     * A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Mapping of tags for the resource.
+     * @return A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -142,12 +141,12 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param domain Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+         * @param domain Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
          * 
          * @return builder
          * 
          */
-        public Builder domain(String domain) {
+        public Builder domain(@Nullable String domain) {
             $.domain = domain;
             return this;
         }
@@ -210,7 +209,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param tags Mapping of tags for the resource.
+         * @param tags A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
          * 
          * @return builder
          * 
@@ -242,9 +241,6 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetCertificatePlainArgs build() {
-            if ($.domain == null) {
-                throw new MissingRequiredPropertyException("GetCertificatePlainArgs", "domain");
-            }
             return $;
         }
     }

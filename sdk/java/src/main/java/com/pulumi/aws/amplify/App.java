@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amplify.AppArgs;
 import com.pulumi.aws.amplify.inputs.AppState;
 import com.pulumi.aws.amplify.outputs.AppAutoBranchCreationConfig;
+import com.pulumi.aws.amplify.outputs.AppCacheConfig;
 import com.pulumi.aws.amplify.outputs.AppCustomRule;
 import com.pulumi.aws.amplify.outputs.AppProductionBranch;
 import com.pulumi.core.Output;
@@ -383,14 +384,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
     @Export(name="autoBranchCreationConfig", refs={AppAutoBranchCreationConfig.class}, tree="[0]")
     private Output<AppAutoBranchCreationConfig> autoBranchCreationConfig;
 
     /**
-     * @return Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * @return Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
     public Output<AppAutoBranchCreationConfig> autoBranchCreationConfig() {
@@ -439,6 +440,20 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.buildSpec;
     }
     /**
+     * Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * 
+     */
+    @Export(name="cacheConfig", refs={AppCacheConfig.class}, tree="[0]")
+    private Output<AppCacheConfig> cacheConfig;
+
+    /**
+     * @return Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * 
+     */
+    public Output<AppCacheConfig> cacheConfig() {
+        return this.cacheConfig;
+    }
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
@@ -453,14 +468,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.customHeaders;
     }
     /**
-     * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
     @Export(name="customRules", refs={List.class,AppCustomRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AppCustomRule>> customRules;
 
     /**
-     * @return Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * @return Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
     public Output<Optional<List<AppCustomRule>>> customRules() {

@@ -14,6 +14,7 @@ import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRSessionAppSetti
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsSharingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsSpaceStorageSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -255,6 +256,21 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    @Import(name="studioWebPortalSettings")
+    private @Nullable Output<DomainDefaultUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings;
+
+    /**
+     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsStudioWebPortalSettingsArgs>> studioWebPortalSettings() {
+        return Optional.ofNullable(this.studioWebPortalSettings);
+    }
+
+    /**
      * The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
@@ -287,6 +303,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         this.sharingSettings = $.sharingSettings;
         this.spaceStorageSettings = $.spaceStorageSettings;
         this.studioWebPortal = $.studioWebPortal;
+        this.studioWebPortalSettings = $.studioWebPortalSettings;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
     }
 
@@ -641,6 +658,27 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
          */
         public Builder studioWebPortal(String studioWebPortal) {
             return studioWebPortal(Output.of(studioWebPortal));
+        }
+
+        /**
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortalSettings(@Nullable Output<DomainDefaultUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings) {
+            $.studioWebPortalSettings = studioWebPortalSettings;
+            return this;
+        }
+
+        /**
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortalSettings(DomainDefaultUserSettingsStudioWebPortalSettingsArgs studioWebPortalSettings) {
+            return studioWebPortalSettings(Output.of(studioWebPortalSettings));
         }
 
         /**

@@ -27,7 +27,7 @@ class GetUserPoolResult:
     """
     A collection of values returned by getUserPool.
     """
-    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
+    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, tags=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
         if account_recovery_settings and not isinstance(account_recovery_settings, list):
             raise TypeError("Expected argument 'account_recovery_settings' to be a list")
         pulumi.set(__self__, "account_recovery_settings", account_recovery_settings)
@@ -88,6 +88,9 @@ class GetUserPoolResult:
         if sms_verification_message and not isinstance(sms_verification_message, str):
             raise TypeError("Expected argument 'sms_verification_message' to be a str")
         pulumi.set(__self__, "sms_verification_message", sms_verification_message)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if user_pool_id and not isinstance(user_pool_id, str):
             raise TypeError("Expected argument 'user_pool_id' to be a str")
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -243,15 +246,24 @@ class GetUserPoolResult:
         return pulumi.get(self, "sms_verification_message")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> str:
         return pulumi.get(self, "user_pool_id")
 
     @property
     @pulumi.getter(name="userPoolTags")
+    @_utilities.deprecated("""Use the attribute \"tags\" instead""")
     def user_pool_tags(self) -> Mapping[str, str]:
         """
-        The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+        (Deprecated) Map of tags assigned to the resource.
         """
         return pulumi.get(self, "user_pool_tags")
 
@@ -290,6 +302,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             sms_authentication_message=self.sms_authentication_message,
             sms_configuration_failure=self.sms_configuration_failure,
             sms_verification_message=self.sms_verification_message,
+            tags=self.tags,
             user_pool_id=self.user_pool_id,
             user_pool_tags=self.user_pool_tags,
             username_attributes=self.username_attributes)
@@ -340,6 +353,7 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         sms_authentication_message=pulumi.get(__ret__, 'sms_authentication_message'),
         sms_configuration_failure=pulumi.get(__ret__, 'sms_configuration_failure'),
         sms_verification_message=pulumi.get(__ret__, 'sms_verification_message'),
+        tags=pulumi.get(__ret__, 'tags'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))

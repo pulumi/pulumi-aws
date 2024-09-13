@@ -14,9 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot
     {
         /// <summary>
-        /// Name of the slot type
-        /// 
-        /// The following arguments are optional:
+        /// Name of a constituent sub slot inside a composite slot.
         /// </summary>
         public readonly string Name;
         public readonly string SubSlotId;

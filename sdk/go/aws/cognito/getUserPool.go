@@ -96,8 +96,12 @@ type LookupUserPoolResult struct {
 	SmsConfigurationFailure string `pulumi:"smsConfigurationFailure"`
 	// The contents of the SMS authentication message.
 	SmsVerificationMessage string `pulumi:"smsVerificationMessage"`
-	UserPoolId             string `pulumi:"userPoolId"`
-	// The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+	// Map of tags assigned to the resource.
+	Tags       map[string]string `pulumi:"tags"`
+	UserPoolId string            `pulumi:"userPoolId"`
+	// (Deprecated) Map of tags assigned to the resource.
+	//
+	// Deprecated: Use the attribute "tags" instead
 	UserPoolTags map[string]string `pulumi:"userPoolTags"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
@@ -239,11 +243,18 @@ func (o LookupUserPoolResultOutput) SmsVerificationMessage() pulumi.StringOutput
 	return o.ApplyT(func(v LookupUserPoolResult) string { return v.SmsVerificationMessage }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
+func (o LookupUserPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 func (o LookupUserPoolResultOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) string { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-// The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+// (Deprecated) Map of tags assigned to the resource.
+//
+// Deprecated: Use the attribute "tags" instead
 func (o LookupUserPoolResultOutput) UserPoolTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }

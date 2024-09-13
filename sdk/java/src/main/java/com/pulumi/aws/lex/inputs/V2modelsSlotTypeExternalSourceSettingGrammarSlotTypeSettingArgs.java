@@ -16,14 +16,16 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
     public static final V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs Empty = new V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs();
 
     /**
-     * Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+     * Source of the grammar used to create the slot type.
+     * See `source` argument reference below.
      * 
      */
     @Import(name="source")
     private @Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs> source;
 
     /**
-     * @return Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+     * @return Source of the grammar used to create the slot type.
+     * See `source` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs>> source() {
@@ -55,7 +57,8 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
         }
 
         /**
-         * @param source Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+         * @param source Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
          * 
          * @return builder
          * 
@@ -66,7 +69,8 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingAr
         }
 
         /**
-         * @param source Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+         * @param source Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
          * 
          * @return builder
          * 

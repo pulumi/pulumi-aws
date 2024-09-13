@@ -321,6 +321,143 @@ func (o AppAutoBranchCreationConfigPtrOutput) Stage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AppCacheConfig struct {
+	// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+	Type string `pulumi:"type"`
+}
+
+// AppCacheConfigInput is an input type that accepts AppCacheConfigArgs and AppCacheConfigOutput values.
+// You can construct a concrete instance of `AppCacheConfigInput` via:
+//
+//	AppCacheConfigArgs{...}
+type AppCacheConfigInput interface {
+	pulumi.Input
+
+	ToAppCacheConfigOutput() AppCacheConfigOutput
+	ToAppCacheConfigOutputWithContext(context.Context) AppCacheConfigOutput
+}
+
+type AppCacheConfigArgs struct {
+	// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AppCacheConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppCacheConfig)(nil)).Elem()
+}
+
+func (i AppCacheConfigArgs) ToAppCacheConfigOutput() AppCacheConfigOutput {
+	return i.ToAppCacheConfigOutputWithContext(context.Background())
+}
+
+func (i AppCacheConfigArgs) ToAppCacheConfigOutputWithContext(ctx context.Context) AppCacheConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppCacheConfigOutput)
+}
+
+func (i AppCacheConfigArgs) ToAppCacheConfigPtrOutput() AppCacheConfigPtrOutput {
+	return i.ToAppCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppCacheConfigArgs) ToAppCacheConfigPtrOutputWithContext(ctx context.Context) AppCacheConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppCacheConfigOutput).ToAppCacheConfigPtrOutputWithContext(ctx)
+}
+
+// AppCacheConfigPtrInput is an input type that accepts AppCacheConfigArgs, AppCacheConfigPtr and AppCacheConfigPtrOutput values.
+// You can construct a concrete instance of `AppCacheConfigPtrInput` via:
+//
+//	        AppCacheConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppCacheConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppCacheConfigPtrOutput() AppCacheConfigPtrOutput
+	ToAppCacheConfigPtrOutputWithContext(context.Context) AppCacheConfigPtrOutput
+}
+
+type appCacheConfigPtrType AppCacheConfigArgs
+
+func AppCacheConfigPtr(v *AppCacheConfigArgs) AppCacheConfigPtrInput {
+	return (*appCacheConfigPtrType)(v)
+}
+
+func (*appCacheConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppCacheConfig)(nil)).Elem()
+}
+
+func (i *appCacheConfigPtrType) ToAppCacheConfigPtrOutput() AppCacheConfigPtrOutput {
+	return i.ToAppCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appCacheConfigPtrType) ToAppCacheConfigPtrOutputWithContext(ctx context.Context) AppCacheConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppCacheConfigPtrOutput)
+}
+
+type AppCacheConfigOutput struct{ *pulumi.OutputState }
+
+func (AppCacheConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppCacheConfig)(nil)).Elem()
+}
+
+func (o AppCacheConfigOutput) ToAppCacheConfigOutput() AppCacheConfigOutput {
+	return o
+}
+
+func (o AppCacheConfigOutput) ToAppCacheConfigOutputWithContext(ctx context.Context) AppCacheConfigOutput {
+	return o
+}
+
+func (o AppCacheConfigOutput) ToAppCacheConfigPtrOutput() AppCacheConfigPtrOutput {
+	return o.ToAppCacheConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppCacheConfigOutput) ToAppCacheConfigPtrOutputWithContext(ctx context.Context) AppCacheConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppCacheConfig) *AppCacheConfig {
+		return &v
+	}).(AppCacheConfigPtrOutput)
+}
+
+// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+func (o AppCacheConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AppCacheConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AppCacheConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppCacheConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppCacheConfig)(nil)).Elem()
+}
+
+func (o AppCacheConfigPtrOutput) ToAppCacheConfigPtrOutput() AppCacheConfigPtrOutput {
+	return o
+}
+
+func (o AppCacheConfigPtrOutput) ToAppCacheConfigPtrOutputWithContext(ctx context.Context) AppCacheConfigPtrOutput {
+	return o
+}
+
+func (o AppCacheConfigPtrOutput) Elem() AppCacheConfigOutput {
+	return o.ApplyT(func(v *AppCacheConfig) AppCacheConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppCacheConfig
+		return ret
+	}).(AppCacheConfigOutput)
+}
+
+// Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+func (o AppCacheConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppCacheConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type AppCustomRule struct {
 	// Condition for a URL rewrite or redirect rule, such as a country code.
 	Condition *string `pulumi:"condition"`
@@ -871,6 +1008,8 @@ func (o DomainAssociationSubDomainArrayOutput) Index(i pulumi.IntInput) DomainAs
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigPtrInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigInput)(nil)).Elem(), AppCacheConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigPtrInput)(nil)).Elem(), AppCacheConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleInput)(nil)).Elem(), AppCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchInput)(nil)).Elem(), AppProductionBranchArgs{})
@@ -881,6 +1020,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainArrayInput)(nil)).Elem(), DomainAssociationSubDomainArray{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppCacheConfigOutput{})
+	pulumi.RegisterOutputType(AppCacheConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppCustomRuleOutput{})
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchOutput{})

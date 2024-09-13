@@ -11,9 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to get the ARN of a certificate in AWS Certificate
-// Manager (ACM), you can reference
-// it by domain without having to hard code the ARNs as input.
+// Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+// You can reference the certificate by domain or tags without having to hard code the ARNs as input.
 //
 // ## Example Usage
 //
@@ -31,7 +30,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Find a certificate that is issued
 //			_, err := acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-//				Domain: "tf.example.com",
+//				Domain: pulumi.StringRef("tf.example.com"),
 //				Statuses: []string{
 //					"ISSUED",
 //				},
@@ -41,7 +40,7 @@ import (
 //			}
 //			// Find a certificate issued by (not imported into) ACM
 //			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-//				Domain: "tf.example.com",
+//				Domain: pulumi.StringRef("tf.example.com"),
 //				Types: []string{
 //					"AMAZON_ISSUED",
 //				},
@@ -52,7 +51,7 @@ import (
 //			}
 //			// Find a RSA 4096 bit certificate
 //			_, err = acm.LookupCertificate(ctx, &acm.LookupCertificateArgs{
-//				Domain: "tf.example.com",
+//				Domain: pulumi.StringRef("tf.example.com"),
 //				KeyTypes: []string{
 //					"RSA_4096",
 //				},
@@ -77,8 +76,8 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-	Domain string `pulumi:"domain"`
+	// Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
+	Domain *string `pulumi:"domain"`
 	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes []string `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
@@ -87,7 +86,7 @@ type LookupCertificateArgs struct {
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
 	Statuses []string `pulumi:"statuses"`
-	// Mapping of tags for the resource.
+	// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
 	Tags map[string]string `pulumi:"tags"`
 	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
 	Types []string `pulumi:"types"`
@@ -129,8 +128,8 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
-	// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-	Domain pulumi.StringInput `pulumi:"domain"`
+	// Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes pulumi.StringArrayInput `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
@@ -139,7 +138,7 @@ type LookupCertificateOutputArgs struct {
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
 	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
-	// Mapping of tags for the resource.
+	// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
 	Types pulumi.StringArrayInput `pulumi:"types"`

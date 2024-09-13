@@ -1101,7 +1101,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
      * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
@@ -1111,7 +1111,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
+     * storage_type of &#34;io1&#34; or &#34;io2&#34;. Can only be set when `storage_type` is `&#34;io1&#34;`, `&#34;io2` or `&#34;gp3&#34;`.
      * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
@@ -1666,8 +1666,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
      * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
-     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
-     * &#34;gp2&#34; if not.
+     * &#34;io1&#34; (provisioned IOPS SSD) or &#34;io2&#34; (block express storage provisioned IOPS
+     * SSD). The default is &#34;io1&#34; if `iops` is specified, &#34;gp2&#34; if not.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
@@ -1676,8 +1676,8 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * @return One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
      * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
-     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
-     * &#34;gp2&#34; if not.
+     * &#34;io1&#34; (provisioned IOPS SSD) or &#34;io2&#34; (block express storage provisioned IOPS
+     * SSD). The default is &#34;io1&#34; if `iops` is specified, &#34;gp2&#34; if not.
      * 
      */
     public Output<String> storageType() {

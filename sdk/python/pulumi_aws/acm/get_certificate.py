@@ -162,9 +162,8 @@ def get_certificate(domain: Optional[str] = None,
                     types: Optional[Sequence[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate
-    Manager (ACM), you can reference
-    it by domain without having to hard code the ARNs as input.
+    Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+    You can reference the certificate by domain or tags without having to hard code the ARNs as input.
 
     ## Example Usage
 
@@ -185,13 +184,13 @@ def get_certificate(domain: Optional[str] = None,
     ```
 
 
-    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
     :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
     :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
-    :param Mapping[str, str] tags: Mapping of tags for the resource.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
     :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
     """
     __args__ = dict()
@@ -219,7 +218,7 @@ def get_certificate(domain: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_certificate)
-def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
+def get_certificate_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
                            key_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                            statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -227,9 +226,8 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
                            types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate
-    Manager (ACM), you can reference
-    it by domain without having to hard code the ARNs as input.
+    Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+    You can reference the certificate by domain or tags without having to hard code the ARNs as input.
 
     ## Example Usage
 
@@ -250,13 +248,13 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
     :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
     :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
-    :param Mapping[str, str] tags: Mapping of tags for the resource.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
     :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
     """
     ...

@@ -15,6 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AssetTypeFormsInputArgs',
+    'AssetTypeFormsInputArgsDict',
+    'AssetTypeTimeoutsArgs',
+    'AssetTypeTimeoutsArgsDict',
     'DomainSingleSignOnArgs',
     'DomainSingleSignOnArgsDict',
     'DomainTimeoutsArgs',
@@ -48,6 +52,97 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AssetTypeFormsInputArgsDict(TypedDict):
+        map_block_key: pulumi.Input[str]
+        type_identifier: pulumi.Input[str]
+        type_revision: pulumi.Input[str]
+        required: NotRequired[pulumi.Input[bool]]
+elif False:
+    AssetTypeFormsInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetTypeFormsInputArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 type_identifier: pulumi.Input[str],
+                 type_revision: pulumi.Input[str],
+                 required: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "type_identifier", type_identifier)
+        pulumi.set(__self__, "type_revision", type_revision)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="typeIdentifier")
+    def type_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type_identifier")
+
+    @type_identifier.setter
+    def type_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_identifier", value)
+
+    @property
+    @pulumi.getter(name="typeRevision")
+    def type_revision(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type_revision")
+
+    @type_revision.setter
+    def type_revision(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_revision", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AssetTypeTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AssetTypeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetTypeTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
 
 if not MYPY:
     class DomainSingleSignOnArgsDict(TypedDict):

@@ -25,6 +25,16 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     private String accountUrl;
     /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+     * 
+     */
+    private @Nullable Integer bufferingInterval;
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+     * 
+     */
+    private @Nullable Integer bufferingSize;
+    /**
      * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
@@ -122,6 +132,20 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      */
     public String accountUrl() {
         return this.accountUrl;
+    }
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+     * 
+     */
+    public Optional<Integer> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
+    }
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+     * 
+     */
+    public Optional<Integer> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
     }
     /**
      * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
@@ -260,6 +284,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String accountUrl;
+        private @Nullable Integer bufferingInterval;
+        private @Nullable Integer bufferingSize;
         private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
         private @Nullable String contentColumnName;
         private @Nullable String dataLoadingOption;
@@ -282,6 +308,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         public Builder(FirehoseDeliveryStreamSnowflakeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountUrl = defaults.accountUrl;
+    	      this.bufferingInterval = defaults.bufferingInterval;
+    	      this.bufferingSize = defaults.bufferingSize;
     	      this.cloudwatchLoggingOptions = defaults.cloudwatchLoggingOptions;
     	      this.contentColumnName = defaults.contentColumnName;
     	      this.dataLoadingOption = defaults.dataLoadingOption;
@@ -308,6 +336,18 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
               throw new MissingRequiredPropertyException("FirehoseDeliveryStreamSnowflakeConfiguration", "accountUrl");
             }
             this.accountUrl = accountUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bufferingInterval(@Nullable Integer bufferingInterval) {
+
+            this.bufferingInterval = bufferingInterval;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bufferingSize(@Nullable Integer bufferingSize) {
+
+            this.bufferingSize = bufferingSize;
             return this;
         }
         @CustomType.Setter
@@ -431,6 +471,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
         public FirehoseDeliveryStreamSnowflakeConfiguration build() {
             final var _resultValue = new FirehoseDeliveryStreamSnowflakeConfiguration();
             _resultValue.accountUrl = accountUrl;
+            _resultValue.bufferingInterval = bufferingInterval;
+            _resultValue.bufferingSize = bufferingSize;
             _resultValue.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             _resultValue.contentColumnName = contentColumnName;
             _resultValue.dataLoadingOption = dataLoadingOption;

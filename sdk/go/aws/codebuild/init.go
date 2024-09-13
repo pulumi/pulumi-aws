@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:codebuild/fleet:Fleet":
+		r = &Fleet{}
 	case "aws:codebuild/project:Project":
 		r = &Project{}
 	case "aws:codebuild/reportGroup:ReportGroup":
@@ -44,6 +46,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codebuild/fleet",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codebuild/project",

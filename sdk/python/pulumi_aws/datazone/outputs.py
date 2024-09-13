@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AssetTypeFormsInput',
+    'AssetTypeTimeouts',
     'DomainSingleSignOn',
     'DomainTimeouts',
     'EnvironmentLastDeployment',
@@ -32,6 +34,80 @@ __all__ = [
     'ProjectFailureReason',
     'ProjectTimeouts',
 ]
+
+@pulumi.output_type
+class AssetTypeFormsInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapBlockKey":
+            suggest = "map_block_key"
+        elif key == "typeIdentifier":
+            suggest = "type_identifier"
+        elif key == "typeRevision":
+            suggest = "type_revision"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetTypeFormsInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetTypeFormsInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetTypeFormsInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 map_block_key: str,
+                 type_identifier: str,
+                 type_revision: str,
+                 required: Optional[bool] = None):
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "type_identifier", type_identifier)
+        pulumi.set(__self__, "type_revision", type_revision)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> str:
+        return pulumi.get(self, "map_block_key")
+
+    @property
+    @pulumi.getter(name="typeIdentifier")
+    def type_identifier(self) -> str:
+        return pulumi.get(self, "type_identifier")
+
+    @property
+    @pulumi.getter(name="typeRevision")
+    def type_revision(self) -> str:
+        return pulumi.get(self, "type_revision")
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[bool]:
+        return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class AssetTypeTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
 
 @pulumi.output_type
 class DomainSingleSignOn(dict):

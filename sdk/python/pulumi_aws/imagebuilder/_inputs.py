@@ -2453,7 +2453,7 @@ if not MYPY:
     class ImageRecipeSystemsManagerAgentArgsDict(TypedDict):
         uninstall_after_build: pulumi.Input[bool]
         """
-        Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        Whether to remove the Systems Manager Agent after the image has been built.
         """
 elif False:
     ImageRecipeSystemsManagerAgentArgsDict: TypeAlias = Mapping[str, Any]
@@ -2463,7 +2463,7 @@ class ImageRecipeSystemsManagerAgentArgs:
     def __init__(__self__, *,
                  uninstall_after_build: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        :param pulumi.Input[bool] uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built.
         """
         pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
 
@@ -2471,7 +2471,7 @@ class ImageRecipeSystemsManagerAgentArgs:
     @pulumi.getter(name="uninstallAfterBuild")
     def uninstall_after_build(self) -> pulumi.Input[bool]:
         """
-        Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+        Whether to remove the Systems Manager Agent after the image has been built.
         """
         return pulumi.get(self, "uninstall_after_build")
 

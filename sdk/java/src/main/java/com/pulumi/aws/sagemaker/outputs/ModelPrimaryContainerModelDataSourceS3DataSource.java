@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelPrimaryContainerModelDataSourceS3DataSource {
@@ -15,6 +18,11 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
      * 
      */
     private String compressionType;
+    /**
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * 
+     */
+    private @Nullable ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig;
     /**
      * @return The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
@@ -33,6 +41,13 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
      */
     public String compressionType() {
         return this.compressionType;
+    }
+    /**
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * 
+     */
+    public Optional<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig> modelAccessConfig() {
+        return Optional.ofNullable(this.modelAccessConfig);
     }
     /**
      * @return The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
@@ -59,12 +74,14 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
     @CustomType.Builder
     public static final class Builder {
         private String compressionType;
+        private @Nullable ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig;
         private String s3DataType;
         private String s3Uri;
         public Builder() {}
         public Builder(ModelPrimaryContainerModelDataSourceS3DataSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.compressionType = defaults.compressionType;
+    	      this.modelAccessConfig = defaults.modelAccessConfig;
     	      this.s3DataType = defaults.s3DataType;
     	      this.s3Uri = defaults.s3Uri;
         }
@@ -75,6 +92,12 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
               throw new MissingRequiredPropertyException("ModelPrimaryContainerModelDataSourceS3DataSource", "compressionType");
             }
             this.compressionType = compressionType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder modelAccessConfig(@Nullable ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig modelAccessConfig) {
+
+            this.modelAccessConfig = modelAccessConfig;
             return this;
         }
         @CustomType.Setter
@@ -96,6 +119,7 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSource {
         public ModelPrimaryContainerModelDataSourceS3DataSource build() {
             final var _resultValue = new ModelPrimaryContainerModelDataSourceS3DataSource();
             _resultValue.compressionType = compressionType;
+            _resultValue.modelAccessConfig = modelAccessConfig;
             _resultValue.s3DataType = s3DataType;
             _resultValue.s3Uri = s3Uri;
             return _resultValue;

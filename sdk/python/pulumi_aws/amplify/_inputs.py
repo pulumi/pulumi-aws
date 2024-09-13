@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'AppAutoBranchCreationConfigArgs',
     'AppAutoBranchCreationConfigArgsDict',
+    'AppCacheConfigArgs',
+    'AppCacheConfigArgsDict',
     'AppCustomRuleArgs',
     'AppCustomRuleArgsDict',
     'AppProductionBranchArgs',
@@ -239,6 +241,37 @@ class AppAutoBranchCreationConfigArgs:
     @stage.setter
     def stage(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stage", value)
+
+
+if not MYPY:
+    class AppCacheConfigArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+        """
+elif False:
+    AppCacheConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppCacheConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

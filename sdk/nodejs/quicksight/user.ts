@@ -88,7 +88,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly userName!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
      */
     public readonly userRole!: pulumi.Output<string>;
 
@@ -177,7 +177,7 @@ export interface UserState {
      */
     userName?: pulumi.Input<string>;
     /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
      */
     userRole?: pulumi.Input<string>;
 }
@@ -215,7 +215,7 @@ export interface UserArgs {
      */
     userName?: pulumi.Input<string>;
     /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
      */
     userRole: pulumi.Input<string>;
 }

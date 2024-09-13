@@ -18,14 +18,16 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
     public static final V2modelsSlotTypeSlotTypeValuesArgs Empty = new V2modelsSlotTypeSlotTypeValuesArgs();
 
     /**
-     * Value of the slot type entry.  See `sample_value` argument reference below.
+     * Value of the slot type entry.
+     * See `sample_value` argument reference below.
      * 
      */
     @Import(name="sampleValues")
     private @Nullable Output<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>> sampleValues;
 
     /**
-     * @return Value of the slot type entry.  See `sample_value` argument reference below.
+     * @return Value of the slot type entry.
+     * See `sample_value` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>>> sampleValues() {
@@ -33,14 +35,16 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
     }
 
     /**
-     * Additional values related to the slot type entry. See `sample_value` argument reference below.
+     * A list of additional values related to the slot type entry.
+     * See `synonyms` argument reference below.
      * 
      */
     @Import(name="synonyms")
     private @Nullable Output<List<V2modelsSlotTypeSlotTypeValuesSynonymArgs>> synonyms;
 
     /**
-     * @return Additional values related to the slot type entry. See `sample_value` argument reference below.
+     * @return A list of additional values related to the slot type entry.
+     * See `synonyms` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeSlotTypeValuesSynonymArgs>>> synonyms() {
@@ -73,7 +77,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
+         * @param sampleValues Value of the slot type entry.
+         * See `sample_value` argument reference below.
          * 
          * @return builder
          * 
@@ -84,7 +89,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
+         * @param sampleValues Value of the slot type entry.
+         * See `sample_value` argument reference below.
          * 
          * @return builder
          * 
@@ -94,7 +100,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sampleValues Value of the slot type entry.  See `sample_value` argument reference below.
+         * @param sampleValues Value of the slot type entry.
+         * See `sample_value` argument reference below.
          * 
          * @return builder
          * 
@@ -104,7 +111,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param synonyms Additional values related to the slot type entry. See `sample_value` argument reference below.
+         * @param synonyms A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          * 
          * @return builder
          * 
@@ -115,7 +123,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param synonyms Additional values related to the slot type entry. See `sample_value` argument reference below.
+         * @param synonyms A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          * 
          * @return builder
          * 
@@ -125,7 +134,8 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param synonyms Additional values related to the slot type entry. See `sample_value` argument reference below.
+         * @param synonyms A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          * 
          * @return builder
          * 

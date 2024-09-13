@@ -962,6 +962,8 @@ import javax.annotation.Nullable;
  *             .destination("snowflake")
  *             .snowflakeConfiguration(FirehoseDeliveryStreamSnowflakeConfigurationArgs.builder()
  *                 .accountUrl("https://example.snowflakecomputing.com")
+ *                 .bufferingSize(15)
+ *                 .bufferingInterval(600)
  *                 .database("example-db")
  *                 .privateKey("...")
  *                 .roleArn(firehose.arn())

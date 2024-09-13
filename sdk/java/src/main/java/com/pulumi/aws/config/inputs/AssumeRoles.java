@@ -12,7 +12,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class AssumeRole {
+public final class AssumeRoles {
     /**
      * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
      * 
@@ -59,7 +59,7 @@ public final class AssumeRole {
      */
     private @Nullable List<String> transitiveTagKeys;
 
-    private AssumeRole() {}
+    private AssumeRoles() {}
     /**
      * @return The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
      * 
@@ -128,7 +128,7 @@ public final class AssumeRole {
         return new Builder();
     }
 
-    public static Builder builder(AssumeRole defaults) {
+    public static Builder builder(AssumeRoles defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -143,7 +143,7 @@ public final class AssumeRole {
         private @Nullable Map<String,String> tags;
         private @Nullable List<String> transitiveTagKeys;
         public Builder() {}
-        public Builder(AssumeRole defaults) {
+        public Builder(AssumeRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
     	      this.externalId = defaults.externalId;
@@ -216,8 +216,8 @@ public final class AssumeRole {
         public Builder transitiveTagKeys(String... transitiveTagKeys) {
             return transitiveTagKeys(List.of(transitiveTagKeys));
         }
-        public AssumeRole build() {
-            final var _resultValue = new AssumeRole();
+        public AssumeRoles build() {
+            final var _resultValue = new AssumeRoles();
             _resultValue.duration = duration;
             _resultValue.externalId = externalId;
             _resultValue.policy = policy;

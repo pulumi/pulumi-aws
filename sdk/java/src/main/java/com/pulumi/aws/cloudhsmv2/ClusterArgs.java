@@ -19,18 +19,33 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
     @Import(name="hsmType", required=true)
     private Output<String> hsmType;
 
     /**
-     * @return The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * @return The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
     public Output<String> hsmType() {
         return this.hsmType;
+    }
+
+    /**
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * 
+     */
+    @Import(name="mode")
+    private @Nullable Output<String> mode;
+
+    /**
+     * @return The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * 
+     */
+    public Optional<Output<String>> mode() {
+        return Optional.ofNullable(this.mode);
     }
 
     /**
@@ -82,6 +97,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     private ClusterArgs(ClusterArgs $) {
         this.hsmType = $.hsmType;
+        this.mode = $.mode;
         this.sourceBackupIdentifier = $.sourceBackupIdentifier;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -106,7 +122,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmType The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+         * @param hsmType The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
          * 
          * @return builder
          * 
@@ -117,13 +133,34 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hsmType The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+         * @param hsmType The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
          * 
          * @return builder
          * 
          */
         public Builder hsmType(String hsmType) {
             return hsmType(Output.of(hsmType));
+        }
+
+        /**
+         * @param mode The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mode(@Nullable Output<String> mode) {
+            $.mode = mode;
+            return this;
+        }
+
+        /**
+         * @param mode The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mode(String mode) {
+            return mode(Output.of(mode));
         }
 
         /**

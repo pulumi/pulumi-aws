@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AssetTypeArgs, AssetTypeState } from "./assetType";
+export type AssetType = import("./assetType").AssetType;
+export const AssetType: typeof import("./assetType").AssetType = null as any;
+utilities.lazyLoad(exports, ["AssetType"], () => require("./assetType"));
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
@@ -55,6 +60,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:datazone/assetType:AssetType":
+                return new AssetType(name, <any>undefined, { urn })
             case "aws:datazone/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:datazone/environment:Environment":
@@ -76,6 +83,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "datazone/assetType", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/environment", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/environmentBlueprintConfiguration", _module)

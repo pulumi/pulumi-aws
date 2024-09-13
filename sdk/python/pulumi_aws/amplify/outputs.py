@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'AppAutoBranchCreationConfig',
+    'AppCacheConfig',
     'AppCustomRule',
     'AppProductionBranch',
     'DomainAssociationCertificateSettings',
@@ -178,6 +179,24 @@ class AppAutoBranchCreationConfig(dict):
         Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         """
         return pulumi.get(self, "stage")
+
+
+@pulumi.output_type
+class AppCacheConfig(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

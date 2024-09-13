@@ -51,7 +51,7 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
     }
 
     /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
     public readonly state!: pulumi.Output<string>;
 
@@ -86,7 +86,7 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
  */
 export interface SnapshotBlockPublicAccessState {
     /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
     state?: pulumi.Input<string>;
 }
@@ -96,7 +96,7 @@ export interface SnapshotBlockPublicAccessState {
  */
 export interface SnapshotBlockPublicAccessArgs {
     /**
-     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
     state: pulumi.Input<string>;
 }

@@ -48,7 +48,7 @@ import (
 type SnapshotBlockPublicAccess struct {
 	pulumi.CustomResourceState
 
-	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -85,12 +85,12 @@ func GetSnapshotBlockPublicAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotBlockPublicAccess resources.
 type snapshotBlockPublicAccessState struct {
-	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State *string `pulumi:"state"`
 }
 
 type SnapshotBlockPublicAccessState struct {
-	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringPtrInput
 }
 
@@ -99,13 +99,13 @@ func (SnapshotBlockPublicAccessState) ElementType() reflect.Type {
 }
 
 type snapshotBlockPublicAccessArgs struct {
-	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a SnapshotBlockPublicAccess resource.
 type SnapshotBlockPublicAccessArgs struct {
-	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringInput
 }
 
@@ -196,7 +196,7 @@ func (o SnapshotBlockPublicAccessOutput) ToSnapshotBlockPublicAccessOutputWithCo
 	return o
 }
 
-// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 func (o SnapshotBlockPublicAccessOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotBlockPublicAccess) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

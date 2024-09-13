@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsDockerSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDomainSettings {
+    /**
+     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * 
+     */
+    private @Nullable DomainDomainSettingsDockerSettings dockerSettings;
     /**
      * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
      * 
@@ -30,6 +36,13 @@ public final class DomainDomainSettings {
     private @Nullable List<String> securityGroupIds;
 
     private DomainDomainSettings() {}
+    /**
+     * @return A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+     * 
+     */
+    public Optional<DomainDomainSettingsDockerSettings> dockerSettings() {
+        return Optional.ofNullable(this.dockerSettings);
+    }
     /**
      * @return The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
      * 
@@ -61,17 +74,25 @@ public final class DomainDomainSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DomainDomainSettingsDockerSettings dockerSettings;
         private @Nullable String executionRoleIdentityConfig;
         private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
         private @Nullable List<String> securityGroupIds;
         public Builder() {}
         public Builder(DomainDomainSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dockerSettings = defaults.dockerSettings;
     	      this.executionRoleIdentityConfig = defaults.executionRoleIdentityConfig;
     	      this.rStudioServerProDomainSettings = defaults.rStudioServerProDomainSettings;
     	      this.securityGroupIds = defaults.securityGroupIds;
         }
 
+        @CustomType.Setter
+        public Builder dockerSettings(@Nullable DomainDomainSettingsDockerSettings dockerSettings) {
+
+            this.dockerSettings = dockerSettings;
+            return this;
+        }
         @CustomType.Setter
         public Builder executionRoleIdentityConfig(@Nullable String executionRoleIdentityConfig) {
 
@@ -95,6 +116,7 @@ public final class DomainDomainSettings {
         }
         public DomainDomainSettings build() {
             final var _resultValue = new DomainDomainSettings();
+            _resultValue.dockerSettings = dockerSettings;
             _resultValue.executionRoleIdentityConfig = executionRoleIdentityConfig;
             _resultValue.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             _resultValue.securityGroupIds = securityGroupIds;

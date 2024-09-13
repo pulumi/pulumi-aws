@@ -3,8 +3,12 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,6 +24,36 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     public static final DomainDefaultSpaceSettingsArgs Empty = new DomainDefaultSpaceSettingsArgs();
 
     /**
+     * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * 
+     */
+    @Import(name="customFileSystemConfigs")
+    private @Nullable Output<List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
+
+    /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * 
+     */
+    public Optional<Output<List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>>> customFileSystemConfigs() {
+        return Optional.ofNullable(this.customFileSystemConfigs);
+    }
+
+    /**
+     * Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+     * 
+     */
+    @Import(name="customPosixUserConfig")
+    private @Nullable Output<DomainDefaultSpaceSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
+
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultSpaceSettingsCustomPosixUserConfigArgs>> customPosixUserConfig() {
+        return Optional.ofNullable(this.customPosixUserConfig);
+    }
+
+    /**
      * The execution role for the space.
      * 
      */
@@ -32,6 +66,21 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
      */
     public Output<String> executionRole() {
         return this.executionRole;
+    }
+
+    /**
+     * The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+     * 
+     */
+    @Import(name="jupyterLabAppSettings")
+    private @Nullable Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
+
+    /**
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs>> jupyterLabAppSettings() {
+        return Optional.ofNullable(this.jupyterLabAppSettings);
     }
 
     /**
@@ -79,13 +128,32 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.securityGroups);
     }
 
+    /**
+     * The storage settings for a private space. See `space_storage_settings` Block below.
+     * 
+     */
+    @Import(name="spaceStorageSettings")
+    private @Nullable Output<DomainDefaultSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
+
+    /**
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultSpaceSettingsSpaceStorageSettingsArgs>> spaceStorageSettings() {
+        return Optional.ofNullable(this.spaceStorageSettings);
+    }
+
     private DomainDefaultSpaceSettingsArgs() {}
 
     private DomainDefaultSpaceSettingsArgs(DomainDefaultSpaceSettingsArgs $) {
+        this.customFileSystemConfigs = $.customFileSystemConfigs;
+        this.customPosixUserConfig = $.customPosixUserConfig;
         this.executionRole = $.executionRole;
+        this.jupyterLabAppSettings = $.jupyterLabAppSettings;
         this.jupyterServerAppSettings = $.jupyterServerAppSettings;
         this.kernelGatewayAppSettings = $.kernelGatewayAppSettings;
         this.securityGroups = $.securityGroups;
+        this.spaceStorageSettings = $.spaceStorageSettings;
     }
 
     public static Builder builder() {
@@ -107,6 +175,58 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(@Nullable Output<List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs) {
+            $.customFileSystemConfigs = customFileSystemConfigs;
+            return this;
+        }
+
+        /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs> customFileSystemConfigs) {
+            return customFileSystemConfigs(Output.of(customFileSystemConfigs));
+        }
+
+        /**
+         * @param customFileSystemConfigs The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customFileSystemConfigs(DomainDefaultSpaceSettingsCustomFileSystemConfigArgs... customFileSystemConfigs) {
+            return customFileSystemConfigs(List.of(customFileSystemConfigs));
+        }
+
+        /**
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPosixUserConfig(@Nullable Output<DomainDefaultSpaceSettingsCustomPosixUserConfigArgs> customPosixUserConfig) {
+            $.customPosixUserConfig = customPosixUserConfig;
+            return this;
+        }
+
+        /**
+         * @param customPosixUserConfig Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPosixUserConfig(DomainDefaultSpaceSettingsCustomPosixUserConfigArgs customPosixUserConfig) {
+            return customPosixUserConfig(Output.of(customPosixUserConfig));
+        }
+
+        /**
          * @param executionRole The execution role for the space.
          * 
          * @return builder
@@ -125,6 +245,27 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
          */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
+        }
+
+        /**
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jupyterLabAppSettings(@Nullable Output<DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings) {
+            $.jupyterLabAppSettings = jupyterLabAppSettings;
+            return this;
+        }
+
+        /**
+         * @param jupyterLabAppSettings The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jupyterLabAppSettings(DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings) {
+            return jupyterLabAppSettings(Output.of(jupyterLabAppSettings));
         }
 
         /**
@@ -198,6 +339,27 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
          */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
+        }
+
+        /**
+         * @param spaceStorageSettings The storage settings for a private space. See `space_storage_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceStorageSettings(@Nullable Output<DomainDefaultSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings) {
+            $.spaceStorageSettings = spaceStorageSettings;
+            return this;
+        }
+
+        /**
+         * @param spaceStorageSettings The storage settings for a private space. See `space_storage_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spaceStorageSettings(DomainDefaultSpaceSettingsSpaceStorageSettingsArgs spaceStorageSettings) {
+            return spaceStorageSettings(Output.of(spaceStorageSettings));
         }
 
         public DomainDefaultSpaceSettingsArgs build() {

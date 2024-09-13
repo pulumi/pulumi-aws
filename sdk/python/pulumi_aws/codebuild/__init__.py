@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .fleet import *
+from .get_fleet import *
 from .project import *
 from .report_group import *
 from .resource_policy import *

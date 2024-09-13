@@ -568,6 +568,8 @@ import * as utilities from "../utilities";
  *     destination: "snowflake",
  *     snowflakeConfiguration: {
  *         accountUrl: "https://example.snowflakecomputing.com",
+ *         bufferingSize: 15,
+ *         bufferingInterval: 600,
  *         database: "example-db",
  *         privateKey: "...",
  *         roleArn: firehose.arn,

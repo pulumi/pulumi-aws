@@ -51,10 +51,16 @@ namespace Pulumi.Aws.CloudHsmV2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+        /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
         [Output("hsmType")]
         public Output<string> HsmType { get; private set; } = null!;
+
+        /// <summary>
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// </summary>
+        [Output("mode")]
+        public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.
@@ -139,10 +145,16 @@ namespace Pulumi.Aws.CloudHsmV2
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+        /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
         [Input("hsmType", required: true)]
         public Input<string> HsmType { get; set; } = null!;
+
+        /// <summary>
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
 
         /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
@@ -207,10 +219,16 @@ namespace Pulumi.Aws.CloudHsmV2
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+        /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
         [Input("hsmType")]
         public Input<string>? HsmType { get; set; }
+
+        /// <summary>
+        /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
 
         /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.

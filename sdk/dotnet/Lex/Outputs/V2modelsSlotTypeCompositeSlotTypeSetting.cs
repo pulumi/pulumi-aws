@@ -14,7 +14,8 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotTypeCompositeSlotTypeSetting
     {
         /// <summary>
-        /// Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        /// Sub slots in the composite slot.
+        /// See `sub_slots` argument reference below.
         /// </summary>
         public readonly ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> SubSlots;
 

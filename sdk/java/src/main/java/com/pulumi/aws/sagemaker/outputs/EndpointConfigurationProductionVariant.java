@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantCoreDumpConfig;
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantManagedInstanceScaling;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantRoutingConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -59,6 +60,11 @@ public final class EndpointConfigurationProductionVariant {
      * 
      */
     private @Nullable String instanceType;
+    /**
+     * @return Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * 
+     */
+    private @Nullable EndpointConfigurationProductionVariantManagedInstanceScaling managedInstanceScaling;
     /**
      * @return The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
@@ -148,6 +154,13 @@ public final class EndpointConfigurationProductionVariant {
         return Optional.ofNullable(this.instanceType);
     }
     /**
+     * @return Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     * 
+     */
+    public Optional<EndpointConfigurationProductionVariantManagedInstanceScaling> managedInstanceScaling() {
+        return Optional.ofNullable(this.managedInstanceScaling);
+    }
+    /**
      * @return The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
      */
@@ -207,6 +220,7 @@ public final class EndpointConfigurationProductionVariant {
         private @Nullable Integer initialInstanceCount;
         private @Nullable Double initialVariantWeight;
         private @Nullable String instanceType;
+        private @Nullable EndpointConfigurationProductionVariantManagedInstanceScaling managedInstanceScaling;
         private @Nullable Integer modelDataDownloadTimeoutInSeconds;
         private String modelName;
         private @Nullable List<EndpointConfigurationProductionVariantRoutingConfig> routingConfigs;
@@ -224,6 +238,7 @@ public final class EndpointConfigurationProductionVariant {
     	      this.initialInstanceCount = defaults.initialInstanceCount;
     	      this.initialVariantWeight = defaults.initialVariantWeight;
     	      this.instanceType = defaults.instanceType;
+    	      this.managedInstanceScaling = defaults.managedInstanceScaling;
     	      this.modelDataDownloadTimeoutInSeconds = defaults.modelDataDownloadTimeoutInSeconds;
     	      this.modelName = defaults.modelName;
     	      this.routingConfigs = defaults.routingConfigs;
@@ -281,6 +296,12 @@ public final class EndpointConfigurationProductionVariant {
             return this;
         }
         @CustomType.Setter
+        public Builder managedInstanceScaling(@Nullable EndpointConfigurationProductionVariantManagedInstanceScaling managedInstanceScaling) {
+
+            this.managedInstanceScaling = managedInstanceScaling;
+            return this;
+        }
+        @CustomType.Setter
         public Builder modelDataDownloadTimeoutInSeconds(@Nullable Integer modelDataDownloadTimeoutInSeconds) {
 
             this.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
@@ -331,6 +352,7 @@ public final class EndpointConfigurationProductionVariant {
             _resultValue.initialInstanceCount = initialInstanceCount;
             _resultValue.initialVariantWeight = initialVariantWeight;
             _resultValue.instanceType = instanceType;
+            _resultValue.managedInstanceScaling = managedInstanceScaling;
             _resultValue.modelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             _resultValue.modelName = modelName;
             _resultValue.routingConfigs = routingConfigs;

@@ -20,14 +20,18 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
     public static final V2modelsSlotTypeValueSelectionSettingArgs Empty = new V2modelsSlotTypeValueSelectionSettingArgs();
 
     /**
-     * Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+     * Provides settings that enable advanced recognition settings for slot values.
+     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+     * See `advanced_recognition_setting` argument reference below.
      * 
      */
     @Import(name="advancedRecognitionSettings")
     private @Nullable Output<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>> advancedRecognitionSettings;
 
     /**
-     * @return Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+     * @return Provides settings that enable advanced recognition settings for slot values.
+     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+     * See `advanced_recognition_setting` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>>> advancedRecognitionSettings() {
@@ -35,14 +39,16 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
     }
 
     /**
-     * Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+     * Used to validate the value of the slot.
+     * See `regex_filter` argument reference below.
      * 
      */
     @Import(name="regexFilters")
     private @Nullable Output<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>> regexFilters;
 
     /**
-     * @return Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+     * @return Used to validate the value of the slot.
+     * See `regex_filter` argument reference below.
      * 
      */
     public Optional<Output<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>>> regexFilters() {
@@ -50,14 +56,16 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
     }
 
     /**
-     * Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+     * Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
      * 
      */
     @Import(name="resolutionStrategy", required=true)
     private Output<String> resolutionStrategy;
 
     /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
      * 
      */
     public Output<String> resolutionStrategy() {
@@ -91,7 +99,9 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advanced_recognition_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -102,7 +112,9 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advanced_recognition_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -112,7 +124,9 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+         * @param advancedRecognitionSettings Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advanced_recognition_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -122,7 +136,8 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param regexFilters Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+         * @param regexFilters Used to validate the value of the slot.
+         * See `regex_filter` argument reference below.
          * 
          * @return builder
          * 
@@ -133,7 +148,8 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param regexFilters Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+         * @param regexFilters Used to validate the value of the slot.
+         * See `regex_filter` argument reference below.
          * 
          * @return builder
          * 
@@ -143,7 +159,8 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param regexFilters Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+         * @param regexFilters Used to validate the value of the slot.
+         * See `regex_filter` argument reference below.
          * 
          * @return builder
          * 
@@ -153,7 +170,8 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
          * 
          * @return builder
          * 
@@ -164,7 +182,8 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         * @param resolutionStrategy Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
          * 
          * @return builder
          * 
