@@ -49,6 +49,97 @@ import (
 //
 // ```
 //
+// ### With Definition
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
+//				Definition: &quicksight.TemplateDefinitionArgs{
+//					DataSetConfigurations: quicksight.TemplateDefinitionDataSetConfigurationArray{
+//						&quicksight.TemplateDefinitionDataSetConfigurationArgs{
+//							DataSetSchema: &quicksight.TemplateDefinitionDataSetConfigurationDataSetSchemaArgs{
+//								ColumnSchemaLists: quicksight.TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArray{
+//									&quicksight.TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs{
+//										Name:     pulumi.String("Column1"),
+//										DataType: pulumi.String("STRING"),
+//									},
+//									&quicksight.TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs{
+//										Name:     pulumi.String("Column2"),
+//										DataType: pulumi.String("INTEGER"),
+//									},
+//								},
+//							},
+//							Placeholder: pulumi.String("1"),
+//						},
+//					},
+//					Sheets: quicksight.TemplateDefinitionSheetArray{
+//						&quicksight.TemplateDefinitionSheetArgs{
+//							Title:   pulumi.String("Test"),
+//							SheetId: pulumi.String("Test1"),
+//							Visuals: quicksight.VisualsArray{
+//								&quicksight.VisualsArgs{
+//									BarChartVisual: &quicksight.VisualsBarChartVisualArgs{
+//										VisualId: pulumi.String("BarChart"),
+//										ChartConfiguration: &quicksight.VisualsBarChartVisualChartConfigurationArgs{
+//											FieldWells: &quicksight.VisualsBarChartVisualChartConfigurationFieldWellsArgs{
+//												BarChartAggregatedFieldWells: &quicksight.VisualsBarChartVisualChartConfigurationFieldWellsBarChartAggregatedFieldWellsArgs{
+//													Categories: quicksight.DimensionFieldSchemaArray{
+//														&quicksight.DimensionFieldSchemaArgs{
+//															CategoricalDimensionField: &quicksight.DimensionFieldSchemaCategoricalDimensionFieldArgs{
+//																FieldId: pulumi.String("1"),
+//																Column: &quicksight.ColumnArgs{
+//																	ColumnName:        pulumi.String("Column1"),
+//																	DataSetIdentifier: pulumi.String("1"),
+//																},
+//															},
+//														},
+//													},
+//													Values: quicksight.MeasureFieldSchemaArray{
+//														&quicksight.MeasureFieldSchemaArgs{
+//															NumericalMeasureField: &quicksight.MeasureFieldSchemaNumericalMeasureFieldArgs{
+//																FieldId: pulumi.String("2"),
+//																Column: &quicksight.ColumnArgs{
+//																	ColumnName:        pulumi.String("Column2"),
+//																	DataSetIdentifier: pulumi.String("1"),
+//																},
+//																AggregationFunction: &quicksight.NumericalAggregationArgs{
+//																	SimpleNumericalAggregation: pulumi.String("SUM"),
+//																},
+//															},
+//														},
+//													},
+//												},
+//											},
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
@@ -65,6 +156,8 @@ type Template struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition TemplateDefinitionOutput `pulumi:"definition"`
 	// The time that the template was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the template.
@@ -135,6 +228,8 @@ type templateState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime *string `pulumi:"createdTime"`
+	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition *TemplateDefinition `pulumi:"definition"`
 	// The time that the template was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name for the template.
@@ -170,6 +265,8 @@ type TemplateState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the template was created.
 	CreatedTime pulumi.StringPtrInput
+	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition TemplateDefinitionPtrInput
 	// The time that the template was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Display name for the template.
@@ -205,6 +302,8 @@ func (TemplateState) ElementType() reflect.Type {
 type templateArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
+	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition *TemplateDefinition `pulumi:"definition"`
 	// Display name for the template.
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -225,6 +324,8 @@ type templateArgs struct {
 type TemplateArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
+	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+	Definition TemplateDefinitionPtrInput
 	// Display name for the template.
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -341,6 +442,11 @@ func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 // The time that the template was created.
 func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+func (o TemplateOutput) Definition() TemplateDefinitionOutput {
+	return o.ApplyT(func(v *Template) TemplateDefinitionOutput { return v.Definition }).(TemplateDefinitionOutput)
 }
 
 // The time that the template was last updated.

@@ -23,6 +23,7 @@ class AnalysisArgs:
     def __init__(__self__, *,
                  analysis_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisPermissionArgs']]]] = None,
@@ -34,6 +35,7 @@ class AnalysisArgs:
         The set of arguments for constructing a Analysis resource.
         :param pulumi.Input[str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
+        :param pulumi.Input['AnalysisDefinitionArgs'] definition: A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the analysis.
                
                The following arguments are optional:
@@ -47,6 +49,8 @@ class AnalysisArgs:
         pulumi.set(__self__, "analysis_id", analysis_id)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -85,6 +89,18 @@ class AnalysisArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['AnalysisDefinitionArgs']]:
+        """
+        A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['AnalysisDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter
@@ -180,6 +196,7 @@ class _AnalysisState:
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
                  last_published_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -197,6 +214,7 @@ class _AnalysisState:
         :param pulumi.Input[str] arn: ARN of the analysis.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the analysis was created.
+        :param pulumi.Input['AnalysisDefinitionArgs'] definition: A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the analysis was last updated.
         :param pulumi.Input[str] name: Display name for the analysis.
                
@@ -218,6 +236,8 @@ class _AnalysisState:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if last_published_time is not None:
             pulumi.set(__self__, "last_published_time", last_published_time)
         if last_updated_time is not None:
@@ -291,6 +311,18 @@ class _AnalysisState:
     @created_time.setter
     def created_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input['AnalysisDefinitionArgs']]:
+        """
+        A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input['AnalysisDefinitionArgs']]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter(name="lastPublishedTime")
@@ -432,6 +464,7 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
@@ -465,6 +498,62 @@ class Analysis(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Analysis("example",
+            analysis_id="example-id",
+            name="example-name",
+            definition={
+                "data_set_identifiers_declarations": [{
+                    "data_set_arn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheet_id": "Example1",
+                    "visuals": [{
+                        "line_chart_visual": {
+                            "visual_id": "LineChart",
+                            "title": {
+                                "format_text": {
+                                    "plain_text": "Line Chart Example",
+                                },
+                            },
+                            "chart_configuration": {
+                                "field_wells": {
+                                    "line_chart_aggregated_field_wells": {
+                                        "categories": [{
+                                            "categorical_dimension_field": {
+                                                "field_id": "1",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categorical_measure_field": {
+                                                "field_id": "2",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                                "aggregation_function": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -477,6 +566,7 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
+        :param pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']] definition: A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the analysis.
                
                The following arguments are optional:
@@ -518,6 +608,62 @@ class Analysis(pulumi.CustomResource):
             })
         ```
 
+        ### With Definition
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.quicksight.Analysis("example",
+            analysis_id="example-id",
+            name="example-name",
+            definition={
+                "data_set_identifiers_declarations": [{
+                    "data_set_arn": dataset["arn"],
+                    "identifier": "1",
+                }],
+                "sheets": [{
+                    "title": "Example",
+                    "sheet_id": "Example1",
+                    "visuals": [{
+                        "line_chart_visual": {
+                            "visual_id": "LineChart",
+                            "title": {
+                                "format_text": {
+                                    "plain_text": "Line Chart Example",
+                                },
+                            },
+                            "chart_configuration": {
+                                "field_wells": {
+                                    "line_chart_aggregated_field_wells": {
+                                        "categories": [{
+                                            "categorical_dimension_field": {
+                                                "field_id": "1",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                            },
+                                        }],
+                                        "values": [{
+                                            "categorical_measure_field": {
+                                                "field_id": "2",
+                                                "column": {
+                                                    "data_set_identifier": "1",
+                                                    "column_name": "Column1",
+                                                },
+                                                "aggregation_function": "COUNT",
+                                            },
+                                        }],
+                                    },
+                                },
+                            },
+                        },
+                    }],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
@@ -543,6 +689,7 @@ class Analysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
@@ -563,6 +710,7 @@ class Analysis(pulumi.CustomResource):
                 raise TypeError("Missing required property 'analysis_id'")
             __props__.__dict__["analysis_id"] = analysis_id
             __props__.__dict__["aws_account_id"] = aws_account_id
+            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
@@ -590,6 +738,7 @@ class Analysis(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             aws_account_id: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
+            definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
             last_published_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -612,6 +761,7 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the analysis.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the analysis was created.
+        :param pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']] definition: A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the analysis was last updated.
         :param pulumi.Input[str] name: Display name for the analysis.
                
@@ -633,6 +783,7 @@ class Analysis(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["created_time"] = created_time
+        __props__.__dict__["definition"] = definition
         __props__.__dict__["last_published_time"] = last_published_time
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["name"] = name
@@ -677,6 +828,14 @@ class Analysis(pulumi.CustomResource):
         The time that the analysis was created.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Output['outputs.AnalysisDefinition']:
+        """
+        A detailed analysis definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        """
+        return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="lastPublishedTime")

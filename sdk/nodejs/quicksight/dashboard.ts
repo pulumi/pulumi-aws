@@ -34,6 +34,64 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.Dashboard("example", {
+ *     dashboardId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
+ *     definition: {
+ *         dataSetIdentifiersDeclarations: [{
+ *             dataSetArn: dataset.arn,
+ *             identifier: "1",
+ *         }],
+ *         sheets: [{
+ *             title: "Example",
+ *             sheetId: "Example1",
+ *             visuals: [{
+ *                 lineChartVisual: {
+ *                     visualId: "LineChart",
+ *                     title: {
+ *                         formatText: {
+ *                             plainText: "Line Chart Example",
+ *                         },
+ *                     },
+ *                     chartConfiguration: {
+ *                         fieldWells: {
+ *                             lineChartAggregatedFieldWells: {
+ *                                 categories: [{
+ *                                     categoricalDimensionField: {
+ *                                         fieldId: "1",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                     },
+ *                                 }],
+ *                                 values: [{
+ *                                     categoricalMeasureField: {
+ *                                         fieldId: "2",
+ *                                         column: {
+ *                                             dataSetIdentifier: "1",
+ *                                             columnName: "Column1",
+ *                                         },
+ *                                         aggregationFunction: "COUNT",
+ *                                     },
+ *                                 }],
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             }],
+ *         }],
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -90,6 +148,10 @@ export class Dashboard extends pulumi.CustomResource {
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
+    /**
+     * A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    public readonly definition!: pulumi.Output<outputs.quicksight.DashboardDefinition>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     /**
      * The time that the dashboard was last updated.
@@ -162,6 +224,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["dashboardId"] = state ? state.dashboardId : undefined;
             resourceInputs["dashboardPublishOptions"] = state ? state.dashboardPublishOptions : undefined;
+            resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["lastPublishedTime"] = state ? state.lastPublishedTime : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -186,6 +249,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
             resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
+            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -231,6 +295,10 @@ export interface DashboardState {
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
+    /**
+     * A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.DashboardDefinition>;
     lastPublishedTime?: pulumi.Input<string>;
     /**
      * The time that the dashboard was last updated.
@@ -302,6 +370,10 @@ export interface DashboardArgs {
      * Options for publishing the dashboard. See dashboard_publish_options.
      */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions>;
+    /**
+     * A detailed dashboard definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
+     */
+    definition?: pulumi.Input<inputs.quicksight.DashboardDefinition>;
     /**
      * Display name for the dashboard.
      */

@@ -49,6 +49,102 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// 
+    /// ### With Definition
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.Dashboard("example", new()
+    ///     {
+    ///         DashboardId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
+    ///         Definition = new Aws.Quicksight.Inputs.DashboardDefinitionArgs
+    ///         {
+    ///             DataSetIdentifiersDeclarations = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.DashboardDefinitionDataSetIdentifiersDeclarationArgs
+    ///                 {
+    ///                     DataSetArn = dataset.Arn,
+    ///                     Identifier = "1",
+    ///                 },
+    ///             },
+    ///             Sheets = new[]
+    ///             {
+    ///                 new Aws.Quicksight.Inputs.DashboardDefinitionSheetArgs
+    ///                 {
+    ///                     Title = "Example",
+    ///                     SheetId = "Example1",
+    ///                     Visuals = new[]
+    ///                     {
+    ///                         new Aws.Quicksight.Inputs.VisualsArgs
+    ///                         {
+    ///                             LineChartVisual = new Aws.Quicksight.Inputs.VisualsLineChartVisualArgs
+    ///                             {
+    ///                                 VisualId = "LineChart",
+    ///                                 Title = new Aws.Quicksight.Inputs.SubtitleArgs
+    ///                                 {
+    ///                                     FormatText = new Aws.Quicksight.Inputs.SubtitleFormatTextArgs
+    ///                                     {
+    ///                                         PlainText = "Line Chart Example",
+    ///                                     },
+    ///                                 },
+    ///                                 ChartConfiguration = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationArgs
+    ///                                 {
+    ///                                     FieldWells = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationFieldWellsArgs
+    ///                                     {
+    ///                                         LineChartAggregatedFieldWells = new Aws.Quicksight.Inputs.VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs
+    ///                                         {
+    ///                                             Categories = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.DimensionFieldSchemaArgs
+    ///                                                 {
+    ///                                                     CategoricalDimensionField = new Aws.Quicksight.Inputs.DimensionFieldSchemaCategoricalDimensionFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "1",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                             ColumnName = "Column1",
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                             Values = new[]
+    ///                                             {
+    ///                                                 new Aws.Quicksight.Inputs.MeasureFieldSchemaArgs
+    ///                                                 {
+    ///                                                     CategoricalMeasureField = new Aws.Quicksight.Inputs.MeasureFieldSchemaCategoricalMeasureFieldArgs
+    ///                                                     {
+    ///                                                         FieldId = "2",
+    ///                                                         Column = new Aws.Quicksight.Inputs.ColumnArgs
+    ///                                                         {
+    ///                                                             DataSetIdentifier = "1",
+    ///                                                             ColumnName = "Column1",
+    ///                                                         },
+    ///                                                         AggregationFunction = "COUNT",
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
@@ -89,6 +185,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("dashboardPublishOptions")]
         public Output<Outputs.DashboardDashboardPublishOptions> DashboardPublishOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Output("definition")]
+        public Output<Outputs.DashboardDefinition> Definition { get; private set; } = null!;
 
         [Output("lastPublishedTime")]
         public Output<string> LastPublishedTime { get; private set; } = null!;
@@ -232,6 +334,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DashboardDashboardPublishOptionsArgs>? DashboardPublishOptions { get; set; }
 
         /// <summary>
+        /// A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.DashboardDefinitionArgs>? Definition { get; set; }
+
+        /// <summary>
         /// Display name for the dashboard.
         /// </summary>
         [Input("name")]
@@ -324,6 +432,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("dashboardPublishOptions")]
         public Input<Inputs.DashboardDashboardPublishOptionsGetArgs>? DashboardPublishOptions { get; set; }
+
+        /// <summary>
+        /// A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.DashboardDefinitionGetArgs>? Definition { get; set; }
 
         [Input("lastPublishedTime")]
         public Input<string>? LastPublishedTime { get; set; }

@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.TemplateArgs;
 import com.pulumi.aws.quicksight.inputs.TemplateState;
+import com.pulumi.aws.quicksight.outputs.TemplateDefinition;
 import com.pulumi.aws.quicksight.outputs.TemplatePermission;
 import com.pulumi.aws.quicksight.outputs.TemplateSourceEntity;
 import com.pulumi.core.Output;
@@ -71,6 +72,91 @@ import javax.annotation.Nullable;
  * ### With Definition
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.Template;
+ * import com.pulumi.aws.quicksight.TemplateArgs;
+ * import com.pulumi.aws.quicksight.inputs.TemplateDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Template("example", TemplateArgs.builder()
+ *             .templateId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
+ *             .definition(TemplateDefinitionArgs.builder()
+ *                 .dataSetConfigurations(TemplateDefinitionDataSetConfigurationArgs.builder()
+ *                     .dataSetSchema(TemplateDefinitionDataSetConfigurationDataSetSchemaArgs.builder()
+ *                         .columnSchemaLists(                        
+ *                             TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs.builder()
+ *                                 .name("Column1")
+ *                                 .dataType("STRING")
+ *                                 .build(),
+ *                             TemplateDefinitionDataSetConfigurationDataSetSchemaColumnSchemaListArgs.builder()
+ *                                 .name("Column2")
+ *                                 .dataType("INTEGER")
+ *                                 .build())
+ *                         .build())
+ *                     .placeholder("1")
+ *                     .build())
+ *                 .sheets(TemplateDefinitionSheetArgs.builder()
+ *                     .title("Test")
+ *                     .sheetId("Test1")
+ *                     .visuals(VisualsArgs.builder()
+ *                         .barChartVisual(VisualsBarChartVisualArgs.builder()
+ *                             .visualId("BarChart")
+ *                             .chartConfiguration(VisualsBarChartVisualChartConfigurationArgs.builder()
+ *                                 .fieldWells(VisualsBarChartVisualChartConfigurationFieldWellsArgs.builder()
+ *                                     .barChartAggregatedFieldWells(VisualsBarChartVisualChartConfigurationFieldWellsBarChartAggregatedFieldWellsArgs.builder()
+ *                                         .categories(DimensionFieldSchemaArgs.builder()
+ *                                             .categoricalDimensionField(DimensionFieldSchemaCategoricalDimensionFieldArgs.builder()
+ *                                                 .fieldId("1")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .columnName("Column1")
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .build())
+ *                                                 .build())
+ *                                             .build())
+ *                                         .values(MeasureFieldSchemaArgs.builder()
+ *                                             .numericalMeasureField(MeasureFieldSchemaNumericalMeasureFieldArgs.builder()
+ *                                                 .fieldId("2")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .columnName("Column2")
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .build())
+ *                                                 .aggregationFunction(NumericalAggregationArgs.builder()
+ *                                                     .simpleNumericalAggregation("SUM")
+ *                                                     .build())
+ *                                                 .build())
+ *                                             .build())
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -125,6 +211,20 @@ public class Template extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdTime() {
         return this.createdTime;
+    }
+    /**
+     * A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Export(name="definition", refs={TemplateDefinition.class}, tree="[0]")
+    private Output<TemplateDefinition> definition;
+
+    /**
+     * @return A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Output<TemplateDefinition> definition() {
+        return this.definition;
     }
     /**
      * The time that the template was last updated.

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.DashboardArgs;
 import com.pulumi.aws.quicksight.inputs.DashboardState;
 import com.pulumi.aws.quicksight.outputs.DashboardDashboardPublishOptions;
+import com.pulumi.aws.quicksight.outputs.DashboardDefinition;
 import com.pulumi.aws.quicksight.outputs.DashboardParameters;
 import com.pulumi.aws.quicksight.outputs.DashboardPermission;
 import com.pulumi.aws.quicksight.outputs.DashboardSourceEntity;
@@ -77,6 +78,84 @@ import javax.annotation.Nullable;
  * ### With Definition
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.Dashboard;
+ * import com.pulumi.aws.quicksight.DashboardArgs;
+ * import com.pulumi.aws.quicksight.inputs.DashboardDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Dashboard("example", DashboardArgs.builder()
+ *             .dashboardId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
+ *             .definition(DashboardDefinitionArgs.builder()
+ *                 .dataSetIdentifiersDeclarations(DashboardDefinitionDataSetIdentifiersDeclarationArgs.builder()
+ *                     .dataSetArn(dataset.arn())
+ *                     .identifier("1")
+ *                     .build())
+ *                 .sheets(DashboardDefinitionSheetArgs.builder()
+ *                     .title("Example")
+ *                     .sheetId("Example1")
+ *                     .visuals(VisualsArgs.builder()
+ *                         .lineChartVisual(VisualsLineChartVisualArgs.builder()
+ *                             .visualId("LineChart")
+ *                             .title(SubtitleArgs.builder()
+ *                                 .formatText(SubtitleFormatTextArgs.builder()
+ *                                     .plainText("Line Chart Example")
+ *                                     .build())
+ *                                 .build())
+ *                             .chartConfiguration(VisualsLineChartVisualChartConfigurationArgs.builder()
+ *                                 .fieldWells(VisualsLineChartVisualChartConfigurationFieldWellsArgs.builder()
+ *                                     .lineChartAggregatedFieldWells(VisualsLineChartVisualChartConfigurationFieldWellsLineChartAggregatedFieldWellsArgs.builder()
+ *                                         .categories(DimensionFieldSchemaArgs.builder()
+ *                                             .categoricalDimensionField(DimensionFieldSchemaCategoricalDimensionFieldArgs.builder()
+ *                                                 .fieldId("1")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .columnName("Column1")
+ *                                                     .build())
+ *                                                 .build())
+ *                                             .build())
+ *                                         .values(MeasureFieldSchemaArgs.builder()
+ *                                             .categoricalMeasureField(MeasureFieldSchemaCategoricalMeasureFieldArgs.builder()
+ *                                                 .fieldId("2")
+ *                                                 .column(ColumnArgs.builder()
+ *                                                     .dataSetIdentifier("1")
+ *                                                     .columnName("Column1")
+ *                                                     .build())
+ *                                                 .aggregationFunction("COUNT")
+ *                                                 .build())
+ *                                             .build())
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -159,6 +238,20 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      */
     public Output<DashboardDashboardPublishOptions> dashboardPublishOptions() {
         return this.dashboardPublishOptions;
+    }
+    /**
+     * A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    @Export(name="definition", refs={DashboardDefinition.class}, tree="[0]")
+    private Output<DashboardDefinition> definition;
+
+    /**
+     * @return A detailed dashboard definition. Only one of `definition` or `source_entity` should be configured. See definition.
+     * 
+     */
+    public Output<DashboardDefinition> definition() {
+        return this.definition;
     }
     @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
     private Output<String> lastPublishedTime;
