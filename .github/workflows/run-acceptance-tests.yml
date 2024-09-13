@@ -129,10 +129,12 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, go, node, dotnet, python, java
+        tools: pulumictl, pulumicli, ${{ matrix.language }}
     - name: Download bin
       uses: ./.github/actions/download-bin
-    - run: dotnet nuget add source ${{ github.workspace }}/nuget
+    - name: Add NuGet source
+      if: matrix.language == 'dotnet'
+      run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:
@@ -140,11 +142,17 @@ jobs:
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
+      if: matrix.language == 'python'
       run: |-
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
     - name: Install dependencies
       run: make install_${{ matrix.language}}_sdk
+    - name: Install gotestfmt
+      uses: GoTestTools/gotestfmt-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        version: v2.5.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:

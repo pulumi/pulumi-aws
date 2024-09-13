@@ -42,7 +42,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, go, node, dotnet, python
+        tools: pulumictl, pulumicli, go, nodejs, dotnet, python
     - name: Sync with ci-mgmt
       run: cp -r "ci-mgmt/provider-ci/providers/$PROVIDER/repo/." .
     - name: Remove ci-mgmt directory
