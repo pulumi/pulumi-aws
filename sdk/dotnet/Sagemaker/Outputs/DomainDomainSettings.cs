@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDomainSettings
     {
         /// <summary>
+        /// A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDomainSettingsDockerSettings? DockerSettings;
+        /// <summary>
         /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         /// </summary>
         public readonly string? ExecutionRoleIdentityConfig;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDomainSettings(
+            Outputs.DomainDomainSettingsDockerSettings? dockerSettings,
+
             string? executionRoleIdentityConfig,
 
             Outputs.DomainDomainSettingsRStudioServerProDomainSettings? rStudioServerProDomainSettings,
 
             ImmutableArray<string> securityGroupIds)
         {
+            DockerSettings = dockerSettings;
             ExecutionRoleIdentityConfig = executionRoleIdentityConfig;
             RStudioServerProDomainSettings = rStudioServerProDomainSettings;
             SecurityGroupIds = securityGroupIds;

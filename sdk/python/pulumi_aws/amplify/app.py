@@ -26,6 +26,7 @@ class AppArgs:
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -43,12 +44,13 @@ class AppArgs:
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input['AppCacheConfigArgs'] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
@@ -72,6 +74,8 @@ class AppArgs:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if cache_config is not None:
+            pulumi.set(__self__, "cache_config", cache_config)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -117,7 +121,7 @@ class AppArgs:
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
         """
-        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -162,6 +166,18 @@ class AppArgs:
         pulumi.set(self, "build_spec", value)
 
     @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> Optional[pulumi.Input['AppCacheConfigArgs']]:
+        """
+        Cache configuration for the Amplify app. See `cache_config` Block for details.
+        """
+        return pulumi.get(self, "cache_config")
+
+    @cache_config.setter
+    def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
+        pulumi.set(self, "cache_config", value)
+
+    @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,7 +193,7 @@ class AppArgs:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
         """
-        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -339,6 +355,7 @@ class _AppState:
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input['AppCacheConfigArgs']] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
@@ -360,12 +377,13 @@ class _AppState:
         Input properties used for looking up and filtering App resources.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         :param pulumi.Input[str] arn: ARN of the Amplify app.
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input['AppCacheConfigArgs'] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
@@ -394,6 +412,8 @@ class _AppState:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if cache_config is not None:
+            pulumi.set(__self__, "cache_config", cache_config)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
@@ -460,7 +480,7 @@ class _AppState:
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
         """
-        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -505,6 +525,18 @@ class _AppState:
         pulumi.set(self, "build_spec", value)
 
     @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> Optional[pulumi.Input['AppCacheConfigArgs']]:
+        """
+        Cache configuration for the Amplify app. See `cache_config` Block for details.
+        """
+        return pulumi.get(self, "cache_config")
+
+    @cache_config.setter
+    def cache_config(self, value: Optional[pulumi.Input['AppCacheConfigArgs']]):
+        pulumi.set(self, "cache_config", value)
+
+    @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[pulumi.Input[str]]:
         """
@@ -520,7 +552,7 @@ class _AppState:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
         """
-        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -720,6 +752,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -894,12 +927,13 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
-        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
@@ -1095,6 +1129,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -1123,6 +1158,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
             __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             __props__.__dict__["build_spec"] = build_spec
+            __props__.__dict__["cache_config"] = cache_config
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
@@ -1159,6 +1195,7 @@ class App(pulumi.CustomResource):
             auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
             build_spec: Optional[pulumi.Input[str]] = None,
+            cache_config: Optional[pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
             custom_headers: Optional[pulumi.Input[str]] = None,
             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
@@ -1185,12 +1222,13 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         :param pulumi.Input[str] arn: ARN of the Amplify app.
-        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: Cache configuration for the Amplify app. See `cache_config` Block for details.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
@@ -1217,6 +1255,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
         __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
         __props__.__dict__["build_spec"] = build_spec
+        __props__.__dict__["cache_config"] = cache_config
         __props__.__dict__["custom_headers"] = custom_headers
         __props__.__dict__["custom_rules"] = custom_rules
         __props__.__dict__["default_domain"] = default_domain
@@ -1256,7 +1295,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> pulumi.Output['outputs.AppAutoBranchCreationConfig']:
         """
-        Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -1285,6 +1324,14 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "build_spec")
 
     @property
+    @pulumi.getter(name="cacheConfig")
+    def cache_config(self) -> pulumi.Output['outputs.AppCacheConfig']:
+        """
+        Cache configuration for the Amplify app. See `cache_config` Block for details.
+        """
+        return pulumi.get(self, "cache_config")
+
+    @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> pulumi.Output[str]:
         """
@@ -1296,7 +1343,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AppCustomRule']]]:
         """
-        Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         """
         return pulumi.get(self, "custom_rules")
 

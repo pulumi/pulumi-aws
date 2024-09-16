@@ -1094,6 +1094,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Pcaconnectorad *string `pulumi:"pcaconnectorad"`
 	// Use this to override the default service endpoint URL
+	Pcs *string `pulumi:"pcs"`
+	// Use this to override the default service endpoint URL
 	Pinpoint *string `pulumi:"pinpoint"`
 	// Use this to override the default service endpoint URL
 	Pipes *string `pulumi:"pipes"`
@@ -1683,6 +1685,8 @@ type ProviderEndpointArgs struct {
 	Paymentcryptography pulumi.StringPtrInput `pulumi:"paymentcryptography"`
 	// Use this to override the default service endpoint URL
 	Pcaconnectorad pulumi.StringPtrInput `pulumi:"pcaconnectorad"`
+	// Use this to override the default service endpoint URL
+	Pcs pulumi.StringPtrInput `pulumi:"pcs"`
 	// Use this to override the default service endpoint URL
 	Pinpoint pulumi.StringPtrInput `pulumi:"pinpoint"`
 	// Use this to override the default service endpoint URL
@@ -2925,6 +2929,11 @@ func (o ProviderEndpointOutput) Paymentcryptography() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Pcaconnectorad() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pcaconnectorad }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Pcs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Pcs }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

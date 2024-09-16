@@ -15,14 +15,14 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
     public static final SnapshotBlockPublicAccessArgs Empty = new SnapshotBlockPublicAccessArgs();
 
     /**
-     * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * @return The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */
     public Output<String> state() {
@@ -54,7 +54,7 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SnapshotBlockPublicAccessArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+         * @param state The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
          * 
          * @return builder
          * 

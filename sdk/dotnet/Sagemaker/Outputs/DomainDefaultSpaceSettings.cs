@@ -14,9 +14,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultSpaceSettings
     {
         /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainDefaultSpaceSettingsCustomFileSystemConfig> CustomFileSystemConfigs;
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultSpaceSettingsCustomPosixUserConfig? CustomPosixUserConfig;
+        /// <summary>
         /// The execution role for the space.
         /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultSpaceSettingsJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
@@ -29,21 +41,37 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// The storage settings for a private space. See `space_storage_settings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultSpaceSettingsSpaceStorageSettings? SpaceStorageSettings;
 
         [OutputConstructor]
         private DomainDefaultSpaceSettings(
+            ImmutableArray<Outputs.DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs,
+
+            Outputs.DomainDefaultSpaceSettingsCustomPosixUserConfig? customPosixUserConfig,
+
             string executionRole,
+
+            Outputs.DomainDefaultSpaceSettingsJupyterLabAppSettings? jupyterLabAppSettings,
 
             Outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings? jupyterServerAppSettings,
 
             Outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings? kernelGatewayAppSettings,
 
-            ImmutableArray<string> securityGroups)
+            ImmutableArray<string> securityGroups,
+
+            Outputs.DomainDefaultSpaceSettingsSpaceStorageSettings? spaceStorageSettings)
         {
+            CustomFileSystemConfigs = customFileSystemConfigs;
+            CustomPosixUserConfig = customPosixUserConfig;
             ExecutionRole = executionRole;
+            JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             SecurityGroups = securityGroups;
+            SpaceStorageSettings = spaceStorageSettings;
         }
     }
 }

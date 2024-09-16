@@ -77,7 +77,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class ImageRecipe : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the image recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ImageRecipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the image recipe.
+        /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

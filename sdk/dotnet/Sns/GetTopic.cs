@@ -73,6 +73,18 @@ namespace Pulumi.Aws.Sns
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetTopicArgs()
         {
         }
@@ -86,6 +98,18 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetTopicInvokeArgs()
         {
@@ -106,6 +130,10 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Map of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetTopicResult(
@@ -113,11 +141,14 @@ namespace Pulumi.Aws.Sns
 
             string id,
 
-            string name)
+            string name,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Id = id;
             Name = name;
+            Tags = tags;
         }
     }
 }

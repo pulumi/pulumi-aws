@@ -14,9 +14,23 @@ public final class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs 
 
     public static final V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs Empty = new V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs();
 
+    /**
+     * Specifies whether assisted slot resolution is turned on for the slot or not.
+     * Valid values are `EnhancedFallback` or `Default`.
+     * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+     * If the value is `Default`, assisted slot resolution is turned off.
+     * 
+     */
     @Import(name="slotResolutionStrategy", required=true)
     private Output<String> slotResolutionStrategy;
 
+    /**
+     * @return Specifies whether assisted slot resolution is turned on for the slot or not.
+     * Valid values are `EnhancedFallback` or `Default`.
+     * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+     * If the value is `Default`, assisted slot resolution is turned off.
+     * 
+     */
     public Output<String> slotResolutionStrategy() {
         return this.slotResolutionStrategy;
     }
@@ -45,11 +59,29 @@ public final class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs 
             $ = new V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param slotResolutionStrategy Specifies whether assisted slot resolution is turned on for the slot or not.
+         * Valid values are `EnhancedFallback` or `Default`.
+         * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+         * If the value is `Default`, assisted slot resolution is turned off.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slotResolutionStrategy(Output<String> slotResolutionStrategy) {
             $.slotResolutionStrategy = slotResolutionStrategy;
             return this;
         }
 
+        /**
+         * @param slotResolutionStrategy Specifies whether assisted slot resolution is turned on for the slot or not.
+         * Valid values are `EnhancedFallback` or `Default`.
+         * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+         * If the value is `Default`, assisted slot resolution is turned off.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slotResolutionStrategy(String slotResolutionStrategy) {
             return slotResolutionStrategy(Output.of(slotResolutionStrategy));
         }

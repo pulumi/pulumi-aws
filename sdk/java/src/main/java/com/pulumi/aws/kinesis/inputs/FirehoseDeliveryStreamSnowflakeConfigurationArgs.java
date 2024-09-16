@@ -39,6 +39,36 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
     }
 
     /**
+     * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+     * 
+     */
+    @Import(name="bufferingInterval")
+    private @Nullable Output<Integer> bufferingInterval;
+
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
+    }
+
+    /**
+     * Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+     * 
+     */
+    @Import(name="bufferingSize")
+    private @Nullable Output<Integer> bufferingSize;
+
+    /**
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+     * 
+     */
+    public Optional<Output<Integer>> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
+    }
+
+    /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
@@ -312,6 +342,8 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
 
     private FirehoseDeliveryStreamSnowflakeConfigurationArgs(FirehoseDeliveryStreamSnowflakeConfigurationArgs $) {
         this.accountUrl = $.accountUrl;
+        this.bufferingInterval = $.bufferingInterval;
+        this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.contentColumnName = $.contentColumnName;
         this.dataLoadingOption = $.dataLoadingOption;
@@ -369,6 +401,48 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationArgs extends com.
          */
         public Builder accountUrl(String accountUrl) {
             return accountUrl(Output.of(accountUrl));
+        }
+
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
+            $.bufferingInterval = bufferingInterval;
+            return this;
+        }
+
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingInterval(Integer bufferingInterval) {
+            return bufferingInterval(Output.of(bufferingInterval));
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
+            $.bufferingSize = bufferingSize;
+            return this;
+        }
+
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bufferingSize(Integer bufferingSize) {
+            return bufferingSize(Output.of(bufferingSize));
         }
 
         /**

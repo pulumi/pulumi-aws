@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/snapshotBlockPublicAccess:SnapshotBlockPublicAccess")
 public class SnapshotBlockPublicAccess extends com.pulumi.resources.CustomResource {
     /**
-     * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+     * @return The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */
     public Output<String> state() {

@@ -6,6 +6,7 @@ package com.pulumi.aws.rolesanywhere;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.rolesanywhere.TrustAnchorArgs;
 import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorState;
+import com.pulumi.aws.rolesanywhere.outputs.TrustAnchorNotificationSetting;
 import com.pulumi.aws.rolesanywhere.outputs.TrustAnchorSource;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -13,6 +14,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -160,6 +162,12 @@ public class TrustAnchor extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    @Export(name="notificationSettings", refs={List.class,TrustAnchorNotificationSetting.class}, tree="[0,1]")
+    private Output<List<TrustAnchorNotificationSetting>> notificationSettings;
+
+    public Output<List<TrustAnchorNotificationSetting>> notificationSettings() {
+        return this.notificationSettings;
     }
     /**
      * The source of trust, documented below

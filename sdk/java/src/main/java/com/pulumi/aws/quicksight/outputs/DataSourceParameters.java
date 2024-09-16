@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.outputs.DataSourceParametersAthena;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersAurora;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersAuroraPostgresql;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersAwsIotAnalytics;
+import com.pulumi.aws.quicksight.outputs.DataSourceParametersDatabricks;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersJira;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersMariaDb;
 import com.pulumi.aws.quicksight.outputs.DataSourceParametersMysql;
@@ -55,6 +56,11 @@ public final class DataSourceParameters {
      * 
      */
     private @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
+    /**
+     * @return Parameters for connecting to Databricks.
+     * 
+     */
+    private @Nullable DataSourceParametersDatabricks databricks;
     /**
      * @return Parameters for connecting to Jira.
      * 
@@ -166,6 +172,13 @@ public final class DataSourceParameters {
      */
     public Optional<DataSourceParametersAwsIotAnalytics> awsIotAnalytics() {
         return Optional.ofNullable(this.awsIotAnalytics);
+    }
+    /**
+     * @return Parameters for connecting to Databricks.
+     * 
+     */
+    public Optional<DataSourceParametersDatabricks> databricks() {
+        return Optional.ofNullable(this.databricks);
     }
     /**
      * @return Parameters for connecting to Jira.
@@ -287,6 +300,7 @@ public final class DataSourceParameters {
         private @Nullable DataSourceParametersAurora aurora;
         private @Nullable DataSourceParametersAuroraPostgresql auroraPostgresql;
         private @Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics;
+        private @Nullable DataSourceParametersDatabricks databricks;
         private @Nullable DataSourceParametersJira jira;
         private @Nullable DataSourceParametersMariaDb mariaDb;
         private @Nullable DataSourceParametersMysql mysql;
@@ -310,6 +324,7 @@ public final class DataSourceParameters {
     	      this.aurora = defaults.aurora;
     	      this.auroraPostgresql = defaults.auroraPostgresql;
     	      this.awsIotAnalytics = defaults.awsIotAnalytics;
+    	      this.databricks = defaults.databricks;
     	      this.jira = defaults.jira;
     	      this.mariaDb = defaults.mariaDb;
     	      this.mysql = defaults.mysql;
@@ -355,6 +370,12 @@ public final class DataSourceParameters {
         public Builder awsIotAnalytics(@Nullable DataSourceParametersAwsIotAnalytics awsIotAnalytics) {
 
             this.awsIotAnalytics = awsIotAnalytics;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databricks(@Nullable DataSourceParametersDatabricks databricks) {
+
+            this.databricks = databricks;
             return this;
         }
         @CustomType.Setter
@@ -454,6 +475,7 @@ public final class DataSourceParameters {
             _resultValue.aurora = aurora;
             _resultValue.auroraPostgresql = auroraPostgresql;
             _resultValue.awsIotAnalytics = awsIotAnalytics;
+            _resultValue.databricks = databricks;
             _resultValue.jira = jira;
             _resultValue.mariaDb = mariaDb;
             _resultValue.mysql = mysql;

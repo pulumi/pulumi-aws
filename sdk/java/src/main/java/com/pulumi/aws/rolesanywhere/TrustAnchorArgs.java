@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.rolesanywhere;
 
+import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorNotificationSettingArgs;
 import com.pulumi.aws.rolesanywhere.inputs.TrustAnchorSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -49,6 +51,13 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="notificationSettings")
+    private @Nullable Output<List<TrustAnchorNotificationSettingArgs>> notificationSettings;
+
+    public Optional<Output<List<TrustAnchorNotificationSettingArgs>>> notificationSettings() {
+        return Optional.ofNullable(this.notificationSettings);
+    }
+
     /**
      * The source of trust, documented below
      * 
@@ -84,6 +93,7 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
     private TrustAnchorArgs(TrustAnchorArgs $) {
         this.enabled = $.enabled;
         this.name = $.name;
+        this.notificationSettings = $.notificationSettings;
         this.source = $.source;
         this.tags = $.tags;
     }
@@ -146,6 +156,19 @@ public final class TrustAnchorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder notificationSettings(@Nullable Output<List<TrustAnchorNotificationSettingArgs>> notificationSettings) {
+            $.notificationSettings = notificationSettings;
+            return this;
+        }
+
+        public Builder notificationSettings(List<TrustAnchorNotificationSettingArgs> notificationSettings) {
+            return notificationSettings(Output.of(notificationSettings));
+        }
+
+        public Builder notificationSettings(TrustAnchorNotificationSettingArgs... notificationSettings) {
+            return notificationSettings(List.of(notificationSettings));
         }
 
         /**

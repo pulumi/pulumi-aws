@@ -5,18 +5,18 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 63c0a6d527..78650bfaf2 100644
+index e6bee2c15f..597970d6c4 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -241,6 +241,7 @@ import (
+@@ -243,6 +243,7 @@ import (
  	workspaces_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspaces"
  	workspacesweb_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspacesweb"
  	xray_sdkv2 "github.com/aws/aws-sdk-go-v2/service/xray"
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
  	imagebuilder_sdkv1 "github.com/aws/aws-sdk-go/service/imagebuilder"
- 	quicksight_sdkv1 "github.com/aws/aws-sdk-go/service/quicksight"
  	simpledb_sdkv1 "github.com/aws/aws-sdk-go/service/simpledb"
-@@ -580,6 +581,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
+ 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
+@@ -581,6 +582,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
  	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
  }
  

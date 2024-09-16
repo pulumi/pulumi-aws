@@ -136,6 +136,8 @@ if typing.TYPE_CHECKING:
     cognito = __cognito
     import pulumi_aws.comprehend as __comprehend
     comprehend = __comprehend
+    import pulumi_aws.computeoptimizer as __computeoptimizer
+    computeoptimizer = __computeoptimizer
     import pulumi_aws.config as __config
     config = __config
     import pulumi_aws.connect as __connect
@@ -144,6 +146,8 @@ if typing.TYPE_CHECKING:
     controltower = __controltower
     import pulumi_aws.costexplorer as __costexplorer
     costexplorer = __costexplorer
+    import pulumi_aws.costoptimizationhub as __costoptimizationhub
+    costoptimizationhub = __costoptimizationhub
     import pulumi_aws.cur as __cur
     cur = __cur
     import pulumi_aws.customerprofiles as __customerprofiles
@@ -505,10 +509,12 @@ else:
     codestarnotifications = _utilities.lazy_import('pulumi_aws.codestarnotifications')
     cognito = _utilities.lazy_import('pulumi_aws.cognito')
     comprehend = _utilities.lazy_import('pulumi_aws.comprehend')
+    computeoptimizer = _utilities.lazy_import('pulumi_aws.computeoptimizer')
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
     controltower = _utilities.lazy_import('pulumi_aws.controltower')
     costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
+    costoptimizationhub = _utilities.lazy_import('pulumi_aws.costoptimizationhub')
     cur = _utilities.lazy_import('pulumi_aws.cur')
     customerprofiles = _utilities.lazy_import('pulumi_aws.customerprofiles')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
@@ -2259,6 +2265,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudformation/stackInstances",
+  "fqn": "pulumi_aws.cloudformation",
+  "classes": {
+   "aws:cloudformation/stackInstances:StackInstances": "StackInstances"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudformation/stackSet",
   "fqn": "pulumi_aws.cloudformation",
   "classes": {
@@ -2683,6 +2697,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codebuild/fleet",
+  "fqn": "pulumi_aws.codebuild",
+  "classes": {
+   "aws:codebuild/fleet:Fleet": "Fleet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codebuild/project",
   "fqn": "pulumi_aws.codebuild",
   "classes": {
@@ -2995,6 +3017,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "computeoptimizer/enrollmentStatus",
+  "fqn": "pulumi_aws.computeoptimizer",
+  "classes": {
+   "aws:computeoptimizer/enrollmentStatus:EnrollmentStatus": "EnrollmentStatus"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "computeoptimizer/recommendationPreferences",
+  "fqn": "pulumi_aws.computeoptimizer",
+  "classes": {
+   "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences": "RecommendationPreferences"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/botAssociation",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -3171,6 +3209,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "costoptimizationhub/enrollmentStatus",
+  "fqn": "pulumi_aws.costoptimizationhub",
+  "classes": {
+   "aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus": "EnrollmentStatus"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "costoptimizationhub/preferences",
+  "fqn": "pulumi_aws.costoptimizationhub",
+  "classes": {
+   "aws:costoptimizationhub/preferences:Preferences": "Preferences"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cur/reportDefinition",
   "fqn": "pulumi_aws.cur",
   "classes": {
@@ -3331,10 +3385,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/assetType",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/assetType:AssetType": "AssetType"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datazone/domain",
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/domain:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/environment",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/environment:Environment": "Environment"
   }
  },
  {
@@ -7047,6 +7117,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig": "FunctionEventInvokeConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/functionRecursionConfig",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/functionRecursionConfig:FunctionRecursionConfig": "FunctionRecursionConfig"
   }
  },
  {

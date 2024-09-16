@@ -101,6 +101,8 @@ const (
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
 	codestarConnectionsMod      = "CodeStarConnections"      // CodeStar Connections
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
+	computeOptimizerMod         = "ComputeOptimizer"         // Compute Optimizer
+	costOptimizationHubMod      = "CostOptimizationHub"      // Cost Optimization Hub
 	cognitoMod                  = "Cognito"                  // Cognito
 	comprehendMod               = "Comprehend"               // Comprehend
 	connectMod                  = "Connect"                  // Connect
@@ -322,6 +324,8 @@ var moduleMap = map[string]string{
 	"codepipeline":                    codepipelineMod,
 	"codestarconnections":             codestarConnectionsMod,
 	"codestarnotifications":           codestarNotificationsMod,
+	"computeoptimizer":                computeOptimizerMod,
+	"costoptimizationhub":             costOptimizationHubMod,
 	"cognito":                         cognitoMod,
 	"comprehend":                      comprehendMod,
 	"config":                          cfgMod,
@@ -632,8 +636,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		if duration != nil {
 			assumeRole.Duration = *duration
 		}
-
-		config.AssumeRole = &assumeRole
+		config.AssumeRole = []awsbase.AssumeRole{assumeRole}
 	}
 
 	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
@@ -873,6 +876,9 @@ compatibility shim in favor of the new "name" field.`)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
+			"assume_role": {
+				MaxItemsOne: tfbridge.True(),
+			},
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
@@ -5168,6 +5174,15 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_quicksight_group":    {Tok: awsDataSource(quicksightMod, "getQuicksightGroup")},
 			"aws_quicksight_user":     {Tok: awsDataSource(quicksightMod, "getQuicksightUser")},
 
+			"aws_quicksight_analysis": {
+				Tok: awsDataSource(quicksightMod, "getQuicksightAnalysis"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {Omit: true},
+				},
+			},
+
 			// VpcLattice
 			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
 			"aws_vpclattice_listener": {Tok: awsDataSource(vpclatticeMod, "getListener")},
@@ -5800,5 +5815,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 	prov.Resources["aws_glue_catalog_table_optimizer"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "catalogId", "databaseName", "tableName", "type"), nil
+	}
+	prov.Resources["aws_datazone_asset_type"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "domainIdentifier", "name"), nil
+	}
+	prov.Resources["aws_lambda_function_recursion_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "functionName"), nil
 	}
 }

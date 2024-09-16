@@ -669,7 +669,7 @@ class DomainDomainEndpointOptions(dict):
         :param str custom_endpoint_certificate_arn: ACM certificate ARN for your custom endpoint.
         :param bool custom_endpoint_enabled: Whether to enable custom endpoint for the Elasticsearch domain.
         :param bool enforce_https: Whether or not to require HTTPS. Defaults to `true`.
-        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
         """
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
@@ -718,7 +718,7 @@ class DomainDomainEndpointOptions(dict):
     @pulumi.getter(name="tlsSecurityPolicy")
     def tls_security_policy(self) -> Optional[str]:
         """
-        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "tls_security_policy")
 

@@ -56551,7 +56551,14 @@ class V2modelsSlotObfuscationSettingArgs:
 if not MYPY:
     class V2modelsSlotSubSlotSettingArgsDict(TypedDict):
         expression: NotRequired[pulumi.Input[str]]
+        """
+        Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+        """
         slot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgsDict']]]]
+        """
+        Specifications for the constituent sub slots of a composite slot.
+        See the `slot_specification` argument reference below.
+        """
 elif False:
     V2modelsSlotSubSlotSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56560,6 +56567,11 @@ class V2modelsSlotSubSlotSettingArgs:
     def __init__(__self__, *,
                  expression: Optional[pulumi.Input[str]] = None,
                  slot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]] = None):
+        """
+        :param pulumi.Input[str] expression: Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]] slot_specifications: Specifications for the constituent sub slots of a composite slot.
+               See the `slot_specification` argument reference below.
+        """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if slot_specifications is not None:
@@ -56568,6 +56580,9 @@ class V2modelsSlotSubSlotSettingArgs:
     @property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -56577,6 +56592,10 @@ class V2modelsSlotSubSlotSettingArgs:
     @property
     @pulumi.getter(name="slotSpecifications")
     def slot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]:
+        """
+        Specifications for the constituent sub slots of a composite slot.
+        See the `slot_specification` argument reference below.
+        """
         return pulumi.get(self, "slot_specifications")
 
     @slot_specifications.setter
@@ -56589,13 +56608,12 @@ if not MYPY:
         map_block_key: pulumi.Input[str]
         slot_type_id: pulumi.Input[str]
         """
-        Unique identifier for the slot type associated with this slot.
+        Unique identifier assigned to the slot type.
         """
         value_elicitation_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict']]]]
         """
-        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-
-        The following arguments are optional:
+        Elicitation setting details for constituent sub slots of a composite slot.
+        See the `value_elicitation_setting` argument reference below.
         """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -56607,10 +56625,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
                  slot_type_id: pulumi.Input[str],
                  value_elicitation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]] = None):
         """
-        :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]] value_elicitation_settings: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] slot_type_id: Unique identifier assigned to the slot type.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]] value_elicitation_settings: Elicitation setting details for constituent sub slots of a composite slot.
+               See the `value_elicitation_setting` argument reference below.
         """
         pulumi.set(__self__, "map_block_key", map_block_key)
         pulumi.set(__self__, "slot_type_id", slot_type_id)
@@ -56630,7 +56647,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> pulumi.Input[str]:
         """
-        Unique identifier for the slot type associated with this slot.
+        Unique identifier assigned to the slot type.
         """
         return pulumi.get(self, "slot_type_id")
 
@@ -56642,9 +56659,8 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
     @pulumi.getter(name="valueElicitationSettings")
     def value_elicitation_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]:
         """
-        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-
-        The following arguments are optional:
+        Elicitation setting details for constituent sub slots of a composite slot.
+        See the `value_elicitation_setting` argument reference below.
         """
         return pulumi.get(self, "value_elicitation_settings")
 
@@ -56656,9 +56672,21 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict(TypedDict):
         prompt_specification: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict']
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
         default_value_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict']]]]
+        """
+        List of default values for a slot.
+        See the `default_value_specification` argument reference below.
+        """
         sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict']]]]
         wait_and_continue_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]
+        """
+        Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        See the `wait_and_continue_specification` argument reference below.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56669,6 +56697,14 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
                  default_value_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]] = None,
                  wait_and_continue_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs'] prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
+               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]] default_value_specifications: List of default values for a slot.
+               See the `default_value_specification` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]] wait_and_continue_specifications: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+               See the `wait_and_continue_specification` argument reference below.
+        """
         pulumi.set(__self__, "prompt_specification", prompt_specification)
         if default_value_specifications is not None:
             pulumi.set(__self__, "default_value_specifications", default_value_specifications)
@@ -56680,6 +56716,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="promptSpecification")
     def prompt_specification(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']:
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
         return pulumi.get(self, "prompt_specification")
 
     @prompt_specification.setter
@@ -56689,6 +56729,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="defaultValueSpecifications")
     def default_value_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]:
+        """
+        List of default values for a slot.
+        See the `default_value_specification` argument reference below.
+        """
         return pulumi.get(self, "default_value_specifications")
 
     @default_value_specifications.setter
@@ -56707,6 +56751,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="waitAndContinueSpecifications")
     def wait_and_continue_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]:
+        """
+        Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        See the `wait_and_continue_specification` argument reference below.
+        """
         return pulumi.get(self, "wait_and_continue_specifications")
 
     @wait_and_continue_specifications.setter
@@ -56717,6 +56765,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs:
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict(TypedDict):
         default_value_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict']]]]
+        """
+        List of default values.
+        Amazon Lex chooses the default value to use in the order that they are presented in the list.
+        See the `default_value_list` argument reference below.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56724,12 +56777,22 @@ elif False:
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs:
     def __init__(__self__, *,
                  default_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]] default_value_lists: List of default values.
+               Amazon Lex chooses the default value to use in the order that they are presented in the list.
+               See the `default_value_list` argument reference below.
+        """
         if default_value_lists is not None:
             pulumi.set(__self__, "default_value_lists", default_value_lists)
 
     @property
     @pulumi.getter(name="defaultValueLists")
     def default_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]:
+        """
+        List of default values.
+        Amazon Lex chooses the default value to use in the order that they are presented in the list.
+        See the `default_value_list` argument reference below.
+        """
         return pulumi.get(self, "default_value_lists")
 
     @default_value_lists.setter
@@ -56740,6 +56803,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultV
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict(TypedDict):
         default_value: pulumi.Input[str]
+        """
+        Default value to use when a user doesn't provide a value for a slot.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56747,11 +56813,17 @@ elif False:
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs:
     def __init__(__self__, *,
                  default_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] default_value: Default value to use when a user doesn't provide a value for a slot.
+        """
         pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Input[str]:
+        """
+        Default value to use when a user doesn't provide a value for a slot.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -56836,7 +56908,16 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -56845,6 +56926,13 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -56852,6 +56940,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -56861,6 +56953,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -57586,6 +57683,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict(TypedDict):
         utterance: pulumi.Input[str]
+        """
+        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57593,11 +57693,17 @@ elif False:
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs:
     def __init__(__self__, *,
                  utterance: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] utterance: The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
         pulumi.set(__self__, "utterance", utterance)
 
     @property
     @pulumi.getter
     def utterance(self) -> pulumi.Input[str]:
+        """
+        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
         return pulumi.get(self, "utterance")
 
     @utterance.setter
@@ -57608,9 +57714,26 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUt
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict(TypedDict):
         active: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the bot will wait for a user to respond.
+        When this field is `false`, wait and continue responses for a slot aren't used.
+        If the active field isn't specified, the default is `true`.
+        """
         continue_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+        See the `continue_response` argument reference below.
+        """
         still_waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        See the `still_waiting_response` argument reference below.
+        """
         waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+        See the `waiting_response` argument reference below.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57621,6 +57744,17 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
                  continue_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]] = None,
                  still_waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]] = None,
                  waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] active: Specifies whether the bot will wait for a user to respond.
+               When this field is `false`, wait and continue responses for a slot aren't used.
+               If the active field isn't specified, the default is `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]] continue_responses: Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+               See the `continue_response` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]] still_waiting_responses: Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+               See the `still_waiting_response` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]] waiting_responses: Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+               See the `waiting_response` argument reference below.
+        """
         if active is not None:
             pulumi.set(__self__, "active", active)
         if continue_responses is not None:
@@ -57633,6 +57767,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the bot will wait for a user to respond.
+        When this field is `false`, wait and continue responses for a slot aren't used.
+        If the active field isn't specified, the default is `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -57642,6 +57781,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="continueResponses")
     def continue_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+        See the `continue_response` argument reference below.
+        """
         return pulumi.get(self, "continue_responses")
 
     @continue_responses.setter
@@ -57651,6 +57794,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="stillWaitingResponses")
     def still_waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        See the `still_waiting_response` argument reference below.
+        """
         return pulumi.get(self, "still_waiting_responses")
 
     @still_waiting_responses.setter
@@ -57660,6 +57807,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="waitingResponses")
     def waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+        See the `waiting_response` argument reference below.
+        """
         return pulumi.get(self, "waiting_responses")
 
     @waiting_responses.setter
@@ -57670,7 +57821,15 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict(TypedDict):
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57679,6 +57838,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     def __init__(__self__, *,
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]] message_groups: Configuration blocks for responses that Amazon Lex can send to the user.
+               Amazon Lex chooses the actual response to send at runtime.
+               See `message_group`.
+        """
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_groups is not None:
@@ -57687,6 +57852,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -57696,6 +57864,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]:
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -57706,7 +57879,16 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -57715,6 +57897,13 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -57722,6 +57911,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -57731,6 +57924,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -58187,8 +58385,17 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict(TypedDict):
         frequency_in_seconds: pulumi.Input[int]
+        """
+        How often a message should be sent to the user.
+        """
         timeout_in_seconds: pulumi.Input[int]
+        """
+        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        """
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
@@ -58200,6 +58407,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
                  timeout_in_seconds: pulumi.Input[int],
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[int] frequency_in_seconds: How often a message should be sent to the user.
+        :param pulumi.Input[int] timeout_in_seconds: If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        """
         pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
         pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if allow_interrupt is not None:
@@ -58210,6 +58422,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="frequencyInSeconds")
     def frequency_in_seconds(self) -> pulumi.Input[int]:
+        """
+        How often a message should be sent to the user.
+        """
         return pulumi.get(self, "frequency_in_seconds")
 
     @frequency_in_seconds.setter
@@ -58219,6 +58434,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Input[int]:
+        """
+        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -58228,6 +58446,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -58247,7 +58468,16 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -58256,6 +58486,13 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -58263,6 +58500,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -58272,6 +58513,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -58728,7 +58974,15 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict(TypedDict):
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -58737,6 +58991,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     def __init__(__self__, *,
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]] message_groups: Configuration blocks for responses that Amazon Lex can send to the user.
+               Amazon Lex chooses the actual response to send at runtime.
+               See `message_group`.
+        """
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_groups is not None:
@@ -58745,6 +59005,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -58754,6 +59017,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]:
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -58764,7 +59032,16 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 if not MYPY:
     class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -58773,6 +59050,13 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -58780,6 +59064,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -58789,6 +59077,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -59318,7 +59611,8 @@ if not MYPY:
     class V2modelsSlotTypeCompositeSlotTypeSettingArgsDict(TypedDict):
         sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict']]]
         """
-        Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        Sub slots in the composite slot.
+        See `sub_slots` argument reference below.
         """
 elif False:
     V2modelsSlotTypeCompositeSlotTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
@@ -59328,7 +59622,8 @@ class V2modelsSlotTypeCompositeSlotTypeSettingArgs:
     def __init__(__self__, *,
                  sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]] sub_slots: Sub slots in the composite slot.
+               See `sub_slots` argument reference below.
         """
         pulumi.set(__self__, "sub_slots", sub_slots)
 
@@ -59336,7 +59631,8 @@ class V2modelsSlotTypeCompositeSlotTypeSettingArgs:
     @pulumi.getter(name="subSlots")
     def sub_slots(self) -> pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]:
         """
-        Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        Sub slots in the composite slot.
+        See `sub_slots` argument reference below.
         """
         return pulumi.get(self, "sub_slots")
 
@@ -59349,9 +59645,7 @@ if not MYPY:
     class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Name of the slot type
-
-        The following arguments are optional:
+        Name of a constituent sub slot inside a composite slot.
         """
         sub_slot_id: pulumi.Input[str]
 elif False:
@@ -59363,9 +59657,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
                  name: pulumi.Input[str],
                  sub_slot_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the slot type
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] name: Name of a constituent sub slot inside a composite slot.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "sub_slot_id", sub_slot_id)
@@ -59374,9 +59666,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the slot type
-
-        The following arguments are optional:
+        Name of a constituent sub slot inside a composite slot.
         """
         return pulumi.get(self, "name")
 
@@ -59398,7 +59688,8 @@ if not MYPY:
     class V2modelsSlotTypeExternalSourceSettingArgsDict(TypedDict):
         grammar_slot_type_setting: NotRequired[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgsDict']]
         """
-        Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        Settings required for a slot type based on a grammar that you provide.
+        See `grammar_slot_type_setting` argument reference below.
         """
 elif False:
     V2modelsSlotTypeExternalSourceSettingArgsDict: TypeAlias = Mapping[str, Any]
@@ -59408,7 +59699,8 @@ class V2modelsSlotTypeExternalSourceSettingArgs:
     def __init__(__self__, *,
                  grammar_slot_type_setting: Optional[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs']] = None):
         """
-        :param pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs'] grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        :param pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs'] grammar_slot_type_setting: Settings required for a slot type based on a grammar that you provide.
+               See `grammar_slot_type_setting` argument reference below.
         """
         if grammar_slot_type_setting is not None:
             pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
@@ -59417,7 +59709,8 @@ class V2modelsSlotTypeExternalSourceSettingArgs:
     @pulumi.getter(name="grammarSlotTypeSetting")
     def grammar_slot_type_setting(self) -> Optional[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs']]:
         """
-        Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+        Settings required for a slot type based on a grammar that you provide.
+        See `grammar_slot_type_setting` argument reference below.
         """
         return pulumi.get(self, "grammar_slot_type_setting")
 
@@ -59430,7 +59723,8 @@ if not MYPY:
     class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgsDict(TypedDict):
         source: NotRequired[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict']]
         """
-        Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        Source of the grammar used to create the slot type.
+        See `source` argument reference below.
         """
 elif False:
     V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgsDict: TypeAlias = Mapping[str, Any]
@@ -59440,7 +59734,8 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs:
     def __init__(__self__, *,
                  source: Optional[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs']] = None):
         """
-        :param pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs'] source: Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        :param pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs'] source: Source of the grammar used to create the slot type.
+               See `source` argument reference below.
         """
         if source is not None:
             pulumi.set(__self__, "source", source)
@@ -59449,7 +59744,8 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs']]:
         """
-        Source of the grammar used to create the slot type. See `grammar_slot_type_source` argument reference below.
+        Source of the grammar used to create the slot type.
+        See `source` argument reference below.
         """
         return pulumi.get(self, "source")
 
@@ -59531,11 +59827,13 @@ if not MYPY:
     class V2modelsSlotTypeSlotTypeValuesArgsDict(TypedDict):
         sample_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgsDict']]]]
         """
-        Value of the slot type entry.  See `sample_value` argument reference below.
+        Value of the slot type entry.
+        See `sample_value` argument reference below.
         """
         synonyms: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgsDict']]]]
         """
-        Additional values related to the slot type entry. See `sample_value` argument reference below.
+        A list of additional values related to the slot type entry.
+        See `synonyms` argument reference below.
         """
 elif False:
     V2modelsSlotTypeSlotTypeValuesArgsDict: TypeAlias = Mapping[str, Any]
@@ -59546,8 +59844,10 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
                  sample_values: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]]] = None,
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]] sample_values: Value of the slot type entry.  See `sample_value` argument reference below.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]] sample_values: Value of the slot type entry.
+               See `sample_value` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]] synonyms: A list of additional values related to the slot type entry.
+               See `synonyms` argument reference below.
         """
         if sample_values is not None:
             pulumi.set(__self__, "sample_values", sample_values)
@@ -59558,7 +59858,8 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
     @pulumi.getter(name="sampleValues")
     def sample_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSampleValueArgs']]]]:
         """
-        Value of the slot type entry.  See `sample_value` argument reference below.
+        Value of the slot type entry.
+        See `sample_value` argument reference below.
         """
         return pulumi.get(self, "sample_values")
 
@@ -59570,7 +59871,8 @@ class V2modelsSlotTypeSlotTypeValuesArgs:
     @pulumi.getter
     def synonyms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValuesSynonymArgs']]]]:
         """
-        Additional values related to the slot type entry. See `sample_value` argument reference below.
+        A list of additional values related to the slot type entry.
+        See `synonyms` argument reference below.
         """
         return pulumi.get(self, "synonyms")
 
@@ -59717,15 +60019,19 @@ if not MYPY:
     class V2modelsSlotTypeValueSelectionSettingArgsDict(TypedDict):
         resolution_strategy: pulumi.Input[str]
         """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+        Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
         """
         advanced_recognition_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgsDict']]]]
         """
-        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        Provides settings that enable advanced recognition settings for slot values.
+        You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        See `advanced_recognition_setting` argument reference below.
         """
         regex_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict']]]]
         """
-        Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        Used to validate the value of the slot.
+        See `regex_filter` argument reference below.
         """
 elif False:
     V2modelsSlotTypeValueSelectionSettingArgsDict: TypeAlias = Mapping[str, Any]
@@ -59737,9 +60043,13 @@ class V2modelsSlotTypeValueSelectionSettingArgs:
                  advanced_recognition_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs']]]] = None,
                  regex_filters: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs']]]] = None):
         """
-        :param pulumi.Input[str] resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs']]] advanced_recognition_settings: Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
-        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs']]] regex_filters: Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        :param pulumi.Input[str] resolution_strategy: Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+               Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs']]] advanced_recognition_settings: Provides settings that enable advanced recognition settings for slot values.
+               You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+               See `advanced_recognition_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs']]] regex_filters: Used to validate the value of the slot.
+               See `regex_filter` argument reference below.
         """
         pulumi.set(__self__, "resolution_strategy", resolution_strategy)
         if advanced_recognition_settings is not None:
@@ -59751,7 +60061,8 @@ class V2modelsSlotTypeValueSelectionSettingArgs:
     @pulumi.getter(name="resolutionStrategy")
     def resolution_strategy(self) -> pulumi.Input[str]:
         """
-        Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+        Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
         """
         return pulumi.get(self, "resolution_strategy")
 
@@ -59763,7 +60074,9 @@ class V2modelsSlotTypeValueSelectionSettingArgs:
     @pulumi.getter(name="advancedRecognitionSettings")
     def advanced_recognition_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs']]]]:
         """
-        Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        Provides settings that enable advanced recognition settings for slot values.
+        You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        See `advanced_recognition_setting` argument reference below.
         """
         return pulumi.get(self, "advanced_recognition_settings")
 
@@ -59775,7 +60088,8 @@ class V2modelsSlotTypeValueSelectionSettingArgs:
     @pulumi.getter(name="regexFilters")
     def regex_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs']]]]:
         """
-        Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        Used to validate the value of the slot.
+        See `regex_filter` argument reference below.
         """
         return pulumi.get(self, "regex_filters")
 
@@ -59786,33 +60100,44 @@ class V2modelsSlotTypeValueSelectionSettingArgs:
 
 if not MYPY:
     class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgsDict(TypedDict):
-        audio_recognition_setting: NotRequired[pulumi.Input[str]]
+        audio_recognition_strategy: NotRequired[pulumi.Input[str]]
+        """
+        Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        Valid value is `UseSlotValuesAsCustomVocabulary`.
+        """
 elif False:
     V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs:
     def __init__(__self__, *,
-                 audio_recognition_setting: Optional[pulumi.Input[str]] = None):
-        if audio_recognition_setting is not None:
-            pulumi.set(__self__, "audio_recognition_setting", audio_recognition_setting)
+                 audio_recognition_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] audio_recognition_strategy: Enables using the slot values as a custom vocabulary for recognizing user utterances.
+               Valid value is `UseSlotValuesAsCustomVocabulary`.
+        """
+        if audio_recognition_strategy is not None:
+            pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
 
     @property
-    @pulumi.getter(name="audioRecognitionSetting")
-    def audio_recognition_setting(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "audio_recognition_setting")
+    @pulumi.getter(name="audioRecognitionStrategy")
+    def audio_recognition_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        Valid value is `UseSlotValuesAsCustomVocabulary`.
+        """
+        return pulumi.get(self, "audio_recognition_strategy")
 
-    @audio_recognition_setting.setter
-    def audio_recognition_setting(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "audio_recognition_setting", value)
+    @audio_recognition_strategy.setter
+    def audio_recognition_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audio_recognition_strategy", value)
 
 
 if not MYPY:
     class V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict(TypedDict):
         pattern: pulumi.Input[str]
         """
-        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
-        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        A regular expression used to validate the value of a slot.
         """
 elif False:
     V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -59822,8 +60147,7 @@ class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] pattern: Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
-               Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        :param pulumi.Input[str] pattern: A regular expression used to validate the value of a slot.
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -59831,8 +60155,7 @@ class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs:
     @pulumi.getter
     def pattern(self) -> pulumi.Input[str]:
         """
-        Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\\⁠u").
-        Represent Unicode characters with four digits, for example "\\⁠u0041" or "\\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+        A regular expression used to validate the value of a slot.
         """
         return pulumi.get(self, "pattern")
 
@@ -59844,11 +60167,30 @@ class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingArgsDict(TypedDict):
         prompt_specification: pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationArgsDict']
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
         slot_constraint: pulumi.Input[str]
+        """
+        Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+        """
         default_value_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgsDict']]]]
+        """
+        List of default values for a slot.
+        See the `default_value_specification` argument reference below.
+        """
         sample_utterances: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSampleUtteranceArgsDict']]]]
         slot_resolution_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgsDict']]]]
+        """
+        Information about whether assisted slot resolution is turned on for the slot or not.
+        See the `slot_resolution_setting` argument reference below.
+        """
         wait_and_continue_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]
+        """
+        Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        See the `wait_and_continue_specification` argument reference below.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59861,6 +60203,17 @@ class V2modelsSlotValueElicitationSettingArgs:
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSampleUtteranceArgs']]]] = None,
                  slot_resolution_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs']]]] = None,
                  wait_and_continue_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationArgs'] prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
+               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        :param pulumi.Input[str] slot_constraint: Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs']]] default_value_specifications: List of default values for a slot.
+               See the `default_value_specification` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs']]] slot_resolution_settings: Information about whether assisted slot resolution is turned on for the slot or not.
+               See the `slot_resolution_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs']]] wait_and_continue_specifications: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+               See the `wait_and_continue_specification` argument reference below.
+        """
         pulumi.set(__self__, "prompt_specification", prompt_specification)
         pulumi.set(__self__, "slot_constraint", slot_constraint)
         if default_value_specifications is not None:
@@ -59875,6 +60228,10 @@ class V2modelsSlotValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="promptSpecification")
     def prompt_specification(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationArgs']:
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
         return pulumi.get(self, "prompt_specification")
 
     @prompt_specification.setter
@@ -59884,6 +60241,9 @@ class V2modelsSlotValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="slotConstraint")
     def slot_constraint(self) -> pulumi.Input[str]:
+        """
+        Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+        """
         return pulumi.get(self, "slot_constraint")
 
     @slot_constraint.setter
@@ -59893,6 +60253,10 @@ class V2modelsSlotValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="defaultValueSpecifications")
     def default_value_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs']]]]:
+        """
+        List of default values for a slot.
+        See the `default_value_specification` argument reference below.
+        """
         return pulumi.get(self, "default_value_specifications")
 
     @default_value_specifications.setter
@@ -59911,6 +60275,10 @@ class V2modelsSlotValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="slotResolutionSettings")
     def slot_resolution_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs']]]]:
+        """
+        Information about whether assisted slot resolution is turned on for the slot or not.
+        See the `slot_resolution_setting` argument reference below.
+        """
         return pulumi.get(self, "slot_resolution_settings")
 
     @slot_resolution_settings.setter
@@ -59920,6 +60288,10 @@ class V2modelsSlotValueElicitationSettingArgs:
     @property
     @pulumi.getter(name="waitAndContinueSpecifications")
     def wait_and_continue_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs']]]]:
+        """
+        Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        See the `wait_and_continue_specification` argument reference below.
+        """
         return pulumi.get(self, "wait_and_continue_specifications")
 
     @wait_and_continue_specifications.setter
@@ -59930,6 +60302,11 @@ class V2modelsSlotValueElicitationSettingArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgsDict(TypedDict):
         default_value_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict']]]]
+        """
+        List of default values.
+        Amazon Lex chooses the default value to use in the order that they are presented in the list.
+        See the `default_value_list` argument reference below.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59937,12 +60314,22 @@ elif False:
 class V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs:
     def __init__(__self__, *,
                  default_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]] default_value_lists: List of default values.
+               Amazon Lex chooses the default value to use in the order that they are presented in the list.
+               See the `default_value_list` argument reference below.
+        """
         if default_value_lists is not None:
             pulumi.set(__self__, "default_value_lists", default_value_lists)
 
     @property
     @pulumi.getter(name="defaultValueLists")
     def default_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs']]]]:
+        """
+        List of default values.
+        Amazon Lex chooses the default value to use in the order that they are presented in the list.
+        See the `default_value_list` argument reference below.
+        """
         return pulumi.get(self, "default_value_lists")
 
     @default_value_lists.setter
@@ -59953,6 +60340,9 @@ class V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict(TypedDict):
         default_value: pulumi.Input[str]
+        """
+        Default value to use when a user doesn't provide a value for a slot.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59960,11 +60350,17 @@ elif False:
 class V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs:
     def __init__(__self__, *,
                  default_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] default_value: Default value to use when a user doesn't provide a value for a slot.
+        """
         pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Input[str]:
+        """
+        Default value to use when a user doesn't provide a value for a slot.
+        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -60049,7 +60445,16 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60058,6 +60463,13 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs:
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -60065,6 +60477,10 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs:
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -60074,6 +60490,11 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs:
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -60799,6 +61220,9 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecif
 if not MYPY:
     class V2modelsSlotValueElicitationSettingSampleUtteranceArgsDict(TypedDict):
         utterance: pulumi.Input[str]
+        """
+        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingSampleUtteranceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60806,11 +61230,17 @@ elif False:
 class V2modelsSlotValueElicitationSettingSampleUtteranceArgs:
     def __init__(__self__, *,
                  utterance: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] utterance: The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
         pulumi.set(__self__, "utterance", utterance)
 
     @property
     @pulumi.getter
     def utterance(self) -> pulumi.Input[str]:
+        """
+        The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+        """
         return pulumi.get(self, "utterance")
 
     @utterance.setter
@@ -60821,6 +61251,12 @@ class V2modelsSlotValueElicitationSettingSampleUtteranceArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgsDict(TypedDict):
         slot_resolution_strategy: pulumi.Input[str]
+        """
+        Specifies whether assisted slot resolution is turned on for the slot or not.
+        Valid values are `EnhancedFallback` or `Default`.
+        If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+        If the value is `Default`, assisted slot resolution is turned off.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingSlotResolutionSettingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60828,11 +61264,23 @@ elif False:
 class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs:
     def __init__(__self__, *,
                  slot_resolution_strategy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] slot_resolution_strategy: Specifies whether assisted slot resolution is turned on for the slot or not.
+               Valid values are `EnhancedFallback` or `Default`.
+               If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+               If the value is `Default`, assisted slot resolution is turned off.
+        """
         pulumi.set(__self__, "slot_resolution_strategy", slot_resolution_strategy)
 
     @property
     @pulumi.getter(name="slotResolutionStrategy")
     def slot_resolution_strategy(self) -> pulumi.Input[str]:
+        """
+        Specifies whether assisted slot resolution is turned on for the slot or not.
+        Valid values are `EnhancedFallback` or `Default`.
+        If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+        If the value is `Default`, assisted slot resolution is turned off.
+        """
         return pulumi.get(self, "slot_resolution_strategy")
 
     @slot_resolution_strategy.setter
@@ -60843,9 +61291,26 @@ class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgsDict(TypedDict):
         active: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the bot will wait for a user to respond.
+        When this field is `false`, wait and continue responses for a slot aren't used.
+        If the active field isn't specified, the default is `true`.
+        """
         continue_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+        See the `continue_response` argument reference below.
+        """
         still_waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        See the `still_waiting_response` argument reference below.
+        """
         waiting_responses: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]
+        """
+        Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+        See the `waiting_response` argument reference below.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60856,6 +61321,17 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
                  continue_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]] = None,
                  still_waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]] = None,
                  waiting_responses: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] active: Specifies whether the bot will wait for a user to respond.
+               When this field is `false`, wait and continue responses for a slot aren't used.
+               If the active field isn't specified, the default is `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]] continue_responses: Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+               See the `continue_response` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]] still_waiting_responses: Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+               See the `still_waiting_response` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]] waiting_responses: Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+               See the `waiting_response` argument reference below.
+        """
         if active is not None:
             pulumi.set(__self__, "active", active)
         if continue_responses is not None:
@@ -60868,6 +61344,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
     @property
     @pulumi.getter
     def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the bot will wait for a user to respond.
+        When this field is `false`, wait and continue responses for a slot aren't used.
+        If the active field isn't specified, the default is `true`.
+        """
         return pulumi.get(self, "active")
 
     @active.setter
@@ -60877,6 +61358,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
     @property
     @pulumi.getter(name="continueResponses")
     def continue_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+        See the `continue_response` argument reference below.
+        """
         return pulumi.get(self, "continue_responses")
 
     @continue_responses.setter
@@ -60886,6 +61371,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
     @property
     @pulumi.getter(name="stillWaitingResponses")
     def still_waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+        See the `still_waiting_response` argument reference below.
+        """
         return pulumi.get(self, "still_waiting_responses")
 
     @still_waiting_responses.setter
@@ -60895,6 +61384,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
     @property
     @pulumi.getter(name="waitingResponses")
     def waiting_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]:
+        """
+        Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+        See the `waiting_response` argument reference below.
+        """
         return pulumi.get(self, "waiting_responses")
 
     @waiting_responses.setter
@@ -60905,7 +61398,15 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs:
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict(TypedDict):
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60914,6 +61415,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     def __init__(__self__, *,
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]] message_groups: Configuration blocks for responses that Amazon Lex can send to the user.
+               Amazon Lex chooses the actual response to send at runtime.
+               See `message_group`.
+        """
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_groups is not None:
@@ -60922,6 +61429,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -60931,6 +61441,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]:
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -60941,7 +61456,16 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -60950,6 +61474,13 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -60957,6 +61488,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -60966,6 +61501,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -61422,8 +61962,17 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict(TypedDict):
         frequency_in_seconds: pulumi.Input[int]
+        """
+        How often a message should be sent to the user.
+        """
         timeout_in_seconds: pulumi.Input[int]
+        """
+        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        """
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
@@ -61435,6 +61984,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
                  timeout_in_seconds: pulumi.Input[int],
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[int] frequency_in_seconds: How often a message should be sent to the user.
+        :param pulumi.Input[int] timeout_in_seconds: If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        """
         pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
         pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if allow_interrupt is not None:
@@ -61445,6 +61999,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @property
     @pulumi.getter(name="frequencyInSeconds")
     def frequency_in_seconds(self) -> pulumi.Input[int]:
+        """
+        How often a message should be sent to the user.
+        """
         return pulumi.get(self, "frequency_in_seconds")
 
     @frequency_in_seconds.setter
@@ -61454,6 +62011,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @property
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> pulumi.Input[int]:
+        """
+        If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        """
         return pulumi.get(self, "timeout_in_seconds")
 
     @timeout_in_seconds.setter
@@ -61463,6 +62023,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -61482,7 +62045,16 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -61491,6 +62063,13 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -61498,6 +62077,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -61507,6 +62090,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter
@@ -61963,7 +62551,15 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict(TypedDict):
         allow_interrupt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         message_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -61972,6 +62568,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     def __init__(__self__, *,
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
                  message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] allow_interrupt: Whether the user can interrupt a speech response from Amazon Lex.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]] message_groups: Configuration blocks for responses that Amazon Lex can send to the user.
+               Amazon Lex chooses the actual response to send at runtime.
+               See `message_group`.
+        """
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_groups is not None:
@@ -61980,6 +62582,9 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @property
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the user can interrupt a speech response from Amazon Lex.
+        """
         return pulumi.get(self, "allow_interrupt")
 
     @allow_interrupt.setter
@@ -61989,6 +62594,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @property
     @pulumi.getter(name="messageGroups")
     def message_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]:
+        """
+        Configuration blocks for responses that Amazon Lex can send to the user.
+        Amazon Lex chooses the actual response to send at runtime.
+        See `message_group`.
+        """
         return pulumi.get(self, "message_groups")
 
     @message_groups.setter
@@ -61999,7 +62609,16 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 if not MYPY:
     class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
         message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         variations: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
 elif False:
     V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -62008,6 +62627,13 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     def __init__(__self__, *,
                  message: pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'],
                  variations: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]] = None):
+        """
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs'] message: Configuration block for the primary message that Amazon Lex should send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]] variations: Configuration blocks for message variations to send to the user.
+               When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+               See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
@@ -62015,6 +62641,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @property
     @pulumi.getter
     def message(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']:
+        """
+        Configuration block for the primary message that Amazon Lex should send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -62024,6 +62654,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @property
     @pulumi.getter
     def variations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]:
+        """
+        Configuration blocks for message variations to send to the user.
+        When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+        See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+        """
         return pulumi.get(self, "variations")
 
     @variations.setter

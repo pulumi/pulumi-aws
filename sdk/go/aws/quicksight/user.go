@@ -67,7 +67,7 @@ type User struct {
 	SessionName pulumi.StringPtrOutput `pulumi:"sessionName"`
 	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
-	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 	UserRole pulumi.StringOutput `pulumi:"userRole"`
 }
 
@@ -126,7 +126,7 @@ type userState struct {
 	SessionName *string `pulumi:"sessionName"`
 	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
-	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 	UserRole *string `pulumi:"userRole"`
 }
 
@@ -147,7 +147,7 @@ type UserState struct {
 	SessionName pulumi.StringPtrInput
 	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
-	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 	UserRole pulumi.StringPtrInput
 }
 
@@ -170,7 +170,7 @@ type userArgs struct {
 	SessionName *string `pulumi:"sessionName"`
 	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
-	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 	UserRole string `pulumi:"userRole"`
 }
 
@@ -190,7 +190,7 @@ type UserArgs struct {
 	SessionName pulumi.StringPtrInput
 	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
-	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 	UserRole pulumi.StringInput
 }
 
@@ -321,7 +321,7 @@ func (o UserOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
+// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
 func (o UserOutput) UserRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserRole }).(pulumi.StringOutput)
 }

@@ -14,6 +14,7 @@ import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsRSessionAppSett
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsRStudioServerProAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSpaceStorageSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsStudioWebPortalSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -100,6 +101,11 @@ public final class DomainDefaultUserSettings {
      * 
      */
     private @Nullable String studioWebPortal;
+    /**
+     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsStudioWebPortalSettings studioWebPortalSettings;
     /**
      * @return The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
@@ -213,6 +219,13 @@ public final class DomainDefaultUserSettings {
         return Optional.ofNullable(this.studioWebPortal);
     }
     /**
+     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsStudioWebPortalSettings> studioWebPortalSettings() {
+        return Optional.ofNullable(this.studioWebPortalSettings);
+    }
+    /**
      * @return The TensorBoard app settings. See `tensor_board_app_settings` Block below.
      * 
      */
@@ -244,6 +257,7 @@ public final class DomainDefaultUserSettings {
         private @Nullable DomainDefaultUserSettingsSharingSettings sharingSettings;
         private @Nullable DomainDefaultUserSettingsSpaceStorageSettings spaceStorageSettings;
         private @Nullable String studioWebPortal;
+        private @Nullable DomainDefaultUserSettingsStudioWebPortalSettings studioWebPortalSettings;
         private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
         public Builder() {}
         public Builder(DomainDefaultUserSettings defaults) {
@@ -263,6 +277,7 @@ public final class DomainDefaultUserSettings {
     	      this.sharingSettings = defaults.sharingSettings;
     	      this.spaceStorageSettings = defaults.spaceStorageSettings;
     	      this.studioWebPortal = defaults.studioWebPortal;
+    	      this.studioWebPortalSettings = defaults.studioWebPortalSettings;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
@@ -365,6 +380,12 @@ public final class DomainDefaultUserSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder studioWebPortalSettings(@Nullable DomainDefaultUserSettingsStudioWebPortalSettings studioWebPortalSettings) {
+
+            this.studioWebPortalSettings = studioWebPortalSettings;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tensorBoardAppSettings(@Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings) {
 
             this.tensorBoardAppSettings = tensorBoardAppSettings;
@@ -387,6 +408,7 @@ public final class DomainDefaultUserSettings {
             _resultValue.sharingSettings = sharingSettings;
             _resultValue.spaceStorageSettings = spaceStorageSettings;
             _resultValue.studioWebPortal = studioWebPortal;
+            _resultValue.studioWebPortalSettings = studioWebPortalSettings;
             _resultValue.tensorBoardAppSettings = tensorBoardAppSettings;
             return _resultValue;
         }

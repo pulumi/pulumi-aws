@@ -14,12 +14,21 @@ namespace Pulumi.Aws.Lex.Inputs
     {
         [Input("defaultValueSpecifications")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>? _defaultValueSpecifications;
+
+        /// <summary>
+        /// List of default values for a slot.
+        /// See the `default_value_specification` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs> DefaultValueSpecifications
         {
             get => _defaultValueSpecifications ?? (_defaultValueSpecifications = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>());
             set => _defaultValueSpecifications = value;
         }
 
+        /// <summary>
+        /// Prompt that Amazon Lex uses to elicit the slot value from the user.
+        /// See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        /// </summary>
         [Input("promptSpecification", required: true)]
         public Input<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> PromptSpecification { get; set; } = null!;
 
@@ -33,6 +42,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
         [Input("waitAndContinueSpecifications")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>? _waitAndContinueSpecifications;
+
+        /// <summary>
+        /// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+        /// See the `wait_and_continue_specification` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs> WaitAndContinueSpecifications
         {
             get => _waitAndContinueSpecifications ?? (_waitAndContinueSpecifications = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>());

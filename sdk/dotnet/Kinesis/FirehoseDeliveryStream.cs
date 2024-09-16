@@ -856,6 +856,8 @@ namespace Pulumi.Aws.Kinesis
     ///         SnowflakeConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs
     ///         {
     ///             AccountUrl = "https://example.snowflakecomputing.com",
+    ///             BufferingSize = 15,
+    ///             BufferingInterval = 600,
     ///             Database = "example-db",
     ///             PrivateKey = "...",
     ///             RoleArn = firehose.Arn,

@@ -520,7 +520,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
     example = aws.ec2.get_ami(executable_users=["self"],
         most_recent=True,
-        name_regex="^myami-\\\\d{3}",
+        name_regex="^myami-[0-9]{3}",
         owners=["self"],
         filters=[
             {
@@ -636,7 +636,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
 
     example = aws.ec2.get_ami(executable_users=["self"],
         most_recent=True,
-        name_regex="^myami-\\\\d{3}",
+        name_regex="^myami-[0-9]{3}",
         owners=["self"],
         filters=[
             {

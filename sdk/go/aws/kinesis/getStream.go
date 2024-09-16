@@ -67,8 +67,12 @@ type LookupStreamResult struct {
 	ClosedShards []string `pulumi:"closedShards"`
 	// Approximate UNIX timestamp that the stream was created.
 	CreationTimestamp int `pulumi:"creationTimestamp"`
+	// Encryption type used.
+	EncryptionType string `pulumi:"encryptionType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// GUID for the customer-managed AWS KMS key to use for encryption.
+	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
 	// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
@@ -140,9 +144,19 @@ func (o LookupStreamResultOutput) CreationTimestamp() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupStreamResult) int { return v.CreationTimestamp }).(pulumi.IntOutput)
 }
 
+// Encryption type used.
+func (o LookupStreamResultOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamResult) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupStreamResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// GUID for the customer-managed AWS KMS key to use for encryption.
+func (o LookupStreamResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
 // Name of the Kinesis Stream.

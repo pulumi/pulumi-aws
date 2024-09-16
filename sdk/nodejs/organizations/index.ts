@@ -45,6 +45,11 @@ export const getOrganizationalUnitDescendantAccounts: typeof import("./getOrgani
 export const getOrganizationalUnitDescendantAccountsOutput: typeof import("./getOrganizationalUnitDescendantAccounts").getOrganizationalUnitDescendantAccountsOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationalUnitDescendantAccounts","getOrganizationalUnitDescendantAccountsOutput"], () => require("./getOrganizationalUnitDescendantAccounts"));
 
+export { GetOrganizationalUnitDescendantOrganizationalUnitsArgs, GetOrganizationalUnitDescendantOrganizationalUnitsResult, GetOrganizationalUnitDescendantOrganizationalUnitsOutputArgs } from "./getOrganizationalUnitDescendantOrganizationalUnits";
+export const getOrganizationalUnitDescendantOrganizationalUnits: typeof import("./getOrganizationalUnitDescendantOrganizationalUnits").getOrganizationalUnitDescendantOrganizationalUnits = null as any;
+export const getOrganizationalUnitDescendantOrganizationalUnitsOutput: typeof import("./getOrganizationalUnitDescendantOrganizationalUnits").getOrganizationalUnitDescendantOrganizationalUnitsOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationalUnitDescendantOrganizationalUnits","getOrganizationalUnitDescendantOrganizationalUnitsOutput"], () => require("./getOrganizationalUnitDescendantOrganizationalUnits"));
+
 export { GetOrganizationalUnitsArgs, GetOrganizationalUnitsResult, GetOrganizationalUnitsOutputArgs } from "./getOrganizationalUnits";
 export const getOrganizationalUnits: typeof import("./getOrganizationalUnits").getOrganizationalUnits = null as any;
 export const getOrganizationalUnitsOutput: typeof import("./getOrganizationalUnits").getOrganizationalUnitsOutput = null as any;

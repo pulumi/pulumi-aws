@@ -15,38 +15,46 @@ import javax.annotation.Nullable;
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSetting {
     /**
-     * @return Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+     * @return Provides settings that enable advanced recognition settings for slot values.
+     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+     * See `advanced_recognition_setting` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings;
     /**
-     * @return Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+     * @return Used to validate the value of the slot.
+     * See `regex_filter` argument reference below.
      * 
      */
     private @Nullable List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters;
     /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
      * 
      */
     private String resolutionStrategy;
 
     private V2modelsSlotTypeValueSelectionSetting() {}
     /**
-     * @return Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+     * @return Provides settings that enable advanced recognition settings for slot values.
+     * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+     * See `advanced_recognition_setting` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting> advancedRecognitionSettings() {
         return this.advancedRecognitionSettings == null ? List.of() : this.advancedRecognitionSettings;
     }
     /**
-     * @return Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+     * @return Used to validate the value of the slot.
+     * See `regex_filter` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeValueSelectionSettingRegexFilter> regexFilters() {
         return this.regexFilters == null ? List.of() : this.regexFilters;
     }
     /**
-     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don&#39;t specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+     * @return Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+     * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
      * 
      */
     public String resolutionStrategy() {

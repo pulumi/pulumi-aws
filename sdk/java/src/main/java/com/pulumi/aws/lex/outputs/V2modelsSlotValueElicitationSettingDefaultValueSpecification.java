@@ -11,9 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingDefaultValueSpecification {
+    /**
+     * @return List of default values.
+     * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+     * See the `default_value_list` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists;
 
     private V2modelsSlotValueElicitationSettingDefaultValueSpecification() {}
+    /**
+     * @return List of default values.
+     * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+     * See the `default_value_list` argument reference below.
+     * 
+     */
     public List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList> defaultValueLists() {
         return this.defaultValueLists == null ? List.of() : this.defaultValueLists;
     }

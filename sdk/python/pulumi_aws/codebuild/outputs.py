@@ -16,12 +16,17 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'FleetScalingConfiguration',
+    'FleetScalingConfigurationTargetTrackingScalingConfig',
+    'FleetStatus',
+    'FleetVpcConfig',
     'ProjectArtifacts',
     'ProjectBuildBatchConfig',
     'ProjectBuildBatchConfigRestrictions',
     'ProjectCache',
     'ProjectEnvironment',
     'ProjectEnvironmentEnvironmentVariable',
+    'ProjectEnvironmentFleet',
     'ProjectEnvironmentRegistryCredential',
     'ProjectFileSystemLocation',
     'ProjectLogsConfig',
@@ -41,7 +46,254 @@ __all__ = [
     'WebhookFilterGroup',
     'WebhookFilterGroupFilter',
     'WebhookScopeConfiguration',
+    'GetFleetScalingConfigurationResult',
+    'GetFleetScalingConfigurationTargetTrackingScalingConfigResult',
+    'GetFleetStatusResult',
+    'GetFleetVpcConfigResult',
 ]
+
+@pulumi.output_type
+class FleetScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredCapacity":
+            suggest = "desired_capacity"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "scalingType":
+            suggest = "scaling_type"
+        elif key == "targetTrackingScalingConfigs":
+            suggest = "target_tracking_scaling_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_capacity: Optional[int] = None,
+                 max_capacity: Optional[int] = None,
+                 scaling_type: Optional[str] = None,
+                 target_tracking_scaling_configs: Optional[Sequence['outputs.FleetScalingConfigurationTargetTrackingScalingConfig']] = None):
+        """
+        :param int max_capacity: Maximum number of instances in the ﬂeet when auto-scaling.
+        :param str scaling_type: Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+        :param Sequence['FleetScalingConfigurationTargetTrackingScalingConfigArgs'] target_tracking_scaling_configs: Configuration block. Detailed below.
+        """
+        if desired_capacity is not None:
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+        if target_tracking_scaling_configs is not None:
+            pulumi.set(__self__, "target_tracking_scaling_configs", target_tracking_scaling_configs)
+
+    @property
+    @pulumi.getter(name="desiredCapacity")
+    def desired_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "desired_capacity")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        """
+        Maximum number of instances in the ﬂeet when auto-scaling.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[str]:
+        """
+        Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+        """
+        return pulumi.get(self, "scaling_type")
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingConfigs")
+    def target_tracking_scaling_configs(self) -> Optional[Sequence['outputs.FleetScalingConfigurationTargetTrackingScalingConfig']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "target_tracking_scaling_configs")
+
+
+@pulumi.output_type
+class FleetScalingConfigurationTargetTrackingScalingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricType":
+            suggest = "metric_type"
+        elif key == "targetValue":
+            suggest = "target_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetScalingConfigurationTargetTrackingScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetScalingConfigurationTargetTrackingScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetScalingConfigurationTargetTrackingScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_type: Optional[str] = None,
+                 target_value: Optional[float] = None):
+        """
+        :param str metric_type: Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+        :param float target_value: Value of metricType when to start scaling.
+        """
+        if metric_type is not None:
+            pulumi.set(__self__, "metric_type", metric_type)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> Optional[str]:
+        """
+        Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+        """
+        return pulumi.get(self, "metric_type")
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional[float]:
+        """
+        Value of metricType when to start scaling.
+        """
+        return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class FleetStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context: Optional[str] = None,
+                 message: Optional[str] = None,
+                 status_code: Optional[str] = None):
+        """
+        :param str context: Additional information about a compute fleet.
+        :param str message: Message associated with the status of a compute fleet.
+        :param str status_code: Status code of the compute fleet.
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[str]:
+        """
+        Additional information about a compute fleet.
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Message associated with the status of a compute fleet.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[str]:
+        """
+        Status code of the compute fleet.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class FleetVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str],
+                 vpc_id: str):
+        """
+        :param Sequence[str] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
+        :param Sequence[str] subnets: A list of one or more subnet IDs in your Amazon VPC.
+        :param str vpc_id: The ID of the Amazon VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the Amazon VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
 
 @pulumi.output_type
 class ProjectArtifacts(dict):
@@ -395,6 +647,7 @@ class ProjectEnvironment(dict):
                  type: str,
                  certificate: Optional[str] = None,
                  environment_variables: Optional[Sequence['outputs.ProjectEnvironmentEnvironmentVariable']] = None,
+                 fleet: Optional['outputs.ProjectEnvironmentFleet'] = None,
                  image_pull_credentials_type: Optional[str] = None,
                  privileged_mode: Optional[bool] = None,
                  registry_credential: Optional['outputs.ProjectEnvironmentRegistryCredential'] = None):
@@ -404,6 +657,7 @@ class ProjectEnvironment(dict):
         :param str type: Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         :param str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
+        :param 'ProjectEnvironmentFleetArgs' fleet: Configuration block. Detailed below.
         :param str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
         :param bool privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
         :param 'ProjectEnvironmentRegistryCredentialArgs' registry_credential: Configuration block. Detailed below.
@@ -415,6 +669,8 @@ class ProjectEnvironment(dict):
             pulumi.set(__self__, "certificate", certificate)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if fleet is not None:
+            pulumi.set(__self__, "fleet", fleet)
         if image_pull_credentials_type is not None:
             pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
@@ -461,6 +717,14 @@ class ProjectEnvironment(dict):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def fleet(self) -> Optional['outputs.ProjectEnvironmentFleet']:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "fleet")
 
     @property
     @pulumi.getter(name="imagePullCredentialsType")
@@ -526,6 +790,42 @@ class ProjectEnvironmentEnvironmentVariable(dict):
         Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ProjectEnvironmentFleet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fleetArn":
+            suggest = "fleet_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectEnvironmentFleet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectEnvironmentFleet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectEnvironmentFleet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fleet_arn: Optional[str] = None):
+        """
+        :param str fleet_arn: Compute fleet ARN for the build project.
+        """
+        if fleet_arn is not None:
+            pulumi.set(__self__, "fleet_arn", fleet_arn)
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> Optional[str]:
+        """
+        Compute fleet ARN for the build project.
+        """
+        return pulumi.get(self, "fleet_arn")
 
 
 @pulumi.output_type
@@ -1785,5 +2085,165 @@ class WebhookScopeConfiguration(dict):
         The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
         """
         return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class GetFleetScalingConfigurationResult(dict):
+    def __init__(__self__, *,
+                 desired_capacity: int,
+                 max_capacity: int,
+                 scaling_type: str,
+                 target_tracking_scaling_configs: Sequence['outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult']):
+        """
+        :param int desired_capacity: The desired number of instances in the ﬂeet when auto-scaling.
+        :param int max_capacity: The maximum number of instances in the ﬂeet when auto-scaling.
+        :param str scaling_type: The scaling type for a compute fleet.
+        :param Sequence['GetFleetScalingConfigurationTargetTrackingScalingConfigArgs'] target_tracking_scaling_configs: Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+        """
+        pulumi.set(__self__, "desired_capacity", desired_capacity)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "scaling_type", scaling_type)
+        pulumi.set(__self__, "target_tracking_scaling_configs", target_tracking_scaling_configs)
+
+    @property
+    @pulumi.getter(name="desiredCapacity")
+    def desired_capacity(self) -> int:
+        """
+        The desired number of instances in the ﬂeet when auto-scaling.
+        """
+        return pulumi.get(self, "desired_capacity")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> int:
+        """
+        The maximum number of instances in the ﬂeet when auto-scaling.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> str:
+        """
+        The scaling type for a compute fleet.
+        """
+        return pulumi.get(self, "scaling_type")
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingConfigs")
+    def target_tracking_scaling_configs(self) -> Sequence['outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult']:
+        """
+        Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+        """
+        return pulumi.get(self, "target_tracking_scaling_configs")
+
+
+@pulumi.output_type
+class GetFleetScalingConfigurationTargetTrackingScalingConfigResult(dict):
+    def __init__(__self__, *,
+                 metric_type: str,
+                 target_value: float):
+        """
+        :param str metric_type: The metric type to determine auto-scaling.
+        :param float target_value: The value of metric_type when to start scaling.
+        """
+        pulumi.set(__self__, "metric_type", metric_type)
+        pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> str:
+        """
+        The metric type to determine auto-scaling.
+        """
+        return pulumi.get(self, "metric_type")
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> float:
+        """
+        The value of metric_type when to start scaling.
+        """
+        return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class GetFleetStatusResult(dict):
+    def __init__(__self__, *,
+                 context: str,
+                 message: str,
+                 status_code: str):
+        """
+        :param str context: Additional information about a compute fleet.
+        :param str message: Message associated with the status of a compute fleet.
+        :param str status_code: Status code of the compute fleet.
+        """
+        pulumi.set(__self__, "context", context)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def context(self) -> str:
+        """
+        Additional information about a compute fleet.
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Message associated with the status of a compute fleet.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        """
+        Status code of the compute fleet.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class GetFleetVpcConfigResult(dict):
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str],
+                 vpc_id: str):
+        """
+        :param Sequence[str] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
+        :param Sequence[str] subnets: A list of one or more subnet IDs in your Amazon VPC.
+        :param str vpc_id: The ID of the Amazon VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the Amazon VPC.
+        """
+        return pulumi.get(self, "vpc_id")
 
 

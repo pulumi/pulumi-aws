@@ -104,6 +104,7 @@ export class TrustAnchor extends pulumi.CustomResource {
      * The name of the Trust Anchor.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[]>;
     /**
      * The source of trust, documented below
      */
@@ -135,6 +136,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationSettings"] = state ? state.notificationSettings : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -145,6 +147,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -171,6 +174,7 @@ export interface TrustAnchorState {
      * The name of the Trust Anchor.
      */
     name?: pulumi.Input<string>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[]>;
     /**
      * The source of trust, documented below
      */
@@ -199,6 +203,7 @@ export interface TrustAnchorArgs {
      * The name of the Trust Anchor.
      */
     name?: pulumi.Input<string>;
+    notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSetting>[]>;
     /**
      * The source of trust, documented below
      */

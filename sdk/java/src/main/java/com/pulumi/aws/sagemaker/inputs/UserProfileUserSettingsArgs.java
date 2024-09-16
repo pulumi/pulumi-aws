@@ -14,6 +14,7 @@ import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsRSessionAppSetting
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsRStudioServerProAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsSharingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsSpaceStorageSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsStudioWebPortalSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -255,6 +256,21 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    @Import(name="studioWebPortalSettings")
+    private @Nullable Output<UserProfileUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings;
+
+    /**
+     * @return The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsStudioWebPortalSettingsArgs>> studioWebPortalSettings() {
+        return Optional.ofNullable(this.studioWebPortalSettings);
+    }
+
+    /**
      * The TensorBoard app settings. See TensorBoard App Settings below.
      * 
      */
@@ -287,6 +303,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         this.sharingSettings = $.sharingSettings;
         this.spaceStorageSettings = $.spaceStorageSettings;
         this.studioWebPortal = $.studioWebPortal;
+        this.studioWebPortalSettings = $.studioWebPortalSettings;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
     }
 
@@ -641,6 +658,27 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
          */
         public Builder studioWebPortal(String studioWebPortal) {
             return studioWebPortal(Output.of(studioWebPortal));
+        }
+
+        /**
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortalSettings(@Nullable Output<UserProfileUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings) {
+            $.studioWebPortalSettings = studioWebPortalSettings;
+            return this;
+        }
+
+        /**
+         * @param studioWebPortalSettings The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder studioWebPortalSettings(UserProfileUserSettingsStudioWebPortalSettingsArgs studioWebPortalSettings) {
+            return studioWebPortalSettings(Output.of(studioWebPortalSettings));
         }
 
         /**

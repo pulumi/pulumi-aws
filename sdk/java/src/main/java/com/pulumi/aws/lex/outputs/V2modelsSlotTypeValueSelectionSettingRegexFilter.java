@@ -11,16 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class V2modelsSlotTypeValueSelectionSettingRegexFilter {
     /**
-     * @return Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-     * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+     * @return A regular expression used to validate the value of a slot.
      * 
      */
     private String pattern;
 
     private V2modelsSlotTypeValueSelectionSettingRegexFilter() {}
     /**
-     * @return Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-     * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+     * @return A regular expression used to validate the value of a slot.
      * 
      */
     public String pattern() {

@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'TrustAnchorNotificationSettingArgs',
+    'TrustAnchorNotificationSettingArgsDict',
     'TrustAnchorSourceArgs',
     'TrustAnchorSourceArgsDict',
     'TrustAnchorSourceSourceDataArgs',
@@ -22,6 +24,90 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class TrustAnchorNotificationSettingArgsDict(TypedDict):
+        channel: NotRequired[pulumi.Input[str]]
+        configured_by: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not the Trust Anchor should be enabled.
+        """
+        event: NotRequired[pulumi.Input[str]]
+        threshold: NotRequired[pulumi.Input[int]]
+elif False:
+    TrustAnchorNotificationSettingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustAnchorNotificationSettingArgs:
+    def __init__(__self__, *,
+                 channel: Optional[pulumi.Input[str]] = None,
+                 configured_by: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 event: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
+        """
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if configured_by is not None:
+            pulumi.set(__self__, "configured_by", configured_by)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if event is not None:
+            pulumi.set(__self__, "event", event)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter(name="configuredBy")
+    def configured_by(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "configured_by")
+
+    @configured_by.setter
+    def configured_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configured_by", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not the Trust Anchor should be enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def event(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "event")
+
+    @event.setter
+    def event(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threshold", value)
+
 
 if not MYPY:
     class TrustAnchorSourceArgsDict(TypedDict):

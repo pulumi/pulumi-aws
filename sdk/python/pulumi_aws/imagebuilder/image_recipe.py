@@ -207,7 +207,7 @@ class _ImageRecipeState:
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ImageRecipe resources.
-        :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
@@ -263,7 +263,7 @@ class _ImageRecipeState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Amazon Resource Name (ARN) of the image recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "arn")
 
@@ -655,7 +655,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
@@ -698,7 +698,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        (Required) Amazon Resource Name (ARN) of the image recipe.
+        Amazon Resource Name (ARN) of the image recipe.
         """
         return pulumi.get(self, "arn")
 

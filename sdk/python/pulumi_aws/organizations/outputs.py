@@ -29,6 +29,7 @@ __all__ = [
     'GetOrganizationRootPolicyTypeResult',
     'GetOrganizationalUnitChildAccountsAccountResult',
     'GetOrganizationalUnitDescendantAccountsAccountResult',
+    'GetOrganizationalUnitDescendantOrganizationalUnitsChildrenResult',
     'GetOrganizationalUnitsChildResult',
 ]
 
@@ -766,6 +767,46 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
         The status of the account in the organization.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetOrganizationalUnitDescendantOrganizationalUnitsChildrenResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: ARN of the organizational unit
+        :param str id: Parent identifier of the organizational units.
+        :param str name: Name of the organizational unit
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the organizational unit
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Parent identifier of the organizational units.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the organizational unit
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

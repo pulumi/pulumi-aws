@@ -14,9 +14,17 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
 
     public static final V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs Empty = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs();
 
+    /**
+     * Default value to use when a user doesn&#39;t provide a value for a slot.
+     * 
+     */
     @Import(name="defaultValue", required=true)
     private Output<String> defaultValue;
 
+    /**
+     * @return Default value to use when a user doesn&#39;t provide a value for a slot.
+     * 
+     */
     public Output<String> defaultValue() {
         return this.defaultValue;
     }
@@ -45,11 +53,23 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             $ = new V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param defaultValue Default value to use when a user doesn&#39;t provide a value for a slot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(Output<String> defaultValue) {
             $.defaultValue = defaultValue;
             return this;
         }
 
+        /**
+         * @param defaultValue Default value to use when a user doesn&#39;t provide a value for a slot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultValue(String defaultValue) {
             return defaultValue(Output.of(defaultValue));
         }

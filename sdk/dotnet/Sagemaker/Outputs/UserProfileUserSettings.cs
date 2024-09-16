@@ -74,6 +74,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? StudioWebPortal;
         /// <summary>
+        /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        /// </summary>
+        public readonly Outputs.UserProfileUserSettingsStudioWebPortalSettings? StudioWebPortalSettings;
+        /// <summary>
         /// The TensorBoard app settings. See TensorBoard App Settings below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsTensorBoardAppSettings? TensorBoardAppSettings;
@@ -110,6 +114,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string? studioWebPortal,
 
+            Outputs.UserProfileUserSettingsStudioWebPortalSettings? studioWebPortalSettings,
+
             Outputs.UserProfileUserSettingsTensorBoardAppSettings? tensorBoardAppSettings)
         {
             CanvasAppSettings = canvasAppSettings;
@@ -127,6 +133,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             SharingSettings = sharingSettings;
             SpaceStorageSettings = spaceStorageSettings;
             StudioWebPortal = studioWebPortal;
+            StudioWebPortalSettings = studioWebPortalSettings;
             TensorBoardAppSettings = tensorBoardAppSettings;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.ModelContainerImageConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.ModelContainerModelDataSourceArgs;
+import com.pulumi.aws.sagemaker.inputs.ModelContainerMultiModelConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -81,6 +82,21 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The inference specification name in the model package version.
+     * 
+     */
+    @Import(name="inferenceSpecificationName")
+    private @Nullable Output<String> inferenceSpecificationName;
+
+    /**
+     * @return The inference specification name in the model package version.
+     * 
+     */
+    public Optional<Output<String>> inferenceSpecificationName() {
+        return Optional.ofNullable(this.inferenceSpecificationName);
+    }
+
+    /**
      * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
@@ -140,6 +156,21 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.modelPackageName);
     }
 
+    /**
+     * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+     * 
+     */
+    @Import(name="multiModelConfig")
+    private @Nullable Output<ModelContainerMultiModelConfigArgs> multiModelConfig;
+
+    /**
+     * @return Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+     * 
+     */
+    public Optional<Output<ModelContainerMultiModelConfigArgs>> multiModelConfig() {
+        return Optional.ofNullable(this.multiModelConfig);
+    }
+
     private ModelContainerArgs() {}
 
     private ModelContainerArgs(ModelContainerArgs $) {
@@ -147,10 +178,12 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         this.environment = $.environment;
         this.image = $.image;
         this.imageConfig = $.imageConfig;
+        this.inferenceSpecificationName = $.inferenceSpecificationName;
         this.mode = $.mode;
         this.modelDataSource = $.modelDataSource;
         this.modelDataUrl = $.modelDataUrl;
         this.modelPackageName = $.modelPackageName;
+        this.multiModelConfig = $.multiModelConfig;
     }
 
     public static Builder builder() {
@@ -258,6 +291,27 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param inferenceSpecificationName The inference specification name in the model package version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inferenceSpecificationName(@Nullable Output<String> inferenceSpecificationName) {
+            $.inferenceSpecificationName = inferenceSpecificationName;
+            return this;
+        }
+
+        /**
+         * @param inferenceSpecificationName The inference specification name in the model package version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inferenceSpecificationName(String inferenceSpecificationName) {
+            return inferenceSpecificationName(Output.of(inferenceSpecificationName));
+        }
+
+        /**
          * @param mode The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          * 
          * @return builder
@@ -339,6 +393,27 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder modelPackageName(String modelPackageName) {
             return modelPackageName(Output.of(modelPackageName));
+        }
+
+        /**
+         * @param multiModelConfig Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiModelConfig(@Nullable Output<ModelContainerMultiModelConfigArgs> multiModelConfig) {
+            $.multiModelConfig = multiModelConfig;
+            return this;
+        }
+
+        /**
+         * @param multiModelConfig Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiModelConfig(ModelContainerMultiModelConfigArgs multiModelConfig) {
+            return multiModelConfig(Output.of(multiModelConfig));
         }
 
         public ModelContainerArgs build() {

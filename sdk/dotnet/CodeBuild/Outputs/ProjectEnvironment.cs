@@ -26,6 +26,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ProjectEnvironmentEnvironmentVariable> EnvironmentVariables;
         /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        public readonly Outputs.ProjectEnvironmentFleet? Fleet;
+        /// <summary>
         /// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         /// </summary>
         public readonly string Image;
@@ -54,6 +58,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
             ImmutableArray<Outputs.ProjectEnvironmentEnvironmentVariable> environmentVariables,
 
+            Outputs.ProjectEnvironmentFleet? fleet,
+
             string image,
 
             string? imagePullCredentialsType,
@@ -67,6 +73,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
             Certificate = certificate;
             ComputeType = computeType;
             EnvironmentVariables = environmentVariables;
+            Fleet = fleet;
             Image = image;
             ImagePullCredentialsType = imagePullCredentialsType;
             PrivilegedMode = privilegedMode;

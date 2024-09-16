@@ -83,18 +83,32 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterState;
     }
     /**
-     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
     @Export(name="hsmType", refs={String.class}, tree="[0]")
     private Output<String> hsmType;
 
     /**
-     * @return The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * @return The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
     public Output<String> hsmType() {
         return this.hsmType;
+    }
+    /**
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * 
+     */
+    @Export(name="mode", refs={String.class}, tree="[0]")
+    private Output<String> mode;
+
+    /**
+     * @return The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
+     * 
+     */
+    public Output<String> mode() {
+        return this.mode;
     }
     /**
      * The ID of the security group associated with the CloudHSM cluster.

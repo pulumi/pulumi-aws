@@ -19,30 +19,72 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs();
 
+    /**
+     * Specifies whether the bot will wait for a user to respond.
+     * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+     * If the active field isn&#39;t specified, the default is `true`.
+     * 
+     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
+    /**
+     * @return Specifies whether the bot will wait for a user to respond.
+     * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+     * If the active field isn&#39;t specified, the default is `true`.
+     * 
+     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
+    /**
+     * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+     * See the `continue_response` argument reference below.
+     * 
+     */
     @Import(name="continueResponses")
     private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>> continueResponses;
 
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+     * See the `continue_response` argument reference below.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>>> continueResponses() {
         return Optional.ofNullable(this.continueResponses);
     }
 
+    /**
+     * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+     * See the `still_waiting_response` argument reference below.
+     * 
+     */
     @Import(name="stillWaitingResponses")
     private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>> stillWaitingResponses;
 
+    /**
+     * @return Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+     * See the `still_waiting_response` argument reference below.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>>> stillWaitingResponses() {
         return Optional.ofNullable(this.stillWaitingResponses);
     }
 
+    /**
+     * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+     * See the `waiting_response` argument reference below.
+     * 
+     */
     @Import(name="waitingResponses")
     private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>> waitingResponses;
 
+    /**
+     * @return Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+     * See the `waiting_response` argument reference below.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>>> waitingResponses() {
         return Optional.ofNullable(this.waitingResponses);
     }
@@ -74,50 +116,129 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param active Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+         * If the active field isn&#39;t specified, the default is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
+        /**
+         * @param active Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren&#39;t used.
+         * If the active field isn&#39;t specified, the default is `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
+        /**
+         * @param continueResponses Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continue_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continueResponses(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>> continueResponses) {
             $.continueResponses = continueResponses;
             return this;
         }
 
+        /**
+         * @param continueResponses Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continue_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continueResponses(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs> continueResponses) {
             return continueResponses(Output.of(continueResponses));
         }
 
+        /**
+         * @param continueResponses Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continue_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder continueResponses(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs... continueResponses) {
             return continueResponses(List.of(continueResponses));
         }
 
+        /**
+         * @param stillWaitingResponses Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `still_waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stillWaitingResponses(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>> stillWaitingResponses) {
             $.stillWaitingResponses = stillWaitingResponses;
             return this;
         }
 
+        /**
+         * @param stillWaitingResponses Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `still_waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stillWaitingResponses(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs> stillWaitingResponses) {
             return stillWaitingResponses(Output.of(stillWaitingResponses));
         }
 
+        /**
+         * @param stillWaitingResponses Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `still_waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stillWaitingResponses(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs... stillWaitingResponses) {
             return stillWaitingResponses(List.of(stillWaitingResponses));
         }
 
+        /**
+         * @param waitingResponses Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitingResponses(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>> waitingResponses) {
             $.waitingResponses = waitingResponses;
             return this;
         }
 
+        /**
+         * @param waitingResponses Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitingResponses(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs> waitingResponses) {
             return waitingResponses(Output.of(waitingResponses));
         }
 
+        /**
+         * @param waitingResponses Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waiting_response` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder waitingResponses(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs... waitingResponses) {
             return waitingResponses(List.of(waitingResponses));
         }

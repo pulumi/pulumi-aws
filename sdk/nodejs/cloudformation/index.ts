@@ -30,6 +30,11 @@ export type Stack = import("./stack").Stack;
 export const Stack: typeof import("./stack").Stack = null as any;
 utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
 
+export { StackInstancesArgs, StackInstancesState } from "./stackInstances";
+export type StackInstances = import("./stackInstances").StackInstances;
+export const StackInstances: typeof import("./stackInstances").StackInstances = null as any;
+utilities.lazyLoad(exports, ["StackInstances"], () => require("./stackInstances"));
+
 export { StackSetArgs, StackSetState } from "./stackSet";
 export type StackSet = import("./stackSet").StackSet;
 export const StackSet: typeof import("./stackSet").StackSet = null as any;
@@ -49,6 +54,8 @@ const _module = {
                 return new CloudFormationType(name, <any>undefined, { urn })
             case "aws:cloudformation/stack:Stack":
                 return new Stack(name, <any>undefined, { urn })
+            case "aws:cloudformation/stackInstances:StackInstances":
+                return new StackInstances(name, <any>undefined, { urn })
             case "aws:cloudformation/stackSet:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
             case "aws:cloudformation/stackSetInstance:StackSetInstance":
@@ -60,5 +67,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudformation/cloudFormationType", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stack", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudformation/stackInstances", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stackSet", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudformation/stackSetInstance", _module)

@@ -53,6 +53,8 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 type LookupServerArgs struct {
 	// ID for an SFTP server.
 	ServerId string `pulumi:"serverId"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getServer.
@@ -82,6 +84,8 @@ type LookupServerResult struct {
 	ServerId           string `pulumi:"serverId"`
 	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url string `pulumi:"url"`
 }
@@ -103,6 +107,8 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 type LookupServerOutputArgs struct {
 	// ID for an SFTP server.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServerOutputArgs) ElementType() reflect.Type {
@@ -186,6 +192,11 @@ func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
 // A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
 func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
+}
+
+// Map of tags assigned to the resource.
+func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.

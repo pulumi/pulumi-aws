@@ -133,7 +133,9 @@ type Domain struct {
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
-	Tags         pulumi.StringMapOutput      `pulumi:"tags"`
+	// Whether to skip the deletion check for the Domain.
+	SkipDeletionCheck pulumi.BoolPtrOutput   `pulumi:"skipDeletionCheck"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -190,7 +192,9 @@ type domainState struct {
 	PortalUrl *string `pulumi:"portalUrl"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
-	Tags         map[string]string   `pulumi:"tags"`
+	// Whether to skip the deletion check for the Domain.
+	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
+	Tags              map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -215,7 +219,9 @@ type DomainState struct {
 	PortalUrl pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
-	Tags         pulumi.StringMapInput
+	// Whether to skip the deletion check for the Domain.
+	SkipDeletionCheck pulumi.BoolPtrInput
+	Tags              pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -240,8 +246,10 @@ type domainArgs struct {
 	Name *string `pulumi:"name"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
-	Tags         map[string]string   `pulumi:"tags"`
-	Timeouts     *DomainTimeouts     `pulumi:"timeouts"`
+	// Whether to skip the deletion check for the Domain.
+	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
+	Tags              map[string]string `pulumi:"tags"`
+	Timeouts          *DomainTimeouts   `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -258,8 +266,10 @@ type DomainArgs struct {
 	Name pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
-	Tags         pulumi.StringMapInput
-	Timeouts     DomainTimeoutsPtrInput
+	// Whether to skip the deletion check for the Domain.
+	SkipDeletionCheck pulumi.BoolPtrInput
+	Tags              pulumi.StringMapInput
+	Timeouts          DomainTimeoutsPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -384,6 +394,11 @@ func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 // Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 func (o DomainOutput) SingleSignOn() DomainSingleSignOnPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSingleSignOnPtrOutput { return v.SingleSignOn }).(DomainSingleSignOnPtrOutput)
+}
+
+// Whether to skip the deletion check for the Domain.
+func (o DomainOutput) SkipDeletionCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.SkipDeletionCheck }).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainOutput) Tags() pulumi.StringMapOutput {

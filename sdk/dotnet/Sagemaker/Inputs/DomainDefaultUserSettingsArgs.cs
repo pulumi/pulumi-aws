@@ -115,6 +115,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? StudioWebPortal { get; set; }
 
         /// <summary>
+        /// The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
+        /// </summary>
+        [Input("studioWebPortalSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsStudioWebPortalSettingsArgs>? StudioWebPortalSettings { get; set; }
+
+        /// <summary>
         /// The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         /// </summary>
         [Input("tensorBoardAppSettings")]

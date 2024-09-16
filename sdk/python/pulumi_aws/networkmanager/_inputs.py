@@ -1710,11 +1710,15 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaArgs:
 
 if not MYPY:
     class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict(TypedDict):
-        edge_sets: NotRequired[Sequence[str]]
+        edge_sets: NotRequired[Sequence[Sequence[str]]]
         """
-        A list of strings. The list of edges associated with the network function group.
+        A list of a list of strings. The list of edges associated with the network function group.
         """
         use_edge: NotRequired[str]
+        """
+        The preferred edge to use.
+        """
+        use_edge_location: NotRequired[str]
         """
         The preferred edge to use.
         """
@@ -1724,31 +1728,39 @@ elif False:
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
     def __init__(__self__, *,
-                 edge_sets: Optional[Sequence[str]] = None,
-                 use_edge: Optional[str] = None):
+                 edge_sets: Optional[Sequence[Sequence[str]]] = None,
+                 use_edge: Optional[str] = None,
+                 use_edge_location: Optional[str] = None):
         """
-        :param Sequence[str] edge_sets: A list of strings. The list of edges associated with the network function group.
+        :param Sequence[Sequence[str]] edge_sets: A list of a list of strings. The list of edges associated with the network function group.
         :param str use_edge: The preferred edge to use.
+        :param str use_edge_location: The preferred edge to use.
         """
         if edge_sets is not None:
             pulumi.set(__self__, "edge_sets", edge_sets)
         if use_edge is not None:
+            warnings.warn("""Use use_edge_location""", DeprecationWarning)
+            pulumi.log.warn("""use_edge is deprecated: Use use_edge_location""")
+        if use_edge is not None:
             pulumi.set(__self__, "use_edge", use_edge)
+        if use_edge_location is not None:
+            pulumi.set(__self__, "use_edge_location", use_edge_location)
 
     @property
     @pulumi.getter(name="edgeSets")
-    def edge_sets(self) -> Optional[Sequence[str]]:
+    def edge_sets(self) -> Optional[Sequence[Sequence[str]]]:
         """
-        A list of strings. The list of edges associated with the network function group.
+        A list of a list of strings. The list of edges associated with the network function group.
         """
         return pulumi.get(self, "edge_sets")
 
     @edge_sets.setter
-    def edge_sets(self, value: Optional[Sequence[str]]):
+    def edge_sets(self, value: Optional[Sequence[Sequence[str]]]):
         pulumi.set(self, "edge_sets", value)
 
     @property
     @pulumi.getter(name="useEdge")
+    @_utilities.deprecated("""Use use_edge_location""")
     def use_edge(self) -> Optional[str]:
         """
         The preferred edge to use.
@@ -1758,6 +1770,18 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
     @use_edge.setter
     def use_edge(self, value: Optional[str]):
         pulumi.set(self, "use_edge", value)
+
+    @property
+    @pulumi.getter(name="useEdgeLocation")
+    def use_edge_location(self) -> Optional[str]:
+        """
+        The preferred edge to use.
+        """
+        return pulumi.get(self, "use_edge_location")
+
+    @use_edge_location.setter
+    def use_edge_location(self, value: Optional[str]):
+        pulumi.set(self, "use_edge_location", value)
 
 
 if not MYPY:

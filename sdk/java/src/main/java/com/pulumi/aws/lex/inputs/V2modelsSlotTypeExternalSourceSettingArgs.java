@@ -16,14 +16,16 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
     public static final V2modelsSlotTypeExternalSourceSettingArgs Empty = new V2modelsSlotTypeExternalSourceSettingArgs();
 
     /**
-     * Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+     * Settings required for a slot type based on a grammar that you provide.
+     * See `grammar_slot_type_setting` argument reference below.
      * 
      */
     @Import(name="grammarSlotTypeSetting")
     private @Nullable Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSetting;
 
     /**
-     * @return Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+     * @return Settings required for a slot type based on a grammar that you provide.
+     * See `grammar_slot_type_setting` argument reference below.
      * 
      */
     public Optional<Output<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs>> grammarSlotTypeSetting() {
@@ -55,7 +57,8 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide.
+         * See `grammar_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 
@@ -66,7 +69,8 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs extends com.pulumi.
         }
 
         /**
-         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide. See `grammar_slot_type_setting` argument reference below.
+         * @param grammarSlotTypeSetting Settings required for a slot type based on a grammar that you provide.
+         * See `grammar_slot_type_setting` argument reference below.
          * 
          * @return builder
          * 

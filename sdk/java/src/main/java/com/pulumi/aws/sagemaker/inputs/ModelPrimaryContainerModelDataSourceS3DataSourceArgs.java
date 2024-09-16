@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ModelPrimaryContainerModelDataSourceS3DataSourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -27,6 +30,21 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSourceArgs extends 
      */
     public Output<String> compressionType() {
         return this.compressionType;
+    }
+
+    /**
+     * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * 
+     */
+    @Import(name="modelAccessConfig")
+    private @Nullable Output<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig;
+
+    /**
+     * @return Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+     * 
+     */
+    public Optional<Output<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs>> modelAccessConfig() {
+        return Optional.ofNullable(this.modelAccessConfig);
     }
 
     /**
@@ -63,6 +81,7 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSourceArgs extends 
 
     private ModelPrimaryContainerModelDataSourceS3DataSourceArgs(ModelPrimaryContainerModelDataSourceS3DataSourceArgs $) {
         this.compressionType = $.compressionType;
+        this.modelAccessConfig = $.modelAccessConfig;
         this.s3DataType = $.s3DataType;
         this.s3Uri = $.s3Uri;
     }
@@ -104,6 +123,27 @@ public final class ModelPrimaryContainerModelDataSourceS3DataSourceArgs extends 
          */
         public Builder compressionType(String compressionType) {
             return compressionType(Output.of(compressionType));
+        }
+
+        /**
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelAccessConfig(@Nullable Output<ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig) {
+            $.modelAccessConfig = modelAccessConfig;
+            return this;
+        }
+
+        /**
+         * @param modelAccessConfig Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelAccessConfig(ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs modelAccessConfig) {
+            return modelAccessConfig(Output.of(modelAccessConfig));
         }
 
         /**

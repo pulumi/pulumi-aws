@@ -11,9 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
     /**
-     * @return Name of the slot type
-     * 
-     * The following arguments are optional:
+     * @return Name of a constituent sub slot inside a composite slot.
      * 
      */
     private String name;
@@ -21,9 +19,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
 
     private V2modelsSlotTypeCompositeSlotTypeSettingSubSlot() {}
     /**
-     * @return Name of the slot type
-     * 
-     * The following arguments are optional:
+     * @return Name of a constituent sub slot inside a composite slot.
      * 
      */
     public String name() {

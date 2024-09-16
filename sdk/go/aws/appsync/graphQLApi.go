@@ -15,8 +15,10 @@ import (
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
-	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
+	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+	ApiType pulumi.StringPtrOutput `pulumi:"apiType"`
 	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -29,7 +31,9 @@ type GraphQLApi struct {
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrOutput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
-	// User-supplied name for the GraphSQL API.
+	// ARN of the execution role when `apiType` is set to `MERGED`.
+	MergedApiExecutionRoleArn pulumi.StringPtrOutput `pulumi:"mergedApiExecutionRoleArn"`
+	// User-supplied name for the GraphQL API.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -49,7 +53,7 @@ type GraphQLApi struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
@@ -92,8 +96,10 @@ func GetGraphQLApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GraphQLApi resources.
 type graphQLApiState struct {
-	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
+	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+	ApiType *string `pulumi:"apiType"`
 	// ARN
 	Arn *string `pulumi:"arn"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -106,7 +112,9 @@ type graphQLApiState struct {
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// User-supplied name for the GraphSQL API.
+	// ARN of the execution role when `apiType` is set to `MERGED`.
+	MergedApiExecutionRoleArn *string `pulumi:"mergedApiExecutionRoleArn"`
+	// User-supplied name for the GraphQL API.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -126,7 +134,7 @@ type graphQLApiState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris map[string]string `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
@@ -137,8 +145,10 @@ type graphQLApiState struct {
 }
 
 type GraphQLApiState struct {
-	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
+	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+	ApiType pulumi.StringPtrInput
 	// ARN
 	Arn pulumi.StringPtrInput
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
@@ -151,7 +161,9 @@ type GraphQLApiState struct {
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// User-supplied name for the GraphSQL API.
+	// ARN of the execution role when `apiType` is set to `MERGED`.
+	MergedApiExecutionRoleArn pulumi.StringPtrInput
+	// User-supplied name for the GraphQL API.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -171,7 +183,7 @@ type GraphQLApiState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
@@ -186,8 +198,10 @@ func (GraphQLApiState) ElementType() reflect.Type {
 }
 
 type graphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
+	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+	ApiType *string `pulumi:"apiType"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
@@ -198,7 +212,9 @@ type graphQLApiArgs struct {
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// User-supplied name for the GraphSQL API.
+	// ARN of the execution role when `apiType` is set to `MERGED`.
+	MergedApiExecutionRoleArn *string `pulumi:"mergedApiExecutionRoleArn"`
+	// User-supplied name for the GraphQL API.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -224,8 +240,10 @@ type graphQLApiArgs struct {
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+	// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
+	// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+	ApiType pulumi.StringPtrInput
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput
 	// Enables and controls the enhanced metrics feature. See `enhancedMetricsConfig` Block for details.
@@ -236,7 +254,9 @@ type GraphQLApiArgs struct {
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// User-supplied name for the GraphSQL API.
+	// ARN of the execution role when `apiType` is set to `MERGED`.
+	MergedApiExecutionRoleArn pulumi.StringPtrInput
+	// User-supplied name for the GraphQL API.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -347,11 +367,16 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
+// One or more additional authentication providers for the GraphQL API. See `additionalAuthenticationProvider` Block for details.
 func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 		return v.AdditionalAuthenticationProviders
 	}).(GraphQLApiAdditionalAuthenticationProviderArrayOutput)
+}
+
+// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `mergedApiExecutionRoleArn` to be set.
+func (o GraphQLApiOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
 }
 
 // ARN
@@ -384,7 +409,12 @@ func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
-// User-supplied name for the GraphSQL API.
+// ARN of the execution role when `apiType` is set to `MERGED`.
+func (o GraphQLApiOutput) MergedApiExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.MergedApiExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// User-supplied name for the GraphQL API.
 //
 // The following arguments are optional:
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
@@ -425,7 +455,7 @@ func (o GraphQLApiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Uris }).(pulumi.StringMapOutput)
 }

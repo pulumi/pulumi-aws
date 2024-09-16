@@ -23,10 +23,12 @@ class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  enhanced_metrics_config: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
@@ -39,12 +41,14 @@ class GraphQLApiArgs:
         """
         The set of arguments for constructing a GraphQLApi resource.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+        :param pulumi.Input[str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
+        :param pulumi.Input[str] name: User-supplied name for the GraphQL API.
                
                The following arguments are optional:
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
@@ -61,6 +65,8 @@ class GraphQLApiArgs:
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
         if enhanced_metrics_config is not None:
             pulumi.set(__self__, "enhanced_metrics_config", enhanced_metrics_config)
         if introspection_config is not None:
@@ -69,6 +75,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
+        if merged_api_execution_role_arn is not None:
+            pulumi.set(__self__, "merged_api_execution_role_arn", merged_api_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if openid_connect_config is not None:
@@ -104,13 +112,25 @@ class GraphQLApiArgs:
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
         """
-        One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
     def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        """
+        return pulumi.get(self, "api_type")
+
+    @api_type.setter
+    def api_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_type", value)
 
     @property
     @pulumi.getter(name="enhancedMetricsConfig")
@@ -161,10 +181,22 @@ class GraphQLApiArgs:
         pulumi.set(self, "log_config", value)
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the execution role when `api_type` is set to `MERGED`.
+        """
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @merged_api_execution_role_arn.setter
+    def merged_api_execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "merged_api_execution_role_arn", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        User-supplied name for the GraphSQL API.
+        User-supplied name for the GraphQL API.
 
         The following arguments are optional:
         """
@@ -277,12 +309,14 @@ class GraphQLApiArgs:
 class _GraphQLApiState:
     def __init__(__self__, *,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  enhanced_metrics_config: Optional[pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs']] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
@@ -296,14 +330,16 @@ class _GraphQLApiState:
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input['GraphQLApiEnhancedMetricsConfigArgs'] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+        :param pulumi.Input[str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
+        :param pulumi.Input[str] name: User-supplied name for the GraphQL API.
                
                The following arguments are optional:
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
@@ -314,13 +350,15 @@ class _GraphQLApiState:
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if authentication_type is not None:
@@ -333,6 +371,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
+        if merged_api_execution_role_arn is not None:
+            pulumi.set(__self__, "merged_api_execution_role_arn", merged_api_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if openid_connect_config is not None:
@@ -363,13 +403,25 @@ class _GraphQLApiState:
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
         """
-        One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
     def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        """
+        return pulumi.get(self, "api_type")
+
+    @api_type.setter
+    def api_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_type", value)
 
     @property
     @pulumi.getter
@@ -444,10 +496,22 @@ class _GraphQLApiState:
         pulumi.set(self, "log_config", value)
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the execution role when `api_type` is set to `MERGED`.
+        """
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @merged_api_execution_role_arn.setter
+    def merged_api_execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "merged_api_execution_role_arn", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        User-supplied name for the GraphSQL API.
+        User-supplied name for the GraphQL API.
 
         The following arguments are optional:
         """
@@ -536,7 +600,7 @@ class _GraphQLApiState:
     @pulumi.getter
     def uris(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
         return pulumi.get(self, "uris")
 
@@ -587,11 +651,13 @@ class GraphQLApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
                  log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
@@ -606,13 +672,15 @@ class GraphQLApi(pulumi.CustomResource):
         Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+        :param pulumi.Input[str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
+        :param pulumi.Input[str] name: User-supplied name for the GraphQL API.
                
                The following arguments are optional:
         :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
@@ -650,11 +718,13 @@ class GraphQLApi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
                  introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
                  log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
+                 merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
                  query_depth_limit: Optional[pulumi.Input[int]] = None,
@@ -674,6 +744,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
 
             __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
+            __props__.__dict__["api_type"] = api_type
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
@@ -681,6 +752,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
+            __props__.__dict__["merged_api_execution_role_arn"] = merged_api_execution_role_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["openid_connect_config"] = openid_connect_config
             __props__.__dict__["query_depth_limit"] = query_depth_limit
@@ -704,12 +776,14 @@ class GraphQLApi(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]]] = None,
+            api_type: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_type: Optional[pulumi.Input[str]] = None,
             enhanced_metrics_config: Optional[pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']]] = None,
             introspection_config: Optional[pulumi.Input[str]] = None,
             lambda_authorizer_config: Optional[pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']]] = None,
             log_config: Optional[pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']]] = None,
+            merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
             query_depth_limit: Optional[pulumi.Input[int]] = None,
@@ -728,14 +802,16 @@ class GraphQLApi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GraphQLApiAdditionalAuthenticationProviderArgs', 'GraphQLApiAdditionalAuthenticationProviderArgsDict']]]] additional_authentication_providers: One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
+        :param pulumi.Input[str] api_type: API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Union['GraphQLApiEnhancedMetricsConfigArgs', 'GraphQLApiEnhancedMetricsConfigArgsDict']] enhanced_metrics_config: Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         :param pulumi.Input[str] introspection_config: Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         :param pulumi.Input[Union['GraphQLApiLambdaAuthorizerConfigArgs', 'GraphQLApiLambdaAuthorizerConfigArgsDict']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param pulumi.Input[Union['GraphQLApiLogConfigArgs', 'GraphQLApiLogConfigArgsDict']] log_config: Nested argument containing logging configuration. See `log_config` Block for details.
-        :param pulumi.Input[str] name: User-supplied name for the GraphSQL API.
+        :param pulumi.Input[str] merged_api_execution_role_arn: ARN of the execution role when `api_type` is set to `MERGED`.
+        :param pulumi.Input[str] name: User-supplied name for the GraphQL API.
                
                The following arguments are optional:
         :param pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']] openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
@@ -746,7 +822,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[Union['GraphQLApiUserPoolConfigArgs', 'GraphQLApiUserPoolConfigArgsDict']] user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
@@ -756,12 +832,14 @@ class GraphQLApi(pulumi.CustomResource):
         __props__ = _GraphQLApiState.__new__(_GraphQLApiState)
 
         __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
+        __props__.__dict__["api_type"] = api_type
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication_type"] = authentication_type
         __props__.__dict__["enhanced_metrics_config"] = enhanced_metrics_config
         __props__.__dict__["introspection_config"] = introspection_config
         __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
         __props__.__dict__["log_config"] = log_config
+        __props__.__dict__["merged_api_execution_role_arn"] = merged_api_execution_role_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["openid_connect_config"] = openid_connect_config
         __props__.__dict__["query_depth_limit"] = query_depth_limit
@@ -779,9 +857,17 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="additionalAuthenticationProviders")
     def additional_authentication_providers(self) -> pulumi.Output[Optional[Sequence['outputs.GraphQLApiAdditionalAuthenticationProvider']]]:
         """
-        One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+        One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         """
         return pulumi.get(self, "additional_authentication_providers")
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+        """
+        return pulumi.get(self, "api_type")
 
     @property
     @pulumi.getter
@@ -832,10 +918,18 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "log_config")
 
     @property
+    @pulumi.getter(name="mergedApiExecutionRoleArn")
+    def merged_api_execution_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        ARN of the execution role when `api_type` is set to `MERGED`.
+        """
+        return pulumi.get(self, "merged_api_execution_role_arn")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        User-supplied name for the GraphSQL API.
+        User-supplied name for the GraphQL API.
 
         The following arguments are optional:
         """
@@ -896,7 +990,7 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter
     def uris(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
         return pulumi.get(self, "uris")
 

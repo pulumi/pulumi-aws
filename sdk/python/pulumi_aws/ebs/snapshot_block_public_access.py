@@ -22,7 +22,7 @@ class SnapshotBlockPublicAccessArgs:
                  state: pulumi.Input[str]):
         """
         The set of arguments for constructing a SnapshotBlockPublicAccess resource.
-        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         pulumi.set(__self__, "state", state)
 
@@ -30,7 +30,7 @@ class SnapshotBlockPublicAccessArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[str]:
         """
-        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         return pulumi.get(self, "state")
 
@@ -45,7 +45,7 @@ class _SnapshotBlockPublicAccessState:
                  state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SnapshotBlockPublicAccess resources.
-        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         if state is not None:
             pulumi.set(__self__, "state", state)
@@ -54,7 +54,7 @@ class _SnapshotBlockPublicAccessState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         return pulumi.get(self, "state")
 
@@ -90,7 +90,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         ...
     @overload
@@ -162,7 +162,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        :param pulumi.Input[str] state: The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -175,7 +175,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
         """
-        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         """
         return pulumi.get(self, "state")
 

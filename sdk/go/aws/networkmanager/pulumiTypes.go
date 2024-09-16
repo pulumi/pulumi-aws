@@ -2798,10 +2798,14 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) WithEdgeOverrides
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride struct {
-	// A list of strings. The list of edges associated with the network function group.
-	EdgeSets []string `pulumi:"edgeSets"`
+	// A list of a list of strings. The list of edges associated with the network function group.
+	EdgeSets [][]string `pulumi:"edgeSets"`
 	// The preferred edge to use.
+	//
+	// Deprecated: Use use_edge_location
 	UseEdge *string `pulumi:"useEdge"`
+	// The preferred edge to use.
+	UseEdgeLocation *string `pulumi:"useEdgeLocation"`
 }
 
 // GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs and GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput values.
@@ -2816,10 +2820,14 @@ type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput interface
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs struct {
-	// A list of strings. The list of edges associated with the network function group.
-	EdgeSets pulumi.StringArrayInput `pulumi:"edgeSets"`
+	// A list of a list of strings. The list of edges associated with the network function group.
+	EdgeSets pulumi.StringArrayArrayInput `pulumi:"edgeSets"`
 	// The preferred edge to use.
+	//
+	// Deprecated: Use use_edge_location
 	UseEdge pulumi.StringPtrInput `pulumi:"useEdge"`
+	// The preferred edge to use.
+	UseEdgeLocation pulumi.StringPtrInput `pulumi:"useEdgeLocation"`
 }
 
 func (GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs) ElementType() reflect.Type {
@@ -2873,14 +2881,21 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) ToGe
 	return o
 }
 
-// A list of strings. The list of edges associated with the network function group.
-func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) EdgeSets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) []string { return v.EdgeSets }).(pulumi.StringArrayOutput)
+// A list of a list of strings. The list of edges associated with the network function group.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) EdgeSets() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) [][]string { return v.EdgeSets }).(pulumi.StringArrayArrayOutput)
 }
 
 // The preferred edge to use.
+//
+// Deprecated: Use use_edge_location
 func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) UseEdge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) *string { return v.UseEdge }).(pulumi.StringPtrOutput)
+}
+
+// The preferred edge to use.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) UseEdgeLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) *string { return v.UseEdgeLocation }).(pulumi.StringPtrOutput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput struct{ *pulumi.OutputState }

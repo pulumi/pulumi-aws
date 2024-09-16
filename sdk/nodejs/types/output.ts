@@ -1201,6 +1201,13 @@ export namespace amplify {
         stage?: string;
     }
 
+    export interface AppCacheConfig {
+        /**
+         * Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+         */
+        type: string;
+    }
+
     export interface AppCustomRule {
         /**
          * Condition for a URL rewrite or redirect rule, such as a country code.
@@ -1976,7 +1983,7 @@ export namespace appconfig {
         /**
          * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
          */
-        roleArn: string;
+        roleArn?: string;
         /**
          * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
          */
@@ -11420,17 +11427,29 @@ export namespace bedrock {
          * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
          */
         chunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
+        /**
+         * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
+         */
+        parsingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
         /**
-         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+         * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
          */
         chunkingStrategy: string;
         /**
-         * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as `NONE`, exclude this field. See `fixedSizeChunkingConfiguration` for details.
+         * Configurations for when you choose fixed-size chunking. Requires chunkingStrategy as `FIXED_SIZE`. See `fixedSizeChunkingConfiguration` for details.
          */
         fixedSizeChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration;
+        /**
+         * Configurations for when you choose hierarchical chunking. Requires chunkingStrategy as `HIERARCHICAL`. See `hierarchicalChunkingConfiguration` for details.
+         */
+        hierarchicalChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration;
+        /**
+         * Configurations for when you choose semantic chunking. Requires chunkingStrategy as `SEMANTIC`. See `semanticChunkingConfiguration` for details.
+         */
+        semanticChunkingConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration {
@@ -11442,6 +11461,65 @@ export namespace bedrock {
          * Percentage of overlap between adjacent chunks of a data source.
          */
         overlapPercentage: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration {
+        /**
+         * Maximum number of tokens to include in a chunk. Must contain two `levelConfigurations`. See `levelConfigurations` for details.
+         */
+        levelConfigurations: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration[];
+        /**
+         * The number of tokens to repeat across chunks in the same layer.
+         */
+        overlapTokens: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration {
+        /**
+         * The maximum number of tokens that a chunk can contain in this layer.
+         */
+        maxTokens: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration {
+        /**
+         * The dissimilarity threshold for splitting chunks.
+         */
+        breakpointPercentileThreshold: number;
+        /**
+         * The buffer size.
+         */
+        bufferSize: number;
+        maxToken: number;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
+        /**
+         * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
+         */
+        bedrockFoundationModelConfiguration?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration;
+        /**
+         * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+         */
+        parsingStrategy: string;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
+        /**
+         * The ARN of the model used to parse documents
+         */
+        modelArn: string;
+        /**
+         * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
+         */
+        parsingPrompt?: outputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
+        /**
+         * Instructions for interpreting the contents of the document.
+         */
+        parsingPromptString: string;
     }
 
     export interface AgentKnowledgeBaseKnowledgeBaseConfiguration {
@@ -13112,6 +13190,95 @@ export namespace cloudformation {
          * ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
          */
         logRoleArn: string;
+    }
+
+    export interface StackInstancesDeploymentTargets {
+        /**
+         * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         */
+        accountFilterType?: string;
+        /**
+         * List of accounts to deploy stack set updates.
+         */
+        accounts?: string[];
+        /**
+         * S3 URL of the file containing the list of accounts.
+         */
+        accountsUrl?: string;
+        /**
+         * Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+         */
+        organizationalUnitIds?: string[];
+    }
+
+    export interface StackInstancesOperationPreferences {
+        /**
+         * How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+         */
+        concurrencyMode?: string;
+        /**
+         * Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureToleranceCount?: number;
+        /**
+         * Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+         */
+        failureTolerancePercentage?: number;
+        /**
+         * Maximum number of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentCount?: number;
+        /**
+         * Maximum percentage of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentPercentage?: number;
+        /**
+         * Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         */
+        regionConcurrencyType?: string;
+        /**
+         * Order of the regions where you want to perform the stack operation.
+         */
+        regionOrders?: string[];
+    }
+
+    export interface StackInstancesStackInstanceSummary {
+        /**
+         * Account ID in which the instance is deployed.
+         */
+        accountId: string;
+        /**
+         * Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+         */
+        detailedStatus: string;
+        /**
+         * Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+         */
+        driftStatus: string;
+        /**
+         * Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
+         */
+        organizationalUnitId: string;
+        /**
+         * Region that the stack instance is associated with.
+         */
+        region: string;
+        /**
+         * ID of the stack instance.
+         */
+        stackId: string;
+        /**
+         * Name or unique ID of the stack set that the stack instance is associated with.
+         */
+        stackSetId: string;
+        /**
+         * Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+         */
+        status: string;
+        /**
+         * Explanation for the specific status code assigned to this stack instance.
+         */
+        statusReason: string;
     }
 
     export interface StackSetAutoDeployment {
@@ -15531,6 +15698,123 @@ export namespace codeartifact {
 }
 
 export namespace codebuild {
+    export interface FleetScalingConfiguration {
+        desiredCapacity: number;
+        /**
+         * Maximum number of instances in the ﬂeet when auto-scaling.
+         */
+        maxCapacity?: number;
+        /**
+         * Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+         */
+        scalingType?: string;
+        /**
+         * Configuration block. Detailed below.
+         */
+        targetTrackingScalingConfigs?: outputs.codebuild.FleetScalingConfigurationTargetTrackingScalingConfig[];
+    }
+
+    export interface FleetScalingConfigurationTargetTrackingScalingConfig {
+        /**
+         * Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+         */
+        metricType?: string;
+        /**
+         * Value of metricType when to start scaling.
+         */
+        targetValue?: number;
+    }
+
+    export interface FleetStatus {
+        /**
+         * Additional information about a compute fleet.
+         */
+        context: string;
+        /**
+         * Message associated with the status of a compute fleet.
+         */
+        message: string;
+        /**
+         * Status code of the compute fleet.
+         */
+        statusCode: string;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
+        subnets: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: string;
+    }
+
+    export interface GetFleetScalingConfiguration {
+        /**
+         * The desired number of instances in the ﬂeet when auto-scaling.
+         */
+        desiredCapacity: number;
+        /**
+         * The maximum number of instances in the ﬂeet when auto-scaling.
+         */
+        maxCapacity: number;
+        /**
+         * The scaling type for a compute fleet.
+         */
+        scalingType: string;
+        /**
+         * Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+         */
+        targetTrackingScalingConfigs: outputs.codebuild.GetFleetScalingConfigurationTargetTrackingScalingConfig[];
+    }
+
+    export interface GetFleetScalingConfigurationTargetTrackingScalingConfig {
+        /**
+         * The metric type to determine auto-scaling.
+         */
+        metricType: string;
+        /**
+         * The value of metricType when to start scaling.
+         */
+        targetValue: number;
+    }
+
+    export interface GetFleetStatus {
+        /**
+         * Additional information about a compute fleet.
+         */
+        context: string;
+        /**
+         * Message associated with the status of a compute fleet.
+         */
+        message: string;
+        /**
+         * Status code of the compute fleet.
+         */
+        statusCode: string;
+    }
+
+    export interface GetFleetVpcConfig {
+        /**
+         * A list of one or more security groups IDs in your Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of one or more subnet IDs in your Amazon VPC.
+         */
+        subnets: string[];
+        /**
+         * The ID of the Amazon VPC.
+         */
+        vpcId: string;
+    }
+
     export interface ProjectArtifacts {
         /**
          * Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -15633,6 +15917,10 @@ export namespace codebuild {
          */
         environmentVariables?: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
         /**
+         * Configuration block. Detailed below.
+         */
+        fleet?: outputs.codebuild.ProjectEnvironmentFleet;
+        /**
          * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: string;
@@ -15667,6 +15955,13 @@ export namespace codebuild {
          * Environment variable's value.
          */
         value: string;
+    }
+
+    export interface ProjectEnvironmentFleet {
+        /**
+         * Compute fleet ARN for the build project.
+         */
+        fleetArn?: string;
     }
 
     export interface ProjectEnvironmentRegistryCredential {
@@ -17891,6 +18186,72 @@ export namespace comprehend {
 
 }
 
+export namespace computeoptimizer {
+    export interface EnrollmentStatusTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface RecommendationPreferencesExternalMetricsPreference {
+        /**
+         * The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
+         */
+        source: string;
+    }
+
+    export interface RecommendationPreferencesPreferredResource {
+        /**
+         * The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
+         */
+        excludeLists?: string[];
+        /**
+         * The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
+         */
+        includeLists?: string[];
+        name: string;
+    }
+
+    export interface RecommendationPreferencesScope {
+        /**
+         * The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
+         */
+        name: string;
+        /**
+         * The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+         */
+        value: string;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreference {
+        /**
+         * The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
+         */
+        metricName: string;
+        /**
+         * The parameters to set when customizing the resource utilization thresholds.
+         */
+        metricParameters?: outputs.computeoptimizer.RecommendationPreferencesUtilizationPreferenceMetricParameters;
+    }
+
+    export interface RecommendationPreferencesUtilizationPreferenceMetricParameters {
+        /**
+         * The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
+         */
+        headroom: string;
+        /**
+         * The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+         */
+        threshold?: string;
+    }
+
+}
+
 export namespace config {
     export interface AssumeRole {
         /**
@@ -18784,6 +19145,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         pcaconnectorad?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        pcs?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -23138,6 +23503,20 @@ export namespace datasync {
 }
 
 export namespace datazone {
+    export interface AssetTypeFormsInput {
+        mapBlockKey: string;
+        required?: boolean;
+        typeIdentifier: string;
+        typeRevision: string;
+    }
+
+    export interface AssetTypeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface DomainSingleSignOn {
         type: string;
         userAssignment?: string;
@@ -23154,6 +23533,20 @@ export namespace datazone {
         delete?: string;
     }
 
+    export interface EnvironmentLastDeployment {
+        deploymentId: string;
+        deploymentStatus: string;
+        deploymentType: string;
+        failureReasons: outputs.datazone.EnvironmentLastDeploymentFailureReason[];
+        isDeploymentComplete: boolean;
+        messages: string[];
+    }
+
+    export interface EnvironmentLastDeploymentFailureReason {
+        code: string;
+        message: string;
+    }
+
     export interface EnvironmentProfileUserParameter {
         /**
          * Name of the environment profile parameter.
@@ -23161,6 +23554,45 @@ export namespace datazone {
         name?: string;
         /**
          * Value of the environment profile parameter.
+         */
+        value?: string;
+    }
+
+    export interface EnvironmentProvisionedResource {
+        /**
+         * The name of the environment.
+         */
+        name: string;
+        provider: string;
+        type: string;
+        /**
+         * The value of an environment profile parameter.
+         */
+        value: string;
+    }
+
+    export interface EnvironmentTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface EnvironmentUserParameter {
+        /**
+         * The name of an environment profile parameter.
+         */
+        name?: string;
+        /**
+         * The value of an environment profile parameter.
          */
         value?: string;
     }
@@ -33384,7 +33816,7 @@ export namespace elasticsearch {
          */
         enforceHttps?: boolean;
         /**
-         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+         * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
          */
         tlsSecurityPolicy: string;
     }
@@ -40002,7 +40434,7 @@ export namespace imagebuilder {
 
     export interface ImageRecipeSystemsManagerAgent {
         /**
-         * Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
+         * Whether to remove the Systems Manager Agent after the image has been built.
          */
         uninstallAfterBuild: boolean;
     }
@@ -43935,6 +44367,14 @@ export namespace kinesis {
          * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          */
         accountUrl: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+         */
+        bufferingSize?: number;
         /**
          * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
@@ -58236,36 +58676,62 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSetting {
+        /**
+         * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+         */
         expression?: string;
+        /**
+         * Specifications for the constituent sub slots of a composite slot.
+         * See the `slotSpecification` argument reference below.
+         */
         slotSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecification[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecification {
         mapBlockKey: string;
         /**
-         * Unique identifier for the slot type associated with this slot.
+         * Unique identifier assigned to the slot type.
          */
         slotTypeId: string;
         /**
-         * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-         *
-         * The following arguments are optional:
+         * Elicitation setting details for constituent sub slots of a composite slot.
+         * See the `valueElicitationSetting` argument reference below.
          */
         valueElicitationSettings?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification[];
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification;
         sampleUtterances?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance[];
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: string;
     }
 
@@ -58278,7 +58744,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation[];
     }
 
@@ -58380,23 +58855,60 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: string;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: boolean;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
     }
 
@@ -58463,14 +58975,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: number;
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: number;
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
     }
 
@@ -58537,12 +59067,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
     }
 
     export interface V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
     }
 
@@ -58625,16 +59172,15 @@ export namespace lex {
 
     export interface V2modelsSlotTypeCompositeSlotTypeSetting {
         /**
-         * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
+         * Sub slots in the composite slot.
+         * See `subSlots` argument reference below.
          */
         subSlots: outputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot[];
     }
 
     export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
         /**
-         * Name of the slot type
-         *
-         * The following arguments are optional:
+         * Name of a constituent sub slot inside a composite slot.
          */
         name: string;
         subSlotId: string;
@@ -58642,14 +59188,16 @@ export namespace lex {
 
     export interface V2modelsSlotTypeExternalSourceSetting {
         /**
-         * Settings required for a slot type based on a grammar that you provide. See `grammarSlotTypeSetting` argument reference below.
+         * Settings required for a slot type based on a grammar that you provide.
+         * See `grammarSlotTypeSetting` argument reference below.
          */
         grammarSlotTypeSetting?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting;
     }
 
     export interface V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting {
         /**
-         * Source of the grammar used to create the slot type. See `grammarSlotTypeSource` argument reference below.
+         * Source of the grammar used to create the slot type.
+         * See `source` argument reference below.
          */
         source?: outputs.lex.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource;
     }
@@ -58671,11 +59219,13 @@ export namespace lex {
 
     export interface V2modelsSlotTypeSlotTypeValues {
         /**
-         * Value of the slot type entry.  See `sampleValue` argument reference below.
+         * Value of the slot type entry.
+         * See `sampleValue` argument reference below.
          */
         sampleValues?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSampleValue[];
         /**
-         * Additional values related to the slot type entry. See `sampleValue` argument reference below.
+         * A list of additional values related to the slot type entry.
+         * See `synonyms` argument reference below.
          */
         synonyms?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym[];
     }
@@ -58711,45 +59261,79 @@ export namespace lex {
 
     export interface V2modelsSlotTypeValueSelectionSetting {
         /**
-         * Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advancedRecognitionSetting` argument reference] below.
+         * Provides settings that enable advanced recognition settings for slot values.
+         * You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+         * See `advancedRecognitionSetting` argument reference below.
          */
         advancedRecognitionSettings?: outputs.lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting[];
         /**
-         * Used to validate the value of the slot. See [`regexFilter` argument reference] below.
+         * Used to validate the value of the slot.
+         * See `regexFilter` argument reference below.
          */
         regexFilters?: outputs.lex.V2modelsSlotTypeValueSelectionSettingRegexFilter[];
         /**
-         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+         * Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+         * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
          */
         resolutionStrategy: string;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting {
-        audioRecognitionSetting?: string;
+        /**
+         * Enables using the slot values as a custom vocabulary for recognizing user utterances.
+         * Valid value is `UseSlotValuesAsCustomVocabulary`.
+         */
+        audioRecognitionStrategy?: string;
     }
 
     export interface V2modelsSlotTypeValueSelectionSettingRegexFilter {
         /**
-         * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters ("\⁠u").
-         * Represent Unicode characters with four digits, for example "\⁠u0041" or "\⁠u005A". The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         * A regular expression used to validate the value of a slot.
          */
         pattern: string;
     }
 
     export interface V2modelsSlotValueElicitationSetting {
+        /**
+         * List of default values for a slot.
+         * See the `defaultValueSpecification` argument reference below.
+         */
         defaultValueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecification[];
+        /**
+         * Prompt that Amazon Lex uses to elicit the slot value from the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
+         */
         promptSpecification: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecification;
         sampleUtterances?: outputs.lex.V2modelsSlotValueElicitationSettingSampleUtterance[];
+        /**
+         * Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+         */
         slotConstraint: string;
+        /**
+         * Information about whether assisted slot resolution is turned on for the slot or not.
+         * See the `slotResolutionSetting` argument reference below.
+         */
         slotResolutionSettings?: outputs.lex.V2modelsSlotValueElicitationSettingSlotResolutionSetting[];
+        /**
+         * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+         * See the `waitAndContinueSpecification` argument reference below.
+         */
         waitAndContinueSpecifications?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification[];
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecification {
+        /**
+         * List of default values.
+         * Amazon Lex chooses the default value to use in the order that they are presented in the list.
+         * See the `defaultValueList` argument reference below.
+         */
         defaultValueLists?: outputs.lex.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList[];
     }
 
     export interface V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList {
+        /**
+         * Default value to use when a user doesn't provide a value for a slot.
+         */
         defaultValue: string;
     }
 
@@ -58762,7 +59346,16 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation[];
     }
 
@@ -58864,27 +59457,70 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingSampleUtterance {
+        /**
+         * The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
+         */
         utterance: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingSlotResolutionSetting {
+        /**
+         * Specifies whether assisted slot resolution is turned on for the slot or not.
+         * Valid values are `EnhancedFallback` or `Default`.
+         * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+         * If the value is `Default`, assisted slot resolution is turned off.
+         */
         slotResolutionStrategy: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecification {
+        /**
+         * Specifies whether the bot will wait for a user to respond.
+         * When this field is `false`, wait and continue responses for a slot aren't used.
+         * If the active field isn't specified, the default is `true`.
+         */
         active?: boolean;
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
+         * See the `continueResponse` argument reference below.
+         */
         continueResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse[];
+        /**
+         * Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
+         * See the `stillWaitingResponse` argument reference below.
+         */
         stillWaitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse[];
+        /**
+         * Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
+         * See the `waitingResponse` argument reference below.
+         */
         waitingResponses?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation[];
     }
 
@@ -58951,14 +59587,32 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * How often a message should be sent to the user.
+         */
         frequencyInSeconds: number;
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup[];
+        /**
+         * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         */
         timeoutInSeconds: number;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation[];
     }
 
@@ -59025,12 +59679,29 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponse {
+        /**
+         * Whether the user can interrupt a speech response from Amazon Lex.
+         */
         allowInterrupt?: boolean;
+        /**
+         * Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `messageGroup`.
+         */
         messageGroups?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup[];
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup {
+        /**
+         * Configuration block for the primary message that Amazon Lex should send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
+         */
         message: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage;
+        /**
+         * Configuration blocks for message variations to send to the user.
+         * When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
+         * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
+         */
         variations?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation[];
     }
 
@@ -65107,13 +65778,19 @@ export namespace networkmanager {
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
         /**
-         * A list of strings. The list of edges associated with the network function group.
+         * A list of a list of strings. The list of edges associated with the network function group.
          */
-        edgeSets?: string[];
+        edgeSets?: string[][];
+        /**
+         * The preferred edge to use.
+         *
+         * @deprecated Use use_edge_location
+         */
+        useEdge?: string;
         /**
          * The preferred edge to use.
          */
-        useEdge?: string;
+        useEdgeLocation?: string;
     }
 
     export interface GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
@@ -67238,6 +67915,21 @@ export namespace organizations {
         status: string;
     }
 
+    export interface GetOrganizationalUnitDescendantOrganizationalUnitsChildren {
+        /**
+         * ARN of the organizational unit
+         */
+        arn: string;
+        /**
+         * Parent identifier of the organizational units.
+         */
+        id: string;
+        /**
+         * Name of the organizational unit
+         */
+        name: string;
+    }
+
     export interface GetOrganizationalUnitsChild {
         /**
          * ARN of the organizational unit
@@ -69308,6 +70000,10 @@ export namespace quicksight {
          */
         awsIotAnalytics?: outputs.quicksight.DataSourceParametersAwsIotAnalytics;
         /**
+         * Parameters for connecting to Databricks.
+         */
+        databricks?: outputs.quicksight.DataSourceParametersDatabricks;
+        /**
          * Parameters for connecting to Jira.
          */
         jira?: outputs.quicksight.DataSourceParametersJira;
@@ -69418,6 +70114,21 @@ export namespace quicksight {
          * The name of the data set to which to connect.
          */
         dataSetName: string;
+    }
+
+    export interface DataSourceParametersDatabricks {
+        /**
+         * The host name of the Databricks data source.
+         */
+        host: string;
+        /**
+         * The port for the Databricks data source.
+         */
+        port: number;
+        /**
+         * The HTTP path of the Databricks data source.
+         */
+        sqlEndpointPath: string;
     }
 
     export interface DataSourceParametersJira {
@@ -69660,6 +70371,11 @@ export namespace quicksight {
         principal: string;
     }
 
+    export interface GetAnalysisPermission {
+        actions: string[];
+        principal: string;
+    }
+
     export interface GetDataSetColumnGroup {
         geoSpatialColumnGroups: outputs.quicksight.GetDataSetColumnGroupGeoSpatialColumnGroup[];
     }
@@ -69848,6 +70564,11 @@ export namespace quicksight {
         matchAllValue: string;
         tagKey: string;
         tagMultiValueDelimiter: string;
+    }
+
+    export interface GetQuicksightAnalysisPermission {
+        actions: string[];
+        principal: string;
     }
 
     export interface GetThemeConfiguration {
@@ -71509,6 +72230,17 @@ export namespace resourcegroupstaggingapi {
 }
 
 export namespace rolesanywhere {
+    export interface TrustAnchorNotificationSetting {
+        channel: string;
+        configuredBy: string;
+        /**
+         * Whether or not the Trust Anchor should be enabled.
+         */
+        enabled: boolean;
+        event: string;
+        threshold: number;
+    }
+
     export interface TrustAnchorSource {
         /**
          * The data denoting the source of trust, documented below
@@ -74867,9 +75599,21 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettings {
         /**
+         * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `customFileSystemConfig` Block below.
+         */
+        customFileSystemConfigs?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfig[];
+        /**
+         * Details about the POSIX identity that is used for file system operations. See `customPosixUserConfig` Block below.
+         */
+        customPosixUserConfig?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomPosixUserConfig;
+        /**
          * The execution role for the space.
          */
         executionRole: string;
+        /**
+         * The settings for the JupyterLab application. See `jupyterLabAppSettings` Block below.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings. See `jupyterServerAppSettings` Block below.
          */
@@ -74882,6 +75626,103 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
          */
         securityGroups?: string[];
+        /**
+         * The storage settings for a private space. See `spaceStorageSettings` Block below.
+         */
+        spaceStorageSettings: outputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettings;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfig {
+        /**
+         * The default EBS storage settings for a private space. See `efsFileSystemConfig` Block below.
+         */
+        efsFileSystemConfig?: outputs.sagemaker.DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig {
+        /**
+         * The ID of your Amazon EFS file system.
+         */
+        fileSystemId: string;
+        /**
+         * The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+         */
+        fileSystemPath: string;
+    }
+
+    export interface DomainDefaultSpaceSettingsCustomPosixUserConfig {
+        /**
+         * The POSIX group ID.
+         */
+        gid: number;
+        /**
+         * The POSIX user ID.
+         */
+        uid: number;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettings {
+        /**
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
+         */
+        codeRepositories?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository[];
+        /**
+         * A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
+         */
+        customImages?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository {
+        /**
+         * The URL of the Git repository.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
+        /**
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         */
+        instanceType?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         */
+        lifecycleConfigArn?: string;
+        /**
+         * The ARN of the SageMaker image that the image version belongs to.
+         */
+        sagemakerImageArn?: string;
+        /**
+         * The SageMaker Image Version Alias.
+         */
+        sagemakerImageVersionAlias?: string;
+        /**
+         * The ARN of the image version created on the instance.
+         */
+        sagemakerImageVersionArn?: string;
     }
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
@@ -74982,6 +75823,24 @@ export namespace sagemaker {
         sagemakerImageVersionArn?: string;
     }
 
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettings {
+        /**
+         * The default EBS storage settings for a private space. See `defaultEbsStorageSettings` Block below.
+         */
+        defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings;
+    }
+
+    export interface DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettings {
+        /**
+         * The default size of the EBS storage volume for a private space.
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * The maximum size of the EBS storage volume for a private space.
+         */
+        maximumEbsVolumeSizeInGb: number;
+    }
+
     export interface DomainDefaultUserSettings {
         /**
          * The Canvas app settings. See `canvasAppSettings` Block below.
@@ -75043,6 +75902,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal: string;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.DomainDefaultUserSettingsStudioWebPortalSettings;
         /**
          * The TensorBoard app settings. See `tensorBoardAppSettings` Block below.
          */
@@ -75480,6 +76343,17 @@ export namespace sagemaker {
         maximumEbsVolumeSizeInGb: number;
     }
 
+    export interface DomainDefaultUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: string[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: string[];
+    }
+
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
@@ -75512,6 +76386,10 @@ export namespace sagemaker {
 
     export interface DomainDomainSettings {
         /**
+         * A collection of settings that configure the domain’s Docker interaction. see `dockerSettings` Block below.
+         */
+        dockerSettings?: outputs.sagemaker.DomainDomainSettingsDockerSettings;
+        /**
          * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
          */
         executionRoleIdentityConfig?: string;
@@ -75523,6 +76401,17 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
          */
         securityGroupIds?: string[];
+    }
+
+    export interface DomainDomainSettingsDockerSettings {
+        /**
+         * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
+         */
+        enableDockerAccess?: string;
+        /**
+         * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
+         */
+        vpcOnlyTrustedAccounts?: string[];
     }
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
@@ -75705,6 +76594,10 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigurationProductionVariantManagedInstanceScaling;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: number;
@@ -75739,6 +76632,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
+    }
+
+    export interface EndpointConfigurationProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: number;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: number;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface EndpointConfigurationProductionVariantRoutingConfig {
@@ -75797,6 +76705,10 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
+         * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+         */
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantManagedInstanceScaling;
+        /**
          * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
          */
         modelDataDownloadTimeoutInSeconds?: number;
@@ -75831,6 +76743,21 @@ export namespace sagemaker {
          * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId: string;
+    }
+
+    export interface EndpointConfigurationShadowProductionVariantManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: number;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: number;
+        /**
+         * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface EndpointConfigurationShadowProductionVariantRoutingConfig {
@@ -76202,6 +77129,10 @@ export namespace sagemaker {
          */
         imageConfig?: outputs.sagemaker.ModelContainerImageConfig;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: string;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -76217,6 +77148,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: string;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: outputs.sagemaker.ModelContainerMultiModelConfig;
     }
 
     export interface ModelContainerImageConfig {
@@ -76250,6 +77185,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: outputs.sagemaker.ModelContainerModelDataSourceS3DataSourceModelAccessConfig;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: string;
@@ -76257,6 +77196,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: boolean;
+    }
+
+    export interface ModelContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: string;
     }
 
     export interface ModelInferenceExecutionConfig {
@@ -76285,6 +77238,10 @@ export namespace sagemaker {
          */
         imageConfig?: outputs.sagemaker.ModelPrimaryContainerImageConfig;
         /**
+         * The inference specification name in the model package version.
+         */
+        inferenceSpecificationName?: string;
+        /**
          * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
          */
         mode?: string;
@@ -76300,6 +77257,10 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the model package to use to create the model.
          */
         modelPackageName?: string;
+        /**
+         * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+         */
+        multiModelConfig?: outputs.sagemaker.ModelPrimaryContainerMultiModelConfig;
     }
 
     export interface ModelPrimaryContainerImageConfig {
@@ -76333,6 +77294,10 @@ export namespace sagemaker {
          */
         compressionType: string;
         /**
+         * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`modelAccessConfig` configuration block]. see Model Access Config.
+         */
+        modelAccessConfig?: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig;
+        /**
          * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
          */
         s3DataType: string;
@@ -76340,6 +77305,20 @@ export namespace sagemaker {
          * The S3 path of model data to deploy.
          */
         s3Uri: string;
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfig {
+        /**
+         * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
+         */
+        acceptEula: boolean;
+    }
+
+    export interface ModelPrimaryContainerMultiModelConfig {
+        /**
+         * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
+         */
+        modelCacheSetting?: string;
     }
 
     export interface ModelVpcConfig {
@@ -76731,6 +77710,10 @@ export namespace sagemaker {
          * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
          */
         studioWebPortal: string;
+        /**
+         * The Studio Web Portal settings. See `studioWebPortalSettings` Block below.
+         */
+        studioWebPortalSettings?: outputs.sagemaker.UserProfileUserSettingsStudioWebPortalSettings;
         /**
          * The TensorBoard app settings. See TensorBoard App Settings below.
          */
@@ -77163,6 +78146,17 @@ export namespace sagemaker {
          * The maximum size of the EBS storage volume for a private space.
          */
         maximumEbsVolumeSizeInGb: number;
+    }
+
+    export interface UserProfileUserSettingsStudioWebPortalSettings {
+        /**
+         * The Applications supported in Studio that are hidden from the Studio left navigation pane.
+         */
+        hiddenAppTypes?: string[];
+        /**
+         * The machine learning tools that are hidden from the Studio left navigation pane.
+         */
+        hiddenMlTools?: string[];
     }
 
     export interface UserProfileUserSettingsTensorBoardAppSettings {
@@ -82135,7 +83129,7 @@ export namespace synthetics {
         /**
          * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
          */
-        timeoutInSeconds?: number;
+        timeoutInSeconds: number;
     }
 
     export interface CanarySchedule {

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ebs
     public partial class SnapshotBlockPublicAccess : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotBlockPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Input("state", required: true)]
         public Input<string> State { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotBlockPublicAccessState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all`, `block-new-sharing`, `unblocked`.
+        /// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

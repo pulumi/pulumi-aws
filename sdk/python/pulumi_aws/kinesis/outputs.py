@@ -6710,6 +6710,10 @@ class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "bufferingInterval":
+            suggest = "buffering_interval"
+        elif key == "bufferingSize":
+            suggest = "buffering_size"
         elif key == "cloudwatchLoggingOptions":
             suggest = "cloudwatch_logging_options"
         elif key == "contentColumnName":
@@ -6753,6 +6757,8 @@ class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
                  s3_configuration: 'outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration',
                  schema: str,
                  table: str,
+                 buffering_interval: Optional[int] = None,
+                 buffering_size: Optional[int] = None,
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions'] = None,
                  content_column_name: Optional[str] = None,
                  data_loading_option: Optional[str] = None,
@@ -6773,6 +6779,8 @@ class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
         :param 'FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs' s3_configuration: The S3 configuration. See `s3_configuration` block below for details.
         :param str schema: The Snowflake schema name.
         :param str table: The Snowflake table name.
+        :param int buffering_interval: Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        :param int buffering_size: Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
         :param 'FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs' cloudwatch_logging_options: The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         :param str content_column_name: The name of the content column.
         :param str data_loading_option: The data loading option.
@@ -6793,6 +6801,10 @@ class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "table", table)
+        if buffering_interval is not None:
+            pulumi.set(__self__, "buffering_interval", buffering_interval)
+        if buffering_size is not None:
+            pulumi.set(__self__, "buffering_size", buffering_size)
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
         if content_column_name is not None:
@@ -6867,6 +6879,22 @@ class FirehoseDeliveryStreamSnowflakeConfiguration(dict):
         The Snowflake table name.
         """
         return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter(name="bufferingInterval")
+    def buffering_interval(self) -> Optional[int]:
+        """
+        Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        """
+        return pulumi.get(self, "buffering_interval")
+
+    @property
+    @pulumi.getter(name="bufferingSize")
+    def buffering_size(self) -> Optional[int]:
+        """
+        Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+        """
+        return pulumi.get(self, "buffering_size")
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")

@@ -30,10 +30,20 @@ public final class GetStreamResult {
      */
     private Integer creationTimestamp;
     /**
+     * @return Encryption type used.
+     * 
+     */
+    private String encryptionType;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return GUID for the customer-managed AWS KMS key to use for encryption.
+     * 
+     */
+    private String kmsKeyId;
     /**
      * @return Name of the Kinesis Stream.
      * 
@@ -93,11 +103,25 @@ public final class GetStreamResult {
         return this.creationTimestamp;
     }
     /**
+     * @return Encryption type used.
+     * 
+     */
+    public String encryptionType() {
+        return this.encryptionType;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return GUID for the customer-managed AWS KMS key to use for encryption.
+     * 
+     */
+    public String kmsKeyId() {
+        return this.kmsKeyId;
     }
     /**
      * @return Name of the Kinesis Stream.
@@ -161,7 +185,9 @@ public final class GetStreamResult {
         private String arn;
         private List<String> closedShards;
         private Integer creationTimestamp;
+        private String encryptionType;
         private String id;
+        private String kmsKeyId;
         private String name;
         private List<String> openShards;
         private Integer retentionPeriod;
@@ -175,7 +201,9 @@ public final class GetStreamResult {
     	      this.arn = defaults.arn;
     	      this.closedShards = defaults.closedShards;
     	      this.creationTimestamp = defaults.creationTimestamp;
+    	      this.encryptionType = defaults.encryptionType;
     	      this.id = defaults.id;
+    	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.name = defaults.name;
     	      this.openShards = defaults.openShards;
     	      this.retentionPeriod = defaults.retentionPeriod;
@@ -213,11 +241,27 @@ public final class GetStreamResult {
             return this;
         }
         @CustomType.Setter
+        public Builder encryptionType(String encryptionType) {
+            if (encryptionType == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "encryptionType");
+            }
+            this.encryptionType = encryptionType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetStreamResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder kmsKeyId(String kmsKeyId) {
+            if (kmsKeyId == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "kmsKeyId");
+            }
+            this.kmsKeyId = kmsKeyId;
             return this;
         }
         @CustomType.Setter
@@ -290,7 +334,9 @@ public final class GetStreamResult {
             _resultValue.arn = arn;
             _resultValue.closedShards = closedShards;
             _resultValue.creationTimestamp = creationTimestamp;
+            _resultValue.encryptionType = encryptionType;
             _resultValue.id = id;
+            _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.name = name;
             _resultValue.openShards = openShards;
             _resultValue.retentionPeriod = retentionPeriod;

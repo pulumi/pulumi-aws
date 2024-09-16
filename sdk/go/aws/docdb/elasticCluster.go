@@ -65,12 +65,16 @@ type ElasticCluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringOutput `pulumi:"authType"`
+	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+	BackupRetentionPeriod pulumi.Float64Output `pulumi:"backupRetentionPeriod"`
 	// The DNS address of the DocDB instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -150,12 +154,16 @@ type elasticClusterState struct {
 	Arn *string `pulumi:"arn"`
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType *string `pulumi:"authType"`
+	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+	BackupRetentionPeriod *float64 `pulumi:"backupRetentionPeriod"`
 	// The DNS address of the DocDB instance
 	Endpoint *string `pulumi:"endpoint"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
 	Name *string `pulumi:"name"`
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -184,12 +192,16 @@ type ElasticClusterState struct {
 	Arn pulumi.StringPtrInput
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringPtrInput
+	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+	BackupRetentionPeriod pulumi.Float64PtrInput
 	// The DNS address of the DocDB instance
 	Endpoint pulumi.StringPtrInput
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Elastic DocumentDB cluster
 	Name pulumi.StringPtrInput
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -220,10 +232,14 @@ type elasticClusterArgs struct {
 	AdminUserPassword string `pulumi:"adminUserPassword"`
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType string `pulumi:"authType"`
+	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+	BackupRetentionPeriod *float64 `pulumi:"backupRetentionPeriod"`
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the Elastic DocumentDB cluster
 	Name *string `pulumi:"name"`
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -249,10 +265,14 @@ type ElasticClusterArgs struct {
 	AdminUserPassword pulumi.StringInput
 	// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
 	AuthType pulumi.StringInput
+	// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+	BackupRetentionPeriod pulumi.Float64PtrInput
 	// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the Elastic DocumentDB cluster
 	Name pulumi.StringPtrInput
+	// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
@@ -377,6 +397,11 @@ func (o ElasticClusterOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
+// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+func (o ElasticClusterOutput) BackupRetentionPeriod() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.Float64Output { return v.BackupRetentionPeriod }).(pulumi.Float64Output)
+}
+
 // The DNS address of the DocDB instance
 func (o ElasticClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
@@ -390,6 +415,11 @@ func (o ElasticClusterOutput) KmsKeyId() pulumi.StringOutput {
 // Name of the Elastic DocumentDB cluster
 func (o ElasticClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+func (o ElasticClusterOutput) PreferredBackupWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.PreferredBackupWindow }).(pulumi.StringOutput)
 }
 
 // Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.

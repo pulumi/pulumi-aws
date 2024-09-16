@@ -16,7 +16,9 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>? _advancedRecognitionSettings;
 
         /// <summary>
-        /// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances. See [`advanced_recognition_setting` argument reference] below.
+        /// Provides settings that enable advanced recognition settings for slot values.
+        /// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
+        /// See `advanced_recognition_setting` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs> AdvancedRecognitionSettings
         {
@@ -28,7 +30,8 @@ namespace Pulumi.Aws.Lex.Inputs
         private InputList<Inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>? _regexFilters;
 
         /// <summary>
-        /// Used to validate the value of the slot. See [`regex_filter` argument reference] below.
+        /// Used to validate the value of the slot.
+        /// See `regex_filter` argument reference below.
         /// </summary>
         public InputList<Inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterArgs> RegexFilters
         {
@@ -37,7 +40,8 @@ namespace Pulumi.Aws.Lex.Inputs
         }
 
         /// <summary>
-        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values: `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value. `TOP_RESOLUTION` If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned. If you don't specify the valueSelectionStrategy , the default is `ORIGINAL_VALUE`. Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
+        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+        /// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
         /// </summary>
         [Input("resolutionStrategy", required: true)]
         public Input<string> ResolutionStrategy { get; set; } = null!;

@@ -4,6 +4,7 @@
 package com.pulumi.aws.amplify;
 
 import com.pulumi.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
+import com.pulumi.aws.amplify.inputs.AppCacheConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -36,14 +37,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
     @Import(name="autoBranchCreationConfig")
     private @Nullable Output<AppAutoBranchCreationConfigArgs> autoBranchCreationConfig;
 
     /**
-     * @return Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+     * @return Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
     public Optional<Output<AppAutoBranchCreationConfigArgs>> autoBranchCreationConfig() {
@@ -96,6 +97,21 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * 
+     */
+    @Import(name="cacheConfig")
+    private @Nullable Output<AppCacheConfigArgs> cacheConfig;
+
+    /**
+     * @return Cache configuration for the Amplify app. See `cache_config` Block for details.
+     * 
+     */
+    public Optional<Output<AppCacheConfigArgs>> cacheConfig() {
+        return Optional.ofNullable(this.cacheConfig);
+    }
+
+    /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
@@ -111,14 +127,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
     @Import(name="customRules")
     private @Nullable Output<List<AppCustomRuleArgs>> customRules;
 
     /**
-     * @return Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+     * @return Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
     public Optional<Output<List<AppCustomRuleArgs>>> customRules() {
@@ -313,6 +329,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         this.autoBranchCreationPatterns = $.autoBranchCreationPatterns;
         this.basicAuthCredentials = $.basicAuthCredentials;
         this.buildSpec = $.buildSpec;
+        this.cacheConfig = $.cacheConfig;
         this.customHeaders = $.customHeaders;
         this.customRules = $.customRules;
         this.description = $.description;
@@ -369,7 +386,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
          * 
          * @return builder
          * 
@@ -380,7 +397,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+         * @param autoBranchCreationConfig Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
          * 
          * @return builder
          * 
@@ -463,6 +480,27 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param cacheConfig Cache configuration for the Amplify app. See `cache_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheConfig(@Nullable Output<AppCacheConfigArgs> cacheConfig) {
+            $.cacheConfig = cacheConfig;
+            return this;
+        }
+
+        /**
+         * @param cacheConfig Cache configuration for the Amplify app. See `cache_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheConfig(AppCacheConfigArgs cacheConfig) {
+            return cacheConfig(Output.of(cacheConfig));
+        }
+
+        /**
          * @param customHeaders The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
          * 
          * @return builder
@@ -484,7 +522,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
          * 
          * @return builder
          * 
@@ -495,7 +533,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
          * 
          * @return builder
          * 
@@ -505,7 +543,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customRules Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+         * @param customRules Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
          * 
          * @return builder
          * 

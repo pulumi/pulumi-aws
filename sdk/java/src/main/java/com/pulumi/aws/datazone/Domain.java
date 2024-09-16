@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -221,6 +222,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DomainSingleSignOn>> singleSignOn() {
         return Codegen.optional(this.singleSignOn);
+    }
+    /**
+     * Whether to skip the deletion check for the Domain.
+     * 
+     */
+    @Export(name="skipDeletionCheck", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipDeletionCheck;
+
+    /**
+     * @return Whether to skip the deletion check for the Domain.
+     * 
+     */
+    public Output<Optional<Boolean>> skipDeletionCheck() {
+        return Codegen.optional(this.skipDeletionCheck);
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

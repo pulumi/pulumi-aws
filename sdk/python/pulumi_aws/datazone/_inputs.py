@@ -15,12 +15,26 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AssetTypeFormsInputArgs',
+    'AssetTypeFormsInputArgsDict',
+    'AssetTypeTimeoutsArgs',
+    'AssetTypeTimeoutsArgsDict',
     'DomainSingleSignOnArgs',
     'DomainSingleSignOnArgsDict',
     'DomainTimeoutsArgs',
     'DomainTimeoutsArgsDict',
+    'EnvironmentLastDeploymentArgs',
+    'EnvironmentLastDeploymentArgsDict',
+    'EnvironmentLastDeploymentFailureReasonArgs',
+    'EnvironmentLastDeploymentFailureReasonArgsDict',
     'EnvironmentProfileUserParameterArgs',
     'EnvironmentProfileUserParameterArgsDict',
+    'EnvironmentProvisionedResourceArgs',
+    'EnvironmentProvisionedResourceArgsDict',
+    'EnvironmentTimeoutsArgs',
+    'EnvironmentTimeoutsArgsDict',
+    'EnvironmentUserParameterArgs',
+    'EnvironmentUserParameterArgsDict',
     'FormTypeImportArgs',
     'FormTypeImportArgsDict',
     'FormTypeModelArgs',
@@ -38,6 +52,97 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AssetTypeFormsInputArgsDict(TypedDict):
+        map_block_key: pulumi.Input[str]
+        type_identifier: pulumi.Input[str]
+        type_revision: pulumi.Input[str]
+        required: NotRequired[pulumi.Input[bool]]
+elif False:
+    AssetTypeFormsInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetTypeFormsInputArgs:
+    def __init__(__self__, *,
+                 map_block_key: pulumi.Input[str],
+                 type_identifier: pulumi.Input[str],
+                 type_revision: pulumi.Input[str],
+                 required: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "type_identifier", type_identifier)
+        pulumi.set(__self__, "type_revision", type_revision)
+        if required is not None:
+            pulumi.set(__self__, "required", required)
+
+    @property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "map_block_key")
+
+    @map_block_key.setter
+    def map_block_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "map_block_key", value)
+
+    @property
+    @pulumi.getter(name="typeIdentifier")
+    def type_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type_identifier")
+
+    @type_identifier.setter
+    def type_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_identifier", value)
+
+    @property
+    @pulumi.getter(name="typeRevision")
+    def type_revision(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type_revision")
+
+    @type_revision.setter
+    def type_revision(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_revision", value)
+
+    @property
+    @pulumi.getter
+    def required(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AssetTypeTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AssetTypeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssetTypeTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
 
 if not MYPY:
     class DomainSingleSignOnArgsDict(TypedDict):
@@ -128,6 +233,122 @@ class DomainTimeoutsArgs:
 
 
 if not MYPY:
+    class EnvironmentLastDeploymentArgsDict(TypedDict):
+        deployment_id: pulumi.Input[str]
+        deployment_status: pulumi.Input[str]
+        deployment_type: pulumi.Input[str]
+        failure_reasons: pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgsDict']]]
+        is_deployment_complete: pulumi.Input[bool]
+        messages: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    EnvironmentLastDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentLastDeploymentArgs:
+    def __init__(__self__, *,
+                 deployment_id: pulumi.Input[str],
+                 deployment_status: pulumi.Input[str],
+                 deployment_type: pulumi.Input[str],
+                 failure_reasons: pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgs']]],
+                 is_deployment_complete: pulumi.Input[bool],
+                 messages: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "deployment_id", deployment_id)
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "failure_reasons", failure_reasons)
+        pulumi.set(__self__, "is_deployment_complete", is_deployment_complete)
+        pulumi.set(__self__, "messages", messages)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deployment_status")
+
+    @deployment_status.setter
+    def deployment_status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_status", value)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter(name="failureReasons")
+    def failure_reasons(self) -> pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgs']]]:
+        return pulumi.get(self, "failure_reasons")
+
+    @failure_reasons.setter
+    def failure_reasons(self, value: pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgs']]]):
+        pulumi.set(self, "failure_reasons", value)
+
+    @property
+    @pulumi.getter(name="isDeploymentComplete")
+    def is_deployment_complete(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "is_deployment_complete")
+
+    @is_deployment_complete.setter
+    def is_deployment_complete(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_deployment_complete", value)
+
+    @property
+    @pulumi.getter
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "messages", value)
+
+
+if not MYPY:
+    class EnvironmentLastDeploymentFailureReasonArgsDict(TypedDict):
+        code: pulumi.Input[str]
+        message: pulumi.Input[str]
+elif False:
+    EnvironmentLastDeploymentFailureReasonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentLastDeploymentFailureReasonArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[str],
+                 message: pulumi.Input[str]):
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: pulumi.Input[str]):
+        pulumi.set(self, "message", value)
+
+
+if not MYPY:
     class EnvironmentProfileUserParameterArgsDict(TypedDict):
         name: NotRequired[pulumi.Input[str]]
         """
@@ -171,6 +392,204 @@ class EnvironmentProfileUserParameterArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Value of the environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EnvironmentProvisionedResourceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the environment.
+        """
+        provider: pulumi.Input[str]
+        type: pulumi.Input[str]
+        value: pulumi.Input[str]
+        """
+        The value of an environment profile parameter.
+        """
+elif False:
+    EnvironmentProvisionedResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentProvisionedResourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 provider: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input[str] value: The value of an environment profile parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of an environment profile parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EnvironmentTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    EnvironmentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class EnvironmentUserParameterArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of an environment profile parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of an environment profile parameter.
+        """
+elif False:
+    EnvironmentUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentUserParameterArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of an environment profile parameter.
+        :param pulumi.Input[str] value: The value of an environment profile parameter.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an environment profile parameter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of an environment profile parameter.
         """
         return pulumi.get(self, "value")
 

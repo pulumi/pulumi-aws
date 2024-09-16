@@ -4,6 +4,8 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,30 +16,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration {
     /**
-     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     private String chunkingStrategy;
     /**
-     * @return Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+     * @return Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration fixedSizeChunkingConfiguration;
+    /**
+     * @return Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+     * 
+     */
+    private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration hierarchicalChunkingConfiguration;
+    /**
+     * @return Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+     * 
+     */
+    private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration semanticChunkingConfiguration;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfiguration() {}
     /**
-     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+     * @return Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
     public String chunkingStrategy() {
         return this.chunkingStrategy;
     }
     /**
-     * @return Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+     * @return Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
      * 
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration> fixedSizeChunkingConfiguration() {
         return Optional.ofNullable(this.fixedSizeChunkingConfiguration);
+    }
+    /**
+     * @return Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+     * 
+     */
+    public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration> hierarchicalChunkingConfiguration() {
+        return Optional.ofNullable(this.hierarchicalChunkingConfiguration);
+    }
+    /**
+     * @return Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+     * 
+     */
+    public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration> semanticChunkingConfiguration() {
+        return Optional.ofNullable(this.semanticChunkingConfiguration);
     }
 
     public static Builder builder() {
@@ -51,11 +77,15 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public static final class Builder {
         private String chunkingStrategy;
         private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration fixedSizeChunkingConfiguration;
+        private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration hierarchicalChunkingConfiguration;
+        private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration semanticChunkingConfiguration;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationChunkingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.chunkingStrategy = defaults.chunkingStrategy;
     	      this.fixedSizeChunkingConfiguration = defaults.fixedSizeChunkingConfiguration;
+    	      this.hierarchicalChunkingConfiguration = defaults.hierarchicalChunkingConfiguration;
+    	      this.semanticChunkingConfiguration = defaults.semanticChunkingConfiguration;
         }
 
         @CustomType.Setter
@@ -72,10 +102,24 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             this.fixedSizeChunkingConfiguration = fixedSizeChunkingConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder hierarchicalChunkingConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration hierarchicalChunkingConfiguration) {
+
+            this.hierarchicalChunkingConfiguration = hierarchicalChunkingConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder semanticChunkingConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration semanticChunkingConfiguration) {
+
+            this.semanticChunkingConfiguration = semanticChunkingConfiguration;
+            return this;
+        }
         public AgentDataSourceVectorIngestionConfigurationChunkingConfiguration build() {
             final var _resultValue = new AgentDataSourceVectorIngestionConfigurationChunkingConfiguration();
             _resultValue.chunkingStrategy = chunkingStrategy;
             _resultValue.fixedSizeChunkingConfiguration = fixedSizeChunkingConfiguration;
+            _resultValue.hierarchicalChunkingConfiguration = hierarchicalChunkingConfiguration;
+            _resultValue.semanticChunkingConfiguration = semanticChunkingConfiguration;
             return _resultValue;
         }
     }

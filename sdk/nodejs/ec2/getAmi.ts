@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const example = aws.ec2.getAmi({
  *     executableUsers: ["self"],
  *     mostRecent: true,
- *     nameRegex: "^myami-\\d{3}",
+ *     nameRegex: "^myami-[0-9]{3}",
  *     owners: ["self"],
  *     filters: [
  *         {
@@ -270,7 +270,7 @@ export interface GetAmiResult {
  * const example = aws.ec2.getAmi({
  *     executableUsers: ["self"],
  *     mostRecent: true,
- *     nameRegex: "^myami-\\d{3}",
+ *     nameRegex: "^myami-[0-9]{3}",
  *     owners: ["self"],
  *     filters: [
  *         {

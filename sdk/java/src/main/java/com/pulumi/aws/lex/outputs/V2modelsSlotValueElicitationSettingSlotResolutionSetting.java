@@ -10,9 +10,23 @@ import java.util.Objects;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingSlotResolutionSetting {
+    /**
+     * @return Specifies whether assisted slot resolution is turned on for the slot or not.
+     * Valid values are `EnhancedFallback` or `Default`.
+     * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+     * If the value is `Default`, assisted slot resolution is turned off.
+     * 
+     */
     private String slotResolutionStrategy;
 
     private V2modelsSlotValueElicitationSettingSlotResolutionSetting() {}
+    /**
+     * @return Specifies whether assisted slot resolution is turned on for the slot or not.
+     * Valid values are `EnhancedFallback` or `Default`.
+     * If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+     * If the value is `Default`, assisted slot resolution is turned off.
+     * 
+     */
     public String slotResolutionStrategy() {
         return this.slotResolutionStrategy;
     }

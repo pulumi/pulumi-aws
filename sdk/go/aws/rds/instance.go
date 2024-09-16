@@ -534,7 +534,7 @@ type Instance struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntOutput `pulumi:"iops"`
@@ -646,8 +646,8 @@ type Instance struct {
 	StorageThroughput pulumi.IntOutput `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-	// "gp2" if not.
+	// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+	// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -821,7 +821,7 @@ type instanceState struct {
 	// The instance type of the RDS instance.
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops *int `pulumi:"iops"`
@@ -933,8 +933,8 @@ type instanceState struct {
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-	// "gp2" if not.
+	// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+	// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1069,7 +1069,7 @@ type InstanceState struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringPtrInput
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntPtrInput
@@ -1181,8 +1181,8 @@ type InstanceState struct {
 	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-	// "gp2" if not.
+	// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+	// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1311,7 +1311,7 @@ type instanceArgs struct {
 	// The instance type of the RDS instance.
 	InstanceClass string `pulumi:"instanceClass"`
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops *int `pulumi:"iops"`
@@ -1412,8 +1412,8 @@ type instanceArgs struct {
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-	// "gp2" if not.
+	// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+	// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 	StorageType *string `pulumi:"storageType"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -1535,7 +1535,7 @@ type InstanceArgs struct {
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringInput
 	// The amount of provisioned IOPS. Setting this implies a
-	// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+	// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 	// Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 	// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 	Iops pulumi.IntPtrInput
@@ -1636,8 +1636,8 @@ type InstanceArgs struct {
 	StorageThroughput pulumi.IntPtrInput
 	// One of "standard" (magnetic), "gp2" (general
 	// purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-	// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-	// "gp2" if not.
+	// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+	// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 	StorageType pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -1971,7 +1971,7 @@ func (o InstanceOutput) InstanceClass() pulumi.StringOutput {
 }
 
 // The amount of provisioned IOPS. Setting this implies a
-// storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+// storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
 // Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
 // See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
 func (o InstanceOutput) Iops() pulumi.IntOutput {
@@ -2188,8 +2188,8 @@ func (o InstanceOutput) StorageThroughput() pulumi.IntOutput {
 
 // One of "standard" (magnetic), "gp2" (general
 // purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-// or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-// "gp2" if not.
+// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
 func (o InstanceOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }

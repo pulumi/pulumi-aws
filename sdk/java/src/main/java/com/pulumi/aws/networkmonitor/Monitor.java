@@ -73,14 +73,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="aggregationPeriod", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> aggregationPeriod;
+    private Output<Integer> aggregationPeriod;
 
     /**
      * @return The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
      * 
      */
-    public Output<Optional<Integer>> aggregationPeriod() {
-        return Codegen.optional(this.aggregationPeriod);
+    public Output<Integer> aggregationPeriod() {
+        return this.aggregationPeriod;
     }
     /**
      * The ARN of the monitor.

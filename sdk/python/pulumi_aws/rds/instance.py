@@ -159,7 +159,7 @@ class InstanceArgs:
         :param pulumi.Input[str] identifier: The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
                Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -230,8 +230,8 @@ class InstanceArgs:
         :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-               "gp2" if not.
+               "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+               SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -829,7 +829,7 @@ class InstanceArgs:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
         Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
         See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
@@ -1218,8 +1218,8 @@ class InstanceArgs:
         """
         One of "standard" (magnetic), "gp2" (general
         purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-        "gp2" if not.
+        "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+        SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1451,7 +1451,7 @@ class _InstanceState:
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
                Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -1527,8 +1527,8 @@ class _InstanceState:
         :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-               "gp2" if not.
+               "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+               SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
@@ -2215,7 +2215,7 @@ class _InstanceState:
     def iops(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
         Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
         See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
@@ -2673,8 +2673,8 @@ class _InstanceState:
         """
         One of "standard" (magnetic), "gp2" (general
         purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-        "gp2" if not.
+        "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+        SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 
@@ -3158,7 +3158,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
                Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -3229,8 +3229,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-               "gp2" if not.
+               "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+               SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
                only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -3849,7 +3849,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
-               storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+               storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
                Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
                See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
@@ -3925,8 +3925,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[int] storage_throughput: The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         :param pulumi.Input[Union[str, 'StorageType']] storage_type: One of "standard" (magnetic), "gp2" (general
                purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-               or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-               "gp2" if not.
+               "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+               SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] timezone: Time zone of the DB instance. `timezone` is currently
@@ -4375,7 +4375,7 @@ class Instance(pulumi.CustomResource):
     def iops(self) -> pulumi.Output[int]:
         """
         The amount of provisioned IOPS. Setting this implies a
-        storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
+        storage_type of "io1" or "io2". Can only be set when `storage_type` is `"io1"`, `"io2` or `"gp3"`.
         Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
         See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         """
@@ -4693,8 +4693,8 @@ class Instance(pulumi.CustomResource):
         """
         One of "standard" (magnetic), "gp2" (general
         purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-        or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-        "gp2" if not.
+        "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+        SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         """
         return pulumi.get(self, "storage_type")
 

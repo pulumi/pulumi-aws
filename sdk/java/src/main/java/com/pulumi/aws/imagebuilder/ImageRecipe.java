@@ -94,14 +94,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/imageRecipe:ImageRecipe")
 public class ImageRecipe extends com.pulumi.resources.CustomResource {
     /**
-     * (Required) Amazon Resource Name (ARN) of the image recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the image recipe.
+     * @return Amazon Resource Name (ARN) of the image recipe.
      * 
      */
     public Output<String> arn() {

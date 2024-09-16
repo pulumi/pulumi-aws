@@ -15,16 +15,14 @@ public final class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs extends 
     public static final V2modelsSlotTypeValueSelectionSettingRegexFilterArgs Empty = new V2modelsSlotTypeValueSelectionSettingRegexFilterArgs();
 
     /**
-     * Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-     * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+     * A regular expression used to validate the value of a slot.
      * 
      */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
     /**
-     * @return Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-     * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+     * @return A regular expression used to validate the value of a slot.
      * 
      */
     public Output<String> pattern() {
@@ -56,8 +54,7 @@ public final class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs extends 
         }
 
         /**
-         * @param pattern Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-         * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         * @param pattern A regular expression used to validate the value of a slot.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class V2modelsSlotTypeValueSelectionSettingRegexFilterArgs extends 
         }
 
         /**
-         * @param pattern Used to validate the value of a slot. Use a standard regular expression. Amazon Lex supports the following characters in the regular expression: A-Z, a-z, 0-9, Unicode characters (&#34;\⁠u&#34;).
-         * Represent Unicode characters with four digits, for example &#34;\⁠u0041&#34; or &#34;\⁠u005A&#34;. The following regular expression operators are not supported: Infinite repeaters: *, +, or {x,} with no upper bound, wild card (.)
+         * @param pattern A regular expression used to validate the value of a slot.
          * 
          * @return builder
          * 

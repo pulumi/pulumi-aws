@@ -15,18 +15,14 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
     public static final V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs Empty = new V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs();
 
     /**
-     * Name of the slot type
-     * 
-     * The following arguments are optional:
+     * Name of a constituent sub slot inside a composite slot.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the slot type
-     * 
-     * The following arguments are optional:
+     * @return Name of a constituent sub slot inside a composite slot.
      * 
      */
     public Output<String> name() {
@@ -66,9 +62,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
         }
 
         /**
-         * @param name Name of the slot type
-         * 
-         * The following arguments are optional:
+         * @param name Name of a constituent sub slot inside a composite slot.
          * 
          * @return builder
          * 
@@ -79,9 +73,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
         }
 
         /**
-         * @param name Name of the slot type
-         * 
-         * The following arguments are optional:
+         * @param name Name of a constituent sub slot inside a composite slot.
          * 
          * @return builder
          * 

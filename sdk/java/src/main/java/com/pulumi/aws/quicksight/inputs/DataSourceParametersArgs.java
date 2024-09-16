@@ -8,6 +8,7 @@ import com.pulumi.aws.quicksight.inputs.DataSourceParametersAthenaArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersAuroraArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersAuroraPostgresqlArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersAwsIotAnalyticsArgs;
+import com.pulumi.aws.quicksight.inputs.DataSourceParametersDatabricksArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersJiraArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersMariaDbArgs;
 import com.pulumi.aws.quicksight.inputs.DataSourceParametersMysqlArgs;
@@ -107,6 +108,21 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<DataSourceParametersAwsIotAnalyticsArgs>> awsIotAnalytics() {
         return Optional.ofNullable(this.awsIotAnalytics);
+    }
+
+    /**
+     * Parameters for connecting to Databricks.
+     * 
+     */
+    @Import(name="databricks")
+    private @Nullable Output<DataSourceParametersDatabricksArgs> databricks;
+
+    /**
+     * @return Parameters for connecting to Databricks.
+     * 
+     */
+    public Optional<Output<DataSourceParametersDatabricksArgs>> databricks() {
+        return Optional.ofNullable(this.databricks);
     }
 
     /**
@@ -342,6 +358,7 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
         this.aurora = $.aurora;
         this.auroraPostgresql = $.auroraPostgresql;
         this.awsIotAnalytics = $.awsIotAnalytics;
+        this.databricks = $.databricks;
         this.jira = $.jira;
         this.mariaDb = $.mariaDb;
         this.mysql = $.mysql;
@@ -480,6 +497,27 @@ public final class DataSourceParametersArgs extends com.pulumi.resources.Resourc
          */
         public Builder awsIotAnalytics(DataSourceParametersAwsIotAnalyticsArgs awsIotAnalytics) {
             return awsIotAnalytics(Output.of(awsIotAnalytics));
+        }
+
+        /**
+         * @param databricks Parameters for connecting to Databricks.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databricks(@Nullable Output<DataSourceParametersDatabricksArgs> databricks) {
+            $.databricks = databricks;
+            return this;
+        }
+
+        /**
+         * @param databricks Parameters for connecting to Databricks.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databricks(DataSourceParametersDatabricksArgs databricks) {
+            return databricks(Output.of(databricks));
         }
 
         /**

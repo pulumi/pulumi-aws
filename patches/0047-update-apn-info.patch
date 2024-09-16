@@ -5,7 +5,7 @@ Subject: [PATCH] update apn info
 
 
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index ba533e77e9..fee7bf8596 100644
+index 3c2228bfa5..783b775def 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
 @@ -23,7 +23,6 @@ import (
@@ -29,4 +29,4 @@ index ba533e77e9..fee7bf8596 100644
 +				{Name: "Pulumi-Aws", Version: c.TerraformVersion, Comment: "+https://pulumi.com"},
  			},
  		},
- 		AssumeRoleWithWebIdentity:      c.AssumeRoleWithWebIdentity,
+ 		AssumeRole:                     c.AssumeRole,

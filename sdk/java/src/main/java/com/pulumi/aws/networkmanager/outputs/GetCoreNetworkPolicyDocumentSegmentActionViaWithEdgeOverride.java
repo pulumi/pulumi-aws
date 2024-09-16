@@ -13,30 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
     /**
-     * @return A list of strings. The list of edges associated with the network function group.
+     * @return A list of a list of strings. The list of edges associated with the network function group.
      * 
      */
-    private @Nullable List<String> edgeSets;
+    private @Nullable List<List<String>> edgeSets;
+    /**
+     * @return The preferred edge to use.
+     * 
+     * @deprecated
+     * Use use_edge_location
+     * 
+     */
+    @Deprecated /* Use use_edge_location */
+    private @Nullable String useEdge;
     /**
      * @return The preferred edge to use.
      * 
      */
-    private @Nullable String useEdge;
+    private @Nullable String useEdgeLocation;
 
     private GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride() {}
     /**
-     * @return A list of strings. The list of edges associated with the network function group.
+     * @return A list of a list of strings. The list of edges associated with the network function group.
      * 
      */
-    public List<String> edgeSets() {
+    public List<List<String>> edgeSets() {
         return this.edgeSets == null ? List.of() : this.edgeSets;
     }
     /**
      * @return The preferred edge to use.
      * 
+     * @deprecated
+     * Use use_edge_location
+     * 
      */
+    @Deprecated /* Use use_edge_location */
     public Optional<String> useEdge() {
         return Optional.ofNullable(this.useEdge);
+    }
+    /**
+     * @return The preferred edge to use.
+     * 
+     */
+    public Optional<String> useEdgeLocation() {
+        return Optional.ofNullable(this.useEdgeLocation);
     }
 
     public static Builder builder() {
@@ -48,23 +68,22 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> edgeSets;
+        private @Nullable List<List<String>> edgeSets;
         private @Nullable String useEdge;
+        private @Nullable String useEdgeLocation;
         public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.edgeSets = defaults.edgeSets;
     	      this.useEdge = defaults.useEdge;
+    	      this.useEdgeLocation = defaults.useEdgeLocation;
         }
 
         @CustomType.Setter
-        public Builder edgeSets(@Nullable List<String> edgeSets) {
+        public Builder edgeSets(@Nullable List<List<String>> edgeSets) {
 
             this.edgeSets = edgeSets;
             return this;
-        }
-        public Builder edgeSets(String... edgeSets) {
-            return edgeSets(List.of(edgeSets));
         }
         @CustomType.Setter
         public Builder useEdge(@Nullable String useEdge) {
@@ -72,10 +91,17 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride 
             this.useEdge = useEdge;
             return this;
         }
+        @CustomType.Setter
+        public Builder useEdgeLocation(@Nullable String useEdgeLocation) {
+
+            this.useEdgeLocation = useEdgeLocation;
+            return this;
+        }
         public GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride build() {
             final var _resultValue = new GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride();
             _resultValue.edgeSets = edgeSets;
             _resultValue.useEdge = useEdge;
+            _resultValue.useEdgeLocation = useEdgeLocation;
             return _resultValue;
         }
     }

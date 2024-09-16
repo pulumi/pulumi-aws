@@ -13,6 +13,8 @@ import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArg
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsPlainArgs;
@@ -29,6 +31,7 @@ import com.pulumi.aws.organizations.outputs.GetDelegatedServicesResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantAccountsResult;
+import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantOrganizationalUnitsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsResult;
 import com.pulumi.aws.organizations.outputs.GetPoliciesForTargetResult;
@@ -1650,6 +1653,182 @@ public final class OrganizationsFunctions {
      */
     public static CompletableFuture<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccountsPlain(GetOrganizationalUnitDescendantAccountsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", TypeShape.of(GetOrganizationalUnitDescendantAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs args) {
+        return getOrganizationalUnitDescendantOrganizationalUnits(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnitsPlain(GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs args) {
+        return getOrganizationalUnitDescendantOrganizationalUnitsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", TypeShape.of(GetOrganizationalUnitDescendantOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnitsPlain(GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", TypeShape.of(GetOrganizationalUnitDescendantOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.

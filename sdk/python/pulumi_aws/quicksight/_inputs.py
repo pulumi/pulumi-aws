@@ -165,6 +165,8 @@ __all__ = [
     'DataSourceParametersAuroraPostgresqlArgsDict',
     'DataSourceParametersAwsIotAnalyticsArgs',
     'DataSourceParametersAwsIotAnalyticsArgsDict',
+    'DataSourceParametersDatabricksArgs',
+    'DataSourceParametersDatabricksArgsDict',
     'DataSourceParametersJiraArgs',
     'DataSourceParametersJiraArgsDict',
     'DataSourceParametersMariaDbArgs',
@@ -251,8 +253,6 @@ __all__ = [
     'ThemePermissionArgsDict',
     'VpcConnectionTimeoutsArgs',
     'VpcConnectionTimeoutsArgsDict',
-    'GetDataSetColumnLevelPermissionRuleArgs',
-    'GetDataSetColumnLevelPermissionRuleArgsDict',
 ]
 
 MYPY = False
@@ -4227,6 +4227,10 @@ if not MYPY:
         """
         Parameters for connecting to AWS IOT Analytics.
         """
+        databricks: NotRequired[pulumi.Input['DataSourceParametersDatabricksArgsDict']]
+        """
+        Parameters for connecting to Databricks.
+        """
         jira: NotRequired[pulumi.Input['DataSourceParametersJiraArgsDict']]
         """
         Parameters for connecting to Jira.
@@ -4298,6 +4302,7 @@ class DataSourceParametersArgs:
                  aurora: Optional[pulumi.Input['DataSourceParametersAuroraArgs']] = None,
                  aurora_postgresql: Optional[pulumi.Input['DataSourceParametersAuroraPostgresqlArgs']] = None,
                  aws_iot_analytics: Optional[pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs']] = None,
+                 databricks: Optional[pulumi.Input['DataSourceParametersDatabricksArgs']] = None,
                  jira: Optional[pulumi.Input['DataSourceParametersJiraArgs']] = None,
                  maria_db: Optional[pulumi.Input['DataSourceParametersMariaDbArgs']] = None,
                  mysql: Optional[pulumi.Input['DataSourceParametersMysqlArgs']] = None,
@@ -4319,6 +4324,7 @@ class DataSourceParametersArgs:
         :param pulumi.Input['DataSourceParametersAuroraArgs'] aurora: Parameters for connecting to Aurora MySQL.
         :param pulumi.Input['DataSourceParametersAuroraPostgresqlArgs'] aurora_postgresql: Parameters for connecting to Aurora Postgresql.
         :param pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs'] aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param pulumi.Input['DataSourceParametersDatabricksArgs'] databricks: Parameters for connecting to Databricks.
         :param pulumi.Input['DataSourceParametersJiraArgs'] jira: Parameters for connecting to Jira.
         :param pulumi.Input['DataSourceParametersMariaDbArgs'] maria_db: Parameters for connecting to MariaDB.
         :param pulumi.Input['DataSourceParametersMysqlArgs'] mysql: Parameters for connecting to MySQL.
@@ -4345,6 +4351,8 @@ class DataSourceParametersArgs:
             pulumi.set(__self__, "aurora_postgresql", aurora_postgresql)
         if aws_iot_analytics is not None:
             pulumi.set(__self__, "aws_iot_analytics", aws_iot_analytics)
+        if databricks is not None:
+            pulumi.set(__self__, "databricks", databricks)
         if jira is not None:
             pulumi.set(__self__, "jira", jira)
         if maria_db is not None:
@@ -4435,6 +4443,18 @@ class DataSourceParametersArgs:
     @aws_iot_analytics.setter
     def aws_iot_analytics(self, value: Optional[pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs']]):
         pulumi.set(self, "aws_iot_analytics", value)
+
+    @property
+    @pulumi.getter
+    def databricks(self) -> Optional[pulumi.Input['DataSourceParametersDatabricksArgs']]:
+        """
+        Parameters for connecting to Databricks.
+        """
+        return pulumi.get(self, "databricks")
+
+    @databricks.setter
+    def databricks(self, value: Optional[pulumi.Input['DataSourceParametersDatabricksArgs']]):
+        pulumi.set(self, "databricks", value)
 
     @property
     @pulumi.getter
@@ -4847,6 +4867,75 @@ class DataSourceParametersAwsIotAnalyticsArgs:
     @data_set_name.setter
     def data_set_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_set_name", value)
+
+
+if not MYPY:
+    class DataSourceParametersDatabricksArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        The host name of the Databricks data source.
+        """
+        port: pulumi.Input[int]
+        """
+        The port for the Databricks data source.
+        """
+        sql_endpoint_path: pulumi.Input[str]
+        """
+        The HTTP path of the Databricks data source.
+        """
+elif False:
+    DataSourceParametersDatabricksArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceParametersDatabricksArgs:
+    def __init__(__self__, *,
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 sql_endpoint_path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] host: The host name of the Databricks data source.
+        :param pulumi.Input[int] port: The port for the Databricks data source.
+        :param pulumi.Input[str] sql_endpoint_path: The HTTP path of the Databricks data source.
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        The host name of the Databricks data source.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port for the Databricks data source.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="sqlEndpointPath")
+    def sql_endpoint_path(self) -> pulumi.Input[str]:
+        """
+        The HTTP path of the Databricks data source.
+        """
+        return pulumi.get(self, "sql_endpoint_path")
+
+    @sql_endpoint_path.setter
+    def sql_endpoint_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_endpoint_path", value)
 
 
 if not MYPY:
@@ -7410,39 +7499,5 @@ class VpcConnectionTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
-
-
-if not MYPY:
-    class GetDataSetColumnLevelPermissionRuleArgsDict(TypedDict):
-        column_names: Sequence[str]
-        principals: Sequence[str]
-elif False:
-    GetDataSetColumnLevelPermissionRuleArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetDataSetColumnLevelPermissionRuleArgs:
-    def __init__(__self__, *,
-                 column_names: Sequence[str],
-                 principals: Sequence[str]):
-        pulumi.set(__self__, "column_names", column_names)
-        pulumi.set(__self__, "principals", principals)
-
-    @property
-    @pulumi.getter(name="columnNames")
-    def column_names(self) -> Sequence[str]:
-        return pulumi.get(self, "column_names")
-
-    @column_names.setter
-    def column_names(self, value: Sequence[str]):
-        pulumi.set(self, "column_names", value)
-
-    @property
-    @pulumi.getter
-    def principals(self) -> Sequence[str]:
-        return pulumi.get(self, "principals")
-
-    @principals.setter
-    def principals(self, value: Sequence[str]):
-        pulumi.set(self, "principals", value)
 
 

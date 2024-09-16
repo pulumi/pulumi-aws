@@ -220,10 +220,6 @@ if not MYPY:
         """
         The action name.
         """
-        role_arn: pulumi.Input[str]
-        """
-        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-        """
         uri: pulumi.Input[str]
         """
         The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
@@ -232,6 +228,10 @@ if not MYPY:
         """
         Information about the action.
         """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        """
 elif False:
     ExtensionActionPointActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -239,20 +239,21 @@ elif False:
 class ExtensionActionPointActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str],
                  uri: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The action name.
-        :param pulumi.Input[str] role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         :param pulumi.Input[str] uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         :param pulumi.Input[str] description: Information about the action.
+        :param pulumi.Input[str] role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "uri", uri)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
@@ -265,18 +266,6 @@ class ExtensionActionPointActionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[str]:
-        """
-        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "role_arn", value)
 
     @property
     @pulumi.getter
@@ -301,6 +290,18 @@ class ExtensionActionPointActionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 if not MYPY:

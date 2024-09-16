@@ -17,6 +17,7 @@ from .dev_endpoint import *
 from .get_catalog_table import *
 from .get_connection import *
 from .get_data_catalog_encryption_settings import *
+from .get_registry import *
 from .get_script import *
 from .job import *
 from .ml_transform import *

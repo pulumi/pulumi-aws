@@ -19,16 +19,32 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs();
 
+    /**
+     * Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     @Import(name="allowInterrupt")
     private @Nullable Output<Boolean> allowInterrupt;
 
+    /**
+     * @return Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     public Optional<Output<Boolean>> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
 
+    /**
+     * How often a message should be sent to the user.
+     * 
+     */
     @Import(name="frequencyInSeconds", required=true)
     private Output<Integer> frequencyInSeconds;
 
+    /**
+     * @return How often a message should be sent to the user.
+     * 
+     */
     public Output<Integer> frequencyInSeconds() {
         return this.frequencyInSeconds;
     }
@@ -40,9 +56,17 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         return Optional.ofNullable(this.messageGroups);
     }
 
+    /**
+     * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+     * 
+     */
     @Import(name="timeoutInSeconds", required=true)
     private Output<Integer> timeoutInSeconds;
 
+    /**
+     * @return If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+     * 
+     */
     public Output<Integer> timeoutInSeconds() {
         return this.timeoutInSeconds;
     }
@@ -74,20 +98,44 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowInterrupt Whether the user can interrupt a speech response from Amazon Lex.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInterrupt(@Nullable Output<Boolean> allowInterrupt) {
             $.allowInterrupt = allowInterrupt;
             return this;
         }
 
+        /**
+         * @param allowInterrupt Whether the user can interrupt a speech response from Amazon Lex.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInterrupt(Boolean allowInterrupt) {
             return allowInterrupt(Output.of(allowInterrupt));
         }
 
+        /**
+         * @param frequencyInSeconds How often a message should be sent to the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frequencyInSeconds(Output<Integer> frequencyInSeconds) {
             $.frequencyInSeconds = frequencyInSeconds;
             return this;
         }
 
+        /**
+         * @param frequencyInSeconds How often a message should be sent to the user.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frequencyInSeconds(Integer frequencyInSeconds) {
             return frequencyInSeconds(Output.of(frequencyInSeconds));
         }
@@ -105,11 +153,23 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             return messageGroups(List.of(messageGroups));
         }
 
+        /**
+         * @param timeoutInSeconds If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutInSeconds(Output<Integer> timeoutInSeconds) {
             $.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
 
+        /**
+         * @param timeoutInSeconds If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
             return timeoutInSeconds(Output.of(timeoutInSeconds));
         }

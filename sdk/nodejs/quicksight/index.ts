@@ -40,10 +40,20 @@ export type FolderMembership = import("./folderMembership").FolderMembership;
 export const FolderMembership: typeof import("./folderMembership").FolderMembership = null as any;
 utilities.lazyLoad(exports, ["FolderMembership"], () => require("./folderMembership"));
 
+export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./getAnalysis";
+export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
+export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
+utilities.lazyLoad(exports, ["getAnalysis","getAnalysisOutput"], () => require("./getAnalysis"));
+
 export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
+
+export { GetQuicksightAnalysisArgs, GetQuicksightAnalysisResult, GetQuicksightAnalysisOutputArgs } from "./getQuicksightAnalysis";
+export const getQuicksightAnalysis: typeof import("./getQuicksightAnalysis").getQuicksightAnalysis = null as any;
+export const getQuicksightAnalysisOutput: typeof import("./getQuicksightAnalysis").getQuicksightAnalysisOutput = null as any;
+utilities.lazyLoad(exports, ["getQuicksightAnalysis","getQuicksightAnalysisOutput"], () => require("./getQuicksightAnalysis"));
 
 export { GetQuicksightGroupArgs, GetQuicksightGroupResult, GetQuicksightGroupOutputArgs } from "./getQuicksightGroup";
 export const getQuicksightGroup: typeof import("./getQuicksightGroup").getQuicksightGroup = null as any;

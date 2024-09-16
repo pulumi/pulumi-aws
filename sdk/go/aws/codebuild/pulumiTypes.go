@@ -13,6 +13,534 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FleetScalingConfiguration struct {
+	DesiredCapacity *int `pulumi:"desiredCapacity"`
+	// Maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+	ScalingType *string `pulumi:"scalingType"`
+	// Configuration block. Detailed below.
+	TargetTrackingScalingConfigs []FleetScalingConfigurationTargetTrackingScalingConfig `pulumi:"targetTrackingScalingConfigs"`
+}
+
+// FleetScalingConfigurationInput is an input type that accepts FleetScalingConfigurationArgs and FleetScalingConfigurationOutput values.
+// You can construct a concrete instance of `FleetScalingConfigurationInput` via:
+//
+//	FleetScalingConfigurationArgs{...}
+type FleetScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationOutput() FleetScalingConfigurationOutput
+	ToFleetScalingConfigurationOutputWithContext(context.Context) FleetScalingConfigurationOutput
+}
+
+type FleetScalingConfigurationArgs struct {
+	DesiredCapacity pulumi.IntPtrInput `pulumi:"desiredCapacity"`
+	// Maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+	ScalingType pulumi.StringPtrInput `pulumi:"scalingType"`
+	// Configuration block. Detailed below.
+	TargetTrackingScalingConfigs FleetScalingConfigurationTargetTrackingScalingConfigArrayInput `pulumi:"targetTrackingScalingConfigs"`
+}
+
+func (FleetScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfiguration)(nil)).Elem()
+}
+
+func (i FleetScalingConfigurationArgs) ToFleetScalingConfigurationOutput() FleetScalingConfigurationOutput {
+	return i.ToFleetScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetScalingConfigurationArgs) ToFleetScalingConfigurationOutputWithContext(ctx context.Context) FleetScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingConfigurationOutput)
+}
+
+func (i FleetScalingConfigurationArgs) ToFleetScalingConfigurationPtrOutput() FleetScalingConfigurationPtrOutput {
+	return i.ToFleetScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetScalingConfigurationArgs) ToFleetScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingConfigurationOutput).ToFleetScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetScalingConfigurationPtrInput is an input type that accepts FleetScalingConfigurationArgs, FleetScalingConfigurationPtr and FleetScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetScalingConfigurationPtrInput` via:
+//
+//	        FleetScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationPtrOutput() FleetScalingConfigurationPtrOutput
+	ToFleetScalingConfigurationPtrOutputWithContext(context.Context) FleetScalingConfigurationPtrOutput
+}
+
+type fleetScalingConfigurationPtrType FleetScalingConfigurationArgs
+
+func FleetScalingConfigurationPtr(v *FleetScalingConfigurationArgs) FleetScalingConfigurationPtrInput {
+	return (*fleetScalingConfigurationPtrType)(v)
+}
+
+func (*fleetScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingConfiguration)(nil)).Elem()
+}
+
+func (i *fleetScalingConfigurationPtrType) ToFleetScalingConfigurationPtrOutput() FleetScalingConfigurationPtrOutput {
+	return i.ToFleetScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetScalingConfigurationPtrType) ToFleetScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingConfigurationPtrOutput)
+}
+
+type FleetScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationOutput) ToFleetScalingConfigurationOutput() FleetScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationOutput) ToFleetScalingConfigurationOutputWithContext(ctx context.Context) FleetScalingConfigurationOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationOutput) ToFleetScalingConfigurationPtrOutput() FleetScalingConfigurationPtrOutput {
+	return o.ToFleetScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingConfigurationOutput) ToFleetScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingConfiguration) *FleetScalingConfiguration {
+		return &v
+	}).(FleetScalingConfigurationPtrOutput)
+}
+
+func (o FleetScalingConfigurationOutput) DesiredCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetScalingConfiguration) *int { return v.DesiredCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of instances in the ﬂeet when auto-scaling.
+func (o FleetScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+func (o FleetScalingConfigurationOutput) ScalingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetScalingConfiguration) *string { return v.ScalingType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block. Detailed below.
+func (o FleetScalingConfigurationOutput) TargetTrackingScalingConfigs() FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o.ApplyT(func(v FleetScalingConfiguration) []FleetScalingConfigurationTargetTrackingScalingConfig {
+		return v.TargetTrackingScalingConfigs
+	}).(FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput)
+}
+
+type FleetScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingConfiguration)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationPtrOutput) ToFleetScalingConfigurationPtrOutput() FleetScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationPtrOutput) ToFleetScalingConfigurationPtrOutputWithContext(ctx context.Context) FleetScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationPtrOutput) Elem() FleetScalingConfigurationOutput {
+	return o.ApplyT(func(v *FleetScalingConfiguration) FleetScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingConfiguration
+		return ret
+	}).(FleetScalingConfigurationOutput)
+}
+
+func (o FleetScalingConfigurationPtrOutput) DesiredCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of instances in the ﬂeet when auto-scaling.
+func (o FleetScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+func (o FleetScalingConfigurationPtrOutput) ScalingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block. Detailed below.
+func (o FleetScalingConfigurationPtrOutput) TargetTrackingScalingConfigs() FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o.ApplyT(func(v *FleetScalingConfiguration) []FleetScalingConfigurationTargetTrackingScalingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTrackingScalingConfigs
+	}).(FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput)
+}
+
+type FleetScalingConfigurationTargetTrackingScalingConfig struct {
+	// Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+	MetricType *string `pulumi:"metricType"`
+	// Value of metricType when to start scaling.
+	TargetValue *float64 `pulumi:"targetValue"`
+}
+
+// FleetScalingConfigurationTargetTrackingScalingConfigInput is an input type that accepts FleetScalingConfigurationTargetTrackingScalingConfigArgs and FleetScalingConfigurationTargetTrackingScalingConfigOutput values.
+// You can construct a concrete instance of `FleetScalingConfigurationTargetTrackingScalingConfigInput` via:
+//
+//	FleetScalingConfigurationTargetTrackingScalingConfigArgs{...}
+type FleetScalingConfigurationTargetTrackingScalingConfigInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationTargetTrackingScalingConfigOutput() FleetScalingConfigurationTargetTrackingScalingConfigOutput
+	ToFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(context.Context) FleetScalingConfigurationTargetTrackingScalingConfigOutput
+}
+
+type FleetScalingConfigurationTargetTrackingScalingConfigArgs struct {
+	// Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+	MetricType pulumi.StringPtrInput `pulumi:"metricType"`
+	// Value of metricType when to start scaling.
+	TargetValue pulumi.Float64PtrInput `pulumi:"targetValue"`
+}
+
+func (FleetScalingConfigurationTargetTrackingScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (i FleetScalingConfigurationTargetTrackingScalingConfigArgs) ToFleetScalingConfigurationTargetTrackingScalingConfigOutput() FleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return i.ToFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(context.Background())
+}
+
+func (i FleetScalingConfigurationTargetTrackingScalingConfigArgs) ToFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(ctx context.Context) FleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingConfigurationTargetTrackingScalingConfigOutput)
+}
+
+// FleetScalingConfigurationTargetTrackingScalingConfigArrayInput is an input type that accepts FleetScalingConfigurationTargetTrackingScalingConfigArray and FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput values.
+// You can construct a concrete instance of `FleetScalingConfigurationTargetTrackingScalingConfigArrayInput` via:
+//
+//	FleetScalingConfigurationTargetTrackingScalingConfigArray{ FleetScalingConfigurationTargetTrackingScalingConfigArgs{...} }
+type FleetScalingConfigurationTargetTrackingScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput
+	ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(context.Context) FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput
+}
+
+type FleetScalingConfigurationTargetTrackingScalingConfigArray []FleetScalingConfigurationTargetTrackingScalingConfigInput
+
+func (FleetScalingConfigurationTargetTrackingScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (i FleetScalingConfigurationTargetTrackingScalingConfigArray) ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return i.ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i FleetScalingConfigurationTargetTrackingScalingConfigArray) ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(ctx context.Context) FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput)
+}
+
+type FleetScalingConfigurationTargetTrackingScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationTargetTrackingScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationTargetTrackingScalingConfigOutput) ToFleetScalingConfigurationTargetTrackingScalingConfigOutput() FleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationTargetTrackingScalingConfigOutput) ToFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(ctx context.Context) FleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return o
+}
+
+// Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+func (o FleetScalingConfigurationTargetTrackingScalingConfigOutput) MetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetScalingConfigurationTargetTrackingScalingConfig) *string { return v.MetricType }).(pulumi.StringPtrOutput)
+}
+
+// Value of metricType when to start scaling.
+func (o FleetScalingConfigurationTargetTrackingScalingConfigOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetScalingConfigurationTargetTrackingScalingConfig) *float64 { return v.TargetValue }).(pulumi.Float64PtrOutput)
+}
+
+type FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ToFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(ctx context.Context) FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) Index(i pulumi.IntInput) FleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetScalingConfigurationTargetTrackingScalingConfig {
+		return vs[0].([]FleetScalingConfigurationTargetTrackingScalingConfig)[vs[1].(int)]
+	}).(FleetScalingConfigurationTargetTrackingScalingConfigOutput)
+}
+
+type FleetStatus struct {
+	// Additional information about a compute fleet.
+	Context *string `pulumi:"context"`
+	// Message associated with the status of a compute fleet.
+	Message *string `pulumi:"message"`
+	// Status code of the compute fleet.
+	StatusCode *string `pulumi:"statusCode"`
+}
+
+// FleetStatusInput is an input type that accepts FleetStatusArgs and FleetStatusOutput values.
+// You can construct a concrete instance of `FleetStatusInput` via:
+//
+//	FleetStatusArgs{...}
+type FleetStatusInput interface {
+	pulumi.Input
+
+	ToFleetStatusOutput() FleetStatusOutput
+	ToFleetStatusOutputWithContext(context.Context) FleetStatusOutput
+}
+
+type FleetStatusArgs struct {
+	// Additional information about a compute fleet.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Message associated with the status of a compute fleet.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Status code of the compute fleet.
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+}
+
+func (FleetStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetStatus)(nil)).Elem()
+}
+
+func (i FleetStatusArgs) ToFleetStatusOutput() FleetStatusOutput {
+	return i.ToFleetStatusOutputWithContext(context.Background())
+}
+
+func (i FleetStatusArgs) ToFleetStatusOutputWithContext(ctx context.Context) FleetStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetStatusOutput)
+}
+
+// FleetStatusArrayInput is an input type that accepts FleetStatusArray and FleetStatusArrayOutput values.
+// You can construct a concrete instance of `FleetStatusArrayInput` via:
+//
+//	FleetStatusArray{ FleetStatusArgs{...} }
+type FleetStatusArrayInput interface {
+	pulumi.Input
+
+	ToFleetStatusArrayOutput() FleetStatusArrayOutput
+	ToFleetStatusArrayOutputWithContext(context.Context) FleetStatusArrayOutput
+}
+
+type FleetStatusArray []FleetStatusInput
+
+func (FleetStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetStatus)(nil)).Elem()
+}
+
+func (i FleetStatusArray) ToFleetStatusArrayOutput() FleetStatusArrayOutput {
+	return i.ToFleetStatusArrayOutputWithContext(context.Background())
+}
+
+func (i FleetStatusArray) ToFleetStatusArrayOutputWithContext(ctx context.Context) FleetStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetStatusArrayOutput)
+}
+
+type FleetStatusOutput struct{ *pulumi.OutputState }
+
+func (FleetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetStatus)(nil)).Elem()
+}
+
+func (o FleetStatusOutput) ToFleetStatusOutput() FleetStatusOutput {
+	return o
+}
+
+func (o FleetStatusOutput) ToFleetStatusOutputWithContext(ctx context.Context) FleetStatusOutput {
+	return o
+}
+
+// Additional information about a compute fleet.
+func (o FleetStatusOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetStatus) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Message associated with the status of a compute fleet.
+func (o FleetStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Status code of the compute fleet.
+func (o FleetStatusOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetStatus) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+type FleetStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetStatus)(nil)).Elem()
+}
+
+func (o FleetStatusArrayOutput) ToFleetStatusArrayOutput() FleetStatusArrayOutput {
+	return o
+}
+
+func (o FleetStatusArrayOutput) ToFleetStatusArrayOutputWithContext(ctx context.Context) FleetStatusArrayOutput {
+	return o
+}
+
+func (o FleetStatusArrayOutput) Index(i pulumi.IntInput) FleetStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetStatus {
+		return vs[0].([]FleetStatus)[vs[1].(int)]
+	}).(FleetStatusOutput)
+}
+
+type FleetVpcConfig struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets []string `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
+// You can construct a concrete instance of `FleetVpcConfigInput` via:
+//
+//	FleetVpcConfigArgs{...}
+type FleetVpcConfigInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigOutput() FleetVpcConfigOutput
+	ToFleetVpcConfigOutputWithContext(context.Context) FleetVpcConfigOutput
+}
+
+type FleetVpcConfigArgs struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (FleetVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return i.ToFleetVpcConfigOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput)
+}
+
+// FleetVpcConfigArrayInput is an input type that accepts FleetVpcConfigArray and FleetVpcConfigArrayOutput values.
+// You can construct a concrete instance of `FleetVpcConfigArrayInput` via:
+//
+//	FleetVpcConfigArray{ FleetVpcConfigArgs{...} }
+type FleetVpcConfigArrayInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigArrayOutput() FleetVpcConfigArrayOutput
+	ToFleetVpcConfigArrayOutputWithContext(context.Context) FleetVpcConfigArrayOutput
+}
+
+type FleetVpcConfigArray []FleetVpcConfigInput
+
+func (FleetVpcConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetVpcConfig)(nil)).Elem()
+}
+
+func (i FleetVpcConfigArray) ToFleetVpcConfigArrayOutput() FleetVpcConfigArrayOutput {
+	return i.ToFleetVpcConfigArrayOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArray) ToFleetVpcConfigArrayOutputWithContext(ctx context.Context) FleetVpcConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigArrayOutput)
+}
+
+type FleetVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return o
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return o
+}
+
+// A list of one or more security groups IDs in your Amazon VPC.
+func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more subnet IDs in your Amazon VPC.
+func (o FleetVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o FleetVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type FleetVpcConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigArrayOutput) ToFleetVpcConfigArrayOutput() FleetVpcConfigArrayOutput {
+	return o
+}
+
+func (o FleetVpcConfigArrayOutput) ToFleetVpcConfigArrayOutputWithContext(ctx context.Context) FleetVpcConfigArrayOutput {
+	return o
+}
+
+func (o FleetVpcConfigArrayOutput) Index(i pulumi.IntInput) FleetVpcConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetVpcConfig {
+		return vs[0].([]FleetVpcConfig)[vs[1].(int)]
+	}).(FleetVpcConfigOutput)
+}
+
 type ProjectArtifacts struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
 	ArtifactIdentifier *string `pulumi:"artifactIdentifier"`
@@ -853,6 +1381,8 @@ type ProjectEnvironment struct {
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
+	// Configuration block. Detailed below.
+	Fleet *ProjectEnvironmentFleet `pulumi:"fleet"`
 	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image string `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -883,6 +1413,8 @@ type ProjectEnvironmentArgs struct {
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	// Configuration block. Detailed below.
+	Fleet ProjectEnvironmentFleetPtrInput `pulumi:"fleet"`
 	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image pulumi.StringInput `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -987,6 +1519,11 @@ func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentEnvir
 	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
 
+// Configuration block. Detailed below.
+func (o ProjectEnvironmentOutput) Fleet() ProjectEnvironmentFleetPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentFleet { return v.Fleet }).(ProjectEnvironmentFleetPtrOutput)
+}
+
 // Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Image }).(pulumi.StringOutput)
@@ -1064,6 +1601,16 @@ func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentEn
 		}
 		return v.EnvironmentVariables
 	}).(ProjectEnvironmentEnvironmentVariableArrayOutput)
+}
+
+// Configuration block. Detailed below.
+func (o ProjectEnvironmentPtrOutput) Fleet() ProjectEnvironmentFleetPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectEnvironmentFleet {
+		if v == nil {
+			return nil
+		}
+		return v.Fleet
+	}).(ProjectEnvironmentFleetPtrOutput)
 }
 
 // Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
@@ -1229,6 +1776,143 @@ func (o ProjectEnvironmentEnvironmentVariableArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentEnvironmentVariable {
 		return vs[0].([]ProjectEnvironmentEnvironmentVariable)[vs[1].(int)]
 	}).(ProjectEnvironmentEnvironmentVariableOutput)
+}
+
+type ProjectEnvironmentFleet struct {
+	// Compute fleet ARN for the build project.
+	FleetArn *string `pulumi:"fleetArn"`
+}
+
+// ProjectEnvironmentFleetInput is an input type that accepts ProjectEnvironmentFleetArgs and ProjectEnvironmentFleetOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentFleetInput` via:
+//
+//	ProjectEnvironmentFleetArgs{...}
+type ProjectEnvironmentFleetInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentFleetOutput() ProjectEnvironmentFleetOutput
+	ToProjectEnvironmentFleetOutputWithContext(context.Context) ProjectEnvironmentFleetOutput
+}
+
+type ProjectEnvironmentFleetArgs struct {
+	// Compute fleet ARN for the build project.
+	FleetArn pulumi.StringPtrInput `pulumi:"fleetArn"`
+}
+
+func (ProjectEnvironmentFleetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentFleet)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentFleetArgs) ToProjectEnvironmentFleetOutput() ProjectEnvironmentFleetOutput {
+	return i.ToProjectEnvironmentFleetOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentFleetArgs) ToProjectEnvironmentFleetOutputWithContext(ctx context.Context) ProjectEnvironmentFleetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentFleetOutput)
+}
+
+func (i ProjectEnvironmentFleetArgs) ToProjectEnvironmentFleetPtrOutput() ProjectEnvironmentFleetPtrOutput {
+	return i.ToProjectEnvironmentFleetPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentFleetArgs) ToProjectEnvironmentFleetPtrOutputWithContext(ctx context.Context) ProjectEnvironmentFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentFleetOutput).ToProjectEnvironmentFleetPtrOutputWithContext(ctx)
+}
+
+// ProjectEnvironmentFleetPtrInput is an input type that accepts ProjectEnvironmentFleetArgs, ProjectEnvironmentFleetPtr and ProjectEnvironmentFleetPtrOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentFleetPtrInput` via:
+//
+//	        ProjectEnvironmentFleetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectEnvironmentFleetPtrInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentFleetPtrOutput() ProjectEnvironmentFleetPtrOutput
+	ToProjectEnvironmentFleetPtrOutputWithContext(context.Context) ProjectEnvironmentFleetPtrOutput
+}
+
+type projectEnvironmentFleetPtrType ProjectEnvironmentFleetArgs
+
+func ProjectEnvironmentFleetPtr(v *ProjectEnvironmentFleetArgs) ProjectEnvironmentFleetPtrInput {
+	return (*projectEnvironmentFleetPtrType)(v)
+}
+
+func (*projectEnvironmentFleetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentFleet)(nil)).Elem()
+}
+
+func (i *projectEnvironmentFleetPtrType) ToProjectEnvironmentFleetPtrOutput() ProjectEnvironmentFleetPtrOutput {
+	return i.ToProjectEnvironmentFleetPtrOutputWithContext(context.Background())
+}
+
+func (i *projectEnvironmentFleetPtrType) ToProjectEnvironmentFleetPtrOutputWithContext(ctx context.Context) ProjectEnvironmentFleetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentFleetPtrOutput)
+}
+
+type ProjectEnvironmentFleetOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentFleetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentFleet)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentFleetOutput) ToProjectEnvironmentFleetOutput() ProjectEnvironmentFleetOutput {
+	return o
+}
+
+func (o ProjectEnvironmentFleetOutput) ToProjectEnvironmentFleetOutputWithContext(ctx context.Context) ProjectEnvironmentFleetOutput {
+	return o
+}
+
+func (o ProjectEnvironmentFleetOutput) ToProjectEnvironmentFleetPtrOutput() ProjectEnvironmentFleetPtrOutput {
+	return o.ToProjectEnvironmentFleetPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectEnvironmentFleetOutput) ToProjectEnvironmentFleetPtrOutputWithContext(ctx context.Context) ProjectEnvironmentFleetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironmentFleet) *ProjectEnvironmentFleet {
+		return &v
+	}).(ProjectEnvironmentFleetPtrOutput)
+}
+
+// Compute fleet ARN for the build project.
+func (o ProjectEnvironmentFleetOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironmentFleet) *string { return v.FleetArn }).(pulumi.StringPtrOutput)
+}
+
+type ProjectEnvironmentFleetPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentFleetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentFleet)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentFleetPtrOutput) ToProjectEnvironmentFleetPtrOutput() ProjectEnvironmentFleetPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentFleetPtrOutput) ToProjectEnvironmentFleetPtrOutputWithContext(ctx context.Context) ProjectEnvironmentFleetPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentFleetPtrOutput) Elem() ProjectEnvironmentFleetOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentFleet) ProjectEnvironmentFleet {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironmentFleet
+		return ret
+	}).(ProjectEnvironmentFleetOutput)
+}
+
+// Compute fleet ARN for the build project.
+func (o ProjectEnvironmentFleetPtrOutput) FleetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentFleet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FleetArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectEnvironmentRegistryCredential struct {
@@ -4291,7 +4975,477 @@ func (o WebhookScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFleetScalingConfiguration struct {
+	// The desired number of instances in the ﬂeet when auto-scaling.
+	DesiredCapacity int `pulumi:"desiredCapacity"`
+	// The maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The scaling type for a compute fleet.
+	ScalingType string `pulumi:"scalingType"`
+	// Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+	TargetTrackingScalingConfigs []GetFleetScalingConfigurationTargetTrackingScalingConfig `pulumi:"targetTrackingScalingConfigs"`
+}
+
+// GetFleetScalingConfigurationInput is an input type that accepts GetFleetScalingConfigurationArgs and GetFleetScalingConfigurationOutput values.
+// You can construct a concrete instance of `GetFleetScalingConfigurationInput` via:
+//
+//	GetFleetScalingConfigurationArgs{...}
+type GetFleetScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToGetFleetScalingConfigurationOutput() GetFleetScalingConfigurationOutput
+	ToGetFleetScalingConfigurationOutputWithContext(context.Context) GetFleetScalingConfigurationOutput
+}
+
+type GetFleetScalingConfigurationArgs struct {
+	// The desired number of instances in the ﬂeet when auto-scaling.
+	DesiredCapacity pulumi.IntInput `pulumi:"desiredCapacity"`
+	// The maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The scaling type for a compute fleet.
+	ScalingType pulumi.StringInput `pulumi:"scalingType"`
+	// Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+	TargetTrackingScalingConfigs GetFleetScalingConfigurationTargetTrackingScalingConfigArrayInput `pulumi:"targetTrackingScalingConfigs"`
+}
+
+func (GetFleetScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetScalingConfiguration)(nil)).Elem()
+}
+
+func (i GetFleetScalingConfigurationArgs) ToGetFleetScalingConfigurationOutput() GetFleetScalingConfigurationOutput {
+	return i.ToGetFleetScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetFleetScalingConfigurationArgs) ToGetFleetScalingConfigurationOutputWithContext(ctx context.Context) GetFleetScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetScalingConfigurationOutput)
+}
+
+// GetFleetScalingConfigurationArrayInput is an input type that accepts GetFleetScalingConfigurationArray and GetFleetScalingConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetFleetScalingConfigurationArrayInput` via:
+//
+//	GetFleetScalingConfigurationArray{ GetFleetScalingConfigurationArgs{...} }
+type GetFleetScalingConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetScalingConfigurationArrayOutput() GetFleetScalingConfigurationArrayOutput
+	ToGetFleetScalingConfigurationArrayOutputWithContext(context.Context) GetFleetScalingConfigurationArrayOutput
+}
+
+type GetFleetScalingConfigurationArray []GetFleetScalingConfigurationInput
+
+func (GetFleetScalingConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetScalingConfiguration)(nil)).Elem()
+}
+
+func (i GetFleetScalingConfigurationArray) ToGetFleetScalingConfigurationArrayOutput() GetFleetScalingConfigurationArrayOutput {
+	return i.ToGetFleetScalingConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetScalingConfigurationArray) ToGetFleetScalingConfigurationArrayOutputWithContext(ctx context.Context) GetFleetScalingConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetScalingConfigurationArrayOutput)
+}
+
+type GetFleetScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetFleetScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetScalingConfiguration)(nil)).Elem()
+}
+
+func (o GetFleetScalingConfigurationOutput) ToGetFleetScalingConfigurationOutput() GetFleetScalingConfigurationOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationOutput) ToGetFleetScalingConfigurationOutputWithContext(ctx context.Context) GetFleetScalingConfigurationOutput {
+	return o
+}
+
+// The desired number of instances in the ﬂeet when auto-scaling.
+func (o GetFleetScalingConfigurationOutput) DesiredCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFleetScalingConfiguration) int { return v.DesiredCapacity }).(pulumi.IntOutput)
+}
+
+// The maximum number of instances in the ﬂeet when auto-scaling.
+func (o GetFleetScalingConfigurationOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFleetScalingConfiguration) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// The scaling type for a compute fleet.
+func (o GetFleetScalingConfigurationOutput) ScalingType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetScalingConfiguration) string { return v.ScalingType }).(pulumi.StringOutput)
+}
+
+// Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
+func (o GetFleetScalingConfigurationOutput) TargetTrackingScalingConfigs() GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o.ApplyT(func(v GetFleetScalingConfiguration) []GetFleetScalingConfigurationTargetTrackingScalingConfig {
+		return v.TargetTrackingScalingConfigs
+	}).(GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput)
+}
+
+type GetFleetScalingConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetScalingConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetScalingConfiguration)(nil)).Elem()
+}
+
+func (o GetFleetScalingConfigurationArrayOutput) ToGetFleetScalingConfigurationArrayOutput() GetFleetScalingConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationArrayOutput) ToGetFleetScalingConfigurationArrayOutputWithContext(ctx context.Context) GetFleetScalingConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationArrayOutput) Index(i pulumi.IntInput) GetFleetScalingConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetScalingConfiguration {
+		return vs[0].([]GetFleetScalingConfiguration)[vs[1].(int)]
+	}).(GetFleetScalingConfigurationOutput)
+}
+
+type GetFleetScalingConfigurationTargetTrackingScalingConfig struct {
+	// The metric type to determine auto-scaling.
+	MetricType string `pulumi:"metricType"`
+	// The value of metricType when to start scaling.
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// GetFleetScalingConfigurationTargetTrackingScalingConfigInput is an input type that accepts GetFleetScalingConfigurationTargetTrackingScalingConfigArgs and GetFleetScalingConfigurationTargetTrackingScalingConfigOutput values.
+// You can construct a concrete instance of `GetFleetScalingConfigurationTargetTrackingScalingConfigInput` via:
+//
+//	GetFleetScalingConfigurationTargetTrackingScalingConfigArgs{...}
+type GetFleetScalingConfigurationTargetTrackingScalingConfigInput interface {
+	pulumi.Input
+
+	ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigOutput
+	ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigOutput
+}
+
+type GetFleetScalingConfigurationTargetTrackingScalingConfigArgs struct {
+	// The metric type to determine auto-scaling.
+	MetricType pulumi.StringInput `pulumi:"metricType"`
+	// The value of metricType when to start scaling.
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (GetFleetScalingConfigurationTargetTrackingScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (i GetFleetScalingConfigurationTargetTrackingScalingConfigArgs) ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return i.ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(context.Background())
+}
+
+func (i GetFleetScalingConfigurationTargetTrackingScalingConfigArgs) ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(ctx context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetScalingConfigurationTargetTrackingScalingConfigOutput)
+}
+
+// GetFleetScalingConfigurationTargetTrackingScalingConfigArrayInput is an input type that accepts GetFleetScalingConfigurationTargetTrackingScalingConfigArray and GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput values.
+// You can construct a concrete instance of `GetFleetScalingConfigurationTargetTrackingScalingConfigArrayInput` via:
+//
+//	GetFleetScalingConfigurationTargetTrackingScalingConfigArray{ GetFleetScalingConfigurationTargetTrackingScalingConfigArgs{...} }
+type GetFleetScalingConfigurationTargetTrackingScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput
+	ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput
+}
+
+type GetFleetScalingConfigurationTargetTrackingScalingConfigArray []GetFleetScalingConfigurationTargetTrackingScalingConfigInput
+
+func (GetFleetScalingConfigurationTargetTrackingScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (i GetFleetScalingConfigurationTargetTrackingScalingConfigArray) ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return i.ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetScalingConfigurationTargetTrackingScalingConfigArray) ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(ctx context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput)
+}
+
+type GetFleetScalingConfigurationTargetTrackingScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFleetScalingConfigurationTargetTrackingScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigOutput) ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigOutput) ToGetFleetScalingConfigurationTargetTrackingScalingConfigOutputWithContext(ctx context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return o
+}
+
+// The metric type to determine auto-scaling.
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigOutput) MetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetScalingConfigurationTargetTrackingScalingConfig) string { return v.MetricType }).(pulumi.StringOutput)
+}
+
+// The value of metricType when to start scaling.
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v GetFleetScalingConfigurationTargetTrackingScalingConfig) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetScalingConfigurationTargetTrackingScalingConfig)(nil)).Elem()
+}
+
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput() GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) ToGetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutputWithContext(ctx context.Context) GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput) Index(i pulumi.IntInput) GetFleetScalingConfigurationTargetTrackingScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetScalingConfigurationTargetTrackingScalingConfig {
+		return vs[0].([]GetFleetScalingConfigurationTargetTrackingScalingConfig)[vs[1].(int)]
+	}).(GetFleetScalingConfigurationTargetTrackingScalingConfigOutput)
+}
+
+type GetFleetStatus struct {
+	// Additional information about a compute fleet.
+	Context string `pulumi:"context"`
+	// Message associated with the status of a compute fleet.
+	Message string `pulumi:"message"`
+	// Status code of the compute fleet.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetFleetStatusInput is an input type that accepts GetFleetStatusArgs and GetFleetStatusOutput values.
+// You can construct a concrete instance of `GetFleetStatusInput` via:
+//
+//	GetFleetStatusArgs{...}
+type GetFleetStatusInput interface {
+	pulumi.Input
+
+	ToGetFleetStatusOutput() GetFleetStatusOutput
+	ToGetFleetStatusOutputWithContext(context.Context) GetFleetStatusOutput
+}
+
+type GetFleetStatusArgs struct {
+	// Additional information about a compute fleet.
+	Context pulumi.StringInput `pulumi:"context"`
+	// Message associated with the status of a compute fleet.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Status code of the compute fleet.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetFleetStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetStatus)(nil)).Elem()
+}
+
+func (i GetFleetStatusArgs) ToGetFleetStatusOutput() GetFleetStatusOutput {
+	return i.ToGetFleetStatusOutputWithContext(context.Background())
+}
+
+func (i GetFleetStatusArgs) ToGetFleetStatusOutputWithContext(ctx context.Context) GetFleetStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetStatusOutput)
+}
+
+// GetFleetStatusArrayInput is an input type that accepts GetFleetStatusArray and GetFleetStatusArrayOutput values.
+// You can construct a concrete instance of `GetFleetStatusArrayInput` via:
+//
+//	GetFleetStatusArray{ GetFleetStatusArgs{...} }
+type GetFleetStatusArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetStatusArrayOutput() GetFleetStatusArrayOutput
+	ToGetFleetStatusArrayOutputWithContext(context.Context) GetFleetStatusArrayOutput
+}
+
+type GetFleetStatusArray []GetFleetStatusInput
+
+func (GetFleetStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetStatus)(nil)).Elem()
+}
+
+func (i GetFleetStatusArray) ToGetFleetStatusArrayOutput() GetFleetStatusArrayOutput {
+	return i.ToGetFleetStatusArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetStatusArray) ToGetFleetStatusArrayOutputWithContext(ctx context.Context) GetFleetStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetStatusArrayOutput)
+}
+
+type GetFleetStatusOutput struct{ *pulumi.OutputState }
+
+func (GetFleetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetStatus)(nil)).Elem()
+}
+
+func (o GetFleetStatusOutput) ToGetFleetStatusOutput() GetFleetStatusOutput {
+	return o
+}
+
+func (o GetFleetStatusOutput) ToGetFleetStatusOutputWithContext(ctx context.Context) GetFleetStatusOutput {
+	return o
+}
+
+// Additional information about a compute fleet.
+func (o GetFleetStatusOutput) Context() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetStatus) string { return v.Context }).(pulumi.StringOutput)
+}
+
+// Message associated with the status of a compute fleet.
+func (o GetFleetStatusOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetStatus) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Status code of the compute fleet.
+func (o GetFleetStatusOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetStatus) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetFleetStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetStatus)(nil)).Elem()
+}
+
+func (o GetFleetStatusArrayOutput) ToGetFleetStatusArrayOutput() GetFleetStatusArrayOutput {
+	return o
+}
+
+func (o GetFleetStatusArrayOutput) ToGetFleetStatusArrayOutputWithContext(ctx context.Context) GetFleetStatusArrayOutput {
+	return o
+}
+
+func (o GetFleetStatusArrayOutput) Index(i pulumi.IntInput) GetFleetStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetStatus {
+		return vs[0].([]GetFleetStatus)[vs[1].(int)]
+	}).(GetFleetStatusOutput)
+}
+
+type GetFleetVpcConfig struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets []string `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetFleetVpcConfigInput is an input type that accepts GetFleetVpcConfigArgs and GetFleetVpcConfigOutput values.
+// You can construct a concrete instance of `GetFleetVpcConfigInput` via:
+//
+//	GetFleetVpcConfigArgs{...}
+type GetFleetVpcConfigInput interface {
+	pulumi.Input
+
+	ToGetFleetVpcConfigOutput() GetFleetVpcConfigOutput
+	ToGetFleetVpcConfigOutputWithContext(context.Context) GetFleetVpcConfigOutput
+}
+
+type GetFleetVpcConfigArgs struct {
+	// A list of one or more security groups IDs in your Amazon VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of one or more subnet IDs in your Amazon VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	// The ID of the Amazon VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetFleetVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetVpcConfig)(nil)).Elem()
+}
+
+func (i GetFleetVpcConfigArgs) ToGetFleetVpcConfigOutput() GetFleetVpcConfigOutput {
+	return i.ToGetFleetVpcConfigOutputWithContext(context.Background())
+}
+
+func (i GetFleetVpcConfigArgs) ToGetFleetVpcConfigOutputWithContext(ctx context.Context) GetFleetVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetVpcConfigOutput)
+}
+
+// GetFleetVpcConfigArrayInput is an input type that accepts GetFleetVpcConfigArray and GetFleetVpcConfigArrayOutput values.
+// You can construct a concrete instance of `GetFleetVpcConfigArrayInput` via:
+//
+//	GetFleetVpcConfigArray{ GetFleetVpcConfigArgs{...} }
+type GetFleetVpcConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetVpcConfigArrayOutput() GetFleetVpcConfigArrayOutput
+	ToGetFleetVpcConfigArrayOutputWithContext(context.Context) GetFleetVpcConfigArrayOutput
+}
+
+type GetFleetVpcConfigArray []GetFleetVpcConfigInput
+
+func (GetFleetVpcConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetVpcConfig)(nil)).Elem()
+}
+
+func (i GetFleetVpcConfigArray) ToGetFleetVpcConfigArrayOutput() GetFleetVpcConfigArrayOutput {
+	return i.ToGetFleetVpcConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetVpcConfigArray) ToGetFleetVpcConfigArrayOutputWithContext(ctx context.Context) GetFleetVpcConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetVpcConfigArrayOutput)
+}
+
+type GetFleetVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (GetFleetVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetVpcConfig)(nil)).Elem()
+}
+
+func (o GetFleetVpcConfigOutput) ToGetFleetVpcConfigOutput() GetFleetVpcConfigOutput {
+	return o
+}
+
+func (o GetFleetVpcConfigOutput) ToGetFleetVpcConfigOutputWithContext(ctx context.Context) GetFleetVpcConfigOutput {
+	return o
+}
+
+// A list of one or more security groups IDs in your Amazon VPC.
+func (o GetFleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of one or more subnet IDs in your Amazon VPC.
+func (o GetFleetVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFleetVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Amazon VPC.
+func (o GetFleetVpcConfigOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetFleetVpcConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetVpcConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetVpcConfig)(nil)).Elem()
+}
+
+func (o GetFleetVpcConfigArrayOutput) ToGetFleetVpcConfigArrayOutput() GetFleetVpcConfigArrayOutput {
+	return o
+}
+
+func (o GetFleetVpcConfigArrayOutput) ToGetFleetVpcConfigArrayOutputWithContext(ctx context.Context) GetFleetVpcConfigArrayOutput {
+	return o
+}
+
+func (o GetFleetVpcConfigArrayOutput) Index(i pulumi.IntInput) GetFleetVpcConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetVpcConfig {
+		return vs[0].([]GetFleetVpcConfig)[vs[1].(int)]
+	}).(GetFleetVpcConfigOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationInput)(nil)).Elem(), FleetScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationPtrInput)(nil)).Elem(), FleetScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationTargetTrackingScalingConfigInput)(nil)).Elem(), FleetScalingConfigurationTargetTrackingScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationTargetTrackingScalingConfigArrayInput)(nil)).Elem(), FleetScalingConfigurationTargetTrackingScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetStatusInput)(nil)).Elem(), FleetStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetStatusArrayInput)(nil)).Elem(), FleetStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigArrayInput)(nil)).Elem(), FleetVpcConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectArtifactsPtrInput)(nil)).Elem(), ProjectArtifactsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectBuildBatchConfigInput)(nil)).Elem(), ProjectBuildBatchConfigArgs{})
@@ -4304,6 +5458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentPtrInput)(nil)).Elem(), ProjectEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentEnvironmentVariableArrayInput)(nil)).Elem(), ProjectEnvironmentEnvironmentVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentFleetInput)(nil)).Elem(), ProjectEnvironmentFleetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentFleetPtrInput)(nil)).Elem(), ProjectEnvironmentFleetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentRegistryCredentialInput)(nil)).Elem(), ProjectEnvironmentRegistryCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentRegistryCredentialPtrInput)(nil)).Elem(), ProjectEnvironmentRegistryCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFileSystemLocationInput)(nil)).Elem(), ProjectFileSystemLocationArgs{})
@@ -4342,6 +5498,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterArrayInput)(nil)).Elem(), WebhookFilterGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationPtrInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationInput)(nil)).Elem(), GetFleetScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationArrayInput)(nil)).Elem(), GetFleetScalingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationTargetTrackingScalingConfigInput)(nil)).Elem(), GetFleetScalingConfigurationTargetTrackingScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationTargetTrackingScalingConfigArrayInput)(nil)).Elem(), GetFleetScalingConfigurationTargetTrackingScalingConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetStatusInput)(nil)).Elem(), GetFleetStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetStatusArrayInput)(nil)).Elem(), GetFleetStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetVpcConfigInput)(nil)).Elem(), GetFleetVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetVpcConfigArrayInput)(nil)).Elem(), GetFleetVpcConfigArray{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationTargetTrackingScalingConfigOutput{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationTargetTrackingScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(FleetStatusOutput{})
+	pulumi.RegisterOutputType(FleetStatusArrayOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigArrayOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsOutput{})
 	pulumi.RegisterOutputType(ProjectArtifactsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectBuildBatchConfigOutput{})
@@ -4354,6 +5526,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentFleetOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentFleetPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentRegistryCredentialPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
@@ -4392,4 +5566,12 @@ func init() {
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetFleetScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(GetFleetScalingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetFleetScalingConfigurationTargetTrackingScalingConfigOutput{})
+	pulumi.RegisterOutputType(GetFleetScalingConfigurationTargetTrackingScalingConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetFleetStatusOutput{})
+	pulumi.RegisterOutputType(GetFleetStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetFleetVpcConfigOutput{})
+	pulumi.RegisterOutputType(GetFleetVpcConfigArrayOutput{})
 }

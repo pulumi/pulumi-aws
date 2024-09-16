@@ -60,7 +60,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
      */
-    public readonly aggregationPeriod!: pulumi.Output<number | undefined>;
+    public readonly aggregationPeriod!: pulumi.Output<number>;
     /**
      * The ARN of the monitor.
      */

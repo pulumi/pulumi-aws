@@ -8,25 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Lex V2 Models Slot.
- *
- * ## Example Usage
- *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lex.V2modelsSlot("example", {
- *     botId: exampleAwsLexv2modelsBot.id,
- *     botVersion: exampleAwsLexv2modelsBotVersion.botVersion,
- *     intentId: exampleAwsLexv2modelsIntent.id,
- *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
- *     name: "example",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -84,7 +65,8 @@ export class V2modelsSlot extends pulumi.CustomResource {
      */
     public readonly localeId!: pulumi.Output<string>;
     /**
-     * Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+     * Whether the slot returns multiple values in one response.
+     * See the `multipleValuesSetting` argument reference below.
      */
     public readonly multipleValuesSettings!: pulumi.Output<outputs.lex.V2modelsSlotMultipleValuesSetting[] | undefined>;
     /**
@@ -92,7 +74,8 @@ export class V2modelsSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+     * Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscationSetting` argument reference below.
      */
     public readonly obfuscationSettings!: pulumi.Output<outputs.lex.V2modelsSlotObfuscationSetting[] | undefined>;
     /**
@@ -105,14 +88,10 @@ export class V2modelsSlot extends pulumi.CustomResource {
     public readonly slotTypeId!: pulumi.Output<string>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `subSlotSetting` argument reference below.
      */
     public readonly subSlotSettings!: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
-    /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     *
-     * The following arguments are optional:
-     */
     public readonly valueElicitationSetting!: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting | undefined>;
 
     /**
@@ -199,7 +178,8 @@ export interface V2modelsSlotState {
      */
     localeId?: pulumi.Input<string>;
     /**
-     * Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+     * Whether the slot returns multiple values in one response.
+     * See the `multipleValuesSetting` argument reference below.
      */
     multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
     /**
@@ -207,7 +187,8 @@ export interface V2modelsSlotState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+     * Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscationSetting` argument reference below.
      */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
     /**
@@ -220,14 +201,10 @@ export interface V2modelsSlotState {
     slotTypeId?: pulumi.Input<string>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `subSlotSetting` argument reference below.
      */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
-    /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     *
-     * The following arguments are optional:
-     */
     valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
 }
 
@@ -256,7 +233,8 @@ export interface V2modelsSlotArgs {
      */
     localeId: pulumi.Input<string>;
     /**
-     * Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+     * Whether the slot returns multiple values in one response.
+     * See the `multipleValuesSetting` argument reference below.
      */
     multipleValuesSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotMultipleValuesSetting>[]>;
     /**
@@ -264,7 +242,8 @@ export interface V2modelsSlotArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+     * Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscationSetting` argument reference below.
      */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
     /**
@@ -273,13 +252,9 @@ export interface V2modelsSlotArgs {
     slotTypeId?: pulumi.Input<string>;
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `subSlotSetting` argument reference below.
      */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
-    /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     *
-     * The following arguments are optional:
-     */
     valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
 }

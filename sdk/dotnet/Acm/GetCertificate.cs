@@ -12,9 +12,8 @@ namespace Pulumi.Aws.Acm
     public static class GetCertificate
     {
         /// <summary>
-        /// Use this data source to get the ARN of a certificate in AWS Certificate
-        /// Manager (ACM), you can reference
-        /// it by domain without having to hard code the ARNs as input.
+        /// Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+        /// You can reference the certificate by domain or tags without having to hard code the ARNs as input.
         /// 
         /// ## Example Usage
         /// 
@@ -60,13 +59,12 @@ namespace Pulumi.Aws.Acm
         /// });
         /// ```
         /// </summary>
-        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
+        public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to get the ARN of a certificate in AWS Certificate
-        /// Manager (ACM), you can reference
-        /// it by domain without having to hard code the ARNs as input.
+        /// Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+        /// You can reference the certificate by domain or tags without having to hard code the ARNs as input.
         /// 
         /// ## Example Usage
         /// 
@@ -112,7 +110,7 @@ namespace Pulumi.Aws.Acm
         /// });
         /// ```
         /// </summary>
-        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
@@ -120,10 +118,10 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
         /// </summary>
-        [Input("domain", required: true)]
-        public string Domain { get; set; } = null!;
+        [Input("domain")]
+        public string? Domain { get; set; }
 
         [Input("keyTypes")]
         private List<string>? _keyTypes;
@@ -161,7 +159,7 @@ namespace Pulumi.Aws.Acm
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Mapping of tags for the resource.
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -190,10 +188,10 @@ namespace Pulumi.Aws.Acm
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+        /// Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
         /// </summary>
-        [Input("domain", required: true)]
-        public Input<string> Domain { get; set; } = null!;
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
 
         [Input("keyTypes")]
         private InputList<string>? _keyTypes;
@@ -231,7 +229,7 @@ namespace Pulumi.Aws.Acm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Mapping of tags for the resource.
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
         /// </summary>
         public InputMap<string> Tags
         {

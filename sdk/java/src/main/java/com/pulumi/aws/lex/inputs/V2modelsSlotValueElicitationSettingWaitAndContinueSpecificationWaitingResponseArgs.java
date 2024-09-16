@@ -17,16 +17,36 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs();
 
+    /**
+     * Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     @Import(name="allowInterrupt")
     private @Nullable Output<Boolean> allowInterrupt;
 
+    /**
+     * @return Whether the user can interrupt a speech response from Amazon Lex.
+     * 
+     */
     public Optional<Output<Boolean>> allowInterrupt() {
         return Optional.ofNullable(this.allowInterrupt);
     }
 
+    /**
+     * Configuration blocks for responses that Amazon Lex can send to the user.
+     * Amazon Lex chooses the actual response to send at runtime.
+     * See `message_group`.
+     * 
+     */
     @Import(name="messageGroups")
     private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs>> messageGroups;
 
+    /**
+     * @return Configuration blocks for responses that Amazon Lex can send to the user.
+     * Amazon Lex chooses the actual response to send at runtime.
+     * See `message_group`.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs>>> messageGroups() {
         return Optional.ofNullable(this.messageGroups);
     }
@@ -56,24 +76,60 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowInterrupt Whether the user can interrupt a speech response from Amazon Lex.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInterrupt(@Nullable Output<Boolean> allowInterrupt) {
             $.allowInterrupt = allowInterrupt;
             return this;
         }
 
+        /**
+         * @param allowInterrupt Whether the user can interrupt a speech response from Amazon Lex.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowInterrupt(Boolean allowInterrupt) {
             return allowInterrupt(Output.of(allowInterrupt));
         }
 
+        /**
+         * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `message_group`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageGroups(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs>> messageGroups) {
             $.messageGroups = messageGroups;
             return this;
         }
 
+        /**
+         * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `message_group`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageGroups(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs> messageGroups) {
             return messageGroups(Output.of(messageGroups));
         }
 
+        /**
+         * @param messageGroups Configuration blocks for responses that Amazon Lex can send to the user.
+         * Amazon Lex chooses the actual response to send at runtime.
+         * See `message_group`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messageGroups(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs... messageGroups) {
             return messageGroups(List.of(messageGroups));
         }

@@ -18,14 +18,13 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDataSetResult {
     private String arn;
     private String awsAccountId;
     private List<GetDataSetColumnGroup> columnGroups;
-    private @Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
+    private List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
     private String dataSetId;
     private List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
     private List<GetDataSetFieldFolder> fieldFolders;
@@ -61,7 +60,7 @@ public final class GetDataSetResult {
         return this.columnGroups;
     }
     public List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules() {
-        return this.columnLevelPermissionRules == null ? List.of() : this.columnLevelPermissionRules;
+        return this.columnLevelPermissionRules;
     }
     public String dataSetId() {
         return this.dataSetId;
@@ -125,7 +124,7 @@ public final class GetDataSetResult {
         private String arn;
         private String awsAccountId;
         private List<GetDataSetColumnGroup> columnGroups;
-        private @Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
+        private List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules;
         private String dataSetId;
         private List<GetDataSetDataSetUsageConfiguration> dataSetUsageConfigurations;
         private List<GetDataSetFieldFolder> fieldFolders;
@@ -189,8 +188,10 @@ public final class GetDataSetResult {
             return columnGroups(List.of(columnGroups));
         }
         @CustomType.Setter
-        public Builder columnLevelPermissionRules(@Nullable List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules) {
-
+        public Builder columnLevelPermissionRules(List<GetDataSetColumnLevelPermissionRule> columnLevelPermissionRules) {
+            if (columnLevelPermissionRules == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "columnLevelPermissionRules");
+            }
             this.columnLevelPermissionRules = columnLevelPermissionRules;
             return this;
         }

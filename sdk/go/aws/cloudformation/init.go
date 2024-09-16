@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudFormationType{}
 	case "aws:cloudformation/stack:Stack":
 		r = &Stack{}
+	case "aws:cloudformation/stackInstances:StackInstances":
+		r = &StackInstances{}
 	case "aws:cloudformation/stackSet:StackSet":
 		r = &StackSet{}
 	case "aws:cloudformation/stackSetInstance:StackSetInstance":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudformation/stack",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudformation/stackInstances",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

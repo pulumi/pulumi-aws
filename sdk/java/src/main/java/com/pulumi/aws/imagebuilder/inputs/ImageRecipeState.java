@@ -21,14 +21,14 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
     public static final ImageRecipeState Empty = new ImageRecipeState();
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the image recipe.
+     * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the image recipe.
+     * @return Amazon Resource Name (ARN) of the image recipe.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -296,7 +296,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the image recipe.
+         * @param arn Amazon Resource Name (ARN) of the image recipe.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ImageRecipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the image recipe.
+         * @param arn Amazon Resource Name (ARN) of the image recipe.
          * 
          * @return builder
          * 

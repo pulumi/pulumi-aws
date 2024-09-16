@@ -4,6 +4,7 @@
 package com.pulumi.aws.codebuild.outputs;
 
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentEnvironmentVariable;
+import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentFleet;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentRegistryCredential;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,6 +32,11 @@ public final class ProjectEnvironment {
      * 
      */
     private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    private @Nullable ProjectEnvironmentFleet fleet;
     /**
      * @return Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
      * 
@@ -80,6 +86,13 @@ public final class ProjectEnvironment {
         return this.environmentVariables == null ? List.of() : this.environmentVariables;
     }
     /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    public Optional<ProjectEnvironmentFleet> fleet() {
+        return Optional.ofNullable(this.fleet);
+    }
+    /**
      * @return Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
      * 
      */
@@ -127,6 +140,7 @@ public final class ProjectEnvironment {
         private @Nullable String certificate;
         private String computeType;
         private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
+        private @Nullable ProjectEnvironmentFleet fleet;
         private String image;
         private @Nullable String imagePullCredentialsType;
         private @Nullable Boolean privilegedMode;
@@ -138,6 +152,7 @@ public final class ProjectEnvironment {
     	      this.certificate = defaults.certificate;
     	      this.computeType = defaults.computeType;
     	      this.environmentVariables = defaults.environmentVariables;
+    	      this.fleet = defaults.fleet;
     	      this.image = defaults.image;
     	      this.imagePullCredentialsType = defaults.imagePullCredentialsType;
     	      this.privilegedMode = defaults.privilegedMode;
@@ -167,6 +182,12 @@ public final class ProjectEnvironment {
         }
         public Builder environmentVariables(ProjectEnvironmentEnvironmentVariable... environmentVariables) {
             return environmentVariables(List.of(environmentVariables));
+        }
+        @CustomType.Setter
+        public Builder fleet(@Nullable ProjectEnvironmentFleet fleet) {
+
+            this.fleet = fleet;
+            return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
@@ -207,6 +228,7 @@ public final class ProjectEnvironment {
             _resultValue.certificate = certificate;
             _resultValue.computeType = computeType;
             _resultValue.environmentVariables = environmentVariables;
+            _resultValue.fleet = fleet;
             _resultValue.image = image;
             _resultValue.imagePullCredentialsType = imagePullCredentialsType;
             _resultValue.privilegedMode = privilegedMode;

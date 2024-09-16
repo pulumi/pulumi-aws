@@ -153,6 +153,12 @@ namespace Pulumi.Aws.DataZone
         [Output("singleSignOn")]
         public Output<Outputs.DomainSingleSignOn?> SingleSignOn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to skip the deletion check for the Domain.
+        /// </summary>
+        [Output("skipDeletionCheck")]
+        public Output<bool?> SkipDeletionCheck { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.DataZone
         [Input("singleSignOn")]
         public Input<Inputs.DomainSingleSignOnArgs>? SingleSignOn { get; set; }
 
+        /// <summary>
+        /// Whether to skip the deletion check for the Domain.
+        /// </summary>
+        [Input("skipDeletionCheck")]
+        public Input<bool>? SkipDeletionCheck { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -305,6 +317,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("singleSignOn")]
         public Input<Inputs.DomainSingleSignOnGetArgs>? SingleSignOn { get; set; }
+
+        /// <summary>
+        /// Whether to skip the deletion check for the Domain.
+        /// </summary>
+        [Input("skipDeletionCheck")]
+        public Input<bool>? SkipDeletionCheck { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

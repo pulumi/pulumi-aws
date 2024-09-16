@@ -13,6 +13,255 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AssetTypeFormsInput struct {
+	MapBlockKey    string `pulumi:"mapBlockKey"`
+	Required       *bool  `pulumi:"required"`
+	TypeIdentifier string `pulumi:"typeIdentifier"`
+	TypeRevision   string `pulumi:"typeRevision"`
+}
+
+// AssetTypeFormsInputInput is an input type that accepts AssetTypeFormsInputArgs and AssetTypeFormsInputOutput values.
+// You can construct a concrete instance of `AssetTypeFormsInputInput` via:
+//
+//	AssetTypeFormsInputArgs{...}
+type AssetTypeFormsInputInput interface {
+	pulumi.Input
+
+	ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput
+	ToAssetTypeFormsInputOutputWithContext(context.Context) AssetTypeFormsInputOutput
+}
+
+type AssetTypeFormsInputArgs struct {
+	MapBlockKey    pulumi.StringInput  `pulumi:"mapBlockKey"`
+	Required       pulumi.BoolPtrInput `pulumi:"required"`
+	TypeIdentifier pulumi.StringInput  `pulumi:"typeIdentifier"`
+	TypeRevision   pulumi.StringInput  `pulumi:"typeRevision"`
+}
+
+func (AssetTypeFormsInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (i AssetTypeFormsInputArgs) ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput {
+	return i.ToAssetTypeFormsInputOutputWithContext(context.Background())
+}
+
+func (i AssetTypeFormsInputArgs) ToAssetTypeFormsInputOutputWithContext(ctx context.Context) AssetTypeFormsInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeFormsInputOutput)
+}
+
+// AssetTypeFormsInputArrayInput is an input type that accepts AssetTypeFormsInputArray and AssetTypeFormsInputArrayOutput values.
+// You can construct a concrete instance of `AssetTypeFormsInputArrayInput` via:
+//
+//	AssetTypeFormsInputArray{ AssetTypeFormsInputArgs{...} }
+type AssetTypeFormsInputArrayInput interface {
+	pulumi.Input
+
+	ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput
+	ToAssetTypeFormsInputArrayOutputWithContext(context.Context) AssetTypeFormsInputArrayOutput
+}
+
+type AssetTypeFormsInputArray []AssetTypeFormsInputInput
+
+func (AssetTypeFormsInputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (i AssetTypeFormsInputArray) ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput {
+	return i.ToAssetTypeFormsInputArrayOutputWithContext(context.Background())
+}
+
+func (i AssetTypeFormsInputArray) ToAssetTypeFormsInputArrayOutputWithContext(ctx context.Context) AssetTypeFormsInputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeFormsInputArrayOutput)
+}
+
+type AssetTypeFormsInputOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeFormsInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (o AssetTypeFormsInputOutput) ToAssetTypeFormsInputOutput() AssetTypeFormsInputOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputOutput) ToAssetTypeFormsInputOutputWithContext(ctx context.Context) AssetTypeFormsInputOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputOutput) MapBlockKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.MapBlockKey }).(pulumi.StringOutput)
+}
+
+func (o AssetTypeFormsInputOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+func (o AssetTypeFormsInputOutput) TypeIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.TypeIdentifier }).(pulumi.StringOutput)
+}
+
+func (o AssetTypeFormsInputOutput) TypeRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTypeFormsInput) string { return v.TypeRevision }).(pulumi.StringOutput)
+}
+
+type AssetTypeFormsInputArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeFormsInputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTypeFormsInput)(nil)).Elem()
+}
+
+func (o AssetTypeFormsInputArrayOutput) ToAssetTypeFormsInputArrayOutput() AssetTypeFormsInputArrayOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputArrayOutput) ToAssetTypeFormsInputArrayOutputWithContext(ctx context.Context) AssetTypeFormsInputArrayOutput {
+	return o
+}
+
+func (o AssetTypeFormsInputArrayOutput) Index(i pulumi.IntInput) AssetTypeFormsInputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetTypeFormsInput {
+		return vs[0].([]AssetTypeFormsInput)[vs[1].(int)]
+	}).(AssetTypeFormsInputOutput)
+}
+
+type AssetTypeTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// AssetTypeTimeoutsInput is an input type that accepts AssetTypeTimeoutsArgs and AssetTypeTimeoutsOutput values.
+// You can construct a concrete instance of `AssetTypeTimeoutsInput` via:
+//
+//	AssetTypeTimeoutsArgs{...}
+type AssetTypeTimeoutsInput interface {
+	pulumi.Input
+
+	ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput
+	ToAssetTypeTimeoutsOutputWithContext(context.Context) AssetTypeTimeoutsOutput
+}
+
+type AssetTypeTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (AssetTypeTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput {
+	return i.ToAssetTypeTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsOutputWithContext(ctx context.Context) AssetTypeTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsOutput)
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return i.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AssetTypeTimeoutsArgs) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsOutput).ToAssetTypeTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AssetTypeTimeoutsPtrInput is an input type that accepts AssetTypeTimeoutsArgs, AssetTypeTimeoutsPtr and AssetTypeTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AssetTypeTimeoutsPtrInput` via:
+//
+//	        AssetTypeTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssetTypeTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput
+	ToAssetTypeTimeoutsPtrOutputWithContext(context.Context) AssetTypeTimeoutsPtrOutput
+}
+
+type assetTypeTimeoutsPtrType AssetTypeTimeoutsArgs
+
+func AssetTypeTimeoutsPtr(v *AssetTypeTimeoutsArgs) AssetTypeTimeoutsPtrInput {
+	return (*assetTypeTimeoutsPtrType)(v)
+}
+
+func (*assetTypeTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (i *assetTypeTimeoutsPtrType) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return i.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *assetTypeTimeoutsPtrType) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeTimeoutsPtrOutput)
+}
+
+type AssetTypeTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsOutput() AssetTypeTimeoutsOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsOutputWithContext(ctx context.Context) AssetTypeTimeoutsOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return o.ToAssetTypeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AssetTypeTimeoutsOutput) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetTypeTimeouts) *AssetTypeTimeouts {
+		return &v
+	}).(AssetTypeTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AssetTypeTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetTypeTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type AssetTypeTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AssetTypeTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetTypeTimeouts)(nil)).Elem()
+}
+
+func (o AssetTypeTimeoutsPtrOutput) ToAssetTypeTimeoutsPtrOutput() AssetTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsPtrOutput) ToAssetTypeTimeoutsPtrOutputWithContext(ctx context.Context) AssetTypeTimeoutsPtrOutput {
+	return o
+}
+
+func (o AssetTypeTimeoutsPtrOutput) Elem() AssetTypeTimeoutsOutput {
+	return o.ApplyT(func(v *AssetTypeTimeouts) AssetTypeTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AssetTypeTimeouts
+		return ret
+	}).(AssetTypeTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AssetTypeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssetTypeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainSingleSignOn struct {
 	Type           *string `pulumi:"type"`
 	UserAssignment *string `pulumi:"userAssignment"`
@@ -317,6 +566,230 @@ func (o DomainTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EnvironmentLastDeployment struct {
+	DeploymentId         string                                   `pulumi:"deploymentId"`
+	DeploymentStatus     string                                   `pulumi:"deploymentStatus"`
+	DeploymentType       string                                   `pulumi:"deploymentType"`
+	FailureReasons       []EnvironmentLastDeploymentFailureReason `pulumi:"failureReasons"`
+	IsDeploymentComplete bool                                     `pulumi:"isDeploymentComplete"`
+	Messages             []string                                 `pulumi:"messages"`
+}
+
+// EnvironmentLastDeploymentInput is an input type that accepts EnvironmentLastDeploymentArgs and EnvironmentLastDeploymentOutput values.
+// You can construct a concrete instance of `EnvironmentLastDeploymentInput` via:
+//
+//	EnvironmentLastDeploymentArgs{...}
+type EnvironmentLastDeploymentInput interface {
+	pulumi.Input
+
+	ToEnvironmentLastDeploymentOutput() EnvironmentLastDeploymentOutput
+	ToEnvironmentLastDeploymentOutputWithContext(context.Context) EnvironmentLastDeploymentOutput
+}
+
+type EnvironmentLastDeploymentArgs struct {
+	DeploymentId         pulumi.StringInput                               `pulumi:"deploymentId"`
+	DeploymentStatus     pulumi.StringInput                               `pulumi:"deploymentStatus"`
+	DeploymentType       pulumi.StringInput                               `pulumi:"deploymentType"`
+	FailureReasons       EnvironmentLastDeploymentFailureReasonArrayInput `pulumi:"failureReasons"`
+	IsDeploymentComplete pulumi.BoolInput                                 `pulumi:"isDeploymentComplete"`
+	Messages             pulumi.StringArrayInput                          `pulumi:"messages"`
+}
+
+func (EnvironmentLastDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentLastDeployment)(nil)).Elem()
+}
+
+func (i EnvironmentLastDeploymentArgs) ToEnvironmentLastDeploymentOutput() EnvironmentLastDeploymentOutput {
+	return i.ToEnvironmentLastDeploymentOutputWithContext(context.Background())
+}
+
+func (i EnvironmentLastDeploymentArgs) ToEnvironmentLastDeploymentOutputWithContext(ctx context.Context) EnvironmentLastDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastDeploymentOutput)
+}
+
+// EnvironmentLastDeploymentArrayInput is an input type that accepts EnvironmentLastDeploymentArray and EnvironmentLastDeploymentArrayOutput values.
+// You can construct a concrete instance of `EnvironmentLastDeploymentArrayInput` via:
+//
+//	EnvironmentLastDeploymentArray{ EnvironmentLastDeploymentArgs{...} }
+type EnvironmentLastDeploymentArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentLastDeploymentArrayOutput() EnvironmentLastDeploymentArrayOutput
+	ToEnvironmentLastDeploymentArrayOutputWithContext(context.Context) EnvironmentLastDeploymentArrayOutput
+}
+
+type EnvironmentLastDeploymentArray []EnvironmentLastDeploymentInput
+
+func (EnvironmentLastDeploymentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentLastDeployment)(nil)).Elem()
+}
+
+func (i EnvironmentLastDeploymentArray) ToEnvironmentLastDeploymentArrayOutput() EnvironmentLastDeploymentArrayOutput {
+	return i.ToEnvironmentLastDeploymentArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentLastDeploymentArray) ToEnvironmentLastDeploymentArrayOutputWithContext(ctx context.Context) EnvironmentLastDeploymentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastDeploymentArrayOutput)
+}
+
+type EnvironmentLastDeploymentOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentLastDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentLastDeployment)(nil)).Elem()
+}
+
+func (o EnvironmentLastDeploymentOutput) ToEnvironmentLastDeploymentOutput() EnvironmentLastDeploymentOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentOutput) ToEnvironmentLastDeploymentOutputWithContext(ctx context.Context) EnvironmentLastDeploymentOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) string { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentLastDeploymentOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) string { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentLastDeploymentOutput) DeploymentType() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) string { return v.DeploymentType }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentLastDeploymentOutput) FailureReasons() EnvironmentLastDeploymentFailureReasonArrayOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) []EnvironmentLastDeploymentFailureReason { return v.FailureReasons }).(EnvironmentLastDeploymentFailureReasonArrayOutput)
+}
+
+func (o EnvironmentLastDeploymentOutput) IsDeploymentComplete() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) bool { return v.IsDeploymentComplete }).(pulumi.BoolOutput)
+}
+
+func (o EnvironmentLastDeploymentOutput) Messages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EnvironmentLastDeployment) []string { return v.Messages }).(pulumi.StringArrayOutput)
+}
+
+type EnvironmentLastDeploymentArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentLastDeploymentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentLastDeployment)(nil)).Elem()
+}
+
+func (o EnvironmentLastDeploymentArrayOutput) ToEnvironmentLastDeploymentArrayOutput() EnvironmentLastDeploymentArrayOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentArrayOutput) ToEnvironmentLastDeploymentArrayOutputWithContext(ctx context.Context) EnvironmentLastDeploymentArrayOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentArrayOutput) Index(i pulumi.IntInput) EnvironmentLastDeploymentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentLastDeployment {
+		return vs[0].([]EnvironmentLastDeployment)[vs[1].(int)]
+	}).(EnvironmentLastDeploymentOutput)
+}
+
+type EnvironmentLastDeploymentFailureReason struct {
+	Code    string `pulumi:"code"`
+	Message string `pulumi:"message"`
+}
+
+// EnvironmentLastDeploymentFailureReasonInput is an input type that accepts EnvironmentLastDeploymentFailureReasonArgs and EnvironmentLastDeploymentFailureReasonOutput values.
+// You can construct a concrete instance of `EnvironmentLastDeploymentFailureReasonInput` via:
+//
+//	EnvironmentLastDeploymentFailureReasonArgs{...}
+type EnvironmentLastDeploymentFailureReasonInput interface {
+	pulumi.Input
+
+	ToEnvironmentLastDeploymentFailureReasonOutput() EnvironmentLastDeploymentFailureReasonOutput
+	ToEnvironmentLastDeploymentFailureReasonOutputWithContext(context.Context) EnvironmentLastDeploymentFailureReasonOutput
+}
+
+type EnvironmentLastDeploymentFailureReasonArgs struct {
+	Code    pulumi.StringInput `pulumi:"code"`
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (EnvironmentLastDeploymentFailureReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentLastDeploymentFailureReason)(nil)).Elem()
+}
+
+func (i EnvironmentLastDeploymentFailureReasonArgs) ToEnvironmentLastDeploymentFailureReasonOutput() EnvironmentLastDeploymentFailureReasonOutput {
+	return i.ToEnvironmentLastDeploymentFailureReasonOutputWithContext(context.Background())
+}
+
+func (i EnvironmentLastDeploymentFailureReasonArgs) ToEnvironmentLastDeploymentFailureReasonOutputWithContext(ctx context.Context) EnvironmentLastDeploymentFailureReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastDeploymentFailureReasonOutput)
+}
+
+// EnvironmentLastDeploymentFailureReasonArrayInput is an input type that accepts EnvironmentLastDeploymentFailureReasonArray and EnvironmentLastDeploymentFailureReasonArrayOutput values.
+// You can construct a concrete instance of `EnvironmentLastDeploymentFailureReasonArrayInput` via:
+//
+//	EnvironmentLastDeploymentFailureReasonArray{ EnvironmentLastDeploymentFailureReasonArgs{...} }
+type EnvironmentLastDeploymentFailureReasonArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentLastDeploymentFailureReasonArrayOutput() EnvironmentLastDeploymentFailureReasonArrayOutput
+	ToEnvironmentLastDeploymentFailureReasonArrayOutputWithContext(context.Context) EnvironmentLastDeploymentFailureReasonArrayOutput
+}
+
+type EnvironmentLastDeploymentFailureReasonArray []EnvironmentLastDeploymentFailureReasonInput
+
+func (EnvironmentLastDeploymentFailureReasonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentLastDeploymentFailureReason)(nil)).Elem()
+}
+
+func (i EnvironmentLastDeploymentFailureReasonArray) ToEnvironmentLastDeploymentFailureReasonArrayOutput() EnvironmentLastDeploymentFailureReasonArrayOutput {
+	return i.ToEnvironmentLastDeploymentFailureReasonArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentLastDeploymentFailureReasonArray) ToEnvironmentLastDeploymentFailureReasonArrayOutputWithContext(ctx context.Context) EnvironmentLastDeploymentFailureReasonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastDeploymentFailureReasonArrayOutput)
+}
+
+type EnvironmentLastDeploymentFailureReasonOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentLastDeploymentFailureReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentLastDeploymentFailureReason)(nil)).Elem()
+}
+
+func (o EnvironmentLastDeploymentFailureReasonOutput) ToEnvironmentLastDeploymentFailureReasonOutput() EnvironmentLastDeploymentFailureReasonOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentFailureReasonOutput) ToEnvironmentLastDeploymentFailureReasonOutputWithContext(ctx context.Context) EnvironmentLastDeploymentFailureReasonOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentFailureReasonOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentLastDeploymentFailureReason) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentLastDeploymentFailureReasonOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentLastDeploymentFailureReason) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type EnvironmentLastDeploymentFailureReasonArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentLastDeploymentFailureReasonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentLastDeploymentFailureReason)(nil)).Elem()
+}
+
+func (o EnvironmentLastDeploymentFailureReasonArrayOutput) ToEnvironmentLastDeploymentFailureReasonArrayOutput() EnvironmentLastDeploymentFailureReasonArrayOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentFailureReasonArrayOutput) ToEnvironmentLastDeploymentFailureReasonArrayOutputWithContext(ctx context.Context) EnvironmentLastDeploymentFailureReasonArrayOutput {
+	return o
+}
+
+func (o EnvironmentLastDeploymentFailureReasonArrayOutput) Index(i pulumi.IntInput) EnvironmentLastDeploymentFailureReasonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentLastDeploymentFailureReason {
+		return vs[0].([]EnvironmentLastDeploymentFailureReason)[vs[1].(int)]
+	}).(EnvironmentLastDeploymentFailureReasonOutput)
+}
+
 type EnvironmentProfileUserParameter struct {
 	// Name of the environment profile parameter.
 	Name *string `pulumi:"name"`
@@ -421,6 +894,405 @@ func (o EnvironmentProfileUserParameterArrayOutput) Index(i pulumi.IntInput) Env
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentProfileUserParameter {
 		return vs[0].([]EnvironmentProfileUserParameter)[vs[1].(int)]
 	}).(EnvironmentProfileUserParameterOutput)
+}
+
+type EnvironmentProvisionedResource struct {
+	// The name of the environment.
+	Name     string `pulumi:"name"`
+	Provider string `pulumi:"provider"`
+	Type     string `pulumi:"type"`
+	// The value of an environment profile parameter.
+	Value string `pulumi:"value"`
+}
+
+// EnvironmentProvisionedResourceInput is an input type that accepts EnvironmentProvisionedResourceArgs and EnvironmentProvisionedResourceOutput values.
+// You can construct a concrete instance of `EnvironmentProvisionedResourceInput` via:
+//
+//	EnvironmentProvisionedResourceArgs{...}
+type EnvironmentProvisionedResourceInput interface {
+	pulumi.Input
+
+	ToEnvironmentProvisionedResourceOutput() EnvironmentProvisionedResourceOutput
+	ToEnvironmentProvisionedResourceOutputWithContext(context.Context) EnvironmentProvisionedResourceOutput
+}
+
+type EnvironmentProvisionedResourceArgs struct {
+	// The name of the environment.
+	Name     pulumi.StringInput `pulumi:"name"`
+	Provider pulumi.StringInput `pulumi:"provider"`
+	Type     pulumi.StringInput `pulumi:"type"`
+	// The value of an environment profile parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentProvisionedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentProvisionedResource)(nil)).Elem()
+}
+
+func (i EnvironmentProvisionedResourceArgs) ToEnvironmentProvisionedResourceOutput() EnvironmentProvisionedResourceOutput {
+	return i.ToEnvironmentProvisionedResourceOutputWithContext(context.Background())
+}
+
+func (i EnvironmentProvisionedResourceArgs) ToEnvironmentProvisionedResourceOutputWithContext(ctx context.Context) EnvironmentProvisionedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProvisionedResourceOutput)
+}
+
+// EnvironmentProvisionedResourceArrayInput is an input type that accepts EnvironmentProvisionedResourceArray and EnvironmentProvisionedResourceArrayOutput values.
+// You can construct a concrete instance of `EnvironmentProvisionedResourceArrayInput` via:
+//
+//	EnvironmentProvisionedResourceArray{ EnvironmentProvisionedResourceArgs{...} }
+type EnvironmentProvisionedResourceArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentProvisionedResourceArrayOutput() EnvironmentProvisionedResourceArrayOutput
+	ToEnvironmentProvisionedResourceArrayOutputWithContext(context.Context) EnvironmentProvisionedResourceArrayOutput
+}
+
+type EnvironmentProvisionedResourceArray []EnvironmentProvisionedResourceInput
+
+func (EnvironmentProvisionedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentProvisionedResource)(nil)).Elem()
+}
+
+func (i EnvironmentProvisionedResourceArray) ToEnvironmentProvisionedResourceArrayOutput() EnvironmentProvisionedResourceArrayOutput {
+	return i.ToEnvironmentProvisionedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentProvisionedResourceArray) ToEnvironmentProvisionedResourceArrayOutputWithContext(ctx context.Context) EnvironmentProvisionedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentProvisionedResourceArrayOutput)
+}
+
+type EnvironmentProvisionedResourceOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentProvisionedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentProvisionedResource)(nil)).Elem()
+}
+
+func (o EnvironmentProvisionedResourceOutput) ToEnvironmentProvisionedResourceOutput() EnvironmentProvisionedResourceOutput {
+	return o
+}
+
+func (o EnvironmentProvisionedResourceOutput) ToEnvironmentProvisionedResourceOutputWithContext(ctx context.Context) EnvironmentProvisionedResourceOutput {
+	return o
+}
+
+// The name of the environment.
+func (o EnvironmentProvisionedResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentProvisionedResourceOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentProvisionedResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of an environment profile parameter.
+func (o EnvironmentProvisionedResourceOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentProvisionedResource) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EnvironmentProvisionedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentProvisionedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentProvisionedResource)(nil)).Elem()
+}
+
+func (o EnvironmentProvisionedResourceArrayOutput) ToEnvironmentProvisionedResourceArrayOutput() EnvironmentProvisionedResourceArrayOutput {
+	return o
+}
+
+func (o EnvironmentProvisionedResourceArrayOutput) ToEnvironmentProvisionedResourceArrayOutputWithContext(ctx context.Context) EnvironmentProvisionedResourceArrayOutput {
+	return o
+}
+
+func (o EnvironmentProvisionedResourceArrayOutput) Index(i pulumi.IntInput) EnvironmentProvisionedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentProvisionedResource {
+		return vs[0].([]EnvironmentProvisionedResource)[vs[1].(int)]
+	}).(EnvironmentProvisionedResourceOutput)
+}
+
+type EnvironmentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// EnvironmentTimeoutsInput is an input type that accepts EnvironmentTimeoutsArgs and EnvironmentTimeoutsOutput values.
+// You can construct a concrete instance of `EnvironmentTimeoutsInput` via:
+//
+//	EnvironmentTimeoutsArgs{...}
+type EnvironmentTimeoutsInput interface {
+	pulumi.Input
+
+	ToEnvironmentTimeoutsOutput() EnvironmentTimeoutsOutput
+	ToEnvironmentTimeoutsOutputWithContext(context.Context) EnvironmentTimeoutsOutput
+}
+
+type EnvironmentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (EnvironmentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTimeouts)(nil)).Elem()
+}
+
+func (i EnvironmentTimeoutsArgs) ToEnvironmentTimeoutsOutput() EnvironmentTimeoutsOutput {
+	return i.ToEnvironmentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTimeoutsArgs) ToEnvironmentTimeoutsOutputWithContext(ctx context.Context) EnvironmentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTimeoutsOutput)
+}
+
+func (i EnvironmentTimeoutsArgs) ToEnvironmentTimeoutsPtrOutput() EnvironmentTimeoutsPtrOutput {
+	return i.ToEnvironmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i EnvironmentTimeoutsArgs) ToEnvironmentTimeoutsPtrOutputWithContext(ctx context.Context) EnvironmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTimeoutsOutput).ToEnvironmentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// EnvironmentTimeoutsPtrInput is an input type that accepts EnvironmentTimeoutsArgs, EnvironmentTimeoutsPtr and EnvironmentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `EnvironmentTimeoutsPtrInput` via:
+//
+//	        EnvironmentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EnvironmentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentTimeoutsPtrOutput() EnvironmentTimeoutsPtrOutput
+	ToEnvironmentTimeoutsPtrOutputWithContext(context.Context) EnvironmentTimeoutsPtrOutput
+}
+
+type environmentTimeoutsPtrType EnvironmentTimeoutsArgs
+
+func EnvironmentTimeoutsPtr(v *EnvironmentTimeoutsArgs) EnvironmentTimeoutsPtrInput {
+	return (*environmentTimeoutsPtrType)(v)
+}
+
+func (*environmentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentTimeouts)(nil)).Elem()
+}
+
+func (i *environmentTimeoutsPtrType) ToEnvironmentTimeoutsPtrOutput() EnvironmentTimeoutsPtrOutput {
+	return i.ToEnvironmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *environmentTimeoutsPtrType) ToEnvironmentTimeoutsPtrOutputWithContext(ctx context.Context) EnvironmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTimeoutsPtrOutput)
+}
+
+type EnvironmentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentTimeouts)(nil)).Elem()
+}
+
+func (o EnvironmentTimeoutsOutput) ToEnvironmentTimeoutsOutput() EnvironmentTimeoutsOutput {
+	return o
+}
+
+func (o EnvironmentTimeoutsOutput) ToEnvironmentTimeoutsOutputWithContext(ctx context.Context) EnvironmentTimeoutsOutput {
+	return o
+}
+
+func (o EnvironmentTimeoutsOutput) ToEnvironmentTimeoutsPtrOutput() EnvironmentTimeoutsPtrOutput {
+	return o.ToEnvironmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentTimeoutsOutput) ToEnvironmentTimeoutsPtrOutputWithContext(ctx context.Context) EnvironmentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentTimeouts) *EnvironmentTimeouts {
+		return &v
+	}).(EnvironmentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EnvironmentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EnvironmentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EnvironmentTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentTimeouts)(nil)).Elem()
+}
+
+func (o EnvironmentTimeoutsPtrOutput) ToEnvironmentTimeoutsPtrOutput() EnvironmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o EnvironmentTimeoutsPtrOutput) ToEnvironmentTimeoutsPtrOutputWithContext(ctx context.Context) EnvironmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o EnvironmentTimeoutsPtrOutput) Elem() EnvironmentTimeoutsOutput {
+	return o.ApplyT(func(v *EnvironmentTimeouts) EnvironmentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentTimeouts
+		return ret
+	}).(EnvironmentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EnvironmentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EnvironmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EnvironmentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentUserParameter struct {
+	// The name of an environment profile parameter.
+	Name *string `pulumi:"name"`
+	// The value of an environment profile parameter.
+	Value *string `pulumi:"value"`
+}
+
+// EnvironmentUserParameterInput is an input type that accepts EnvironmentUserParameterArgs and EnvironmentUserParameterOutput values.
+// You can construct a concrete instance of `EnvironmentUserParameterInput` via:
+//
+//	EnvironmentUserParameterArgs{...}
+type EnvironmentUserParameterInput interface {
+	pulumi.Input
+
+	ToEnvironmentUserParameterOutput() EnvironmentUserParameterOutput
+	ToEnvironmentUserParameterOutputWithContext(context.Context) EnvironmentUserParameterOutput
+}
+
+type EnvironmentUserParameterArgs struct {
+	// The name of an environment profile parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of an environment profile parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EnvironmentUserParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentUserParameter)(nil)).Elem()
+}
+
+func (i EnvironmentUserParameterArgs) ToEnvironmentUserParameterOutput() EnvironmentUserParameterOutput {
+	return i.ToEnvironmentUserParameterOutputWithContext(context.Background())
+}
+
+func (i EnvironmentUserParameterArgs) ToEnvironmentUserParameterOutputWithContext(ctx context.Context) EnvironmentUserParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentUserParameterOutput)
+}
+
+// EnvironmentUserParameterArrayInput is an input type that accepts EnvironmentUserParameterArray and EnvironmentUserParameterArrayOutput values.
+// You can construct a concrete instance of `EnvironmentUserParameterArrayInput` via:
+//
+//	EnvironmentUserParameterArray{ EnvironmentUserParameterArgs{...} }
+type EnvironmentUserParameterArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentUserParameterArrayOutput() EnvironmentUserParameterArrayOutput
+	ToEnvironmentUserParameterArrayOutputWithContext(context.Context) EnvironmentUserParameterArrayOutput
+}
+
+type EnvironmentUserParameterArray []EnvironmentUserParameterInput
+
+func (EnvironmentUserParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentUserParameter)(nil)).Elem()
+}
+
+func (i EnvironmentUserParameterArray) ToEnvironmentUserParameterArrayOutput() EnvironmentUserParameterArrayOutput {
+	return i.ToEnvironmentUserParameterArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentUserParameterArray) ToEnvironmentUserParameterArrayOutputWithContext(ctx context.Context) EnvironmentUserParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentUserParameterArrayOutput)
+}
+
+type EnvironmentUserParameterOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentUserParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentUserParameter)(nil)).Elem()
+}
+
+func (o EnvironmentUserParameterOutput) ToEnvironmentUserParameterOutput() EnvironmentUserParameterOutput {
+	return o
+}
+
+func (o EnvironmentUserParameterOutput) ToEnvironmentUserParameterOutputWithContext(ctx context.Context) EnvironmentUserParameterOutput {
+	return o
+}
+
+// The name of an environment profile parameter.
+func (o EnvironmentUserParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentUserParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of an environment profile parameter.
+func (o EnvironmentUserParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentUserParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentUserParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentUserParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentUserParameter)(nil)).Elem()
+}
+
+func (o EnvironmentUserParameterArrayOutput) ToEnvironmentUserParameterArrayOutput() EnvironmentUserParameterArrayOutput {
+	return o
+}
+
+func (o EnvironmentUserParameterArrayOutput) ToEnvironmentUserParameterArrayOutputWithContext(ctx context.Context) EnvironmentUserParameterArrayOutput {
+	return o
+}
+
+func (o EnvironmentUserParameterArrayOutput) Index(i pulumi.IntInput) EnvironmentUserParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentUserParameter {
+		return vs[0].([]EnvironmentUserParameter)[vs[1].(int)]
+	}).(EnvironmentUserParameterOutput)
 }
 
 type FormTypeImport struct {
@@ -1357,12 +2229,26 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputInput)(nil)).Elem(), AssetTypeFormsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputArrayInput)(nil)).Elem(), AssetTypeFormsInputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeTimeoutsInput)(nil)).Elem(), AssetTypeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeTimeoutsPtrInput)(nil)).Elem(), AssetTypeTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnPtrInput)(nil)).Elem(), DomainSingleSignOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsInput)(nil)).Elem(), DomainTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTimeoutsPtrInput)(nil)).Elem(), DomainTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastDeploymentInput)(nil)).Elem(), EnvironmentLastDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastDeploymentArrayInput)(nil)).Elem(), EnvironmentLastDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastDeploymentFailureReasonInput)(nil)).Elem(), EnvironmentLastDeploymentFailureReasonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastDeploymentFailureReasonArrayInput)(nil)).Elem(), EnvironmentLastDeploymentFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileUserParameterInput)(nil)).Elem(), EnvironmentProfileUserParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProfileUserParameterArrayInput)(nil)).Elem(), EnvironmentProfileUserParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProvisionedResourceInput)(nil)).Elem(), EnvironmentProvisionedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentProvisionedResourceArrayInput)(nil)).Elem(), EnvironmentProvisionedResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTimeoutsInput)(nil)).Elem(), EnvironmentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTimeoutsPtrInput)(nil)).Elem(), EnvironmentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentUserParameterInput)(nil)).Elem(), EnvironmentUserParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentUserParameterArrayInput)(nil)).Elem(), EnvironmentUserParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeImportInput)(nil)).Elem(), FormTypeImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeImportArrayInput)(nil)).Elem(), FormTypeImportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTypeModelInput)(nil)).Elem(), FormTypeModelArgs{})
@@ -1377,12 +2263,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterOutputType(AssetTypeFormsInputOutput{})
+	pulumi.RegisterOutputType(AssetTypeFormsInputArrayOutput{})
+	pulumi.RegisterOutputType(AssetTypeTimeoutsOutput{})
+	pulumi.RegisterOutputType(AssetTypeTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnPtrOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsOutput{})
 	pulumi.RegisterOutputType(DomainTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentLastDeploymentOutput{})
+	pulumi.RegisterOutputType(EnvironmentLastDeploymentArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentLastDeploymentFailureReasonOutput{})
+	pulumi.RegisterOutputType(EnvironmentLastDeploymentFailureReasonArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileUserParameterOutput{})
 	pulumi.RegisterOutputType(EnvironmentProfileUserParameterArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentProvisionedResourceOutput{})
+	pulumi.RegisterOutputType(EnvironmentProvisionedResourceArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentTimeoutsOutput{})
+	pulumi.RegisterOutputType(EnvironmentTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentUserParameterOutput{})
+	pulumi.RegisterOutputType(EnvironmentUserParameterArrayOutput{})
 	pulumi.RegisterOutputType(FormTypeImportOutput{})
 	pulumi.RegisterOutputType(FormTypeImportArrayOutput{})
 	pulumi.RegisterOutputType(FormTypeModelOutput{})

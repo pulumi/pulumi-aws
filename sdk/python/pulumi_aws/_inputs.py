@@ -1220,6 +1220,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        pcs: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         pinpoint: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1763,6 +1767,7 @@ class ProviderEndpointArgs:
                  outposts: Optional[pulumi.Input[str]] = None,
                  paymentcryptography: Optional[pulumi.Input[str]] = None,
                  pcaconnectorad: Optional[pulumi.Input[str]] = None,
+                 pcs: Optional[pulumi.Input[str]] = None,
                  pinpoint: Optional[pulumi.Input[str]] = None,
                  pipes: Optional[pulumi.Input[str]] = None,
                  polly: Optional[pulumi.Input[str]] = None,
@@ -2052,6 +2057,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] outposts: Use this to override the default service endpoint URL
         :param pulumi.Input[str] paymentcryptography: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pcaconnectorad: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] pcs: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pinpoint: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pipes: Use this to override the default service endpoint URL
         :param pulumi.Input[str] polly: Use this to override the default service endpoint URL
@@ -2546,6 +2552,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "paymentcryptography", paymentcryptography)
         if pcaconnectorad is not None:
             pulumi.set(__self__, "pcaconnectorad", pcaconnectorad)
+        if pcs is not None:
+            pulumi.set(__self__, "pcs", pcs)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
         if pipes is not None:
@@ -5172,6 +5180,18 @@ class ProviderEndpointArgs:
     @pcaconnectorad.setter
     def pcaconnectorad(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pcaconnectorad", value)
+
+    @property
+    @pulumi.getter
+    def pcs(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pcs")
+
+    @pcs.setter
+    def pcs(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pcs", value)
 
     @property
     @pulumi.getter

@@ -17446,6 +17446,10 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyType() pulumi.St
 type FirehoseDeliveryStreamSnowflakeConfiguration struct {
 	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 	AccountUrl string `pulumi:"accountUrl"`
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+	BufferingSize *int `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The name of the content column.
@@ -17498,6 +17502,10 @@ type FirehoseDeliveryStreamSnowflakeConfigurationInput interface {
 type FirehoseDeliveryStreamSnowflakeConfigurationArgs struct {
 	// The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
+	// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
 	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
 	CloudwatchLoggingOptions FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The name of the content column.
@@ -17616,6 +17624,16 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) ToFirehoseDeliverySt
 // The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) AccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
 }
 
 // The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
@@ -17752,6 +17770,26 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) AccountUrl() pulu
 		}
 		return &v.AccountUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+func (o FirehoseDeliveryStreamSnowflakeConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamSnowflakeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
 }
 
 // The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.

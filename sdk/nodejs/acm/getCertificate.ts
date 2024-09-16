@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get the ARN of a certificate in AWS Certificate
- * Manager (ACM), you can reference
- * it by domain without having to hard code the ARNs as input.
+ * Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+ * You can reference the certificate by domain or tags without having to hard code the ARNs as input.
  *
  * ## Example Usage
  *
@@ -33,7 +32,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:acm/getCertificate:getCertificate", {
@@ -51,9 +51,9 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetCertificateArgs {
     /**
-     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
      */
-    domain: string;
+    domain?: string;
     /**
      * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      */
@@ -69,7 +69,7 @@ export interface GetCertificateArgs {
      */
     statuses?: string[];
     /**
-     * Mapping of tags for the resource.
+     * A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
      */
     tags?: {[key: string]: string};
     /**
@@ -113,9 +113,8 @@ export interface GetCertificateResult {
     readonly types?: string[];
 }
 /**
- * Use this data source to get the ARN of a certificate in AWS Certificate
- * Manager (ACM), you can reference
- * it by domain without having to hard code the ARNs as input.
+ * Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+ * You can reference the certificate by domain or tags without having to hard code the ARNs as input.
  *
  * ## Example Usage
  *
@@ -141,7 +140,7 @@ export interface GetCertificateResult {
  * });
  * ```
  */
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
@@ -150,9 +149,9 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
  */
 export interface GetCertificateOutputArgs {
     /**
-     * Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+     * Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
      */
-    domain: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
      */
@@ -168,7 +167,7 @@ export interface GetCertificateOutputArgs {
      */
     statuses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Mapping of tags for the resource.
+     * A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -1153,6 +1153,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="snowflake",
             snowflake_configuration={
                 "account_url": "https://example.snowflakecomputing.com",
+                "buffering_size": 15,
+                "buffering_interval": 600,
                 "database": "example-db",
                 "private_key": "...",
                 "role_arn": firehose["arn"],
@@ -1745,6 +1747,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="snowflake",
             snowflake_configuration={
                 "account_url": "https://example.snowflakecomputing.com",
+                "buffering_size": 15,
+                "buffering_interval": 600,
                 "database": "example-db",
                 "private_key": "...",
                 "role_arn": firehose["arn"],

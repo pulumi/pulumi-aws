@@ -12,11 +12,19 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotSubSlotSettingGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+        /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }
 
         [Input("slotSpecifications")]
         private InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationGetArgs>? _slotSpecifications;
+
+        /// <summary>
+        /// Specifications for the constituent sub slots of a composite slot.
+        /// See the `slot_specification` argument reference below.
+        /// </summary>
         public InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationGetArgs> SlotSpecifications
         {
             get => _slotSpecifications ?? (_slotSpecifications = new InputList<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationGetArgs>());

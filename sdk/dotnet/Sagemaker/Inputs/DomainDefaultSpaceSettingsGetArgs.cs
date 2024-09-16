@@ -12,11 +12,35 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class DomainDefaultSpaceSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customFileSystemConfigs")]
+        private InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs>? _customFileSystemConfigs;
+
+        /// <summary>
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+        /// </summary>
+        public InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs> CustomFileSystemConfigs
+        {
+            get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigGetArgs>());
+            set => _customFileSystemConfigs = value;
+        }
+
+        /// <summary>
+        /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+        /// </summary>
+        [Input("customPosixUserConfig")]
+        public Input<Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigGetArgs>? CustomPosixUserConfig { get; set; }
+
         /// <summary>
         /// The execution role for the space.
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
+
+        /// <summary>
+        /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+        /// </summary>
+        [Input("jupyterLabAppSettings")]
+        public Input<Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsGetArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
         /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
@@ -41,6 +65,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
+
+        /// <summary>
+        /// The storage settings for a private space. See `space_storage_settings` Block below.
+        /// </summary>
+        [Input("spaceStorageSettings")]
+        public Input<Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsGetArgs>? SpaceStorageSettings { get; set; }
 
         public DomainDefaultSpaceSettingsGetArgs()
         {

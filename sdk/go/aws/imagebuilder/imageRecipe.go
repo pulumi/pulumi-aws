@@ -79,7 +79,7 @@ import (
 type ImageRecipe struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the image recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
@@ -154,7 +154,7 @@ func GetImageRecipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImageRecipe resources.
 type imageRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the image recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings []ImageRecipeBlockDeviceMapping `pulumi:"blockDeviceMappings"`
@@ -191,7 +191,7 @@ type imageRecipeState struct {
 }
 
 type ImageRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the image recipe.
+	// Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringPtrInput
 	// Configuration block(s) with block device mappings for the image recipe. Detailed below.
 	BlockDeviceMappings ImageRecipeBlockDeviceMappingArrayInput
@@ -369,7 +369,7 @@ func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) I
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the image recipe.
+// Amazon Resource Name (ARN) of the image recipe.
 func (o ImageRecipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

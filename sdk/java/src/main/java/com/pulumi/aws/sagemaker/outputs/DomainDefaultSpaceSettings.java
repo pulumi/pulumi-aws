@@ -3,8 +3,12 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsCustomFileSystemConfig;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsCustomPosixUserConfig;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsJupyterLabAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultSpaceSettingsSpaceStorageSettings;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -16,10 +20,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultSpaceSettings {
     /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * 
+     */
+    private @Nullable List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs;
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+     * 
+     */
+    private @Nullable DomainDefaultSpaceSettingsCustomPosixUserConfig customPosixUserConfig;
+    /**
      * @return The execution role for the space.
      * 
      */
     private String executionRole;
+    /**
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+     * 
+     */
+    private @Nullable DomainDefaultSpaceSettingsJupyterLabAppSettings jupyterLabAppSettings;
     /**
      * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
@@ -35,14 +54,40 @@ public final class DomainDefaultSpaceSettings {
      * 
      */
     private @Nullable List<String> securityGroups;
+    /**
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
+     * 
+     */
+    private @Nullable DomainDefaultSpaceSettingsSpaceStorageSettings spaceStorageSettings;
 
     private DomainDefaultSpaceSettings() {}
+    /**
+     * @return The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
+     * 
+     */
+    public List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs() {
+        return this.customFileSystemConfigs == null ? List.of() : this.customFileSystemConfigs;
+    }
+    /**
+     * @return Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
+     * 
+     */
+    public Optional<DomainDefaultSpaceSettingsCustomPosixUserConfig> customPosixUserConfig() {
+        return Optional.ofNullable(this.customPosixUserConfig);
+    }
     /**
      * @return The execution role for the space.
      * 
      */
     public String executionRole() {
         return this.executionRole;
+    }
+    /**
+     * @return The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
+     * 
+     */
+    public Optional<DomainDefaultSpaceSettingsJupyterLabAppSettings> jupyterLabAppSettings() {
+        return Optional.ofNullable(this.jupyterLabAppSettings);
     }
     /**
      * @return The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
@@ -65,6 +110,13 @@ public final class DomainDefaultSpaceSettings {
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
+    /**
+     * @return The storage settings for a private space. See `space_storage_settings` Block below.
+     * 
+     */
+    public Optional<DomainDefaultSpaceSettingsSpaceStorageSettings> spaceStorageSettings() {
+        return Optional.ofNullable(this.spaceStorageSettings);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,25 +127,54 @@ public final class DomainDefaultSpaceSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs;
+        private @Nullable DomainDefaultSpaceSettingsCustomPosixUserConfig customPosixUserConfig;
         private String executionRole;
+        private @Nullable DomainDefaultSpaceSettingsJupyterLabAppSettings jupyterLabAppSettings;
         private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
         private @Nullable List<String> securityGroups;
+        private @Nullable DomainDefaultSpaceSettingsSpaceStorageSettings spaceStorageSettings;
         public Builder() {}
         public Builder(DomainDefaultSpaceSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customFileSystemConfigs = defaults.customFileSystemConfigs;
+    	      this.customPosixUserConfig = defaults.customPosixUserConfig;
     	      this.executionRole = defaults.executionRole;
+    	      this.jupyterLabAppSettings = defaults.jupyterLabAppSettings;
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
     	      this.securityGroups = defaults.securityGroups;
+    	      this.spaceStorageSettings = defaults.spaceStorageSettings;
         }
 
+        @CustomType.Setter
+        public Builder customFileSystemConfigs(@Nullable List<DomainDefaultSpaceSettingsCustomFileSystemConfig> customFileSystemConfigs) {
+
+            this.customFileSystemConfigs = customFileSystemConfigs;
+            return this;
+        }
+        public Builder customFileSystemConfigs(DomainDefaultSpaceSettingsCustomFileSystemConfig... customFileSystemConfigs) {
+            return customFileSystemConfigs(List.of(customFileSystemConfigs));
+        }
+        @CustomType.Setter
+        public Builder customPosixUserConfig(@Nullable DomainDefaultSpaceSettingsCustomPosixUserConfig customPosixUserConfig) {
+
+            this.customPosixUserConfig = customPosixUserConfig;
+            return this;
+        }
         @CustomType.Setter
         public Builder executionRole(String executionRole) {
             if (executionRole == null) {
               throw new MissingRequiredPropertyException("DomainDefaultSpaceSettings", "executionRole");
             }
             this.executionRole = executionRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jupyterLabAppSettings(@Nullable DomainDefaultSpaceSettingsJupyterLabAppSettings jupyterLabAppSettings) {
+
+            this.jupyterLabAppSettings = jupyterLabAppSettings;
             return this;
         }
         @CustomType.Setter
@@ -117,12 +198,22 @@ public final class DomainDefaultSpaceSettings {
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
+        @CustomType.Setter
+        public Builder spaceStorageSettings(@Nullable DomainDefaultSpaceSettingsSpaceStorageSettings spaceStorageSettings) {
+
+            this.spaceStorageSettings = spaceStorageSettings;
+            return this;
+        }
         public DomainDefaultSpaceSettings build() {
             final var _resultValue = new DomainDefaultSpaceSettings();
+            _resultValue.customFileSystemConfigs = customFileSystemConfigs;
+            _resultValue.customPosixUserConfig = customPosixUserConfig;
             _resultValue.executionRole = executionRole;
+            _resultValue.jupyterLabAppSettings = jupyterLabAppSettings;
             _resultValue.jupyterServerAppSettings = jupyterServerAppSettings;
             _resultValue.kernelGatewayAppSettings = kernelGatewayAppSettings;
             _resultValue.securityGroups = securityGroups;
+            _resultValue.spaceStorageSettings = spaceStorageSettings;
             return _resultValue;
         }
     }

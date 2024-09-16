@@ -17,29 +17,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSetting {
+    /**
+     * @return List of default values for a slot.
+     * See the `default_value_specification` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications;
+    /**
+     * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * 
+     */
     private V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification;
     private @Nullable List<V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances;
+    /**
+     * @return Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+     * 
+     */
     private String slotConstraint;
+    /**
+     * @return Information about whether assisted slot resolution is turned on for the slot or not.
+     * See the `slot_resolution_setting` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotValueElicitationSettingSlotResolutionSetting> slotResolutionSettings;
+    /**
+     * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+     * See the `wait_and_continue_specification` argument reference below.
+     * 
+     */
     private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications;
 
     private V2modelsSlotValueElicitationSetting() {}
+    /**
+     * @return List of default values for a slot.
+     * See the `default_value_specification` argument reference below.
+     * 
+     */
     public List<V2modelsSlotValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications() {
         return this.defaultValueSpecifications == null ? List.of() : this.defaultValueSpecifications;
     }
+    /**
+     * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
+     * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+     * 
+     */
     public V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification() {
         return this.promptSpecification;
     }
     public List<V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances() {
         return this.sampleUtterances == null ? List.of() : this.sampleUtterances;
     }
+    /**
+     * @return Whether the slot is required or optional. Valid values are `Required` or `Optional`.
+     * 
+     */
     public String slotConstraint() {
         return this.slotConstraint;
     }
+    /**
+     * @return Information about whether assisted slot resolution is turned on for the slot or not.
+     * See the `slot_resolution_setting` argument reference below.
+     * 
+     */
     public List<V2modelsSlotValueElicitationSettingSlotResolutionSetting> slotResolutionSettings() {
         return this.slotResolutionSettings == null ? List.of() : this.slotResolutionSettings;
     }
+    /**
+     * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
+     * See the `wait_and_continue_specification` argument reference below.
+     * 
+     */
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications() {
         return this.waitAndContinueSpecifications == null ? List.of() : this.waitAndContinueSpecifications;
     }

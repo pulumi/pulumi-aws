@@ -91,6 +91,7 @@ __all__ = [
     'DataSourceParametersAurora',
     'DataSourceParametersAuroraPostgresql',
     'DataSourceParametersAwsIotAnalytics',
+    'DataSourceParametersDatabricks',
     'DataSourceParametersJira',
     'DataSourceParametersMariaDb',
     'DataSourceParametersMysql',
@@ -134,6 +135,7 @@ __all__ = [
     'ThemeConfigurationUiColorPalette',
     'ThemePermission',
     'VpcConnectionTimeouts',
+    'GetAnalysisPermissionResult',
     'GetDataSetColumnGroupResult',
     'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
     'GetDataSetColumnLevelPermissionRuleResult',
@@ -167,6 +169,7 @@ __all__ = [
     'GetDataSetRowLevelPermissionDataSetResult',
     'GetDataSetRowLevelPermissionTagConfigurationResult',
     'GetDataSetRowLevelPermissionTagConfigurationTagRuleResult',
+    'GetQuicksightAnalysisPermissionResult',
     'GetThemeConfigurationResult',
     'GetThemeConfigurationDataColorPaletteResult',
     'GetThemeConfigurationSheetResult',
@@ -3510,6 +3513,7 @@ class DataSourceParameters(dict):
                  aurora: Optional['outputs.DataSourceParametersAurora'] = None,
                  aurora_postgresql: Optional['outputs.DataSourceParametersAuroraPostgresql'] = None,
                  aws_iot_analytics: Optional['outputs.DataSourceParametersAwsIotAnalytics'] = None,
+                 databricks: Optional['outputs.DataSourceParametersDatabricks'] = None,
                  jira: Optional['outputs.DataSourceParametersJira'] = None,
                  maria_db: Optional['outputs.DataSourceParametersMariaDb'] = None,
                  mysql: Optional['outputs.DataSourceParametersMysql'] = None,
@@ -3531,6 +3535,7 @@ class DataSourceParameters(dict):
         :param 'DataSourceParametersAuroraArgs' aurora: Parameters for connecting to Aurora MySQL.
         :param 'DataSourceParametersAuroraPostgresqlArgs' aurora_postgresql: Parameters for connecting to Aurora Postgresql.
         :param 'DataSourceParametersAwsIotAnalyticsArgs' aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param 'DataSourceParametersDatabricksArgs' databricks: Parameters for connecting to Databricks.
         :param 'DataSourceParametersJiraArgs' jira: Parameters for connecting to Jira.
         :param 'DataSourceParametersMariaDbArgs' maria_db: Parameters for connecting to MariaDB.
         :param 'DataSourceParametersMysqlArgs' mysql: Parameters for connecting to MySQL.
@@ -3557,6 +3562,8 @@ class DataSourceParameters(dict):
             pulumi.set(__self__, "aurora_postgresql", aurora_postgresql)
         if aws_iot_analytics is not None:
             pulumi.set(__self__, "aws_iot_analytics", aws_iot_analytics)
+        if databricks is not None:
+            pulumi.set(__self__, "databricks", databricks)
         if jira is not None:
             pulumi.set(__self__, "jira", jira)
         if maria_db is not None:
@@ -3627,6 +3634,14 @@ class DataSourceParameters(dict):
         Parameters for connecting to AWS IOT Analytics.
         """
         return pulumi.get(self, "aws_iot_analytics")
+
+    @property
+    @pulumi.getter
+    def databricks(self) -> Optional['outputs.DataSourceParametersDatabricks']:
+        """
+        Parameters for connecting to Databricks.
+        """
+        return pulumi.get(self, "databricks")
 
     @property
     @pulumi.getter
@@ -3916,6 +3931,63 @@ class DataSourceParametersAwsIotAnalytics(dict):
         The name of the data set to which to connect.
         """
         return pulumi.get(self, "data_set_name")
+
+
+@pulumi.output_type
+class DataSourceParametersDatabricks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlEndpointPath":
+            suggest = "sql_endpoint_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceParametersDatabricks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceParametersDatabricks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceParametersDatabricks.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host: str,
+                 port: int,
+                 sql_endpoint_path: str):
+        """
+        :param str host: The host name of the Databricks data source.
+        :param int port: The port for the Databricks data source.
+        :param str sql_endpoint_path: The HTTP path of the Databricks data source.
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The host name of the Databricks data source.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port for the Databricks data source.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="sqlEndpointPath")
+    def sql_endpoint_path(self) -> str:
+        """
+        The HTTP path of the Databricks data source.
+        """
+        return pulumi.get(self, "sql_endpoint_path")
 
 
 @pulumi.output_type
@@ -5801,6 +5873,25 @@ class VpcConnectionTimeouts(dict):
 
 
 @pulumi.output_type
+class GetAnalysisPermissionResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
 class GetDataSetColumnGroupResult(dict):
     def __init__(__self__, *,
                  geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']):
@@ -6600,6 +6691,25 @@ class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
     @pulumi.getter(name="tagMultiValueDelimiter")
     def tag_multi_value_delimiter(self) -> str:
         return pulumi.get(self, "tag_multi_value_delimiter")
+
+
+@pulumi.output_type
+class GetQuicksightAnalysisPermissionResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        return pulumi.get(self, "principal")
 
 
 @pulumi.output_type

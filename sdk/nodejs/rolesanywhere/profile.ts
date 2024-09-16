@@ -101,7 +101,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A list of IAM roles that this profile can assume
      */
-    public readonly roleArns!: pulumi.Output<string[]>;
+    public readonly roleArns!: pulumi.Output<string[] | undefined>;
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      */
@@ -124,7 +124,7 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -142,9 +142,6 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if ((!args || args.roleArns === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleArns'");
-            }
             resourceInputs["durationSeconds"] = args ? args.durationSeconds : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
@@ -236,7 +233,7 @@ export interface ProfileArgs {
     /**
      * A list of IAM roles that this profile can assume
      */
-    roleArns: pulumi.Input<pulumi.Input<string>[]>;
+    roleArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      */

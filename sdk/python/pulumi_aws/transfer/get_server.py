@@ -26,7 +26,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, structured_log_destinations=None, url=None):
+    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,6 +66,9 @@ class GetServerResult:
         if structured_log_destinations and not isinstance(structured_log_destinations, list):
             raise TypeError("Expected argument 'structured_log_destinations' to be a list")
         pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -173,6 +176,14 @@ class GetServerResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        Map of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def url(self) -> str:
         """
         URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -199,10 +210,12 @@ class AwaitableGetServerResult(GetServerResult):
             security_policy_name=self.security_policy_name,
             server_id=self.server_id,
             structured_log_destinations=self.structured_log_destinations,
+            tags=self.tags,
             url=self.url)
 
 
 def get_server(server_id: Optional[str] = None,
+               tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
@@ -219,9 +232,11 @@ def get_server(server_id: Optional[str] = None,
 
 
     :param str server_id: ID for an SFTP server.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['serverId'] = server_id
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:transfer/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
@@ -239,11 +254,13 @@ def get_server(server_id: Optional[str] = None,
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         server_id=pulumi.get(__ret__, 'server_id'),
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
+        tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_server)
 def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
@@ -260,5 +277,6 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
 
 
     :param str server_id: ID for an SFTP server.
+    :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

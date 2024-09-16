@@ -15,6 +15,14 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'FleetScalingConfigurationArgs',
+    'FleetScalingConfigurationArgsDict',
+    'FleetScalingConfigurationTargetTrackingScalingConfigArgs',
+    'FleetScalingConfigurationTargetTrackingScalingConfigArgsDict',
+    'FleetStatusArgs',
+    'FleetStatusArgsDict',
+    'FleetVpcConfigArgs',
+    'FleetVpcConfigArgsDict',
     'ProjectArtifactsArgs',
     'ProjectArtifactsArgsDict',
     'ProjectBuildBatchConfigArgs',
@@ -27,6 +35,8 @@ __all__ = [
     'ProjectEnvironmentArgsDict',
     'ProjectEnvironmentEnvironmentVariableArgs',
     'ProjectEnvironmentEnvironmentVariableArgsDict',
+    'ProjectEnvironmentFleetArgs',
+    'ProjectEnvironmentFleetArgsDict',
     'ProjectEnvironmentRegistryCredentialArgs',
     'ProjectEnvironmentRegistryCredentialArgsDict',
     'ProjectFileSystemLocationArgs',
@@ -68,6 +78,284 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class FleetScalingConfigurationArgsDict(TypedDict):
+        desired_capacity: NotRequired[pulumi.Input[int]]
+        max_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of instances in the ﬂeet when auto-scaling.
+        """
+        scaling_type: NotRequired[pulumi.Input[str]]
+        """
+        Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+        """
+        target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgsDict']]]]
+        """
+        Configuration block. Detailed below.
+        """
+elif False:
+    FleetScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 desired_capacity: Optional[pulumi.Input[int]] = None,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
+                 scaling_type: Optional[pulumi.Input[str]] = None,
+                 target_tracking_scaling_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]] = None):
+        """
+        :param pulumi.Input[int] max_capacity: Maximum number of instances in the ﬂeet when auto-scaling.
+        :param pulumi.Input[str] scaling_type: Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]] target_tracking_scaling_configs: Configuration block. Detailed below.
+        """
+        if desired_capacity is not None:
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+        if target_tracking_scaling_configs is not None:
+            pulumi.set(__self__, "target_tracking_scaling_configs", target_tracking_scaling_configs)
+
+    @property
+    @pulumi.getter(name="desiredCapacity")
+    def desired_capacity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "desired_capacity")
+
+    @desired_capacity.setter
+    def desired_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_capacity", value)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of instances in the ﬂeet when auto-scaling.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
+        """
+        return pulumi.get(self, "scaling_type")
+
+    @scaling_type.setter
+    def scaling_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scaling_type", value)
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingConfigs")
+    def target_tracking_scaling_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "target_tracking_scaling_configs")
+
+    @target_tracking_scaling_configs.setter
+    def target_tracking_scaling_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]]):
+        pulumi.set(self, "target_tracking_scaling_configs", value)
+
+
+if not MYPY:
+    class FleetScalingConfigurationTargetTrackingScalingConfigArgsDict(TypedDict):
+        metric_type: NotRequired[pulumi.Input[str]]
+        """
+        Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+        """
+        target_value: NotRequired[pulumi.Input[float]]
+        """
+        Value of metricType when to start scaling.
+        """
+elif False:
+    FleetScalingConfigurationTargetTrackingScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetScalingConfigurationTargetTrackingScalingConfigArgs:
+    def __init__(__self__, *,
+                 metric_type: Optional[pulumi.Input[str]] = None,
+                 target_value: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] metric_type: Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+        :param pulumi.Input[float] target_value: Value of metricType when to start scaling.
+        """
+        if metric_type is not None:
+            pulumi.set(__self__, "metric_type", metric_type)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
+        """
+        return pulumi.get(self, "metric_type")
+
+    @metric_type.setter
+    def metric_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_type", value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional[pulumi.Input[float]]:
+        """
+        Value of metricType when to start scaling.
+        """
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "target_value", value)
+
+
+if not MYPY:
+    class FleetStatusArgsDict(TypedDict):
+        context: NotRequired[pulumi.Input[str]]
+        """
+        Additional information about a compute fleet.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Message associated with the status of a compute fleet.
+        """
+        status_code: NotRequired[pulumi.Input[str]]
+        """
+        Status code of the compute fleet.
+        """
+elif False:
+    FleetStatusArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetStatusArgs:
+    def __init__(__self__, *,
+                 context: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] context: Additional information about a compute fleet.
+        :param pulumi.Input[str] message: Message associated with the status of a compute fleet.
+        :param pulumi.Input[str] status_code: Status code of the compute fleet.
+        """
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional information about a compute fleet.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message associated with the status of a compute fleet.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status code of the compute fleet.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
+
+
+if not MYPY:
+    class FleetVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The ID of the Amazon VPC.
+        """
+elif False:
+    FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of one or more subnet IDs in your Amazon VPC.
+        :param pulumi.Input[str] vpc_id: The ID of the Amazon VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more security groups IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more subnet IDs in your Amazon VPC.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
 
 if not MYPY:
     class ProjectArtifactsArgsDict(TypedDict):
@@ -517,6 +805,10 @@ if not MYPY:
         """
         Configuration block. Detailed below.
         """
+        fleet: NotRequired[pulumi.Input['ProjectEnvironmentFleetArgsDict']]
+        """
+        Configuration block. Detailed below.
+        """
         image_pull_credentials_type: NotRequired[pulumi.Input[str]]
         """
         Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -540,6 +832,7 @@ class ProjectEnvironmentArgs:
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
+                 fleet: Optional[pulumi.Input['ProjectEnvironmentFleetArgs']] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
                  registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
@@ -549,6 +842,7 @@ class ProjectEnvironmentArgs:
         :param pulumi.Input[str] type: Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`, `LINUX_GPU_CONTAINER`, `WINDOWS_CONTAINER` (deprecated), `WINDOWS_SERVER_2019_CONTAINER`, `ARM_CONTAINER`, `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         :param pulumi.Input[str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectEnvironmentFleetArgs'] fleet: Configuration block. Detailed below.
         :param pulumi.Input[str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
         :param pulumi.Input[bool] privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
         :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Configuration block. Detailed below.
@@ -560,6 +854,8 @@ class ProjectEnvironmentArgs:
             pulumi.set(__self__, "certificate", certificate)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if fleet is not None:
+            pulumi.set(__self__, "fleet", fleet)
         if image_pull_credentials_type is not None:
             pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
@@ -626,6 +922,18 @@ class ProjectEnvironmentArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def fleet(self) -> Optional[pulumi.Input['ProjectEnvironmentFleetArgs']]:
+        """
+        Configuration block. Detailed below.
+        """
+        return pulumi.get(self, "fleet")
+
+    @fleet.setter
+    def fleet(self, value: Optional[pulumi.Input['ProjectEnvironmentFleetArgs']]):
+        pulumi.set(self, "fleet", value)
 
     @property
     @pulumi.getter(name="imagePullCredentialsType")
@@ -732,6 +1040,38 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentFleetArgsDict(TypedDict):
+        fleet_arn: NotRequired[pulumi.Input[str]]
+        """
+        Compute fleet ARN for the build project.
+        """
+elif False:
+    ProjectEnvironmentFleetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentFleetArgs:
+    def __init__(__self__, *,
+                 fleet_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] fleet_arn: Compute fleet ARN for the build project.
+        """
+        if fleet_arn is not None:
+            pulumi.set(__self__, "fleet_arn", fleet_arn)
+
+    @property
+    @pulumi.getter(name="fleetArn")
+    def fleet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Compute fleet ARN for the build project.
+        """
+        return pulumi.get(self, "fleet_arn")
+
+    @fleet_arn.setter
+    def fleet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fleet_arn", value)
 
 
 if not MYPY:

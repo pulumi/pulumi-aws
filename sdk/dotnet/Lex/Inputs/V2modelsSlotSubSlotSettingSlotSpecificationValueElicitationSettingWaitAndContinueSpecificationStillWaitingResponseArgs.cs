@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the user can interrupt a speech response from Amazon Lex.
+        /// </summary>
         [Input("allowInterrupt")]
         public Input<bool>? AllowInterrupt { get; set; }
 
+        /// <summary>
+        /// How often a message should be sent to the user.
+        /// </summary>
         [Input("frequencyInSeconds", required: true)]
         public Input<int> FrequencyInSeconds { get; set; } = null!;
 
@@ -26,6 +32,9 @@ namespace Pulumi.Aws.Lex.Inputs
             set => _messageGroups = value;
         }
 
+        /// <summary>
+        /// If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
+        /// </summary>
         [Input("timeoutInSeconds", required: true)]
         public Input<int> TimeoutInSeconds { get; set; } = null!;
 

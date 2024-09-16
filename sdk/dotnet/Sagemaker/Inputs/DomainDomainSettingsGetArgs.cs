@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class DomainDomainSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
+        /// </summary>
+        [Input("dockerSettings")]
+        public Input<Inputs.DomainDomainSettingsDockerSettingsGetArgs>? DockerSettings { get; set; }
+
+        /// <summary>
         /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         /// </summary>
         [Input("executionRoleIdentityConfig")]

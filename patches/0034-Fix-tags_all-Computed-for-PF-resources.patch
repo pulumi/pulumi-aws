@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index ab081ee5b5..f878288ea6 100644
+index 33be2171d4..f2f5610ca7 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
 @@ -84,7 +84,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
@@ -18,7 +18,7 @@ index ab081ee5b5..f878288ea6 100644
  		Blocks: map[string]schema.Block{
  			names.AttrDestination: schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index b7de5503dc..6baae17c0d 100644
+index e0606306fd..61981ae7fb 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
 @@ -137,7 +137,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
@@ -31,7 +31,7 @@ index b7de5503dc..6baae17c0d 100644
  				CustomType: fwtypes.NewListNestedObjectTypeOf[customModelTrainingMetricsModel](ctx),
  				Computed:   true,
 diff --git a/internal/service/codeguruprofiler/profiling_group.go b/internal/service/codeguruprofiler/profiling_group.go
-index 9b0e8fb993..9ec78ba066 100644
+index 8d4b3113e0..ceb385067c 100644
 --- a/internal/service/codeguruprofiler/profiling_group.go
 +++ b/internal/service/codeguruprofiler/profiling_group.go
 @@ -73,7 +73,7 @@ func (r *resourceProfilingGroup) Schema(ctx context.Context, req resource.Schema
@@ -44,7 +44,7 @@ index 9b0e8fb993..9ec78ba066 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index cdc148a212..5b36f0b55b 100644
+index 48cfd92777..e98b584a59 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
 @@ -176,7 +176,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
@@ -57,7 +57,7 @@ index cdc148a212..5b36f0b55b 100644
  				Optional: true,
  			},
 diff --git a/internal/service/rekognition/collection.go b/internal/service/rekognition/collection.go
-index 0c1741f00e..7e1945e19a 100644
+index a9bb3bb327..9f68386f3a 100644
 --- a/internal/service/rekognition/collection.go
 +++ b/internal/service/rekognition/collection.go
 @@ -77,7 +77,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
@@ -70,7 +70,7 @@ index 0c1741f00e..7e1945e19a 100644
  	}
  
 diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
-index 69d6b912ac..6323d7c399 100644
+index cc5317b08a..b8739c1bcb 100644
 --- a/internal/service/securityhub/automation_rule.go
 +++ b/internal/service/securityhub/automation_rule.go
 @@ -75,7 +75,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
@@ -83,7 +83,7 @@ index 69d6b912ac..6323d7c399 100644
  		Blocks: map[string]schema.Block{
  			names.AttrActions: schema.SetNestedBlock{
 diff --git a/internal/service/securitylake/data_lake.go b/internal/service/securitylake/data_lake.go
-index 1850f8d71f..4183d3da8d 100644
+index 3965c8aff9..e08db8c492 100644
 --- a/internal/service/securitylake/data_lake.go
 +++ b/internal/service/securitylake/data_lake.go
 @@ -75,7 +75,7 @@ func (r *dataLakeResource) Schema(ctx context.Context, request resource.SchemaRe
@@ -96,7 +96,7 @@ index 1850f8d71f..4183d3da8d 100644
  		Blocks: map[string]schema.Block{
  			names.AttrConfiguration: schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index 0425a8a97f..8c5b93a1b8 100644
+index 65e308761c..e3660e9b72 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
 @@ -70,7 +70,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe
@@ -109,7 +109,7 @@ index 0425a8a97f..8c5b93a1b8 100644
  				Required: true,
  			},
 diff --git a/internal/service/ssoadmin/application.go b/internal/service/ssoadmin/application.go
-index 0312e9def5..b409c3cd34 100644
+index a95da86dff..be96fdebb6 100644
 --- a/internal/service/ssoadmin/application.go
 +++ b/internal/service/ssoadmin/application.go
 @@ -96,7 +96,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq
@@ -122,7 +122,7 @@ index 0312e9def5..b409c3cd34 100644
  		Blocks: map[string]schema.Block{
  			"portal_options": schema.ListNestedBlock{
 diff --git a/internal/service/ssoadmin/trusted_token_issuer.go b/internal/service/ssoadmin/trusted_token_issuer.go
-index e0e72b63f8..f61a6263c3 100644
+index 815c50fb5a..bc084e6a9c 100644
 --- a/internal/service/ssoadmin/trusted_token_issuer.go
 +++ b/internal/service/ssoadmin/trusted_token_issuer.go
 @@ -86,7 +86,7 @@ func (r *resourceTrustedTokenIssuer) Schema(ctx context.Context, req resource.Sc

@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 2bdf7ddb0d..0aa1395160 100644
+index 1cae1f9ccb..6aaec63fa0 100644
 --- a/internal/service/appfabric/app_authorization.go
 +++ b/internal/service/appfabric/app_authorization.go
-@@ -105,7 +105,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
+@@ -109,7 +109,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 2bdf7ddb0d..0aa1395160 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/appfabric/app_bundle.go b/internal/service/appfabric/app_bundle.go
-index 98a55920b8..e1085f4cc4 100644
+index ff07e8c226..ce3471a78e 100644
 --- a/internal/service/appfabric/app_bundle.go
 +++ b/internal/service/appfabric/app_bundle.go
-@@ -58,7 +58,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR
+@@ -61,7 +61,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR
  			},
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -31,7 +31,7 @@ index 98a55920b8..e1085f4cc4 100644
  	}
  }
 diff --git a/internal/service/ec2/ec2_capacity_block_reservation.go b/internal/service/ec2/ec2_capacity_block_reservation.go
-index 23cb4def0e..627614e82a 100644
+index d769858434..2c255a5dcc 100644
 --- a/internal/service/ec2/ec2_capacity_block_reservation.go
 +++ b/internal/service/ec2/ec2_capacity_block_reservation.go
 @@ -146,7 +146,7 @@ func (r *capacityBlockReservationResource) Schema(ctx context.Context, _ resourc
@@ -44,10 +44,10 @@ index 23cb4def0e..627614e82a 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/fms/resource_set.go b/internal/service/fms/resource_set.go
-index 8722e6a2b6..09293cdecc 100644
+index 2356f0fd2f..6c2bd69e2e 100644
 --- a/internal/service/fms/resource_set.go
 +++ b/internal/service/fms/resource_set.go
-@@ -103,7 +103,7 @@ func (r *resourceResourceSet) Schema(ctx context.Context, req resource.SchemaReq
+@@ -105,7 +105,7 @@ func (r *resourceResourceSet) Schema(ctx context.Context, req resource.SchemaReq
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrARN:     framework.ARNAttributeComputedOnly(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -57,7 +57,7 @@ index 8722e6a2b6..09293cdecc 100644
  		Blocks: map[string]schema.Block{
  			"resource_set": resourceSetLNB,
 diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index baaefd4d50..873f7b2eed 100644
+index f8e400dd51..11804f171e 100644
 --- a/internal/service/guardduty/malware_protection_plan.go
 +++ b/internal/service/guardduty/malware_protection_plan.go
 @@ -88,7 +88,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource

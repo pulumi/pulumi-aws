@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether assisted slot resolution is turned on for the slot or not.
+        /// Valid values are `EnhancedFallback` or `Default`.
+        /// If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
+        /// If the value is `Default`, assisted slot resolution is turned off.
+        /// </summary>
         [Input("slotResolutionStrategy", required: true)]
         public Input<string> SlotResolutionStrategy { get; set; } = null!;
 

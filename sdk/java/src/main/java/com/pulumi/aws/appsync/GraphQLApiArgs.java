@@ -27,18 +27,33 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     public static final GraphQLApiArgs Empty = new GraphQLApiArgs();
 
     /**
-     * One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+     * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     @Import(name="additionalAuthenticationProviders")
     private @Nullable Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+     * @return One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     public Optional<Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>>> additionalAuthenticationProviders() {
         return Optional.ofNullable(this.additionalAuthenticationProviders);
+    }
+
+    /**
+     * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * 
+     */
+    @Import(name="apiType")
+    private @Nullable Output<String> apiType;
+
+    /**
+     * @return API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+     * 
+     */
+    public Optional<Output<String>> apiType() {
+        return Optional.ofNullable(this.apiType);
     }
 
     /**
@@ -117,7 +132,22 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User-supplied name for the GraphSQL API.
+     * ARN of the execution role when `api_type` is set to `MERGED`.
+     * 
+     */
+    @Import(name="mergedApiExecutionRoleArn")
+    private @Nullable Output<String> mergedApiExecutionRoleArn;
+
+    /**
+     * @return ARN of the execution role when `api_type` is set to `MERGED`.
+     * 
+     */
+    public Optional<Output<String>> mergedApiExecutionRoleArn() {
+        return Optional.ofNullable(this.mergedApiExecutionRoleArn);
+    }
+
+    /**
+     * User-supplied name for the GraphQL API.
      * 
      * The following arguments are optional:
      * 
@@ -126,7 +156,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return User-supplied name for the GraphSQL API.
+     * @return User-supplied name for the GraphQL API.
      * 
      * The following arguments are optional:
      * 
@@ -263,11 +293,13 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
 
     private GraphQLApiArgs(GraphQLApiArgs $) {
         this.additionalAuthenticationProviders = $.additionalAuthenticationProviders;
+        this.apiType = $.apiType;
         this.authenticationType = $.authenticationType;
         this.enhancedMetricsConfig = $.enhancedMetricsConfig;
         this.introspectionConfig = $.introspectionConfig;
         this.lambdaAuthorizerConfig = $.lambdaAuthorizerConfig;
         this.logConfig = $.logConfig;
+        this.mergedApiExecutionRoleArn = $.mergedApiExecutionRoleArn;
         this.name = $.name;
         this.openidConnectConfig = $.openidConnectConfig;
         this.queryDepthLimit = $.queryDepthLimit;
@@ -298,7 +330,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
@@ -309,7 +341,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
@@ -319,13 +351,34 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder additionalAuthenticationProviders(GraphQLApiAdditionalAuthenticationProviderArgs... additionalAuthenticationProviders) {
             return additionalAuthenticationProviders(List.of(additionalAuthenticationProviders));
+        }
+
+        /**
+         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiType(@Nullable Output<String> apiType) {
+            $.apiType = apiType;
+            return this;
+        }
+
+        /**
+         * @param apiType API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiType(String apiType) {
+            return apiType(Output.of(apiType));
         }
 
         /**
@@ -434,7 +487,28 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name User-supplied name for the GraphSQL API.
+         * @param mergedApiExecutionRoleArn ARN of the execution role when `api_type` is set to `MERGED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergedApiExecutionRoleArn(@Nullable Output<String> mergedApiExecutionRoleArn) {
+            $.mergedApiExecutionRoleArn = mergedApiExecutionRoleArn;
+            return this;
+        }
+
+        /**
+         * @param mergedApiExecutionRoleArn ARN of the execution role when `api_type` is set to `MERGED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mergedApiExecutionRoleArn(String mergedApiExecutionRoleArn) {
+            return mergedApiExecutionRoleArn(Output.of(mergedApiExecutionRoleArn));
+        }
+
+        /**
+         * @param name User-supplied name for the GraphQL API.
          * 
          * The following arguments are optional:
          * 
@@ -447,7 +521,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name User-supplied name for the GraphSQL API.
+         * @param name User-supplied name for the GraphQL API.
          * 
          * The following arguments are optional:
          * 

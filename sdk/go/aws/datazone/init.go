@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:datazone/assetType:AssetType":
+		r = &AssetType{}
 	case "aws:datazone/domain:Domain":
 		r = &Domain{}
+	case "aws:datazone/environment:Environment":
+		r = &Environment{}
 	case "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration":
 		r = &EnvironmentBlueprintConfiguration{}
 	case "aws:datazone/environmentProfile:EnvironmentProfile":
@@ -50,7 +54,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"datazone/assetType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"datazone/domain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/environment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

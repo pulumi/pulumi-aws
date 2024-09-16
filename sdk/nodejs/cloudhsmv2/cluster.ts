@@ -68,9 +68,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterState!: pulumi.Output<string>;
     /**
-     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      */
     public readonly hsmType!: pulumi.Output<string>;
+    /**
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
+     */
+    public readonly mode!: pulumi.Output<string>;
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
@@ -115,6 +119,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["clusterState"] = state ? state.clusterState : undefined;
             resourceInputs["hsmType"] = state ? state.hsmType : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -130,6 +135,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetIds'");
             }
             resourceInputs["hsmType"] = args ? args.hsmType : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -162,9 +168,13 @@ export interface ClusterState {
      */
     clusterState?: pulumi.Input<string>;
     /**
-     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      */
     hsmType?: pulumi.Input<string>;
+    /**
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
+     */
+    mode?: pulumi.Input<string>;
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
@@ -198,9 +208,13 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
+     * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      */
     hsmType: pulumi.Input<string>;
+    /**
+     * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
+     */
+    mode?: pulumi.Input<string>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */

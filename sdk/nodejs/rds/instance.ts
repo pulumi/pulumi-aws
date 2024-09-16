@@ -498,7 +498,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly instanceClass!: pulumi.Output<string>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
      * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
@@ -678,8 +678,8 @@ export class Instance extends pulumi.CustomResource {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-     * "gp2" if not.
+     * "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+     * SSD). The default is "io1" if `iops` is specified, "gp2" if not.
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -1096,7 +1096,7 @@ export interface InstanceState {
     instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
      * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
@@ -1276,8 +1276,8 @@ export interface InstanceState {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-     * "gp2" if not.
+     * "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+     * SSD). The default is "io1" if `iops` is specified, "gp2" if not.
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
@@ -1487,7 +1487,7 @@ export interface InstanceArgs {
     instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
-     * storageType of "io1". Can only be set when `storageType` is `"io1"` or `"gp3"`.
+     * storageType of "io1" or "io2". Can only be set when `storageType` is `"io1"`, `"io2` or `"gp3"`.
      * Cannot be specified for gp3 storage if the `allocatedStorage` value is below a per-`engine` threshold.
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      */
@@ -1646,8 +1646,8 @@ export interface InstanceArgs {
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), "gp3" (general purpose SSD that needs `iops` independently)
-     * or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is specified,
-     * "gp2" if not.
+     * "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
+     * SSD). The default is "io1" if `iops` is specified, "gp2" if not.
      */
     storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**

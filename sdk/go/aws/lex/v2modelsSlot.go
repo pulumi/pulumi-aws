@@ -12,40 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lex V2 Models Slot.
-//
-// ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
-//				BotId:      pulumi.Any(exampleAwsLexv2modelsBot.Id),
-//				BotVersion: pulumi.Any(exampleAwsLexv2modelsBotVersion.BotVersion),
-//				IntentId:   pulumi.Any(exampleAwsLexv2modelsIntent.Id),
-//				LocaleId:   pulumi.Any(exampleAwsLexv2modelsBotLocale.LocaleId),
-//				Name:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -66,22 +32,22 @@ type V2modelsSlot struct {
 	IntentId pulumi.StringOutput `pulumi:"intentId"`
 	// Identifier of the language and locale that the slot will be used in.
 	LocaleId pulumi.StringOutput `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+	// Whether the slot returns multiple values in one response.
+	// See the `multipleValuesSetting` argument reference below.
 	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayOutput `pulumi:"multipleValuesSettings"`
 	// Name of the slot.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+	// Determines how slot values are used in Amazon CloudWatch logs.
+	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayOutput `pulumi:"obfuscationSettings"`
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringOutput `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
-	SubSlotSettings V2modelsSlotSubSlotSettingArrayOutput `pulumi:"subSlotSettings"`
-	Timeouts        V2modelsSlotTimeoutsPtrOutput         `pulumi:"timeouts"`
-	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-	//
-	// The following arguments are optional:
+	// See the `subSlotSetting` argument reference below.
+	SubSlotSettings         V2modelsSlotSubSlotSettingArrayOutput        `pulumi:"subSlotSettings"`
+	Timeouts                V2modelsSlotTimeoutsPtrOutput                `pulumi:"timeouts"`
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrOutput `pulumi:"valueElicitationSetting"`
 }
 
@@ -137,22 +103,22 @@ type v2modelsSlotState struct {
 	IntentId *string `pulumi:"intentId"`
 	// Identifier of the language and locale that the slot will be used in.
 	LocaleId *string `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+	// Whether the slot returns multiple values in one response.
+	// See the `multipleValuesSetting` argument reference below.
 	MultipleValuesSettings []V2modelsSlotMultipleValuesSetting `pulumi:"multipleValuesSettings"`
 	// Name of the slot.
 	Name *string `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+	// Determines how slot values are used in Amazon CloudWatch logs.
+	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
 	// Unique identifier associated with the slot.
 	SlotId *string `pulumi:"slotId"`
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
-	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
-	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
-	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-	//
-	// The following arguments are optional:
+	// See the `subSlotSetting` argument reference below.
+	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
+	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
 	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -167,22 +133,22 @@ type V2modelsSlotState struct {
 	IntentId pulumi.StringPtrInput
 	// Identifier of the language and locale that the slot will be used in.
 	LocaleId pulumi.StringPtrInput
-	// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+	// Whether the slot returns multiple values in one response.
+	// See the `multipleValuesSetting` argument reference below.
 	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayInput
 	// Name of the slot.
 	Name pulumi.StringPtrInput
-	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+	// Determines how slot values are used in Amazon CloudWatch logs.
+	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
 	// Unique identifier associated with the slot.
 	SlotId pulumi.StringPtrInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
 	// Specifications for the constituent sub slots and the expression for the composite slot.
-	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
-	Timeouts        V2modelsSlotTimeoutsPtrInput
-	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-	//
-	// The following arguments are optional:
+	// See the `subSlotSetting` argument reference below.
+	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
+	Timeouts                V2modelsSlotTimeoutsPtrInput
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
 }
 
@@ -201,20 +167,20 @@ type v2modelsSlotArgs struct {
 	IntentId string `pulumi:"intentId"`
 	// Identifier of the language and locale that the slot will be used in.
 	LocaleId string `pulumi:"localeId"`
-	// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+	// Whether the slot returns multiple values in one response.
+	// See the `multipleValuesSetting` argument reference below.
 	MultipleValuesSettings []V2modelsSlotMultipleValuesSetting `pulumi:"multipleValuesSettings"`
 	// Name of the slot.
 	Name *string `pulumi:"name"`
-	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+	// Determines how slot values are used in Amazon CloudWatch logs.
+	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings []V2modelsSlotObfuscationSetting `pulumi:"obfuscationSettings"`
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
-	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
-	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
-	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-	//
-	// The following arguments are optional:
+	// See the `subSlotSetting` argument reference below.
+	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
+	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
 	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -230,20 +196,20 @@ type V2modelsSlotArgs struct {
 	IntentId pulumi.StringInput
 	// Identifier of the language and locale that the slot will be used in.
 	LocaleId pulumi.StringInput
-	// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+	// Whether the slot returns multiple values in one response.
+	// See the `multipleValuesSetting` argument reference below.
 	MultipleValuesSettings V2modelsSlotMultipleValuesSettingArrayInput
 	// Name of the slot.
 	Name pulumi.StringPtrInput
-	// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+	// Determines how slot values are used in Amazon CloudWatch logs.
+	// See the `obfuscationSetting` argument reference below.
 	ObfuscationSettings V2modelsSlotObfuscationSettingArrayInput
 	// Unique identifier for the slot type associated with this slot.
 	SlotTypeId pulumi.StringPtrInput
 	// Specifications for the constituent sub slots and the expression for the composite slot.
-	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
-	Timeouts        V2modelsSlotTimeoutsPtrInput
-	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-	//
-	// The following arguments are optional:
+	// See the `subSlotSetting` argument reference below.
+	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
+	Timeouts                V2modelsSlotTimeoutsPtrInput
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
 }
 
@@ -359,7 +325,8 @@ func (o V2modelsSlotOutput) LocaleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.LocaleId }).(pulumi.StringOutput)
 }
 
-// Whether the slot returns multiple values in one response. See the `multipleValuesSetting` argument reference below.
+// Whether the slot returns multiple values in one response.
+// See the `multipleValuesSetting` argument reference below.
 func (o V2modelsSlotOutput) MultipleValuesSettings() V2modelsSlotMultipleValuesSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotMultipleValuesSettingArrayOutput { return v.MultipleValuesSettings }).(V2modelsSlotMultipleValuesSettingArrayOutput)
 }
@@ -369,7 +336,8 @@ func (o V2modelsSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscationSetting` argument reference below.
+// Determines how slot values are used in Amazon CloudWatch logs.
+// See the `obfuscationSetting` argument reference below.
 func (o V2modelsSlotOutput) ObfuscationSettings() V2modelsSlotObfuscationSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotObfuscationSettingArrayOutput { return v.ObfuscationSettings }).(V2modelsSlotObfuscationSettingArrayOutput)
 }
@@ -385,6 +353,7 @@ func (o V2modelsSlotOutput) SlotTypeId() pulumi.StringOutput {
 }
 
 // Specifications for the constituent sub slots and the expression for the composite slot.
+// See the `subSlotSetting` argument reference below.
 func (o V2modelsSlotOutput) SubSlotSettings() V2modelsSlotSubSlotSettingArrayOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotSubSlotSettingArrayOutput { return v.SubSlotSettings }).(V2modelsSlotSubSlotSettingArrayOutput)
 }
@@ -393,9 +362,6 @@ func (o V2modelsSlotOutput) Timeouts() V2modelsSlotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsSlotTimeoutsPtrOutput)
 }
 
-// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-//
-// The following arguments are optional:
 func (o V2modelsSlotOutput) ValueElicitationSetting() V2modelsSlotValueElicitationSettingPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotValueElicitationSettingPtrOutput { return v.ValueElicitationSetting }).(V2modelsSlotValueElicitationSettingPtrOutput)
 }

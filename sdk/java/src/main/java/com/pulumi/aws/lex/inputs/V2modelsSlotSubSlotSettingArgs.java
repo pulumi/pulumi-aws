@@ -17,16 +17,34 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
 
     public static final V2modelsSlotSubSlotSettingArgs Empty = new V2modelsSlotSubSlotSettingArgs();
 
+    /**
+     * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+     * 
+     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
+    /**
+     * @return Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+     * 
+     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
+    /**
+     * Specifications for the constituent sub slots of a composite slot.
+     * See the `slot_specification` argument reference below.
+     * 
+     */
     @Import(name="slotSpecifications")
     private @Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationArgs>> slotSpecifications;
 
+    /**
+     * @return Specifications for the constituent sub slots of a composite slot.
+     * See the `slot_specification` argument reference below.
+     * 
+     */
     public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationArgs>>> slotSpecifications() {
         return Optional.ofNullable(this.slotSpecifications);
     }
@@ -56,24 +74,57 @@ public final class V2modelsSlotSubSlotSettingArgs extends com.pulumi.resources.R
             $ = new V2modelsSlotSubSlotSettingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param expression Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
+        /**
+         * @param expression Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
+        /**
+         * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
+         * See the `slot_specification` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slotSpecifications(@Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationArgs>> slotSpecifications) {
             $.slotSpecifications = slotSpecifications;
             return this;
         }
 
+        /**
+         * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
+         * See the `slot_specification` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slotSpecifications(List<V2modelsSlotSubSlotSettingSlotSpecificationArgs> slotSpecifications) {
             return slotSpecifications(Output.of(slotSpecifications));
         }
 
+        /**
+         * @param slotSpecifications Specifications for the constituent sub slots of a composite slot.
+         * See the `slot_specification` argument reference below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder slotSpecifications(V2modelsSlotSubSlotSettingSlotSpecificationArgs... slotSpecifications) {
             return slotSpecifications(List.of(slotSpecifications));
         }

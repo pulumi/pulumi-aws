@@ -161,9 +161,13 @@ namespace Pulumi.Aws.Cognito
         /// The contents of the SMS authentication message.
         /// </summary>
         public readonly string SmsVerificationMessage;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string UserPoolId;
         /// <summary>
-        /// The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+        /// (Deprecated) Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> UserPoolTags;
         /// <summary>
@@ -213,6 +217,8 @@ namespace Pulumi.Aws.Cognito
 
             string smsVerificationMessage,
 
+            ImmutableDictionary<string, string> tags,
+
             string userPoolId,
 
             ImmutableDictionary<string, string> userPoolTags,
@@ -239,6 +245,7 @@ namespace Pulumi.Aws.Cognito
             SmsAuthenticationMessage = smsAuthenticationMessage;
             SmsConfigurationFailure = smsConfigurationFailure;
             SmsVerificationMessage = smsVerificationMessage;
+            Tags = tags;
             UserPoolId = userPoolId;
             UserPoolTags = userPoolTags;
             UsernameAttributes = usernameAttributes;

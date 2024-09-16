@@ -52,7 +52,7 @@ index 0000000000..ffd7fa9728
 +	), nil
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index 95c6c04302..1ebeaf2126 100644
+index a93ee3f2f9..1a96148501 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
 @@ -5,8 +5,6 @@ package lambda
@@ -64,7 +64,7 @@ index 95c6c04302..1ebeaf2126 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -134,16 +132,6 @@ func (p *servicePackage) ServicePackageName() string {
+@@ -138,16 +136,6 @@ func (p *servicePackage) ServicePackageName() string {
  	return names.Lambda
  }
  

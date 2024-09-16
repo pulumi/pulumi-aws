@@ -5,7 +5,7 @@ Subject: [PATCH] Patch ComputedOnly for rekognition/stream_processor
 
 
 diff --git a/internal/service/rekognition/stream_processor.go b/internal/service/rekognition/stream_processor.go
-index 77321677cc..40e2552d3b 100644
+index 62b7455109..54c88ea14e 100644
 --- a/internal/service/rekognition/stream_processor.go
 +++ b/internal/service/rekognition/stream_processor.go
 @@ -136,7 +136,7 @@ func (r *resourceStreamProcessor) Schema(ctx context.Context, req resource.Schem

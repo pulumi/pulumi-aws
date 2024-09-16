@@ -14,22 +14,36 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationChunkingConfiguration
     {
         /// <summary>
-        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `NONE`.
+        /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
         /// </summary>
         public readonly string ChunkingStrategy;
         /// <summary>
-        /// Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        /// Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration? FixedSizeChunkingConfiguration;
+        /// <summary>
+        /// Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
+        /// </summary>
+        public readonly Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration? HierarchicalChunkingConfiguration;
+        /// <summary>
+        /// Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
+        /// </summary>
+        public readonly Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration? SemanticChunkingConfiguration;
 
         [OutputConstructor]
         private AgentDataSourceVectorIngestionConfigurationChunkingConfiguration(
             string chunkingStrategy,
 
-            Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration? fixedSizeChunkingConfiguration)
+            Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration? fixedSizeChunkingConfiguration,
+
+            Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration? hierarchicalChunkingConfiguration,
+
+            Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration? semanticChunkingConfiguration)
         {
             ChunkingStrategy = chunkingStrategy;
             FixedSizeChunkingConfiguration = fixedSizeChunkingConfiguration;
+            HierarchicalChunkingConfiguration = hierarchicalChunkingConfiguration;
+            SemanticChunkingConfiguration = semanticChunkingConfiguration;
         }
     }
 }

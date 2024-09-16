@@ -136,9 +136,17 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly int CreationTimestamp;
         /// <summary>
+        /// Encryption type used.
+        /// </summary>
+        public readonly string EncryptionType;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// GUID for the customer-managed AWS KMS key to use for encryption.
+        /// </summary>
+        public readonly string KmsKeyId;
         /// <summary>
         /// Name of the Kinesis Stream.
         /// </summary>
@@ -176,7 +184,11 @@ namespace Pulumi.Aws.Kinesis
 
             int creationTimestamp,
 
+            string encryptionType,
+
             string id,
+
+            string kmsKeyId,
 
             string name,
 
@@ -195,7 +207,9 @@ namespace Pulumi.Aws.Kinesis
             Arn = arn;
             ClosedShards = closedShards;
             CreationTimestamp = creationTimestamp;
+            EncryptionType = encryptionType;
             Id = id;
+            KmsKeyId = kmsKeyId;
             Name = name;
             OpenShards = openShards;
             RetentionPeriod = retentionPeriod;

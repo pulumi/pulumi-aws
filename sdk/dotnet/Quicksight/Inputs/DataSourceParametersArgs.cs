@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<Inputs.DataSourceParametersAwsIotAnalyticsArgs>? AwsIotAnalytics { get; set; }
 
         /// <summary>
+        /// Parameters for connecting to Databricks.
+        /// </summary>
+        [Input("databricks")]
+        public Input<Inputs.DataSourceParametersDatabricksArgs>? Databricks { get; set; }
+
+        /// <summary>
         /// Parameters for connecting to Jira.
         /// </summary>
         [Input("jira")]

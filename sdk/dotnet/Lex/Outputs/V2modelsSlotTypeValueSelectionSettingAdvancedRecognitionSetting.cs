@@ -13,12 +13,16 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting
     {
-        public readonly string? AudioRecognitionSetting;
+        /// <summary>
+        /// Enables using the slot values as a custom vocabulary for recognizing user utterances.
+        /// Valid value is `UseSlotValuesAsCustomVocabulary`.
+        /// </summary>
+        public readonly string? AudioRecognitionStrategy;
 
         [OutputConstructor]
-        private V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting(string? audioRecognitionSetting)
+        private V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting(string? audioRecognitionStrategy)
         {
-            AudioRecognitionSetting = audioRecognitionSetting;
+            AudioRecognitionStrategy = audioRecognitionStrategy;
         }
     }
 }

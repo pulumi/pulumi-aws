@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerImageConfig;
 import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerModelDataSource;
+import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerMultiModelConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
@@ -36,6 +37,11 @@ public final class ModelPrimaryContainer {
      */
     private @Nullable ModelPrimaryContainerImageConfig imageConfig;
     /**
+     * @return The inference specification name in the model package version.
+     * 
+     */
+    private @Nullable String inferenceSpecificationName;
+    /**
      * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
@@ -55,6 +61,11 @@ public final class ModelPrimaryContainer {
      * 
      */
     private @Nullable String modelPackageName;
+    /**
+     * @return Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+     * 
+     */
+    private @Nullable ModelPrimaryContainerMultiModelConfig multiModelConfig;
 
     private ModelPrimaryContainer() {}
     /**
@@ -87,6 +98,13 @@ public final class ModelPrimaryContainer {
         return Optional.ofNullable(this.imageConfig);
     }
     /**
+     * @return The inference specification name in the model package version.
+     * 
+     */
+    public Optional<String> inferenceSpecificationName() {
+        return Optional.ofNullable(this.inferenceSpecificationName);
+    }
+    /**
      * @return The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
@@ -114,6 +132,13 @@ public final class ModelPrimaryContainer {
     public Optional<String> modelPackageName() {
         return Optional.ofNullable(this.modelPackageName);
     }
+    /**
+     * @return Specifies additional configuration for multi-model endpoints. see Multi Model Config.
+     * 
+     */
+    public Optional<ModelPrimaryContainerMultiModelConfig> multiModelConfig() {
+        return Optional.ofNullable(this.multiModelConfig);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -128,10 +153,12 @@ public final class ModelPrimaryContainer {
         private @Nullable Map<String,String> environment;
         private @Nullable String image;
         private @Nullable ModelPrimaryContainerImageConfig imageConfig;
+        private @Nullable String inferenceSpecificationName;
         private @Nullable String mode;
         private @Nullable ModelPrimaryContainerModelDataSource modelDataSource;
         private @Nullable String modelDataUrl;
         private @Nullable String modelPackageName;
+        private @Nullable ModelPrimaryContainerMultiModelConfig multiModelConfig;
         public Builder() {}
         public Builder(ModelPrimaryContainer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -139,10 +166,12 @@ public final class ModelPrimaryContainer {
     	      this.environment = defaults.environment;
     	      this.image = defaults.image;
     	      this.imageConfig = defaults.imageConfig;
+    	      this.inferenceSpecificationName = defaults.inferenceSpecificationName;
     	      this.mode = defaults.mode;
     	      this.modelDataSource = defaults.modelDataSource;
     	      this.modelDataUrl = defaults.modelDataUrl;
     	      this.modelPackageName = defaults.modelPackageName;
+    	      this.multiModelConfig = defaults.multiModelConfig;
         }
 
         @CustomType.Setter
@@ -170,6 +199,12 @@ public final class ModelPrimaryContainer {
             return this;
         }
         @CustomType.Setter
+        public Builder inferenceSpecificationName(@Nullable String inferenceSpecificationName) {
+
+            this.inferenceSpecificationName = inferenceSpecificationName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
 
             this.mode = mode;
@@ -193,16 +228,24 @@ public final class ModelPrimaryContainer {
             this.modelPackageName = modelPackageName;
             return this;
         }
+        @CustomType.Setter
+        public Builder multiModelConfig(@Nullable ModelPrimaryContainerMultiModelConfig multiModelConfig) {
+
+            this.multiModelConfig = multiModelConfig;
+            return this;
+        }
         public ModelPrimaryContainer build() {
             final var _resultValue = new ModelPrimaryContainer();
             _resultValue.containerHostname = containerHostname;
             _resultValue.environment = environment;
             _resultValue.image = image;
             _resultValue.imageConfig = imageConfig;
+            _resultValue.inferenceSpecificationName = inferenceSpecificationName;
             _resultValue.mode = mode;
             _resultValue.modelDataSource = modelDataSource;
             _resultValue.modelDataUrl = modelDataUrl;
             _resultValue.modelPackageName = modelPackageName;
+            _resultValue.multiModelConfig = multiModelConfig;
             return _resultValue;
         }
     }

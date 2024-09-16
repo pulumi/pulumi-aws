@@ -12,14 +12,16 @@ import java.util.Objects;
 @CustomType
 public final class V2modelsSlotTypeCompositeSlotTypeSetting {
     /**
-     * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+     * @return Sub slots in the composite slot.
+     * See `sub_slots` argument reference below.
      * 
      */
     private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
 
     private V2modelsSlotTypeCompositeSlotTypeSetting() {}
     /**
-     * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+     * @return Sub slots in the composite slot.
+     * See `sub_slots` argument reference below.
      * 
      */
     public List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots() {

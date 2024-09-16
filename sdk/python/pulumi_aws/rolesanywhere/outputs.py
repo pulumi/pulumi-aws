@@ -16,9 +16,78 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'TrustAnchorNotificationSetting',
     'TrustAnchorSource',
     'TrustAnchorSourceSourceData',
 ]
+
+@pulumi.output_type
+class TrustAnchorNotificationSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configuredBy":
+            suggest = "configured_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustAnchorNotificationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustAnchorNotificationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustAnchorNotificationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: Optional[str] = None,
+                 configured_by: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 event: Optional[str] = None,
+                 threshold: Optional[int] = None):
+        """
+        :param bool enabled: Whether or not the Trust Anchor should be enabled.
+        """
+        if channel is not None:
+            pulumi.set(__self__, "channel", channel)
+        if configured_by is not None:
+            pulumi.set(__self__, "configured_by", configured_by)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if event is not None:
+            pulumi.set(__self__, "event", event)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> Optional[str]:
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter(name="configuredBy")
+    def configured_by(self) -> Optional[str]:
+        return pulumi.get(self, "configured_by")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether or not the Trust Anchor should be enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def event(self) -> Optional[str]:
+        return pulumi.get(self, "event")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[int]:
+        return pulumi.get(self, "threshold")
+
 
 @pulumi.output_type
 class TrustAnchorSource(dict):

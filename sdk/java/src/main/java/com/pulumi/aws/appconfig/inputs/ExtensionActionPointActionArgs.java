@@ -50,15 +50,15 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
      * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
-    @Import(name="roleArn", required=true)
-    private Output<String> roleArn;
+    @Import(name="roleArn")
+    private @Nullable Output<String> roleArn;
 
     /**
      * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
-    public Output<String> roleArn() {
-        return this.roleArn;
+    public Optional<Output<String>> roleArn() {
+        return Optional.ofNullable(this.roleArn);
     }
 
     /**
@@ -151,7 +151,7 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder roleArn(Output<String> roleArn) {
+        public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
@@ -190,9 +190,6 @@ public final class ExtensionActionPointActionArgs extends com.pulumi.resources.R
         public ExtensionActionPointActionArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "name");
-            }
-            if ($.roleArn == null) {
-                throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "roleArn");
             }
             if ($.uri == null) {
                 throw new MissingRequiredPropertyException("ExtensionActionPointActionArgs", "uri");

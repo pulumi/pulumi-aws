@@ -19,6 +19,18 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> AccountUrl { get; set; } = null!;
 
         /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
+        /// </summary>
+        [Input("bufferingInterval")]
+        public Input<int>? BufferingInterval { get; set; }
+
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
+        /// </summary>
+        [Input("bufferingSize")]
+        public Input<int>? BufferingSize { get; set; }
+
+        /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]

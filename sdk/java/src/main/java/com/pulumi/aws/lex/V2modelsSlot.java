@@ -21,49 +21,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Lex V2 Models Slot.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.V2modelsSlot;
- * import com.pulumi.aws.lex.V2modelsSlotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion(exampleAwsLexv2modelsBotVersion.botVersion())
- *             .intentId(exampleAwsLexv2modelsIntent.id())
- *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
- *             .name("example")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -146,14 +103,16 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
         return this.localeId;
     }
     /**
-     * Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+     * Whether the slot returns multiple values in one response.
+     * See the `multiple_values_setting` argument reference below.
      * 
      */
     @Export(name="multipleValuesSettings", refs={List.class,V2modelsSlotMultipleValuesSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotMultipleValuesSetting>> multipleValuesSettings;
 
     /**
-     * @return Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+     * @return Whether the slot returns multiple values in one response.
+     * See the `multiple_values_setting` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotMultipleValuesSetting>>> multipleValuesSettings() {
@@ -174,14 +133,16 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+     * Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscation_setting` argument reference below.
      * 
      */
     @Export(name="obfuscationSettings", refs={List.class,V2modelsSlotObfuscationSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<V2modelsSlotObfuscationSetting>> obfuscationSettings;
 
     /**
-     * @return Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+     * @return Determines how slot values are used in Amazon CloudWatch logs.
+     * See the `obfuscation_setting` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotObfuscationSetting>>> obfuscationSettings() {
@@ -217,6 +178,7 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `sub_slot_setting` argument reference below.
      * 
      */
     @Export(name="subSlotSettings", refs={List.class,V2modelsSlotSubSlotSetting.class}, tree="[0,1]")
@@ -224,6 +186,7 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifications for the constituent sub slots and the expression for the composite slot.
+     * See the `sub_slot_setting` argument reference below.
      * 
      */
     public Output<Optional<List<V2modelsSlotSubSlotSetting>>> subSlotSettings() {
@@ -235,21 +198,9 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsSlotTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
-    /**
-     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     @Export(name="valueElicitationSetting", refs={V2modelsSlotValueElicitationSetting.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsSlotValueElicitationSetting> valueElicitationSetting;
 
-    /**
-     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
-     * 
-     * The following arguments are optional:
-     * 
-     */
     public Output<Optional<V2modelsSlotValueElicitationSetting>> valueElicitationSetting() {
         return Codegen.optional(this.valueElicitationSetting);
     }

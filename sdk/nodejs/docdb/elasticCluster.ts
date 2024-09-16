@@ -81,6 +81,10 @@ export class ElasticCluster extends pulumi.CustomResource {
      */
     public readonly authType!: pulumi.Output<string>;
     /**
+     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+     */
+    public readonly backupRetentionPeriod!: pulumi.Output<number>;
+    /**
      * The DNS address of the DocDB instance
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -92,6 +96,10 @@ export class ElasticCluster extends pulumi.CustomResource {
      * Name of the Elastic DocumentDB cluster
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+     */
+    public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */
@@ -141,9 +149,11 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["adminUserPassword"] = state ? state.adminUserPassword : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["shardCapacity"] = state ? state.shardCapacity : undefined;
             resourceInputs["shardCount"] = state ? state.shardCount : undefined;
@@ -172,8 +182,10 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
             resourceInputs["adminUserPassword"] = args?.adminUserPassword ? pulumi.secret(args.adminUserPassword) : undefined;
             resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
@@ -213,6 +225,10 @@ export interface ElasticClusterState {
      */
     authType?: pulumi.Input<string>;
     /**
+     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+     */
+    backupRetentionPeriod?: pulumi.Input<number>;
+    /**
      * The DNS address of the DocDB instance
      */
     endpoint?: pulumi.Input<string>;
@@ -224,6 +240,10 @@ export interface ElasticClusterState {
      * Name of the Elastic DocumentDB cluster
      */
     name?: pulumi.Input<string>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+     */
+    preferredBackupWindow?: pulumi.Input<string>;
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */
@@ -274,6 +294,10 @@ export interface ElasticClusterArgs {
      */
     authType: pulumi.Input<string>;
     /**
+     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+     */
+    backupRetentionPeriod?: pulumi.Input<number>;
+    /**
      * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -281,6 +305,10 @@ export interface ElasticClusterArgs {
      * Name of the Elastic DocumentDB cluster
      */
     name?: pulumi.Input<string>;
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backupRetentionPeriod`.
+     */
+    preferredBackupWindow?: pulumi.Input<string>;
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */

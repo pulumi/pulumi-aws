@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Amplify
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
         [Output("autoBranchCreationConfig")]
         public Output<Outputs.AppAutoBranchCreationConfig> AutoBranchCreationConfig { get; private set; } = null!;
@@ -275,13 +275,19 @@ namespace Pulumi.Aws.Amplify
         public Output<string> BuildSpec { get; private set; } = null!;
 
         /// <summary>
+        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// </summary>
+        [Output("cacheConfig")]
+        public Output<Outputs.AppCacheConfig> CacheConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Output("customHeaders")]
         public Output<string> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.AppCustomRule>> CustomRules { get; private set; } = null!;
@@ -445,7 +451,7 @@ namespace Pulumi.Aws.Amplify
         }
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigArgs>? AutoBranchCreationConfig { get; set; }
@@ -485,6 +491,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
+        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// </summary>
+        [Input("cacheConfig")]
+        public Input<Inputs.AppCacheConfigArgs>? CacheConfig { get; set; }
+
+        /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Input("customHeaders")]
@@ -494,7 +506,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.AppCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
         public InputList<Inputs.AppCustomRuleArgs> CustomRules
         {
@@ -627,7 +639,7 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        /// Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
         /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigGetArgs>? AutoBranchCreationConfig { get; set; }
@@ -667,6 +679,12 @@ namespace Pulumi.Aws.Amplify
         public Input<string>? BuildSpec { get; set; }
 
         /// <summary>
+        /// Cache configuration for the Amplify app. See `cache_config` Block for details.
+        /// </summary>
+        [Input("cacheConfig")]
+        public Input<Inputs.AppCacheConfigGetArgs>? CacheConfig { get; set; }
+
+        /// <summary>
         /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         /// </summary>
         [Input("customHeaders")]
@@ -676,7 +694,7 @@ namespace Pulumi.Aws.Amplify
         private InputList<Inputs.AppCustomRuleGetArgs>? _customRules;
 
         /// <summary>
-        /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        /// Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
         /// </summary>
         public InputList<Inputs.AppCustomRuleGetArgs> CustomRules
         {

@@ -1040,6 +1040,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String pcs;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pinpoint;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2892,6 +2897,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> pcs() {
+        return Optional.ofNullable(this.pcs);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pinpoint() {
         return Optional.ofNullable(this.pinpoint);
     }
@@ -3684,6 +3696,7 @@ public final class Endpoints {
         private @Nullable String outposts;
         private @Nullable String paymentcryptography;
         private @Nullable String pcaconnectorad;
+        private @Nullable String pcs;
         private @Nullable String pinpoint;
         private @Nullable String pipes;
         private @Nullable String polly;
@@ -3975,6 +3988,7 @@ public final class Endpoints {
     	      this.outposts = defaults.outposts;
     	      this.paymentcryptography = defaults.paymentcryptography;
     	      this.pcaconnectorad = defaults.pcaconnectorad;
+    	      this.pcs = defaults.pcs;
     	      this.pinpoint = defaults.pinpoint;
     	      this.pipes = defaults.pipes;
     	      this.polly = defaults.polly;
@@ -5291,6 +5305,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder pcs(@Nullable String pcs) {
+
+            this.pcs = pcs;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pinpoint(@Nullable String pinpoint) {
 
             this.pinpoint = pinpoint;
@@ -5995,6 +6015,7 @@ public final class Endpoints {
             _resultValue.outposts = outposts;
             _resultValue.paymentcryptography = paymentcryptography;
             _resultValue.pcaconnectorad = pcaconnectorad;
+            _resultValue.pcs = pcs;
             _resultValue.pinpoint = pinpoint;
             _resultValue.pipes = pipes;
             _resultValue.polly = polly;

@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -131,6 +132,20 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
         return this.authType;
     }
     /**
+     * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+     * 
+     */
+    @Export(name="backupRetentionPeriod", refs={Double.class}, tree="[0]")
+    private Output<Double> backupRetentionPeriod;
+
+    /**
+     * @return The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
+     * 
+     */
+    public Output<Double> backupRetentionPeriod() {
+        return this.backupRetentionPeriod;
+    }
+    /**
      * The DNS address of the DocDB instance
      * 
      */
@@ -171,6 +186,20 @@ public class ElasticCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+     * 
+     */
+    @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
+    private Output<String> preferredBackupWindow;
+
+    /**
+     * @return The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
+     * 
+     */
+    public Output<String> preferredBackupWindow() {
+        return this.preferredBackupWindow;
     }
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
