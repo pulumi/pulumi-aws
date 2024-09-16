@@ -152,8 +152,9 @@ jobs:
         tools: pulumictl, pulumicli, ${{ matrix.language }}
     - name: Download bin
       uses: ./.github/actions/download-bin
-    - run: dotnet nuget add source ${{ github.workspace }}/nuget
+    - name: Add NuGet source
       if: matrix.language == 'dotnet'
+      run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:
