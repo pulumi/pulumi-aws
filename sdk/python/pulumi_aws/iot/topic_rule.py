@@ -782,54 +782,6 @@ class TopicRule(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT topic rule.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mytopic = aws.sns.Topic("mytopic", name="mytopic")
-        myerrortopic = aws.sns.Topic("myerrortopic", name="myerrortopic")
-        rule = aws.iot.TopicRule("rule",
-            name="MyRule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[{
-                "message_format": "RAW",
-                "role_arn": role["arn"],
-                "target_arn": mytopic.arn,
-            }],
-            error_action={
-                "sns": {
-                    "message_format": "RAW",
-                    "role_arn": role["arn"],
-                    "target_arn": myerrortopic.arn,
-                },
-            })
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["iot.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        myrole = aws.iam.Role("myrole",
-            name="myrole",
-            assume_role_policy=assume_role.json)
-        mypolicy = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["sns:Publish"],
-            "resources": [arn],
-        }]))
-        mypolicy_role_policy = aws.iam.RolePolicy("mypolicy",
-            name="mypolicy",
-            role=myrole.id,
-            policy=mypolicy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
@@ -856,54 +808,6 @@ class TopicRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates and manages an AWS IoT topic rule.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mytopic = aws.sns.Topic("mytopic", name="mytopic")
-        myerrortopic = aws.sns.Topic("myerrortopic", name="myerrortopic")
-        rule = aws.iot.TopicRule("rule",
-            name="MyRule",
-            description="Example rule",
-            enabled=True,
-            sql="SELECT * FROM 'topic/test'",
-            sql_version="2016-03-23",
-            sns=[{
-                "message_format": "RAW",
-                "role_arn": role["arn"],
-                "target_arn": mytopic.arn,
-            }],
-            error_action={
-                "sns": {
-                    "message_format": "RAW",
-                    "role_arn": role["arn"],
-                    "target_arn": myerrortopic.arn,
-                },
-            })
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["iot.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        myrole = aws.iam.Role("myrole",
-            name="myrole",
-            assume_role_policy=assume_role.json)
-        mypolicy = mytopic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["sns:Publish"],
-            "resources": [arn],
-        }]))
-        mypolicy_role_policy = aws.iam.RolePolicy("mypolicy",
-            name="mypolicy",
-            role=myrole.id,
-            policy=mypolicy.json)
-        ```
 
         ## Import
 

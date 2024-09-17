@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -35,13 +36,13 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="policyArn")
-    private @Nullable Output<String> policyArn;
+    private @Nullable Output<ARNArgs> policyArn;
 
     /**
      * @return The ARN of the policy you want to apply
      * 
      */
-    public Optional<Output<String>> policyArn() {
+    public Optional<Output<ARNArgs>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
@@ -97,7 +98,7 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder policyArn(@Nullable Output<String> policyArn) {
+        public Builder policyArn(@Nullable Output<ARNArgs> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
@@ -108,7 +109,7 @@ public final class GroupPolicyAttachmentState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder policyArn(String policyArn) {
+        public Builder policyArn(ARNArgs policyArn) {
             return policyArn(Output.of(policyArn));
         }
 

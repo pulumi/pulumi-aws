@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.datasync.EfsLocationArgs;
 import com.pulumi.aws.datasync.inputs.EfsLocationState;
 import com.pulumi.aws.datasync.outputs.EfsLocationEc2Config;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -118,14 +119,14 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    @Export(name="efsFileSystemArn", refs={String.class}, tree="[0]")
-    private Output<String> efsFileSystemArn;
+    @Export(name="efsFileSystemArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> efsFileSystemArn;
 
     /**
      * @return Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    public Output<String> efsFileSystemArn() {
+    public Output<ARN> efsFileSystemArn() {
         return this.efsFileSystemArn;
     }
     /**

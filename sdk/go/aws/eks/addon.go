@@ -139,6 +139,7 @@ import (
 //
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
@@ -217,7 +218,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
 //				Role:      exampleRole.Name,
 //			})
 //			if err != nil {

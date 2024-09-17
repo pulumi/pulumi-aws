@@ -530,7 +530,7 @@ namespace Pulumi.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Output("role")]
-        public Output<string> Role { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Role { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
@@ -828,7 +828,7 @@ namespace Pulumi.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("role", required: true)]
-        public Input<string> Role { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> Role { get; set; } = null!;
 
         /// <summary>
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
@@ -1100,7 +1100,7 @@ namespace Pulumi.Aws.Lambda
         /// The following arguments are optional:
         /// </summary>
         [Input("role")]
-        public Input<string>? Role { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Role { get; set; }
 
         /// <summary>
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.

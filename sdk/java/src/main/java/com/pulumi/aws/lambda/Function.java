@@ -16,6 +16,7 @@ import com.pulumi.aws.lambda.outputs.FunctionLoggingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionSnapStart;
 import com.pulumi.aws.lambda.outputs.FunctionTracingConfig;
 import com.pulumi.aws.lambda.outputs.FunctionVpcConfig;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -808,8 +809,8 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    @Export(name="role", refs={String.class}, tree="[0]")
-    private Output<String> role;
+    @Export(name="role", refs={ARN.class}, tree="[0]")
+    private Output<ARN> role;
 
     /**
      * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
@@ -817,7 +818,7 @@ public class Function extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<String> role() {
+    public Output<ARN> role() {
         return this.role;
     }
     /**

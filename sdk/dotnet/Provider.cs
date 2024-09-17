@@ -73,12 +73,6 @@ namespace Pulumi.Aws
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
-        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-        /// </summary>
-        [Output("region")]
-        public Output<string?> Region { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
         /// `AWS_RETRY_MODE` environment variable.
         /// </summary>
@@ -266,8 +260,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
+        [Input("region", json: true)]
+        public Input<Pulumi.Aws.Region>? Region { get; set; }
 
         /// <summary>
         /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the

@@ -2,9 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {Group} from "./index";
 
 /**
@@ -73,7 +75,7 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<outputs.ARN>;
 
     /**
      * Create a GroupPolicyAttachment resource with the given unique name, arguments, and options.
@@ -117,7 +119,7 @@ export interface GroupPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<inputs.ARN>;
 }
 
 /**
@@ -131,5 +133,5 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<inputs.ARN>;
 }

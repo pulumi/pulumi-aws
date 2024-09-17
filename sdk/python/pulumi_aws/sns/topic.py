@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TopicArgs', 'Topic']
 
@@ -463,7 +465,7 @@ class _TopicState:
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  archive_policy: Optional[pulumi.Input[str]] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  beginning_archive_time: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
@@ -496,7 +498,7 @@ class _TopicState:
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
-        :param pulumi.Input[str] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
+        :param pulumi.Input['_root_inputs.ARNArgs'] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
         :param pulumi.Input[str] beginning_archive_time: The oldest timestamp at which a FIFO topic subscriber can start a replay.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
@@ -640,14 +642,14 @@ class _TopicState:
 
     @property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[str]]:
+    def arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[str]]):
+    def arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "arn", value)
 
     @property
@@ -1279,7 +1281,7 @@ class Topic(pulumi.CustomResource):
             application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
             archive_policy: Optional[pulumi.Input[str]] = None,
-            arn: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             beginning_archive_time: Optional[pulumi.Input[str]] = None,
             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
             delivery_policy: Optional[pulumi.Input[str]] = None,
@@ -1317,7 +1319,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
-        :param pulumi.Input[str] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
         :param pulumi.Input[str] beginning_archive_time: The oldest timestamp at which a FIFO topic subscriber can start a replay.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
@@ -1416,7 +1418,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """

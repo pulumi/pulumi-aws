@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.aws.datasync.inputs.S3LocationS3ConfigArgs;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -53,13 +54,13 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="s3BucketArn")
-    private @Nullable Output<String> s3BucketArn;
+    private @Nullable Output<ARNArgs> s3BucketArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the S3 Bucket.
      * 
      */
-    public Optional<Output<String>> s3BucketArn() {
+    public Optional<Output<ARNArgs>> s3BucketArn() {
         return Optional.ofNullable(this.s3BucketArn);
     }
 
@@ -243,7 +244,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder s3BucketArn(@Nullable Output<String> s3BucketArn) {
+        public Builder s3BucketArn(@Nullable Output<ARNArgs> s3BucketArn) {
             $.s3BucketArn = s3BucketArn;
             return this;
         }
@@ -254,7 +255,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder s3BucketArn(String s3BucketArn) {
+        public Builder s3BucketArn(ARNArgs s3BucketArn) {
             return s3BucketArn(Output.of(s3BucketArn));
         }
 

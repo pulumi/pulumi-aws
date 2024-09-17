@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,6 +22,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
@@ -84,7 +86,7 @@ type PolicyAttachment struct {
 	// The name of the policy to attach.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The identity to which the policy is attached.
-	Target pulumi.StringOutput `pulumi:"target"`
+	Target aws.ARNOutput `pulumi:"target"`
 }
 
 // NewPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -126,14 +128,14 @@ type policyAttachmentState struct {
 	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
 	// The identity to which the policy is attached.
-	Target *string `pulumi:"target"`
+	Target *aws.ARN `pulumi:"target"`
 }
 
 type PolicyAttachmentState struct {
 	// The name of the policy to attach.
 	Policy pulumi.Input
 	// The identity to which the policy is attached.
-	Target pulumi.StringPtrInput
+	Target aws.ARNPtrInput
 }
 
 func (PolicyAttachmentState) ElementType() reflect.Type {
@@ -144,7 +146,7 @@ type policyAttachmentArgs struct {
 	// The name of the policy to attach.
 	Policy interface{} `pulumi:"policy"`
 	// The identity to which the policy is attached.
-	Target string `pulumi:"target"`
+	Target aws.ARN `pulumi:"target"`
 }
 
 // The set of arguments for constructing a PolicyAttachment resource.
@@ -152,7 +154,7 @@ type PolicyAttachmentArgs struct {
 	// The name of the policy to attach.
 	Policy pulumi.Input
 	// The identity to which the policy is attached.
-	Target pulumi.StringInput
+	Target aws.ARNInput
 }
 
 func (PolicyAttachmentArgs) ElementType() reflect.Type {
@@ -248,8 +250,8 @@ func (o PolicyAttachmentOutput) Policy() pulumi.StringOutput {
 }
 
 // The identity to which the policy is attached.
-func (o PolicyAttachmentOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
+func (o PolicyAttachmentOutput) Target() aws.ARNOutput {
+	return o.ApplyT(func(v *PolicyAttachment) aws.ARNOutput { return v.Target }).(aws.ARNOutput)
 }
 
 type PolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

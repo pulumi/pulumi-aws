@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.autoscaling;
 
+import com.pulumi.aws.autoscaling.enums.Metric;
 import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
@@ -143,13 +144,13 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="enabledMetrics")
-    private @Nullable Output<List<String>> enabledMetrics;
+    private @Nullable Output<List<Metric>> enabledMetrics;
 
     /**
      * @return List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    public Optional<Output<List<String>>> enabledMetrics() {
+    public Optional<Output<List<Metric>>> enabledMetrics() {
         return Optional.ofNullable(this.enabledMetrics);
     }
 
@@ -911,7 +912,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder enabledMetrics(@Nullable Output<List<String>> enabledMetrics) {
+        public Builder enabledMetrics(@Nullable Output<List<Metric>> enabledMetrics) {
             $.enabledMetrics = enabledMetrics;
             return this;
         }
@@ -922,7 +923,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder enabledMetrics(List<String> enabledMetrics) {
+        public Builder enabledMetrics(List<Metric> enabledMetrics) {
             return enabledMetrics(Output.of(enabledMetrics));
         }
 
@@ -932,7 +933,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder enabledMetrics(String... enabledMetrics) {
+        public Builder enabledMetrics(Metric... enabledMetrics) {
             return enabledMetrics(List.of(enabledMetrics));
         }
 

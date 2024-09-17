@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iot;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -34,13 +35,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="target", required=true)
-    private Output<String> target;
+    private Output<ARNArgs> target;
 
     /**
      * @return The identity to which the policy is attached.
      * 
      */
-    public Output<String> target() {
+    public Output<ARNArgs> target() {
         return this.target;
     }
 
@@ -96,7 +97,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder target(Output<String> target) {
+        public Builder target(Output<ARNArgs> target) {
             $.target = target;
             return this;
         }
@@ -107,7 +108,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder target(String target) {
+        public Builder target(ARNArgs target) {
             return target(Output.of(target));
         }
 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -54,7 +55,7 @@ type TransitGateway struct {
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn aws.ARNOutput `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId pulumi.StringOutput `pulumi:"associationDefaultRouteTableId"`
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -120,7 +121,7 @@ type transitGatewayState struct {
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn *string `pulumi:"arn"`
+	Arn *aws.ARN `pulumi:"arn"`
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId *string `pulumi:"associationDefaultRouteTableId"`
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -157,7 +158,7 @@ type TransitGatewayState struct {
 	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrInput
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
-	Arn pulumi.StringPtrInput
+	Arn aws.ARNPtrInput
 	// Identifier of the default association route table
 	AssociationDefaultRouteTableId pulumi.StringPtrInput
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
@@ -338,8 +339,8 @@ func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 }
 
 // EC2 Transit Gateway Amazon Resource Name (ARN)
-func (o TransitGatewayOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TransitGatewayOutput) Arn() aws.ARNOutput {
+	return o.ApplyT(func(v *TransitGateway) aws.ARNOutput { return v.Arn }).(aws.ARNOutput)
 }
 
 // Identifier of the default association route table

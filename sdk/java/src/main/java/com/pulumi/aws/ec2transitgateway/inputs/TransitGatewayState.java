@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2transitgateway.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -42,13 +43,13 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="arn")
-    private @Nullable Output<String> arn;
+    private @Nullable Output<ARNArgs> arn;
 
     /**
      * @return EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    public Optional<Output<String>> arn() {
+    public Optional<Output<ARNArgs>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
@@ -324,7 +325,7 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder arn(@Nullable Output<String> arn) {
+        public Builder arn(@Nullable Output<ARNArgs> arn) {
             $.arn = arn;
             return this;
         }
@@ -335,7 +336,7 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder arn(String arn) {
+        public Builder arn(ARNArgs arn) {
             return arn(Output.of(arn));
         }
 

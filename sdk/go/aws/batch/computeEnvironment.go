@@ -29,6 +29,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
@@ -68,7 +69,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_instance_role", &iam.RolePolicyAttachmentArgs{
 //				Role:      ecsInstanceRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role",
 //			})
 //			if err != nil {
 //				return err
@@ -110,7 +111,7 @@ import (
 //			}
 //			awsBatchServiceRoleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "aws_batch_service_role", &iam.RolePolicyAttachmentArgs{
 //				Role:      awsBatchServiceRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole",
 //			})
 //			if err != nil {
 //				return err

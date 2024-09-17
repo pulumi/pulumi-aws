@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup vault notifications resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
- * const test = testTopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
- *     statements: [{
- *         actions: ["SNS:Publish"],
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["backup.amazonaws.com"],
- *         }],
- *         resources: [arn],
- *         sid: "__default_statement_ID",
- *     }],
- * }));
- * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
- *     arn: testTopic.arn,
- *     policy: test.apply(test => test.json),
- * });
- * const testVaultNotifications = new aws.backup.VaultNotifications("test", {
- *     backupVaultName: "example_backup_vault",
- *     snsTopicArn: testTopic.arn,
- *     backupVaultEvents: [
- *         "BACKUP_JOB_STARTED",
- *         "RESTORE_JOB_COMPLETED",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault notifications using the `name`. For example:

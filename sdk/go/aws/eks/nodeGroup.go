@@ -103,6 +103,7 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -134,21 +135,21 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSWorkerNodePolicy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
 //				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKS_CNI_Policy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
 //				Role:      example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEC2ContainerRegistryReadOnly", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
 //				Role:      example.Name,
 //			})
 //			if err != nil {

@@ -62,7 +62,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         /// </summary>
         [Output("s3BucketArn")]
-        public Output<string> S3BucketArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> S3BucketArn { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         /// </summary>
         [Input("s3BucketArn", required: true)]
-        public Input<string> S3BucketArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> S3BucketArn { get; set; } = null!;
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         /// </summary>
         [Input("s3BucketArn")]
-        public Input<string>? S3BucketArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? S3BucketArn { get; set; }
 
         /// <summary>
         /// Configuration block containing information for connecting to S3.

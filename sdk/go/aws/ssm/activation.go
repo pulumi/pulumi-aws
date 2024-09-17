@@ -21,6 +21,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -59,7 +60,7 @@ import (
 //			}
 //			testAttach, err := iam.NewRolePolicyAttachment(ctx, "test_attach", &iam.RolePolicyAttachmentArgs{
 //				Role:      testRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
 //			})
 //			if err != nil {
 //				return err

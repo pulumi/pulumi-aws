@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TaskArgs', 'Task']
@@ -21,9 +23,9 @@ __all__ = ['TaskArgs', 'Task']
 @pulumi.input_type
 class TaskArgs:
     def __init__(__self__, *,
-                 destination_location_arn: pulumi.Input[str],
-                 source_location_arn: pulumi.Input[str],
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+                 destination_location_arn: pulumi.Input['_root_inputs.ARNArgs'],
+                 source_location_arn: pulumi.Input['_root_inputs.ARNArgs'],
+                 cloudwatch_log_group_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
                  includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,9 +35,9 @@ class TaskArgs:
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
-        :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
-        :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        :param pulumi.Input['_root_inputs.ARNArgs'] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
+        :param pulumi.Input['_root_inputs.ARNArgs'] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
+        :param pulumi.Input['_root_inputs.ARNArgs'] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
         :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
@@ -65,38 +67,38 @@ class TaskArgs:
 
     @property
     @pulumi.getter(name="destinationLocationArn")
-    def destination_location_arn(self) -> pulumi.Input[str]:
+    def destination_location_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         Amazon Resource Name (ARN) of destination DataSync Location.
         """
         return pulumi.get(self, "destination_location_arn")
 
     @destination_location_arn.setter
-    def destination_location_arn(self, value: pulumi.Input[str]):
+    def destination_location_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "destination_location_arn", value)
 
     @property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> pulumi.Input[str]:
+    def source_location_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         Amazon Resource Name (ARN) of source DataSync Location.
         """
         return pulumi.get(self, "source_location_arn")
 
     @source_location_arn.setter
-    def source_location_arn(self, value: pulumi.Input[str]):
+    def source_location_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "source_location_arn", value)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
-    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input[str]]):
+    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "cloudwatch_log_group_arn", value)
 
     @property
@@ -188,28 +190,28 @@ class TaskArgs:
 class _TaskState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-                 destination_location_arn: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_log_group_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
+                 destination_location_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
                  includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
-                 source_location_arn: Optional[pulumi.Input[str]] = None,
+                 source_location_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Task resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Task.
-        :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
+        :param pulumi.Input['_root_inputs.ARNArgs'] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        :param pulumi.Input['_root_inputs.ARNArgs'] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
         :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
         :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
+        :param pulumi.Input['_root_inputs.ARNArgs'] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TaskTaskReportConfigArgs'] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
@@ -256,26 +258,26 @@ class _TaskState:
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input[str]]:
+    def cloudwatch_log_group_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         """
         return pulumi.get(self, "cloudwatch_log_group_arn")
 
     @cloudwatch_log_group_arn.setter
-    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input[str]]):
+    def cloudwatch_log_group_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "cloudwatch_log_group_arn", value)
 
     @property
     @pulumi.getter(name="destinationLocationArn")
-    def destination_location_arn(self) -> Optional[pulumi.Input[str]]:
+    def destination_location_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         Amazon Resource Name (ARN) of destination DataSync Location.
         """
         return pulumi.get(self, "destination_location_arn")
 
     @destination_location_arn.setter
-    def destination_location_arn(self, value: Optional[pulumi.Input[str]]):
+    def destination_location_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "destination_location_arn", value)
 
     @property
@@ -340,14 +342,14 @@ class _TaskState:
 
     @property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> Optional[pulumi.Input[str]]:
+    def source_location_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         Amazon Resource Name (ARN) of source DataSync Location.
         """
         return pulumi.get(self, "source_location_arn")
 
     @source_location_arn.setter
-    def source_location_arn(self, value: Optional[pulumi.Input[str]]):
+    def source_location_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "source_location_arn", value)
 
     @property
@@ -393,14 +395,14 @@ class Task(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-                 destination_location_arn: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_log_group_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
+                 destination_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  excludes: Optional[pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']]] = None,
                  includes: Optional[pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
-                 source_location_arn: Optional[pulumi.Input[str]] = None,
+                 source_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_report_config: Optional[pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']]] = None,
                  __props__=None):
@@ -467,14 +469,14 @@ class Task(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']] excludes: Filter rules that determines which files to exclude from a task.
         :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
         :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
@@ -560,14 +562,14 @@ class Task(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-                 destination_location_arn: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_log_group_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
+                 destination_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  excludes: Optional[pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']]] = None,
                  includes: Optional[pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
-                 source_location_arn: Optional[pulumi.Input[str]] = None,
+                 source_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_report_config: Optional[pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']]] = None,
                  __props__=None):
@@ -606,14 +608,14 @@ class Task(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-            destination_location_arn: Optional[pulumi.Input[str]] = None,
+            cloudwatch_log_group_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
+            destination_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             excludes: Optional[pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']]] = None,
             includes: Optional[pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             options: Optional[pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']]] = None,
             schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
-            source_location_arn: Optional[pulumi.Input[str]] = None,
+            source_location_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_report_config: Optional[pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']]] = None) -> 'Task':
@@ -625,14 +627,14 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Task.
-        :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input[Union['TaskExcludesArgs', 'TaskExcludesArgsDict']] excludes: Filter rules that determines which files to exclude from a task.
         :param pulumi.Input[Union['TaskIncludesArgs', 'TaskIncludesArgsDict']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
         :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
-        :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['TaskTaskReportConfigArgs', 'TaskTaskReportConfigArgsDict']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
@@ -665,7 +667,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
-    def cloudwatch_log_group_arn(self) -> pulumi.Output[Optional[str]]:
+    def cloudwatch_log_group_arn(self) -> pulumi.Output[Optional['_root_outputs.ARN']]:
         """
         Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         """
@@ -673,7 +675,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="destinationLocationArn")
-    def destination_location_arn(self) -> pulumi.Output[str]:
+    def destination_location_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         Amazon Resource Name (ARN) of destination DataSync Location.
         """
@@ -721,7 +723,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceLocationArn")
-    def source_location_arn(self) -> pulumi.Output[str]:
+    def source_location_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         Amazon Resource Name (ARN) of source DataSync Location.
         """

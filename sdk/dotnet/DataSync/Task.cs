@@ -111,13 +111,13 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Output("cloudwatchLogGroupArn")]
-        public Output<string?> CloudwatchLogGroupArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN?> CloudwatchLogGroupArn { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
         [Output("destinationLocationArn")]
-        public Output<string> DestinationLocationArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> DestinationLocationArn { get; private set; } = null!;
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
         [Output("sourceLocationArn")]
-        public Output<string> SourceLocationArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> SourceLocationArn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -223,13 +223,13 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
-        public Input<string>? CloudwatchLogGroupArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNArgs>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
         [Input("destinationLocationArn", required: true)]
-        public Input<string> DestinationLocationArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> DestinationLocationArn { get; set; } = null!;
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
         [Input("sourceLocationArn", required: true)]
-        public Input<string> SourceLocationArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> SourceLocationArn { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -303,13 +303,13 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
-        public Input<string>? CloudwatchLogGroupArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? CloudwatchLogGroupArn { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         /// </summary>
         [Input("destinationLocationArn")]
-        public Input<string>? DestinationLocationArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? DestinationLocationArn { get; set; }
 
         /// <summary>
         /// Filter rules that determines which files to exclude from a task.
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of source DataSync Location.
         /// </summary>
         [Input("sourceLocationArn")]
-        public Input<string>? SourceLocationArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? SourceLocationArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

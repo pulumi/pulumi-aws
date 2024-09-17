@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.kinesis.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsArgs;
 import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationOutputArgs;
@@ -28,13 +29,13 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="arn")
-    private @Nullable Output<String> arn;
+    private @Nullable Output<ARNArgs> arn;
 
     /**
      * @return The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    public Optional<Output<String>> arn() {
+    public Optional<Output<ARNArgs>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
@@ -306,7 +307,7 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder arn(@Nullable Output<String> arn) {
+        public Builder arn(@Nullable Output<ARNArgs> arn) {
             $.arn = arn;
             return this;
         }
@@ -317,7 +318,7 @@ public final class AnalyticsApplicationState extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder arn(String arn) {
+        public Builder arn(ARNArgs arn) {
             return arn(Output.of(arn));
         }
 

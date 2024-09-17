@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -60,7 +61,7 @@ type S3Location struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
+	S3BucketArn aws.ARNOutput `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigOutput `pulumi:"s3Config"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -120,7 +121,7 @@ type s3locationState struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn *string `pulumi:"s3BucketArn"`
+	S3BucketArn *aws.ARN `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config *S3LocationS3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -142,7 +143,7 @@ type S3LocationState struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn pulumi.StringPtrInput
+	S3BucketArn aws.ARNPtrInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigPtrInput
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -166,7 +167,7 @@ type s3locationArgs struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns []string `pulumi:"agentArns"`
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn string `pulumi:"s3BucketArn"`
+	S3BucketArn aws.ARN `pulumi:"s3BucketArn"`
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -182,7 +183,7 @@ type S3LocationArgs struct {
 	// A list of DataSync Agent ARNs with which this location will be associated.
 	AgentArns pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the S3 Bucket.
-	S3BucketArn pulumi.StringInput
+	S3BucketArn aws.ARNInput
 	// Configuration block containing information for connecting to S3.
 	S3Config S3LocationS3ConfigInput
 	// The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -291,8 +292,8 @@ func (o S3LocationOutput) Arn() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the S3 Bucket.
-func (o S3LocationOutput) S3BucketArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *S3Location) pulumi.StringOutput { return v.S3BucketArn }).(pulumi.StringOutput)
+func (o S3LocationOutput) S3BucketArn() aws.ARNOutput {
+	return o.ApplyT(func(v *S3Location) aws.ARNOutput { return v.S3BucketArn }).(aws.ARNOutput)
 }
 
 // Configuration block containing information for connecting to S3.

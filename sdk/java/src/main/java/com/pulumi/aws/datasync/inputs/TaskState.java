@@ -8,6 +8,7 @@ import com.pulumi.aws.datasync.inputs.TaskIncludesArgs;
 import com.pulumi.aws.datasync.inputs.TaskOptionsArgs;
 import com.pulumi.aws.datasync.inputs.TaskScheduleArgs;
 import com.pulumi.aws.datasync.inputs.TaskTaskReportConfigArgs;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -41,13 +42,13 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="cloudwatchLogGroupArn")
-    private @Nullable Output<String> cloudwatchLogGroupArn;
+    private @Nullable Output<ARNArgs> cloudwatchLogGroupArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
-    public Optional<Output<String>> cloudwatchLogGroupArn() {
+    public Optional<Output<ARNArgs>> cloudwatchLogGroupArn() {
         return Optional.ofNullable(this.cloudwatchLogGroupArn);
     }
 
@@ -56,13 +57,13 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="destinationLocationArn")
-    private @Nullable Output<String> destinationLocationArn;
+    private @Nullable Output<ARNArgs> destinationLocationArn;
 
     /**
      * @return Amazon Resource Name (ARN) of destination DataSync Location.
      * 
      */
-    public Optional<Output<String>> destinationLocationArn() {
+    public Optional<Output<ARNArgs>> destinationLocationArn() {
         return Optional.ofNullable(this.destinationLocationArn);
     }
 
@@ -146,13 +147,13 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="sourceLocationArn")
-    private @Nullable Output<String> sourceLocationArn;
+    private @Nullable Output<ARNArgs> sourceLocationArn;
 
     /**
      * @return Amazon Resource Name (ARN) of source DataSync Location.
      * 
      */
-    public Optional<Output<String>> sourceLocationArn() {
+    public Optional<Output<ARNArgs>> sourceLocationArn() {
         return Optional.ofNullable(this.sourceLocationArn);
     }
 
@@ -271,7 +272,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder cloudwatchLogGroupArn(@Nullable Output<String> cloudwatchLogGroupArn) {
+        public Builder cloudwatchLogGroupArn(@Nullable Output<ARNArgs> cloudwatchLogGroupArn) {
             $.cloudwatchLogGroupArn = cloudwatchLogGroupArn;
             return this;
         }
@@ -282,7 +283,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder cloudwatchLogGroupArn(String cloudwatchLogGroupArn) {
+        public Builder cloudwatchLogGroupArn(ARNArgs cloudwatchLogGroupArn) {
             return cloudwatchLogGroupArn(Output.of(cloudwatchLogGroupArn));
         }
 
@@ -292,7 +293,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder destinationLocationArn(@Nullable Output<String> destinationLocationArn) {
+        public Builder destinationLocationArn(@Nullable Output<ARNArgs> destinationLocationArn) {
             $.destinationLocationArn = destinationLocationArn;
             return this;
         }
@@ -303,7 +304,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder destinationLocationArn(String destinationLocationArn) {
+        public Builder destinationLocationArn(ARNArgs destinationLocationArn) {
             return destinationLocationArn(Output.of(destinationLocationArn));
         }
 
@@ -418,7 +419,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder sourceLocationArn(@Nullable Output<String> sourceLocationArn) {
+        public Builder sourceLocationArn(@Nullable Output<ARNArgs> sourceLocationArn) {
             $.sourceLocationArn = sourceLocationArn;
             return this;
         }
@@ -429,7 +430,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder sourceLocationArn(String sourceLocationArn) {
+        public Builder sourceLocationArn(ARNArgs sourceLocationArn) {
             return sourceLocationArn(Output.of(sourceLocationArn));
         }
 

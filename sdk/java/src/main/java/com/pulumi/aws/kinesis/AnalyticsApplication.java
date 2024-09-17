@@ -10,6 +10,7 @@ import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationCloudwatchLoggingOptio
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationInputs;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationOutput;
 import com.pulumi.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSources;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -237,14 +238,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
      * The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    @Export(name="arn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> arn;
 
     /**
      * @return The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    public Output<String> arn() {
+    public Output<ARN> arn() {
         return this.arn;
     }
     /**

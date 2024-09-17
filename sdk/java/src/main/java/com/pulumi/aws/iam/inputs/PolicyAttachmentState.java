@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -51,13 +52,13 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="policyArn")
-    private @Nullable Output<String> policyArn;
+    private @Nullable Output<ARNArgs> policyArn;
 
     /**
      * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    public Optional<Output<String>> policyArn() {
+    public Optional<Output<ARNArgs>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
@@ -177,7 +178,7 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policyArn(@Nullable Output<String> policyArn) {
+        public Builder policyArn(@Nullable Output<ARNArgs> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
@@ -188,7 +189,7 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policyArn(String policyArn) {
+        public Builder policyArn(ARNArgs policyArn) {
             return policyArn(Output.of(policyArn));
         }
 

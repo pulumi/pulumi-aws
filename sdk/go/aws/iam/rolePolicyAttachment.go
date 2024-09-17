@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -25,6 +26,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -108,7 +110,7 @@ type RolePolicyAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	PolicyArn aws.ARNOutput `pulumi:"policyArn"`
 	// The name of the IAM role to which the policy should be applied
 	Role pulumi.StringOutput `pulumi:"role"`
 }
@@ -150,14 +152,14 @@ func GetRolePolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RolePolicyAttachment resources.
 type rolePolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
-	PolicyArn *string `pulumi:"policyArn"`
+	PolicyArn *aws.ARN `pulumi:"policyArn"`
 	// The name of the IAM role to which the policy should be applied
 	Role interface{} `pulumi:"role"`
 }
 
 type RolePolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringPtrInput
+	PolicyArn aws.ARNPtrInput
 	// The name of the IAM role to which the policy should be applied
 	Role pulumi.Input
 }
@@ -168,7 +170,7 @@ func (RolePolicyAttachmentState) ElementType() reflect.Type {
 
 type rolePolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
-	PolicyArn string `pulumi:"policyArn"`
+	PolicyArn aws.ARN `pulumi:"policyArn"`
 	// The name of the IAM role to which the policy should be applied
 	Role interface{} `pulumi:"role"`
 }
@@ -176,7 +178,7 @@ type rolePolicyAttachmentArgs struct {
 // The set of arguments for constructing a RolePolicyAttachment resource.
 type RolePolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringInput
+	PolicyArn aws.ARNInput
 	// The name of the IAM role to which the policy should be applied
 	Role pulumi.Input
 }
@@ -269,8 +271,8 @@ func (o RolePolicyAttachmentOutput) ToRolePolicyAttachmentOutputWithContext(ctx 
 }
 
 // The ARN of the policy you want to apply
-func (o RolePolicyAttachmentOutput) PolicyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RolePolicyAttachment) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+func (o RolePolicyAttachmentOutput) PolicyArn() aws.ARNOutput {
+	return o.ApplyT(func(v *RolePolicyAttachment) aws.ARNOutput { return v.PolicyArn }).(aws.ARNOutput)
 }
 
 // The name of the IAM role to which the policy should be applied

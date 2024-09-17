@@ -31,7 +31,7 @@ class GroupArgs:
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -75,7 +75,7 @@ class GroupArgs:
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -327,14 +327,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @property
@@ -728,7 +728,7 @@ class _GroupState:
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -774,7 +774,7 @@ class _GroupState:
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -1026,14 +1026,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @property
@@ -1477,7 +1477,7 @@ class Group(pulumi.CustomResource):
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -1951,7 +1951,7 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2474,7 +2474,7 @@ class Group(pulumi.CustomResource):
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -2579,7 +2579,7 @@ class Group(pulumi.CustomResource):
             default_instance_warmup: Optional[pulumi.Input[int]] = None,
             desired_capacity: Optional[pulumi.Input[int]] = None,
             desired_capacity_type: Optional[pulumi.Input[str]] = None,
-            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
             force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
             health_check_grace_period: Optional[pulumi.Input[int]] = None,
@@ -2630,7 +2630,7 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2813,7 +2813,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence['Metric']]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """

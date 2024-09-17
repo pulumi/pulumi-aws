@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Identifier of the default association route table
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
         /// </summary>
         [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Arn { get; set; }
 
         /// <summary>
         /// Identifier of the default association route table

@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {LaunchConfiguration, PlacementGroup} from "../ec2";
-import {Metric} from "./index";
 
 /**
  * Provides an Auto Scaling Group resource.
@@ -523,7 +522,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    public readonly enabledMetrics!: pulumi.Output<Metric[] | undefined>;
+    public readonly enabledMetrics!: pulumi.Output<enums.autoscaling.Metric[] | undefined>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -841,7 +840,7 @@ export interface GroupState {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<enums.autoscaling.Metric>[]>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -1045,7 +1044,7 @@ export interface GroupArgs {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<enums.autoscaling.Metric>[]>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete

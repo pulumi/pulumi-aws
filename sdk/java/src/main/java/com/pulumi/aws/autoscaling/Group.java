@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.GroupArgs;
+import com.pulumi.aws.autoscaling.enums.Metric;
 import com.pulumi.aws.autoscaling.inputs.GroupState;
 import com.pulumi.aws.autoscaling.outputs.GroupInitialLifecycleHook;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
@@ -836,14 +837,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    @Export(name="enabledMetrics", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> enabledMetrics;
+    @Export(name="enabledMetrics", refs={List.class,Metric.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<Metric>> enabledMetrics;
 
     /**
      * @return List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    public Output<Optional<List<String>>> enabledMetrics() {
+    public Output<Optional<List<Metric>>> enabledMetrics() {
         return Codegen.optional(this.enabledMetrics);
     }
     /**

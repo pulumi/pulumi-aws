@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,6 +20,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -119,7 +121,7 @@ type PolicyAttachment struct {
 	// Name of the attachment. This cannot be an empty string.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	PolicyArn aws.ARNOutput `pulumi:"policyArn"`
 	// Role(s) the policy should be applied to.
 	Roles pulumi.StringArrayOutput `pulumi:"roles"`
 	// User(s) the policy should be applied to.
@@ -164,7 +166,7 @@ type policyAttachmentState struct {
 	// Name of the attachment. This cannot be an empty string.
 	Name *string `pulumi:"name"`
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-	PolicyArn *string `pulumi:"policyArn"`
+	PolicyArn *aws.ARN `pulumi:"policyArn"`
 	// Role(s) the policy should be applied to.
 	Roles []interface{} `pulumi:"roles"`
 	// User(s) the policy should be applied to.
@@ -177,7 +179,7 @@ type PolicyAttachmentState struct {
 	// Name of the attachment. This cannot be an empty string.
 	Name pulumi.StringPtrInput
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-	PolicyArn pulumi.StringPtrInput
+	PolicyArn aws.ARNPtrInput
 	// Role(s) the policy should be applied to.
 	Roles pulumi.ArrayInput
 	// User(s) the policy should be applied to.
@@ -194,7 +196,7 @@ type policyAttachmentArgs struct {
 	// Name of the attachment. This cannot be an empty string.
 	Name *string `pulumi:"name"`
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-	PolicyArn string `pulumi:"policyArn"`
+	PolicyArn aws.ARN `pulumi:"policyArn"`
 	// Role(s) the policy should be applied to.
 	Roles []interface{} `pulumi:"roles"`
 	// User(s) the policy should be applied to.
@@ -208,7 +210,7 @@ type PolicyAttachmentArgs struct {
 	// Name of the attachment. This cannot be an empty string.
 	Name pulumi.StringPtrInput
 	// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-	PolicyArn pulumi.StringInput
+	PolicyArn aws.ARNInput
 	// Role(s) the policy should be applied to.
 	Roles pulumi.ArrayInput
 	// User(s) the policy should be applied to.
@@ -313,8 +315,8 @@ func (o PolicyAttachmentOutput) Name() pulumi.StringOutput {
 }
 
 // ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-func (o PolicyAttachmentOutput) PolicyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *PolicyAttachment) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+func (o PolicyAttachmentOutput) PolicyArn() aws.ARNOutput {
+	return o.ApplyT(func(v *PolicyAttachment) aws.ARNOutput { return v.PolicyArn }).(aws.ARNOutput)
 }
 
 // Role(s) the policy should be applied to.

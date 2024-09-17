@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EfsLocationArgs', 'EfsLocation']
@@ -22,7 +24,7 @@ __all__ = ['EfsLocationArgs', 'EfsLocation']
 class EfsLocationArgs:
     def __init__(__self__, *,
                  ec2_config: pulumi.Input['EfsLocationEc2ConfigArgs'],
-                 efs_file_system_arn: pulumi.Input[str],
+                 efs_file_system_arn: pulumi.Input['_root_inputs.ARNArgs'],
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
                  in_transit_encryption: Optional[pulumi.Input[str]] = None,
@@ -31,7 +33,7 @@ class EfsLocationArgs:
         """
         The set of arguments for constructing a EfsLocation resource.
         :param pulumi.Input['EfsLocationEc2ConfigArgs'] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.
-        :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
+        :param pulumi.Input['_root_inputs.ARNArgs'] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] access_point_arn: Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         :param pulumi.Input[str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -65,14 +67,14 @@ class EfsLocationArgs:
 
     @property
     @pulumi.getter(name="efsFileSystemArn")
-    def efs_file_system_arn(self) -> pulumi.Input[str]:
+    def efs_file_system_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         Amazon Resource Name (ARN) of EFS File System.
         """
         return pulumi.get(self, "efs_file_system_arn")
 
     @efs_file_system_arn.setter
-    def efs_file_system_arn(self, value: pulumi.Input[str]):
+    def efs_file_system_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "efs_file_system_arn", value)
 
     @property
@@ -142,7 +144,7 @@ class _EfsLocationState:
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  ec2_config: Optional[pulumi.Input['EfsLocationEc2ConfigArgs']] = None,
-                 efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+                 efs_file_system_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
                  in_transit_encryption: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -154,7 +156,7 @@ class _EfsLocationState:
         :param pulumi.Input[str] access_point_arn: Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input['EfsLocationEc2ConfigArgs'] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.
-        :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
+        :param pulumi.Input['_root_inputs.ARNArgs'] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
@@ -223,14 +225,14 @@ class _EfsLocationState:
 
     @property
     @pulumi.getter(name="efsFileSystemArn")
-    def efs_file_system_arn(self) -> Optional[pulumi.Input[str]]:
+    def efs_file_system_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         Amazon Resource Name (ARN) of EFS File System.
         """
         return pulumi.get(self, "efs_file_system_arn")
 
     @efs_file_system_arn.setter
-    def efs_file_system_arn(self, value: Optional[pulumi.Input[str]]):
+    def efs_file_system_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "efs_file_system_arn", value)
 
     @property
@@ -311,7 +313,7 @@ class EfsLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  ec2_config: Optional[pulumi.Input[Union['EfsLocationEc2ConfigArgs', 'EfsLocationEc2ConfigArgsDict']]] = None,
-                 efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+                 efs_file_system_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
                  in_transit_encryption: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -348,7 +350,7 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_point_arn: Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         :param pulumi.Input[Union['EfsLocationEc2ConfigArgs', 'EfsLocationEc2ConfigArgsDict']] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.
-        :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
@@ -404,7 +406,7 @@ class EfsLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  ec2_config: Optional[pulumi.Input[Union['EfsLocationEc2ConfigArgs', 'EfsLocationEc2ConfigArgsDict']]] = None,
-                 efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+                 efs_file_system_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
                  in_transit_encryption: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -445,7 +447,7 @@ class EfsLocation(pulumi.CustomResource):
             access_point_arn: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             ec2_config: Optional[pulumi.Input[Union['EfsLocationEc2ConfigArgs', 'EfsLocationEc2ConfigArgsDict']]] = None,
-            efs_file_system_arn: Optional[pulumi.Input[str]] = None,
+            efs_file_system_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
             in_transit_encryption: Optional[pulumi.Input[str]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
@@ -462,7 +464,7 @@ class EfsLocation(pulumi.CustomResource):
         :param pulumi.Input[str] access_point_arn: Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[Union['EfsLocationEc2ConfigArgs', 'EfsLocationEc2ConfigArgsDict']] ec2_config: Configuration block containing EC2 configurations for connecting to the EFS File System.
-        :param pulumi.Input[str] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] efs_file_system_arn: Amazon Resource Name (ARN) of EFS File System.
         :param pulumi.Input[str] file_system_access_role_arn: Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         :param pulumi.Input[str] in_transit_encryption: Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Default `/`.
@@ -511,7 +513,7 @@ class EfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="efsFileSystemArn")
-    def efs_file_system_arn(self) -> pulumi.Output[str]:
+    def efs_file_system_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         Amazon Resource Name (ARN) of EFS File System.
         """

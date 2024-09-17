@@ -218,6 +218,7 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -255,7 +256,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "ecs_task_execution_role_policy", &iam.RolePolicyAttachmentArgs{
 //				Role:      ecsTaskExecutionRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
 //			})
 //			if err != nil {
 //				return err

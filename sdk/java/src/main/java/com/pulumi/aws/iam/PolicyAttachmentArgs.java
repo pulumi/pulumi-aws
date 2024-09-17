@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -52,13 +53,13 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="policyArn", required=true)
-    private Output<String> policyArn;
+    private Output<ARNArgs> policyArn;
 
     /**
      * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    public Output<String> policyArn() {
+    public Output<ARNArgs> policyArn() {
         return this.policyArn;
     }
 
@@ -178,7 +179,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policyArn(Output<String> policyArn) {
+        public Builder policyArn(Output<ARNArgs> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
@@ -189,7 +190,7 @@ public final class PolicyAttachmentArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policyArn(String policyArn) {
+        public Builder policyArn(ARNArgs policyArn) {
             return policyArn(Output.of(policyArn));
         }
 

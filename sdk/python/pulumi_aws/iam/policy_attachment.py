@@ -13,20 +13,22 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 
 @pulumi.input_type
 class PolicyAttachmentArgs:
     def __init__(__self__, *,
-                 policy_arn: pulumi.Input[str],
+                 policy_arn: pulumi.Input['_root_inputs.ARNArgs'],
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
-        :param pulumi.Input[str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[str] name: Name of the attachment. This cannot be an empty string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Role(s) the policy should be applied to.
@@ -44,14 +46,14 @@ class PolicyAttachmentArgs:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Input[str]:
+    def policy_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: pulumi.Input[str]):
+    def policy_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "policy_arn", value)
 
     @property
@@ -108,14 +110,14 @@ class _PolicyAttachmentState:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[str] name: Name of the attachment. This cannot be an empty string.
-        :param pulumi.Input[str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Role(s) the policy should be applied to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: User(s) the policy should be applied to.
         """
@@ -156,14 +158,14 @@ class _PolicyAttachmentState:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+    def policy_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+    def policy_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "policy_arn", value)
 
     @property
@@ -198,7 +200,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -243,7 +245,7 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[str] name: Name of the attachment. This cannot be an empty string.
-        :param pulumi.Input[str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Role(s) the policy should be applied to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: User(s) the policy should be applied to.
         """
@@ -307,7 +309,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -338,7 +340,7 @@ class PolicyAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policy_arn: Optional[pulumi.Input[str]] = None,
+            policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'PolicyAttachment':
         """
@@ -350,7 +352,7 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Group(s) the policy should be applied to.
         :param pulumi.Input[str] name: Name of the attachment. This cannot be an empty string.
-        :param pulumi.Input[str] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: Role(s) the policy should be applied to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: User(s) the policy should be applied to.
         """
@@ -383,7 +385,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Output[str]:
+    def policy_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         """

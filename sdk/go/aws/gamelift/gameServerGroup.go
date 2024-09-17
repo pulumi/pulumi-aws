@@ -167,7 +167,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/GameLiftGameServerGroupPolicy", current.Partition),
+//				PolicyArn: fmt.Sprintf("arn:%v:iam::aws:policy/GameLiftGameServerGroupPolicy", current.Partition),
 //				Role:      example.Name,
 //			})
 //			if err != nil {

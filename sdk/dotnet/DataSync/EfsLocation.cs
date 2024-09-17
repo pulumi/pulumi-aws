@@ -73,7 +73,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
         [Output("efsFileSystemArn")]
-        public Output<string> EfsFileSystemArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> EfsFileSystemArn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
         [Input("efsFileSystemArn", required: true)]
-        public Input<string> EfsFileSystemArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> EfsFileSystemArn { get; set; } = null!;
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.DataSync
         /// Amazon Resource Name (ARN) of EFS File System.
         /// </summary>
         [Input("efsFileSystemArn")]
-        public Input<string>? EfsFileSystemArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? EfsFileSystemArn { get; set; }
 
         /// <summary>
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.

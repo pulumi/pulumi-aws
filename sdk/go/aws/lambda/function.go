@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-archive/sdk/go/archive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -139,6 +141,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -291,6 +294,7 @@ import (
 //
 //	"fmt"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
@@ -447,7 +451,7 @@ type Function struct {
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
-	Role pulumi.StringOutput `pulumi:"role"`
+	Role aws.ARNOutput `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
 	// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
@@ -578,7 +582,7 @@ type functionState struct {
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
-	Role *string `pulumi:"role"`
+	Role *aws.ARN `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime *string `pulumi:"runtime"`
 	// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
@@ -677,7 +681,7 @@ type FunctionState struct {
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
-	Role pulumi.StringPtrInput
+	Role aws.ARNPtrInput
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrInput
 	// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
@@ -768,7 +772,7 @@ type functionArgs struct {
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
-	Role string `pulumi:"role"`
+	Role aws.ARN `pulumi:"role"`
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime *string `pulumi:"runtime"`
 	// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
@@ -844,7 +848,7 @@ type FunctionArgs struct {
 	// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 	//
 	// The following arguments are optional:
-	Role pulumi.StringInput
+	Role aws.ARNInput
 	// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
 	Runtime pulumi.StringPtrInput
 	// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified. When `s3Bucket` is set, `s3Key` is required.
@@ -1098,8 +1102,8 @@ func (o FunctionOutput) ReservedConcurrentExecutions() pulumi.IntPtrOutput {
 // Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
 //
 // The following arguments are optional:
-func (o FunctionOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+func (o FunctionOutput) Role() aws.ARNOutput {
+	return o.ApplyT(func(v *Function) aws.ARNOutput { return v.Role }).(aws.ARNOutput)
 }
 
 // Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.

@@ -2,9 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {Policy} from "./index";
 
 /**
@@ -75,7 +77,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * The identity to which the policy is attached.
      */
-    public readonly target!: pulumi.Output<ARN>;
+    public readonly target!: pulumi.Output<outputs.ARN>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -119,7 +121,7 @@ export interface PolicyAttachmentState {
     /**
      * The identity to which the policy is attached.
      */
-    target?: pulumi.Input<ARN>;
+    target?: pulumi.Input<inputs.ARN>;
 }
 
 /**
@@ -133,5 +135,5 @@ export interface PolicyAttachmentArgs {
     /**
      * The identity to which the policy is attached.
      */
-    target: pulumi.Input<ARN>;
+    target: pulumi.Input<inputs.ARN>;
 }

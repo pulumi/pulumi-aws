@@ -11,6 +11,7 @@ import com.pulumi.aws.datasync.outputs.TaskIncludes;
 import com.pulumi.aws.datasync.outputs.TaskOptions;
 import com.pulumi.aws.datasync.outputs.TaskSchedule;
 import com.pulumi.aws.datasync.outputs.TaskTaskReportConfig;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -145,28 +146,28 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
-    @Export(name="cloudwatchLogGroupArn", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> cloudwatchLogGroupArn;
+    @Export(name="cloudwatchLogGroupArn", refs={ARN.class}, tree="[0]")
+    private Output</* @Nullable */ ARN> cloudwatchLogGroupArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
-    public Output<Optional<String>> cloudwatchLogGroupArn() {
+    public Output<Optional<ARN>> cloudwatchLogGroupArn() {
         return Codegen.optional(this.cloudwatchLogGroupArn);
     }
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      * 
      */
-    @Export(name="destinationLocationArn", refs={String.class}, tree="[0]")
-    private Output<String> destinationLocationArn;
+    @Export(name="destinationLocationArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> destinationLocationArn;
 
     /**
      * @return Amazon Resource Name (ARN) of destination DataSync Location.
      * 
      */
-    public Output<String> destinationLocationArn() {
+    public Output<ARN> destinationLocationArn() {
         return this.destinationLocationArn;
     }
     /**
@@ -243,14 +244,14 @@ public class Task extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of source DataSync Location.
      * 
      */
-    @Export(name="sourceLocationArn", refs={String.class}, tree="[0]")
-    private Output<String> sourceLocationArn;
+    @Export(name="sourceLocationArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> sourceLocationArn;
 
     /**
      * @return Amazon Resource Name (ARN) of source DataSync Location.
      * 
      */
-    public Output<String> sourceLocationArn() {
+    public Output<ARN> sourceLocationArn() {
         return this.sourceLocationArn;
     }
     /**

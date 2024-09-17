@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -21,6 +22,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -64,7 +66,7 @@ type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState
 
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-	Principal pulumi.StringOutput `pulumi:"principal"`
+	Principal aws.ARNOutput `pulumi:"principal"`
 	// The name of the thing.
 	Thing pulumi.StringOutput `pulumi:"thing"`
 }
@@ -106,14 +108,14 @@ func GetThingPrincipalAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ThingPrincipalAttachment resources.
 type thingPrincipalAttachmentState struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-	Principal *string `pulumi:"principal"`
+	Principal *aws.ARN `pulumi:"principal"`
 	// The name of the thing.
 	Thing *string `pulumi:"thing"`
 }
 
 type ThingPrincipalAttachmentState struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-	Principal pulumi.StringPtrInput
+	Principal aws.ARNPtrInput
 	// The name of the thing.
 	Thing pulumi.StringPtrInput
 }
@@ -124,7 +126,7 @@ func (ThingPrincipalAttachmentState) ElementType() reflect.Type {
 
 type thingPrincipalAttachmentArgs struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-	Principal string `pulumi:"principal"`
+	Principal aws.ARN `pulumi:"principal"`
 	// The name of the thing.
 	Thing string `pulumi:"thing"`
 }
@@ -132,7 +134,7 @@ type thingPrincipalAttachmentArgs struct {
 // The set of arguments for constructing a ThingPrincipalAttachment resource.
 type ThingPrincipalAttachmentArgs struct {
 	// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-	Principal pulumi.StringInput
+	Principal aws.ARNInput
 	// The name of the thing.
 	Thing pulumi.StringInput
 }
@@ -225,8 +227,8 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 }
 
 // The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-func (o ThingPrincipalAttachmentOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThingPrincipalAttachment) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+func (o ThingPrincipalAttachmentOutput) Principal() aws.ARNOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) aws.ARNOutput { return v.Principal }).(aws.ARNOutput)
 }
 
 // The name of the thing.

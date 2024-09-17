@@ -87,7 +87,7 @@ import (
 //			}
 //			exampleRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
 //				Role:      exampleRole.Name,
-//				PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition),
+//				PolicyArn: fmt.Sprintf("arn:%v:iam::aws:policy/AmazonESCognitoAccess", current.Partition),
 //			})
 //			if err != nil {
 //				return err

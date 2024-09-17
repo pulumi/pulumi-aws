@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Iot
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
         [Output("principal")]
-        public Output<string> Principal { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Principal { get; private set; } = null!;
 
         /// <summary>
         /// The name of the thing.
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Iot
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
         [Input("principal", required: true)]
-        public Input<string> Principal { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> Principal { get; set; } = null!;
 
         /// <summary>
         /// The name of the thing.
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Iot
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         /// </summary>
         [Input("principal")]
-        public Input<string>? Principal { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Principal { get; set; }
 
         /// <summary>
         /// The name of the thing.

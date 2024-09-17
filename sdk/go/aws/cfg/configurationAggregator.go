@@ -56,6 +56,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -94,7 +95,7 @@ import (
 //			}
 //			organizationRolePolicyAttachment, err := iam.NewRolePolicyAttachment(ctx, "organization", &iam.RolePolicyAttachmentArgs{
 //				Role:      organizationRole.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
 //			})
 //			if err != nil {
 //				return err

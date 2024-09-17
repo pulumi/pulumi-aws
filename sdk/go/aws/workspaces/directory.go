@@ -23,6 +23,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
@@ -99,14 +100,14 @@ import (
 //			}
 //			workspacesDefaultServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspaces_default_service_access", &iam.RolePolicyAttachmentArgs{
 //				Role:      workspacesDefault.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			workspacesDefaultSelfServiceAccess, err := iam.NewRolePolicyAttachment(ctx, "workspaces_default_self_service_access", &iam.RolePolicyAttachmentArgs{
 //				Role:      workspacesDefault.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess",
 //			})
 //			if err != nil {
 //				return err

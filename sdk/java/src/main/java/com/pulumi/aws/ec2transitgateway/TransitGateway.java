@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2transitgateway;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.TransitGatewayState;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -88,14 +89,14 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    @Export(name="arn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> arn;
 
     /**
      * @return EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    public Output<String> arn() {
+    public Output<ARN> arn() {
         return this.arn;
     }
     /**

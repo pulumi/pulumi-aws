@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iot.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -20,13 +21,13 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
      * 
      */
     @Import(name="principal")
-    private @Nullable Output<String> principal;
+    private @Nullable Output<ARNArgs> principal;
 
     /**
      * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      * 
      */
-    public Optional<Output<String>> principal() {
+    public Optional<Output<ARNArgs>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
@@ -76,7 +77,7 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder principal(@Nullable Output<String> principal) {
+        public Builder principal(@Nullable Output<ARNArgs> principal) {
             $.principal = principal;
             return this;
         }
@@ -87,7 +88,7 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder principal(String principal) {
+        public Builder principal(ARNArgs principal) {
             return principal(Output.of(principal));
         }
 

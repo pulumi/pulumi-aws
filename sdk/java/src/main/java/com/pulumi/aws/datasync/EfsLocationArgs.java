@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync;
 
 import com.pulumi.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -53,13 +54,13 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="efsFileSystemArn", required=true)
-    private Output<String> efsFileSystemArn;
+    private Output<ARNArgs> efsFileSystemArn;
 
     /**
      * @return Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    public Output<String> efsFileSystemArn() {
+    public Output<ARNArgs> efsFileSystemArn() {
         return this.efsFileSystemArn;
     }
 
@@ -201,7 +202,7 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder efsFileSystemArn(Output<String> efsFileSystemArn) {
+        public Builder efsFileSystemArn(Output<ARNArgs> efsFileSystemArn) {
             $.efsFileSystemArn = efsFileSystemArn;
             return this;
         }
@@ -212,7 +213,7 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder efsFileSystemArn(String efsFileSystemArn) {
+        public Builder efsFileSystemArn(ARNArgs efsFileSystemArn) {
             return efsFileSystemArn(Output.of(efsFileSystemArn));
         }
 

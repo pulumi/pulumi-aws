@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Sns
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
@@ -556,7 +556,7 @@ namespace Pulumi.Aws.Sns
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Arn { get; set; }
 
         /// <summary>
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.

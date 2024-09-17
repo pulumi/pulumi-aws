@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.LogGroup;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -65,13 +67,13 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="logGroup")
-    private @Nullable Output<String> logGroup;
+    private @Nullable Output<Either<String,LogGroup>> logGroup;
 
     /**
      * @return The name of the log group to associate the subscription filter with
      * 
      */
-    public Optional<Output<String>> logGroup() {
+    public Optional<Output<Either<String,LogGroup>>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
 
@@ -203,7 +205,7 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder logGroup(@Nullable Output<String> logGroup) {
+        public Builder logGroup(@Nullable Output<Either<String,LogGroup>> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
@@ -214,8 +216,28 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder logGroup(String logGroup) {
+        public Builder logGroup(Either<String,LogGroup> logGroup) {
             return logGroup(Output.of(logGroup));
+        }
+
+        /**
+         * @param logGroup The name of the log group to associate the subscription filter with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroup(String logGroup) {
+            return logGroup(Either.ofLeft(logGroup));
+        }
+
+        /**
+         * @param logGroup The name of the log group to associate the subscription filter with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroup(LogGroup logGroup) {
+            return logGroup(Either.ofRight(logGroup));
         }
 
         /**

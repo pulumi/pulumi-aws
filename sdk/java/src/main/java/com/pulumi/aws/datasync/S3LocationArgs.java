@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync;
 
 import com.pulumi.aws.datasync.inputs.S3LocationS3ConfigArgs;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -39,13 +40,13 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="s3BucketArn", required=true)
-    private Output<String> s3BucketArn;
+    private Output<ARNArgs> s3BucketArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the S3 Bucket.
      * 
      */
-    public Output<String> s3BucketArn() {
+    public Output<ARNArgs> s3BucketArn() {
         return this.s3BucketArn;
     }
 
@@ -175,7 +176,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder s3BucketArn(Output<String> s3BucketArn) {
+        public Builder s3BucketArn(Output<ARNArgs> s3BucketArn) {
             $.s3BucketArn = s3BucketArn;
             return this;
         }
@@ -186,7 +187,7 @@ public final class S3LocationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder s3BucketArn(String s3BucketArn) {
+        public Builder s3BucketArn(ARNArgs s3BucketArn) {
             return s3BucketArn(Output.of(s3BucketArn));
         }
 

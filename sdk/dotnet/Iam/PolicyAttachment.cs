@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Iam
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Output("policyArn")]
-        public Output<string> PolicyArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> PolicyArn { get; private set; } = null!;
 
         /// <summary>
         /// Role(s) the policy should be applied to.
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Iam
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Input("policyArn", required: true)]
-        public Input<string> PolicyArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> PolicyArn { get; set; } = null!;
 
         [Input("roles")]
         private InputList<string>? _roles;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Iam
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
         [Input("policyArn")]
-        public Input<string>? PolicyArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? PolicyArn { get; set; }
 
         [Input("roles")]
         private InputList<string>? _roles;

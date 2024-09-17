@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN of the policy you want to apply
         /// </summary>
         [Output("policyArn")]
-        public Output<string> PolicyArn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> PolicyArn { get; private set; } = null!;
 
         /// <summary>
         /// The user the policy should be applied to
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN of the policy you want to apply
         /// </summary>
         [Input("policyArn", required: true)]
-        public Input<string> PolicyArn { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> PolicyArn { get; set; } = null!;
 
         /// <summary>
         /// The user the policy should be applied to
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Iam
         /// The ARN of the policy you want to apply
         /// </summary>
         [Input("policyArn")]
-        public Input<string>? PolicyArn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? PolicyArn { get; set; }
 
         /// <summary>
         /// The user the policy should be applied to

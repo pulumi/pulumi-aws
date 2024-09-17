@@ -4,6 +4,7 @@
 package com.pulumi.aws.datasync.inputs;
 
 import com.pulumi.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -67,13 +68,13 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="efsFileSystemArn")
-    private @Nullable Output<String> efsFileSystemArn;
+    private @Nullable Output<ARNArgs> efsFileSystemArn;
 
     /**
      * @return Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    public Optional<Output<String>> efsFileSystemArn() {
+    public Optional<Output<ARNArgs>> efsFileSystemArn() {
         return Optional.ofNullable(this.efsFileSystemArn);
     }
 
@@ -269,7 +270,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder efsFileSystemArn(@Nullable Output<String> efsFileSystemArn) {
+        public Builder efsFileSystemArn(@Nullable Output<ARNArgs> efsFileSystemArn) {
             $.efsFileSystemArn = efsFileSystemArn;
             return this;
         }
@@ -280,7 +281,7 @@ public final class EfsLocationState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder efsFileSystemArn(String efsFileSystemArn) {
+        public Builder efsFileSystemArn(ARNArgs efsFileSystemArn) {
             return efsFileSystemArn(Output.of(efsFileSystemArn));
         }
 

@@ -23,6 +23,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
@@ -61,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "AWSCodeDeployRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole",
 //				Role:      example.Name,
 //			})
 //			if err != nil {

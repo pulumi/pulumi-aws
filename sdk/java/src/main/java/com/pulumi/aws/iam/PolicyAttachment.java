@@ -6,6 +6,7 @@ package com.pulumi.aws.iam;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iam.PolicyAttachmentArgs;
 import com.pulumi.aws.iam.inputs.PolicyAttachmentState;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -138,14 +139,14 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    @Export(name="policyArn", refs={String.class}, tree="[0]")
-    private Output<String> policyArn;
+    @Export(name="policyArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> policyArn;
 
     /**
      * @return ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    public Output<String> policyArn() {
+    public Output<ARN> policyArn() {
         return this.policyArn;
     }
     /**

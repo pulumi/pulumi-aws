@@ -148,20 +148,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.profile);
     }
     /**
-     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-     * 
-     */
-    @Export(name="region", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> region;
-
-    /**
-     * @return The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-     * 
-     */
-    public Output<Optional<String>> region() {
-        return Codegen.optional(this.region);
-    }
-    /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
      * `AWS_RETRY_MODE` environment variable.
      * 

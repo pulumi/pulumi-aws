@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iot;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,13 +20,13 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
      * 
      */
     @Import(name="principal", required=true)
-    private Output<String> principal;
+    private Output<ARNArgs> principal;
 
     /**
      * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      * 
      */
-    public Output<String> principal() {
+    public Output<ARNArgs> principal() {
         return this.principal;
     }
 
@@ -75,7 +76,7 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder principal(Output<String> principal) {
+        public Builder principal(Output<ARNArgs> principal) {
             $.principal = principal;
             return this;
         }
@@ -86,7 +87,7 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder principal(String principal) {
+        public Builder principal(ARNArgs principal) {
             return principal(Output.of(principal));
         }
 

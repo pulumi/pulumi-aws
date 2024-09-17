@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.cloudwatch;
 
+import com.pulumi.aws.cloudwatch.LogGroup;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -66,13 +68,13 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
      * 
      */
     @Import(name="logGroup", required=true)
-    private Output<String> logGroup;
+    private Output<Either<String,LogGroup>> logGroup;
 
     /**
      * @return The name of the log group to associate the subscription filter with
      * 
      */
-    public Output<String> logGroup() {
+    public Output<Either<String,LogGroup>> logGroup() {
         return this.logGroup;
     }
 
@@ -204,7 +206,7 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder logGroup(Output<String> logGroup) {
+        public Builder logGroup(Output<Either<String,LogGroup>> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
@@ -215,8 +217,28 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder logGroup(String logGroup) {
+        public Builder logGroup(Either<String,LogGroup> logGroup) {
             return logGroup(Output.of(logGroup));
+        }
+
+        /**
+         * @param logGroup The name of the log group to associate the subscription filter with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroup(String logGroup) {
+            return logGroup(Either.ofLeft(logGroup));
+        }
+
+        /**
+         * @param logGroup The name of the log group to associate the subscription filter with
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logGroup(LogGroup logGroup) {
+            return logGroup(Either.ofRight(logGroup));
         }
 
         /**

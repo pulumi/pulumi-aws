@@ -63,6 +63,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -99,7 +100,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSClusterPolicy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
 //				Role:      example.Name,
 //			})
 //			if err != nil {
@@ -108,7 +109,7 @@ import (
 //			// Optionally, enable Security Groups for Pods
 //			// Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSVPCResourceController", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
 //				Role:      example.Name,
 //			})
 //			if err != nil {

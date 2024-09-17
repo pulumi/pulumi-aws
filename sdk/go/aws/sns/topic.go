@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -163,7 +164,7 @@ type Topic struct {
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy pulumi.StringPtrOutput `pulumi:"archivePolicy"`
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn aws.ARNOutput `pulumi:"arn"`
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime pulumi.StringOutput `pulumi:"beginningArchiveTime"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -259,7 +260,7 @@ type topicState struct {
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy *string `pulumi:"archivePolicy"`
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
-	Arn *string `pulumi:"arn"`
+	Arn *aws.ARN `pulumi:"arn"`
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime *string `pulumi:"beginningArchiveTime"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -326,7 +327,7 @@ type TopicState struct {
 	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
 	ArchivePolicy pulumi.StringPtrInput
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
-	Arn pulumi.StringPtrInput
+	Arn aws.ARNPtrInput
 	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
 	BeginningArchiveTime pulumi.StringPtrInput
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -610,8 +611,8 @@ func (o TopicOutput) ArchivePolicy() pulumi.StringPtrOutput {
 }
 
 // The ARN of the SNS topic, as a more obvious property (clone of id)
-func (o TopicOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o TopicOutput) Arn() aws.ARNOutput {
+	return o.ApplyT(func(v *Topic) aws.ARNOutput { return v.Arn }).(aws.ARNOutput)
 }
 
 // The oldest timestamp at which a FIFO topic subscriber can start a replay.

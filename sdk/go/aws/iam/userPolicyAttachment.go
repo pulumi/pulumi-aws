@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -23,6 +24,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -68,7 +70,7 @@ type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	PolicyArn aws.ARNOutput `pulumi:"policyArn"`
 	// The user the policy should be applied to
 	User pulumi.StringOutput `pulumi:"user"`
 }
@@ -110,14 +112,14 @@ func GetUserPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering UserPolicyAttachment resources.
 type userPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
-	PolicyArn *string `pulumi:"policyArn"`
+	PolicyArn *aws.ARN `pulumi:"policyArn"`
 	// The user the policy should be applied to
 	User interface{} `pulumi:"user"`
 }
 
 type UserPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringPtrInput
+	PolicyArn aws.ARNPtrInput
 	// The user the policy should be applied to
 	User pulumi.Input
 }
@@ -128,7 +130,7 @@ func (UserPolicyAttachmentState) ElementType() reflect.Type {
 
 type userPolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
-	PolicyArn string `pulumi:"policyArn"`
+	PolicyArn aws.ARN `pulumi:"policyArn"`
 	// The user the policy should be applied to
 	User interface{} `pulumi:"user"`
 }
@@ -136,7 +138,7 @@ type userPolicyAttachmentArgs struct {
 // The set of arguments for constructing a UserPolicyAttachment resource.
 type UserPolicyAttachmentArgs struct {
 	// The ARN of the policy you want to apply
-	PolicyArn pulumi.StringInput
+	PolicyArn aws.ARNInput
 	// The user the policy should be applied to
 	User pulumi.Input
 }
@@ -229,8 +231,8 @@ func (o UserPolicyAttachmentOutput) ToUserPolicyAttachmentOutputWithContext(ctx 
 }
 
 // The ARN of the policy you want to apply
-func (o UserPolicyAttachmentOutput) PolicyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPolicyAttachment) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+func (o UserPolicyAttachmentOutput) PolicyArn() aws.ARNOutput {
+	return o.ApplyT(func(v *UserPolicyAttachment) aws.ARNOutput { return v.PolicyArn }).(aws.ARNOutput)
 }
 
 // The user the policy should be applied to

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -194,7 +195,7 @@ type AnalyticsApplication struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Kinesis Analytics Appliation.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn aws.ARNOutput `pulumi:"arn"`
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
@@ -261,7 +262,7 @@ func GetAnalyticsApplication(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AnalyticsApplication resources.
 type analyticsApplicationState struct {
 	// The ARN of the Kinesis Analytics Appliation.
-	Arn *string `pulumi:"arn"`
+	Arn *aws.ARN `pulumi:"arn"`
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions *AnalyticsApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
@@ -299,7 +300,7 @@ type analyticsApplicationState struct {
 
 type AnalyticsApplicationState struct {
 	// The ARN of the Kinesis Analytics Appliation.
-	Arn pulumi.StringPtrInput
+	Arn aws.ARNPtrInput
 	// The CloudWatch log stream options to monitor application errors.
 	// See CloudWatch Logging Options below for more details.
 	CloudwatchLoggingOptions AnalyticsApplicationCloudwatchLoggingOptionsPtrInput
@@ -476,8 +477,8 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutputWithContext(ctx 
 }
 
 // The ARN of the Kinesis Analytics Appliation.
-func (o AnalyticsApplicationOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+func (o AnalyticsApplicationOutput) Arn() aws.ARNOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) aws.ARNOutput { return v.Arn }).(aws.ARNOutput)
 }
 
 // The CloudWatch log stream options to monitor application errors.

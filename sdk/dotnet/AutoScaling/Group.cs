@@ -698,7 +698,7 @@ namespace Pulumi.Aws.AutoScaling
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Output("enabledMetrics")]
-        public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.Aws.AutoScaling.Metric>> EnabledMetrics { get; private set; } = null!;
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
@@ -1027,14 +1027,14 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
-        private InputList<string>? _enabledMetrics;
+        private InputList<Pulumi.Aws.AutoScaling.Metric>? _enabledMetrics;
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        public InputList<string> EnabledMetrics
+        public InputList<Pulumi.Aws.AutoScaling.Metric> EnabledMetrics
         {
-            get => _enabledMetrics ?? (_enabledMetrics = new InputList<string>());
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Pulumi.Aws.AutoScaling.Metric>());
             set => _enabledMetrics = value;
         }
 
@@ -1369,14 +1369,14 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
-        private InputList<string>? _enabledMetrics;
+        private InputList<Pulumi.Aws.AutoScaling.Metric>? _enabledMetrics;
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        public InputList<string> EnabledMetrics
+        public InputList<Pulumi.Aws.AutoScaling.Metric> EnabledMetrics
         {
-            get => _enabledMetrics ?? (_enabledMetrics = new InputList<string>());
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Pulumi.Aws.AutoScaling.Metric>());
             set => _enabledMetrics = value;
         }
 

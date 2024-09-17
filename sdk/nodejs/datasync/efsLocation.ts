@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an AWS DataSync EFS Location.
  *
@@ -80,7 +78,7 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    public readonly efsFileSystemArn!: pulumi.Output<ARN>;
+    public readonly efsFileSystemArn!: pulumi.Output<outputs.ARN>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
@@ -171,7 +169,7 @@ export interface EfsLocationState {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    efsFileSystemArn?: pulumi.Input<ARN>;
+    efsFileSystemArn?: pulumi.Input<inputs.ARN>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
@@ -212,7 +210,7 @@ export interface EfsLocationArgs {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    efsFileSystemArn: pulumi.Input<ARN>;
+    efsFileSystemArn: pulumi.Input<inputs.ARN>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */

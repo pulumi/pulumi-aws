@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -66,7 +67,7 @@ type EfsLocation struct {
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config EfsLocationEc2ConfigOutput `pulumi:"ec2Config"`
 	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringOutput `pulumi:"efsFileSystemArn"`
+	EfsFileSystemArn aws.ARNOutput `pulumi:"efsFileSystemArn"`
 	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn pulumi.StringPtrOutput `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -125,7 +126,7 @@ type efsLocationState struct {
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config *EfsLocationEc2Config `pulumi:"ec2Config"`
 	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn *string `pulumi:"efsFileSystemArn"`
+	EfsFileSystemArn *aws.ARN `pulumi:"efsFileSystemArn"`
 	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -149,7 +150,7 @@ type EfsLocationState struct {
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config EfsLocationEc2ConfigPtrInput
 	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringPtrInput
+	EfsFileSystemArn aws.ARNPtrInput
 	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -175,7 +176,7 @@ type efsLocationArgs struct {
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config EfsLocationEc2Config `pulumi:"ec2Config"`
 	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn string `pulumi:"efsFileSystemArn"`
+	EfsFileSystemArn aws.ARN `pulumi:"efsFileSystemArn"`
 	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn *string `pulumi:"fileSystemAccessRoleArn"`
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -193,7 +194,7 @@ type EfsLocationArgs struct {
 	// Configuration block containing EC2 configurations for connecting to the EFS File System.
 	Ec2Config EfsLocationEc2ConfigInput
 	// Amazon Resource Name (ARN) of EFS File System.
-	EfsFileSystemArn pulumi.StringInput
+	EfsFileSystemArn aws.ARNInput
 	// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
 	FileSystemAccessRoleArn pulumi.StringPtrInput
 	// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
@@ -307,8 +308,8 @@ func (o EfsLocationOutput) Ec2Config() EfsLocationEc2ConfigOutput {
 }
 
 // Amazon Resource Name (ARN) of EFS File System.
-func (o EfsLocationOutput) EfsFileSystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *EfsLocation) pulumi.StringOutput { return v.EfsFileSystemArn }).(pulumi.StringOutput)
+func (o EfsLocationOutput) EfsFileSystemArn() aws.ARNOutput {
+	return o.ApplyT(func(v *EfsLocation) aws.ARNOutput { return v.EfsFileSystemArn }).(aws.ARNOutput)
 }
 
 // Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.

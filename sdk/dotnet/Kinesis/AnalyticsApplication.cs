@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Appliation.
         /// </summary>
         [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The CloudWatch log stream options to monitor application errors.
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Kinesis
         /// The ARN of the Kinesis Analytics Appliation.
         /// </summary>
         [Input("arn")]
-        public Input<string>? Arn { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Arn { get; set; }
 
         /// <summary>
         /// The CloudWatch log stream options to monitor application errors.

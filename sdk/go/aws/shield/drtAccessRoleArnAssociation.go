@@ -26,6 +26,7 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -60,7 +61,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
 //				Role:      test.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
 //			})
 //			if err != nil {
 //				return err

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.datasync.S3LocationArgs;
 import com.pulumi.aws.datasync.inputs.S3LocationState;
 import com.pulumi.aws.datasync.outputs.S3LocationS3Config;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -103,14 +104,14 @@ public class S3Location extends com.pulumi.resources.CustomResource {
      * Amazon Resource Name (ARN) of the S3 Bucket.
      * 
      */
-    @Export(name="s3BucketArn", refs={String.class}, tree="[0]")
-    private Output<String> s3BucketArn;
+    @Export(name="s3BucketArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> s3BucketArn;
 
     /**
      * @return Amazon Resource Name (ARN) of the S3 Bucket.
      * 
      */
-    public Output<String> s3BucketArn() {
+    public Output<ARN> s3BucketArn() {
         return this.s3BucketArn;
     }
     /**

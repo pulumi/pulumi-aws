@@ -4,6 +4,7 @@
 package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.asset.Archive;
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.aws.lambda.enums.Runtime;
 import com.pulumi.aws.lambda.inputs.FunctionDeadLetterConfigArgs;
 import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
@@ -451,7 +452,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="role")
-    private @Nullable Output<String> role;
+    private @Nullable Output<ARNArgs> role;
 
     /**
      * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
@@ -459,7 +460,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<String>> role() {
+    public Optional<Output<ARNArgs>> role() {
         return Optional.ofNullable(this.role);
     }
 
@@ -1392,7 +1393,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder role(@Nullable Output<String> role) {
+        public Builder role(@Nullable Output<ARNArgs> role) {
             $.role = role;
             return this;
         }
@@ -1405,7 +1406,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder role(String role) {
+        public Builder role(ARNArgs role) {
             return role(Output.of(role));
         }
 

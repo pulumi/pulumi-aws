@@ -13,17 +13,19 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['ThingPrincipalAttachmentArgs', 'ThingPrincipalAttachment']
 
 @pulumi.input_type
 class ThingPrincipalAttachmentArgs:
     def __init__(__self__, *,
-                 principal: pulumi.Input[str],
+                 principal: pulumi.Input['_root_inputs.ARNArgs'],
                  thing: pulumi.Input[str]):
         """
         The set of arguments for constructing a ThingPrincipalAttachment resource.
-        :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input['_root_inputs.ARNArgs'] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
         pulumi.set(__self__, "principal", principal)
@@ -31,14 +33,14 @@ class ThingPrincipalAttachmentArgs:
 
     @property
     @pulumi.getter
-    def principal(self) -> pulumi.Input[str]:
+    def principal(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: pulumi.Input[str]):
+    def principal(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "principal", value)
 
     @property
@@ -57,11 +59,11 @@ class ThingPrincipalAttachmentArgs:
 @pulumi.input_type
 class _ThingPrincipalAttachmentState:
     def __init__(__self__, *,
-                 principal: Optional[pulumi.Input[str]] = None,
+                 principal: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  thing: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ThingPrincipalAttachment resources.
-        :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input['_root_inputs.ARNArgs'] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
         if principal is not None:
@@ -71,14 +73,14 @@ class _ThingPrincipalAttachmentState:
 
     @property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[str]]:
+    def principal(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[str]]):
+    def principal(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "principal", value)
 
     @property
@@ -99,7 +101,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 principal: Optional[pulumi.Input[str]] = None,
+                 principal: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  thing: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -123,7 +125,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
         ...
@@ -166,7 +168,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 principal: Optional[pulumi.Input[str]] = None,
+                 principal: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  thing: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -193,7 +195,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            principal: Optional[pulumi.Input[str]] = None,
+            principal: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             thing: Optional[pulumi.Input[str]] = None) -> 'ThingPrincipalAttachment':
         """
         Get an existing ThingPrincipalAttachment resource's state with the given name, id, and optional extra
@@ -202,7 +204,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[str] thing: The name of the thing.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -215,7 +217,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def principal(self) -> pulumi.Output[str]:
+    def principal(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         """

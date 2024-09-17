@@ -10,39 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeStar Notifications Rule.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
- * const notif = new aws.sns.Topic("notif", {name: "notification"});
- * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: ["sns:Publish"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["codestar-notifications.amazonaws.com"],
- *         }],
- *         resources: [arn],
- *     }],
- * }));
- * const _default = new aws.sns.TopicPolicy("default", {
- *     arn: notif.arn,
- *     policy: notifAccess.apply(notifAccess => notifAccess.json),
- * });
- * const commits = new aws.codestarnotifications.NotificationRule("commits", {
- *     detailType: "BASIC",
- *     eventTypeIds: ["codecommit-repository-comments-on-commits"],
- *     name: "example-code-repo-commits",
- *     resource: code.arn,
- *     targets: [{
- *         address: notif.arn,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import CodeStar notification rule using the ARN. For example:

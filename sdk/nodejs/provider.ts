@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
-import {Region} from "./index";
-
 /**
  * The provider type for the aws package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
@@ -68,10 +66,6 @@ export class Provider extends pulumi.ProviderResource {
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
     public readonly profile!: pulumi.Output<string | undefined>;
-    /**
-     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
-     */
-    public readonly region!: pulumi.Output<Region | undefined>;
     /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
      * `AWS_RETRY_MODE` environment variable.
@@ -214,7 +208,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
-    region?: pulumi.Input<Region>;
+    region?: pulumi.Input<enums.Region>;
     /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
      * `AWS_RETRY_MODE` environment variable.

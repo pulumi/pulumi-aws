@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Iot
         /// The identity to which the policy is attached.
         /// </summary>
         [Output("target")]
-        public Output<string> Target { get; private set; } = null!;
+        public Output<Pulumi.Aws.Outputs.ARN> Target { get; private set; } = null!;
 
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Iot
         /// The identity to which the policy is attached.
         /// </summary>
         [Input("target", required: true)]
-        public Input<string> Target { get; set; } = null!;
+        public Input<Pulumi.Aws.Inputs.ARNArgs> Target { get; set; } = null!;
 
         public PolicyAttachmentArgs()
         {
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Iot
         /// The identity to which the policy is attached.
         /// </summary>
         [Input("target")]
-        public Input<string>? Target { get; set; }
+        public Input<Pulumi.Aws.Inputs.ARNGetArgs>? Target { get; set; }
 
         public PolicyAttachmentState()
         {

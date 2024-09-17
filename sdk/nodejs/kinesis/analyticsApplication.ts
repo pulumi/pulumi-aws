@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
  * allows processing and analyzing streaming data using standard SQL.
@@ -165,7 +163,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<outputs.ARN>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
@@ -286,7 +284,7 @@ export interface AnalyticsApplicationState {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<inputs.ARN>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.

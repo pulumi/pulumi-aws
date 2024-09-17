@@ -123,44 +123,6 @@ class TopicPolicy(pulumi.CustomResource):
 
         > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": [
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "resources": [arn],
-                "sid": "__default_statement_ID",
-            }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
@@ -184,44 +146,6 @@ class TopicPolicy(pulumi.CustomResource):
         Provides an SNS topic policy resource
 
         > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sns.Topic("test", name="my-topic-with-policy")
-        sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": [
-                    "SNS:Subscribe",
-                    "SNS:SetTopicAttributes",
-                    "SNS:RemovePermission",
-                    "SNS:Receive",
-                    "SNS:Publish",
-                    "SNS:ListSubscriptionsByTopic",
-                    "SNS:GetTopicAttributes",
-                    "SNS:DeleteTopic",
-                    "SNS:AddPermission",
-                ],
-                "conditions": [{
-                    "test": "StringEquals",
-                    "variable": "AWS:SourceOwner",
-                    "values": [account_id],
-                }],
-                "effect": "Allow",
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": ["*"],
-                }],
-                "resources": [arn],
-                "sid": "__default_statement_ID",
-            }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=test.arn,
-            policy=sns_topic_policy.json)
-        ```
 
         ## Import
 

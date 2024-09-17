@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['TransitGatewayArgs', 'TransitGateway']
 
@@ -192,7 +194,7 @@ class TransitGatewayArgs:
 class _TransitGatewayState:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
-                 arn: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  association_default_route_table_id: Optional[pulumi.Input[str]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
                  default_route_table_association: Optional[pulumi.Input[str]] = None,
@@ -211,7 +213,7 @@ class _TransitGatewayState:
         :param pulumi.Input[int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
+        :param pulumi.Input['_root_inputs.ARNArgs'] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
         :param pulumi.Input[str] association_default_route_table_id: Identifier of the default association route table
         :param pulumi.Input[str] auto_accept_shared_attachments: Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] default_route_table_association: Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -276,14 +278,14 @@ class _TransitGatewayState:
 
     @property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[str]]:
+    def arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         EC2 Transit Gateway Amazon Resource Name (ARN)
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[str]]):
+    def arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "arn", value)
 
     @property
@@ -581,7 +583,7 @@ class TransitGateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             amazon_side_asn: Optional[pulumi.Input[int]] = None,
-            arn: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             association_default_route_table_id: Optional[pulumi.Input[str]] = None,
             auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
             default_route_table_association: Optional[pulumi.Input[str]] = None,
@@ -605,7 +607,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
         :param pulumi.Input[str] association_default_route_table_id: Identifier of the default association route table
         :param pulumi.Input[str] auto_accept_shared_attachments: Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] default_route_table_association: Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -653,7 +655,7 @@ class TransitGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arn(self) -> pulumi.Output[str]:
+    def arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         EC2 Transit Gateway Amazon Resource Name (ARN)
         """

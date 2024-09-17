@@ -23,6 +23,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -65,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "dms-access-for-endpoint-AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role",
 //				Role:      dms_access_for_endpoint.Name,
 //			})
 //			if err != nil {
@@ -79,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole",
 //				Role:      dms_cloudwatch_logs_role.Name,
 //			})
 //			if err != nil {
@@ -93,7 +94,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "dms-vpc-role-AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole",
 //				Role:      dms_vpc_role.Name,
 //			})
 //			if err != nil {

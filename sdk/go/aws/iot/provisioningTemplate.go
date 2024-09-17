@@ -23,6 +23,7 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -61,7 +62,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "iot_fleet_provisioning_registration", &iam.RolePolicyAttachmentArgs{
 //				Role:      iotFleetProvisioning.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration"),
+//				PolicyArn: "arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration",
 //			})
 //			if err != nil {
 //				return err

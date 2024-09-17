@@ -6,6 +6,7 @@ package com.pulumi.aws.iot;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iot.PolicyAttachmentArgs;
 import com.pulumi.aws.iot.inputs.PolicyAttachmentState;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -99,14 +100,14 @@ public class PolicyAttachment extends com.pulumi.resources.CustomResource {
      * The identity to which the policy is attached.
      * 
      */
-    @Export(name="target", refs={String.class}, tree="[0]")
-    private Output<String> target;
+    @Export(name="target", refs={ARN.class}, tree="[0]")
+    private Output<ARN> target;
 
     /**
      * @return The identity to which the policy is attached.
      * 
      */
-    public Output<String> target() {
+    public Output<ARN> target() {
         return this.target;
     }
 

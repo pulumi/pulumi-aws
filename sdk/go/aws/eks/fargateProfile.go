@@ -66,6 +66,7 @@ import (
 //
 //	"encoding/json"
 //
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -97,7 +98,7 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example-AmazonEKSFargatePodExecutionRolePolicy", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"),
+//				PolicyArn: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
 //				Role:      example.Name,
 //			})
 //			if err != nil {

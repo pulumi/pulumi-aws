@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -128,9 +129,9 @@ type Task struct {
 	// Amazon Resource Name (ARN) of the DataSync Task.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudwatchLogGroupArn"`
+	CloudwatchLogGroupArn aws.ARNPtrOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn pulumi.StringOutput `pulumi:"destinationLocationArn"`
+	DestinationLocationArn aws.ARNOutput `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrOutput `pulumi:"excludes"`
 	// Filter rules that determines which files to include in a task.
@@ -142,7 +143,7 @@ type Task struct {
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrOutput `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
+	SourceLocationArn aws.ARNOutput `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -192,9 +193,9 @@ type taskState struct {
 	// Amazon Resource Name (ARN) of the DataSync Task.
 	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
+	CloudwatchLogGroupArn *aws.ARN `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn *string `pulumi:"destinationLocationArn"`
+	DestinationLocationArn *aws.ARN `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes *TaskExcludes `pulumi:"excludes"`
 	// Filter rules that determines which files to include in a task.
@@ -206,7 +207,7 @@ type taskState struct {
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn *string `pulumi:"sourceLocationArn"`
+	SourceLocationArn *aws.ARN `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -221,9 +222,9 @@ type TaskState struct {
 	// Amazon Resource Name (ARN) of the DataSync Task.
 	Arn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrInput
+	CloudwatchLogGroupArn aws.ARNPtrInput
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn pulumi.StringPtrInput
+	DestinationLocationArn aws.ARNPtrInput
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrInput
 	// Filter rules that determines which files to include in a task.
@@ -235,7 +236,7 @@ type TaskState struct {
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringPtrInput
+	SourceLocationArn aws.ARNPtrInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -252,9 +253,9 @@ func (TaskState) ElementType() reflect.Type {
 
 type taskArgs struct {
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
+	CloudwatchLogGroupArn *aws.ARN `pulumi:"cloudwatchLogGroupArn"`
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn string `pulumi:"destinationLocationArn"`
+	DestinationLocationArn aws.ARN `pulumi:"destinationLocationArn"`
 	// Filter rules that determines which files to exclude from a task.
 	Excludes *TaskExcludes `pulumi:"excludes"`
 	// Filter rules that determines which files to include in a task.
@@ -266,7 +267,7 @@ type taskArgs struct {
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule *TaskSchedule `pulumi:"schedule"`
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn string `pulumi:"sourceLocationArn"`
+	SourceLocationArn aws.ARN `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
@@ -276,9 +277,9 @@ type taskArgs struct {
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
 	// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-	CloudwatchLogGroupArn pulumi.StringPtrInput
+	CloudwatchLogGroupArn aws.ARNPtrInput
 	// Amazon Resource Name (ARN) of destination DataSync Location.
-	DestinationLocationArn pulumi.StringInput
+	DestinationLocationArn aws.ARNInput
 	// Filter rules that determines which files to exclude from a task.
 	Excludes TaskExcludesPtrInput
 	// Filter rules that determines which files to include in a task.
@@ -290,7 +291,7 @@ type TaskArgs struct {
 	// Specifies a schedule used to periodically transfer files from a source to a destination location.
 	Schedule TaskSchedulePtrInput
 	// Amazon Resource Name (ARN) of source DataSync Location.
-	SourceLocationArn pulumi.StringInput
+	SourceLocationArn aws.ARNInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
@@ -390,13 +391,13 @@ func (o TaskOutput) Arn() pulumi.StringOutput {
 }
 
 // Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-func (o TaskOutput) CloudwatchLogGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.CloudwatchLogGroupArn }).(pulumi.StringPtrOutput)
+func (o TaskOutput) CloudwatchLogGroupArn() aws.ARNPtrOutput {
+	return o.ApplyT(func(v *Task) aws.ARNPtrOutput { return v.CloudwatchLogGroupArn }).(aws.ARNPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of destination DataSync Location.
-func (o TaskOutput) DestinationLocationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.DestinationLocationArn }).(pulumi.StringOutput)
+func (o TaskOutput) DestinationLocationArn() aws.ARNOutput {
+	return o.ApplyT(func(v *Task) aws.ARNOutput { return v.DestinationLocationArn }).(aws.ARNOutput)
 }
 
 // Filter rules that determines which files to exclude from a task.
@@ -425,8 +426,8 @@ func (o TaskOutput) Schedule() TaskSchedulePtrOutput {
 }
 
 // Amazon Resource Name (ARN) of source DataSync Location.
-func (o TaskOutput) SourceLocationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.SourceLocationArn }).(pulumi.StringOutput)
+func (o TaskOutput) SourceLocationArn() aws.ARNOutput {
+	return o.ApplyT(func(v *Task) aws.ARNOutput { return v.SourceLocationArn }).(aws.ARNOutput)
 }
 
 // Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -11,47 +11,6 @@ import {PolicyDocument} from "../iam";
  *
  * > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.sns.Topic("test", {name: "my-topic-with-policy"});
- * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
- *     statements: [{
- *         actions: [
- *             "SNS:Subscribe",
- *             "SNS:SetTopicAttributes",
- *             "SNS:RemovePermission",
- *             "SNS:Receive",
- *             "SNS:Publish",
- *             "SNS:ListSubscriptionsByTopic",
- *             "SNS:GetTopicAttributes",
- *             "SNS:DeleteTopic",
- *             "SNS:AddPermission",
- *         ],
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: "AWS:SourceOwner",
- *             values: [account_id],
- *         }],
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         resources: [arn],
- *         sid: "__default_statement_ID",
- *     }],
- * }));
- * const _default = new aws.sns.TopicPolicy("default", {
- *     arn: test.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:

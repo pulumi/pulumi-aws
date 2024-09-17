@@ -2,9 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {User} from "./index";
 
 /**
@@ -69,7 +71,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<outputs.ARN>;
     /**
      * The user the policy should be applied to
      */
@@ -113,7 +115,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<inputs.ARN>;
     /**
      * The user the policy should be applied to
      */
@@ -127,7 +129,7 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<inputs.ARN>;
     /**
      * The user the policy should be applied to
      */

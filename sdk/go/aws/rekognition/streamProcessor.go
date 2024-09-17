@@ -85,7 +85,7 @@ import (
 //						Name: pulumi.String("Rekognition-Access"),
 //						Policy: pulumi.All(example.Arn, exampleTopic.Arn, exampleVideoStream.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //							exampleArn := _args[0].(string)
-//							exampleTopicArn := _args[1].(string)
+//							exampleTopicArn := _args[1].(aws.ARN)
 //							exampleVideoStreamArn := _args[2].(string)
 //							var _zero string
 //							tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -105,7 +105,7 @@ import (
 //											"sns:Publish",
 //										},
 //										"Effect": "Allow",
-//										"Resource": []string{
+//										"Resource": []interface{}{
 //											exampleTopicArn,
 //										},
 //									},

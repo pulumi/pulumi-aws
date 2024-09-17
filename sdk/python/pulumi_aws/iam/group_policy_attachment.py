@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
 
@@ -20,11 +22,11 @@ __all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
 class GroupPolicyAttachmentArgs:
     def __init__(__self__, *,
                  group: pulumi.Input[str],
-                 policy_arn: pulumi.Input[str]):
+                 policy_arn: pulumi.Input['_root_inputs.ARNArgs']):
         """
         The set of arguments for constructing a GroupPolicyAttachment resource.
         :param pulumi.Input[str] group: The group the policy should be applied to
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: The ARN of the policy you want to apply
         """
         pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "policy_arn", policy_arn)
@@ -43,14 +45,14 @@ class GroupPolicyAttachmentArgs:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Input[str]:
+    def policy_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: pulumi.Input[str]):
+    def policy_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "policy_arn", value)
 
 
@@ -58,11 +60,11 @@ class GroupPolicyAttachmentArgs:
 class _GroupPolicyAttachmentState:
     def __init__(__self__, *,
                  group: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None):
+                 policy_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None):
         """
         Input properties used for looking up and filtering GroupPolicyAttachment resources.
         :param pulumi.Input[str] group: The group the policy should be applied to
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: The ARN of the policy you want to apply
         """
         if group is not None:
             pulumi.set(__self__, "group", group)
@@ -83,14 +85,14 @@ class _GroupPolicyAttachmentState:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+    def policy_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+    def policy_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "policy_arn", value)
 
 
@@ -100,7 +102,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  __props__=None):
         """
         Attaches a Managed IAM Policy to an IAM group
@@ -134,7 +136,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The group the policy should be applied to
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: The ARN of the policy you want to apply
         """
         ...
     @overload
@@ -187,7 +189,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -214,7 +216,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group: Optional[pulumi.Input[str]] = None,
-            policy_arn: Optional[pulumi.Input[str]] = None) -> 'GroupPolicyAttachment':
+            policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None) -> 'GroupPolicyAttachment':
         """
         Get an existing GroupPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -223,7 +225,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The group the policy should be applied to
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: The ARN of the policy you want to apply
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -243,7 +245,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Output[str]:
+    def policy_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         The ARN of the policy you want to apply
         """

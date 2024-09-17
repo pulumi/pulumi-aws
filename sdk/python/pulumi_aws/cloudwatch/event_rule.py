@@ -490,38 +490,6 @@ class EventRule(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        console = aws.cloudwatch.EventRule("console",
-            name="capture-aws-sign-in",
-            description="Capture each AWS Console Sign In",
-            event_pattern=json.dumps({
-                "detail-type": ["AWS Console Sign In via CloudTrail"],
-            }))
-        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
-        sns = aws.cloudwatch.EventTarget("sns",
-            rule=console.name,
-            target_id="SendToSNS",
-            arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["SNS:Publish"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-            "resources": [arn],
-        }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=aws_logins.arn,
-            policy=sns_topic_policy.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -564,38 +532,6 @@ class EventRule(pulumi.CustomResource):
         Provides an EventBridge Rule resource.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        console = aws.cloudwatch.EventRule("console",
-            name="capture-aws-sign-in",
-            description="Capture each AWS Console Sign In",
-            event_pattern=json.dumps({
-                "detail-type": ["AWS Console Sign In via CloudTrail"],
-            }))
-        aws_logins = aws.sns.Topic("aws_logins", name="aws-console-logins")
-        sns = aws.cloudwatch.EventTarget("sns",
-            rule=console.name,
-            target_id="SendToSNS",
-            arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "actions": ["SNS:Publish"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-            "resources": [arn],
-        }]))
-        default = aws.sns.TopicPolicy("default",
-            arn=aws_logins.arn,
-            policy=sns_topic_policy.json)
-        ```
 
         ## Import
 

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sns;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.aws.sns.TopicArgs;
 import com.pulumi.aws.sns.inputs.TopicState;
 import com.pulumi.core.Output;
@@ -257,14 +258,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
-    @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
+    @Export(name="arn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> arn;
 
     /**
      * @return The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
-    public Output<String> arn() {
+    public Output<ARN> arn() {
         return this.arn;
     }
     /**

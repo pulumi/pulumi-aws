@@ -6,6 +6,7 @@ package com.pulumi.aws.iam;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
 import com.pulumi.aws.iam.inputs.RolePolicyAttachmentState;
+import com.pulumi.aws.outputs.ARN;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -107,14 +108,14 @@ public class RolePolicyAttachment extends com.pulumi.resources.CustomResource {
      * The ARN of the policy you want to apply
      * 
      */
-    @Export(name="policyArn", refs={String.class}, tree="[0]")
-    private Output<String> policyArn;
+    @Export(name="policyArn", refs={ARN.class}, tree="[0]")
+    private Output<ARN> policyArn;
 
     /**
      * @return The ARN of the policy you want to apply
      * 
      */
-    public Output<String> policyArn() {
+    public Output<ARN> policyArn() {
         return this.policyArn;
     }
     /**

@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {ARN} from "..";
 
 /**
  * Provides an SNS topic resource
@@ -131,7 +132,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<outputs.ARN>;
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      */
@@ -345,7 +346,7 @@ export interface TopicState {
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
-    arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<inputs.ARN>;
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      */

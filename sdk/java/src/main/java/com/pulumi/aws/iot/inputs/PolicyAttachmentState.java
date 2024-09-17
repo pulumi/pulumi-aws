@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.iot.inputs;
 
+import com.pulumi.aws.inputs.ARNArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -35,13 +36,13 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="target")
-    private @Nullable Output<String> target;
+    private @Nullable Output<ARNArgs> target;
 
     /**
      * @return The identity to which the policy is attached.
      * 
      */
-    public Optional<Output<String>> target() {
+    public Optional<Output<ARNArgs>> target() {
         return Optional.ofNullable(this.target);
     }
 
@@ -97,7 +98,7 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder target(@Nullable Output<String> target) {
+        public Builder target(@Nullable Output<ARNArgs> target) {
             $.target = target;
             return this;
         }
@@ -108,7 +109,7 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder target(String target) {
+        public Builder target(ARNArgs target) {
             return target(Output.of(target));
         }
 

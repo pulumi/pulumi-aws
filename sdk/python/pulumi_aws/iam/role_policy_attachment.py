@@ -13,17 +13,19 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
 
 @pulumi.input_type
 class RolePolicyAttachmentArgs:
     def __init__(__self__, *,
-                 policy_arn: pulumi.Input[str],
+                 policy_arn: pulumi.Input['_root_inputs.ARNArgs'],
                  role: pulumi.Input[str]):
         """
         The set of arguments for constructing a RolePolicyAttachment resource.
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         pulumi.set(__self__, "policy_arn", policy_arn)
@@ -31,14 +33,14 @@ class RolePolicyAttachmentArgs:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Input[str]:
+    def policy_arn(self) -> pulumi.Input['_root_inputs.ARNArgs']:
         """
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: pulumi.Input[str]):
+    def policy_arn(self, value: pulumi.Input['_root_inputs.ARNArgs']):
         pulumi.set(self, "policy_arn", value)
 
     @property
@@ -57,11 +59,11 @@ class RolePolicyAttachmentArgs:
 @pulumi.input_type
 class _RolePolicyAttachmentState:
     def __init__(__self__, *,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input['_root_inputs.ARNArgs']] = None,
                  role: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachment resources.
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input['_root_inputs.ARNArgs'] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         if policy_arn is not None:
@@ -71,14 +73,14 @@ class _RolePolicyAttachmentState:
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> Optional[pulumi.Input[str]]:
+    def policy_arn(self) -> Optional[pulumi.Input['_root_inputs.ARNArgs']]:
         """
         The ARN of the policy you want to apply
         """
         return pulumi.get(self, "policy_arn")
 
     @policy_arn.setter
-    def policy_arn(self, value: Optional[pulumi.Input[str]]):
+    def policy_arn(self, value: Optional[pulumi.Input['_root_inputs.ARNArgs']]):
         pulumi.set(self, "policy_arn", value)
 
     @property
@@ -99,7 +101,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -150,7 +152,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         ...
@@ -220,7 +222,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_arn: Optional[pulumi.Input[str]] = None,
+                 policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -247,7 +249,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            policy_arn: Optional[pulumi.Input[str]] = None,
+            policy_arn: Optional[pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']]] = None,
             role: Optional[pulumi.Input[str]] = None) -> 'RolePolicyAttachment':
         """
         Get an existing RolePolicyAttachment resource's state with the given name, id, and optional extra
@@ -256,7 +258,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_arn: The ARN of the policy you want to apply
+        :param pulumi.Input[Union['_root_inputs.ARNArgs', '_root_inputs.ARNArgsDict']] policy_arn: The ARN of the policy you want to apply
         :param pulumi.Input[str] role: The name of the IAM role to which the policy should be applied
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -269,7 +271,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyArn")
-    def policy_arn(self) -> pulumi.Output[str]:
+    def policy_arn(self) -> pulumi.Output['_root_outputs.ARN']:
         """
         The ARN of the policy you want to apply
         """
