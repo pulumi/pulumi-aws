@@ -873,6 +873,10 @@ compatibility shim in favor of the new "name" field.`)
 			}
 			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
+
+			// Fix a dangling type reference to a resolved resource reference.
+			f := spec.Resources["aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter"]
+			f.InputProperties["logGroup"].OneOf[1].Ref = "#/resources/aws:cloudwatch/logGroup:LogGroup"
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
@@ -880,7 +884,7 @@ compatibility shim in favor of the new "name" field.`)
 				MaxItemsOne: tfbridge.True(),
 			},
 			"region": {
-				Type: awsTypeDefaultFile(awsMod, "Region"),
+				Type: "aws:index/Region:Region",
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
@@ -1235,7 +1239,7 @@ compatibility shim in favor of the new "name" field.`)
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
 					},
 					"enabled_metrics": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "metrics", "Metric")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
 					"metrics_granularity": {
 						Type:     "string",

@@ -188,4 +188,11 @@ func init() {
 	resourceOverlays[callbackFunctionTok] = callbackFunction
 
 	typeOverlays[codePathOptionsTok] = codePathOptions
+
+	typeOverlays["aws:index/aRN:ARN"] = schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:      "object",
+			IsOverlay: true,
+		},
+	}
 }
