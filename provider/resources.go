@@ -5233,7 +5233,6 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":  "^3.0.0",
 				"mime":            "^2.0.0",
 				"builtin-modules": "3.0.0",
 				"resolve":         "^1.7.1",
@@ -5364,11 +5363,8 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		Python: &tfbridge.PythonInfo{
 			RespectSchemaVersion: true,
-			Requires: map[string]string{
-				"pulumi": ">=3.0.0,<4.0.0",
-			},
-			PyProject:  struct{ Enabled bool }{true},
-			InputTypes: tfbridge.PythonInputTypeClassesAndDicts,
+			PyProject:            struct{ Enabled bool }{true},
+			InputTypes:           tfbridge.PythonInputTypeClassesAndDicts,
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
@@ -5382,10 +5378,7 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			RespectSchemaVersion: true,
-			PackageReferences: map[string]string{
-				"Pulumi": "3.*",
-			},
-			Namespaces: namespaceMap,
+			Namespaces:           namespaceMap,
 		},
 	}
 
