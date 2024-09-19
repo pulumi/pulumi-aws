@@ -189,7 +189,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version
 # - Run make ci-mgmt to apply the change locally.
 #
 ci-mgmt: .ci-mgmt.yaml
-	rm -f .github/workflows/*.yml # Copied from update-workflows.yml
+	find .github/workflows/*.yml -type f ! -name "$(PACK)*.yml" -delete
 	go run github.com/pulumi/ci-mgmt/provider-ci@master generate \
 		--name $(ORG)/pulumi-$(PACK) \
 		--out . \
