@@ -43,7 +43,7 @@ jobs:
 
         # Don't set closed-for-staleness label to skip closing very old issues
         # regardless of label
-        closed-for-staleness-label: closed-for-staleness
+        closed-for-staleness-label: resolution/stale
 
         # Issue timing
         days-before-stale: 5
