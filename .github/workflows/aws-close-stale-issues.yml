@@ -11,9 +11,6 @@ on:
 # - If an issue has the `response-requested-label` for `days-before-stale`
 #   then add the `stale-issue-label` and comment with the `stale-issue-message`
 # - If an issue has the `stale-issue-label` for `days-before-close` then close the issue
-# 2. Ancient issue workflow (currently disabled)
-# - If an issue has been open for `days-before-ancient` then add then `ancient-issue-message`
-#   and add the `stale-issue-label` (which starts the Stale issue workflow)
 jobs:
   cleanup:
     # this workflow will always fail in forks; bail if this isn't running in the upstream
@@ -31,10 +28,7 @@ jobs:
 
         # Setting messages to an empty string will cause the automation to skip
         # that category
-        stale-issue-message: This issue has not received a response in a while. If you want to keep this issue open, please leave a comment below and auto-close will be canceled.
-
-        # TODO: turn on ancient-issue workflow once we are ready
-        # ancient-issue-message: This issue has not received any attention in 1 year. If you want to keep this issue open, please leave a comment below and auto-close will be canceled.
+        stale-issue-message: This issue has not received a response in 5 days. If you want to keep this issue open, please leave a comment below and auto-close will be canceled.
 
         # These labels are required
         stale-issue-label: closing-soon
