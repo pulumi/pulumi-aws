@@ -55,7 +55,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcs:getVpcs", {
         "filters": args.filters,
@@ -143,7 +142,12 @@ export interface GetVpcsResult {
  * ```
  */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcs(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcs:getVpcs", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

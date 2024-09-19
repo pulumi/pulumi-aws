@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContainerDefinition(args: GetContainerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,
@@ -103,7 +102,11 @@ export interface GetContainerDefinitionResult {
  * ```
  */
 export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getContainerDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecs/getContainerDefinition:getContainerDefinition", {
+        "containerName": args.containerName,
+        "taskDefinition": args.taskDefinition,
+    }, opts);
 }
 
 /**

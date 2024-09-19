@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getSnapshotIds:getSnapshotIds", {
         "filters": args.filters,
@@ -105,7 +104,13 @@ export interface GetSnapshotIdsResult {
  * ```
  */
 export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotIdsResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshotIds(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ebs/getSnapshotIds:getSnapshotIds", {
+        "filters": args.filters,
+        "owners": args.owners,
+        "restorableByUserIds": args.restorableByUserIds,
+    }, opts);
 }
 
 /**

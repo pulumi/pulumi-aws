@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCapacityBlockOffering(args: GetCapacityBlockOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityBlockOfferingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", {
         "capacityDurationHours": args.capacityDurationHours,
@@ -113,7 +112,14 @@ export interface GetCapacityBlockOfferingResult {
  * ```
  */
 export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityBlockOfferingResult> {
-    return pulumi.output(args).apply((a: any) => getCapacityBlockOffering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", {
+        "capacityDurationHours": args.capacityDurationHours,
+        "endDateRange": args.endDateRange,
+        "instanceCount": args.instanceCount,
+        "instanceType": args.instanceType,
+        "startDateRange": args.startDateRange,
+    }, opts);
 }
 
 /**

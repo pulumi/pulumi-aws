@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getDevices:getDevices", {
         "globalNetworkId": args.globalNetworkId,
@@ -83,7 +82,12 @@ export interface GetDevicesResult {
  * ```
  */
 export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
-    return pulumi.output(args).apply((a: any) => getDevices(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkmanager/getDevices:getDevices", {
+        "globalNetworkId": args.globalNetworkId,
+        "siteId": args.siteId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

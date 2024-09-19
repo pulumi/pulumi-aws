@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", {
         "policy": args.policy,
@@ -83,7 +82,12 @@ export interface GetAuthPolicyResult {
  * ```
  */
 export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getAuthPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:vpclattice/getAuthPolicy:getAuthPolicy", {
+        "policy": args.policy,
+        "resourceIdentifier": args.resourceIdentifier,
+        "state": args.state,
+    }, opts);
 }
 
 /**

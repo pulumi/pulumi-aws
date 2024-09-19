@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
@@ -100,7 +99,13 @@ export interface GetDataSetResult {
  * ```
  */
 export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
-    return pulumi.output(args).apply((a: any) => getDataSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:quicksight/getDataSet:getDataSet", {
+        "awsAccountId": args.awsAccountId,
+        "dataSetId": args.dataSetId,
+        "tags": args.tags,
+        "tagsAll": args.tagsAll,
+    }, opts);
 }
 
 /**

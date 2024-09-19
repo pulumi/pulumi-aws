@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstances:getInstances", {
         "filters": args.filters,
@@ -115,7 +114,12 @@ export interface GetInstancesResult {
  * ```
  */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
-    return pulumi.output(args).apply((a: any) => getInstances(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getInstances:getInstances", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

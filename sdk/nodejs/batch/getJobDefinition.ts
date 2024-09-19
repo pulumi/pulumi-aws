@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getJobDefinition:getJobDefinition", {
         "arn": args.arn,
@@ -144,7 +143,14 @@ export interface GetJobDefinitionResult {
  * ```
  */
 export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:batch/getJobDefinition:getJobDefinition", {
+        "arn": args.arn,
+        "name": args.name,
+        "revision": args.revision,
+        "status": args.status,
+    }, opts);
 }
 
 /**

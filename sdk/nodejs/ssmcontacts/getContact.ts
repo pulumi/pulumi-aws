@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getContact:getContact", {
         "arn": args.arn,
@@ -86,7 +85,11 @@ export interface GetContactResult {
  * ```
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
-    return pulumi.output(args).apply((a: any) => getContact(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssmcontacts/getContact:getContact", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

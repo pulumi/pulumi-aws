@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVocabulary(args: GetVocabularyArgs, opts?: pulumi.InvokeOptions): Promise<GetVocabularyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getVocabulary:getVocabulary", {
         "instanceId": args.instanceId,
@@ -139,7 +138,13 @@ export interface GetVocabularyResult {
  * ```
  */
 export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVocabularyResult> {
-    return pulumi.output(args).apply((a: any) => getVocabulary(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getVocabulary:getVocabulary", {
+        "instanceId": args.instanceId,
+        "name": args.name,
+        "tags": args.tags,
+        "vocabularyId": args.vocabularyId,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
@@ -231,7 +230,12 @@ export interface GetInstanceResult {
  * ```
  */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getInstance:getInstance", {
+        "dbInstanceIdentifier": args.dbInstanceIdentifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

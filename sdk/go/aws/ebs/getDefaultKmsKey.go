@@ -63,13 +63,19 @@ type LookupDefaultKmsKeyResult struct {
 }
 
 func LookupDefaultKmsKeyOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupDefaultKmsKeyResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupDefaultKmsKeyResult, error) {
-		r, err := LookupDefaultKmsKey(ctx, opts...)
-		var s LookupDefaultKmsKeyResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupDefaultKmsKeyResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv LookupDefaultKmsKeyResult
+		secret, err := ctx.InvokePackageRaw("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", nil, &rv, "", opts...)
+		if err != nil {
+			return LookupDefaultKmsKeyResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(LookupDefaultKmsKeyResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(LookupDefaultKmsKeyResultOutput), nil
+		}
+		return output, nil
 	}).(LookupDefaultKmsKeyResultOutput)
 }
 

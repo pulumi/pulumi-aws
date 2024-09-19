@@ -90,14 +90,20 @@ type GetSnapshotIdsResult struct {
 
 func GetSnapshotIdsOutput(ctx *pulumi.Context, args GetSnapshotIdsOutputArgs, opts ...pulumi.InvokeOption) GetSnapshotIdsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSnapshotIdsResult, error) {
+		ApplyT(func(v interface{}) (GetSnapshotIdsResultOutput, error) {
 			args := v.(GetSnapshotIdsArgs)
-			r, err := GetSnapshotIds(ctx, &args, opts...)
-			var s GetSnapshotIdsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSnapshotIdsResult
+			secret, err := ctx.InvokePackageRaw("aws:ebs/getSnapshotIds:getSnapshotIds", args, &rv, "", opts...)
+			if err != nil {
+				return GetSnapshotIdsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSnapshotIdsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSnapshotIdsResultOutput), nil
+			}
+			return output, nil
 		}).(GetSnapshotIdsResultOutput)
 }
 

@@ -45,7 +45,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportedInstanceTypesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", {
         "releaseLabel": args.releaseLabel,
@@ -116,7 +115,11 @@ export interface GetSupportedInstanceTypesResult {
  * ```
  */
 export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
-    return pulumi.output(args).apply((a: any) => getSupportedInstanceTypes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", {
+        "releaseLabel": args.releaseLabel,
+        "supportedInstanceTypes": args.supportedInstanceTypes,
+    }, opts);
 }
 
 /**

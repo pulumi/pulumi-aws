@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,
@@ -93,7 +92,11 @@ export interface GetServerlessSecurityConfigResult {
  * ```
  */
 export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessSecurityConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
+        "id": args.id,
+        "samlOptions": args.samlOptions,
+    }, opts);
 }
 
 /**

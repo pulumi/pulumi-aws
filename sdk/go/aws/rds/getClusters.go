@@ -76,14 +76,20 @@ type GetClustersResult struct {
 
 func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetClustersResult, error) {
+		ApplyT(func(v interface{}) (GetClustersResultOutput, error) {
 			args := v.(GetClustersArgs)
-			r, err := GetClusters(ctx, &args, opts...)
-			var s GetClustersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetClustersResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getClusters:getClusters", args, &rv, "", opts...)
+			if err != nil {
+				return GetClustersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetClustersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetClustersResultOutput), nil
+			}
+			return output, nil
 		}).(GetClustersResultOutput)
 }
 

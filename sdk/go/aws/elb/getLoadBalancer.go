@@ -95,14 +95,20 @@ type LookupLoadBalancerResult struct {
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLoadBalancerResult, error) {
+		ApplyT(func(v interface{}) (LookupLoadBalancerResultOutput, error) {
 			args := v.(LookupLoadBalancerArgs)
-			r, err := LookupLoadBalancer(ctx, &args, opts...)
-			var s LookupLoadBalancerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLoadBalancerResult
+			secret, err := ctx.InvokePackageRaw("aws:elb/getLoadBalancer:getLoadBalancer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLoadBalancerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLoadBalancerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLoadBalancerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLoadBalancerResultOutput)
 }
 

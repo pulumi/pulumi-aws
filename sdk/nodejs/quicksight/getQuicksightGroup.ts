@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", {
         "awsAccountId": args.awsAccountId,
@@ -95,7 +94,12 @@ export interface GetQuicksightGroupResult {
  * ```
  */
 export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightGroupResult> {
-    return pulumi.output(args).apply((a: any) => getQuicksightGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightGroup:getQuicksightGroup", {
+        "awsAccountId": args.awsAccountId,
+        "groupName": args.groupName,
+        "namespace": args.namespace,
+    }, opts);
 }
 
 /**

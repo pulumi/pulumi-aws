@@ -83,14 +83,20 @@ type GetClusterCredentialsResult struct {
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetClusterCredentialsResult, error) {
+		ApplyT(func(v interface{}) (GetClusterCredentialsResultOutput, error) {
 			args := v.(GetClusterCredentialsArgs)
-			r, err := GetClusterCredentials(ctx, &args, opts...)
-			var s GetClusterCredentialsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetClusterCredentialsResult
+			secret, err := ctx.InvokePackageRaw("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, "", opts...)
+			if err != nil {
+				return GetClusterCredentialsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetClusterCredentialsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetClusterCredentialsResultOutput), nil
+			}
+			return output, nil
 		}).(GetClusterCredentialsResultOutput)
 }
 

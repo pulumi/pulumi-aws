@@ -52,7 +52,6 @@ import * as utilities from "./utilities";
  */
 export function getBillingServiceAccount(args?: GetBillingServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", {
         "id": args.id,
@@ -129,7 +128,11 @@ export interface GetBillingServiceAccountResult {
  * ```
  */
 export function getBillingServiceAccountOutput(args?: GetBillingServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingServiceAccountResult> {
-    return pulumi.output(args).apply((a: any) => getBillingServiceAccount(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getBillingServiceAccount:getBillingServiceAccount", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

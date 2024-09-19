@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getLocalGateway(args?: GetLocalGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGateway:getLocalGateway", {
         "filters": args.filters,
@@ -103,7 +102,14 @@ export interface GetLocalGatewayResult {
  * ```
  */
 export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGateway(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getLocalGateway:getLocalGateway", {
+        "filters": args.filters,
+        "id": args.id,
+        "state": args.state,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

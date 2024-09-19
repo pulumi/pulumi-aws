@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterCredentials(args: GetClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getClusterCredentials:getClusterCredentials", {
         "autoCreate": args.autoCreate,
@@ -101,7 +100,15 @@ export interface GetClusterCredentialsResult {
  * ```
  */
 export function getClusterCredentialsOutput(args: GetClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => getClusterCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshift/getClusterCredentials:getClusterCredentials", {
+        "autoCreate": args.autoCreate,
+        "clusterIdentifier": args.clusterIdentifier,
+        "dbGroups": args.dbGroups,
+        "dbName": args.dbName,
+        "dbUser": args.dbUser,
+        "durationSeconds": args.durationSeconds,
+    }, opts);
 }
 
 /**

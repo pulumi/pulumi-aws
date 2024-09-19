@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
         "domain": args.domain,
@@ -81,7 +80,12 @@ export interface GetAuthorizationTokenResult {
  * ```
  */
 export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizationToken(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
+        "domain": args.domain,
+        "domainOwner": args.domainOwner,
+        "durationSeconds": args.durationSeconds,
+    }, opts);
 }
 
 /**

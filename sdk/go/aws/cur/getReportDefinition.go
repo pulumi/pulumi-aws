@@ -91,14 +91,20 @@ type LookupReportDefinitionResult struct {
 
 func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupReportDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupReportDefinitionResultOutput, error) {
 			args := v.(LookupReportDefinitionArgs)
-			r, err := LookupReportDefinition(ctx, &args, opts...)
-			var s LookupReportDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupReportDefinitionResult
+			secret, err := ctx.InvokePackageRaw("aws:cur/getReportDefinition:getReportDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupReportDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupReportDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupReportDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupReportDefinitionResultOutput)
 }
 

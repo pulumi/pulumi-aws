@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  */
 export function getDirectConnectGatewayAttachment(args?: GetDirectConnectGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectConnectGatewayAttachmentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
         "dxGatewayId": args.dxGatewayId,
@@ -92,7 +91,14 @@ export interface GetDirectConnectGatewayAttachmentResult {
  * ```
  */
 export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectConnectGatewayAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getDirectConnectGatewayAttachment(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {
+        "dxGatewayId": args.dxGatewayId,
+        "filters": args.filters,
+        "tags": args.tags,
+        "transitGatewayId": args.transitGatewayId,
+    }, opts);
 }
 
 /**

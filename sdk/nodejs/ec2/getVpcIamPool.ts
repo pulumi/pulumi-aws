@@ -46,7 +46,6 @@ import * as utilities from "../utilities";
 export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolResult> {
     pulumi.log.warn("getVpcIamPool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool")
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPool:getVpcIamPool", {
         "allocationResourceTags": args.allocationResourceTags,
@@ -190,7 +189,16 @@ export interface GetVpcIamPoolResult {
  */
 /** @deprecated aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
 export function getVpcIamPoolOutput(args?: GetVpcIamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIamPool(a, opts))
+    pulumi.log.warn("getVpcIamPool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool")
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcIamPool:getVpcIamPool", {
+        "allocationResourceTags": args.allocationResourceTags,
+        "filters": args.filters,
+        "id": args.id,
+        "ipamPoolId": args.ipamPoolId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

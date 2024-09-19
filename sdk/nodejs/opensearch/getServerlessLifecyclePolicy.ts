@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerlessLifecyclePolicy(args: GetServerlessLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessLifecyclePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", {
         "name": args.name,
@@ -90,7 +89,11 @@ export interface GetServerlessLifecyclePolicyResult {
  * ```
  */
 export function getServerlessLifecyclePolicyOutput(args: GetServerlessLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessLifecyclePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessLifecyclePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", {
+        "name": args.name,
+        "type": args.type,
+    }, opts);
 }
 
 /**

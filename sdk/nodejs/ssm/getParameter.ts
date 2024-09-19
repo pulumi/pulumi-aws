@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
@@ -78,7 +77,11 @@ export interface GetParameterResult {
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
 export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
-    return pulumi.output(args).apply((a: any) => getParameter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getParameter:getParameter", {
+        "name": args.name,
+        "withDecryption": args.withDecryption,
+    }, opts);
 }
 
 /**

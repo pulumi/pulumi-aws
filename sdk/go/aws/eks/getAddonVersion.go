@@ -91,14 +91,20 @@ type GetAddonVersionResult struct {
 
 func GetAddonVersionOutput(ctx *pulumi.Context, args GetAddonVersionOutputArgs, opts ...pulumi.InvokeOption) GetAddonVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAddonVersionResult, error) {
+		ApplyT(func(v interface{}) (GetAddonVersionResultOutput, error) {
 			args := v.(GetAddonVersionArgs)
-			r, err := GetAddonVersion(ctx, &args, opts...)
-			var s GetAddonVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAddonVersionResult
+			secret, err := ctx.InvokePackageRaw("aws:eks/getAddonVersion:getAddonVersion", args, &rv, "", opts...)
+			if err != nil {
+				return GetAddonVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAddonVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAddonVersionResultOutput), nil
+			}
+			return output, nil
 		}).(GetAddonVersionResultOutput)
 }
 
