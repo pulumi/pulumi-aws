@@ -239,6 +239,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/pcaconnectorad v1.7.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pcs v1.0.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pinpoint v1.32.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/pinpointsmsvoicev2 v1.12.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pipes v1.14.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/polly v1.42.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pricing v1.30.4 // indirect
@@ -386,7 +387,7 @@ require (
 	github.com/hashicorp/terraform-exec v0.21.0 // indirect
 	github.com/hashicorp/terraform-json v0.22.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.12.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.2.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timetypes v0.5.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.13.0 // indirect
