@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  */
 export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promise<GetEipsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getEips:getEips", {
         "filters": args.filters,
@@ -91,7 +90,12 @@ export interface GetEipsResult {
  * ```
  */
 export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipsResult> {
-    return pulumi.output(args).apply((a: any) => getEips(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getEips:getEips", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

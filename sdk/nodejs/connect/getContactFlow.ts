@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContactFlow(args: GetContactFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getContactFlow:getContactFlow", {
         "contactFlowId": args.contactFlowId,
@@ -133,7 +132,14 @@ export interface GetContactFlowResult {
  * ```
  */
 export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowResult> {
-    return pulumi.output(args).apply((a: any) => getContactFlow(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getContactFlow:getContactFlow", {
+        "contactFlowId": args.contactFlowId,
+        "instanceId": args.instanceId,
+        "name": args.name,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 /**

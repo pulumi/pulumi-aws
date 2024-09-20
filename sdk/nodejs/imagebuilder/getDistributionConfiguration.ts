@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,
@@ -93,7 +92,11 @@ export interface GetDistributionConfigurationResult {
  * ```
  */
 export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getDistributionConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

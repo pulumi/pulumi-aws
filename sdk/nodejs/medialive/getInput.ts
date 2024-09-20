@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:medialive/getInput:getInput", {
         "id": args.id,
@@ -121,7 +120,10 @@ export interface GetInputResult {
  * ```
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
-    return pulumi.output(args).apply((a: any) => getInput(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:medialive/getInput:getInput", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

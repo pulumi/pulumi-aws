@@ -67,14 +67,20 @@ type GetAccessPointsResult struct {
 
 func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAccessPointsResult, error) {
+		ApplyT(func(v interface{}) (GetAccessPointsResultOutput, error) {
 			args := v.(GetAccessPointsArgs)
-			r, err := GetAccessPoints(ctx, &args, opts...)
-			var s GetAccessPointsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAccessPointsResult
+			secret, err := ctx.InvokePackageRaw("aws:efs/getAccessPoints:getAccessPoints", args, &rv, "", opts...)
+			if err != nil {
+				return GetAccessPointsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAccessPointsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAccessPointsResultOutput), nil
+			}
+			return output, nil
 		}).(GetAccessPointsResultOutput)
 }
 

@@ -23,7 +23,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getServicePrincipal(args: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getServicePrincipal:getServicePrincipal", {
         "region": args.region,
@@ -86,7 +85,11 @@ export interface GetServicePrincipalResult {
  * ```
  */
 export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePrincipalResult> {
-    return pulumi.output(args).apply((a: any) => getServicePrincipal(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getServicePrincipal:getServicePrincipal", {
+        "region": args.region,
+        "serviceName": args.serviceName,
+    }, opts);
 }
 
 /**

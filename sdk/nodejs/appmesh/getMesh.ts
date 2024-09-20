@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getMesh:getMesh", {
         "meshOwner": args.meshOwner,
@@ -121,7 +120,12 @@ export interface GetMeshResult {
  * ```
  */
 export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
-    return pulumi.output(args).apply((a: any) => getMesh(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getMesh:getMesh", {
+        "meshOwner": args.meshOwner,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

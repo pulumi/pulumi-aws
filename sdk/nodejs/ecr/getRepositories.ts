@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepositories(opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepositories:getRepositories", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetRepositoriesResult {
  * ```
  */
 export function getRepositoriesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
-    return pulumi.output(getRepositories(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecr/getRepositories:getRepositories", {
+    }, opts);
 }

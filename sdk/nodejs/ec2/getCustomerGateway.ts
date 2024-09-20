@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCustomerGateway:getCustomerGateway", {
         "filters": args.filters,
@@ -132,7 +131,13 @@ export interface GetCustomerGatewayResult {
  * ```
  */
 export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getCustomerGateway:getCustomerGateway", {
+        "filters": args.filters,
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

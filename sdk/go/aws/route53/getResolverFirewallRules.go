@@ -73,14 +73,20 @@ type GetResolverFirewallRulesResult struct {
 
 func GetResolverFirewallRulesOutput(ctx *pulumi.Context, args GetResolverFirewallRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverFirewallRulesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetResolverFirewallRulesResult, error) {
+		ApplyT(func(v interface{}) (GetResolverFirewallRulesResultOutput, error) {
 			args := v.(GetResolverFirewallRulesArgs)
-			r, err := GetResolverFirewallRules(ctx, &args, opts...)
-			var s GetResolverFirewallRulesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetResolverFirewallRulesResult
+			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallRules:getResolverFirewallRules", args, &rv, "", opts...)
+			if err != nil {
+				return GetResolverFirewallRulesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetResolverFirewallRulesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetResolverFirewallRulesResultOutput), nil
+			}
+			return output, nil
 		}).(GetResolverFirewallRulesResultOutput)
 }
 

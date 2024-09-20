@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOrganizationalUnitChildAccounts(args: GetOrganizationalUnitChildAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationalUnitChildAccountsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", {
         "parentId": args.parentId,
@@ -70,7 +69,10 @@ export interface GetOrganizationalUnitChildAccountsResult {
  * ```
  */
 export function getOrganizationalUnitChildAccountsOutput(args: GetOrganizationalUnitChildAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitChildAccountsResult> {
-    return pulumi.output(args).apply((a: any) => getOrganizationalUnitChildAccounts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", {
+        "parentId": args.parentId,
+    }, opts);
 }
 
 /**

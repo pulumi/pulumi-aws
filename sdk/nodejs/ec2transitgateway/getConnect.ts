@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  */
 export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnect:getConnect", {
         "filters": args.filters,
@@ -124,7 +123,13 @@ export interface GetConnectResult {
  * ```
  */
 export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectResult> {
-    return pulumi.output(args).apply((a: any) => getConnect(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getConnect:getConnect", {
+        "filters": args.filters,
+        "tags": args.tags,
+        "transitGatewayConnectId": args.transitGatewayConnectId,
+    }, opts);
 }
 
 /**

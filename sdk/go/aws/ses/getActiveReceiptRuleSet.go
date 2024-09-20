@@ -57,13 +57,19 @@ type LookupActiveReceiptRuleSetResult struct {
 }
 
 func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActiveReceiptRuleSetResult, error) {
-		r, err := LookupActiveReceiptRuleSet(ctx, opts...)
-		var s LookupActiveReceiptRuleSetResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActiveReceiptRuleSetResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv LookupActiveReceiptRuleSetResult
+		secret, err := ctx.InvokePackageRaw("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, &rv, "", opts...)
+		if err != nil {
+			return LookupActiveReceiptRuleSetResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(LookupActiveReceiptRuleSetResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(LookupActiveReceiptRuleSetResultOutput), nil
+		}
+		return output, nil
 	}).(LookupActiveReceiptRuleSetResultOutput)
 }
 

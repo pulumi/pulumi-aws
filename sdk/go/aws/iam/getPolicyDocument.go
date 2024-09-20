@@ -633,14 +633,20 @@ type GetPolicyDocumentResult struct {
 
 func GetPolicyDocumentOutput(ctx *pulumi.Context, args GetPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetPolicyDocumentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPolicyDocumentResult, error) {
+		ApplyT(func(v interface{}) (GetPolicyDocumentResultOutput, error) {
 			args := v.(GetPolicyDocumentArgs)
-			r, err := GetPolicyDocument(ctx, &args, opts...)
-			var s GetPolicyDocumentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPolicyDocumentResult
+			secret, err := ctx.InvokePackageRaw("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, "", opts...)
+			if err != nil {
+				return GetPolicyDocumentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPolicyDocumentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPolicyDocumentResultOutput), nil
+			}
+			return output, nil
 		}).(GetPolicyDocumentResultOutput)
 }
 

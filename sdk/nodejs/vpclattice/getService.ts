@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  */
 export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getService:getService", {
         "name": args.name,
@@ -108,7 +107,13 @@ export interface GetServiceResult {
  * ```
  */
 export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:vpclattice/getService:getService", {
+        "name": args.name,
+        "serviceIdentifier": args.serviceIdentifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

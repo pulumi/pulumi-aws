@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  */
 export function getEventCategories(args?: GetEventCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetEventCategoriesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getEventCategories:getEventCategories", {
         "sourceType": args.sourceType,
@@ -104,7 +103,11 @@ export interface GetEventCategoriesResult {
  * ```
  */
 export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventCategoriesResult> {
-    return pulumi.output(args).apply((a: any) => getEventCategories(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getEventCategories:getEventCategories", {
+        "sourceType": args.sourceType,
+    }, opts);
 }
 
 /**

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", {
     }, opts);
@@ -57,5 +56,7 @@ export interface GetCanonicalUserIdResult {
  * ```
  */
 export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCanonicalUserIdResult> {
-    return pulumi.output(getCanonicalUserId(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", {
+    }, opts);
 }

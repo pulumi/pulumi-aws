@@ -111,14 +111,20 @@ type LookupSecurityProfileResult struct {
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSecurityProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupSecurityProfileResultOutput, error) {
 			args := v.(LookupSecurityProfileArgs)
-			r, err := LookupSecurityProfile(ctx, &args, opts...)
-			var s LookupSecurityProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSecurityProfileResult
+			secret, err := ctx.InvokePackageRaw("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSecurityProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSecurityProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSecurityProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSecurityProfileResultOutput)
 }
 

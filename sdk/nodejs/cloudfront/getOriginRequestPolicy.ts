@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  */
 export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", {
         "id": args.id,
@@ -113,7 +112,12 @@ export interface GetOriginRequestPolicyResult {
  * ```
  */
 export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getOriginRequestPolicy(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

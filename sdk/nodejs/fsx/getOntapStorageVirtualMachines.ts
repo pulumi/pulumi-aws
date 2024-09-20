@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getOntapStorageVirtualMachines(args?: GetOntapStorageVirtualMachinesArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapStorageVirtualMachinesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", {
         "filters": args.filters,
@@ -79,7 +78,11 @@ export interface GetOntapStorageVirtualMachinesResult {
  * ```
  */
 export function getOntapStorageVirtualMachinesOutput(args?: GetOntapStorageVirtualMachinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapStorageVirtualMachinesResult> {
-    return pulumi.output(args).apply((a: any) => getOntapStorageVirtualMachines(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", {
+        "filters": args.filters,
+    }, opts);
 }
 
 /**

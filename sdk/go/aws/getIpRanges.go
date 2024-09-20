@@ -113,14 +113,20 @@ type GetIpRangesResult struct {
 
 func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIpRangesResult, error) {
+		ApplyT(func(v interface{}) (GetIpRangesResultOutput, error) {
 			args := v.(GetIpRangesArgs)
-			r, err := GetIpRanges(ctx, &args, opts...)
-			var s GetIpRangesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetIpRangesResult
+			secret, err := ctx.InvokePackageRaw("aws:index/getIpRanges:getIpRanges", args, &rv, "", opts...)
+			if err != nil {
+				return GetIpRangesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetIpRangesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetIpRangesResultOutput), nil
+			}
+			return output, nil
 		}).(GetIpRangesResultOutput)
 }
 

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetApprovalRuleTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,
@@ -89,7 +88,10 @@ export interface GetApprovalRuleTemplateResult {
  * ```
  */
 export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApprovalRuleTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getApprovalRuleTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

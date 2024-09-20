@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getZones(opts?: pulumi.InvokeOptions): Promise<GetZonesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getZones:getZones", {
     }, opts);
@@ -52,5 +51,7 @@ export interface GetZonesResult {
  * ```
  */
 export function getZonesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetZonesResult> {
-    return pulumi.output(getZones(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getZones:getZones", {
+    }, opts);
 }

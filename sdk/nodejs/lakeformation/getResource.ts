@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getResource:getResource", {
         "arn": args.arn,
@@ -69,7 +68,10 @@ export interface GetResourceResult {
  * ```
  */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
-    return pulumi.output(args).apply((a: any) => getResource(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lakeformation/getResource:getResource", {
+        "arn": args.arn,
+    }, opts);
 }
 
 /**

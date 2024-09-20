@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExperience(args: GetExperienceArgs, opts?: pulumi.InvokeOptions): Promise<GetExperienceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,
@@ -112,7 +111,11 @@ export interface GetExperienceResult {
  * ```
  */
 export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperienceResult> {
-    return pulumi.output(args).apply((a: any) => getExperience(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kendra/getExperience:getExperience", {
+        "experienceId": args.experienceId,
+        "indexId": args.indexId,
+    }, opts);
 }
 
 /**

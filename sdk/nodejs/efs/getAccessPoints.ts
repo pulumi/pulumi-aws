@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoints:getAccessPoints", {
         "fileSystemId": args.fileSystemId,
@@ -69,7 +68,10 @@ export interface GetAccessPointsResult {
  * ```
  */
 export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointsResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPoints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:efs/getAccessPoints:getAccessPoints", {
+        "fileSystemId": args.fileSystemId,
+    }, opts);
 }
 
 /**

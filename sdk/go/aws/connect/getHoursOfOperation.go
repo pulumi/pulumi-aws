@@ -114,14 +114,20 @@ type LookupHoursOfOperationResult struct {
 
 func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperationOutputArgs, opts ...pulumi.InvokeOption) LookupHoursOfOperationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHoursOfOperationResult, error) {
+		ApplyT(func(v interface{}) (LookupHoursOfOperationResultOutput, error) {
 			args := v.(LookupHoursOfOperationArgs)
-			r, err := LookupHoursOfOperation(ctx, &args, opts...)
-			var s LookupHoursOfOperationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHoursOfOperationResult
+			secret, err := ctx.InvokePackageRaw("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHoursOfOperationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHoursOfOperationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHoursOfOperationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHoursOfOperationResultOutput)
 }
 

@@ -95,14 +95,20 @@ type LookupMountTargetResult struct {
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMountTargetResult, error) {
+		ApplyT(func(v interface{}) (LookupMountTargetResultOutput, error) {
 			args := v.(LookupMountTargetArgs)
-			r, err := LookupMountTarget(ctx, &args, opts...)
-			var s LookupMountTargetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMountTargetResult
+			secret, err := ctx.InvokePackageRaw("aws:efs/getMountTarget:getMountTarget", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMountTargetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMountTargetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMountTargetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMountTargetResultOutput)
 }
 

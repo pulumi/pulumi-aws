@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSessionContext(args: GetSessionContextArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionContextResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getSessionContext:getSessionContext", {
         "arn": args.arn,
@@ -115,7 +114,10 @@ export interface GetSessionContextResult {
  * ```
  */
 export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionContextResult> {
-    return pulumi.output(args).apply((a: any) => getSessionContext(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getSessionContext:getSessionContext", {
+        "arn": args.arn,
+    }, opts);
 }
 
 /**

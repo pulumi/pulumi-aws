@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,
@@ -117,7 +116,12 @@ export interface GetDocumentResult {
  * ```
  */
 export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getDocument(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getDocument:getDocument", {
+        "documentFormat": args.documentFormat,
+        "documentVersion": args.documentVersion,
+        "name": args.name,
+    }, opts);
 }
 
 /**

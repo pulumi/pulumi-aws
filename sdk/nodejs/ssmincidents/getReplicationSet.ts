@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  */
 export function getReplicationSet(args?: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmincidents/getReplicationSet:getReplicationSet", {
         "tags": args.tags,
@@ -94,7 +93,11 @@ export interface GetReplicationSetResult {
  * ```
  */
 export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationSet(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", {
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

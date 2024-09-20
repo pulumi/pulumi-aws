@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
         "resourceId": args.resourceId,
@@ -73,7 +72,10 @@ export interface GetResolverFirewallConfigResult {
  * ```
  */
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallConfigResult> {
-    return pulumi.output(args).apply((a: any) => getResolverFirewallConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
+        "resourceId": args.resourceId,
+    }, opts);
 }
 
 /**

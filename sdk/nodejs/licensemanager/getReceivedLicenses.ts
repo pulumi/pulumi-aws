@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getReceivedLicenses(args?: GetReceivedLicensesArgs, opts?: pulumi.InvokeOptions): Promise<GetReceivedLicensesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", {
         "filters": args.filters,
@@ -82,7 +81,11 @@ export interface GetReceivedLicensesResult {
  * ```
  */
 export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicensesResult> {
-    return pulumi.output(args).apply((a: any) => getReceivedLicenses(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", {
+        "filters": args.filters,
+    }, opts);
 }
 
 /**

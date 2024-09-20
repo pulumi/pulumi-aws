@@ -63,7 +63,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpcIpamPoolCidrs(args: GetVpcIpamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolCidrsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
         "filters": args.filters,
@@ -156,7 +155,11 @@ export interface GetVpcIpamPoolCidrsResult {
  * ```
  */
 export function getVpcIpamPoolCidrsOutput(args: GetVpcIpamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolCidrsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIpamPoolCidrs(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
+        "filters": args.filters,
+        "ipamPoolId": args.ipamPoolId,
+    }, opts);
 }
 
 /**

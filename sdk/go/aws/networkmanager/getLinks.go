@@ -80,14 +80,20 @@ type GetLinksResult struct {
 
 func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi.InvokeOption) GetLinksResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLinksResult, error) {
+		ApplyT(func(v interface{}) (GetLinksResultOutput, error) {
 			args := v.(GetLinksArgs)
-			r, err := GetLinks(ctx, &args, opts...)
-			var s GetLinksResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLinksResult
+			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getLinks:getLinks", args, &rv, "", opts...)
+			if err != nil {
+				return GetLinksResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLinksResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLinksResultOutput), nil
+			}
+			return output, nil
 		}).(GetLinksResultOutput)
 }
 

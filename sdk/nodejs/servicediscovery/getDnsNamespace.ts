@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
@@ -90,7 +89,12 @@ export interface GetDnsNamespaceResult {
  * ```
  */
 export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getDnsNamespace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
+        "name": args.name,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 /**
