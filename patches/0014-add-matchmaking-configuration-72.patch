@@ -10,7 +10,7 @@ Subject: [PATCH] add matchmaking configuration (#72)
 * add resource docs
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 0180f63582..c455ac3206 100644
+index 7e0afbe60d..46be10bc97 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -15,6 +15,7 @@ import (

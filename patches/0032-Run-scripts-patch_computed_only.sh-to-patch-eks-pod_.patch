@@ -32,7 +32,7 @@ index ce583fa5c4..9fdeea49d8 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grant.go b/internal/service/s3control/access_grant.go
-index a6d2a07e8f..7a34c4fede 100644
+index ce4d1a042d..f91e56ba64 100644
 --- a/internal/service/s3control/access_grant.go
 +++ b/internal/service/s3control/access_grant.go
 @@ -103,7 +103,7 @@ func (r *accessGrantResource) Schema(ctx context.Context, request resource.Schem
@@ -58,7 +58,7 @@ index 5f13ed2859..5a0e3e931b 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grants_location.go b/internal/service/s3control/access_grants_location.go
-index 6e9a31f5fe..a47a337aa0 100644
+index ca060273a1..1189fbc20c 100644
 --- a/internal/service/s3control/access_grants_location.go
 +++ b/internal/service/s3control/access_grants_location.go
 @@ -84,7 +84,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou

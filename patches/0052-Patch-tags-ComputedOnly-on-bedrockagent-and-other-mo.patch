@@ -5,7 +5,7 @@ Subject: [PATCH] Patch tags ComputedOnly on bedrockagent and other modules
 
 
 diff --git a/internal/service/bcmdataexports/export.go b/internal/service/bcmdataexports/export.go
-index d136307014..985e883628 100644
+index 18133c7439..ea9f2d088f 100644
 --- a/internal/service/bcmdataexports/export.go
 +++ b/internal/service/bcmdataexports/export.go
 @@ -170,7 +170,7 @@ func (r *resourceExport) Schema(ctx context.Context, req resource.SchemaRequest,
@@ -44,7 +44,7 @@ index 9c9bb20111..b0f767d142 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/bedrockagent/knowledge_base.go b/internal/service/bedrockagent/knowledge_base.go
-index 8ebb4da618..55e885fbc7 100644
+index d3d128d356..b34efeb8db 100644
 --- a/internal/service/bedrockagent/knowledge_base.go
 +++ b/internal/service/bedrockagent/knowledge_base.go
 @@ -88,7 +88,7 @@ func (r *knowledgeBaseResource) Schema(ctx context.Context, request resource.Sch

@@ -21,7 +21,7 @@ index 6e3610bc82..594f516660 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index efd99ae8c8..1876032e5c 100644
+index 4a805bf285..3a654af572 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -36,7 +36,7 @@ index efd99ae8c8..1876032e5c 100644
  					}
  				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
-index b915d62263..88c9459280 100644
+index cb03ee76b7..81f90a7e70 100644
 --- a/internal/service/appconfig/environment.go
 +++ b/internal/service/appconfig/environment.go
 @@ -104,7 +104,7 @@ func (r *resourceEnvironment) Schema(ctx context.Context, request resource.Schem
@@ -49,7 +49,7 @@ index b915d62263..88c9459280 100644
  		Blocks: map[string]schema.Block{
  			"monitor": schema.SetNestedBlock{
 diff --git a/internal/service/auditmanager/assessment.go b/internal/service/auditmanager/assessment.go
-index f1a73744d4..538a353401 100644
+index 459438b54d..05a49d1f51 100644
 --- a/internal/service/auditmanager/assessment.go
 +++ b/internal/service/auditmanager/assessment.go
 @@ -95,7 +95,7 @@ func (r *resourceAssessment) Schema(ctx context.Context, req resource.SchemaRequ
@@ -62,7 +62,7 @@ index f1a73744d4..538a353401 100644
  		Blocks: map[string]schema.Block{
  			"assessment_reports_destination": schema.ListNestedBlock{
 diff --git a/internal/service/auditmanager/control.go b/internal/service/auditmanager/control.go
-index 2c9e89000a..14855e58b0 100644
+index 2204efea5a..7c4d78f993 100644
 --- a/internal/service/auditmanager/control.go
 +++ b/internal/service/auditmanager/control.go
 @@ -67,7 +67,7 @@ func (r *resourceControl) Schema(ctx context.Context, req resource.SchemaRequest
@@ -75,7 +75,7 @@ index 2c9e89000a..14855e58b0 100644
  				Optional: true,
  			},
 diff --git a/internal/service/auditmanager/framework.go b/internal/service/auditmanager/framework.go
-index 282506089a..3b7a31e7e0 100644
+index bd15eca435..1733d9a441 100644
 --- a/internal/service/auditmanager/framework.go
 +++ b/internal/service/auditmanager/framework.go
 @@ -69,7 +69,7 @@ func (r *resourceFramework) Schema(ctx context.Context, req resource.SchemaReque
@@ -140,7 +140,7 @@ index 1d3452cb18..6e9fbce878 100644
  				Optional: true,
  				Validators: []validator.Int64{
 diff --git a/internal/service/lexv2models/bot.go b/internal/service/lexv2models/bot.go
-index 3931a5ecb6..407c5eae54 100644
+index eb9c6f256f..912546358c 100644
 --- a/internal/service/lexv2models/bot.go
 +++ b/internal/service/lexv2models/bot.go
 @@ -83,7 +83,7 @@ func (r *resourceBot) Schema(ctx context.Context, req resource.SchemaRequest, re
@@ -153,7 +153,7 @@ index 3931a5ecb6..407c5eae54 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index 89d6bd4b3c..b2ddf2954f 100644
+index 53e6636756..e9cd945e10 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
 @@ -123,7 +123,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
@@ -179,7 +179,7 @@ index a3ad529129..8d2e1d913e 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 73509e4d42..0dc1d90384 100644
+index 93acb145ca..31e333e700 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
 @@ -139,7 +139,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
@@ -218,10 +218,10 @@ index 793580c0ad..5c173c826c 100644
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
 diff --git a/internal/service/workspaces/connection_alias.go b/internal/service/workspaces/connection_alias.go
-index 382a71bdae..3dfe615fd5 100644
+index caff637895..7567a77160 100644
 --- a/internal/service/workspaces/connection_alias.go
 +++ b/internal/service/workspaces/connection_alias.go
-@@ -82,7 +82,7 @@ func (r *resourceConnectionAlias) Schema(ctx context.Context, req resource.Schem
+@@ -81,7 +81,7 @@ func (r *resourceConnectionAlias) Schema(ctx context.Context, req resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

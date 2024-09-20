@@ -5,10 +5,10 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index e6bee2c15f..597970d6c4 100644
+index 5234acf441..a49d9eef68 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -243,6 +243,7 @@ import (
+@@ -244,6 +244,7 @@ import (
  	workspaces_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspaces"
  	workspacesweb_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspacesweb"
  	xray_sdkv2 "github.com/aws/aws-sdk-go-v2/service/xray"
@@ -16,7 +16,7 @@ index e6bee2c15f..597970d6c4 100644
  	imagebuilder_sdkv1 "github.com/aws/aws-sdk-go/service/imagebuilder"
  	simpledb_sdkv1 "github.com/aws/aws-sdk-go/service/simpledb"
  	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-@@ -581,6 +582,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
+@@ -582,6 +583,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
  	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
  }
  

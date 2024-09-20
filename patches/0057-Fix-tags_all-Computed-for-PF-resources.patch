@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 1cae1f9ccb..6aaec63fa0 100644
+index 6e6ba29267..1f0e418e56 100644
 --- a/internal/service/appfabric/app_authorization.go
 +++ b/internal/service/appfabric/app_authorization.go
 @@ -109,7 +109,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
@@ -18,7 +18,7 @@ index 1cae1f9ccb..6aaec63fa0 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/appfabric/app_bundle.go b/internal/service/appfabric/app_bundle.go
-index ff07e8c226..ce3471a78e 100644
+index 0c9af1db2d..e25fca4e4e 100644
 --- a/internal/service/appfabric/app_bundle.go
 +++ b/internal/service/appfabric/app_bundle.go
 @@ -61,7 +61,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR
@@ -44,7 +44,7 @@ index d769858434..2c255a5dcc 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/fms/resource_set.go b/internal/service/fms/resource_set.go
-index 2356f0fd2f..6c2bd69e2e 100644
+index 3f27edc87f..38b96593e8 100644
 --- a/internal/service/fms/resource_set.go
 +++ b/internal/service/fms/resource_set.go
 @@ -105,7 +105,7 @@ func (r *resourceResourceSet) Schema(ctx context.Context, req resource.SchemaReq
@@ -57,10 +57,10 @@ index 2356f0fd2f..6c2bd69e2e 100644
  		Blocks: map[string]schema.Block{
  			"resource_set": resourceSetLNB,
 diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index f8e400dd51..11804f171e 100644
+index f7b9d00088..eb1883c627 100644
 --- a/internal/service/guardduty/malware_protection_plan.go
 +++ b/internal/service/guardduty/malware_protection_plan.go
-@@ -88,7 +88,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
+@@ -87,7 +87,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource
  				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

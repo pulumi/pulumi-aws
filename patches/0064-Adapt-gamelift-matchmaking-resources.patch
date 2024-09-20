@@ -614,14 +614,15 @@ index 4295987ae6..377b46816e 100644
  		return nil
  	}
 diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
-index 5e39e18d5b..7e52012afc 100644
+index 966398b368..1ba547e400 100644
 --- a/names/data/names_data.hcl
 +++ b/names/data/names_data.hcl
-@@ -4002,7 +4002,7 @@ service "fsx" {
+@@ -3856,7 +3856,8 @@ service "fsx" {
+ 
  service "gamelift" {
    sdk {
-     id             = "GameLift"
--    client_version = [2]
+-    id = "GameLift"
++    id             = "GameLift"
 +    client_version = [1, 2]
    }
  
