@@ -79,14 +79,20 @@ type GetExportResult struct {
 
 func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetExportResult, error) {
+		ApplyT(func(v interface{}) (GetExportResultOutput, error) {
 			args := v.(GetExportArgs)
-			r, err := GetExport(ctx, &args, opts...)
-			var s GetExportResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetExportResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudformation/getExport:getExport", args, &rv, "", opts...)
+			if err != nil {
+				return GetExportResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetExportResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetExportResultOutput), nil
+			}
+			return output, nil
 		}).(GetExportResultOutput)
 }
 

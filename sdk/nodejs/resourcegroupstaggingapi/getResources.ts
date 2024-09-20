@@ -51,7 +51,6 @@ import * as utilities from "../utilities";
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
@@ -149,7 +148,15 @@ export interface GetResourcesResult {
  * ```
  */
 export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
-    return pulumi.output(args).apply((a: any) => getResources(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:resourcegroupstaggingapi/getResources:getResources", {
+        "excludeCompliantResources": args.excludeCompliantResources,
+        "includeComplianceDetails": args.includeComplianceDetails,
+        "resourceArnLists": args.resourceArnLists,
+        "resourceTypeFilters": args.resourceTypeFilters,
+        "tagFilters": args.tagFilters,
+    }, opts);
 }
 
 /**

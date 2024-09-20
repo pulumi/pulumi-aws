@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
@@ -87,7 +86,12 @@ export interface GetStreamConsumerResult {
  * ```
  */
 export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
-    return pulumi.output(args).apply((a: any) => getStreamConsumer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kinesis/getStreamConsumer:getStreamConsumer", {
+        "arn": args.arn,
+        "name": args.name,
+        "streamArn": args.streamArn,
+    }, opts);
 }
 
 /**

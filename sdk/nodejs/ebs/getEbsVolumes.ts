@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getEbsVolumes:getEbsVolumes", {
         "filters": args.filters,
@@ -106,7 +105,12 @@ export interface GetEbsVolumesResult {
  * ```
  */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEbsVolumesResult> {
-    return pulumi.output(args).apply((a: any) => getEbsVolumes(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ebs/getEbsVolumes:getEbsVolumes", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

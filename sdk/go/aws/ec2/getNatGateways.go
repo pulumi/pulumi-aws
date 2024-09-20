@@ -49,14 +49,20 @@ type GetNatGatewaysResult struct {
 
 func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetNatGatewaysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetNatGatewaysResult, error) {
+		ApplyT(func(v interface{}) (GetNatGatewaysResultOutput, error) {
 			args := v.(GetNatGatewaysArgs)
-			r, err := GetNatGateways(ctx, &args, opts...)
-			var s GetNatGatewaysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetNatGatewaysResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getNatGateways:getNatGateways", args, &rv, "", opts...)
+			if err != nil {
+				return GetNatGatewaysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetNatGatewaysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetNatGatewaysResultOutput), nil
+			}
+			return output, nil
 		}).(GetNatGatewaysResultOutput)
 }
 

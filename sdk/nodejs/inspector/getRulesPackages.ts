@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);
@@ -83,5 +82,7 @@ export interface GetRulesPackagesResult {
  * ```
  */
 export function getRulesPackagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesPackagesResult> {
-    return pulumi.output(getRulesPackages(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:inspector/getRulesPackages:getRulesPackages", {
+    }, opts);
 }

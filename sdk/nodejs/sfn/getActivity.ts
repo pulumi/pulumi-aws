@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getActivity:getActivity", {
         "arn": args.arn,
@@ -72,7 +71,12 @@ export interface GetActivityResult {
  * ```
  */
 export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
-    return pulumi.output(args).apply((a: any) => getActivity(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:sfn/getActivity:getActivity", {
+        "arn": args.arn,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -75,14 +75,20 @@ type GetRouteTablePropagationsResult struct {
 
 func GetRouteTablePropagationsOutput(ctx *pulumi.Context, args GetRouteTablePropagationsOutputArgs, opts ...pulumi.InvokeOption) GetRouteTablePropagationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRouteTablePropagationsResult, error) {
+		ApplyT(func(v interface{}) (GetRouteTablePropagationsResultOutput, error) {
 			args := v.(GetRouteTablePropagationsArgs)
-			r, err := GetRouteTablePropagations(ctx, &args, opts...)
-			var s GetRouteTablePropagationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRouteTablePropagationsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args, &rv, "", opts...)
+			if err != nil {
+				return GetRouteTablePropagationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRouteTablePropagationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRouteTablePropagationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetRouteTablePropagationsResultOutput)
 }
 

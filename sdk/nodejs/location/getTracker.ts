@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTracker:getTracker", {
         "tags": args.tags,
@@ -94,7 +93,11 @@ export interface GetTrackerResult {
  * ```
  */
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
-    return pulumi.output(args).apply((a: any) => getTracker(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:location/getTracker:getTracker", {
+        "tags": args.tags,
+        "trackerName": args.trackerName,
+    }, opts);
 }
 
 /**

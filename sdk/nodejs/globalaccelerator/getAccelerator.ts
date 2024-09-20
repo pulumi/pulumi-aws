@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
@@ -88,7 +87,13 @@ export interface GetAcceleratorResult {
  * ```
  */
 export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
-    return pulumi.output(args).apply((a: any) => getAccelerator(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:globalaccelerator/getAccelerator:getAccelerator", {
+        "arn": args.arn,
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

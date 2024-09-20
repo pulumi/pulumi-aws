@@ -86,14 +86,20 @@ type GetLogDeliveryCanonicalUserIdResult struct {
 
 func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliveryCanonicalUserIdOutputArgs, opts ...pulumi.InvokeOption) GetLogDeliveryCanonicalUserIdResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLogDeliveryCanonicalUserIdResult, error) {
+		ApplyT(func(v interface{}) (GetLogDeliveryCanonicalUserIdResultOutput, error) {
 			args := v.(GetLogDeliveryCanonicalUserIdArgs)
-			r, err := GetLogDeliveryCanonicalUserId(ctx, &args, opts...)
-			var s GetLogDeliveryCanonicalUserIdResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLogDeliveryCanonicalUserIdResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, "", opts...)
+			if err != nil {
+				return GetLogDeliveryCanonicalUserIdResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLogDeliveryCanonicalUserIdResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLogDeliveryCanonicalUserIdResultOutput), nil
+			}
+			return output, nil
 		}).(GetLogDeliveryCanonicalUserIdResultOutput)
 }
 

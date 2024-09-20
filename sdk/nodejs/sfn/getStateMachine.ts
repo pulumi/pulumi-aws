@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,
@@ -90,7 +89,10 @@ export interface GetStateMachineResult {
  * ```
  */
 export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
-    return pulumi.output(args).apply((a: any) => getStateMachine(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:sfn/getStateMachine:getStateMachine", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

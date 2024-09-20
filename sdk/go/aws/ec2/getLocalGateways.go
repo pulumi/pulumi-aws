@@ -77,14 +77,20 @@ type GetLocalGatewaysResult struct {
 
 func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewaysResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLocalGatewaysResult, error) {
+		ApplyT(func(v interface{}) (GetLocalGatewaysResultOutput, error) {
 			args := v.(GetLocalGatewaysArgs)
-			r, err := GetLocalGateways(ctx, &args, opts...)
-			var s GetLocalGatewaysResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLocalGatewaysResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, "", opts...)
+			if err != nil {
+				return GetLocalGatewaysResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLocalGatewaysResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLocalGatewaysResultOutput), nil
+			}
+			return output, nil
 		}).(GetLocalGatewaysResultOutput)
 }
 

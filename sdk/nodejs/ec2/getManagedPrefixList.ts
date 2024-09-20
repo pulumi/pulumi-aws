@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  */
 export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", {
         "filters": args.filters,
@@ -145,7 +144,14 @@ export interface GetManagedPrefixListResult {
  * ```
  */
 export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListResult> {
-    return pulumi.output(args).apply((a: any) => getManagedPrefixList(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getManagedPrefixList:getManagedPrefixList", {
+        "filters": args.filters,
+        "id": args.id,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

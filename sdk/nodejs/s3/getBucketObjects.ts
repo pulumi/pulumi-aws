@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getBucketObjects(args: GetBucketObjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketObjects:getBucketObjects", {
         "bucket": args.bucket,
@@ -100,7 +99,16 @@ export interface GetBucketObjectsResult {
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
 export function getBucketObjectsOutput(args: GetBucketObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectsResult> {
-    return pulumi.output(args).apply((a: any) => getBucketObjects(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3/getBucketObjects:getBucketObjects", {
+        "bucket": args.bucket,
+        "delimiter": args.delimiter,
+        "encodingType": args.encodingType,
+        "fetchOwner": args.fetchOwner,
+        "maxKeys": args.maxKeys,
+        "prefix": args.prefix,
+        "startAfter": args.startAfter,
+    }, opts);
 }
 
 /**

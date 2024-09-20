@@ -42,7 +42,6 @@ import * as utilities from "../utilities";
  */
 export function getVpnAttachment(args?: GetVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnAttachmentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
         "filters": args.filters,
@@ -124,7 +123,14 @@ export interface GetVpnAttachmentResult {
  * ```
  */
 export function getVpnAttachmentOutput(args?: GetVpnAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getVpnAttachment(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", {
+        "filters": args.filters,
+        "tags": args.tags,
+        "transitGatewayId": args.transitGatewayId,
+        "vpnConnectionId": args.vpnConnectionId,
+    }, opts);
 }
 
 /**

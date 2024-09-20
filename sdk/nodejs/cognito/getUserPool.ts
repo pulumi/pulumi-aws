@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPool:getUserPool", {
         "userPoolId": args.userPoolId,
@@ -142,7 +141,10 @@ export interface GetUserPoolResult {
  * ```
  */
 export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolResult> {
-    return pulumi.output(args).apply((a: any) => getUserPool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cognito/getUserPool:getUserPool", {
+        "userPoolId": args.userPoolId,
+    }, opts);
 }
 
 /**

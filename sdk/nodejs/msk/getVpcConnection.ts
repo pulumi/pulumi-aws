@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcConnectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getVpcConnection:getVpcConnection", {
         "arn": args.arn,
@@ -90,7 +89,11 @@ export interface GetVpcConnectionResult {
  * ```
  */
 export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVpcConnection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:msk/getVpcConnection:getVpcConnection", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

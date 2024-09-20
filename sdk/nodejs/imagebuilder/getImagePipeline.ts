@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImagePipeline:getImagePipeline", {
         "arn": args.arn,
@@ -134,7 +133,11 @@ export interface GetImagePipelineResult {
  * ```
  */
 export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
-    return pulumi.output(args).apply((a: any) => getImagePipeline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getImagePipeline:getImagePipeline", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

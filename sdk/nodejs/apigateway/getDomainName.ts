@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
@@ -121,7 +120,11 @@ export interface GetDomainNameResult {
  * ```
  */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
-    return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getDomainName:getDomainName", {
+        "domainName": args.domainName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsAnalysisResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
         "filters": args.filters,
@@ -122,7 +121,13 @@ export interface GetNetworkInsightsAnalysisResult {
  * ```
  */
 export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInsightsAnalysis(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
+        "filters": args.filters,
+        "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

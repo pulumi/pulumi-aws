@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
         "tags": args.tags,
@@ -97,7 +96,11 @@ export interface GetVirtualClusterResult {
  * ```
  */
 export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualCluster(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
+        "tags": args.tags,
+        "virtualClusterId": args.virtualClusterId,
+    }, opts);
 }
 
 /**

@@ -80,14 +80,20 @@ type LookupUserResult struct {
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserResult, error) {
+		ApplyT(func(v interface{}) (LookupUserResultOutput, error) {
 			args := v.(LookupUserArgs)
-			r, err := LookupUser(ctx, &args, opts...)
-			var s LookupUserResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserResult
+			secret, err := ctx.InvokePackageRaw("aws:elasticache/getUser:getUser", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserResultOutput)
 }
 

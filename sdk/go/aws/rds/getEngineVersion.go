@@ -175,14 +175,20 @@ type GetEngineVersionResult struct {
 
 func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs, opts ...pulumi.InvokeOption) GetEngineVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEngineVersionResult, error) {
+		ApplyT(func(v interface{}) (GetEngineVersionResultOutput, error) {
 			args := v.(GetEngineVersionArgs)
-			r, err := GetEngineVersion(ctx, &args, opts...)
-			var s GetEngineVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEngineVersionResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getEngineVersion:getEngineVersion", args, &rv, "", opts...)
+			if err != nil {
+				return GetEngineVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEngineVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEngineVersionResultOutput), nil
+			}
+			return output, nil
 		}).(GetEngineVersionResultOutput)
 }
 

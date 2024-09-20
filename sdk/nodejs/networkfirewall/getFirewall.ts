@@ -48,7 +48,6 @@ import * as utilities from "../utilities";
  */
 export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
@@ -176,7 +175,13 @@ export interface GetFirewallResult {
  * ```
  */
 export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
-    return pulumi.output(args).apply((a: any) => getFirewall(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewall:getFirewall", {
+        "arn": args.arn,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

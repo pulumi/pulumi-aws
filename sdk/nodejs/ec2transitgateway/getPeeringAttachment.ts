@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
         "filters": args.filters,
@@ -126,7 +125,13 @@ export interface GetPeeringAttachmentResult {
  * ```
  */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentResult> {
-    return pulumi.output(args).apply((a: any) => getPeeringAttachment(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", {
+        "filters": args.filters,
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

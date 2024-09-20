@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetAccountAliasResult {
  * ```
  */
 export function getAccountAliasOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAliasResult> {
-    return pulumi.output(getAccountAlias(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getAccountAlias:getAccountAlias", {
+    }, opts);
 }

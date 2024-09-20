@@ -112,14 +112,20 @@ type LookupWindowsFileSystemResult struct {
 
 func LookupWindowsFileSystemOutput(ctx *pulumi.Context, args LookupWindowsFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFileSystemResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWindowsFileSystemResult, error) {
+		ApplyT(func(v interface{}) (LookupWindowsFileSystemResultOutput, error) {
 			args := v.(LookupWindowsFileSystemArgs)
-			r, err := LookupWindowsFileSystem(ctx, &args, opts...)
-			var s LookupWindowsFileSystemResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWindowsFileSystemResult
+			secret, err := ctx.InvokePackageRaw("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWindowsFileSystemResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWindowsFileSystemResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWindowsFileSystemResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWindowsFileSystemResultOutput)
 }
 

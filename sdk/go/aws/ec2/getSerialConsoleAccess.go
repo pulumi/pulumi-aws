@@ -55,13 +55,19 @@ type LookupSerialConsoleAccessResult struct {
 }
 
 func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSerialConsoleAccessResult, error) {
-		r, err := LookupSerialConsoleAccess(ctx, opts...)
-		var s LookupSerialConsoleAccessResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSerialConsoleAccessResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv LookupSerialConsoleAccessResult
+		secret, err := ctx.InvokePackageRaw("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", nil, &rv, "", opts...)
+		if err != nil {
+			return LookupSerialConsoleAccessResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(LookupSerialConsoleAccessResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(LookupSerialConsoleAccessResultOutput), nil
+		}
+		return output, nil
 	}).(LookupSerialConsoleAccessResultOutput)
 }
 

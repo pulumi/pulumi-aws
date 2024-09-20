@@ -86,14 +86,20 @@ type LookupInternetGatewayResult struct {
 
 func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupInternetGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupInternetGatewayResult, error) {
+		ApplyT(func(v interface{}) (LookupInternetGatewayResultOutput, error) {
 			args := v.(LookupInternetGatewayArgs)
-			r, err := LookupInternetGateway(ctx, &args, opts...)
-			var s LookupInternetGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupInternetGatewayResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, "", opts...)
+			if err != nil {
+				return LookupInternetGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupInternetGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupInternetGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(LookupInternetGatewayResultOutput)
 }
 

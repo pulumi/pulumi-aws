@@ -91,14 +91,20 @@ type GetEventCategoriesResult struct {
 
 func GetEventCategoriesOutput(ctx *pulumi.Context, args GetEventCategoriesOutputArgs, opts ...pulumi.InvokeOption) GetEventCategoriesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEventCategoriesResult, error) {
+		ApplyT(func(v interface{}) (GetEventCategoriesResultOutput, error) {
 			args := v.(GetEventCategoriesArgs)
-			r, err := GetEventCategories(ctx, &args, opts...)
-			var s GetEventCategoriesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEventCategoriesResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getEventCategories:getEventCategories", args, &rv, "", opts...)
+			if err != nil {
+				return GetEventCategoriesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEventCategoriesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEventCategoriesResultOutput), nil
+			}
+			return output, nil
 		}).(GetEventCategoriesResultOutput)
 }
 

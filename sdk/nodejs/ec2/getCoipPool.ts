@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCoipPool:getCoipPool", {
         "filters": args.filters,
@@ -78,7 +77,14 @@ export interface GetCoipPoolResult {
  * COIP Pool.
  */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolResult> {
-    return pulumi.output(args).apply((a: any) => getCoipPool(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getCoipPool:getCoipPool", {
+        "filters": args.filters,
+        "localGatewayRouteTableId": args.localGatewayRouteTableId,
+        "poolId": args.poolId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

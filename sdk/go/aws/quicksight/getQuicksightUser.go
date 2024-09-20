@@ -90,14 +90,20 @@ type GetQuicksightUserResult struct {
 
 func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightUserResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetQuicksightUserResult, error) {
+		ApplyT(func(v interface{}) (GetQuicksightUserResultOutput, error) {
 			args := v.(GetQuicksightUserArgs)
-			r, err := GetQuicksightUser(ctx, &args, opts...)
-			var s GetQuicksightUserResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetQuicksightUserResult
+			secret, err := ctx.InvokePackageRaw("aws:quicksight/getQuicksightUser:getQuicksightUser", args, &rv, "", opts...)
+			if err != nil {
+				return GetQuicksightUserResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetQuicksightUserResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetQuicksightUserResultOutput), nil
+			}
+			return output, nil
 		}).(GetQuicksightUserResultOutput)
 }
 

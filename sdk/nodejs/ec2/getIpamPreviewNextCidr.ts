@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
         "disallowedCidrs": args.disallowedCidrs,
@@ -95,7 +94,12 @@ export interface GetIpamPreviewNextCidrResult {
  * ```
  */
 export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
-    return pulumi.output(args).apply((a: any) => getIpamPreviewNextCidr(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
+        "disallowedCidrs": args.disallowedCidrs,
+        "ipamPoolId": args.ipamPoolId,
+        "netmaskLength": args.netmaskLength,
+    }, opts);
 }
 
 /**

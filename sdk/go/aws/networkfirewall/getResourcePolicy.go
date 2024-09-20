@@ -65,14 +65,20 @@ type LookupResourcePolicyResult struct {
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResourcePolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupResourcePolicyResultOutput, error) {
 			args := v.(LookupResourcePolicyArgs)
-			r, err := LookupResourcePolicy(ctx, &args, opts...)
-			var s LookupResourcePolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResourcePolicyResult
+			secret, err := ctx.InvokePackageRaw("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResourcePolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResourcePolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResourcePolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResourcePolicyResultOutput)
 }
 

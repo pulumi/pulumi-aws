@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRouterConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
         "routerTypeIdentifier": args.routerTypeIdentifier,
@@ -105,7 +104,11 @@ export interface GetRouterConfigurationResult {
  * ```
  */
 export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouterConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getRouterConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
+        "routerTypeIdentifier": args.routerTypeIdentifier,
+        "virtualInterfaceId": args.virtualInterfaceId,
+    }, opts);
 }
 
 /**

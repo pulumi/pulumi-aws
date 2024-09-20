@@ -76,14 +76,20 @@ type GetRepositoryEndpointResult struct {
 
 func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpointOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRepositoryEndpointResult, error) {
+		ApplyT(func(v interface{}) (GetRepositoryEndpointResultOutput, error) {
 			args := v.(GetRepositoryEndpointArgs)
-			r, err := GetRepositoryEndpoint(ctx, &args, opts...)
-			var s GetRepositoryEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRepositoryEndpointResult
+			secret, err := ctx.InvokePackageRaw("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return GetRepositoryEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRepositoryEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRepositoryEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(GetRepositoryEndpointResultOutput)
 }
 

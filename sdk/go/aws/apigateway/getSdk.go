@@ -84,14 +84,20 @@ type GetSdkResult struct {
 
 func GetSdkOutput(ctx *pulumi.Context, args GetSdkOutputArgs, opts ...pulumi.InvokeOption) GetSdkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSdkResult, error) {
+		ApplyT(func(v interface{}) (GetSdkResultOutput, error) {
 			args := v.(GetSdkArgs)
-			r, err := GetSdk(ctx, &args, opts...)
-			var s GetSdkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSdkResult
+			secret, err := ctx.InvokePackageRaw("aws:apigateway/getSdk:getSdk", args, &rv, "", opts...)
+			if err != nil {
+				return GetSdkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSdkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSdkResultOutput), nil
+			}
+			return output, nil
 		}).(GetSdkResultOutput)
 }
 

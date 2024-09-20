@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<GetMapResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getMap:getMap", {
         "mapName": args.mapName,
@@ -93,7 +92,11 @@ export interface GetMapResult {
  * ```
  */
 export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
-    return pulumi.output(args).apply((a: any) => getMap(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:location/getMap:getMap", {
+        "mapName": args.mapName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -46,14 +46,20 @@ type GetManagedPrefixListsResult struct {
 
 func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixListsOutputArgs, opts ...pulumi.InvokeOption) GetManagedPrefixListsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetManagedPrefixListsResult, error) {
+		ApplyT(func(v interface{}) (GetManagedPrefixListsResultOutput, error) {
 			args := v.(GetManagedPrefixListsArgs)
-			r, err := GetManagedPrefixLists(ctx, &args, opts...)
-			var s GetManagedPrefixListsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetManagedPrefixListsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, "", opts...)
+			if err != nil {
+				return GetManagedPrefixListsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetManagedPrefixListsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetManagedPrefixListsResultOutput), nil
+			}
+			return output, nil
 		}).(GetManagedPrefixListsResultOutput)
 }
 

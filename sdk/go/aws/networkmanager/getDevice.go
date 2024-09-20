@@ -62,14 +62,20 @@ type LookupDeviceResult struct {
 
 func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDeviceResult, error) {
+		ApplyT(func(v interface{}) (LookupDeviceResultOutput, error) {
 			args := v.(LookupDeviceArgs)
-			r, err := LookupDevice(ctx, &args, opts...)
-			var s LookupDeviceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDeviceResult
+			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getDevice:getDevice", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDeviceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDeviceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDeviceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDeviceResultOutput)
 }
 

@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcPeeringConnectionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
         "cidrBlock": args.cidrBlock,
@@ -182,7 +181,22 @@ export interface GetVpcPeeringConnectionResult {
  * ```
  */
 export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getVpcPeeringConnection(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {
+        "cidrBlock": args.cidrBlock,
+        "filters": args.filters,
+        "id": args.id,
+        "ownerId": args.ownerId,
+        "peerCidrBlock": args.peerCidrBlock,
+        "peerOwnerId": args.peerOwnerId,
+        "peerRegion": args.peerRegion,
+        "peerVpcId": args.peerVpcId,
+        "region": args.region,
+        "status": args.status,
+        "tags": args.tags,
+        "vpcId": args.vpcId,
+    }, opts);
 }
 
 /**

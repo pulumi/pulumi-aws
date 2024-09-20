@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
         "filters": args.filters,
@@ -101,7 +100,13 @@ export interface GetInstanceTypeOfferingResult {
  * ```
  */
 export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceTypeOffering(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {
+        "filters": args.filters,
+        "locationType": args.locationType,
+        "preferredInstanceTypes": args.preferredInstanceTypes,
+    }, opts);
 }
 
 /**

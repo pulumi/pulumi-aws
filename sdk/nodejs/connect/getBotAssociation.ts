@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,
@@ -80,7 +79,11 @@ export interface GetBotAssociationResult {
  * ```
  */
 export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getBotAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getBotAssociation:getBotAssociation", {
+        "instanceId": args.instanceId,
+        "lexBot": args.lexBot,
+    }, opts);
 }
 
 /**

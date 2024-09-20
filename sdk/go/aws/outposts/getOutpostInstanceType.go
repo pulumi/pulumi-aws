@@ -82,14 +82,20 @@ type GetOutpostInstanceTypeResult struct {
 
 func GetOutpostInstanceTypeOutput(ctx *pulumi.Context, args GetOutpostInstanceTypeOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOutpostInstanceTypeResult, error) {
+		ApplyT(func(v interface{}) (GetOutpostInstanceTypeResultOutput, error) {
 			args := v.(GetOutpostInstanceTypeArgs)
-			r, err := GetOutpostInstanceType(ctx, &args, opts...)
-			var s GetOutpostInstanceTypeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOutpostInstanceTypeResult
+			secret, err := ctx.InvokePackageRaw("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args, &rv, "", opts...)
+			if err != nil {
+				return GetOutpostInstanceTypeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOutpostInstanceTypeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOutpostInstanceTypeResultOutput), nil
+			}
+			return output, nil
 		}).(GetOutpostInstanceTypeResultOutput)
 }
 

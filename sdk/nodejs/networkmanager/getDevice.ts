@@ -11,7 +11,6 @@ import * as utilities from "../utilities";
  * Retrieve information about a device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getDevice:getDevice", {
         "deviceId": args.deviceId,
@@ -93,7 +92,12 @@ export interface GetDeviceResult {
  * Retrieve information about a device.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkmanager/getDevice:getDevice", {
+        "deviceId": args.deviceId,
+        "globalNetworkId": args.globalNetworkId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

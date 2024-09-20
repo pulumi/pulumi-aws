@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserGroup(args: GetUserGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserGroup:getUserGroup", {
         "name": args.name,
@@ -85,7 +84,11 @@ export interface GetUserGroupResult {
  * ```
  */
 export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
-    return pulumi.output(args).apply((a: any) => getUserGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cognito/getUserGroup:getUserGroup", {
+        "name": args.name,
+        "userPoolId": args.userPoolId,
+    }, opts);
 }
 
 /**

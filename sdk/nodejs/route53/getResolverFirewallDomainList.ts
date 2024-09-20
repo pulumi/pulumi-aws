@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallDomainList(args: GetResolverFirewallDomainListArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallDomainListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,
@@ -80,7 +79,10 @@ export interface GetResolverFirewallDomainListResult {
  * ```
  */
 export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallDomainListResult> {
-    return pulumi.output(args).apply((a: any) => getResolverFirewallDomainList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
+        "firewallDomainListId": args.firewallDomainListId,
+    }, opts);
 }
 
 /**

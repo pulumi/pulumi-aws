@@ -98,14 +98,20 @@ type LookupIndexResult struct {
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIndexResult, error) {
+		ApplyT(func(v interface{}) (LookupIndexResultOutput, error) {
 			args := v.(LookupIndexArgs)
-			r, err := LookupIndex(ctx, &args, opts...)
-			var s LookupIndexResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIndexResult
+			secret, err := ctx.InvokePackageRaw("aws:kendra/getIndex:getIndex", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIndexResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIndexResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIndexResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIndexResultOutput)
 }
 

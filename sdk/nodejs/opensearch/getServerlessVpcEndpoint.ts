@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessVpcEndpointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", {
         "vpcEndpointId": args.vpcEndpointId,
@@ -81,7 +80,10 @@ export interface GetServerlessVpcEndpointResult {
  * ```
  */
 export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessVpcEndpoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", {
+        "vpcEndpointId": args.vpcEndpointId,
+    }, opts);
 }
 
 /**

@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  */
 export function getQueryLogConfig(args?: GetQueryLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryLogConfigResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", {
         "filters": args.filters,
@@ -129,7 +128,14 @@ export interface GetQueryLogConfigResult {
  * ```
  */
 export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryLogConfigResult> {
-    return pulumi.output(args).apply((a: any) => getQueryLogConfig(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", {
+        "filters": args.filters,
+        "name": args.name,
+        "resolverQueryLogConfigId": args.resolverQueryLogConfigId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

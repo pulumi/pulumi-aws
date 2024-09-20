@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
         "region": args.region,
@@ -61,7 +60,11 @@ export interface GetHostedZoneResult {
  * ```
  */
 export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
-    return pulumi.output(args).apply((a: any) => getHostedZone(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getHostedZone:getHostedZone", {
+        "region": args.region,
+    }, opts);
 }
 
 /**

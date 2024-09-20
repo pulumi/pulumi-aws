@@ -77,14 +77,20 @@ type LookupLogGroupResult struct {
 
 func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLogGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLogGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupLogGroupResultOutput, error) {
 			args := v.(LookupLogGroupArgs)
-			r, err := LookupLogGroup(ctx, &args, opts...)
-			var s LookupLogGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLogGroupResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLogGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLogGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLogGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLogGroupResultOutput)
 }
 

@@ -75,14 +75,20 @@ type LookupParameterResult struct {
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupParameterResult, error) {
+		ApplyT(func(v interface{}) (LookupParameterResultOutput, error) {
 			args := v.(LookupParameterArgs)
-			r, err := LookupParameter(ctx, &args, opts...)
-			var s LookupParameterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupParameterResult
+			secret, err := ctx.InvokePackageRaw("aws:ssm/getParameter:getParameter", args, &rv, "", opts...)
+			if err != nil {
+				return LookupParameterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupParameterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupParameterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupParameterResultOutput)
 }
 

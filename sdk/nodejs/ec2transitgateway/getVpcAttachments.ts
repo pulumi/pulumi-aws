@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {
         "filters": args.filters,
@@ -85,7 +84,11 @@ export interface GetVpcAttachmentsResult {
  * ```
  */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcAttachments(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {
+        "filters": args.filters,
+    }, opts);
 }
 
 /**

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getLinks:getLinks", {
         "globalNetworkId": args.globalNetworkId,
@@ -95,7 +94,14 @@ export interface GetLinksResult {
  * ```
  */
 export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
-    return pulumi.output(args).apply((a: any) => getLinks(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkmanager/getLinks:getLinks", {
+        "globalNetworkId": args.globalNetworkId,
+        "providerName": args.providerName,
+        "siteId": args.siteId,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 /**

@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
@@ -124,7 +123,11 @@ export interface GetStackResult {
  * ```
  */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
-    return pulumi.output(args).apply((a: any) => getStack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudformation/getStack:getStack", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

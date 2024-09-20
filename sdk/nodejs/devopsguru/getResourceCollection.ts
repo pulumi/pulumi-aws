@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceCollection(args: GetResourceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:devopsguru/getResourceCollection:getResourceCollection", {
         "cloudformations": args.cloudformations,
@@ -86,7 +85,12 @@ export interface GetResourceCollectionResult {
  * ```
  */
 export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getResourceCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:devopsguru/getResourceCollection:getResourceCollection", {
+        "cloudformations": args.cloudformations,
+        "tags": args.tags,
+        "type": args.type,
+    }, opts);
 }
 
 /**

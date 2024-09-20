@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,
@@ -107,7 +106,11 @@ export interface GetDistributionResult {
  * ```
  */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
-    return pulumi.output(args).apply((a: any) => getDistribution(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getDistribution:getDistribution", {
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

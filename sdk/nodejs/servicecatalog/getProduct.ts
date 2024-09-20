@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getProduct:getProduct", {
         "acceptLanguage": args.acceptLanguage,
@@ -130,7 +129,12 @@ export interface GetProductResult {
  * ```
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
-    return pulumi.output(args).apply((a: any) => getProduct(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getProduct:getProduct", {
+        "acceptLanguage": args.acceptLanguage,
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

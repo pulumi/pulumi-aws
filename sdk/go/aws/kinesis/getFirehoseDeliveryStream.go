@@ -67,14 +67,20 @@ type LookupFirehoseDeliveryStreamResult struct {
 
 func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehoseDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupFirehoseDeliveryStreamResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupFirehoseDeliveryStreamResult, error) {
+		ApplyT(func(v interface{}) (LookupFirehoseDeliveryStreamResultOutput, error) {
 			args := v.(LookupFirehoseDeliveryStreamArgs)
-			r, err := LookupFirehoseDeliveryStream(ctx, &args, opts...)
-			var s LookupFirehoseDeliveryStreamResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupFirehoseDeliveryStreamResult
+			secret, err := ctx.InvokePackageRaw("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args, &rv, "", opts...)
+			if err != nil {
+				return LookupFirehoseDeliveryStreamResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupFirehoseDeliveryStreamResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupFirehoseDeliveryStreamResultOutput), nil
+			}
+			return output, nil
 		}).(LookupFirehoseDeliveryStreamResultOutput)
 }
 

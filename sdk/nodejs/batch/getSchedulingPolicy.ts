@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,
@@ -78,7 +77,11 @@ export interface GetSchedulingPolicyResult {
  * ```
  */
 export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getSchedulingPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

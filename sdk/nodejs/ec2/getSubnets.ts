@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  */
 export function getSubnets(args?: GetSubnetsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSubnets:getSubnets", {
         "filters": args.filters,
@@ -57,7 +56,12 @@ export interface GetSubnetsResult {
  * This resource can be useful for getting back a set of subnet IDs.
  */
 export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetsResult> {
-    return pulumi.output(args).apply((a: any) => getSubnets(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getSubnets:getSubnets", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

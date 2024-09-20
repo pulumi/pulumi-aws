@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInfrastructureConfiguration(args: GetInfrastructureConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetInfrastructureConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
@@ -131,7 +130,12 @@ export interface GetInfrastructureConfigurationResult {
  * ```
  */
 export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getInfrastructureConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
+        "arn": args.arn,
+        "resourceTags": args.resourceTags,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

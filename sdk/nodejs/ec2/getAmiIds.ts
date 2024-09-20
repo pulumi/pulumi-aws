@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
@@ -112,7 +111,15 @@ export interface GetAmiIdsResult {
  * ```
  */
 export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
-    return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getAmiIds:getAmiIds", {
+        "executableUsers": args.executableUsers,
+        "filters": args.filters,
+        "includeDeprecated": args.includeDeprecated,
+        "nameRegex": args.nameRegex,
+        "owners": args.owners,
+        "sortAscending": args.sortAscending,
+    }, opts);
 }
 
 /**

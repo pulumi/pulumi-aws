@@ -39,14 +39,20 @@ type GetNodeGroupsResult struct {
 
 func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts ...pulumi.InvokeOption) GetNodeGroupsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetNodeGroupsResult, error) {
+		ApplyT(func(v interface{}) (GetNodeGroupsResultOutput, error) {
 			args := v.(GetNodeGroupsArgs)
-			r, err := GetNodeGroups(ctx, &args, opts...)
-			var s GetNodeGroupsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetNodeGroupsResult
+			secret, err := ctx.InvokePackageRaw("aws:eks/getNodeGroups:getNodeGroups", args, &rv, "", opts...)
+			if err != nil {
+				return GetNodeGroupsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetNodeGroupsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetNodeGroupsResultOutput), nil
+			}
+			return output, nil
 		}).(GetNodeGroupsResultOutput)
 }
 

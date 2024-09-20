@@ -49,7 +49,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,
@@ -289,7 +288,32 @@ export interface GetOrderableDbInstanceResult {
  * ```
  */
 export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
+        "availabilityZoneGroup": args.availabilityZoneGroup,
+        "engine": args.engine,
+        "engineLatestVersion": args.engineLatestVersion,
+        "engineVersion": args.engineVersion,
+        "instanceClass": args.instanceClass,
+        "licenseModel": args.licenseModel,
+        "preferredEngineVersions": args.preferredEngineVersions,
+        "preferredInstanceClasses": args.preferredInstanceClasses,
+        "readReplicaCapable": args.readReplicaCapable,
+        "storageType": args.storageType,
+        "supportedEngineModes": args.supportedEngineModes,
+        "supportedNetworkTypes": args.supportedNetworkTypes,
+        "supportsClusters": args.supportsClusters,
+        "supportsEnhancedMonitoring": args.supportsEnhancedMonitoring,
+        "supportsGlobalDatabases": args.supportsGlobalDatabases,
+        "supportsIamDatabaseAuthentication": args.supportsIamDatabaseAuthentication,
+        "supportsIops": args.supportsIops,
+        "supportsKerberosAuthentication": args.supportsKerberosAuthentication,
+        "supportsMultiAz": args.supportsMultiAz,
+        "supportsPerformanceInsights": args.supportsPerformanceInsights,
+        "supportsStorageAutoscaling": args.supportsStorageAutoscaling,
+        "supportsStorageEncryption": args.supportsStorageEncryption,
+        "vpc": args.vpc,
+    }, opts);
 }
 
 /**

@@ -49,14 +49,20 @@ type GetEbsVolumesResult struct {
 
 func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts ...pulumi.InvokeOption) GetEbsVolumesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEbsVolumesResult, error) {
+		ApplyT(func(v interface{}) (GetEbsVolumesResultOutput, error) {
 			args := v.(GetEbsVolumesArgs)
-			r, err := GetEbsVolumes(ctx, &args, opts...)
-			var s GetEbsVolumesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEbsVolumesResult
+			secret, err := ctx.InvokePackageRaw("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, "", opts...)
+			if err != nil {
+				return GetEbsVolumesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEbsVolumesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEbsVolumesResultOutput), nil
+			}
+			return output, nil
 		}).(GetEbsVolumesResultOutput)
 }
 

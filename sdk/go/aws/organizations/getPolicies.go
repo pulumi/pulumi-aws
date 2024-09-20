@@ -41,14 +41,20 @@ type GetPoliciesResult struct {
 
 func GetPoliciesOutput(ctx *pulumi.Context, args GetPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetPoliciesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPoliciesResult, error) {
+		ApplyT(func(v interface{}) (GetPoliciesResultOutput, error) {
 			args := v.(GetPoliciesArgs)
-			r, err := GetPolicies(ctx, &args, opts...)
-			var s GetPoliciesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPoliciesResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getPolicies:getPolicies", args, &rv, "", opts...)
+			if err != nil {
+				return GetPoliciesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPoliciesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPoliciesResultOutput), nil
+			}
+			return output, nil
 		}).(GetPoliciesResultOutput)
 }
 

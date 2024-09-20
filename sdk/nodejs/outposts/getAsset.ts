@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Information about a specific hardware asset in an Outpost.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getAsset:getAsset", {
         "arn": args.arn,
@@ -61,7 +60,11 @@ export interface GetAssetResult {
  * Information about a specific hardware asset in an Outpost.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
-    return pulumi.output(args).apply((a: any) => getAsset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:outposts/getAsset:getAsset", {
+        "arn": args.arn,
+        "assetId": args.assetId,
+    }, opts);
 }
 
 /**

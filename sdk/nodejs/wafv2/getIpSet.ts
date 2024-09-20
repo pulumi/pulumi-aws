@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getIpSet:getIpSet", {
         "name": args.name,
@@ -85,7 +84,11 @@ export interface GetIpSetResult {
  * ```
  */
 export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpSetResult> {
-    return pulumi.output(args).apply((a: any) => getIpSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:wafv2/getIpSet:getIpSet", {
+        "name": args.name,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

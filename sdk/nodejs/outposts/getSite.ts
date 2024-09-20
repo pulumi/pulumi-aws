@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getSite(args?: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getSite:getSite", {
         "id": args.id,
@@ -72,7 +71,12 @@ export interface GetSiteResult {
  * ```
  */
 export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
-    return pulumi.output(args).apply((a: any) => getSite(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:outposts/getSite:getSite", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

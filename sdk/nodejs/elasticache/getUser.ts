@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getUser:getUser", {
         "accessString": args.accessString,
@@ -97,7 +96,16 @@ export interface GetUserResult {
  * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elasticache/getUser:getUser", {
+        "accessString": args.accessString,
+        "authenticationModes": args.authenticationModes,
+        "engine": args.engine,
+        "noPasswordRequired": args.noPasswordRequired,
+        "passwords": args.passwords,
+        "userId": args.userId,
+        "userName": args.userName,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReservedInstanceOffering(args: GetReservedInstanceOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetReservedInstanceOfferingResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", {
         "dbInstanceClass": args.dbInstanceClass,
@@ -105,7 +104,14 @@ export interface GetReservedInstanceOfferingResult {
  * ```
  */
 export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReservedInstanceOfferingResult> {
-    return pulumi.output(args).apply((a: any) => getReservedInstanceOffering(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", {
+        "dbInstanceClass": args.dbInstanceClass,
+        "duration": args.duration,
+        "multiAz": args.multiAz,
+        "offeringType": args.offeringType,
+        "productDescription": args.productDescription,
+    }, opts);
 }
 
 /**

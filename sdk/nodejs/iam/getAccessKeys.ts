@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessKeys(args: GetAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeysResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getAccessKeys:getAccessKeys", {
         "user": args.user,
@@ -70,7 +69,10 @@ export interface GetAccessKeysResult {
  * ```
  */
 export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeysResult> {
-    return pulumi.output(args).apply((a: any) => getAccessKeys(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getAccessKeys:getAccessKeys", {
+        "user": args.user,
+    }, opts);
 }
 
 /**

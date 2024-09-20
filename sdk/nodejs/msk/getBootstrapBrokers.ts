@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBootstrapBrokers(args: GetBootstrapBrokersArgs, opts?: pulumi.InvokeOptions): Promise<GetBootstrapBrokersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", {
         "clusterArn": args.clusterArn,
@@ -101,7 +100,10 @@ export interface GetBootstrapBrokersResult {
  * ```
  */
 export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBootstrapBrokersResult> {
-    return pulumi.output(args).apply((a: any) => getBootstrapBrokers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:msk/getBootstrapBrokers:getBootstrapBrokers", {
+        "clusterArn": args.clusterArn,
+    }, opts);
 }
 
 /**

@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getImageRecipes:getImageRecipes", {
         "filters": args.filters,
@@ -87,7 +86,12 @@ export interface GetImageRecipesResult {
  * ```
  */
 export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipesResult> {
-    return pulumi.output(args).apply((a: any) => getImageRecipes(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", {
+        "filters": args.filters,
+        "owner": args.owner,
+    }, opts);
 }
 
 /**

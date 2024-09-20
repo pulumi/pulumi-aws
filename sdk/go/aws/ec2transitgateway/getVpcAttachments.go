@@ -41,14 +41,20 @@ type GetVpcAttachmentsResult struct {
 
 func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetVpcAttachmentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVpcAttachmentsResult, error) {
+		ApplyT(func(v interface{}) (GetVpcAttachmentsResultOutput, error) {
 			args := v.(GetVpcAttachmentsArgs)
-			r, err := GetVpcAttachments(ctx, &args, opts...)
-			var s GetVpcAttachmentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVpcAttachmentsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, "", opts...)
+			if err != nil {
+				return GetVpcAttachmentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVpcAttachmentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVpcAttachmentsResultOutput), nil
+			}
+			return output, nil
 		}).(GetVpcAttachmentsResultOutput)
 }
 

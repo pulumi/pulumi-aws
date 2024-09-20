@@ -83,14 +83,20 @@ type LookupLinkResult struct {
 
 func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pulumi.InvokeOption) LookupLinkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLinkResult, error) {
+		ApplyT(func(v interface{}) (LookupLinkResultOutput, error) {
 			args := v.(LookupLinkArgs)
-			r, err := LookupLink(ctx, &args, opts...)
-			var s LookupLinkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLinkResult
+			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getLink:getLink", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLinkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLinkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLinkResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLinkResultOutput)
 }
 

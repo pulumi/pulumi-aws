@@ -84,14 +84,20 @@ type LookupEnvironmentResult struct {
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentResult, error) {
+		ApplyT(func(v interface{}) (LookupEnvironmentResultOutput, error) {
 			args := v.(LookupEnvironmentArgs)
-			r, err := LookupEnvironment(ctx, &args, opts...)
-			var s LookupEnvironmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEnvironmentResult
+			secret, err := ctx.InvokePackageRaw("aws:appconfig/getEnvironment:getEnvironment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEnvironmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEnvironmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEnvironmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEnvironmentResultOutput)
 }
 

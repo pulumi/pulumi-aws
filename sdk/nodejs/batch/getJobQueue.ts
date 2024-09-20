@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,
@@ -116,7 +115,11 @@ export interface GetJobQueueResult {
  * ```
  */
 export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
-    return pulumi.output(args).apply((a: any) => getJobQueue(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:batch/getJobQueue:getJobQueue", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

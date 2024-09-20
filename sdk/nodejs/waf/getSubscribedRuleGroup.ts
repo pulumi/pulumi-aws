@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  */
 export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscribedRuleGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", {
         "metricName": args.metricName,
@@ -98,7 +97,12 @@ export interface GetSubscribedRuleGroupResult {
  * ```
  */
 export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSubscribedRuleGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", {
+        "metricName": args.metricName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -63,7 +63,6 @@ import * as utilities from "../utilities";
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getElasticIp:getElasticIp", {
         "filters": args.filters,
@@ -221,7 +220,14 @@ export interface GetElasticIpResult {
  * ```
  */
 export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticIpResult> {
-    return pulumi.output(args).apply((a: any) => getElasticIp(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getElasticIp:getElasticIp", {
+        "filters": args.filters,
+        "id": args.id,
+        "publicIp": args.publicIp,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

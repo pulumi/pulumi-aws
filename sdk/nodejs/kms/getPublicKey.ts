@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,
@@ -117,7 +116,11 @@ export interface GetPublicKeyResult {
  * ```
  */
 export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
-    return pulumi.output(args).apply((a: any) => getPublicKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kms/getPublicKey:getPublicKey", {
+        "grantTokens": args.grantTokens,
+        "keyId": args.keyId,
+    }, opts);
 }
 
 /**

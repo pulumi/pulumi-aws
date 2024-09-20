@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getAttachments(args?: GetAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getAttachments:getAttachments", {
         "filters": args.filters,
@@ -100,7 +99,12 @@ export interface GetAttachmentsResult {
  * ```
  */
 export function getAttachmentsOutput(args?: GetAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentsResult> {
-    return pulumi.output(args).apply((a: any) => getAttachments(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getAttachments:getAttachments", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

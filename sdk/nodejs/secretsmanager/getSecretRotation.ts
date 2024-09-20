@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretRotationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretRotation:getSecretRotation", {
         "secretId": args.secretId,
@@ -80,7 +79,10 @@ export interface GetSecretRotationResult {
  * ```
  */
 export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretRotationResult> {
-    return pulumi.output(args).apply((a: any) => getSecretRotation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", {
+        "secretId": args.secretId,
+    }, opts);
 }
 
 /**

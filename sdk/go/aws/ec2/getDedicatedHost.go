@@ -129,14 +129,20 @@ type LookupDedicatedHostResult struct {
 
 func LookupDedicatedHostOutput(ctx *pulumi.Context, args LookupDedicatedHostOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedHostResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDedicatedHostResult, error) {
+		ApplyT(func(v interface{}) (LookupDedicatedHostResultOutput, error) {
 			args := v.(LookupDedicatedHostArgs)
-			r, err := LookupDedicatedHost(ctx, &args, opts...)
-			var s LookupDedicatedHostResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDedicatedHostResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getDedicatedHost:getDedicatedHost", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDedicatedHostResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDedicatedHostResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDedicatedHostResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDedicatedHostResultOutput)
 }
 

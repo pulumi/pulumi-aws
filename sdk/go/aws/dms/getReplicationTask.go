@@ -94,14 +94,20 @@ type LookupReplicationTaskResult struct {
 
 func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTaskOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationTaskResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupReplicationTaskResult, error) {
+		ApplyT(func(v interface{}) (LookupReplicationTaskResultOutput, error) {
 			args := v.(LookupReplicationTaskArgs)
-			r, err := LookupReplicationTask(ctx, &args, opts...)
-			var s LookupReplicationTaskResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupReplicationTaskResult
+			secret, err := ctx.InvokePackageRaw("aws:dms/getReplicationTask:getReplicationTask", args, &rv, "", opts...)
+			if err != nil {
+				return LookupReplicationTaskResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupReplicationTaskResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupReplicationTaskResultOutput), nil
+			}
+			return output, nil
 		}).(LookupReplicationTaskResultOutput)
 }
 

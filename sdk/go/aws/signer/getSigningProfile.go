@@ -83,14 +83,20 @@ type LookupSigningProfileResult struct {
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSigningProfileResult, error) {
+		ApplyT(func(v interface{}) (LookupSigningProfileResultOutput, error) {
 			args := v.(LookupSigningProfileArgs)
-			r, err := LookupSigningProfile(ctx, &args, opts...)
-			var s LookupSigningProfileResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSigningProfileResult
+			secret, err := ctx.InvokePackageRaw("aws:signer/getSigningProfile:getSigningProfile", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSigningProfileResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSigningProfileResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSigningProfileResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSigningProfileResultOutput)
 }
 

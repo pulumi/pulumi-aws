@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getBundle(args?: GetBundleArgs, opts?: pulumi.InvokeOptions): Promise<GetBundleResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getBundle:getBundle", {
         "bundleId": args.bundleId,
@@ -130,7 +129,13 @@ export interface GetBundleResult {
  * ```
  */
 export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBundleResult> {
-    return pulumi.output(args).apply((a: any) => getBundle(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:workspaces/getBundle:getBundle", {
+        "bundleId": args.bundleId,
+        "name": args.name,
+        "owner": args.owner,
+    }, opts);
 }
 
 /**

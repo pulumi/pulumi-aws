@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getDataShares(args?: GetDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSharesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getDataShares:getDataShares", {
         "dataShares": args.dataShares,
@@ -68,7 +67,11 @@ export interface GetDataSharesResult {
  * ```
  */
 export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSharesResult> {
-    return pulumi.output(args).apply((a: any) => getDataShares(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshift/getDataShares:getDataShares", {
+        "dataShares": args.dataShares,
+    }, opts);
 }
 
 /**

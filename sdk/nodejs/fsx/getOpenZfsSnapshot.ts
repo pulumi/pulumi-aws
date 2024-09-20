@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {
         "filters": args.filters,
@@ -124,7 +123,15 @@ export interface GetOpenZfsSnapshotResult {
  * ```
  */
 export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getOpenZfsSnapshot(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {
+        "filters": args.filters,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "snapshotIds": args.snapshotIds,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

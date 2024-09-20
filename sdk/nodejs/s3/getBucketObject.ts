@@ -70,7 +70,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketObjectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,
@@ -276,7 +275,14 @@ export interface GetBucketObjectResult {
  * ```
  */
 export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectResult> {
-    return pulumi.output(args).apply((a: any) => getBucketObject(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3/getBucketObject:getBucketObject", {
+        "bucket": args.bucket,
+        "key": args.key,
+        "range": args.range,
+        "tags": args.tags,
+        "versionId": args.versionId,
+    }, opts);
 }
 
 /**

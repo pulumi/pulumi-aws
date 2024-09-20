@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
@@ -136,7 +135,10 @@ export interface GetReplicationGroupResult {
  * ```
  */
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elasticache/getReplicationGroup:getReplicationGroup", {
+        "replicationGroupId": args.replicationGroupId,
+    }, opts);
 }
 
 /**

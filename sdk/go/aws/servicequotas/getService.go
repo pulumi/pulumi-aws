@@ -67,14 +67,20 @@ type GetServiceResult struct {
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceResult, error) {
+		ApplyT(func(v interface{}) (GetServiceResultOutput, error) {
 			args := v.(GetServiceArgs)
-			r, err := GetService(ctx, &args, opts...)
-			var s GetServiceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceResult
+			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getService:getService", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceResultOutput)
 }
 

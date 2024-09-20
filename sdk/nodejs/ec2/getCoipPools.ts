@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  */
 export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getCoipPools:getCoipPools", {
         "filters": args.filters,
@@ -57,7 +56,12 @@ export interface GetCoipPoolsResult {
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
  */
 export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolsResult> {
-    return pulumi.output(args).apply((a: any) => getCoipPools(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getCoipPools:getCoipPools", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

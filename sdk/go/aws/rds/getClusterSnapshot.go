@@ -136,14 +136,20 @@ type LookupClusterSnapshotResult struct {
 
 func LookupClusterSnapshotOutput(ctx *pulumi.Context, args LookupClusterSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSnapshotResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupClusterSnapshotResult, error) {
+		ApplyT(func(v interface{}) (LookupClusterSnapshotResultOutput, error) {
 			args := v.(LookupClusterSnapshotArgs)
-			r, err := LookupClusterSnapshot(ctx, &args, opts...)
-			var s LookupClusterSnapshotResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupClusterSnapshotResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, "", opts...)
+			if err != nil {
+				return LookupClusterSnapshotResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupClusterSnapshotResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupClusterSnapshotResultOutput), nil
+			}
+			return output, nil
 		}).(LookupClusterSnapshotResultOutput)
 }
 

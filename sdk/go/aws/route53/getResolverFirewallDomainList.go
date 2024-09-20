@@ -78,14 +78,20 @@ type LookupResolverFirewallDomainListResult struct {
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallDomainListResult, error) {
+		ApplyT(func(v interface{}) (LookupResolverFirewallDomainListResultOutput, error) {
 			args := v.(LookupResolverFirewallDomainListArgs)
-			r, err := LookupResolverFirewallDomainList(ctx, &args, opts...)
-			var s LookupResolverFirewallDomainListResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResolverFirewallDomainListResult
+			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResolverFirewallDomainListResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResolverFirewallDomainListResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResolverFirewallDomainListResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResolverFirewallDomainListResultOutput)
 }
 

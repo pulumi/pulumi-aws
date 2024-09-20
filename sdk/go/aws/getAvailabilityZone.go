@@ -164,14 +164,20 @@ type GetAvailabilityZoneResult struct {
 
 func GetAvailabilityZoneOutput(ctx *pulumi.Context, args GetAvailabilityZoneOutputArgs, opts ...pulumi.InvokeOption) GetAvailabilityZoneResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAvailabilityZoneResult, error) {
+		ApplyT(func(v interface{}) (GetAvailabilityZoneResultOutput, error) {
 			args := v.(GetAvailabilityZoneArgs)
-			r, err := GetAvailabilityZone(ctx, &args, opts...)
-			var s GetAvailabilityZoneResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAvailabilityZoneResult
+			secret, err := ctx.InvokePackageRaw("aws:index/getAvailabilityZone:getAvailabilityZone", args, &rv, "", opts...)
+			if err != nil {
+				return GetAvailabilityZoneResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAvailabilityZoneResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAvailabilityZoneResultOutput), nil
+			}
+			return output, nil
 		}).(GetAvailabilityZoneResultOutput)
 }
 

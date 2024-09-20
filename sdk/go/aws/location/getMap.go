@@ -77,14 +77,20 @@ type LookupMapResult struct {
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupMapResult, error) {
+		ApplyT(func(v interface{}) (LookupMapResultOutput, error) {
 			args := v.(LookupMapArgs)
-			r, err := LookupMap(ctx, &args, opts...)
-			var s LookupMapResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupMapResult
+			secret, err := ctx.InvokePackageRaw("aws:location/getMap:getMap", args, &rv, "", opts...)
+			if err != nil {
+				return LookupMapResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupMapResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupMapResultOutput), nil
+			}
+			return output, nil
 		}).(LookupMapResultOutput)
 }
 

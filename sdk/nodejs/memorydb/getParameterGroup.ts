@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getParameterGroup:getParameterGroup", {
         "name": args.name,
@@ -92,7 +91,11 @@ export interface GetParameterGroupResult {
  * ```
  */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
-    return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:memorydb/getParameterGroup:getParameterGroup", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

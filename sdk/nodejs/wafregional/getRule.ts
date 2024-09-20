@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRule:getRule", {
         "name": args.name,
@@ -61,7 +60,10 @@ export interface GetRuleResult {
  * ```
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply((a: any) => getRule(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:wafregional/getRule:getRule", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

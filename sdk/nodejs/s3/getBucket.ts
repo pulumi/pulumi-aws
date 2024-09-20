@@ -51,7 +51,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
@@ -153,7 +152,10 @@ export interface GetBucketResult {
  * ```
  */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
-    return pulumi.output(args).apply((a: any) => getBucket(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3/getBucket:getBucket", {
+        "bucket": args.bucket,
+    }, opts);
 }
 
 /**

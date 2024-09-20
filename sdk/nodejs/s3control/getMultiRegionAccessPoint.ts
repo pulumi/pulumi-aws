@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getMultiRegionAccessPoint(args: GetMultiRegionAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", {
         "accountId": args.accountId,
@@ -98,7 +97,11 @@ export interface GetMultiRegionAccessPointResult {
  * ```
  */
 export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
-    return pulumi.output(args).apply((a: any) => getMultiRegionAccessPoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", {
+        "accountId": args.accountId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

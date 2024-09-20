@@ -139,14 +139,20 @@ type GetNetworkAclsResult struct {
 
 func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, opts ...pulumi.InvokeOption) GetNetworkAclsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetNetworkAclsResult, error) {
+		ApplyT(func(v interface{}) (GetNetworkAclsResultOutput, error) {
 			args := v.(GetNetworkAclsArgs)
-			r, err := GetNetworkAcls(ctx, &args, opts...)
-			var s GetNetworkAclsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetNetworkAclsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkAcls:getNetworkAcls", args, &rv, "", opts...)
+			if err != nil {
+				return GetNetworkAclsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetNetworkAclsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetNetworkAclsResultOutput), nil
+			}
+			return output, nil
 		}).(GetNetworkAclsResultOutput)
 }
 

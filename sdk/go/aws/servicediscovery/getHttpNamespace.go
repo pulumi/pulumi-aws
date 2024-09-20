@@ -71,14 +71,20 @@ type LookupHttpNamespaceResult struct {
 
 func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupHttpNamespaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupHttpNamespaceResult, error) {
+		ApplyT(func(v interface{}) (LookupHttpNamespaceResultOutput, error) {
 			args := v.(LookupHttpNamespaceArgs)
-			r, err := LookupHttpNamespace(ctx, &args, opts...)
-			var s LookupHttpNamespaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupHttpNamespaceResult
+			secret, err := ctx.InvokePackageRaw("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, &rv, "", opts...)
+			if err != nil {
+				return LookupHttpNamespaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupHttpNamespaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupHttpNamespaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupHttpNamespaceResultOutput)
 }
 

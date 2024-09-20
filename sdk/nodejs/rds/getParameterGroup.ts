@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getParameterGroup(args: GetParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getParameterGroup:getParameterGroup", {
         "name": args.name,
@@ -73,7 +72,10 @@ export interface GetParameterGroupResult {
  * ```
  */
 export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
-    return pulumi.output(args).apply((a: any) => getParameterGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getParameterGroup:getParameterGroup", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

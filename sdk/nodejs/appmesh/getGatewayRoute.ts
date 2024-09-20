@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGatewayRoute(args: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getGatewayRoute:getGatewayRoute", {
         "meshName": args.meshName,
@@ -115,7 +114,14 @@ export interface GetGatewayRouteResult {
  * ```
  */
 export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
-    return pulumi.output(args).apply((a: any) => getGatewayRoute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getGatewayRoute:getGatewayRoute", {
+        "meshName": args.meshName,
+        "meshOwner": args.meshOwner,
+        "name": args.name,
+        "tags": args.tags,
+        "virtualGatewayName": args.virtualGatewayName,
+    }, opts);
 }
 
 /**

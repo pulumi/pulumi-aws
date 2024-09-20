@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getHostedZoneId(args?: GetHostedZoneIdArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneIdResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getHostedZoneId:getHostedZoneId", {
         "loadBalancerType": args.loadBalancerType,
@@ -85,7 +84,12 @@ export interface GetHostedZoneIdResult {
  * ```
  */
 export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
-    return pulumi.output(args).apply((a: any) => getHostedZoneId(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lb/getHostedZoneId:getHostedZoneId", {
+        "loadBalancerType": args.loadBalancerType,
+        "region": args.region,
+    }, opts);
 }
 
 /**

@@ -82,14 +82,20 @@ type LookupClusterResult struct {
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
 			args := v.(LookupClusterArgs)
-			r, err := LookupCluster(ctx, &args, opts...)
-			var s LookupClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupClusterResult
+			secret, err := ctx.InvokePackageRaw("aws:ecs/getCluster:getCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupClusterResultOutput)
 }
 

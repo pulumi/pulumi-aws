@@ -110,14 +110,20 @@ type LookupOntapFileSystemResult struct {
 
 func LookupOntapFileSystemOutput(ctx *pulumi.Context, args LookupOntapFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupOntapFileSystemResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOntapFileSystemResult, error) {
+		ApplyT(func(v interface{}) (LookupOntapFileSystemResultOutput, error) {
 			args := v.(LookupOntapFileSystemArgs)
-			r, err := LookupOntapFileSystem(ctx, &args, opts...)
-			var s LookupOntapFileSystemResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOntapFileSystemResult
+			secret, err := ctx.InvokePackageRaw("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOntapFileSystemResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOntapFileSystemResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOntapFileSystemResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOntapFileSystemResultOutput)
 }
 

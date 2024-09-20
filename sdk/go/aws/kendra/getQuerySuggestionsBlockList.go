@@ -93,14 +93,20 @@ type LookupQuerySuggestionsBlockListResult struct {
 
 func LookupQuerySuggestionsBlockListOutput(ctx *pulumi.Context, args LookupQuerySuggestionsBlockListOutputArgs, opts ...pulumi.InvokeOption) LookupQuerySuggestionsBlockListResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupQuerySuggestionsBlockListResult, error) {
+		ApplyT(func(v interface{}) (LookupQuerySuggestionsBlockListResultOutput, error) {
 			args := v.(LookupQuerySuggestionsBlockListArgs)
-			r, err := LookupQuerySuggestionsBlockList(ctx, &args, opts...)
-			var s LookupQuerySuggestionsBlockListResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupQuerySuggestionsBlockListResult
+			secret, err := ctx.InvokePackageRaw("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, "", opts...)
+			if err != nil {
+				return LookupQuerySuggestionsBlockListResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupQuerySuggestionsBlockListResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupQuerySuggestionsBlockListResultOutput), nil
+			}
+			return output, nil
 		}).(LookupQuerySuggestionsBlockListResultOutput)
 }
 

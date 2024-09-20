@@ -330,7 +330,6 @@ import * as utilities from "../utilities";
  */
 export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDocumentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
         "overrideJson": args.overrideJson,
@@ -729,7 +728,17 @@ export interface GetPolicyDocumentResult {
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  */
 export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyDocument(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getPolicyDocument:getPolicyDocument", {
+        "overrideJson": args.overrideJson,
+        "overridePolicyDocuments": args.overridePolicyDocuments,
+        "policyId": args.policyId,
+        "sourceJson": args.sourceJson,
+        "sourcePolicyDocuments": args.sourcePolicyDocuments,
+        "statements": args.statements,
+        "version": args.version,
+    }, opts);
 }
 
 /**

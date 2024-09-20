@@ -72,13 +72,19 @@ type GetRegistrationCodeResult struct {
 }
 
 func GetRegistrationCodeOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRegistrationCodeResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetRegistrationCodeResult, error) {
-		r, err := GetRegistrationCode(ctx, opts...)
-		var s GetRegistrationCodeResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetRegistrationCodeResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetRegistrationCodeResult
+		secret, err := ctx.InvokePackageRaw("aws:iot/getRegistrationCode:getRegistrationCode", nil, &rv, "", opts...)
+		if err != nil {
+			return GetRegistrationCodeResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetRegistrationCodeResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetRegistrationCodeResultOutput), nil
+		}
+		return output, nil
 	}).(GetRegistrationCodeResultOutput)
 }
 

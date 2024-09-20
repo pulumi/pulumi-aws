@@ -70,7 +70,6 @@ import * as utilities from "./utilities";
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getAvailabilityZone:getAvailabilityZone", {
         "allAvailabilityZones": args.allAvailabilityZones,
@@ -217,7 +216,15 @@ export interface GetAvailabilityZoneResult {
  * ```
  */
 export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZoneResult> {
-    return pulumi.output(args).apply((a: any) => getAvailabilityZone(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getAvailabilityZone:getAvailabilityZone", {
+        "allAvailabilityZones": args.allAvailabilityZones,
+        "filters": args.filters,
+        "name": args.name,
+        "state": args.state,
+        "zoneId": args.zoneId,
+    }, opts);
 }
 
 /**

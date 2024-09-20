@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,
@@ -103,7 +102,13 @@ export interface GetSdkResult {
  * ```
  */
 export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdkResult> {
-    return pulumi.output(args).apply((a: any) => getSdk(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getSdk:getSdk", {
+        "parameters": args.parameters,
+        "restApiId": args.restApiId,
+        "sdkType": args.sdkType,
+        "stageName": args.stageName,
+    }, opts);
 }
 
 /**

@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
         "arn": args.arn,
@@ -85,7 +84,12 @@ export interface GetOutpostInstanceTypeResult {
  * ```
  */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
-    return pulumi.output(args).apply((a: any) => getOutpostInstanceType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
+        "arn": args.arn,
+        "instanceType": args.instanceType,
+        "preferredInstanceTypes": args.preferredInstanceTypes,
+    }, opts);
 }
 
 /**

@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSites(opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getSites:getSites", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetSitesResult {
  * ```
  */
 export function getSitesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
-    return pulumi.output(getSites(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:outposts/getSites:getSites", {
+    }, opts);
 }

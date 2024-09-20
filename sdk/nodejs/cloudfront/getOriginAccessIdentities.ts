@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  */
 export function getOriginAccessIdentities(args?: GetOriginAccessIdentitiesArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentitiesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", {
         "comments": args.comments,
@@ -106,7 +105,11 @@ export interface GetOriginAccessIdentitiesResult {
  * ```
  */
 export function getOriginAccessIdentitiesOutput(args?: GetOriginAccessIdentitiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentitiesResult> {
-    return pulumi.output(args).apply((a: any) => getOriginAccessIdentities(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", {
+        "comments": args.comments,
+    }, opts);
 }
 
 /**

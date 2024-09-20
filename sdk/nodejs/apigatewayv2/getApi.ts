@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getApi:getApi", {
         "apiId": args.apiId,
@@ -121,7 +120,11 @@ export interface GetApiResult {
  * ```
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    return pulumi.output(args).apply((a: any) => getApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigatewayv2/getApi:getApi", {
+        "apiId": args.apiId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

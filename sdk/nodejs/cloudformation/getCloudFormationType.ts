@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  */
 export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationTypeResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
@@ -130,7 +129,14 @@ export interface GetCloudFormationTypeResult {
  * ```
  */
 export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationTypeResult> {
-    return pulumi.output(args).apply((a: any) => getCloudFormationType(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
+        "arn": args.arn,
+        "type": args.type,
+        "typeName": args.typeName,
+        "versionId": args.versionId,
+    }, opts);
 }
 
 /**

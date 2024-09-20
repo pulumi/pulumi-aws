@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getKey:getKey", {
         "id": args.id,
@@ -99,7 +98,11 @@ export interface GetKeyResult {
  * ```
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getKey:getKey", {
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

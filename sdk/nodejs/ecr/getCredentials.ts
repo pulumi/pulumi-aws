@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,
@@ -33,7 +32,10 @@ export interface GetCredentialsResult {
     readonly registryId: string;
 }
 export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
-    return pulumi.output(args).apply((a: any) => getCredentials(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecr/getCredentials:getCredentials", {
+        "registryId": args.registryId,
+    }, opts);
 }
 
 /**

@@ -44,7 +44,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcIpamPool(args?: GetVpcIpamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIpamPool:getVpcIpamPool", {
         "allocationResourceTags": args.allocationResourceTags,
@@ -187,7 +186,15 @@ export interface GetVpcIpamPoolResult {
  * ```
  */
 export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIpamPool(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPool:getVpcIpamPool", {
+        "allocationResourceTags": args.allocationResourceTags,
+        "filters": args.filters,
+        "id": args.id,
+        "ipamPoolId": args.ipamPoolId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

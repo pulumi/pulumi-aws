@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverRule:getResolverRule", {
         "domainName": args.domainName,
@@ -114,7 +113,16 @@ export interface GetResolverRuleResult {
  * ```
  */
 export function getResolverRuleOutput(args?: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
-    return pulumi.output(args).apply((a: any) => getResolverRule(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverRule:getResolverRule", {
+        "domainName": args.domainName,
+        "name": args.name,
+        "resolverEndpointId": args.resolverEndpointId,
+        "resolverRuleId": args.resolverRuleId,
+        "ruleType": args.ruleType,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

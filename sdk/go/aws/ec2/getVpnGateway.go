@@ -93,14 +93,20 @@ type LookupVpnGatewayResult struct {
 
 func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVpnGatewayResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVpnGatewayResult, error) {
+		ApplyT(func(v interface{}) (LookupVpnGatewayResultOutput, error) {
 			args := v.(LookupVpnGatewayArgs)
-			r, err := LookupVpnGateway(ctx, &args, opts...)
-			var s LookupVpnGatewayResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVpnGatewayResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVpnGatewayResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVpnGatewayResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVpnGatewayResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVpnGatewayResultOutput)
 }
 

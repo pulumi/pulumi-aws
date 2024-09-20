@@ -195,14 +195,20 @@ type LookupBucketObjectResult struct {
 
 func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutputArgs, opts ...pulumi.InvokeOption) LookupBucketObjectResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBucketObjectResult, error) {
+		ApplyT(func(v interface{}) (LookupBucketObjectResultOutput, error) {
 			args := v.(LookupBucketObjectArgs)
-			r, err := LookupBucketObject(ctx, &args, opts...)
-			var s LookupBucketObjectResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBucketObjectResult
+			secret, err := ctx.InvokePackageRaw("aws:s3/getBucketObject:getBucketObject", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBucketObjectResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBucketObjectResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBucketObjectResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBucketObjectResultOutput)
 }
 

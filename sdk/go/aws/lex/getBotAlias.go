@@ -81,14 +81,20 @@ type LookupBotAliasResult struct {
 
 func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBotAliasResult, error) {
+		ApplyT(func(v interface{}) (LookupBotAliasResultOutput, error) {
 			args := v.(LookupBotAliasArgs)
-			r, err := LookupBotAlias(ctx, &args, opts...)
-			var s LookupBotAliasResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBotAliasResult
+			secret, err := ctx.InvokePackageRaw("aws:lex/getBotAlias:getBotAlias", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBotAliasResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBotAliasResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBotAliasResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBotAliasResultOutput)
 }
 

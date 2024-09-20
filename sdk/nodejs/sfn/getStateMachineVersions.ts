@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
         "statemachineArn": args.statemachineArn,
@@ -69,7 +68,10 @@ export interface GetStateMachineVersionsResult {
  * ```
  */
 export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionsResult> {
-    return pulumi.output(args).apply((a: any) => getStateMachineVersions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
+        "statemachineArn": args.statemachineArn,
+    }, opts);
 }
 
 /**

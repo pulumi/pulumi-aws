@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:alb/getTargetGroup:getTargetGroup", {
         "arn": args.arn,
@@ -119,7 +118,14 @@ export interface GetTargetGroupResult {
  * ```
  */
 export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:alb/getTargetGroup:getTargetGroup", {
+        "arn": args.arn,
+        "loadBalancingAnomalyMitigation": args.loadBalancingAnomalyMitigation,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

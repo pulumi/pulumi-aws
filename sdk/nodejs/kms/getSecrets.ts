@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getSecrets:getSecrets", {
         "secrets": args.secrets,
@@ -64,7 +63,10 @@ export interface GetSecretsResult {
  * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
  */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
-    return pulumi.output(args).apply((a: any) => getSecrets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kms/getSecrets:getSecrets", {
+        "secrets": args.secrets,
+    }, opts);
 }
 
 /**

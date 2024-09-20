@@ -58,7 +58,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): Promise<GetControlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:auditmanager/getControl:getControl", {
         "controlMappingSources": args.controlMappingSources,
@@ -148,7 +147,12 @@ export interface GetControlResult {
  * ```
  */
 export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlResult> {
-    return pulumi.output(args).apply((a: any) => getControl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:auditmanager/getControl:getControl", {
+        "controlMappingSources": args.controlMappingSources,
+        "name": args.name,
+        "type": args.type,
+    }, opts);
 }
 
 /**

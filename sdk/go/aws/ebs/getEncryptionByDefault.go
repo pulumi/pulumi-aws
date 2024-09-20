@@ -55,13 +55,19 @@ type LookupEncryptionByDefaultResult struct {
 }
 
 func LookupEncryptionByDefaultOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupEncryptionByDefaultResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupEncryptionByDefaultResult, error) {
-		r, err := LookupEncryptionByDefault(ctx, opts...)
-		var s LookupEncryptionByDefaultResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupEncryptionByDefaultResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv LookupEncryptionByDefaultResult
+		secret, err := ctx.InvokePackageRaw("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil, &rv, "", opts...)
+		if err != nil {
+			return LookupEncryptionByDefaultResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(LookupEncryptionByDefaultResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(LookupEncryptionByDefaultResultOutput), nil
+		}
+		return output, nil
 	}).(LookupEncryptionByDefaultResultOutput)
 }
 

@@ -64,14 +64,20 @@ type GetApplicationProvidersResult struct {
 
 func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvidersOutputArgs, opts ...pulumi.InvokeOption) GetApplicationProvidersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetApplicationProvidersResult, error) {
+		ApplyT(func(v interface{}) (GetApplicationProvidersResultOutput, error) {
 			args := v.(GetApplicationProvidersArgs)
-			r, err := GetApplicationProviders(ctx, &args, opts...)
-			var s GetApplicationProvidersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetApplicationProvidersResult
+			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, &rv, "", opts...)
+			if err != nil {
+				return GetApplicationProvidersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetApplicationProvidersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetApplicationProvidersResultOutput), nil
+			}
+			return output, nil
 		}).(GetApplicationProvidersResultOutput)
 }
 

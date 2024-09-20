@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getLink:getLink", {
         "linkIdentifier": args.linkIdentifier,
@@ -99,7 +98,11 @@ export interface GetLinkResult {
  * ```
  */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply((a: any) => getLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:oam/getLink:getLink", {
+        "linkIdentifier": args.linkIdentifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

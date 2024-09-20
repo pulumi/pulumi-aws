@@ -84,14 +84,20 @@ type GetApplicationResult struct {
 
 func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, opts ...pulumi.InvokeOption) GetApplicationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetApplicationResult, error) {
+		ApplyT(func(v interface{}) (GetApplicationResultOutput, error) {
 			args := v.(GetApplicationArgs)
-			r, err := GetApplication(ctx, &args, opts...)
-			var s GetApplicationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetApplicationResult
+			secret, err := ctx.InvokePackageRaw("aws:serverlessrepository/getApplication:getApplication", args, &rv, "", opts...)
+			if err != nil {
+				return GetApplicationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetApplicationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetApplicationResultOutput), nil
+			}
+			return output, nil
 		}).(GetApplicationResultOutput)
 }
 

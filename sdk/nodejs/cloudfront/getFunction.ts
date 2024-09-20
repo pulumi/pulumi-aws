@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getFunction:getFunction", {
         "name": args.name,
@@ -103,7 +102,11 @@ export interface GetFunctionResult {
  * ```
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getFunction:getFunction", {
+        "name": args.name,
+        "stage": args.stage,
+    }, opts);
 }
 
 /**

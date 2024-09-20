@@ -72,14 +72,20 @@ type GetApisResult struct {
 
 func GetApisOutput(ctx *pulumi.Context, args GetApisOutputArgs, opts ...pulumi.InvokeOption) GetApisResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetApisResult, error) {
+		ApplyT(func(v interface{}) (GetApisResultOutput, error) {
 			args := v.(GetApisArgs)
-			r, err := GetApis(ctx, &args, opts...)
-			var s GetApisResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetApisResult
+			secret, err := ctx.InvokePackageRaw("aws:apigatewayv2/getApis:getApis", args, &rv, "", opts...)
+			if err != nil {
+				return GetApisResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetApisResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetApisResultOutput), nil
+			}
+			return output, nil
 		}).(GetApisResultOutput)
 }
 

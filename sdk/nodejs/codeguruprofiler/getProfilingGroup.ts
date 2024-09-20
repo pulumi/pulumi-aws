@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilingGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,
@@ -93,7 +92,10 @@ export interface GetProfilingGroupResult {
  * ```
  */
 export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
-    return pulumi.output(args).apply((a: any) => getProfilingGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

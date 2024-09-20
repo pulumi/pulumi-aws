@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersByPathResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getParametersByPath:getParametersByPath", {
         "path": args.path,
@@ -61,7 +60,12 @@ export interface GetParametersByPathResult {
     readonly withDecryption?: boolean;
 }
 export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersByPathResult> {
-    return pulumi.output(args).apply((a: any) => getParametersByPath(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getParametersByPath:getParametersByPath", {
+        "path": args.path,
+        "recursive": args.recursive,
+        "withDecryption": args.withDecryption,
+    }, opts);
 }
 
 /**

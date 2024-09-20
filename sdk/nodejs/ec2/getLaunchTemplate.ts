@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
         "filters": args.filters,
@@ -145,7 +144,14 @@ export interface GetLaunchTemplateResult {
  * ```
  */
 export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getLaunchTemplate:getLaunchTemplate", {
+        "filters": args.filters,
+        "id": args.id,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

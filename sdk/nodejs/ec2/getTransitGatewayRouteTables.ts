@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", {
         "filters": args.filters,
@@ -89,7 +88,12 @@ export interface GetTransitGatewayRouteTablesResult {
  * ```
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
-    return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTables(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

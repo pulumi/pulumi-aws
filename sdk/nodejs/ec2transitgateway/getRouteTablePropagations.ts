@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouteTablePropagations(args: GetRouteTablePropagationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablePropagationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", {
         "filters": args.filters,
@@ -83,7 +82,11 @@ export interface GetRouteTablePropagationsResult {
  * ```
  */
 export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablePropagationsResult> {
-    return pulumi.output(args).apply((a: any) => getRouteTablePropagations(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", {
+        "filters": args.filters,
+        "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
+    }, opts);
 }
 
 /**

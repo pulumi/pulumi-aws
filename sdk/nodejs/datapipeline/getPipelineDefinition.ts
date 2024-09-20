@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPipelineDefinition(args: GetPipelineDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,
@@ -81,7 +80,11 @@ export interface GetPipelineDefinitionResult {
  * ```
  */
 export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getPipelineDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
+        "parameterValues": args.parameterValues,
+        "pipelineId": args.pipelineId,
+    }, opts);
 }
 
 /**

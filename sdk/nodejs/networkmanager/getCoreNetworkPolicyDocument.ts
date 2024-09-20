@@ -89,7 +89,6 @@ import * as utilities from "../utilities";
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
  */
 export function getCoreNetworkPolicyDocument(args: GetCoreNetworkPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetCoreNetworkPolicyDocumentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,
@@ -229,7 +228,15 @@ export interface GetCoreNetworkPolicyDocumentResult {
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
  */
 export function getCoreNetworkPolicyDocumentOutput(args: GetCoreNetworkPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreNetworkPolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getCoreNetworkPolicyDocument(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
+        "attachmentPolicies": args.attachmentPolicies,
+        "coreNetworkConfigurations": args.coreNetworkConfigurations,
+        "networkFunctionGroups": args.networkFunctionGroups,
+        "segmentActions": args.segmentActions,
+        "segments": args.segments,
+        "version": args.version,
+    }, opts);
 }
 
 /**

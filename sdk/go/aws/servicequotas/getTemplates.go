@@ -69,14 +69,20 @@ type GetTemplatesResult struct {
 
 func GetTemplatesOutput(ctx *pulumi.Context, args GetTemplatesOutputArgs, opts ...pulumi.InvokeOption) GetTemplatesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTemplatesResult, error) {
+		ApplyT(func(v interface{}) (GetTemplatesResultOutput, error) {
 			args := v.(GetTemplatesArgs)
-			r, err := GetTemplates(ctx, &args, opts...)
-			var s GetTemplatesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTemplatesResult
+			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getTemplates:getTemplates", args, &rv, "", opts...)
+			if err != nil {
+				return GetTemplatesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTemplatesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTemplatesResultOutput), nil
+			}
+			return output, nil
 		}).(GetTemplatesResultOutput)
 }
 

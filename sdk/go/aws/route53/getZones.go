@@ -57,13 +57,19 @@ type GetZonesResult struct {
 }
 
 func GetZonesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetZonesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetZonesResult, error) {
-		r, err := GetZones(ctx, opts...)
-		var s GetZonesResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetZonesResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetZonesResult
+		secret, err := ctx.InvokePackageRaw("aws:route53/getZones:getZones", nil, &rv, "", opts...)
+		if err != nil {
+			return GetZonesResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetZonesResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetZonesResultOutput), nil
+		}
+		return output, nil
 	}).(GetZonesResultOutput)
 }
 

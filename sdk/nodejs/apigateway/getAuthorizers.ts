@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizers(args: GetAuthorizersArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getAuthorizers:getAuthorizers", {
         "restApiId": args.restApiId,
@@ -65,7 +64,10 @@ export interface GetAuthorizersResult {
  * ```
  */
 export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizersResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizers(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", {
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 /**

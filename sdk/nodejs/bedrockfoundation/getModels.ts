@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getModels(args?: GetModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetModelsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrockfoundation/getModels:getModels", {
         "byCustomizationType": args.byCustomizationType,
@@ -109,7 +108,14 @@ export interface GetModelsResult {
  * ```
  */
 export function getModelsOutput(args?: GetModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelsResult> {
-    return pulumi.output(args).apply((a: any) => getModels(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:bedrockfoundation/getModels:getModels", {
+        "byCustomizationType": args.byCustomizationType,
+        "byInferenceType": args.byInferenceType,
+        "byOutputModality": args.byOutputModality,
+        "byProvider": args.byProvider,
+    }, opts);
 }
 
 /**

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpost:getOutpost", {
         "arn": args.arn,
@@ -113,7 +112,15 @@ export interface GetOutpostResult {
  * ```
  */
 export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResult> {
-    return pulumi.output(args).apply((a: any) => getOutpost(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:outposts/getOutpost:getOutpost", {
+        "arn": args.arn,
+        "id": args.id,
+        "name": args.name,
+        "ownerId": args.ownerId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

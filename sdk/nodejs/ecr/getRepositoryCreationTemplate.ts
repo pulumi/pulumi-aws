@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryCreationTemplateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
         "prefix": args.prefix,
@@ -105,7 +104,11 @@ export interface GetRepositoryCreationTemplateResult {
  * ```
  */
 export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
-    return pulumi.output(args).apply((a: any) => getRepositoryCreationTemplate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
+        "prefix": args.prefix,
+        "resourceTags": args.resourceTags,
+    }, opts);
 }
 
 /**

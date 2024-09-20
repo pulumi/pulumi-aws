@@ -71,14 +71,20 @@ type LookupRealtimeLogConfigResult struct {
 
 func LookupRealtimeLogConfigOutput(ctx *pulumi.Context, args LookupRealtimeLogConfigOutputArgs, opts ...pulumi.InvokeOption) LookupRealtimeLogConfigResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRealtimeLogConfigResult, error) {
+		ApplyT(func(v interface{}) (LookupRealtimeLogConfigResultOutput, error) {
 			args := v.(LookupRealtimeLogConfigArgs)
-			r, err := LookupRealtimeLogConfig(ctx, &args, opts...)
-			var s LookupRealtimeLogConfigResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRealtimeLogConfigResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRealtimeLogConfigResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRealtimeLogConfigResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRealtimeLogConfigResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRealtimeLogConfigResultOutput)
 }
 

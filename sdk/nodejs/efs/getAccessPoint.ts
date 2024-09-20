@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoint:getAccessPoint", {
         "accessPointId": args.accessPointId,
@@ -94,7 +93,11 @@ export interface GetAccessPointResult {
  * ```
  */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:efs/getAccessPoint:getAccessPoint", {
+        "accessPointId": args.accessPointId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

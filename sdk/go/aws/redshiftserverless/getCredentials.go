@@ -75,14 +75,20 @@ type GetCredentialsResult struct {
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCredentialsResult, error) {
+		ApplyT(func(v interface{}) (GetCredentialsResultOutput, error) {
 			args := v.(GetCredentialsArgs)
-			r, err := GetCredentials(ctx, &args, opts...)
-			var s GetCredentialsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCredentialsResult
+			secret, err := ctx.InvokePackageRaw("aws:redshiftserverless/getCredentials:getCredentials", args, &rv, "", opts...)
+			if err != nil {
+				return GetCredentialsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCredentialsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCredentialsResultOutput), nil
+			}
+			return output, nil
 		}).(GetCredentialsResultOutput)
 }
 

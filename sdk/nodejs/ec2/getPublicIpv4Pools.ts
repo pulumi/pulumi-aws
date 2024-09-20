@@ -38,7 +38,6 @@ import * as utilities from "../utilities";
  */
 export function getPublicIpv4Pools(args?: GetPublicIpv4PoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpv4PoolsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", {
         "filters": args.filters,
@@ -108,7 +107,12 @@ export interface GetPublicIpv4PoolsResult {
  * ```
  */
 export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolsResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIpv4Pools(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

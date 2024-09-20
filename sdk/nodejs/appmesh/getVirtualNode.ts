@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualNode:getVirtualNode", {
         "meshName": args.meshName,
@@ -107,7 +106,13 @@ export interface GetVirtualNodeResult {
  * ```
  */
 export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualNode(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", {
+        "meshName": args.meshName,
+        "meshOwner": args.meshOwner,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

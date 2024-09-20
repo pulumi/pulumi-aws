@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRuleGroup(args: GetRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRuleGroup:getRuleGroup", {
         "name": args.name,
@@ -77,7 +76,11 @@ export interface GetRuleGroupResult {
  * ```
  */
 export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getRuleGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:wafv2/getRuleGroup:getRuleGroup", {
+        "name": args.name,
+        "scope": args.scope,
+    }, opts);
 }
 
 /**

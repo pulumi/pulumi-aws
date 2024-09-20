@@ -72,14 +72,20 @@ type GetProvisioningArtifactsResult struct {
 
 func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArtifactsOutputArgs, opts ...pulumi.InvokeOption) GetProvisioningArtifactsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetProvisioningArtifactsResult, error) {
+		ApplyT(func(v interface{}) (GetProvisioningArtifactsResultOutput, error) {
 			args := v.(GetProvisioningArtifactsArgs)
-			r, err := GetProvisioningArtifacts(ctx, &args, opts...)
-			var s GetProvisioningArtifactsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetProvisioningArtifactsResult
+			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, "", opts...)
+			if err != nil {
+				return GetProvisioningArtifactsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetProvisioningArtifactsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetProvisioningArtifactsResultOutput), nil
+			}
+			return output, nil
 		}).(GetProvisioningArtifactsResultOutput)
 }
 

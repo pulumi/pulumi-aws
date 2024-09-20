@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstanceType(args: GetInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceType:getInstanceType", {
         "instanceType": args.instanceType,
@@ -262,7 +261,10 @@ export interface GetInstanceTypeResult {
  * ```
  */
 export function getInstanceTypeOutput(args: GetInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getInstanceType:getInstanceType", {
+        "instanceType": args.instanceType,
+    }, opts);
 }
 
 /**

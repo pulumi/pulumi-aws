@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getReplicationInstance:getReplicationInstance", {
         "replicationInstanceId": args.replicationInstanceId,
@@ -124,7 +123,11 @@ export interface GetReplicationInstanceResult {
  * ```
  */
 export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationInstance(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:dms/getReplicationInstance:getReplicationInstance", {
+        "replicationInstanceId": args.replicationInstanceId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

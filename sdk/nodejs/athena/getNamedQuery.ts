@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetNamedQueryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:athena/getNamedQuery:getNamedQuery", {
         "name": args.name,
@@ -76,7 +75,11 @@ export interface GetNamedQueryResult {
  * ```
  */
 export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
-    return pulumi.output(args).apply((a: any) => getNamedQuery(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:athena/getNamedQuery:getNamedQuery", {
+        "name": args.name,
+        "workgroup": args.workgroup,
+    }, opts);
 }
 
 /**

@@ -81,14 +81,20 @@ type GetKeyResult struct {
 
 func GetKeyOutput(ctx *pulumi.Context, args GetKeyOutputArgs, opts ...pulumi.InvokeOption) GetKeyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetKeyResult, error) {
+		ApplyT(func(v interface{}) (GetKeyResultOutput, error) {
 			args := v.(GetKeyArgs)
-			r, err := GetKey(ctx, &args, opts...)
-			var s GetKeyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetKeyResult
+			secret, err := ctx.InvokePackageRaw("aws:apigateway/getKey:getKey", args, &rv, "", opts...)
+			if err != nil {
+				return GetKeyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetKeyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetKeyResultOutput), nil
+			}
+			return output, nil
 		}).(GetKeyResultOutput)
 }
 

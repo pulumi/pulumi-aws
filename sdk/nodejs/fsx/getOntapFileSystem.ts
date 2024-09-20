@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOntapFileSystem(args: GetOntapFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapFileSystemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOntapFileSystem:getOntapFileSystem", {
         "id": args.id,
@@ -160,7 +159,11 @@ export interface GetOntapFileSystemResult {
  * ```
  */
 export function getOntapFileSystemOutput(args: GetOntapFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapFileSystemResult> {
-    return pulumi.output(args).apply((a: any) => getOntapFileSystem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:fsx/getOntapFileSystem:getOntapFileSystem", {
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

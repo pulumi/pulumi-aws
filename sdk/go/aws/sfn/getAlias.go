@@ -79,14 +79,20 @@ type LookupAliasResult struct {
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAliasResult, error) {
+		ApplyT(func(v interface{}) (LookupAliasResultOutput, error) {
 			args := v.(LookupAliasArgs)
-			r, err := LookupAlias(ctx, &args, opts...)
-			var s LookupAliasResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAliasResult
+			secret, err := ctx.InvokePackageRaw("aws:sfn/getAlias:getAlias", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAliasResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAliasResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAliasResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAliasResultOutput)
 }
 

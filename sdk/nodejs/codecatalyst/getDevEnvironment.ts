@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDevEnvironment(args: GetDevEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetDevEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecatalyst/getDevEnvironment:getDevEnvironment", {
         "alias": args.alias,
@@ -142,7 +141,16 @@ export interface GetDevEnvironmentResult {
  * ```
  */
 export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getDevEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codecatalyst/getDevEnvironment:getDevEnvironment", {
+        "alias": args.alias,
+        "creatorId": args.creatorId,
+        "envId": args.envId,
+        "projectName": args.projectName,
+        "repositories": args.repositories,
+        "spaceName": args.spaceName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

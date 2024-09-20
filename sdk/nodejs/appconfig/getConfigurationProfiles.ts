@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationProfiles(args: GetConfigurationProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfilesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
         "applicationId": args.applicationId,
@@ -79,7 +78,10 @@ export interface GetConfigurationProfilesResult {
  * ```
  */
 export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationProfiles(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
+        "applicationId": args.applicationId,
+    }, opts);
 }
 
 /**

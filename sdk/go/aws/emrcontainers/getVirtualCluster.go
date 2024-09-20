@@ -79,14 +79,20 @@ type LookupVirtualClusterResult struct {
 
 func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVirtualClusterResult, error) {
+		ApplyT(func(v interface{}) (LookupVirtualClusterResultOutput, error) {
 			args := v.(LookupVirtualClusterArgs)
-			r, err := LookupVirtualCluster(ctx, &args, opts...)
-			var s LookupVirtualClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVirtualClusterResult
+			secret, err := ctx.InvokePackageRaw("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVirtualClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVirtualClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVirtualClusterResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVirtualClusterResultOutput)
 }
 

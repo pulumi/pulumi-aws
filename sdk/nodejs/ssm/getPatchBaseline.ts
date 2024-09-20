@@ -40,7 +40,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,
@@ -164,7 +163,13 @@ export interface GetPatchBaselineResult {
  * ```
  */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
-    return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getPatchBaseline:getPatchBaseline", {
+        "defaultBaseline": args.defaultBaseline,
+        "namePrefix": args.namePrefix,
+        "operatingSystem": args.operatingSystem,
+        "owner": args.owner,
+    }, opts);
 }
 
 /**

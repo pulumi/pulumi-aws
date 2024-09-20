@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDirectoryBuckets(opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", {
     }, opts);
@@ -50,5 +49,7 @@ export interface GetDirectoryBucketsResult {
  * ```
  */
 export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketsResult> {
-    return pulumi.output(getDirectoryBuckets(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", {
+    }, opts);
 }

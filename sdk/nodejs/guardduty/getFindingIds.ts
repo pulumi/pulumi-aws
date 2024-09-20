@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFindingIds(args: GetFindingIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingIdsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getFindingIds:getFindingIds", {
         "detectorId": args.detectorId,
@@ -70,7 +69,10 @@ export interface GetFindingIdsResult {
  * ```
  */
 export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingIdsResult> {
-    return pulumi.output(args).apply((a: any) => getFindingIds(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:guardduty/getFindingIds:getFindingIds", {
+        "detectorId": args.detectorId,
+    }, opts);
 }
 
 /**

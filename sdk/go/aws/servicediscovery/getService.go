@@ -90,14 +90,20 @@ type LookupServiceResult struct {
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceResultOutput, error) {
 			args := v.(LookupServiceArgs)
-			r, err := LookupService(ctx, &args, opts...)
-			var s LookupServiceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceResult
+			secret, err := ctx.InvokePackageRaw("aws:servicediscovery/getService:getService", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceResultOutput)
 }
 

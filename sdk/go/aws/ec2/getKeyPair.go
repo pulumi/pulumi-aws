@@ -100,14 +100,20 @@ type LookupKeyPairResult struct {
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupKeyPairResult, error) {
+		ApplyT(func(v interface{}) (LookupKeyPairResultOutput, error) {
 			args := v.(LookupKeyPairArgs)
-			r, err := LookupKeyPair(ctx, &args, opts...)
-			var s LookupKeyPairResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupKeyPairResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getKeyPair:getKeyPair", args, &rv, "", opts...)
+			if err != nil {
+				return LookupKeyPairResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupKeyPairResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupKeyPairResultOutput), nil
+			}
+			return output, nil
 		}).(LookupKeyPairResultOutput)
 }
 

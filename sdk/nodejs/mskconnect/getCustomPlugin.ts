@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
@@ -86,7 +85,11 @@ export interface GetCustomPluginResult {
  * ```
  */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
-    return pulumi.output(args).apply((a: any) => getCustomPlugin(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

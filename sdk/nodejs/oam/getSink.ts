@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise<GetSinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getSink:getSink", {
         "sinkIdentifier": args.sinkIdentifier,
@@ -86,7 +85,11 @@ export interface GetSinkResult {
  * ```
  */
 export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSinkResult> {
-    return pulumi.output(args).apply((a: any) => getSink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:oam/getSink:getSink", {
+        "sinkIdentifier": args.sinkIdentifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  */
 export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getDedicatedHost:getDedicatedHost", {
         "filters": args.filters,
@@ -158,7 +157,13 @@ export interface GetDedicatedHostResult {
  * ```
  */
 export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
-    return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getDedicatedHost:getDedicatedHost", {
+        "filters": args.filters,
+        "hostId": args.hostId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

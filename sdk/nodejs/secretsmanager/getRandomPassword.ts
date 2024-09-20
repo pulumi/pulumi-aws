@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", {
         "excludeCharacters": args.excludeCharacters,
@@ -110,7 +109,18 @@ export interface GetRandomPasswordResult {
  * ```
  */
 export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
-    return pulumi.output(args).apply((a: any) => getRandomPassword(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:secretsmanager/getRandomPassword:getRandomPassword", {
+        "excludeCharacters": args.excludeCharacters,
+        "excludeLowercase": args.excludeLowercase,
+        "excludeNumbers": args.excludeNumbers,
+        "excludePunctuation": args.excludePunctuation,
+        "excludeUppercase": args.excludeUppercase,
+        "includeSpace": args.includeSpace,
+        "passwordLength": args.passwordLength,
+        "requireEachIncludedType": args.requireEachIncludedType,
+    }, opts);
 }
 
 /**

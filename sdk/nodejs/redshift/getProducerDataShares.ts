@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pulumi.InvokeOptions): Promise<GetProducerDataSharesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getProducerDataShares:getProducerDataShares", {
         "dataShares": args.dataShares,
@@ -88,7 +87,12 @@ export interface GetProducerDataSharesResult {
  * ```
  */
 export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProducerDataSharesResult> {
-    return pulumi.output(args).apply((a: any) => getProducerDataShares(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", {
+        "dataShares": args.dataShares,
+        "producerArn": args.producerArn,
+        "status": args.status,
+    }, opts);
 }
 
 /**

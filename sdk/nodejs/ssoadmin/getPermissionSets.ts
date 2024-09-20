@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPermissionSets(args: GetPermissionSetsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionSetsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getPermissionSets:getPermissionSets", {
         "instanceArn": args.instanceArn,
@@ -68,7 +67,10 @@ export interface GetPermissionSetsResult {
  * ```
  */
 export function getPermissionSetsOutput(args: GetPermissionSetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetsResult> {
-    return pulumi.output(args).apply((a: any) => getPermissionSets(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssoadmin/getPermissionSets:getPermissionSets", {
+        "instanceArn": args.instanceArn,
+    }, opts);
 }
 
 /**

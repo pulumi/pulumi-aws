@@ -78,14 +78,20 @@ type LookupProfilingGroupResult struct {
 
 func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProfilingGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupProfilingGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupProfilingGroupResultOutput, error) {
 			args := v.(LookupProfilingGroupArgs)
-			r, err := LookupProfilingGroup(ctx, &args, opts...)
-			var s LookupProfilingGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupProfilingGroupResult
+			secret, err := ctx.InvokePackageRaw("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupProfilingGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupProfilingGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupProfilingGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupProfilingGroupResultOutput)
 }
 

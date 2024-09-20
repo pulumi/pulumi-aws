@@ -79,14 +79,20 @@ type GetCipherTextResult struct {
 
 func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts ...pulumi.InvokeOption) GetCipherTextResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetCipherTextResult, error) {
+		ApplyT(func(v interface{}) (GetCipherTextResultOutput, error) {
 			args := v.(GetCipherTextArgs)
-			r, err := GetCipherText(ctx, &args, opts...)
-			var s GetCipherTextResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetCipherTextResult
+			secret, err := ctx.InvokePackageRaw("aws:kms/getCipherText:getCipherText", args, &rv, "", opts...)
+			if err != nil {
+				return GetCipherTextResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetCipherTextResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetCipherTextResultOutput), nil
+			}
+			return output, nil
 		}).(GetCipherTextResultOutput)
 }
 

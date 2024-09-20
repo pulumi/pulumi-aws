@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getProtection(args?: GetProtectionArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:shield/getProtection:getProtection", {
         "protectionId": args.protectionId,
@@ -99,7 +98,12 @@ export interface GetProtectionResult {
  * ```
  */
 export function getProtectionOutput(args?: GetProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionResult> {
-    return pulumi.output(args).apply((a: any) => getProtection(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:shield/getProtection:getProtection", {
+        "protectionId": args.protectionId,
+        "resourceArn": args.resourceArn,
+    }, opts);
 }
 
 /**

@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
         "filters": args.filters,
@@ -82,7 +81,12 @@ export interface GetNotificationChannelResult {
  * ```
  */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
-    return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
+        "filters": args.filters,
+        "id": args.id,
+        "sns": args.sns,
+    }, opts);
 }
 
 /**

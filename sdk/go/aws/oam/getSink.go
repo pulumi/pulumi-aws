@@ -75,14 +75,20 @@ type LookupSinkResult struct {
 
 func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pulumi.InvokeOption) LookupSinkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSinkResult, error) {
+		ApplyT(func(v interface{}) (LookupSinkResultOutput, error) {
 			args := v.(LookupSinkArgs)
-			r, err := LookupSink(ctx, &args, opts...)
-			var s LookupSinkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSinkResult
+			secret, err := ctx.InvokePackageRaw("aws:oam/getSink:getSink", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSinkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSinkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSinkResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSinkResultOutput)
 }
 

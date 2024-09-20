@@ -8,7 +8,6 @@ import * as utilities from "../utilities";
  * Retrieve EKS Clusters list
  */
 export function getClusters(opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getClusters:getClusters", {
     }, opts);
@@ -31,5 +30,7 @@ export interface GetClustersResult {
  * Retrieve EKS Clusters list
  */
 export function getClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClustersResult> {
-    return pulumi.output(getClusters(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:eks/getClusters:getClusters", {
+    }, opts);
 }

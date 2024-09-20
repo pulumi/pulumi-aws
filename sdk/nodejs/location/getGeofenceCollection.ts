@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGeofenceCollection(args: GetGeofenceCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGeofenceCollectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getGeofenceCollection:getGeofenceCollection", {
         "collectionName": args.collectionName,
@@ -99,7 +98,12 @@ export interface GetGeofenceCollectionResult {
  * ```
  */
 export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getGeofenceCollection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:location/getGeofenceCollection:getGeofenceCollection", {
+        "collectionName": args.collectionName,
+        "kmsKeyId": args.kmsKeyId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

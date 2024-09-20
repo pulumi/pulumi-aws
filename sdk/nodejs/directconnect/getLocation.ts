@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,
@@ -83,7 +82,10 @@ export interface GetLocationResult {
  * ```
  */
 export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
-    return pulumi.output(args).apply((a: any) => getLocation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:directconnect/getLocation:getLocation", {
+        "locationCode": args.locationCode,
+    }, opts);
 }
 
 /**

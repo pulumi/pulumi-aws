@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:memorydb/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
@@ -86,7 +85,11 @@ export interface GetSubnetGroupResult {
  * ```
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getSubnetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:memorydb/getSubnetGroup:getSubnetGroup", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

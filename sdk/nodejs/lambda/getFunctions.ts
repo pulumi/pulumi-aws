@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunctions(opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getFunctions:getFunctions", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetFunctionsResult {
  * ```
  */
 export function getFunctionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsResult> {
-    return pulumi.output(getFunctions(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lambda/getFunctions:getFunctions", {
+    }, opts);
 }

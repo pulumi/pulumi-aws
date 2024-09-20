@@ -38,7 +38,6 @@ import * as utilities from "../utilities";
  */
 export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {
         "id": args.id,
@@ -125,7 +124,12 @@ export interface GetResponseHeadersPolicyResult {
  * ```
  */
 export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getResponseHeadersPolicy(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

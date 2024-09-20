@@ -72,14 +72,20 @@ type GetMaintenanceWindowsResult struct {
 
 func GetMaintenanceWindowsOutput(ctx *pulumi.Context, args GetMaintenanceWindowsOutputArgs, opts ...pulumi.InvokeOption) GetMaintenanceWindowsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetMaintenanceWindowsResult, error) {
+		ApplyT(func(v interface{}) (GetMaintenanceWindowsResultOutput, error) {
 			args := v.(GetMaintenanceWindowsArgs)
-			r, err := GetMaintenanceWindows(ctx, &args, opts...)
-			var s GetMaintenanceWindowsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetMaintenanceWindowsResult
+			secret, err := ctx.InvokePackageRaw("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args, &rv, "", opts...)
+			if err != nil {
+				return GetMaintenanceWindowsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetMaintenanceWindowsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetMaintenanceWindowsResultOutput), nil
+			}
+			return output, nil
 		}).(GetMaintenanceWindowsResultOutput)
 }
 

@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstance:getInstance", {
         "filters": args.filters,
@@ -291,7 +290,16 @@ export interface GetInstanceResult {
  * ```
  */
 export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getInstance(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getInstance:getInstance", {
+        "filters": args.filters,
+        "getPasswordData": args.getPasswordData,
+        "getUserData": args.getUserData,
+        "instanceId": args.instanceId,
+        "instanceTags": args.instanceTags,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

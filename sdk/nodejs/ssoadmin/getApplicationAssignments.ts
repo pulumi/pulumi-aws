@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplicationAssignments(args: GetApplicationAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAssignmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,
@@ -77,7 +76,11 @@ export interface GetApplicationAssignmentsResult {
  * ```
  */
 export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAssignmentsResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationAssignments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
+        "applicationArn": args.applicationArn,
+        "applicationAssignments": args.applicationAssignments,
+    }, opts);
 }
 
 /**

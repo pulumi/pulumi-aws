@@ -77,14 +77,20 @@ type LookupServerlessSecurityPolicyResult struct {
 
 func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServerlessSecurityPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServerlessSecurityPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupServerlessSecurityPolicyResultOutput, error) {
 			args := v.(LookupServerlessSecurityPolicyArgs)
-			r, err := LookupServerlessSecurityPolicy(ctx, &args, opts...)
-			var s LookupServerlessSecurityPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServerlessSecurityPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServerlessSecurityPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServerlessSecurityPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServerlessSecurityPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServerlessSecurityPolicyResultOutput)
 }
 

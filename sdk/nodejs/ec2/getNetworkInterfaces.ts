@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
         "filters": args.filters,
@@ -153,7 +152,12 @@ export interface GetNetworkInterfacesResult {
  * ```
  */
 export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacesResult> {
-    return pulumi.output(args).apply((a: any) => getNetworkInterfaces(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

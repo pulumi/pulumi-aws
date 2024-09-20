@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
@@ -85,7 +84,11 @@ export interface GetAliasResult {
  * ```
  */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lambda/getAlias:getAlias", {
+        "functionName": args.functionName,
+        "name": args.name,
+    }, opts);
 }
 
 /**

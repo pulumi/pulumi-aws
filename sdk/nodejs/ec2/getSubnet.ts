@@ -54,7 +54,6 @@ import * as utilities from "../utilities";
  */
 export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSubnet:getSubnet", {
         "availabilityZone": args.availabilityZone,
@@ -237,7 +236,20 @@ export interface GetSubnetResult {
  * ```
  */
 export function getSubnetOutput(args?: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getSubnet:getSubnet", {
+        "availabilityZone": args.availabilityZone,
+        "availabilityZoneId": args.availabilityZoneId,
+        "cidrBlock": args.cidrBlock,
+        "defaultForAz": args.defaultForAz,
+        "filters": args.filters,
+        "id": args.id,
+        "ipv6CidrBlock": args.ipv6CidrBlock,
+        "state": args.state,
+        "tags": args.tags,
+        "vpcId": args.vpcId,
+    }, opts);
 }
 
 /**

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
@@ -131,7 +130,10 @@ export interface GetLaunchConfigurationResult {
  * ```
  */
 export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getLaunchConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getIpset:getIpset", {
         "name": args.name,
@@ -61,7 +60,10 @@ export interface GetIpsetResult {
  * ```
  */
 export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
-    return pulumi.output(args).apply((a: any) => getIpset(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:wafregional/getIpset:getIpset", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkerConfigurationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
         "name": args.name,
@@ -86,7 +85,11 @@ export interface GetWorkerConfigurationResult {
  * ```
  */
 export function getWorkerConfigurationOutput(args: GetWorkerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkerConfigurationResult> {
-    return pulumi.output(args).apply((a: any) => getWorkerConfiguration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

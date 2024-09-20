@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", {
         "clientVpnEndpointId": args.clientVpnEndpointId,
@@ -181,7 +180,13 @@ export interface GetEndpointResult {
  * ```
  */
 export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2clientvpn/getEndpoint:getEndpoint", {
+        "clientVpnEndpointId": args.clientVpnEndpointId,
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

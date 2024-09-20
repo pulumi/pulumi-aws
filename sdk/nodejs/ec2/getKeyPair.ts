@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getKeyPair:getKeyPair", {
         "filters": args.filters,
@@ -132,7 +131,15 @@ export interface GetKeyPairResult {
  * ```
  */
 export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
-    return pulumi.output(args).apply((a: any) => getKeyPair(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getKeyPair:getKeyPair", {
+        "filters": args.filters,
+        "includePublicKey": args.includePublicKey,
+        "keyName": args.keyName,
+        "keyPairId": args.keyPairId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -73,14 +73,20 @@ type GetEventSourceResult struct {
 
 func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, opts ...pulumi.InvokeOption) GetEventSourceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEventSourceResult, error) {
+		ApplyT(func(v interface{}) (GetEventSourceResultOutput, error) {
 			args := v.(GetEventSourceArgs)
-			r, err := GetEventSource(ctx, &args, opts...)
-			var s GetEventSourceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEventSourceResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventSource:getEventSource", args, &rv, "", opts...)
+			if err != nil {
+				return GetEventSourceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEventSourceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEventSourceResultOutput), nil
+			}
+			return output, nil
 		}).(GetEventSourceResultOutput)
 }
 

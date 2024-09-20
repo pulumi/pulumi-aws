@@ -69,14 +69,20 @@ type LookupPullThroughCacheRuleResult struct {
 
 func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroughCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupPullThroughCacheRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPullThroughCacheRuleResult, error) {
+		ApplyT(func(v interface{}) (LookupPullThroughCacheRuleResultOutput, error) {
 			args := v.(LookupPullThroughCacheRuleArgs)
-			r, err := LookupPullThroughCacheRule(ctx, &args, opts...)
-			var s LookupPullThroughCacheRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPullThroughCacheRuleResult
+			secret, err := ctx.InvokePackageRaw("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPullThroughCacheRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPullThroughCacheRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPullThroughCacheRuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPullThroughCacheRuleResultOutput)
 }
 

@@ -73,14 +73,20 @@ type LookupServerlessVpcEndpointResult struct {
 
 func LookupServerlessVpcEndpointOutput(ctx *pulumi.Context, args LookupServerlessVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessVpcEndpointResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServerlessVpcEndpointResult, error) {
+		ApplyT(func(v interface{}) (LookupServerlessVpcEndpointResultOutput, error) {
 			args := v.(LookupServerlessVpcEndpointArgs)
-			r, err := LookupServerlessVpcEndpoint(ctx, &args, opts...)
-			var s LookupServerlessVpcEndpointResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServerlessVpcEndpointResult
+			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServerlessVpcEndpointResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServerlessVpcEndpointResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServerlessVpcEndpointResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServerlessVpcEndpointResultOutput)
 }
 

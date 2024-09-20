@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  */
 export function getOpenIdConnectProvider(args?: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", {
         "arn": args.arn,
@@ -107,7 +106,13 @@ export interface GetOpenIdConnectProviderResult {
  * ```
  */
 export function getOpenIdConnectProviderOutput(args?: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
-    return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", {
+        "arn": args.arn,
+        "tags": args.tags,
+        "url": args.url,
+    }, opts);
 }
 
 /**

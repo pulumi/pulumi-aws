@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getExport:getExport", {
         "apiId": args.apiId,
@@ -99,7 +98,15 @@ export interface GetExportResult {
  * ```
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply((a: any) => getExport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigatewayv2/getExport:getExport", {
+        "apiId": args.apiId,
+        "exportVersion": args.exportVersion,
+        "includeExtensions": args.includeExtensions,
+        "outputType": args.outputType,
+        "specification": args.specification,
+        "stageName": args.stageName,
+    }, opts);
 }
 
 /**

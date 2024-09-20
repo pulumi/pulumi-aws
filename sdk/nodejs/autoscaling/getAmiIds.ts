@@ -43,7 +43,6 @@ import * as utilities from "../utilities";
  */
 export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiIdsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:autoscaling/getAmiIds:getAmiIds", {
         "filters": args.filters,
@@ -118,7 +117,12 @@ export interface GetAmiIdsResult {
  * ```
  */
 export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
-    return pulumi.output(args).apply((a: any) => getAmiIds(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:autoscaling/getAmiIds:getAmiIds", {
+        "filters": args.filters,
+        "names": args.names,
+    }, opts);
 }
 
 /**

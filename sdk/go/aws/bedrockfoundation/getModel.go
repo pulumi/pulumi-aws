@@ -84,14 +84,20 @@ type GetModelResult struct {
 
 func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi.InvokeOption) GetModelResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetModelResult, error) {
+		ApplyT(func(v interface{}) (GetModelResultOutput, error) {
 			args := v.(GetModelArgs)
-			r, err := GetModel(ctx, &args, opts...)
-			var s GetModelResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetModelResult
+			secret, err := ctx.InvokePackageRaw("aws:bedrockfoundation/getModel:getModel", args, &rv, "", opts...)
+			if err != nil {
+				return GetModelResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetModelResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetModelResultOutput), nil
+			}
+			return output, nil
 		}).(GetModelResultOutput)
 }
 

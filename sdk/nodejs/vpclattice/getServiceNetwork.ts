@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
         "serviceNetworkIdentifier": args.serviceNetworkIdentifier,
@@ -96,7 +95,11 @@ export interface GetServiceNetworkResult {
  * ```
  */
 export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getServiceNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
+        "serviceNetworkIdentifier": args.serviceNetworkIdentifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

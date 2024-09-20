@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "engineType": args.engineType,
@@ -114,7 +113,13 @@ export interface GetInstanceTypeOfferingsResult {
  * ```
  */
 export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
-    return pulumi.output(args).apply((a: any) => getInstanceTypeOfferings(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {
+        "engineType": args.engineType,
+        "hostInstanceType": args.hostInstanceType,
+        "storageType": args.storageType,
+    }, opts);
 }
 
 /**

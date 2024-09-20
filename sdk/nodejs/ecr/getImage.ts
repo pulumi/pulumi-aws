@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getImage:getImage", {
         "imageDigest": args.imageDigest,
@@ -103,7 +102,14 @@ export interface GetImageResult {
  * ```
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecr/getImage:getImage", {
+        "imageDigest": args.imageDigest,
+        "imageTag": args.imageTag,
+        "mostRecent": args.mostRecent,
+        "registryId": args.registryId,
+        "repositoryName": args.repositoryName,
+    }, opts);
 }
 
 /**

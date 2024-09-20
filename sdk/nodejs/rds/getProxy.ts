@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetProxyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getProxy:getProxy", {
         "name": args.name,
@@ -108,7 +107,10 @@ export interface GetProxyResult {
  * ```
  */
 export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProxyResult> {
-    return pulumi.output(args).apply((a: any) => getProxy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getProxy:getProxy", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

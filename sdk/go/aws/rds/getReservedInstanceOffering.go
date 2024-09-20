@@ -85,14 +85,20 @@ type GetReservedInstanceOfferingResult struct {
 
 func GetReservedInstanceOfferingOutput(ctx *pulumi.Context, args GetReservedInstanceOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedInstanceOfferingResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetReservedInstanceOfferingResult, error) {
+		ApplyT(func(v interface{}) (GetReservedInstanceOfferingResultOutput, error) {
 			args := v.(GetReservedInstanceOfferingArgs)
-			r, err := GetReservedInstanceOffering(ctx, &args, opts...)
-			var s GetReservedInstanceOfferingResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetReservedInstanceOfferingResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args, &rv, "", opts...)
+			if err != nil {
+				return GetReservedInstanceOfferingResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetReservedInstanceOfferingResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetReservedInstanceOfferingResultOutput), nil
+			}
+			return output, nil
 		}).(GetReservedInstanceOfferingResultOutput)
 }
 

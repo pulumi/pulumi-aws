@@ -57,13 +57,19 @@ type GetFunctionsResult struct {
 }
 
 func GetFunctionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetFunctionsResult, error) {
-		r, err := GetFunctions(ctx, opts...)
-		var s GetFunctionsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetFunctionsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetFunctionsResult
+		secret, err := ctx.InvokePackageRaw("aws:lambda/getFunctions:getFunctions", nil, &rv, "", opts...)
+		if err != nil {
+			return GetFunctionsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetFunctionsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetFunctionsResultOutput), nil
+		}
+		return output, nil
 	}).(GetFunctionsResultOutput)
 }
 

@@ -75,14 +75,20 @@ type LookupIpSetResult struct {
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupIpSetResult, error) {
+		ApplyT(func(v interface{}) (LookupIpSetResultOutput, error) {
 			args := v.(LookupIpSetArgs)
-			r, err := LookupIpSet(ctx, &args, opts...)
-			var s LookupIpSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupIpSetResult
+			secret, err := ctx.InvokePackageRaw("aws:wafv2/getIpSet:getIpSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupIpSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupIpSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupIpSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupIpSetResultOutput)
 }
 

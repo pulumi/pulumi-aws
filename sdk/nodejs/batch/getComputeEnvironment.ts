@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,
@@ -107,7 +106,11 @@ export interface GetComputeEnvironmentResult {
  * ```
  */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
-    return pulumi.output(args).apply((a: any) => getComputeEnvironment(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", {
+        "computeEnvironmentName": args.computeEnvironmentName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

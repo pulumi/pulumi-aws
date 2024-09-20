@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function search(args: SearchArgs, opts?: pulumi.InvokeOptions): Promise<SearchResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:resourceexplorer/search:Search", {
         "queryString": args.queryString,
@@ -86,7 +85,11 @@ export interface SearchResult {
  * ```
  */
 export function searchOutput(args: SearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<SearchResult> {
-    return pulumi.output(args).apply((a: any) => search(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:resourceexplorer/search:Search", {
+        "queryString": args.queryString,
+        "viewArn": args.viewArn,
+    }, opts);
 }
 
 /**

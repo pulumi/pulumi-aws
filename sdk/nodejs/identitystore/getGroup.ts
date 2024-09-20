@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,
@@ -119,7 +118,13 @@ export interface GetGroupResult {
  * ```
  */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:identitystore/getGroup:getGroup", {
+        "alternateIdentifier": args.alternateIdentifier,
+        "filter": args.filter,
+        "groupId": args.groupId,
+        "identityStoreId": args.identityStoreId,
+    }, opts);
 }
 
 /**

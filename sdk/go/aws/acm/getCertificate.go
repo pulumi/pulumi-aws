@@ -115,14 +115,20 @@ type LookupCertificateResult struct {
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+		ApplyT(func(v interface{}) (LookupCertificateResultOutput, error) {
 			args := v.(LookupCertificateArgs)
-			r, err := LookupCertificate(ctx, &args, opts...)
-			var s LookupCertificateResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCertificateResult
+			secret, err := ctx.InvokePackageRaw("aws:acm/getCertificate:getCertificate", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCertificateResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCertificateResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCertificateResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCertificateResultOutput)
 }
 

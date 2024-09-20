@@ -179,14 +179,20 @@ type GetRolesResult struct {
 
 func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi.InvokeOption) GetRolesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRolesResult, error) {
+		ApplyT(func(v interface{}) (GetRolesResultOutput, error) {
 			args := v.(GetRolesArgs)
-			r, err := GetRoles(ctx, &args, opts...)
-			var s GetRolesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRolesResult
+			secret, err := ctx.InvokePackageRaw("aws:iam/getRoles:getRoles", args, &rv, "", opts...)
+			if err != nil {
+				return GetRolesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRolesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRolesResultOutput), nil
+			}
+			return output, nil
 		}).(GetRolesResultOutput)
 }
 

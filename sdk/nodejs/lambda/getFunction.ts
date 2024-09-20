@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getFunction:getFunction", {
         "functionName": args.functionName,
@@ -199,7 +198,12 @@ export interface GetFunctionResult {
  * ```
  */
 export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
-    return pulumi.output(args).apply((a: any) => getFunction(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lambda/getFunction:getFunction", {
+        "functionName": args.functionName,
+        "qualifier": args.qualifier,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

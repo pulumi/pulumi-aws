@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIpv4Pool(args: GetPublicIpv4PoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpv4PoolResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", {
         "poolId": args.poolId,
@@ -95,7 +94,11 @@ export interface GetPublicIpv4PoolResult {
  * ```
  */
 export function getPublicIpv4PoolOutput(args: GetPublicIpv4PoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolResult> {
-    return pulumi.output(args).apply((a: any) => getPublicIpv4Pool(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", {
+        "poolId": args.poolId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

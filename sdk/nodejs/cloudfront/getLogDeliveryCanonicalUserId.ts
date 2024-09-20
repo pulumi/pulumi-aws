@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  */
 export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUserIdArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {
         "region": args.region,
@@ -86,7 +85,11 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * ```
  */
 export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
-    return pulumi.output(args).apply((a: any) => getLogDeliveryCanonicalUserId(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {
+        "region": args.region,
+    }, opts);
 }
 
 /**

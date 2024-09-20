@@ -63,14 +63,20 @@ type GetIpsetResult struct {
 
 func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetIpsetResult, error) {
+		ApplyT(func(v interface{}) (GetIpsetResultOutput, error) {
 			args := v.(GetIpsetArgs)
-			r, err := GetIpset(ctx, &args, opts...)
-			var s GetIpsetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetIpsetResult
+			secret, err := ctx.InvokePackageRaw("aws:wafregional/getIpset:getIpset", args, &rv, "", opts...)
+			if err != nil {
+				return GetIpsetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetIpsetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetIpsetResultOutput), nil
+			}
+			return output, nil
 		}).(GetIpsetResultOutput)
 }
 

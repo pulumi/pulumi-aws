@@ -102,14 +102,20 @@ type LookupLayerVersionResult struct {
 
 func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutputArgs, opts ...pulumi.InvokeOption) LookupLayerVersionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupLayerVersionResult, error) {
+		ApplyT(func(v interface{}) (LookupLayerVersionResultOutput, error) {
 			args := v.(LookupLayerVersionArgs)
-			r, err := LookupLayerVersion(ctx, &args, opts...)
-			var s LookupLayerVersionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupLayerVersionResult
+			secret, err := ctx.InvokePackageRaw("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, "", opts...)
+			if err != nil {
+				return LookupLayerVersionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupLayerVersionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupLayerVersionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupLayerVersionResultOutput)
 }
 

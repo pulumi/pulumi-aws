@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  */
 export function getBrokerEngineTypes(args?: GetBrokerEngineTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerEngineTypesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
         "engineType": args.engineType,
@@ -76,7 +75,11 @@ export interface GetBrokerEngineTypesResult {
  * ```
  */
 export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerEngineTypesResult> {
-    return pulumi.output(args).apply((a: any) => getBrokerEngineTypes(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
+        "engineType": args.engineType,
+    }, opts);
 }
 
 /**

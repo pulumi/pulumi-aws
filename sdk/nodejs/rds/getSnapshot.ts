@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  */
 export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getSnapshot:getSnapshot", {
         "dbInstanceIdentifier": args.dbInstanceIdentifier,
@@ -216,7 +215,17 @@ export interface GetSnapshotResult {
  * ```
  */
 export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getSnapshot:getSnapshot", {
+        "dbInstanceIdentifier": args.dbInstanceIdentifier,
+        "dbSnapshotIdentifier": args.dbSnapshotIdentifier,
+        "includePublic": args.includePublic,
+        "includeShared": args.includeShared,
+        "mostRecent": args.mostRecent,
+        "snapshotType": args.snapshotType,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

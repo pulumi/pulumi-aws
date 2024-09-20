@@ -65,14 +65,20 @@ type GetDelegatedServicesResult struct {
 
 func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedServicesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDelegatedServicesResult, error) {
+		ApplyT(func(v interface{}) (GetDelegatedServicesResultOutput, error) {
 			args := v.(GetDelegatedServicesArgs)
-			r, err := GetDelegatedServices(ctx, &args, opts...)
-			var s GetDelegatedServicesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDelegatedServicesResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getDelegatedServices:getDelegatedServices", args, &rv, "", opts...)
+			if err != nil {
+				return GetDelegatedServicesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDelegatedServicesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDelegatedServicesResultOutput), nil
+			}
+			return output, nil
 		}).(GetDelegatedServicesResultOutput)
 }
 

@@ -76,14 +76,20 @@ type GetDirectConnectGatewayAttachmentResult struct {
 
 func GetDirectConnectGatewayAttachmentOutput(ctx *pulumi.Context, args GetDirectConnectGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetDirectConnectGatewayAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDirectConnectGatewayAttachmentResult, error) {
+		ApplyT(func(v interface{}) (GetDirectConnectGatewayAttachmentResultOutput, error) {
 			args := v.(GetDirectConnectGatewayAttachmentArgs)
-			r, err := GetDirectConnectGatewayAttachment(ctx, &args, opts...)
-			var s GetDirectConnectGatewayAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDirectConnectGatewayAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return GetDirectConnectGatewayAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDirectConnectGatewayAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDirectConnectGatewayAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(GetDirectConnectGatewayAttachmentResultOutput)
 }
 

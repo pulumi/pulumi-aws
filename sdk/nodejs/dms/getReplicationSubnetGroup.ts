@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", {
         "replicationSubnetGroupId": args.replicationSubnetGroupId,
@@ -82,7 +81,11 @@ export interface GetReplicationSubnetGroupResult {
  * ```
  */
 export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
-    return pulumi.output(args).apply((a: any) => getReplicationSubnetGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", {
+        "replicationSubnetGroupId": args.replicationSubnetGroupId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

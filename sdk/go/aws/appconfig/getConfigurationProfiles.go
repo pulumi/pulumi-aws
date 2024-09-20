@@ -42,14 +42,20 @@ type GetConfigurationProfilesResult struct {
 
 func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationProfilesOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationProfilesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetConfigurationProfilesResult, error) {
+		ApplyT(func(v interface{}) (GetConfigurationProfilesResultOutput, error) {
 			args := v.(GetConfigurationProfilesArgs)
-			r, err := GetConfigurationProfiles(ctx, &args, opts...)
-			var s GetConfigurationProfilesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetConfigurationProfilesResult
+			secret, err := ctx.InvokePackageRaw("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, "", opts...)
+			if err != nil {
+				return GetConfigurationProfilesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetConfigurationProfilesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetConfigurationProfilesResultOutput), nil
+			}
+			return output, nil
 		}).(GetConfigurationProfilesResultOutput)
 }
 

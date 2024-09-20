@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,
@@ -73,7 +72,11 @@ export interface GetTrackerAssociationResult {
  * ```
  */
 export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getTrackerAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", {
+        "consumerArn": args.consumerArn,
+        "trackerName": args.trackerName,
+    }, opts);
 }
 
 /**

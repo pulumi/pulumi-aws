@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSelectionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
@@ -81,7 +80,11 @@ export interface GetSelectionResult {
  * ```
  */
 export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
-    return pulumi.output(args).apply((a: any) => getSelection(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:backup/getSelection:getSelection", {
+        "planId": args.planId,
+        "selectionId": args.selectionId,
+    }, opts);
 }
 
 /**

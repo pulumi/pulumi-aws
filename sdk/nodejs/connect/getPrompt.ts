@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
@@ -81,7 +80,11 @@ export interface GetPromptResult {
  * ```
  */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
-    return pulumi.output(args).apply((a: any) => getPrompt(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getPrompt:getPrompt", {
+        "instanceId": args.instanceId,
+        "name": args.name,
+    }, opts);
 }
 
 /**

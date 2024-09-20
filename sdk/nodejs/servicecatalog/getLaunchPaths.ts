@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
@@ -80,7 +79,11 @@ export interface GetLaunchPathsResult {
  * ```
  */
 export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
-    return pulumi.output(args).apply((a: any) => getLaunchPaths(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
+        "acceptLanguage": args.acceptLanguage,
+        "productId": args.productId,
+    }, opts);
 }
 
 /**

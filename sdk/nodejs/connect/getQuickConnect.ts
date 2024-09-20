@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,
@@ -130,7 +129,13 @@ export interface GetQuickConnectResult {
  * ```
  */
 export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
-    return pulumi.output(args).apply((a: any) => getQuickConnect(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getQuickConnect:getQuickConnect", {
+        "instanceId": args.instanceId,
+        "name": args.name,
+        "quickConnectId": args.quickConnectId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

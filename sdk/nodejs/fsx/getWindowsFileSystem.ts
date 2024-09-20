@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWindowsFileSystem(args: GetWindowsFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFileSystemResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", {
         "id": args.id,
@@ -160,7 +159,11 @@ export interface GetWindowsFileSystemResult {
  * ```
  */
 export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFileSystemResult> {
-    return pulumi.output(args).apply((a: any) => getWindowsFileSystem(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", {
+        "id": args.id,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

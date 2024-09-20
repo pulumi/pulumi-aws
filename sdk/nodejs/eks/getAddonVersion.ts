@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getAddonVersion:getAddonVersion", {
         "addonName": args.addonName,
@@ -112,7 +111,12 @@ export interface GetAddonVersionResult {
  * ```
  */
 export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
-    return pulumi.output(args).apply((a: any) => getAddonVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:eks/getAddonVersion:getAddonVersion", {
+        "addonName": args.addonName,
+        "kubernetesVersion": args.kubernetesVersion,
+        "mostRecent": args.mostRecent,
+    }, opts);
 }
 
 /**

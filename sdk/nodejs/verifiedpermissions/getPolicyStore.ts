@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyStoreResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,
@@ -81,7 +80,10 @@ export interface GetPolicyStoreResult {
  * ```
  */
 export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
-    return pulumi.output(args).apply((a: any) => getPolicyStore(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

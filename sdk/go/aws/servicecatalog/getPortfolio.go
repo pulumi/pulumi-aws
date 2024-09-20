@@ -80,14 +80,20 @@ type LookupPortfolioResult struct {
 
 func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPortfolioResult, error) {
+		ApplyT(func(v interface{}) (LookupPortfolioResultOutput, error) {
 			args := v.(LookupPortfolioArgs)
-			r, err := LookupPortfolio(ctx, &args, opts...)
-			var s LookupPortfolioResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPortfolioResult
+			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPortfolioResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPortfolioResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPortfolioResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPortfolioResultOutput)
 }
 

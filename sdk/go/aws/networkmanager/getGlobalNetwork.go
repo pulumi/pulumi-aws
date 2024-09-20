@@ -71,14 +71,20 @@ type LookupGlobalNetworkResult struct {
 
 func LookupGlobalNetworkOutput(ctx *pulumi.Context, args LookupGlobalNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalNetworkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupGlobalNetworkResult, error) {
+		ApplyT(func(v interface{}) (LookupGlobalNetworkResultOutput, error) {
 			args := v.(LookupGlobalNetworkArgs)
-			r, err := LookupGlobalNetwork(ctx, &args, opts...)
-			var s LookupGlobalNetworkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupGlobalNetworkResult
+			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args, &rv, "", opts...)
+			if err != nil {
+				return LookupGlobalNetworkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupGlobalNetworkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupGlobalNetworkResultOutput), nil
+			}
+			return output, nil
 		}).(LookupGlobalNetworkResultOutput)
 }
 

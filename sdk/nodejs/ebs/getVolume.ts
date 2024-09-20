@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getVolume:getVolume", {
         "filters": args.filters,
@@ -153,7 +152,13 @@ export interface GetVolumeResult {
  * ```
  */
 export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
-    return pulumi.output(args).apply((a: any) => getVolume(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ebs/getVolume:getVolume", {
+        "filters": args.filters,
+        "mostRecent": args.mostRecent,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDefaultKmsKey(opts?: pulumi.InvokeOptions): Promise<GetDefaultKmsKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
     }, opts);
@@ -59,5 +58,7 @@ export interface GetDefaultKmsKeyResult {
  * ```
  */
 export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultKmsKeyResult> {
-    return pulumi.output(getDefaultKmsKey(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
+    }, opts);
 }

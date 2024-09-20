@@ -10,7 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  */
 export function getPoliciesForTarget(args: GetPoliciesForTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetPoliciesForTargetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", {
         "filter": args.filter,
@@ -53,7 +52,11 @@ export interface GetPoliciesForTargetResult {
  * ## Example Usage
  */
 export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoliciesForTargetResult> {
-    return pulumi.output(args).apply((a: any) => getPoliciesForTarget(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", {
+        "filter": args.filter,
+        "targetId": args.targetId,
+    }, opts);
 }
 
 /**

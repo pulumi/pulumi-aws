@@ -64,7 +64,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogDataProtectionPolicyDocument(args: GetLogDataProtectionPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLogDataProtectionPolicyDocumentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", {
         "description": args.description,
@@ -168,7 +167,13 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  * ```
  */
 export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getLogDataProtectionPolicyDocument(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", {
+        "description": args.description,
+        "name": args.name,
+        "statements": args.statements,
+        "version": args.version,
+    }, opts);
 }
 
 /**

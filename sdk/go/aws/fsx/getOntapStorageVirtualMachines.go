@@ -74,14 +74,20 @@ type GetOntapStorageVirtualMachinesResult struct {
 
 func GetOntapStorageVirtualMachinesOutput(ctx *pulumi.Context, args GetOntapStorageVirtualMachinesOutputArgs, opts ...pulumi.InvokeOption) GetOntapStorageVirtualMachinesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOntapStorageVirtualMachinesResult, error) {
+		ApplyT(func(v interface{}) (GetOntapStorageVirtualMachinesResultOutput, error) {
 			args := v.(GetOntapStorageVirtualMachinesArgs)
-			r, err := GetOntapStorageVirtualMachines(ctx, &args, opts...)
-			var s GetOntapStorageVirtualMachinesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOntapStorageVirtualMachinesResult
+			secret, err := ctx.InvokePackageRaw("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args, &rv, "", opts...)
+			if err != nil {
+				return GetOntapStorageVirtualMachinesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOntapStorageVirtualMachinesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOntapStorageVirtualMachinesResultOutput), nil
+			}
+			return output, nil
 		}).(GetOntapStorageVirtualMachinesResultOutput)
 }
 

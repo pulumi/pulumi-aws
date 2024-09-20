@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEmailIdentityMailFromAttributes(args: GetEmailIdentityMailFromAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailIdentityMailFromAttributesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", {
         "emailIdentity": args.emailIdentity,
@@ -79,7 +78,10 @@ export interface GetEmailIdentityMailFromAttributesResult {
  * ```
  */
 export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityMailFromAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityMailFromAttributesResult> {
-    return pulumi.output(args).apply((a: any) => getEmailIdentityMailFromAttributes(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", {
+        "emailIdentity": args.emailIdentity,
+    }, opts);
 }
 
 /**

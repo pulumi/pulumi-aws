@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
@@ -118,7 +117,12 @@ export interface GetServiceQuotaResult {
  * ```
  */
 export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceQuotaResult> {
-    return pulumi.output(args).apply((a: any) => getServiceQuota(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicequotas/getServiceQuota:getServiceQuota", {
+        "quotaCode": args.quotaCode,
+        "quotaName": args.quotaName,
+        "serviceCode": args.serviceCode,
+    }, opts);
 }
 
 /**

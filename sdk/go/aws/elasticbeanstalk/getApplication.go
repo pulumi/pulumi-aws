@@ -70,14 +70,20 @@ type LookupApplicationResult struct {
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupApplicationResult, error) {
+		ApplyT(func(v interface{}) (LookupApplicationResultOutput, error) {
 			args := v.(LookupApplicationArgs)
-			r, err := LookupApplication(ctx, &args, opts...)
-			var s LookupApplicationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupApplicationResult
+			secret, err := ctx.InvokePackageRaw("aws:elasticbeanstalk/getApplication:getApplication", args, &rv, "", opts...)
+			if err != nil {
+				return LookupApplicationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupApplicationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupApplicationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupApplicationResultOutput)
 }
 

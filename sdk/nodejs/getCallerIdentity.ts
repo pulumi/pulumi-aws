@@ -22,7 +22,6 @@ import * as utilities from "./utilities";
  */
 export function getCallerIdentity(args?: GetCallerIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getCallerIdentity:getCallerIdentity", {
         "id": args.id,
@@ -77,7 +76,11 @@ export interface GetCallerIdentityResult {
  * ```
  */
 export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCallerIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getCallerIdentity(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getCallerIdentity:getCallerIdentity", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

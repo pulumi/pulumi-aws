@@ -118,14 +118,20 @@ type LookupVpcAttachmentResult struct {
 
 func LookupVpcAttachmentOutput(ctx *pulumi.Context, args LookupVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcAttachmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVpcAttachmentResult, error) {
+		ApplyT(func(v interface{}) (LookupVpcAttachmentResultOutput, error) {
 			args := v.(LookupVpcAttachmentArgs)
-			r, err := LookupVpcAttachment(ctx, &args, opts...)
-			var s LookupVpcAttachmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVpcAttachmentResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVpcAttachmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVpcAttachmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVpcAttachmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVpcAttachmentResultOutput)
 }
 

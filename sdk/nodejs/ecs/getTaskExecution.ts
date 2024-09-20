@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskExecutionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskExecution:getTaskExecution", {
         "capacityProviderStrategies": args.capacityProviderStrategies,
@@ -196,7 +195,27 @@ export interface GetTaskExecutionResult {
  * ```
  */
 export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskExecutionResult> {
-    return pulumi.output(args).apply((a: any) => getTaskExecution(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecs/getTaskExecution:getTaskExecution", {
+        "capacityProviderStrategies": args.capacityProviderStrategies,
+        "clientToken": args.clientToken,
+        "cluster": args.cluster,
+        "desiredCount": args.desiredCount,
+        "enableEcsManagedTags": args.enableEcsManagedTags,
+        "enableExecuteCommand": args.enableExecuteCommand,
+        "group": args.group,
+        "launchType": args.launchType,
+        "networkConfiguration": args.networkConfiguration,
+        "overrides": args.overrides,
+        "placementConstraints": args.placementConstraints,
+        "placementStrategies": args.placementStrategies,
+        "platformVersion": args.platformVersion,
+        "propagateTags": args.propagateTags,
+        "referenceId": args.referenceId,
+        "startedBy": args.startedBy,
+        "tags": args.tags,
+        "taskDefinition": args.taskDefinition,
+    }, opts);
 }
 
 /**

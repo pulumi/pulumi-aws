@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:auditmanager/getFramework:getFramework", {
         "controlSets": args.controlSets,
@@ -77,7 +76,12 @@ export interface GetFrameworkResult {
  * ```
  */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
-    return pulumi.output(args).apply((a: any) => getFramework(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:auditmanager/getFramework:getFramework", {
+        "controlSets": args.controlSets,
+        "frameworkType": args.frameworkType,
+        "name": args.name,
+    }, opts);
 }
 
 /**

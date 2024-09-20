@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getConstraint:getConstraint", {
         "acceptLanguage": args.acceptLanguage,
@@ -104,7 +103,12 @@ export interface GetConstraintResult {
  * ```
  */
 export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
-    return pulumi.output(args).apply((a: any) => getConstraint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getConstraint:getConstraint", {
+        "acceptLanguage": args.acceptLanguage,
+        "description": args.description,
+        "id": args.id,
+    }, opts);
 }
 
 /**

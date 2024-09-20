@@ -54,13 +54,19 @@ type GetCustomModelsResult struct {
 }
 
 func GetCustomModelsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCustomModelsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCustomModelsResult, error) {
-		r, err := GetCustomModels(ctx, opts...)
-		var s GetCustomModelsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetCustomModelsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetCustomModelsResult
+		secret, err := ctx.InvokePackageRaw("aws:bedrock/getCustomModels:getCustomModels", nil, &rv, "", opts...)
+		if err != nil {
+			return GetCustomModelsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetCustomModelsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetCustomModelsResultOutput), nil
+		}
+		return output, nil
 	}).(GetCustomModelsResultOutput)
 }
 

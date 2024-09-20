@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLinks(opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getLinks:getLinks", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetLinksResult {
  * ```
  */
 export function getLinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
-    return pulumi.output(getLinks(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:oam/getLinks:getLinks", {
+    }, opts);
 }

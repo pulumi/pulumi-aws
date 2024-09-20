@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRegistrationCode(opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iot/getRegistrationCode:getRegistrationCode", {
     }, opts);
@@ -67,5 +66,7 @@ export interface GetRegistrationCodeResult {
  * ```
  */
 export function getRegistrationCodeOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationCodeResult> {
-    return pulumi.output(getRegistrationCode(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", {
+    }, opts);
 }

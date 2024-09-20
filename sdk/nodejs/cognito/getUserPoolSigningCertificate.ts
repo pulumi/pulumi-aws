@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolSigningCertificateResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
         "userPoolId": args.userPoolId,
@@ -65,7 +64,10 @@ export interface GetUserPoolSigningCertificateResult {
  * ```
  */
 export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getUserPoolSigningCertificate(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
+        "userPoolId": args.userPoolId,
+    }, opts);
 }
 
 /**

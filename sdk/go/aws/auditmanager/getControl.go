@@ -134,14 +134,20 @@ type LookupControlResult struct {
 
 func LookupControlOutput(ctx *pulumi.Context, args LookupControlOutputArgs, opts ...pulumi.InvokeOption) LookupControlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupControlResult, error) {
+		ApplyT(func(v interface{}) (LookupControlResultOutput, error) {
 			args := v.(LookupControlArgs)
-			r, err := LookupControl(ctx, &args, opts...)
-			var s LookupControlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupControlResult
+			secret, err := ctx.InvokePackageRaw("aws:auditmanager/getControl:getControl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupControlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupControlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupControlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupControlResultOutput)
 }
 

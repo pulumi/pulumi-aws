@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerlessAccessPolicy(args: GetServerlessAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessAccessPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", {
         "name": args.name,
@@ -82,7 +81,11 @@ export interface GetServerlessAccessPolicyResult {
  * ```
  */
 export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessAccessPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessAccessPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", {
+        "name": args.name,
+        "type": args.type,
+    }, opts);
 }
 
 /**

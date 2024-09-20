@@ -87,14 +87,20 @@ type LookupAcceleratorResult struct {
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAcceleratorResult, error) {
+		ApplyT(func(v interface{}) (LookupAcceleratorResultOutput, error) {
 			args := v.(LookupAcceleratorArgs)
-			r, err := LookupAccelerator(ctx, &args, opts...)
-			var s LookupAcceleratorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAcceleratorResult
+			secret, err := ctx.InvokePackageRaw("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAcceleratorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAcceleratorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAcceleratorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAcceleratorResultOutput)
 }
 

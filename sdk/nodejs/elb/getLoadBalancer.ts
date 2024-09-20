@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elb/getLoadBalancer:getLoadBalancer", {
         "name": args.name,
@@ -101,7 +100,11 @@ export interface GetLoadBalancerResult {
  * ```
  */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elb/getLoadBalancer:getLoadBalancer", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

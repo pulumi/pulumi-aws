@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  */
 export function getMaintenanceWindows(args?: GetMaintenanceWindowsArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", {
         "filters": args.filters,
@@ -75,7 +74,11 @@ export interface GetMaintenanceWindowsResult {
  * ```
  */
 export function getMaintenanceWindowsOutput(args?: GetMaintenanceWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowsResult> {
-    return pulumi.output(args).apply((a: any) => getMaintenanceWindows(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", {
+        "filters": args.filters,
+    }, opts);
 }
 
 /**

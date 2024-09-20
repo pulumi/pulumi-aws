@@ -111,14 +111,20 @@ type LookupConnectResult struct {
 
 func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts ...pulumi.InvokeOption) LookupConnectResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupConnectResult, error) {
+		ApplyT(func(v interface{}) (LookupConnectResultOutput, error) {
 			args := v.(LookupConnectArgs)
-			r, err := LookupConnect(ctx, &args, opts...)
-			var s LookupConnectResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupConnectResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getConnect:getConnect", args, &rv, "", opts...)
+			if err != nil {
+				return LookupConnectResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupConnectResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupConnectResultOutput), nil
+			}
+			return output, nil
 		}).(LookupConnectResultOutput)
 }
 

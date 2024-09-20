@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedServicesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getDelegatedServices:getDelegatedServices", {
         "accountId": args.accountId,
@@ -68,7 +67,10 @@ export interface GetDelegatedServicesResult {
  * ```
  */
 export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedServicesResult> {
-    return pulumi.output(args).apply((a: any) => getDelegatedServices(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:organizations/getDelegatedServices:getDelegatedServices", {
+        "accountId": args.accountId,
+    }, opts);
 }
 
 /**

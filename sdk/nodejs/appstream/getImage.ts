@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  */
 export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appstream/getImage:getImage", {
         "arn": args.arn,
@@ -114,7 +113,15 @@ export interface GetImageResult {
  * Data source for managing an AWS AppStream 2.0 Image.
  */
 export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appstream/getImage:getImage", {
+        "arn": args.arn,
+        "mostRecent": args.mostRecent,
+        "name": args.name,
+        "nameRegex": args.nameRegex,
+        "type": args.type,
+    }, opts);
 }
 
 /**
