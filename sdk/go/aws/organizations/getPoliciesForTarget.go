@@ -44,14 +44,20 @@ type GetPoliciesForTargetResult struct {
 
 func GetPoliciesForTargetOutput(ctx *pulumi.Context, args GetPoliciesForTargetOutputArgs, opts ...pulumi.InvokeOption) GetPoliciesForTargetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPoliciesForTargetResult, error) {
+		ApplyT(func(v interface{}) (GetPoliciesForTargetResultOutput, error) {
 			args := v.(GetPoliciesForTargetArgs)
-			r, err := GetPoliciesForTarget(ctx, &args, opts...)
-			var s GetPoliciesForTargetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPoliciesForTargetResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, "", opts...)
+			if err != nil {
+				return GetPoliciesForTargetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPoliciesForTargetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPoliciesForTargetResultOutput), nil
+			}
+			return output, nil
 		}).(GetPoliciesForTargetResultOutput)
 }
 

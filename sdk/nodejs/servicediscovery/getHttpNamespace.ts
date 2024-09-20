@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,
@@ -78,7 +77,11 @@ export interface GetHttpNamespaceResult {
  * ```
  */
 export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getHttpNamespace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

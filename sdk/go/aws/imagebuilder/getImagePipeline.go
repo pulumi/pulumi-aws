@@ -98,14 +98,20 @@ type LookupImagePipelineResult struct {
 
 func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutputArgs, opts ...pulumi.InvokeOption) LookupImagePipelineResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupImagePipelineResult, error) {
+		ApplyT(func(v interface{}) (LookupImagePipelineResultOutput, error) {
 			args := v.(LookupImagePipelineArgs)
-			r, err := LookupImagePipeline(ctx, &args, opts...)
-			var s LookupImagePipelineResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupImagePipelineResult
+			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImagePipeline:getImagePipeline", args, &rv, "", opts...)
+			if err != nil {
+				return LookupImagePipelineResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupImagePipelineResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupImagePipelineResultOutput), nil
+			}
+			return output, nil
 		}).(LookupImagePipelineResultOutput)
 }
 

@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getOrderableCluster:getOrderableCluster", {
         "clusterType": args.clusterType,
@@ -92,7 +91,14 @@ export interface GetOrderableClusterResult {
  * ```
  */
 export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableClusterResult> {
-    return pulumi.output(args).apply((a: any) => getOrderableCluster(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshift/getOrderableCluster:getOrderableCluster", {
+        "clusterType": args.clusterType,
+        "clusterVersion": args.clusterVersion,
+        "nodeType": args.nodeType,
+        "preferredNodeTypes": args.preferredNodeTypes,
+    }, opts);
 }
 
 /**

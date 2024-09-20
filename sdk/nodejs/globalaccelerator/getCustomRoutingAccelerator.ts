@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getCustomRoutingAccelerator(args?: GetCustomRoutingAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomRoutingAcceleratorResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", {
         "arn": args.arn,
@@ -90,7 +89,13 @@ export interface GetCustomRoutingAcceleratorResult {
  * ```
  */
 export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
-    return pulumi.output(args).apply((a: any) => getCustomRoutingAccelerator(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", {
+        "arn": args.arn,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

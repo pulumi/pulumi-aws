@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,
@@ -80,7 +79,11 @@ export interface GetSolutionStackResult {
  * ```
  */
 export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionStackResult> {
-    return pulumi.output(args).apply((a: any) => getSolutionStack(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
+        "mostRecent": args.mostRecent,
+        "nameRegex": args.nameRegex,
+    }, opts);
 }
 
 /**

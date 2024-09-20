@@ -78,14 +78,20 @@ type GetComponentsResult struct {
 
 func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts ...pulumi.InvokeOption) GetComponentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetComponentsResult, error) {
+		ApplyT(func(v interface{}) (GetComponentsResultOutput, error) {
 			args := v.(GetComponentsArgs)
-			r, err := GetComponents(ctx, &args, opts...)
-			var s GetComponentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetComponentsResult
+			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getComponents:getComponents", args, &rv, "", opts...)
+			if err != nil {
+				return GetComponentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetComponentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetComponentsResultOutput), nil
+			}
+			return output, nil
 		}).(GetComponentsResultOutput)
 }
 

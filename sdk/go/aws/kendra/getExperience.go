@@ -87,14 +87,20 @@ type LookupExperienceResult struct {
 
 func LookupExperienceOutput(ctx *pulumi.Context, args LookupExperienceOutputArgs, opts ...pulumi.InvokeOption) LookupExperienceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupExperienceResult, error) {
+		ApplyT(func(v interface{}) (LookupExperienceResultOutput, error) {
 			args := v.(LookupExperienceArgs)
-			r, err := LookupExperience(ctx, &args, opts...)
-			var s LookupExperienceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupExperienceResult
+			secret, err := ctx.InvokePackageRaw("aws:kendra/getExperience:getExperience", args, &rv, "", opts...)
+			if err != nil {
+				return LookupExperienceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupExperienceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupExperienceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupExperienceResultOutput)
 }
 

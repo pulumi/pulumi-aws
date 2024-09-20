@@ -76,14 +76,20 @@ type GetRegionResult struct {
 
 func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulumi.InvokeOption) GetRegionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRegionResult, error) {
+		ApplyT(func(v interface{}) (GetRegionResultOutput, error) {
 			args := v.(GetRegionArgs)
-			r, err := GetRegion(ctx, &args, opts...)
-			var s GetRegionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRegionResult
+			secret, err := ctx.InvokePackageRaw("aws:index/getRegion:getRegion", args, &rv, "", opts...)
+			if err != nil {
+				return GetRegionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRegionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRegionResultOutput), nil
+			}
+			return output, nil
 		}).(GetRegionResultOutput)
 }
 

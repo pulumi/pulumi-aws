@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getActiveReceiptRuleSet(opts?: pulumi.InvokeOptions): Promise<GetActiveReceiptRuleSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
     }, opts);
@@ -53,5 +52,7 @@ export interface GetActiveReceiptRuleSetResult {
  * ```
  */
 export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
-    return pulumi.output(getActiveReceiptRuleSet(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
+    }, opts);
 }

@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventBus:getEventBus", {
         "name": args.name,
@@ -73,7 +72,10 @@ export interface GetEventBusResult {
  * ```
  */
 export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
-    return pulumi.output(args).apply((a: any) => getEventBus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventBus:getEventBus", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

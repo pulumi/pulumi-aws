@@ -75,14 +75,20 @@ type LookupEmailIdentityMailFromAttributesResult struct {
 
 func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args LookupEmailIdentityMailFromAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityMailFromAttributesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEmailIdentityMailFromAttributesResult, error) {
+		ApplyT(func(v interface{}) (LookupEmailIdentityMailFromAttributesResultOutput, error) {
 			args := v.(LookupEmailIdentityMailFromAttributesArgs)
-			r, err := LookupEmailIdentityMailFromAttributes(ctx, &args, opts...)
-			var s LookupEmailIdentityMailFromAttributesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEmailIdentityMailFromAttributesResult
+			secret, err := ctx.InvokePackageRaw("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEmailIdentityMailFromAttributesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEmailIdentityMailFromAttributesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEmailIdentityMailFromAttributesResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEmailIdentityMailFromAttributesResultOutput)
 }
 

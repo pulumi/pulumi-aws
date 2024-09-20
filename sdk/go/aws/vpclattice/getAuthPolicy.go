@@ -73,14 +73,20 @@ type LookupAuthPolicyResult struct {
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAuthPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupAuthPolicyResultOutput, error) {
 			args := v.(LookupAuthPolicyArgs)
-			r, err := LookupAuthPolicy(ctx, &args, opts...)
-			var s LookupAuthPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAuthPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAuthPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAuthPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAuthPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAuthPolicyResultOutput)
 }
 

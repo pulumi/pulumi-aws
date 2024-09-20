@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceTags(args: GetResourceTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTagsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getResourceTags:getResourceTags", {
         "resourceId": args.resourceId,
@@ -70,7 +69,11 @@ export interface GetResourceTagsResult {
  * ```
  */
 export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTagsResult> {
-    return pulumi.output(args).apply((a: any) => getResourceTags(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:organizations/getResourceTags:getResourceTags", {
+        "resourceId": args.resourceId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

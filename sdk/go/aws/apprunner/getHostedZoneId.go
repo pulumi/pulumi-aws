@@ -79,14 +79,20 @@ type GetHostedZoneIdResult struct {
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetHostedZoneIdResult, error) {
+		ApplyT(func(v interface{}) (GetHostedZoneIdResultOutput, error) {
 			args := v.(GetHostedZoneIdArgs)
-			r, err := GetHostedZoneId(ctx, &args, opts...)
-			var s GetHostedZoneIdResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetHostedZoneIdResult
+			secret, err := ctx.InvokePackageRaw("aws:apprunner/getHostedZoneId:getHostedZoneId", args, &rv, "", opts...)
+			if err != nil {
+				return GetHostedZoneIdResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetHostedZoneIdResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetHostedZoneIdResultOutput), nil
+			}
+			return output, nil
 		}).(GetHostedZoneIdResultOutput)
 }
 

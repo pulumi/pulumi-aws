@@ -94,14 +94,20 @@ type GetReceivedLicenseResult struct {
 
 func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicenseResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetReceivedLicenseResult, error) {
+		ApplyT(func(v interface{}) (GetReceivedLicenseResultOutput, error) {
 			args := v.(GetReceivedLicenseArgs)
-			r, err := GetReceivedLicense(ctx, &args, opts...)
-			var s GetReceivedLicenseResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetReceivedLicenseResult
+			secret, err := ctx.InvokePackageRaw("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, &rv, "", opts...)
+			if err != nil {
+				return GetReceivedLicenseResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetReceivedLicenseResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetReceivedLicenseResultOutput), nil
+			}
+			return output, nil
 		}).(GetReceivedLicenseResultOutput)
 }
 

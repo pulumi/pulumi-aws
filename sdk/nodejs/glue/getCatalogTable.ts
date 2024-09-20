@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCatalogTable(args: GetCatalogTableArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getCatalogTable:getCatalogTable", {
         "catalogId": args.catalogId,
@@ -147,7 +146,14 @@ export interface GetCatalogTableResult {
  * ```
  */
 export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogTableResult> {
-    return pulumi.output(args).apply((a: any) => getCatalogTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:glue/getCatalogTable:getCatalogTable", {
+        "catalogId": args.catalogId,
+        "databaseName": args.databaseName,
+        "name": args.name,
+        "queryAsOfTime": args.queryAsOfTime,
+        "transactionId": args.transactionId,
+    }, opts);
 }
 
 /**

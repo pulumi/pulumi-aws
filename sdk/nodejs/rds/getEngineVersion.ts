@@ -45,7 +45,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getEngineVersion:getEngineVersion", {
         "defaultOnly": args.defaultOnly,
@@ -247,7 +246,21 @@ export interface GetEngineVersionResult {
  * ```
  */
 export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
-    return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getEngineVersion:getEngineVersion", {
+        "defaultOnly": args.defaultOnly,
+        "engine": args.engine,
+        "filters": args.filters,
+        "hasMajorTarget": args.hasMajorTarget,
+        "hasMinorTarget": args.hasMinorTarget,
+        "includeAll": args.includeAll,
+        "latest": args.latest,
+        "parameterGroupFamily": args.parameterGroupFamily,
+        "preferredMajorTargets": args.preferredMajorTargets,
+        "preferredUpgradeTargets": args.preferredUpgradeTargets,
+        "preferredVersions": args.preferredVersions,
+        "version": args.version,
+    }, opts);
 }
 
 /**

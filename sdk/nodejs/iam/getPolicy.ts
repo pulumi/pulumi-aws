@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPolicy:getPolicy", {
         "arn": args.arn,
@@ -138,7 +137,14 @@ export interface GetPolicyResult {
  * ```
  */
 export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getPolicy:getPolicy", {
+        "arn": args.arn,
+        "name": args.name,
+        "pathPrefix": args.pathPrefix,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -37,7 +37,6 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions): Promise<GetIpRangesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
         "id": args.id,
@@ -134,7 +133,13 @@ export interface GetIpRangesResult {
  * ```
  */
 export function getIpRangesOutput(args: GetIpRangesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
-    return pulumi.output(args).apply((a: any) => getIpRanges(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getIpRanges:getIpRanges", {
+        "id": args.id,
+        "regions": args.regions,
+        "services": args.services,
+        "url": args.url,
+    }, opts);
 }
 
 /**

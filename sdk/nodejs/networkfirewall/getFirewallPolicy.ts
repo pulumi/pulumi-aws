@@ -52,7 +52,6 @@ import * as utilities from "../utilities";
  */
 export function getFirewallPolicy(args?: GetFirewallPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {
         "arn": args.arn,
@@ -150,7 +149,13 @@ export interface GetFirewallPolicyResult {
  * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */
 export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getFirewallPolicy(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {
+        "arn": args.arn,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

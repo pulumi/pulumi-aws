@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getOriginAccessControl(args: GetOriginAccessControlArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessControlResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", {
         "id": args.id,
@@ -85,7 +84,10 @@ export interface GetOriginAccessControlResult {
  * ```
  */
 export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessControlResult> {
-    return pulumi.output(args).apply((a: any) => getOriginAccessControl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

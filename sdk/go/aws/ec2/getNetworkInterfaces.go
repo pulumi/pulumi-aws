@@ -133,14 +133,20 @@ type GetNetworkInterfacesResult struct {
 
 func GetNetworkInterfacesOutput(ctx *pulumi.Context, args GetNetworkInterfacesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkInterfacesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetNetworkInterfacesResult, error) {
+		ApplyT(func(v interface{}) (GetNetworkInterfacesResultOutput, error) {
 			args := v.(GetNetworkInterfacesArgs)
-			r, err := GetNetworkInterfaces(ctx, &args, opts...)
-			var s GetNetworkInterfacesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetNetworkInterfacesResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, "", opts...)
+			if err != nil {
+				return GetNetworkInterfacesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetNetworkInterfacesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetNetworkInterfacesResultOutput), nil
+			}
+			return output, nil
 		}).(GetNetworkInterfacesResultOutput)
 }
 

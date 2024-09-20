@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getEnvironments:getEnvironments", {
         "applicationId": args.applicationId,
@@ -71,7 +70,10 @@ export interface GetEnvironmentsResult {
  * ```
  */
 export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentsResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironments(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appconfig/getEnvironments:getEnvironments", {
+        "applicationId": args.applicationId,
+    }, opts);
 }
 
 /**

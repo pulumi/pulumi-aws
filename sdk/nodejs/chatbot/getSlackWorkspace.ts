@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSlackWorkspace(args: GetSlackWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetSlackWorkspaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
         "slackTeamName": args.slackTeamName,
@@ -69,7 +68,10 @@ export interface GetSlackWorkspaceResult {
  * ```
  */
 export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackWorkspaceResult> {
-    return pulumi.output(args).apply((a: any) => getSlackWorkspace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
+        "slackTeamName": args.slackTeamName,
+    }, opts);
 }
 
 /**

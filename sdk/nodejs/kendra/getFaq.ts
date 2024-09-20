@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,
@@ -125,7 +124,12 @@ export interface GetFaqResult {
  * ```
  */
 export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
-    return pulumi.output(args).apply((a: any) => getFaq(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kendra/getFaq:getFaq", {
+        "faqId": args.faqId,
+        "indexId": args.indexId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

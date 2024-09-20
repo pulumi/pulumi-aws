@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
@@ -87,7 +86,12 @@ export interface GetContainerRecipesResult {
  * ```
  */
 export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipesResult> {
-    return pulumi.output(args).apply((a: any) => getContainerRecipes(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
+        "filters": args.filters,
+        "owner": args.owner,
+    }, opts);
 }
 
 /**

@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  */
 export function getVoices(args?: GetVoicesArgs, opts?: pulumi.InvokeOptions): Promise<GetVoicesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:polly/getVoices:getVoices", {
         "engine": args.engine,
@@ -111,7 +110,14 @@ export interface GetVoicesResult {
  * ```
  */
 export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVoicesResult> {
-    return pulumi.output(args).apply((a: any) => getVoices(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:polly/getVoices:getVoices", {
+        "engine": args.engine,
+        "includeAdditionalLanguageCodes": args.includeAdditionalLanguageCodes,
+        "languageCode": args.languageCode,
+        "voices": args.voices,
+    }, opts);
 }
 
 /**

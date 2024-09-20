@@ -76,14 +76,20 @@ type LookupStreamConsumerResult struct {
 
 func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOutputArgs, opts ...pulumi.InvokeOption) LookupStreamConsumerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStreamConsumerResult, error) {
+		ApplyT(func(v interface{}) (LookupStreamConsumerResultOutput, error) {
 			args := v.(LookupStreamConsumerArgs)
-			r, err := LookupStreamConsumer(ctx, &args, opts...)
-			var s LookupStreamConsumerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStreamConsumerResult
+			secret, err := ctx.InvokePackageRaw("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStreamConsumerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStreamConsumerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStreamConsumerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStreamConsumerResultOutput)
 }
 

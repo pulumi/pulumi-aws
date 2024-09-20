@@ -132,7 +132,6 @@ import * as utilities from "../utilities";
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", {
         "endpoints": args.endpoints,
@@ -317,7 +316,16 @@ export interface GetTrafficPolicyDocumentResult {
  * ```
  */
 export function getTrafficPolicyDocumentOutput(args?: GetTrafficPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficPolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getTrafficPolicyDocument(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", {
+        "endpoints": args.endpoints,
+        "recordType": args.recordType,
+        "rules": args.rules,
+        "startEndpoint": args.startEndpoint,
+        "startRule": args.startRule,
+        "version": args.version,
+    }, opts);
 }
 
 /**

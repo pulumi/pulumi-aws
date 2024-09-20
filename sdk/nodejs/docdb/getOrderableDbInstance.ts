@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", {
         "engine": args.engine,
@@ -110,7 +109,16 @@ export interface GetOrderableDbInstanceResult {
  * ```
  */
 export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
-    return pulumi.output(args).apply((a: any) => getOrderableDbInstance(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", {
+        "engine": args.engine,
+        "engineVersion": args.engineVersion,
+        "instanceClass": args.instanceClass,
+        "licenseModel": args.licenseModel,
+        "preferredInstanceClasses": args.preferredInstanceClasses,
+        "vpc": args.vpc,
+    }, opts);
 }
 
 /**

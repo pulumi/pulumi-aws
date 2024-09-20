@@ -81,14 +81,20 @@ type LookupDataLakeSettingsResult struct {
 
 func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeSettingsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataLakeSettingsResult, error) {
+		ApplyT(func(v interface{}) (LookupDataLakeSettingsResultOutput, error) {
 			args := v.(LookupDataLakeSettingsArgs)
-			r, err := LookupDataLakeSettings(ctx, &args, opts...)
-			var s LookupDataLakeSettingsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataLakeSettingsResult
+			secret, err := ctx.InvokePackageRaw("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataLakeSettingsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataLakeSettingsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataLakeSettingsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataLakeSettingsResultOutput)
 }
 

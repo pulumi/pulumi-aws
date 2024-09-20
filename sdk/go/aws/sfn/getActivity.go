@@ -68,14 +68,20 @@ type LookupActivityResult struct {
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupActivityResult, error) {
+		ApplyT(func(v interface{}) (LookupActivityResultOutput, error) {
 			args := v.(LookupActivityArgs)
-			r, err := LookupActivity(ctx, &args, opts...)
-			var s LookupActivityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupActivityResult
+			secret, err := ctx.InvokePackageRaw("aws:sfn/getActivity:getActivity", args, &rv, "", opts...)
+			if err != nil {
+				return LookupActivityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupActivityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupActivityResultOutput), nil
+			}
+			return output, nil
 		}).(LookupActivityResultOutput)
 }
 

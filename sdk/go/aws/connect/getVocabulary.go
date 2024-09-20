@@ -116,14 +116,20 @@ type LookupVocabularyResult struct {
 
 func LookupVocabularyOutput(ctx *pulumi.Context, args LookupVocabularyOutputArgs, opts ...pulumi.InvokeOption) LookupVocabularyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVocabularyResult, error) {
+		ApplyT(func(v interface{}) (LookupVocabularyResultOutput, error) {
 			args := v.(LookupVocabularyArgs)
-			r, err := LookupVocabulary(ctx, &args, opts...)
-			var s LookupVocabularyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVocabularyResult
+			secret, err := ctx.InvokePackageRaw("aws:connect/getVocabulary:getVocabulary", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVocabularyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVocabularyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVocabularyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVocabularyResultOutput)
 }
 

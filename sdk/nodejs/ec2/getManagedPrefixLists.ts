@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {
         "filters": args.filters,
@@ -93,7 +92,12 @@ export interface GetManagedPrefixListsResult {
  * ```
  */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListsResult> {
-    return pulumi.output(args).apply((a: any) => getManagedPrefixLists(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

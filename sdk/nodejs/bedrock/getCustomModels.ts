@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCustomModels(opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getCustomModels:getCustomModels", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetCustomModelsResult {
  * ```
  */
 export function getCustomModelsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelsResult> {
-    return pulumi.output(getCustomModels(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:bedrock/getCustomModels:getCustomModels", {
+    }, opts);
 }

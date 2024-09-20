@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getAuthorizer:getAuthorizer", {
         "authorizerId": args.authorizerId,
@@ -105,7 +104,11 @@ export interface GetAuthorizerResult {
  * ```
  */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
-    return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", {
+        "authorizerId": args.authorizerId,
+        "restApiId": args.restApiId,
+    }, opts);
 }
 
 /**

@@ -87,14 +87,20 @@ type LookupCustomRoutingAcceleratorResult struct {
 
 func LookupCustomRoutingAcceleratorOutput(ctx *pulumi.Context, args LookupCustomRoutingAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupCustomRoutingAcceleratorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCustomRoutingAcceleratorResult, error) {
+		ApplyT(func(v interface{}) (LookupCustomRoutingAcceleratorResultOutput, error) {
 			args := v.(LookupCustomRoutingAcceleratorArgs)
-			r, err := LookupCustomRoutingAccelerator(ctx, &args, opts...)
-			var s LookupCustomRoutingAcceleratorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCustomRoutingAcceleratorResult
+			secret, err := ctx.InvokePackageRaw("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCustomRoutingAcceleratorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCustomRoutingAcceleratorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCustomRoutingAcceleratorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCustomRoutingAcceleratorResultOutput)
 }
 

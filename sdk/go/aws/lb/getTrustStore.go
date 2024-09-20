@@ -85,14 +85,20 @@ type LookupTrustStoreResult struct {
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTrustStoreResult, error) {
+		ApplyT(func(v interface{}) (LookupTrustStoreResultOutput, error) {
 			args := v.(LookupTrustStoreArgs)
-			r, err := LookupTrustStore(ctx, &args, opts...)
-			var s LookupTrustStoreResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTrustStoreResult
+			secret, err := ctx.InvokePackageRaw("aws:lb/getTrustStore:getTrustStore", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTrustStoreResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTrustStoreResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTrustStoreResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTrustStoreResultOutput)
 }
 
