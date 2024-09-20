@@ -78,14 +78,20 @@ type GetImageRecipesResult struct {
 
 func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, opts ...pulumi.InvokeOption) GetImageRecipesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetImageRecipesResult, error) {
+		ApplyT(func(v interface{}) (GetImageRecipesResultOutput, error) {
 			args := v.(GetImageRecipesArgs)
-			r, err := GetImageRecipes(ctx, &args, opts...)
-			var s GetImageRecipesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetImageRecipesResult
+			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImageRecipes:getImageRecipes", args, &rv, "", opts...)
+			if err != nil {
+				return GetImageRecipesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetImageRecipesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetImageRecipesResultOutput), nil
+			}
+			return output, nil
 		}).(GetImageRecipesResultOutput)
 }
 

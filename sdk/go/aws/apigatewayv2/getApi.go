@@ -93,14 +93,20 @@ type LookupApiResult struct {
 
 func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulumi.InvokeOption) LookupApiResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupApiResult, error) {
+		ApplyT(func(v interface{}) (LookupApiResultOutput, error) {
 			args := v.(LookupApiArgs)
-			r, err := LookupApi(ctx, &args, opts...)
-			var s LookupApiResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupApiResult
+			secret, err := ctx.InvokePackageRaw("aws:apigatewayv2/getApi:getApi", args, &rv, "", opts...)
+			if err != nil {
+				return LookupApiResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupApiResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupApiResultOutput), nil
+			}
+			return output, nil
 		}).(LookupApiResultOutput)
 }
 

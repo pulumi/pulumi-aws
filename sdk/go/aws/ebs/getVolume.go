@@ -112,14 +112,20 @@ type LookupVolumeResult struct {
 
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupVolumeResult, error) {
+		ApplyT(func(v interface{}) (LookupVolumeResultOutput, error) {
 			args := v.(LookupVolumeArgs)
-			r, err := LookupVolume(ctx, &args, opts...)
-			var s LookupVolumeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupVolumeResult
+			secret, err := ctx.InvokePackageRaw("aws:ebs/getVolume:getVolume", args, &rv, "", opts...)
+			if err != nil {
+				return LookupVolumeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupVolumeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupVolumeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupVolumeResultOutput)
 }
 

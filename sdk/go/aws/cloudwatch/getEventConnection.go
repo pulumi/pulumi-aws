@@ -72,14 +72,20 @@ type LookupEventConnectionResult struct {
 
 func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventConnectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupEventConnectionResult, error) {
+		ApplyT(func(v interface{}) (LookupEventConnectionResultOutput, error) {
 			args := v.(LookupEventConnectionArgs)
-			r, err := LookupEventConnection(ctx, &args, opts...)
-			var s LookupEventConnectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupEventConnectionResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventConnection:getEventConnection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupEventConnectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupEventConnectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupEventConnectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupEventConnectionResultOutput)
 }
 

@@ -97,14 +97,20 @@ type LookupBotResult struct {
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupBotResult, error) {
+		ApplyT(func(v interface{}) (LookupBotResultOutput, error) {
 			args := v.(LookupBotArgs)
-			r, err := LookupBot(ctx, &args, opts...)
-			var s LookupBotResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupBotResult
+			secret, err := ctx.InvokePackageRaw("aws:lex/getBot:getBot", args, &rv, "", opts...)
+			if err != nil {
+				return LookupBotResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupBotResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupBotResultOutput), nil
+			}
+			return output, nil
 		}).(LookupBotResultOutput)
 }
 

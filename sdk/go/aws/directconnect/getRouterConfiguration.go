@@ -77,14 +77,20 @@ type GetRouterConfigurationResult struct {
 
 func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetRouterConfigurationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRouterConfigurationResult, error) {
+		ApplyT(func(v interface{}) (GetRouterConfigurationResultOutput, error) {
 			args := v.(GetRouterConfigurationArgs)
-			r, err := GetRouterConfiguration(ctx, &args, opts...)
-			var s GetRouterConfigurationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRouterConfigurationResult
+			secret, err := ctx.InvokePackageRaw("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, "", opts...)
+			if err != nil {
+				return GetRouterConfigurationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRouterConfigurationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRouterConfigurationResultOutput), nil
+			}
+			return output, nil
 		}).(GetRouterConfigurationResultOutput)
 }
 

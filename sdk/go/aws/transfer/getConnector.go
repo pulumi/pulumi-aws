@@ -53,14 +53,20 @@ type LookupConnectorResult struct {
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupConnectorResult, error) {
+		ApplyT(func(v interface{}) (LookupConnectorResultOutput, error) {
 			args := v.(LookupConnectorArgs)
-			r, err := LookupConnector(ctx, &args, opts...)
-			var s LookupConnectorResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupConnectorResult
+			secret, err := ctx.InvokePackageRaw("aws:transfer/getConnector:getConnector", args, &rv, "", opts...)
+			if err != nil {
+				return LookupConnectorResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupConnectorResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupConnectorResultOutput), nil
+			}
+			return output, nil
 		}).(LookupConnectorResultOutput)
 }
 
