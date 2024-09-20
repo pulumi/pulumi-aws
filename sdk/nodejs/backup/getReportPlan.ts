@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReportPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getReportPlan:getReportPlan", {
         "name": args.name,
@@ -97,7 +96,11 @@ export interface GetReportPlanResult {
  * ```
  */
 export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
-    return pulumi.output(args).apply((a: any) => getReportPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:backup/getReportPlan:getReportPlan", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getBot:getBot", {
         "name": args.name,
@@ -131,7 +130,11 @@ export interface GetBotResult {
  * ```
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
-    return pulumi.output(args).apply((a: any) => getBot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lex/getBot:getBot", {
+        "name": args.name,
+        "version": args.version,
+    }, opts);
 }
 
 /**

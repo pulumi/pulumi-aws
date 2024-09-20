@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getCertificate:getCertificate", {
         "id": args.id,
@@ -92,7 +91,12 @@ export interface GetCertificateResult {
  * ```
  */
 export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getCertificate:getCertificate", {
+        "id": args.id,
+        "latestValidTill": args.latestValidTill,
+    }, opts);
 }
 
 /**

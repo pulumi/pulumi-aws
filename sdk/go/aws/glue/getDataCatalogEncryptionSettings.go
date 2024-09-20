@@ -39,14 +39,20 @@ type LookupDataCatalogEncryptionSettingsResult struct {
 
 func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupDataCatalogEncryptionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogEncryptionSettingsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDataCatalogEncryptionSettingsResult, error) {
+		ApplyT(func(v interface{}) (LookupDataCatalogEncryptionSettingsResultOutput, error) {
 			args := v.(LookupDataCatalogEncryptionSettingsArgs)
-			r, err := LookupDataCatalogEncryptionSettings(ctx, &args, opts...)
-			var s LookupDataCatalogEncryptionSettingsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDataCatalogEncryptionSettingsResult
+			secret, err := ctx.InvokePackageRaw("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDataCatalogEncryptionSettingsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDataCatalogEncryptionSettingsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDataCatalogEncryptionSettingsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDataCatalogEncryptionSettingsResultOutput)
 }
 

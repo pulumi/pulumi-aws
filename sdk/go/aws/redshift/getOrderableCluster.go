@@ -78,14 +78,20 @@ type GetOrderableClusterResult struct {
 
 func GetOrderableClusterOutput(ctx *pulumi.Context, args GetOrderableClusterOutputArgs, opts ...pulumi.InvokeOption) GetOrderableClusterResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOrderableClusterResult, error) {
+		ApplyT(func(v interface{}) (GetOrderableClusterResultOutput, error) {
 			args := v.(GetOrderableClusterArgs)
-			r, err := GetOrderableCluster(ctx, &args, opts...)
-			var s GetOrderableClusterResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOrderableClusterResult
+			secret, err := ctx.InvokePackageRaw("aws:redshift/getOrderableCluster:getOrderableCluster", args, &rv, "", opts...)
+			if err != nil {
+				return GetOrderableClusterResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOrderableClusterResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOrderableClusterResultOutput), nil
+			}
+			return output, nil
 		}).(GetOrderableClusterResultOutput)
 }
 

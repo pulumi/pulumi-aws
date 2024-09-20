@@ -119,14 +119,20 @@ type LookupResourceShareResult struct {
 
 func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutputArgs, opts ...pulumi.InvokeOption) LookupResourceShareResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupResourceShareResult, error) {
+		ApplyT(func(v interface{}) (LookupResourceShareResultOutput, error) {
 			args := v.(LookupResourceShareArgs)
-			r, err := LookupResourceShare(ctx, &args, opts...)
-			var s LookupResourceShareResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupResourceShareResult
+			secret, err := ctx.InvokePackageRaw("aws:ram/getResourceShare:getResourceShare", args, &rv, "", opts...)
+			if err != nil {
+				return LookupResourceShareResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupResourceShareResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupResourceShareResultOutput), nil
+			}
+			return output, nil
 		}).(LookupResourceShareResultOutput)
 }
 

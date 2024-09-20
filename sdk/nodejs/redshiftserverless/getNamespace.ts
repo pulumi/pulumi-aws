@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshiftserverless/getNamespace:getNamespace", {
         "namespaceName": args.namespaceName,
@@ -93,7 +92,10 @@ export interface GetNamespaceResult {
  * ```
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
-    return pulumi.output(args).apply((a: any) => getNamespace(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshiftserverless/getNamespace:getNamespace", {
+        "namespaceName": args.namespaceName,
+    }, opts);
 }
 
 /**

@@ -106,14 +106,20 @@ type LookupDocumentResult struct {
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDocumentResult, error) {
+		ApplyT(func(v interface{}) (LookupDocumentResultOutput, error) {
 			args := v.(LookupDocumentArgs)
-			r, err := LookupDocument(ctx, &args, opts...)
-			var s LookupDocumentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDocumentResult
+			secret, err := ctx.InvokePackageRaw("aws:ssm/getDocument:getDocument", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDocumentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDocumentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDocumentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDocumentResultOutput)
 }
 

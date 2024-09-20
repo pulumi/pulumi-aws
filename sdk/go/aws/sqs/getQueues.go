@@ -67,14 +67,20 @@ type GetQueuesResult struct {
 
 func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulumi.InvokeOption) GetQueuesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetQueuesResult, error) {
+		ApplyT(func(v interface{}) (GetQueuesResultOutput, error) {
 			args := v.(GetQueuesArgs)
-			r, err := GetQueues(ctx, &args, opts...)
-			var s GetQueuesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetQueuesResult
+			secret, err := ctx.InvokePackageRaw("aws:sqs/getQueues:getQueues", args, &rv, "", opts...)
+			if err != nil {
+				return GetQueuesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetQueuesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetQueuesResultOutput), nil
+			}
+			return output, nil
 		}).(GetQueuesResultOutput)
 }
 

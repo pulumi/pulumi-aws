@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallRules(args: GetResolverFirewallRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRulesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRules:getResolverFirewallRules", {
         "action": args.action,
@@ -84,7 +83,12 @@ export interface GetResolverFirewallRulesResult {
  * ```
  */
 export function getResolverFirewallRulesOutput(args: GetResolverFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRulesResult> {
-    return pulumi.output(args).apply((a: any) => getResolverFirewallRules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRules:getResolverFirewallRules", {
+        "action": args.action,
+        "firewallRuleGroupId": args.firewallRuleGroupId,
+        "priority": args.priority,
+    }, opts);
 }
 
 /**

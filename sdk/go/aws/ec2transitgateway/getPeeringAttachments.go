@@ -65,14 +65,20 @@ type GetPeeringAttachmentsResult struct {
 
 func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetPeeringAttachmentsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPeeringAttachmentsResult, error) {
+		ApplyT(func(v interface{}) (GetPeeringAttachmentsResultOutput, error) {
 			args := v.(GetPeeringAttachmentsArgs)
-			r, err := GetPeeringAttachments(ctx, &args, opts...)
-			var s GetPeeringAttachmentsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPeeringAttachmentsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args, &rv, "", opts...)
+			if err != nil {
+				return GetPeeringAttachmentsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPeeringAttachmentsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPeeringAttachmentsResultOutput), nil
+			}
+			return output, nil
 		}).(GetPeeringAttachmentsResultOutput)
 }
 

@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpnGateway:getVpnGateway", {
         "amazonSideAsn": args.amazonSideAsn,
@@ -112,7 +111,17 @@ export interface GetVpnGatewayResult {
  * ```
  */
 export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpnGateway:getVpnGateway", {
+        "amazonSideAsn": args.amazonSideAsn,
+        "attachedVpcId": args.attachedVpcId,
+        "availabilityZone": args.availabilityZone,
+        "filters": args.filters,
+        "id": args.id,
+        "state": args.state,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

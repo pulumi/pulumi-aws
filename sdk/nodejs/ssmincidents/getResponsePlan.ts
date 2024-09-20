@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  */
 export function getResponsePlan(args: GetResponsePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetResponsePlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", {
         "arn": args.arn,
@@ -80,7 +79,11 @@ export interface GetResponsePlanResult {
  * ## Example Usage
  */
 export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
-    return pulumi.output(args).apply((a: any) => getResponsePlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssmincidents/getResponsePlan:getResponsePlan", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

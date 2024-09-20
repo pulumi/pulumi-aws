@@ -63,14 +63,20 @@ type LookupRateBasedRuleResult struct {
 
 func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRateBasedRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRateBasedRuleResult, error) {
+		ApplyT(func(v interface{}) (LookupRateBasedRuleResultOutput, error) {
 			args := v.(LookupRateBasedRuleArgs)
-			r, err := LookupRateBasedRule(ctx, &args, opts...)
-			var s LookupRateBasedRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRateBasedRuleResult
+			secret, err := ctx.InvokePackageRaw("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRateBasedRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRateBasedRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRateBasedRuleResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRateBasedRuleResultOutput)
 }
 

@@ -91,14 +91,20 @@ type LookupComponentResult struct {
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupComponentResult, error) {
+		ApplyT(func(v interface{}) (LookupComponentResultOutput, error) {
 			args := v.(LookupComponentArgs)
-			r, err := LookupComponent(ctx, &args, opts...)
-			var s LookupComponentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupComponentResult
+			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getComponent:getComponent", args, &rv, "", opts...)
+			if err != nil {
+				return LookupComponentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupComponentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupComponentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupComponentResultOutput)
 }
 

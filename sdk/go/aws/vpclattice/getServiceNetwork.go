@@ -81,14 +81,20 @@ type LookupServiceNetworkResult struct {
 
 func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServiceNetworkResult, error) {
+		ApplyT(func(v interface{}) (LookupServiceNetworkResultOutput, error) {
 			args := v.(LookupServiceNetworkArgs)
-			r, err := LookupServiceNetwork(ctx, &args, opts...)
-			var s LookupServiceNetworkResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServiceNetworkResult
+			secret, err := ctx.InvokePackageRaw("aws:vpclattice/getServiceNetwork:getServiceNetwork", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServiceNetworkResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServiceNetworkResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServiceNetworkResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServiceNetworkResultOutput)
 }
 

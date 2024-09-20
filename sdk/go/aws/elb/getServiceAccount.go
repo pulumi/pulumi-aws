@@ -135,14 +135,20 @@ type GetServiceAccountResult struct {
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServiceAccountResult, error) {
+		ApplyT(func(v interface{}) (GetServiceAccountResultOutput, error) {
 			args := v.(GetServiceAccountArgs)
-			r, err := GetServiceAccount(ctx, &args, opts...)
-			var s GetServiceAccountResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServiceAccountResult
+			secret, err := ctx.InvokePackageRaw("aws:elb/getServiceAccount:getServiceAccount", args, &rv, "", opts...)
+			if err != nil {
+				return GetServiceAccountResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServiceAccountResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServiceAccountResultOutput), nil
+			}
+			return output, nil
 		}).(GetServiceAccountResultOutput)
 }
 

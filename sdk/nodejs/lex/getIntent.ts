@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntent(args: GetIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetIntentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getIntent:getIntent", {
         "name": args.name,
@@ -103,7 +102,11 @@ export interface GetIntentResult {
  * ```
  */
 export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntentResult> {
-    return pulumi.output(args).apply((a: any) => getIntent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lex/getIntent:getIntent", {
+        "name": args.name,
+        "version": args.version,
+    }, opts);
 }
 
 /**

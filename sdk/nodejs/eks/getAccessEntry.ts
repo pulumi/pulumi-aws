@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessEntryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getAccessEntry:getAccessEntry", {
         "clusterName": args.clusterName,
@@ -102,7 +101,12 @@ export interface GetAccessEntryResult {
  * ```
  */
 export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {
-    return pulumi.output(args).apply((a: any) => getAccessEntry(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:eks/getAccessEntry:getAccessEntry", {
+        "clusterName": args.clusterName,
+        "principalArn": args.principalArn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

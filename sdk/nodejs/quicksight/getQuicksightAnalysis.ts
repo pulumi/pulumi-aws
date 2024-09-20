@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuicksightAnalysis(args: GetQuicksightAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightAnalysisResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
         "analysisId": args.analysisId,
@@ -87,7 +86,12 @@ export interface GetQuicksightAnalysisResult {
  * ```
  */
 export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightAnalysisResult> {
-    return pulumi.output(args).apply((a: any) => getQuicksightAnalysis(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
+        "analysisId": args.analysisId,
+        "awsAccountId": args.awsAccountId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

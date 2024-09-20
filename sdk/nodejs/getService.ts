@@ -46,7 +46,6 @@ import * as utilities from "./utilities";
  */
 export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getService:getService", {
         "dnsName": args.dnsName,
@@ -142,7 +141,16 @@ export interface GetServiceResult {
  * ```
  */
 export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
-    return pulumi.output(args).apply((a: any) => getService(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getService:getService", {
+        "dnsName": args.dnsName,
+        "id": args.id,
+        "region": args.region,
+        "reverseDnsName": args.reverseDnsName,
+        "reverseDnsPrefix": args.reverseDnsPrefix,
+        "serviceId": args.serviceId,
+    }, opts);
 }
 
 /**

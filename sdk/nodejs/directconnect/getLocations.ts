@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocations(opts?: pulumi.InvokeOptions): Promise<GetLocationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocations:getLocations", {
     }, opts);
@@ -55,5 +54,7 @@ export interface GetLocationsResult {
  * ```
  */
 export function getLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
-    return pulumi.output(getLocations(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:directconnect/getLocations:getLocations", {
+    }, opts);
 }

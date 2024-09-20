@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): Promise<GetEncryptionByDefaultResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetEncryptionByDefaultResult {
  * ```
  */
 export function getEncryptionByDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionByDefaultResult> {
-    return pulumi.output(getEncryptionByDefault(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
+    }, opts);
 }

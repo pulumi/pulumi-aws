@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
@@ -105,7 +104,11 @@ export interface GetSigningProfileResult {
  * ```
  */
 export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
-    return pulumi.output(args).apply((a: any) => getSigningProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:signer/getSigningProfile:getSigningProfile", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

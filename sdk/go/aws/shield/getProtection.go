@@ -97,14 +97,20 @@ type LookupProtectionResult struct {
 
 func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupProtectionResult, error) {
+		ApplyT(func(v interface{}) (LookupProtectionResultOutput, error) {
 			args := v.(LookupProtectionArgs)
-			r, err := LookupProtection(ctx, &args, opts...)
-			var s LookupProtectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupProtectionResult
+			secret, err := ctx.InvokePackageRaw("aws:shield/getProtection:getProtection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupProtectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupProtectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupProtectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupProtectionResultOutput)
 }
 

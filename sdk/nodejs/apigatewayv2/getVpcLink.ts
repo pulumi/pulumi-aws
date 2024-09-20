@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigatewayv2/getVpcLink:getVpcLink", {
         "tags": args.tags,
@@ -90,7 +89,11 @@ export interface GetVpcLinkResult {
  * ```
  */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
-    return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigatewayv2/getVpcLink:getVpcLink", {
+        "tags": args.tags,
+        "vpcLinkId": args.vpcLinkId,
+    }, opts);
 }
 
 /**

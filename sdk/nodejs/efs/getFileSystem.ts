@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
@@ -143,7 +142,13 @@ export interface GetFileSystemResult {
  * ```
  */
 export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
-    return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:efs/getFileSystem:getFileSystem", {
+        "creationToken": args.creationToken,
+        "fileSystemId": args.fileSystemId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRealtimeLogConfig(args: GetRealtimeLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetRealtimeLogConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", {
         "name": args.name,
@@ -80,7 +79,10 @@ export interface GetRealtimeLogConfigResult {
  * ```
  */
 export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
-    return pulumi.output(args).apply((a: any) => getRealtimeLogConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

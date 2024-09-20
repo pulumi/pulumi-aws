@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  */
 export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessCollectionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessCollection:getServerlessCollection", {
         "id": args.id,
@@ -108,7 +107,12 @@ export interface GetServerlessCollectionResult {
  * ```
  */
 export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCollectionResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessCollection(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", {
+        "id": args.id,
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterParameterGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
         "name": args.name,
@@ -73,7 +72,10 @@ export interface GetClusterParameterGroupResult {
  * ```
  */
 export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
-    return pulumi.output(args).apply((a: any) => getClusterParameterGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

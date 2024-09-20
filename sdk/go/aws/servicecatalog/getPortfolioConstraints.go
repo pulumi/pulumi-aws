@@ -77,14 +77,20 @@ type GetPortfolioConstraintsResult struct {
 
 func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstraintsOutputArgs, opts ...pulumi.InvokeOption) GetPortfolioConstraintsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetPortfolioConstraintsResult, error) {
+		ApplyT(func(v interface{}) (GetPortfolioConstraintsResultOutput, error) {
 			args := v.(GetPortfolioConstraintsArgs)
-			r, err := GetPortfolioConstraints(ctx, &args, opts...)
-			var s GetPortfolioConstraintsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetPortfolioConstraintsResult
+			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, "", opts...)
+			if err != nil {
+				return GetPortfolioConstraintsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetPortfolioConstraintsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetPortfolioConstraintsResultOutput), nil
+			}
+			return output, nil
 		}).(GetPortfolioConstraintsResultOutput)
 }
 

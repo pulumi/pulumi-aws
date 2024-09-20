@@ -85,14 +85,20 @@ type LookupTableResult struct {
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTableResult, error) {
+		ApplyT(func(v interface{}) (LookupTableResultOutput, error) {
 			args := v.(LookupTableArgs)
-			r, err := LookupTable(ctx, &args, opts...)
-			var s LookupTableResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTableResult
+			secret, err := ctx.InvokePackageRaw("aws:dynamodb/getTable:getTable", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTableResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTableResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTableResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTableResultOutput)
 }
 

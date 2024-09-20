@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lex/getSlotType:getSlotType", {
         "name": args.name,
@@ -108,7 +107,11 @@ export interface GetSlotTypeResult {
  * ```
  */
 export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlotTypeResult> {
-    return pulumi.output(args).apply((a: any) => getSlotType(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lex/getSlotType:getSlotType", {
+        "name": args.name,
+        "version": args.version,
+    }, opts);
 }
 
 /**

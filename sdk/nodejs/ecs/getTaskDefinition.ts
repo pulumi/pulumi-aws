@@ -46,7 +46,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
         "taskDefinition": args.taskDefinition,
@@ -147,7 +146,10 @@ export interface GetTaskDefinitionResult {
  * ```
  */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
-    return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecs/getTaskDefinition:getTaskDefinition", {
+        "taskDefinition": args.taskDefinition,
+    }, opts);
 }
 
 /**
