@@ -18,14 +18,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     public static final BucketWebsiteArgs Empty = new BucketWebsiteArgs();
 
     /**
-     * Absolute path to the document to return in case of a 4XX error.
+     * An absolute path to the document to return in case of a 4XX error.
      * 
      */
     @Import(name="errorDocument")
     private @Nullable Output<String> errorDocument;
 
     /**
-     * @return Absolute path to the document to return in case of a 4XX error.
+     * @return An absolute path to the document to return in case of a 4XX error.
      * 
      */
     public Optional<Output<String>> errorDocument() {
@@ -48,14 +48,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+     * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<String> redirectAllRequestsTo;
 
     /**
-     * @return Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+     * @return A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
     public Optional<Output<String>> redirectAllRequestsTo() {
@@ -63,16 +63,20 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
+     * 
+     * The `CORS` object supports the following:
      * 
      */
     @Import(name="routingRules")
     private @Nullable Output<Either<String,List<String>>> routingRules;
 
     /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied.
+     * 
+     * The `CORS` object supports the following:
      * 
      */
     public Optional<Output<Either<String,List<String>>>> routingRules() {
@@ -107,7 +111,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorDocument Absolute path to the document to return in case of a 4XX error.
+         * @param errorDocument An absolute path to the document to return in case of a 4XX error.
          * 
          * @return builder
          * 
@@ -118,7 +122,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorDocument Absolute path to the document to return in case of a 4XX error.
+         * @param errorDocument An absolute path to the document to return in case of a 4XX error.
          * 
          * @return builder
          * 
@@ -149,7 +153,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectAllRequestsTo Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+         * @param redirectAllRequestsTo A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          * 
          * @return builder
          * 
@@ -160,7 +164,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redirectAllRequestsTo Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+         * @param redirectAllRequestsTo A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          * 
          * @return builder
          * 
@@ -170,8 +174,10 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
+         * 
+         * The `CORS` object supports the following:
          * 
          * @return builder
          * 
@@ -182,8 +188,10 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
+         * 
+         * The `CORS` object supports the following:
          * 
          * @return builder
          * 
@@ -193,8 +201,10 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
+         * 
+         * The `CORS` object supports the following:
          * 
          * @return builder
          * 
@@ -204,8 +214,10 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * @param routingRules A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
          * describing redirect behavior and when redirects are applied.
+         * 
+         * The `CORS` object supports the following:
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;

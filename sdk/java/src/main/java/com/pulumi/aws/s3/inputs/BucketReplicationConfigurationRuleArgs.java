@@ -96,14 +96,14 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -126,14 +126,18 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     public Output<String> status() {
@@ -277,7 +281,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -288,7 +292,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param priority Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         * @param priority The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          * 
          * @return builder
          * 
@@ -319,7 +323,9 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param status Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * 
+         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * @return builder
          * 
@@ -330,7 +336,9 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param status Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * 
+         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * @return builder
          * 

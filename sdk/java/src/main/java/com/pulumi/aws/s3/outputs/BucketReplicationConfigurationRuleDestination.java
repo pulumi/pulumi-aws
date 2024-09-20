@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketReplicationConfigurationRuleDestination {
     /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     private @Nullable BucketReplicationConfigurationRuleDestinationAccessControlTranslation accessControlTranslation;
     /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     private @Nullable String accountId;
     /**
-     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     private String bucket;
@@ -54,21 +54,21 @@ public final class BucketReplicationConfigurationRuleDestination {
 
     private BucketReplicationConfigurationRuleDestination() {}
     /**
-     * @return Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+     * @return Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
     public Optional<BucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslation() {
         return Optional.ofNullable(this.accessControlTranslation);
     }
     /**
-     * @return Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+     * @return The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
     /**
-     * @return ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+     * @return The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
     public String bucket() {

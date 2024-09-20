@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketReplicationConfigurationRuleDestination
     {
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
+        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? AccessControlTranslation;
         /// <summary>
-        /// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
+        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
         public readonly string Bucket;
         /// <summary>

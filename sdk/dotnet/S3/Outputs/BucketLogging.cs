@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLogging
     {
         /// <summary>
-        /// Name of the bucket that will receive the log objects.
+        /// The name of the bucket that will receive the log objects.
         /// </summary>
         public readonly string TargetBucket;
         /// <summary>
