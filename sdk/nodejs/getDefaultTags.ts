@@ -36,7 +36,6 @@ import * as utilities from "./utilities";
  */
 export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultTagsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getDefaultTags:getDefaultTags", {
         "id": args.id,
@@ -91,7 +90,11 @@ export interface GetDefaultTagsResult {
  * ```
  */
 export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultTagsResult> {
-    return pulumi.output(args).apply((a: any) => getDefaultTags(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getDefaultTags:getDefaultTags", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

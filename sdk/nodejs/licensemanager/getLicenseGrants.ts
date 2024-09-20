@@ -29,7 +29,6 @@ import * as utilities from "../utilities";
  */
 export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetLicenseGrantsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
         "filters": args.filters,
@@ -84,7 +83,11 @@ export interface GetLicenseGrantsResult {
  * ```
  */
 export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseGrantsResult> {
-    return pulumi.output(args).apply((a: any) => getLicenseGrants(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
+        "filters": args.filters,
+    }, opts);
 }
 
 /**

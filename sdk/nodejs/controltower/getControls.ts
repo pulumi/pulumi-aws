@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:controltower/getControls:getControls", {
         "targetIdentifier": args.targetIdentifier,
@@ -73,7 +72,10 @@ export interface GetControlsResult {
  * ```
  */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
-    return pulumi.output(args).apply((a: any) => getControls(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:controltower/getControls:getControls", {
+        "targetIdentifier": args.targetIdentifier,
+    }, opts);
 }
 
 /**

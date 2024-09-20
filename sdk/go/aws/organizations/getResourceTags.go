@@ -67,14 +67,20 @@ type GetResourceTagsResult struct {
 
 func GetResourceTagsOutput(ctx *pulumi.Context, args GetResourceTagsOutputArgs, opts ...pulumi.InvokeOption) GetResourceTagsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetResourceTagsResult, error) {
+		ApplyT(func(v interface{}) (GetResourceTagsResultOutput, error) {
 			args := v.(GetResourceTagsArgs)
-			r, err := GetResourceTags(ctx, &args, opts...)
-			var s GetResourceTagsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetResourceTagsResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getResourceTags:getResourceTags", args, &rv, "", opts...)
+			if err != nil {
+				return GetResourceTagsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetResourceTagsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetResourceTagsResultOutput), nil
+			}
+			return output, nil
 		}).(GetResourceTagsResultOutput)
 }
 

@@ -73,14 +73,20 @@ type LookupSelectionResult struct {
 
 func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupSelectionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSelectionResult, error) {
+		ApplyT(func(v interface{}) (LookupSelectionResultOutput, error) {
 			args := v.(LookupSelectionArgs)
-			r, err := LookupSelection(ctx, &args, opts...)
-			var s LookupSelectionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSelectionResult
+			secret, err := ctx.InvokePackageRaw("aws:backup/getSelection:getSelection", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSelectionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSelectionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSelectionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSelectionResultOutput)
 }
 

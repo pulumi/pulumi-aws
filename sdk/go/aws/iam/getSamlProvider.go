@@ -77,14 +77,20 @@ type LookupSamlProviderResult struct {
 
 func LookupSamlProviderOutput(ctx *pulumi.Context, args LookupSamlProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSamlProviderResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSamlProviderResult, error) {
+		ApplyT(func(v interface{}) (LookupSamlProviderResultOutput, error) {
 			args := v.(LookupSamlProviderArgs)
-			r, err := LookupSamlProvider(ctx, &args, opts...)
-			var s LookupSamlProviderResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSamlProviderResult
+			secret, err := ctx.InvokePackageRaw("aws:iam/getSamlProvider:getSamlProvider", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSamlProviderResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSamlProviderResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSamlProviderResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSamlProviderResultOutput)
 }
 

@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLambdaFunctionAssociation(args: GetLambdaFunctionAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLambdaFunctionAssociationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
         "functionArn": args.functionArn,
@@ -69,7 +68,11 @@ export interface GetLambdaFunctionAssociationResult {
  * ```
  */
 export function getLambdaFunctionAssociationOutput(args: GetLambdaFunctionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionAssociationResult> {
-    return pulumi.output(args).apply((a: any) => getLambdaFunctionAssociation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", {
+        "functionArn": args.functionArn,
+        "instanceId": args.instanceId,
+    }, opts);
 }
 
 /**

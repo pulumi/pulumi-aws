@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainIdentityResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
@@ -72,7 +71,10 @@ export interface GetDomainIdentityResult {
  * ```
  */
 export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainIdentityResult> {
-    return pulumi.output(args).apply((a: any) => getDomainIdentity(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ses/getDomainIdentity:getDomainIdentity", {
+        "domain": args.domain,
+    }, opts);
 }
 
 /**

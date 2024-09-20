@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getResourcePolicy:getResourcePolicy", {
         "resourceArn": args.resourceArn,
@@ -69,7 +68,10 @@ export interface GetResourcePolicyResult {
  * ```
  */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
-    return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:vpclattice/getResourcePolicy:getResourcePolicy", {
+        "resourceArn": args.resourceArn,
+    }, opts);
 }
 
 /**

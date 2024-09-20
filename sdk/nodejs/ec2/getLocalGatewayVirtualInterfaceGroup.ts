@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtualInterfaceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", {
         "filters": args.filters,
@@ -83,7 +82,14 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
  * ```
  */
 export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewayVirtualInterfaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGatewayVirtualInterfaceGroup(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", {
+        "filters": args.filters,
+        "id": args.id,
+        "localGatewayId": args.localGatewayId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

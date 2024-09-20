@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getComponent(args: GetComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getComponent:getComponent", {
         "arn": args.arn,
@@ -118,7 +117,11 @@ export interface GetComponentResult {
  * ```
  */
 export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
-    return pulumi.output(args).apply((a: any) => getComponent(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:imagebuilder/getComponent:getComponent", {
+        "arn": args.arn,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

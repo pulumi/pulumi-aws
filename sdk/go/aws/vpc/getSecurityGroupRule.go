@@ -89,14 +89,20 @@ type GetSecurityGroupRuleResult struct {
 
 func GetSecurityGroupRuleOutput(ctx *pulumi.Context, args GetSecurityGroupRuleOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRuleResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSecurityGroupRuleResult, error) {
+		ApplyT(func(v interface{}) (GetSecurityGroupRuleResultOutput, error) {
 			args := v.(GetSecurityGroupRuleArgs)
-			r, err := GetSecurityGroupRule(ctx, &args, opts...)
-			var s GetSecurityGroupRuleResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSecurityGroupRuleResult
+			secret, err := ctx.InvokePackageRaw("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args, &rv, "", opts...)
+			if err != nil {
+				return GetSecurityGroupRuleResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSecurityGroupRuleResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSecurityGroupRuleResultOutput), nil
+			}
+			return output, nil
 		}).(GetSecurityGroupRuleResultOutput)
 }
 

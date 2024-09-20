@@ -68,14 +68,20 @@ type LookupDomainIdentityResult struct {
 
 func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupDomainIdentityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDomainIdentityResult, error) {
+		ApplyT(func(v interface{}) (LookupDomainIdentityResultOutput, error) {
 			args := v.(LookupDomainIdentityArgs)
-			r, err := LookupDomainIdentity(ctx, &args, opts...)
-			var s LookupDomainIdentityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDomainIdentityResult
+			secret, err := ctx.InvokePackageRaw("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDomainIdentityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDomainIdentityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDomainIdentityResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDomainIdentityResultOutput)
 }
 

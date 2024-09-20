@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  */
 export function getDetector(args?: GetDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetDetectorResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:guardduty/getDetector:getDetector", {
         "id": args.id,
@@ -73,7 +72,11 @@ export interface GetDetectorResult {
  * ```
  */
 export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
-    return pulumi.output(args).apply((a: any) => getDetector(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:guardduty/getDetector:getDetector", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

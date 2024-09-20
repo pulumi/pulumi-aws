@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleArchitecture": args.compatibleArchitecture,
@@ -136,7 +135,13 @@ export interface GetLayerVersionResult {
  * ```
  */
 export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
-    return pulumi.output(args).apply((a: any) => getLayerVersion(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lambda/getLayerVersion:getLayerVersion", {
+        "compatibleArchitecture": args.compatibleArchitecture,
+        "compatibleRuntime": args.compatibleRuntime,
+        "layerName": args.layerName,
+        "version": args.version,
+    }, opts);
 }
 
 /**

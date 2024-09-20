@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  */
 export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTablesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
         "filters": args.filters,
@@ -89,7 +88,12 @@ export interface GetLocalGatewayRouteTablesResult {
  * ```
  */
 export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTablesResult> {
-    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTables(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

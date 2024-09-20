@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:alb/getListener:getListener", {
         "arn": args.arn,
@@ -114,7 +113,14 @@ export interface GetListenerResult {
  * ```
  */
 export function getListenerOutput(args?: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
-    return pulumi.output(args).apply((a: any) => getListener(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:alb/getListener:getListener", {
+        "arn": args.arn,
+        "loadBalancerArn": args.loadBalancerArn,
+        "port": args.port,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

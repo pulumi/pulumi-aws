@@ -99,7 +99,6 @@ import * as utilities from "../utilities";
  * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
 export function getPrincipalPolicySimulation(args: GetPrincipalPolicySimulationArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalPolicySimulationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", {
         "actionNames": args.actionNames,
@@ -291,7 +290,19 @@ export interface GetPrincipalPolicySimulationResult {
  * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
 export function getPrincipalPolicySimulationOutput(args: GetPrincipalPolicySimulationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPolicySimulationResult> {
-    return pulumi.output(args).apply((a: any) => getPrincipalPolicySimulation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", {
+        "actionNames": args.actionNames,
+        "additionalPoliciesJsons": args.additionalPoliciesJsons,
+        "callerArn": args.callerArn,
+        "contexts": args.contexts,
+        "permissionsBoundaryPoliciesJsons": args.permissionsBoundaryPoliciesJsons,
+        "policySourceArn": args.policySourceArn,
+        "resourceArns": args.resourceArns,
+        "resourceHandlingOption": args.resourceHandlingOption,
+        "resourceOwnerAccountId": args.resourceOwnerAccountId,
+        "resourcePolicyJson": args.resourcePolicyJson,
+    }, opts);
 }
 
 /**

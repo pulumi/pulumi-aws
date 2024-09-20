@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getReceivedLicense(args: GetReceivedLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetReceivedLicenseResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getReceivedLicense:getReceivedLicense", {
         "licenseArn": args.licenseArn,
@@ -125,7 +124,10 @@ export interface GetReceivedLicenseResult {
  * ```
  */
 export function getReceivedLicenseOutput(args: GetReceivedLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicenseResult> {
-    return pulumi.output(args).apply((a: any) => getReceivedLicense(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicense:getReceivedLicense", {
+        "licenseArn": args.licenseArn,
+    }, opts);
 }
 
 /**

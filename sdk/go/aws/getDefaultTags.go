@@ -64,14 +64,20 @@ type GetDefaultTagsResult struct {
 
 func GetDefaultTagsOutput(ctx *pulumi.Context, args GetDefaultTagsOutputArgs, opts ...pulumi.InvokeOption) GetDefaultTagsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDefaultTagsResult, error) {
+		ApplyT(func(v interface{}) (GetDefaultTagsResultOutput, error) {
 			args := v.(GetDefaultTagsArgs)
-			r, err := GetDefaultTags(ctx, &args, opts...)
-			var s GetDefaultTagsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDefaultTagsResult
+			secret, err := ctx.InvokePackageRaw("aws:index/getDefaultTags:getDefaultTags", args, &rv, "", opts...)
+			if err != nil {
+				return GetDefaultTagsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDefaultTagsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDefaultTagsResultOutput), nil
+			}
+			return output, nil
 		}).(GetDefaultTagsResultOutput)
 }
 

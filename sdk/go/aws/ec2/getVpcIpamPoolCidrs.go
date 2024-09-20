@@ -93,14 +93,20 @@ type GetVpcIpamPoolCidrsResult struct {
 
 func GetVpcIpamPoolCidrsOutput(ctx *pulumi.Context, args GetVpcIpamPoolCidrsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolCidrsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVpcIpamPoolCidrsResult, error) {
+		ApplyT(func(v interface{}) (GetVpcIpamPoolCidrsResultOutput, error) {
 			args := v.(GetVpcIpamPoolCidrsArgs)
-			r, err := GetVpcIpamPoolCidrs(ctx, &args, opts...)
-			var s GetVpcIpamPoolCidrsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVpcIpamPoolCidrsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", args, &rv, "", opts...)
+			if err != nil {
+				return GetVpcIpamPoolCidrsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVpcIpamPoolCidrsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVpcIpamPoolCidrsResultOutput), nil
+			}
+			return output, nil
 		}).(GetVpcIpamPoolCidrsResultOutput)
 }
 

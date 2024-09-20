@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,
@@ -85,7 +84,10 @@ export interface GetExportResult {
  * ```
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
-    return pulumi.output(args).apply((a: any) => getExport(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudformation/getExport:getExport", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationProvidersResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplicationProviders:getApplicationProviders", {
         "applicationProviders": args.applicationProviders,
@@ -68,7 +67,11 @@ export interface GetApplicationProvidersResult {
  * ```
  */
 export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationProvidersResult> {
-    return pulumi.output(args).apply((a: any) => getApplicationProviders(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationProviders:getApplicationProviders", {
+        "applicationProviders": args.applicationProviders,
+    }, opts);
 }
 
 /**

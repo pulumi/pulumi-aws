@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getSecretVersions(args: GetSecretVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersions:getSecretVersions", {
         "includeDeprecated": args.includeDeprecated,
@@ -52,7 +51,11 @@ export interface GetSecretVersionsResult {
     readonly versions: outputs.secretsmanager.GetSecretVersionsVersion[];
 }
 export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionsResult> {
-    return pulumi.output(args).apply((a: any) => getSecretVersions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretVersions:getSecretVersions", {
+        "includeDeprecated": args.includeDeprecated,
+        "secretId": args.secretId,
+    }, opts);
 }
 
 /**

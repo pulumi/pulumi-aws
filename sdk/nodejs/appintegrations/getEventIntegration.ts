@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetEventIntegrationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,
@@ -89,7 +88,11 @@ export interface GetEventIntegrationResult {
  * ```
  */
 export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
-    return pulumi.output(args).apply((a: any) => getEventIntegration(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

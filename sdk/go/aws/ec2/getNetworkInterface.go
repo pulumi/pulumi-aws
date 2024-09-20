@@ -101,14 +101,20 @@ type LookupNetworkInterfaceResult struct {
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInterfaceResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkInterfaceResultOutput, error) {
 			args := v.(LookupNetworkInterfaceArgs)
-			r, err := LookupNetworkInterface(ctx, &args, opts...)
-			var s LookupNetworkInterfaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkInterfaceResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkInterfaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkInterfaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkInterfaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkInterfaceResultOutput)
 }
 

@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserHierarchyStructure(args: GetUserHierarchyStructureArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyStructureResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
         "instanceId": args.instanceId,
@@ -68,7 +67,10 @@ export interface GetUserHierarchyStructureResult {
  * ```
  */
 export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyStructureResult> {
-    return pulumi.output(args).apply((a: any) => getUserHierarchyStructure(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
+        "instanceId": args.instanceId,
+    }, opts);
 }
 
 /**

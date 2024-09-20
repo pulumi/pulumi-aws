@@ -112,14 +112,20 @@ type LookupWorkspaceResult struct {
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupWorkspaceResult, error) {
+		ApplyT(func(v interface{}) (LookupWorkspaceResultOutput, error) {
 			args := v.(LookupWorkspaceArgs)
-			r, err := LookupWorkspace(ctx, &args, opts...)
-			var s LookupWorkspaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupWorkspaceResult
+			secret, err := ctx.InvokePackageRaw("aws:workspaces/getWorkspace:getWorkspace", args, &rv, "", opts...)
+			if err != nil {
+				return LookupWorkspaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupWorkspaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupWorkspaceResultOutput), nil
+			}
+			return output, nil
 		}).(LookupWorkspaceResultOutput)
 }
 

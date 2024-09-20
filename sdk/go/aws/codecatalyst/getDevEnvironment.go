@@ -101,14 +101,20 @@ type LookupDevEnvironmentResult struct {
 
 func LookupDevEnvironmentOutput(ctx *pulumi.Context, args LookupDevEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupDevEnvironmentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDevEnvironmentResult, error) {
+		ApplyT(func(v interface{}) (LookupDevEnvironmentResultOutput, error) {
 			args := v.(LookupDevEnvironmentArgs)
-			r, err := LookupDevEnvironment(ctx, &args, opts...)
-			var s LookupDevEnvironmentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDevEnvironmentResult
+			secret, err := ctx.InvokePackageRaw("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDevEnvironmentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDevEnvironmentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDevEnvironmentResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDevEnvironmentResultOutput)
 }
 

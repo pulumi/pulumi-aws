@@ -176,14 +176,20 @@ type LookupSubnetResult struct {
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSubnetResult, error) {
+		ApplyT(func(v interface{}) (LookupSubnetResultOutput, error) {
 			args := v.(LookupSubnetArgs)
-			r, err := LookupSubnet(ctx, &args, opts...)
-			var s LookupSubnetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSubnetResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getSubnet:getSubnet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSubnetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSubnetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSubnetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSubnetResultOutput)
 }
 

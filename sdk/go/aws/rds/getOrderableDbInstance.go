@@ -192,14 +192,20 @@ type GetOrderableDbInstanceResult struct {
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOrderableDbInstanceResult, error) {
+		ApplyT(func(v interface{}) (GetOrderableDbInstanceResultOutput, error) {
 			args := v.(GetOrderableDbInstanceArgs)
-			r, err := GetOrderableDbInstance(ctx, &args, opts...)
-			var s GetOrderableDbInstanceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOrderableDbInstanceResult
+			secret, err := ctx.InvokePackageRaw("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args, &rv, "", opts...)
+			if err != nil {
+				return GetOrderableDbInstanceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOrderableDbInstanceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOrderableDbInstanceResultOutput), nil
+			}
+			return output, nil
 		}).(GetOrderableDbInstanceResultOutput)
 }
 

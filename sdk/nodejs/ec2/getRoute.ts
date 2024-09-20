@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
         "carrierGatewayId": args.carrierGatewayId,
@@ -167,7 +166,23 @@ export interface GetRouteResult {
  * ```
  */
 export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
-    return pulumi.output(args).apply((a: any) => getRoute(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getRoute:getRoute", {
+        "carrierGatewayId": args.carrierGatewayId,
+        "coreNetworkArn": args.coreNetworkArn,
+        "destinationCidrBlock": args.destinationCidrBlock,
+        "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,
+        "destinationPrefixListId": args.destinationPrefixListId,
+        "egressOnlyGatewayId": args.egressOnlyGatewayId,
+        "gatewayId": args.gatewayId,
+        "instanceId": args.instanceId,
+        "localGatewayId": args.localGatewayId,
+        "natGatewayId": args.natGatewayId,
+        "networkInterfaceId": args.networkInterfaceId,
+        "routeTableId": args.routeTableId,
+        "transitGatewayId": args.transitGatewayId,
+        "vpcPeeringConnectionId": args.vpcPeeringConnectionId,
+    }, opts);
 }
 
 /**

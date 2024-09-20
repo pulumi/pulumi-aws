@@ -45,7 +45,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
@@ -159,7 +158,13 @@ export interface GetVpcDhcpOptionsResult {
  * ```
  */
 export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcDhcpOptionsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcDhcpOptions(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {
+        "dhcpOptionsId": args.dhcpOptionsId,
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualService:getVirtualService", {
         "meshName": args.meshName,
@@ -131,7 +130,13 @@ export interface GetVirtualServiceResult {
  * ```
  */
 export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualService(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualService:getVirtualService", {
+        "meshName": args.meshName,
+        "meshOwner": args.meshOwner,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

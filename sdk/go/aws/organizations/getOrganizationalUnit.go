@@ -75,14 +75,20 @@ type LookupOrganizationalUnitResult struct {
 
 func LookupOrganizationalUnitOutput(ctx *pulumi.Context, args LookupOrganizationalUnitOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationalUnitResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationalUnitResult, error) {
+		ApplyT(func(v interface{}) (LookupOrganizationalUnitResultOutput, error) {
 			args := v.(LookupOrganizationalUnitArgs)
-			r, err := LookupOrganizationalUnit(ctx, &args, opts...)
-			var s LookupOrganizationalUnitResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOrganizationalUnitResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOrganizationalUnitResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOrganizationalUnitResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOrganizationalUnitResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOrganizationalUnitResultOutput)
 }
 

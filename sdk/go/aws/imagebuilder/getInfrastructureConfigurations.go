@@ -74,14 +74,20 @@ type GetInfrastructureConfigurationsResult struct {
 
 func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastructureConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetInfrastructureConfigurationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetInfrastructureConfigurationsResult, error) {
+		ApplyT(func(v interface{}) (GetInfrastructureConfigurationsResultOutput, error) {
 			args := v.(GetInfrastructureConfigurationsArgs)
-			r, err := GetInfrastructureConfigurations(ctx, &args, opts...)
-			var s GetInfrastructureConfigurationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetInfrastructureConfigurationsResult
+			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, &rv, "", opts...)
+			if err != nil {
+				return GetInfrastructureConfigurationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetInfrastructureConfigurationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetInfrastructureConfigurationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetInfrastructureConfigurationsResultOutput)
 }
 

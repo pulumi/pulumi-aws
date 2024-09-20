@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getThesaurus(args: GetThesaurusArgs, opts?: pulumi.InvokeOptions): Promise<GetThesaurusResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,
@@ -129,7 +128,12 @@ export interface GetThesaurusResult {
  * ```
  */
 export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThesaurusResult> {
-    return pulumi.output(args).apply((a: any) => getThesaurus(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kendra/getThesaurus:getThesaurus", {
+        "indexId": args.indexId,
+        "tags": args.tags,
+        "thesaurusId": args.thesaurusId,
+    }, opts);
 }
 
 /**

@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  */
 export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lb/getTrustStore:getTrustStore", {
         "arn": args.arn,
@@ -90,7 +89,12 @@ export interface GetTrustStoreResult {
  * ```
  */
 export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
-    return pulumi.output(args).apply((a: any) => getTrustStore(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lb/getTrustStore:getTrustStore", {
+        "arn": args.arn,
+        "name": args.name,
+    }, opts);
 }
 
 /**

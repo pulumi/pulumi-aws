@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
@@ -88,7 +87,12 @@ export interface GetTableResult {
  * ```
  */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply((a: any) => getTable(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:dynamodb/getTable:getTable", {
+        "name": args.name,
+        "serverSideEncryption": args.serverSideEncryption,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

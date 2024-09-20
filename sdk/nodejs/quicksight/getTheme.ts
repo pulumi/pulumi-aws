@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getTheme:getTheme", {
         "awsAccountId": args.awsAccountId,
@@ -125,7 +124,12 @@ export interface GetThemeResult {
  * ```
  */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
-    return pulumi.output(args).apply((a: any) => getTheme(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:quicksight/getTheme:getTheme", {
+        "awsAccountId": args.awsAccountId,
+        "tags": args.tags,
+        "themeId": args.themeId,
+    }, opts);
 }
 
 /**
