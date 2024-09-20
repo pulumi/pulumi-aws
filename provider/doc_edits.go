@@ -250,3 +250,13 @@ func findLine(src []byte, i int) (int, int) {
 	}
 	return start, end + 1
 }
+
+// Attempts to read the contents of a given file but returns an empty array in case of failure. This is useful for
+// overriding documentation files at generation time only.
+func maybeReadFile(filePath string) []byte {
+	fileBytes, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil
+	}
+	return fileBytes
+}
