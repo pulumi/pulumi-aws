@@ -564,16 +564,16 @@ class Policy(pulumi.CustomResource):
                 "type": "WAF",
                 "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "rule_groups": [{
+                    "ruleGroups": [{
                         "id": example_rule_group.id,
-                        "override_action": {
+                        "overrideAction": {
                             "type": "COUNT",
                         },
                     }],
-                    "default_action": {
+                    "defaultAction": {
                         "type": "BLOCK",
                     },
-                    "override_customer_web_aclassociation": False,
+                    "overrideCustomerWebACLAssociation": False,
                 }),
             },
             tags={
@@ -635,16 +635,16 @@ class Policy(pulumi.CustomResource):
                 "type": "WAF",
                 "managed_service_data": pulumi.Output.json_dumps({
                     "type": "WAF",
-                    "rule_groups": [{
+                    "ruleGroups": [{
                         "id": example_rule_group.id,
-                        "override_action": {
+                        "overrideAction": {
                             "type": "COUNT",
                         },
                     }],
-                    "default_action": {
+                    "defaultAction": {
                         "type": "BLOCK",
                     },
-                    "override_customer_web_aclassociation": False,
+                    "overrideCustomerWebACLAssociation": False,
                 }),
             },
             tags={
