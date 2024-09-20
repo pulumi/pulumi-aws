@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingProfileResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,
@@ -135,7 +134,13 @@ export interface GetRoutingProfileResult {
  * ```
  */
 export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingProfileResult> {
-    return pulumi.output(args).apply((a: any) => getRoutingProfile(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getRoutingProfile:getRoutingProfile", {
+        "instanceId": args.instanceId,
+        "name": args.name,
+        "routingProfileId": args.routingProfileId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

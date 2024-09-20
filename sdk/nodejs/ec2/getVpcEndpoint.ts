@@ -30,7 +30,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
@@ -166,7 +165,16 @@ export interface GetVpcEndpointResult {
  * ```
  */
 export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getVpcEndpoint(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
+        "filters": args.filters,
+        "id": args.id,
+        "serviceName": args.serviceName,
+        "state": args.state,
+        "tags": args.tags,
+        "vpcId": args.vpcId,
+    }, opts);
 }
 
 /**

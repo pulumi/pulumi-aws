@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTemplates(args: GetTemplatesArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplatesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicequotas/getTemplates:getTemplates", {
         "region": args.region,
@@ -77,7 +76,11 @@ export interface GetTemplatesResult {
  * ```
  */
 export function getTemplatesOutput(args: GetTemplatesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplatesResult> {
-    return pulumi.output(args).apply((a: any) => getTemplates(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicequotas/getTemplates:getTemplates", {
+        "region": args.region,
+        "templates": args.templates,
+    }, opts);
 }
 
 /**

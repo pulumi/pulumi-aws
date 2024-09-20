@@ -71,14 +71,20 @@ type LookupAppregistryApplicationResult struct {
 
 func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregistryApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryApplicationResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAppregistryApplicationResult, error) {
+		ApplyT(func(v interface{}) (LookupAppregistryApplicationResultOutput, error) {
 			args := v.(LookupAppregistryApplicationArgs)
-			r, err := LookupAppregistryApplication(ctx, &args, opts...)
-			var s LookupAppregistryApplicationResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAppregistryApplicationResult
+			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAppregistryApplicationResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAppregistryApplicationResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAppregistryApplicationResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAppregistryApplicationResultOutput)
 }
 

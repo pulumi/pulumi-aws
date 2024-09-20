@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", {
         "configurationSetName": args.configurationSetName,
@@ -102,7 +101,11 @@ export interface GetConfigurationSetResult {
  * ```
  */
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
-    return pulumi.output(args).apply((a: any) => getConfigurationSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:sesv2/getConfigurationSet:getConfigurationSet", {
+        "configurationSetName": args.configurationSetName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

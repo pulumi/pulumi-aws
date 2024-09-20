@@ -114,14 +114,20 @@ type LookupZoneResult struct {
 
 func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupZoneResult, error) {
+		ApplyT(func(v interface{}) (LookupZoneResultOutput, error) {
 			args := v.(LookupZoneArgs)
-			r, err := LookupZone(ctx, &args, opts...)
-			var s LookupZoneResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupZoneResult
+			secret, err := ctx.InvokePackageRaw("aws:route53/getZone:getZone", args, &rv, "", opts...)
+			if err != nil {
+				return LookupZoneResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupZoneResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupZoneResultOutput), nil
+			}
+			return output, nil
 		}).(LookupZoneResultOutput)
 }
 

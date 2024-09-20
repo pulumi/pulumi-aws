@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  */
 export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventSource:getEventSource", {
         "namePrefix": args.namePrefix,
@@ -82,7 +81,11 @@ export interface GetEventSourceResult {
  * ```
  */
 export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
-    return pulumi.output(args).apply((a: any) => getEventSource(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventSource:getEventSource", {
+        "namePrefix": args.namePrefix,
+    }, opts);
 }
 
 /**

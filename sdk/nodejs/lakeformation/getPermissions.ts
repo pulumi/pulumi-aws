@@ -71,7 +71,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,
@@ -228,7 +227,19 @@ export interface GetPermissionsResult {
  * ```
  */
 export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
-    return pulumi.output(args).apply((a: any) => getPermissions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lakeformation/getPermissions:getPermissions", {
+        "catalogId": args.catalogId,
+        "catalogResource": args.catalogResource,
+        "dataCellsFilter": args.dataCellsFilter,
+        "dataLocation": args.dataLocation,
+        "database": args.database,
+        "lfTag": args.lfTag,
+        "lfTagPolicy": args.lfTagPolicy,
+        "principal": args.principal,
+        "table": args.table,
+        "tableWithColumns": args.tableWithColumns,
+    }, opts);
 }
 
 /**

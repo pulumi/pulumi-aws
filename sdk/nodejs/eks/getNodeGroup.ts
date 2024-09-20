@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNodeGroup(args: GetNodeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getNodeGroup:getNodeGroup", {
         "clusterName": args.clusterName,
@@ -145,7 +144,12 @@ export interface GetNodeGroupResult {
  * ```
  */
 export function getNodeGroupOutput(args: GetNodeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupResult> {
-    return pulumi.output(args).apply((a: any) => getNodeGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:eks/getNodeGroup:getNodeGroup", {
+        "clusterName": args.clusterName,
+        "nodeGroupName": args.nodeGroupName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

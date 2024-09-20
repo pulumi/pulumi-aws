@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
         "arn": args.arn,
@@ -88,7 +87,10 @@ export interface GetCodeSigningConfigResult {
  * ```
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
-    return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
+        "arn": args.arn,
+    }, opts);
 }
 
 /**

@@ -75,14 +75,20 @@ type LookupOriginAccessControlResult struct {
 
 func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAccessControlOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessControlResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupOriginAccessControlResult, error) {
+		ApplyT(func(v interface{}) (LookupOriginAccessControlResultOutput, error) {
 			args := v.(LookupOriginAccessControlArgs)
-			r, err := LookupOriginAccessControl(ctx, &args, opts...)
-			var s LookupOriginAccessControlResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupOriginAccessControlResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, &rv, "", opts...)
+			if err != nil {
+				return LookupOriginAccessControlResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupOriginAccessControlResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupOriginAccessControlResultOutput), nil
+			}
+			return output, nil
 		}).(LookupOriginAccessControlResultOutput)
 }
 

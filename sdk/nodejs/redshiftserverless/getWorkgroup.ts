@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkgroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", {
         "workgroupName": args.workgroupName,
@@ -97,7 +96,10 @@ export interface GetWorkgroupResult {
  * ```
  */
 export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkgroupResult> {
-    return pulumi.output(args).apply((a: any) => getWorkgroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:redshiftserverless/getWorkgroup:getWorkgroup", {
+        "workgroupName": args.workgroupName,
+    }, opts);
 }
 
 /**

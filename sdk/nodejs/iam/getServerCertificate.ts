@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getServerCertificate:getServerCertificate", {
         "latest": args.latest,
@@ -126,7 +125,14 @@ export interface GetServerCertificateResult {
  * ```
  */
 export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
-    return pulumi.output(args).apply((a: any) => getServerCertificate(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getServerCertificate:getServerCertificate", {
+        "latest": args.latest,
+        "name": args.name,
+        "namePrefix": args.namePrefix,
+        "pathPrefix": args.pathPrefix,
+    }, opts);
 }
 
 /**

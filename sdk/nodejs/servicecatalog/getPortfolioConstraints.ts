@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioConstraintsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
         "acceptLanguage": args.acceptLanguage,
@@ -92,7 +91,12 @@ export interface GetPortfolioConstraintsResult {
  * ```
  */
 export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
-    return pulumi.output(args).apply((a: any) => getPortfolioConstraints(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
+        "acceptLanguage": args.acceptLanguage,
+        "portfolioId": args.portfolioId,
+        "productId": args.productId,
+    }, opts);
 }
 
 /**

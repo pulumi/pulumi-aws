@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getGlobalNetwork(args: GetGlobalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworkResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", {
         "globalNetworkId": args.globalNetworkId,
@@ -78,7 +77,11 @@ export interface GetGlobalNetworkResult {
  * ```
  */
 export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
-    return pulumi.output(args).apply((a: any) => getGlobalNetwork(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", {
+        "globalNetworkId": args.globalNetworkId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getEnvironmentBlueprint(args: GetEnvironmentBlueprintArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentBlueprintResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", {
         "domainId": args.domainId,
@@ -97,7 +96,12 @@ export interface GetEnvironmentBlueprintResult {
  * ```
  */
 export function getEnvironmentBlueprintOutput(args: GetEnvironmentBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentBlueprintResult> {
-    return pulumi.output(args).apply((a: any) => getEnvironmentBlueprint(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", {
+        "domainId": args.domainId,
+        "managed": args.managed,
+        "name": args.name,
+    }, opts);
 }
 
 /**

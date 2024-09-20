@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getApplication:getApplication", {
         "name": args.name,
@@ -77,7 +76,10 @@ export interface GetApplicationResult {
  * ```
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getApplication:getApplication", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

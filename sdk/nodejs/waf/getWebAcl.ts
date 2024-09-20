@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:waf/getWebAcl:getWebAcl", {
         "name": args.name,
@@ -61,7 +60,10 @@ export interface GetWebAclResult {
  * ```
  */
 export function getWebAclOutput(args: GetWebAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAclResult> {
-    return pulumi.output(args).apply((a: any) => getWebAcl(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:waf/getWebAcl:getWebAcl", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

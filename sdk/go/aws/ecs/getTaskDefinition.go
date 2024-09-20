@@ -118,14 +118,20 @@ type LookupTaskDefinitionResult struct {
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupTaskDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupTaskDefinitionResultOutput, error) {
 			args := v.(LookupTaskDefinitionArgs)
-			r, err := LookupTaskDefinition(ctx, &args, opts...)
-			var s LookupTaskDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupTaskDefinitionResult
+			secret, err := ctx.InvokePackageRaw("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupTaskDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupTaskDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupTaskDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupTaskDefinitionResultOutput)
 }
 

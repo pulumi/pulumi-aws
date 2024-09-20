@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  */
 export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixListResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getPrefixList:getPrefixList", {
         "filters": args.filters,
@@ -158,7 +157,13 @@ export interface GetPrefixListResult {
  * ```
  */
 export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
-    return pulumi.output(args).apply((a: any) => getPrefixList(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getPrefixList:getPrefixList", {
+        "filters": args.filters,
+        "name": args.name,
+        "prefixListId": args.prefixListId,
+    }, opts);
 }
 
 /**

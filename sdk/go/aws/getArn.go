@@ -75,14 +75,20 @@ type GetArnResult struct {
 
 func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.InvokeOption) GetArnResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetArnResult, error) {
+		ApplyT(func(v interface{}) (GetArnResultOutput, error) {
 			args := v.(GetArnArgs)
-			r, err := GetArn(ctx, &args, opts...)
-			var s GetArnResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetArnResult
+			secret, err := ctx.InvokePackageRaw("aws:index/getArn:getArn", args, &rv, "", opts...)
+			if err != nil {
+				return GetArnResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetArnResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetArnResultOutput), nil
+			}
+			return output, nil
 		}).(GetArnResultOutput)
 }
 

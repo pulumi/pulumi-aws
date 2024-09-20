@@ -39,7 +39,6 @@ import * as utilities from "../utilities";
  */
 export function getMulticastDomain(args?: GetMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastDomainResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
         "filters": args.filters,
@@ -153,7 +152,13 @@ export interface GetMulticastDomainResult {
  * ```
  */
 export function getMulticastDomainOutput(args?: GetMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastDomainResult> {
-    return pulumi.output(args).apply((a: any) => getMulticastDomain(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
+        "filters": args.filters,
+        "tags": args.tags,
+        "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
+    }, opts);
 }
 
 /**

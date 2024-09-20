@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getPlan:getPlan", {
         "contactId": args.contactId,
@@ -72,7 +71,10 @@ export interface GetPlanResult {
  * ```
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
-    return pulumi.output(args).apply((a: any) => getPlan(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssmcontacts/getPlan:getPlan", {
+        "contactId": args.contactId,
+    }, opts);
 }
 
 /**

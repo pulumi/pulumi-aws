@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegationSetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,
@@ -70,7 +69,10 @@ export interface GetDelegationSetResult {
  * ```
  */
 export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegationSetResult> {
-    return pulumi.output(args).apply((a: any) => getDelegationSet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getDelegationSet:getDelegationSet", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

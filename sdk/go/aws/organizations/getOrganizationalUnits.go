@@ -69,14 +69,20 @@ type GetOrganizationalUnitsResult struct {
 
 func GetOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUnitsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetOrganizationalUnitsResult, error) {
+		ApplyT(func(v interface{}) (GetOrganizationalUnitsResultOutput, error) {
 			args := v.(GetOrganizationalUnitsArgs)
-			r, err := GetOrganizationalUnits(ctx, &args, opts...)
-			var s GetOrganizationalUnitsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetOrganizationalUnitsResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args, &rv, "", opts...)
+			if err != nil {
+				return GetOrganizationalUnitsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetOrganizationalUnitsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetOrganizationalUnitsResultOutput), nil
+			}
+			return output, nil
 		}).(GetOrganizationalUnitsResultOutput)
 }
 

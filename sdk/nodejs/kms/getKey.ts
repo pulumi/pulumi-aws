@@ -34,7 +34,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
@@ -178,7 +177,11 @@ export interface GetKeyResult {
  * ```
  */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
-    return pulumi.output(args).apply((a: any) => getKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kms/getKey:getKey", {
+        "grantTokens": args.grantTokens,
+        "keyId": args.keyId,
+    }, opts);
 }
 
 /**

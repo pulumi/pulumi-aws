@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  */
 export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codestarconnections/getConnection:getConnection", {
         "arn": args.arn,
@@ -120,7 +119,13 @@ export interface GetConnectionResult {
  * ```
  */
 export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codestarconnections/getConnection:getConnection", {
+        "arn": args.arn,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAuthorizationToken(opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
     }, opts);
@@ -65,5 +64,7 @@ export interface GetAuthorizationTokenResult {
  * ```
  */
 export function getAuthorizationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
-    return pulumi.output(getAuthorizationToken(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
+    }, opts);
 }

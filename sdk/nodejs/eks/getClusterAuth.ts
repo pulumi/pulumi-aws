@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
@@ -81,7 +80,10 @@ export interface GetClusterAuthResult {
  * ```
  */
 export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterAuthResult> {
-    return pulumi.output(args).apply((a: any) => getClusterAuth(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:eks/getClusterAuth:getClusterAuth", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

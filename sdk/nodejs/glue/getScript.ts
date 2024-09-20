@@ -201,7 +201,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,
@@ -442,7 +441,12 @@ export interface GetScriptResult {
  * ```
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
-    return pulumi.output(args).apply((a: any) => getScript(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:glue/getScript:getScript", {
+        "dagEdges": args.dagEdges,
+        "dagNodes": args.dagNodes,
+        "language": args.language,
+    }, opts);
 }
 
 /**

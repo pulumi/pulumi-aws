@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
@@ -111,7 +110,12 @@ export interface GetResolverEndpointResult {
  * ```
  */
 export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
-    return pulumi.output(args).apply((a: any) => getResolverEndpoint(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverEndpoint:getResolverEndpoint", {
+        "filters": args.filters,
+        "resolverEndpointId": args.resolverEndpointId,
+    }, opts);
 }
 
 /**

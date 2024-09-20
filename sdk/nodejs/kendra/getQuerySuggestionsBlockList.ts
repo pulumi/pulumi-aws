@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListArgs, opts?: pulumi.InvokeOptions): Promise<GetQuerySuggestionsBlockListResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
         "indexId": args.indexId,
@@ -125,7 +124,12 @@ export interface GetQuerySuggestionsBlockListResult {
  * ```
  */
 export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
-    return pulumi.output(args).apply((a: any) => getQuerySuggestionsBlockList(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
+        "indexId": args.indexId,
+        "querySuggestionsBlockListId": args.querySuggestionsBlockListId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

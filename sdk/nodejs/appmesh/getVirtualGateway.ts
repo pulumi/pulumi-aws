@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", {
         "meshName": args.meshName,
@@ -106,7 +105,12 @@ export interface GetVirtualGatewayResult {
  * ```
  */
 export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualGateway(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualGateway:getVirtualGateway", {
+        "meshName": args.meshName,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

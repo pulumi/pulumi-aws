@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getRestApi:getRestApi", {
         "name": args.name,
@@ -115,7 +114,11 @@ export interface GetRestApiResult {
  * ```
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
-    return pulumi.output(args).apply((a: any) => getRestApi(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:apigateway/getRestApi:getRestApi", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**
