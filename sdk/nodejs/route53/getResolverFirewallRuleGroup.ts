@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRuleGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
@@ -81,7 +80,10 @@ export interface GetResolverFirewallRuleGroupResult {
  * ```
  */
 export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
-    return pulumi.output(args).apply((a: any) => getResolverFirewallRuleGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
+        "firewallRuleGroupId": args.firewallRuleGroupId,
+    }, opts);
 }
 
 /**

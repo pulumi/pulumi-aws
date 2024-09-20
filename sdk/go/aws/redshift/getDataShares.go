@@ -64,14 +64,20 @@ type GetDataSharesResult struct {
 
 func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetDataSharesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDataSharesResult, error) {
+		ApplyT(func(v interface{}) (GetDataSharesResultOutput, error) {
 			args := v.(GetDataSharesArgs)
-			r, err := GetDataShares(ctx, &args, opts...)
-			var s GetDataSharesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDataSharesResult
+			secret, err := ctx.InvokePackageRaw("aws:redshift/getDataShares:getDataShares", args, &rv, "", opts...)
+			if err != nil {
+				return GetDataSharesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDataSharesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDataSharesResultOutput), nil
+			}
+			return output, nil
 		}).(GetDataSharesResultOutput)
 }
 

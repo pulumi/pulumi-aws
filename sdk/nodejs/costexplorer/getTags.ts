@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetTagsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:costexplorer/getTags:getTags", {
         "filter": args.filter,
@@ -100,7 +99,14 @@ export interface GetTagsResult {
  * ```
  */
 export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagsResult> {
-    return pulumi.output(args).apply((a: any) => getTags(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:costexplorer/getTags:getTags", {
+        "filter": args.filter,
+        "searchString": args.searchString,
+        "sortBies": args.sortBies,
+        "tagKey": args.tagKey,
+        "timePeriod": args.timePeriod,
+    }, opts);
 }
 
 /**

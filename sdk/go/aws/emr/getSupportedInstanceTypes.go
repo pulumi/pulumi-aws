@@ -107,14 +107,20 @@ type GetSupportedInstanceTypesResult struct {
 
 func GetSupportedInstanceTypesOutput(ctx *pulumi.Context, args GetSupportedInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetSupportedInstanceTypesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSupportedInstanceTypesResult, error) {
+		ApplyT(func(v interface{}) (GetSupportedInstanceTypesResultOutput, error) {
 			args := v.(GetSupportedInstanceTypesArgs)
-			r, err := GetSupportedInstanceTypes(ctx, &args, opts...)
-			var s GetSupportedInstanceTypesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSupportedInstanceTypesResult
+			secret, err := ctx.InvokePackageRaw("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args, &rv, "", opts...)
+			if err != nil {
+				return GetSupportedInstanceTypesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSupportedInstanceTypesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSupportedInstanceTypesResultOutput), nil
+			}
+			return output, nil
 		}).(GetSupportedInstanceTypesResultOutput)
 }
 

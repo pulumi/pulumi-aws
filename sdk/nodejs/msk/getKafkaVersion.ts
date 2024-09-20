@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  */
 export function getKafkaVersion(args?: GetKafkaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaVersionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getKafkaVersion:getKafkaVersion", {
         "preferredVersions": args.preferredVersions,
@@ -86,7 +85,12 @@ export interface GetKafkaVersionResult {
  * ```
  */
 export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaVersionResult> {
-    return pulumi.output(args).apply((a: any) => getKafkaVersion(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:msk/getKafkaVersion:getKafkaVersion", {
+        "preferredVersions": args.preferredVersions,
+        "version": args.version,
+    }, opts);
 }
 
 /**

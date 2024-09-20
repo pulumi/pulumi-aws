@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProvisioningArtifacts(args: GetProvisioningArtifactsArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisioningArtifactsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", {
         "acceptLanguage": args.acceptLanguage,
@@ -80,7 +79,11 @@ export interface GetProvisioningArtifactsResult {
  * ```
  */
 export function getProvisioningArtifactsOutput(args: GetProvisioningArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningArtifactsResult> {
-    return pulumi.output(args).apply((a: any) => getProvisioningArtifacts(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", {
+        "acceptLanguage": args.acceptLanguage,
+        "productId": args.productId,
+    }, opts);
 }
 
 /**

@@ -48,7 +48,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codebuild/getFleet:getFleet", {
         "name": args.name,
@@ -173,7 +172,11 @@ export interface GetFleetResult {
  * ```
  */
 export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
-    return pulumi.output(args).apply((a: any) => getFleet(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:codebuild/getFleet:getFleet", {
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

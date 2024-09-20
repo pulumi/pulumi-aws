@@ -38,7 +38,6 @@ import * as utilities from "../utilities";
  */
 export function getLifecyclePolicyDocument(args?: GetLifecyclePolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyDocumentResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", {
         "rules": args.rules,
@@ -96,7 +95,11 @@ export interface GetLifecyclePolicyDocumentResult {
  * ```
  */
 export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
-    return pulumi.output(args).apply((a: any) => getLifecyclePolicyDocument(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", {
+        "rules": args.rules,
+    }, opts);
 }
 
 /**

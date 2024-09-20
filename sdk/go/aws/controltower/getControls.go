@@ -39,14 +39,20 @@ type GetControlsResult struct {
 
 func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...pulumi.InvokeOption) GetControlsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetControlsResult, error) {
+		ApplyT(func(v interface{}) (GetControlsResultOutput, error) {
 			args := v.(GetControlsArgs)
-			r, err := GetControls(ctx, &args, opts...)
-			var s GetControlsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetControlsResult
+			secret, err := ctx.InvokePackageRaw("aws:controltower/getControls:getControls", args, &rv, "", opts...)
+			if err != nil {
+				return GetControlsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetControlsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetControlsResultOutput), nil
+			}
+			return output, nil
 		}).(GetControlsResultOutput)
 }
 

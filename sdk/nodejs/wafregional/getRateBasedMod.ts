@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeOptions): Promise<GetRateBasedModResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
@@ -61,7 +60,10 @@ export interface GetRateBasedModResult {
  * ```
  */
 export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedModResult> {
-    return pulumi.output(args).apply((a: any) => getRateBasedMod(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", {
+        "name": args.name,
+    }, opts);
 }
 
 /**

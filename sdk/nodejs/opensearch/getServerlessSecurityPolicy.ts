@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServerlessSecurityPolicy(args: GetServerlessSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityPolicyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,
@@ -89,7 +88,11 @@ export interface GetServerlessSecurityPolicyResult {
  * ```
  */
 export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityPolicyResult> {
-    return pulumi.output(args).apply((a: any) => getServerlessSecurityPolicy(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
+        "name": args.name,
+        "type": args.type,
+    }, opts);
 }
 
 /**

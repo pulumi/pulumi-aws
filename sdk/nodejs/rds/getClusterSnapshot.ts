@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", {
         "dbClusterIdentifier": args.dbClusterIdentifier,
@@ -191,7 +190,17 @@ export interface GetClusterSnapshotResult {
  * ```
  */
 export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
-    return pulumi.output(args).apply((a: any) => getClusterSnapshot(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:rds/getClusterSnapshot:getClusterSnapshot", {
+        "dbClusterIdentifier": args.dbClusterIdentifier,
+        "dbClusterSnapshotIdentifier": args.dbClusterSnapshotIdentifier,
+        "includePublic": args.includePublic,
+        "includeShared": args.includeShared,
+        "mostRecent": args.mostRecent,
+        "snapshotType": args.snapshotType,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

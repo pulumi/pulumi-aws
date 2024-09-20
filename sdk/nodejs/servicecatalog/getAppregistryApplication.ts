@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppregistryApplication(args: GetAppregistryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetAppregistryApplicationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", {
         "id": args.id,
@@ -77,7 +76,10 @@ export interface GetAppregistryApplicationResult {
  * ```
  */
 export function getAppregistryApplicationOutput(args: GetAppregistryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppregistryApplicationResult> {
-    return pulumi.output(args).apply((a: any) => getAppregistryApplication(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

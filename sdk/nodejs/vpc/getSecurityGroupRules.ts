@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  */
 export function getSecurityGroupRules(args?: GetSecurityGroupRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRulesResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", {
         "filters": args.filters,
@@ -82,7 +81,12 @@ export interface GetSecurityGroupRulesResult {
  * ```
  */
 export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRulesResult> {
-    return pulumi.output(args).apply((a: any) => getSecurityGroupRules(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", {
+        "filters": args.filters,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

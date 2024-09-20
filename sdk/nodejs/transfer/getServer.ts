@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getServer:getServer", {
         "serverId": args.serverId,
@@ -120,7 +119,11 @@ export interface GetServerResult {
  * ```
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply((a: any) => getServer(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:transfer/getServer:getServer", {
+        "serverId": args.serverId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

@@ -118,14 +118,20 @@ type LookupJobDefinitionResult struct {
 
 func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupJobDefinitionResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupJobDefinitionResult, error) {
+		ApplyT(func(v interface{}) (LookupJobDefinitionResultOutput, error) {
 			args := v.(LookupJobDefinitionArgs)
-			r, err := LookupJobDefinition(ctx, &args, opts...)
-			var s LookupJobDefinitionResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupJobDefinitionResult
+			secret, err := ctx.InvokePackageRaw("aws:batch/getJobDefinition:getJobDefinition", args, &rv, "", opts...)
+			if err != nil {
+				return LookupJobDefinitionResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupJobDefinitionResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupJobDefinitionResultOutput), nil
+			}
+			return output, nil
 		}).(LookupJobDefinitionResultOutput)
 }
 

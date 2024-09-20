@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getZone:getZone", {
         "name": args.name,
@@ -154,7 +153,15 @@ export interface GetZoneResult {
  * ```
  */
 export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
-    return pulumi.output(args).apply((a: any) => getZone(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:route53/getZone:getZone", {
+        "name": args.name,
+        "privateZone": args.privateZone,
+        "tags": args.tags,
+        "vpcId": args.vpcId,
+        "zoneId": args.zoneId,
+    }, opts);
 }
 
 /**

@@ -110,14 +110,20 @@ type LookupQuickConnectResult struct {
 
 func LookupQuickConnectOutput(ctx *pulumi.Context, args LookupQuickConnectOutputArgs, opts ...pulumi.InvokeOption) LookupQuickConnectResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupQuickConnectResult, error) {
+		ApplyT(func(v interface{}) (LookupQuickConnectResultOutput, error) {
 			args := v.(LookupQuickConnectArgs)
-			r, err := LookupQuickConnect(ctx, &args, opts...)
-			var s LookupQuickConnectResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupQuickConnectResult
+			secret, err := ctx.InvokePackageRaw("aws:connect/getQuickConnect:getQuickConnect", args, &rv, "", opts...)
+			if err != nil {
+				return LookupQuickConnectResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupQuickConnectResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupQuickConnectResultOutput), nil
+			}
+			return output, nil
 		}).(LookupQuickConnectResultOutput)
 }
 

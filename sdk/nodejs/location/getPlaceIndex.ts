@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPlaceIndex(args: GetPlaceIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetPlaceIndexResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,
@@ -97,7 +96,11 @@ export interface GetPlaceIndexResult {
  * ```
  */
 export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
-    return pulumi.output(args).apply((a: any) => getPlaceIndex(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:location/getPlaceIndex:getPlaceIndex", {
+        "indexName": args.indexName,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

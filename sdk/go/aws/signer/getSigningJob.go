@@ -93,14 +93,20 @@ type LookupSigningJobResult struct {
 
 func LookupSigningJobOutput(ctx *pulumi.Context, args LookupSigningJobOutputArgs, opts ...pulumi.InvokeOption) LookupSigningJobResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupSigningJobResult, error) {
+		ApplyT(func(v interface{}) (LookupSigningJobResultOutput, error) {
 			args := v.(LookupSigningJobArgs)
-			r, err := LookupSigningJob(ctx, &args, opts...)
-			var s LookupSigningJobResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupSigningJobResult
+			secret, err := ctx.InvokePackageRaw("aws:signer/getSigningJob:getSigningJob", args, &rv, "", opts...)
+			if err != nil {
+				return LookupSigningJobResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupSigningJobResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupSigningJobResultOutput), nil
+			}
+			return output, nil
 		}).(LookupSigningJobResultOutput)
 }
 

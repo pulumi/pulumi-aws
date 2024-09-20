@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroups:getLogGroups", {
         "logGroupNamePrefix": args.logGroupNamePrefix,
@@ -70,7 +69,11 @@ export interface GetLogGroupsResult {
  * ```
  */
 export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
-    return pulumi.output(args).apply((a: any) => getLogGroups(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogGroups:getLogGroups", {
+        "logGroupNamePrefix": args.logGroupNamePrefix,
+    }, opts);
 }
 
 /**

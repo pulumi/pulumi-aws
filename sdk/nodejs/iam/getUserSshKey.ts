@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserSshKey(args: GetUserSshKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSshKeyResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUserSshKey:getUserSshKey", {
         "encoding": args.encoding,
@@ -89,7 +88,12 @@ export interface GetUserSshKeyResult {
  * ```
  */
 export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSshKeyResult> {
-    return pulumi.output(args).apply((a: any) => getUserSshKey(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getUserSshKey:getUserSshKey", {
+        "encoding": args.encoding,
+        "sshPublicKeyId": args.sshPublicKeyId,
+        "username": args.username,
+    }, opts);
 }
 
 /**

@@ -84,14 +84,20 @@ type GetVpcIamPoolsResult struct {
 
 func GetVpcIamPoolsOutput(ctx *pulumi.Context, args GetVpcIamPoolsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIamPoolsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetVpcIamPoolsResult, error) {
+		ApplyT(func(v interface{}) (GetVpcIamPoolsResultOutput, error) {
 			args := v.(GetVpcIamPoolsArgs)
-			r, err := GetVpcIamPools(ctx, &args, opts...)
-			var s GetVpcIamPoolsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetVpcIamPoolsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcIamPools:getVpcIamPools", args, &rv, "", opts...)
+			if err != nil {
+				return GetVpcIamPoolsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetVpcIamPoolsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetVpcIamPoolsResultOutput), nil
+			}
+			return output, nil
 		}).(GetVpcIamPoolsResultOutput)
 }
 

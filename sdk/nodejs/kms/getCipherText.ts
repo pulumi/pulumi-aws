@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getCipherText:getCipherText", {
         "context": args.context,
@@ -101,7 +100,12 @@ export interface GetCipherTextResult {
  * ```
  */
 export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCipherTextResult> {
-    return pulumi.output(args).apply((a: any) => getCipherText(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:kms/getCipherText:getCipherText", {
+        "context": args.context,
+        "keyId": args.keyId,
+        "plaintext": args.plaintext,
+    }, opts);
 }
 
 /**

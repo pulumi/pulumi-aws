@@ -26,7 +26,6 @@ import * as utilities from "./utilities";
  */
 export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
         "id": args.id,
@@ -85,7 +84,11 @@ export interface GetPartitionResult {
  * ```
  */
 export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
-    return pulumi.output(args).apply((a: any) => getPartition(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:index/getPartition:getPartition", {
+        "id": args.id,
+    }, opts);
 }
 
 /**

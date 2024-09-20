@@ -75,14 +75,20 @@ type LookupUserGroupResult struct {
 
 func LookupUserGroupOutput(ctx *pulumi.Context, args LookupUserGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserGroupResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupUserGroupResult, error) {
+		ApplyT(func(v interface{}) (LookupUserGroupResultOutput, error) {
 			args := v.(LookupUserGroupArgs)
-			r, err := LookupUserGroup(ctx, &args, opts...)
-			var s LookupUserGroupResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupUserGroupResult
+			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserGroup:getUserGroup", args, &rv, "", opts...)
+			if err != nil {
+				return LookupUserGroupResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupUserGroupResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupUserGroupResultOutput), nil
+			}
+			return output, nil
 		}).(LookupUserGroupResultOutput)
 }
 

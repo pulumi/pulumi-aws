@@ -78,14 +78,20 @@ type LookupStateMachineResult struct {
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupStateMachineResult, error) {
+		ApplyT(func(v interface{}) (LookupStateMachineResultOutput, error) {
 			args := v.(LookupStateMachineArgs)
-			r, err := LookupStateMachine(ctx, &args, opts...)
-			var s LookupStateMachineResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupStateMachineResult
+			secret, err := ctx.InvokePackageRaw("aws:sfn/getStateMachine:getStateMachine", args, &rv, "", opts...)
+			if err != nil {
+				return LookupStateMachineResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupStateMachineResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupStateMachineResultOutput), nil
+			}
+			return output, nil
 		}).(LookupStateMachineResultOutput)
 }
 

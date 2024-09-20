@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAgentAgentVersions(args: GetAgentAgentVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentAgentVersionsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", {
         "agentId": args.agentId,
@@ -77,7 +76,11 @@ export interface GetAgentAgentVersionsResult {
  * ```
  */
 export function getAgentAgentVersionsOutput(args: GetAgentAgentVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentAgentVersionsResult> {
-    return pulumi.output(args).apply((a: any) => getAgentAgentVersions(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", {
+        "agentId": args.agentId,
+        "agentVersionSummaries": args.agentVersionSummaries,
+    }, opts);
 }
 
 /**
