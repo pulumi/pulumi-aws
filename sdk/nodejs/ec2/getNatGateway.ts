@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  */
 export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
@@ -159,7 +158,16 @@ export interface GetNatGatewayResult {
  * ```
  */
 export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getNatGateway:getNatGateway", {
+        "filters": args.filters,
+        "id": args.id,
+        "state": args.state,
+        "subnetId": args.subnetId,
+        "tags": args.tags,
+        "vpcId": args.vpcId,
+    }, opts);
 }
 
 /**

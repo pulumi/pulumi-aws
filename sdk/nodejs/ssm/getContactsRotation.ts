@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getContactsRotation(args: GetContactsRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetContactsRotationResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getContactsRotation:getContactsRotation", {
         "arn": args.arn,
@@ -85,7 +84,10 @@ export interface GetContactsRotationResult {
  * ```
  */
 export function getContactsRotationOutput(args: GetContactsRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactsRotationResult> {
-    return pulumi.output(args).apply((a: any) => getContactsRotation(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssm/getContactsRotation:getContactsRotation", {
+        "arn": args.arn,
+    }, opts);
 }
 
 /**

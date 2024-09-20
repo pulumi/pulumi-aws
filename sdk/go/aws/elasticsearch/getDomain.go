@@ -107,14 +107,20 @@ type LookupDomainResult struct {
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupDomainResult, error) {
+		ApplyT(func(v interface{}) (LookupDomainResultOutput, error) {
 			args := v.(LookupDomainArgs)
-			r, err := LookupDomain(ctx, &args, opts...)
-			var s LookupDomainResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupDomainResult
+			secret, err := ctx.InvokePackageRaw("aws:elasticsearch/getDomain:getDomain", args, &rv, "", opts...)
+			if err != nil {
+				return LookupDomainResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupDomainResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupDomainResultOutput), nil
+			}
+			return output, nil
 		}).(LookupDomainResultOutput)
 }
 

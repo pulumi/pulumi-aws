@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
@@ -125,7 +124,11 @@ export interface GetDirectoryResult {
  * ```
  */
 export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
-    return pulumi.output(args).apply((a: any) => getDirectory(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:workspaces/getDirectory:getDirectory", {
+        "directoryId": args.directoryId,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

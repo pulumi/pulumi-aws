@@ -74,14 +74,20 @@ type GetSecretsResult struct {
 
 func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pulumi.InvokeOption) GetSecretsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSecretsResult, error) {
+		ApplyT(func(v interface{}) (GetSecretsResultOutput, error) {
 			args := v.(GetSecretsArgs)
-			r, err := GetSecrets(ctx, &args, opts...)
-			var s GetSecretsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSecretsResult
+			secret, err := ctx.InvokePackageRaw("aws:secretsmanager/getSecrets:getSecrets", args, &rv, "", opts...)
+			if err != nil {
+				return GetSecretsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSecretsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSecretsResultOutput), nil
+			}
+			return output, nil
 		}).(GetSecretsResultOutput)
 }
 

@@ -38,7 +38,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
@@ -139,7 +138,14 @@ export interface GetResourceShareResult {
  * ```
  */
 export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
-    return pulumi.output(args).apply((a: any) => getResourceShare(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ram/getResourceShare:getResourceShare", {
+        "filters": args.filters,
+        "name": args.name,
+        "resourceOwner": args.resourceOwner,
+        "resourceShareStatus": args.resourceShareStatus,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

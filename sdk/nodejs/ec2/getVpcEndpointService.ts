@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
         "filters": args.filters,
@@ -208,7 +207,15 @@ export interface GetVpcEndpointServiceResult {
  * ```
  */
 export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServiceResult> {
-    return pulumi.output(args).apply((a: any) => getVpcEndpointService(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpointService:getVpcEndpointService", {
+        "filters": args.filters,
+        "service": args.service,
+        "serviceName": args.serviceName,
+        "serviceType": args.serviceType,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

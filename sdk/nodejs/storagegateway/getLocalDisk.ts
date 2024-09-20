@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,
@@ -79,7 +78,12 @@ export interface GetLocalDiskResult {
  * ```
  */
 export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDiskResult> {
-    return pulumi.output(args).apply((a: any) => getLocalDisk(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:storagegateway/getLocalDisk:getLocalDisk", {
+        "diskNode": args.diskNode,
+        "diskPath": args.diskPath,
+        "gatewayArn": args.gatewayArn,
+    }, opts);
 }
 
 /**

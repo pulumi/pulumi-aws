@@ -75,14 +75,20 @@ type GetRouteTableAssociationsResult struct {
 
 func GetRouteTableAssociationsOutput(ctx *pulumi.Context, args GetRouteTableAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetRouteTableAssociationsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetRouteTableAssociationsResult, error) {
+		ApplyT(func(v interface{}) (GetRouteTableAssociationsResultOutput, error) {
 			args := v.(GetRouteTableAssociationsArgs)
-			r, err := GetRouteTableAssociations(ctx, &args, opts...)
-			var s GetRouteTableAssociationsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetRouteTableAssociationsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args, &rv, "", opts...)
+			if err != nil {
+				return GetRouteTableAssociationsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetRouteTableAssociationsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetRouteTableAssociationsResultOutput), nil
+			}
+			return output, nil
 		}).(GetRouteTableAssociationsResultOutput)
 }
 

@@ -82,14 +82,20 @@ type GetTagsResult struct {
 
 func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.InvokeOption) GetTagsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetTagsResult, error) {
+		ApplyT(func(v interface{}) (GetTagsResultOutput, error) {
 			args := v.(GetTagsArgs)
-			r, err := GetTags(ctx, &args, opts...)
-			var s GetTagsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetTagsResult
+			secret, err := ctx.InvokePackageRaw("aws:costexplorer/getTags:getTags", args, &rv, "", opts...)
+			if err != nil {
+				return GetTagsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetTagsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetTagsResultOutput), nil
+			}
+			return output, nil
 		}).(GetTagsResultOutput)
 }
 

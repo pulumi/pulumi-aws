@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", {
         "hierarchyGroupId": args.hierarchyGroupId,
@@ -130,7 +129,13 @@ export interface GetUserHierarchyGroupResult {
  * ```
  */
 export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
-    return pulumi.output(args).apply((a: any) => getUserHierarchyGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", {
+        "hierarchyGroupId": args.hierarchyGroupId,
+        "instanceId": args.instanceId,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

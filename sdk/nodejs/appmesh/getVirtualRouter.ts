@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appmesh/getVirtualRouter:getVirtualRouter", {
         "meshName": args.meshName,
@@ -104,7 +103,13 @@ export interface GetVirtualRouterResult {
  * ```
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
-    return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualRouter:getVirtualRouter", {
+        "meshName": args.meshName,
+        "meshOwner": args.meshOwner,
+        "name": args.name,
+        "tags": args.tags,
+    }, opts);
 }
 
 /**

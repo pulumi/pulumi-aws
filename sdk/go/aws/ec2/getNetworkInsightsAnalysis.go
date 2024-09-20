@@ -92,14 +92,20 @@ type LookupNetworkInsightsAnalysisResult struct {
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInsightsAnalysisResult, error) {
+		ApplyT(func(v interface{}) (LookupNetworkInsightsAnalysisResultOutput, error) {
 			args := v.(LookupNetworkInsightsAnalysisArgs)
-			r, err := LookupNetworkInsightsAnalysis(ctx, &args, opts...)
-			var s LookupNetworkInsightsAnalysisResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupNetworkInsightsAnalysisResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args, &rv, "", opts...)
+			if err != nil {
+				return LookupNetworkInsightsAnalysisResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupNetworkInsightsAnalysisResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupNetworkInsightsAnalysisResultOutput), nil
+			}
+			return output, nil
 		}).(LookupNetworkInsightsAnalysisResultOutput)
 }
 

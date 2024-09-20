@@ -48,14 +48,20 @@ type GetAssetResult struct {
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetAssetResult, error) {
+		ApplyT(func(v interface{}) (GetAssetResultOutput, error) {
 			args := v.(GetAssetArgs)
-			r, err := GetAsset(ctx, &args, opts...)
-			var s GetAssetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetAssetResult
+			secret, err := ctx.InvokePackageRaw("aws:outposts/getAsset:getAsset", args, &rv, "", opts...)
+			if err != nil {
+				return GetAssetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetAssetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetAssetResultOutput), nil
+			}
+			return output, nil
 		}).(GetAssetResultOutput)
 }
 

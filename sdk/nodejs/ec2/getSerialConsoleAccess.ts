@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSerialConsoleAccess(opts?: pulumi.InvokeOptions): Promise<GetSerialConsoleAccessResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", {
     }, opts);
@@ -49,5 +48,7 @@ export interface GetSerialConsoleAccessResult {
  * ```
  */
 export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialConsoleAccessResult> {
-    return pulumi.output(getSerialConsoleAccess(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", {
+    }, opts);
 }

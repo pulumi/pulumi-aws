@@ -76,14 +76,20 @@ type GetEipsResult struct {
 
 func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.InvokeOption) GetEipsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetEipsResult, error) {
+		ApplyT(func(v interface{}) (GetEipsResultOutput, error) {
 			args := v.(GetEipsArgs)
-			r, err := GetEips(ctx, &args, opts...)
-			var s GetEipsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetEipsResult
+			secret, err := ctx.InvokePackageRaw("aws:ec2/getEips:getEips", args, &rv, "", opts...)
+			if err != nil {
+				return GetEipsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetEipsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetEipsResultOutput), nil
+			}
+			return output, nil
 		}).(GetEipsResultOutput)
 }
 

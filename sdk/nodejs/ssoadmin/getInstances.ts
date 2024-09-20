@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getInstances:getInstances", {
     }, opts);
@@ -57,5 +56,7 @@ export interface GetInstancesResult {
  * ```
  */
 export function getInstancesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
-    return pulumi.output(getInstances(opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ssoadmin/getInstances:getInstances", {
+    }, opts);
 }

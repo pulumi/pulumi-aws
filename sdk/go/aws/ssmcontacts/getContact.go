@@ -75,14 +75,20 @@ type LookupContactResult struct {
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupContactResult, error) {
+		ApplyT(func(v interface{}) (LookupContactResultOutput, error) {
 			args := v.(LookupContactArgs)
-			r, err := LookupContact(ctx, &args, opts...)
-			var s LookupContactResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupContactResult
+			secret, err := ctx.InvokePackageRaw("aws:ssmcontacts/getContact:getContact", args, &rv, "", opts...)
+			if err != nil {
+				return LookupContactResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupContactResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupContactResultOutput), nil
+			}
+			return output, nil
 		}).(LookupContactResultOutput)
 }
 

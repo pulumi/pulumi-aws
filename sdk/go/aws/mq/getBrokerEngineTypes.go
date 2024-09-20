@@ -68,14 +68,20 @@ type GetBrokerEngineTypesResult struct {
 
 func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerEngineTypesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetBrokerEngineTypesResult, error) {
+		ApplyT(func(v interface{}) (GetBrokerEngineTypesResultOutput, error) {
 			args := v.(GetBrokerEngineTypesArgs)
-			r, err := GetBrokerEngineTypes(ctx, &args, opts...)
-			var s GetBrokerEngineTypesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetBrokerEngineTypesResult
+			secret, err := ctx.InvokePackageRaw("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args, &rv, "", opts...)
+			if err != nil {
+				return GetBrokerEngineTypesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetBrokerEngineTypesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetBrokerEngineTypesResultOutput), nil
+			}
+			return output, nil
 		}).(GetBrokerEngineTypesResultOutput)
 }
 

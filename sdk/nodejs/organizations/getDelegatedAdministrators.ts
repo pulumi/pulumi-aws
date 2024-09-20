@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  */
 export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdministratorsResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {
         "servicePrincipal": args.servicePrincipal,
@@ -69,7 +68,11 @@ export interface GetDelegatedAdministratorsResult {
  * ```
  */
 export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
-    return pulumi.output(args).apply((a: any) => getDelegatedAdministrators(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {
+        "servicePrincipal": args.servicePrincipal,
+    }, opts);
 }
 
 /**

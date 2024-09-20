@@ -63,13 +63,19 @@ type GetAuthorizationTokenResult struct {
 }
 
 func GetAuthorizationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetAuthorizationTokenResult, error) {
-		r, err := GetAuthorizationToken(ctx, opts...)
-		var s GetAuthorizationTokenResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetAuthorizationTokenResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetAuthorizationTokenResult
+		secret, err := ctx.InvokePackageRaw("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", nil, &rv, "", opts...)
+		if err != nil {
+			return GetAuthorizationTokenResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetAuthorizationTokenResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetAuthorizationTokenResultOutput), nil
+		}
+		return output, nil
 	}).(GetAuthorizationTokenResultOutput)
 }
 

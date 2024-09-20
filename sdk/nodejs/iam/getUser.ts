@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getUser:getUser", {
         "tags": args.tags,
@@ -93,7 +92,11 @@ export interface GetUserResult {
  * ```
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
-    return pulumi.output(args).apply((a: any) => getUser(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:iam/getUser:getUser", {
+        "tags": args.tags,
+        "userName": args.userName,
+    }, opts);
 }
 
 /**

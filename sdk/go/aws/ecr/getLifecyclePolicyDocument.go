@@ -86,14 +86,20 @@ type GetLifecyclePolicyDocumentResult struct {
 
 func GetLifecyclePolicyDocumentOutput(ctx *pulumi.Context, args GetLifecyclePolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLifecyclePolicyDocumentResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetLifecyclePolicyDocumentResult, error) {
+		ApplyT(func(v interface{}) (GetLifecyclePolicyDocumentResultOutput, error) {
 			args := v.(GetLifecyclePolicyDocumentArgs)
-			r, err := GetLifecyclePolicyDocument(ctx, &args, opts...)
-			var s GetLifecyclePolicyDocumentResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetLifecyclePolicyDocumentResult
+			secret, err := ctx.InvokePackageRaw("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, &rv, "", opts...)
+			if err != nil {
+				return GetLifecyclePolicyDocumentResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetLifecyclePolicyDocumentResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetLifecyclePolicyDocumentResultOutput), nil
+			}
+			return output, nil
 		}).(GetLifecyclePolicyDocumentResultOutput)
 }
 

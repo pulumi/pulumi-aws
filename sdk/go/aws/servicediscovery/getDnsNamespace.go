@@ -77,14 +77,20 @@ type GetDnsNamespaceResult struct {
 
 func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetDnsNamespaceResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDnsNamespaceResult, error) {
+		ApplyT(func(v interface{}) (GetDnsNamespaceResultOutput, error) {
 			args := v.(GetDnsNamespaceArgs)
-			r, err := GetDnsNamespace(ctx, &args, opts...)
-			var s GetDnsNamespaceResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDnsNamespaceResult
+			secret, err := ctx.InvokePackageRaw("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args, &rv, "", opts...)
+			if err != nil {
+				return GetDnsNamespaceResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDnsNamespaceResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDnsNamespaceResultOutput), nil
+			}
+			return output, nil
 		}).(GetDnsNamespaceResultOutput)
 }
 

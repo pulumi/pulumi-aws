@@ -65,7 +65,6 @@ import * as utilities from "../utilities";
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrs(args: GetVpcIamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolCidrsResult> {
     pulumi.log.warn("getVpcIamPoolCidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", {
         "filters": args.filters,
@@ -159,7 +158,12 @@ export interface GetVpcIamPoolCidrsResult {
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIamPoolCidrs(a, opts))
+    pulumi.log.warn("getVpcIamPoolCidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", {
+        "filters": args.filters,
+        "ipamPoolId": args.ipamPoolId,
+    }, opts);
 }
 
 /**

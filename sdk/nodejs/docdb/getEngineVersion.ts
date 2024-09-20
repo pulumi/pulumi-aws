@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:docdb/getEngineVersion:getEngineVersion", {
         "engine": args.engine,
@@ -100,7 +99,14 @@ export interface GetEngineVersionResult {
  * ```
  */
 export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
-    return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))
+    args = args || {};
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:docdb/getEngineVersion:getEngineVersion", {
+        "engine": args.engine,
+        "parameterGroupFamily": args.parameterGroupFamily,
+        "preferredVersions": args.preferredVersions,
+        "version": args.version,
+    }, opts);
 }
 
 /**

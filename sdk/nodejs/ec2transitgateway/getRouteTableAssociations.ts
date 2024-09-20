@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouteTableAssociations(args: GetRouteTableAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableAssociationsResult> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", {
         "filters": args.filters,
@@ -83,7 +82,11 @@ export interface GetRouteTableAssociationsResult {
  * ```
  */
 export function getRouteTableAssociationsOutput(args: GetRouteTableAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableAssociationsResult> {
-    return pulumi.output(args).apply((a: any) => getRouteTableAssociations(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", {
+        "filters": args.filters,
+        "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
+    }, opts);
 }
 
 /**
