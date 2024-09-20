@@ -179,14 +179,20 @@ type LookupPermissionsResult struct {
 
 func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPermissionsResult, error) {
+		ApplyT(func(v interface{}) (LookupPermissionsResultOutput, error) {
 			args := v.(LookupPermissionsArgs)
-			r, err := LookupPermissions(ctx, &args, opts...)
-			var s LookupPermissionsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPermissionsResult
+			secret, err := ctx.InvokePackageRaw("aws:lakeformation/getPermissions:getPermissions", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPermissionsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPermissionsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPermissionsResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPermissionsResultOutput)
 }
 

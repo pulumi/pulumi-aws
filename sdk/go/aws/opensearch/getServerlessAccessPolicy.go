@@ -74,14 +74,20 @@ type LookupServerlessAccessPolicyResult struct {
 
 func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerlessAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessAccessPolicyResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupServerlessAccessPolicyResult, error) {
+		ApplyT(func(v interface{}) (LookupServerlessAccessPolicyResultOutput, error) {
 			args := v.(LookupServerlessAccessPolicyArgs)
-			r, err := LookupServerlessAccessPolicy(ctx, &args, opts...)
-			var s LookupServerlessAccessPolicyResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupServerlessAccessPolicyResult
+			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, &rv, "", opts...)
+			if err != nil {
+				return LookupServerlessAccessPolicyResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupServerlessAccessPolicyResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupServerlessAccessPolicyResultOutput), nil
+			}
+			return output, nil
 		}).(LookupServerlessAccessPolicyResultOutput)
 }
 

@@ -73,14 +73,20 @@ type LookupRegexPatternSetResult struct {
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupRegexPatternSetResult, error) {
+		ApplyT(func(v interface{}) (LookupRegexPatternSetResultOutput, error) {
 			args := v.(LookupRegexPatternSetArgs)
-			r, err := LookupRegexPatternSet(ctx, &args, opts...)
-			var s LookupRegexPatternSetResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupRegexPatternSetResult
+			secret, err := ctx.InvokePackageRaw("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args, &rv, "", opts...)
+			if err != nil {
+				return LookupRegexPatternSetResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupRegexPatternSetResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupRegexPatternSetResultOutput), nil
+			}
+			return output, nil
 		}).(LookupRegexPatternSetResultOutput)
 }
 

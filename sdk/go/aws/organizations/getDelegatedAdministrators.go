@@ -65,14 +65,20 @@ type GetDelegatedAdministratorsResult struct {
 
 func GetDelegatedAdministratorsOutput(ctx *pulumi.Context, args GetDelegatedAdministratorsOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedAdministratorsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDelegatedAdministratorsResult, error) {
+		ApplyT(func(v interface{}) (GetDelegatedAdministratorsResultOutput, error) {
 			args := v.(GetDelegatedAdministratorsArgs)
-			r, err := GetDelegatedAdministrators(ctx, &args, opts...)
-			var s GetDelegatedAdministratorsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDelegatedAdministratorsResult
+			secret, err := ctx.InvokePackageRaw("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, "", opts...)
+			if err != nil {
+				return GetDelegatedAdministratorsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDelegatedAdministratorsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDelegatedAdministratorsResultOutput), nil
+			}
+			return output, nil
 		}).(GetDelegatedAdministratorsResultOutput)
 }
 

@@ -76,14 +76,20 @@ type GetSolutionStackResult struct {
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetSolutionStackResult, error) {
+		ApplyT(func(v interface{}) (GetSolutionStackResultOutput, error) {
 			args := v.(GetSolutionStackArgs)
-			r, err := GetSolutionStack(ctx, &args, opts...)
-			var s GetSolutionStackResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetSolutionStackResult
+			secret, err := ctx.InvokePackageRaw("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, "", opts...)
+			if err != nil {
+				return GetSolutionStackResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetSolutionStackResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetSolutionStackResultOutput), nil
+			}
+			return output, nil
 		}).(GetSolutionStackResultOutput)
 }
 

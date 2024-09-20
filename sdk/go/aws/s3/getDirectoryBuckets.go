@@ -56,13 +56,19 @@ type GetDirectoryBucketsResult struct {
 }
 
 func GetDirectoryBucketsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDirectoryBucketsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDirectoryBucketsResult, error) {
-		r, err := GetDirectoryBuckets(ctx, opts...)
-		var s GetDirectoryBucketsResult
-		if r != nil {
-			s = *r
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetDirectoryBucketsResultOutput, error) {
+		opts = internal.PkgInvokeDefaultOpts(opts)
+		var rv GetDirectoryBucketsResult
+		secret, err := ctx.InvokePackageRaw("aws:s3/getDirectoryBuckets:getDirectoryBuckets", nil, &rv, "", opts...)
+		if err != nil {
+			return GetDirectoryBucketsResultOutput{}, err
 		}
-		return s, err
+
+		output := pulumi.ToOutput(rv).(GetDirectoryBucketsResultOutput)
+		if secret {
+			return pulumi.ToSecret(output).(GetDirectoryBucketsResultOutput), nil
+		}
+		return output, nil
 	}).(GetDirectoryBucketsResultOutput)
 }
 

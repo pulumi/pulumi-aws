@@ -85,14 +85,20 @@ type LookupAuthorizerResult struct {
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupAuthorizerResult, error) {
+		ApplyT(func(v interface{}) (LookupAuthorizerResultOutput, error) {
 			args := v.(LookupAuthorizerArgs)
-			r, err := LookupAuthorizer(ctx, &args, opts...)
-			var s LookupAuthorizerResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupAuthorizerResult
+			secret, err := ctx.InvokePackageRaw("aws:apigateway/getAuthorizer:getAuthorizer", args, &rv, "", opts...)
+			if err != nil {
+				return LookupAuthorizerResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupAuthorizerResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupAuthorizerResultOutput), nil
+			}
+			return output, nil
 		}).(LookupAuthorizerResultOutput)
 }
 

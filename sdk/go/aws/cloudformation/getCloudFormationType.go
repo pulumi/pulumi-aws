@@ -96,14 +96,20 @@ type LookupCloudFormationTypeResult struct {
 
 func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormationTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFormationTypeResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupCloudFormationTypeResult, error) {
+		ApplyT(func(v interface{}) (LookupCloudFormationTypeResultOutput, error) {
 			args := v.(LookupCloudFormationTypeArgs)
-			r, err := LookupCloudFormationType(ctx, &args, opts...)
-			var s LookupCloudFormationTypeResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupCloudFormationTypeResult
+			secret, err := ctx.InvokePackageRaw("aws:cloudformation/getCloudFormationType:getCloudFormationType", args, &rv, "", opts...)
+			if err != nil {
+				return LookupCloudFormationTypeResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupCloudFormationTypeResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupCloudFormationTypeResultOutput), nil
+			}
+			return output, nil
 		}).(LookupCloudFormationTypeResultOutput)
 }
 
