@@ -109,9 +109,6 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         log_group_name_prefix=pulumi.get(__ret__, 'log_group_name_prefix'),
         log_group_names=pulumi.get(__ret__, 'log_group_names'))
-
-
-@_utilities.lift_output_func(get_log_groups)
 def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupsResult]:
     """
@@ -129,4 +126,12 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
 
     :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
     """
-    ...
+    __args__ = dict()
+    __args__['logGroupNamePrefix'] = log_group_name_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogGroups:getLogGroups', __args__, opts=opts, typ=GetLogGroupsResult)
+    return __ret__.apply(lambda __response__: GetLogGroupsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        log_group_name_prefix=pulumi.get(__response__, 'log_group_name_prefix'),
+        log_group_names=pulumi.get(__response__, 'log_group_names')))

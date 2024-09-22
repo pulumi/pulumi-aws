@@ -244,9 +244,6 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
         subtype=pulumi.get(__ret__, 'subtype'),
         tags=pulumi.get(__ret__, 'tags'),
         uuid=pulumi.get(__ret__, 'uuid'))
-
-
-@_utilities.lift_output_func(get_ontap_storage_virtual_machine)
 def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
                                              id: Optional[pulumi.Input[Optional[str]]] = None,
                                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -281,4 +278,23 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
     :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine', __args__, opts=opts, typ=GetOntapStorageVirtualMachineResult)
+    return __ret__.apply(lambda __response__: GetOntapStorageVirtualMachineResult(
+        active_directory_configurations=pulumi.get(__response__, 'active_directory_configurations'),
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        file_system_id=pulumi.get(__response__, 'file_system_id'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        lifecycle_status=pulumi.get(__response__, 'lifecycle_status'),
+        lifecycle_transition_reasons=pulumi.get(__response__, 'lifecycle_transition_reasons'),
+        name=pulumi.get(__response__, 'name'),
+        subtype=pulumi.get(__response__, 'subtype'),
+        tags=pulumi.get(__response__, 'tags'),
+        uuid=pulumi.get(__response__, 'uuid')))
