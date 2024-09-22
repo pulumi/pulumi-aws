@@ -98,9 +98,6 @@ def get_node_groups(cluster_name: Optional[str] = None,
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_node_groups)
 def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
@@ -120,4 +117,11 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_name: Name of the cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroups:getNodeGroups', __args__, opts=opts, typ=GetNodeGroupsResult)
+    return __ret__.apply(lambda __response__: GetNodeGroupsResult(
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

@@ -176,9 +176,6 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
         resource_tag_mapping_lists=pulumi.get(__ret__, 'resource_tag_mapping_lists'),
         resource_type_filters=pulumi.get(__ret__, 'resource_type_filters'),
         tag_filters=pulumi.get(__ret__, 'tag_filters'))
-
-
-@_utilities.lift_output_func(get_resources)
 def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Optional[bool]]] = None,
                          include_compliance_details: Optional[pulumi.Input[Optional[bool]]] = None,
                          resource_arn_lists: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -230,4 +227,19 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     :param Sequence[str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
     :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
     """
-    ...
+    __args__ = dict()
+    __args__['excludeCompliantResources'] = exclude_compliant_resources
+    __args__['includeComplianceDetails'] = include_compliance_details
+    __args__['resourceArnLists'] = resource_arn_lists
+    __args__['resourceTypeFilters'] = resource_type_filters
+    __args__['tagFilters'] = tag_filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:resourcegroupstaggingapi/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult)
+    return __ret__.apply(lambda __response__: GetResourcesResult(
+        exclude_compliant_resources=pulumi.get(__response__, 'exclude_compliant_resources'),
+        id=pulumi.get(__response__, 'id'),
+        include_compliance_details=pulumi.get(__response__, 'include_compliance_details'),
+        resource_arn_lists=pulumi.get(__response__, 'resource_arn_lists'),
+        resource_tag_mapping_lists=pulumi.get(__response__, 'resource_tag_mapping_lists'),
+        resource_type_filters=pulumi.get(__response__, 'resource_type_filters'),
+        tag_filters=pulumi.get(__response__, 'tag_filters')))

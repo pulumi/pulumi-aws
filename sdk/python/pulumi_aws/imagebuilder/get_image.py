@@ -284,9 +284,6 @@ def get_image(arn: Optional[str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(arn: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
@@ -308,4 +305,26 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        arn=pulumi.get(__response__, 'arn'),
+        build_version_arn=pulumi.get(__response__, 'build_version_arn'),
+        container_recipe_arn=pulumi.get(__response__, 'container_recipe_arn'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        distribution_configuration_arn=pulumi.get(__response__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__response__, 'enhanced_image_metadata_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        image_recipe_arn=pulumi.get(__response__, 'image_recipe_arn'),
+        image_scanning_configurations=pulumi.get(__response__, 'image_scanning_configurations'),
+        image_tests_configurations=pulumi.get(__response__, 'image_tests_configurations'),
+        infrastructure_configuration_arn=pulumi.get(__response__, 'infrastructure_configuration_arn'),
+        name=pulumi.get(__response__, 'name'),
+        os_version=pulumi.get(__response__, 'os_version'),
+        output_resources=pulumi.get(__response__, 'output_resources'),
+        platform=pulumi.get(__response__, 'platform'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

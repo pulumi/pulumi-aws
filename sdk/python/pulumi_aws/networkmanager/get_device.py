@@ -221,9 +221,6 @@ def get_device(device_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))
-
-
-@_utilities.lift_output_func(get_device)
 def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
                       global_network_id: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -236,4 +233,23 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
     :param str global_network_id: ID of the global network.
     :param Mapping[str, str] tags: Key-value tags for the device.
     """
-    ...
+    __args__ = dict()
+    __args__['deviceId'] = device_id
+    __args__['globalNetworkId'] = global_network_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getDevice:getDevice', __args__, opts=opts, typ=GetDeviceResult)
+    return __ret__.apply(lambda __response__: GetDeviceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_locations=pulumi.get(__response__, 'aws_locations'),
+        description=pulumi.get(__response__, 'description'),
+        device_id=pulumi.get(__response__, 'device_id'),
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        locations=pulumi.get(__response__, 'locations'),
+        model=pulumi.get(__response__, 'model'),
+        serial_number=pulumi.get(__response__, 'serial_number'),
+        site_id=pulumi.get(__response__, 'site_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vendor=pulumi.get(__response__, 'vendor')))
