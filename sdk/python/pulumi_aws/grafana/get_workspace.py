@@ -332,9 +332,6 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -356,4 +353,30 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     :param Mapping[str, str] tags: Tags assigned to the resource
     :param str workspace_id: Grafana workspace ID.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:grafana/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        account_access_type=pulumi.get(__response__, 'account_access_type'),
+        arn=pulumi.get(__response__, 'arn'),
+        authentication_providers=pulumi.get(__response__, 'authentication_providers'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        data_sources=pulumi.get(__response__, 'data_sources'),
+        description=pulumi.get(__response__, 'description'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        grafana_version=pulumi.get(__response__, 'grafana_version'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        name=pulumi.get(__response__, 'name'),
+        notification_destinations=pulumi.get(__response__, 'notification_destinations'),
+        organization_role_name=pulumi.get(__response__, 'organization_role_name'),
+        organizational_units=pulumi.get(__response__, 'organizational_units'),
+        permission_type=pulumi.get(__response__, 'permission_type'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        saml_configuration_status=pulumi.get(__response__, 'saml_configuration_status'),
+        stack_set_name=pulumi.get(__response__, 'stack_set_name'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

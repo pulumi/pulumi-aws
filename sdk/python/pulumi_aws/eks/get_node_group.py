@@ -322,9 +322,6 @@ def get_node_group(cluster_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         taints=pulumi.get(__ret__, 'taints'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_node_group)
 def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           node_group_name: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -347,4 +344,30 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str node_group_name: Name of the node group.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['nodeGroupName'] = node_group_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroup:getNodeGroup', __args__, opts=opts, typ=GetNodeGroupResult)
+    return __ret__.apply(lambda __response__: GetNodeGroupResult(
+        ami_type=pulumi.get(__response__, 'ami_type'),
+        arn=pulumi.get(__response__, 'arn'),
+        capacity_type=pulumi.get(__response__, 'capacity_type'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        disk_size=pulumi.get(__response__, 'disk_size'),
+        id=pulumi.get(__response__, 'id'),
+        instance_types=pulumi.get(__response__, 'instance_types'),
+        labels=pulumi.get(__response__, 'labels'),
+        launch_templates=pulumi.get(__response__, 'launch_templates'),
+        node_group_name=pulumi.get(__response__, 'node_group_name'),
+        node_role_arn=pulumi.get(__response__, 'node_role_arn'),
+        release_version=pulumi.get(__response__, 'release_version'),
+        remote_accesses=pulumi.get(__response__, 'remote_accesses'),
+        resources=pulumi.get(__response__, 'resources'),
+        scaling_configs=pulumi.get(__response__, 'scaling_configs'),
+        status=pulumi.get(__response__, 'status'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        taints=pulumi.get(__response__, 'taints'),
+        version=pulumi.get(__response__, 'version')))
