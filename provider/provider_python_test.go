@@ -6,12 +6,16 @@
 package provider
 
 import (
+	"bytes"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
 	"time"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/stretchr/testify/require"
 )
 
 func TestRegress3196(t *testing.T) {
@@ -68,6 +72,38 @@ func TestRegress2534(t *testing.T) {
 
 	execPulumi(t, ptest, workdir, "import", "aws:lb/targetGroup:TargetGroup", "newtg", targetGroupArn, "--yes")
 	execPulumi(t, ptest, workdir, "state", "unprotect", strings.ReplaceAll(targetGroupUrn, "::test", "::newtg"), "--yes")
+}
+
+func TestRegress4457(t *testing.T) {
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-4457"))
+	upResult := ptest.Up()
+	autoGroupArn := upResult.Outputs["autoGroupArn"].Value.(string)
+	autoGroupUrn := upResult.Outputs["autoGroupUrn"].Value.(string)
+	autoGroupName := upResult.Outputs["autoGroupName"].Value.(string)
+	workspace := ptest.CurrentStack().Workspace()
+
+	t.Logf("Provisioned autoscaling group with arn=%s and urn=%s and name=%s", autoGroupArn, autoGroupUrn, autoGroupName)
+	workdir := workspace.WorkDir()
+	t.Logf("workdir = %s", workdir)
+	importResult := execPulumi(t, ptest, workdir, "import", "aws:autoscaling/group:Group", "newag", autoGroupName, "--yes")
+
+	t.Logf("Editing the program to add the code recommended by import")
+	i := strings.Index(importResult.stdout, "import pulumi")
+	extraCode := importResult.stdout[i:]
+	mainPy := filepath.Join(ptest.Source(), "__main__.py")
+	pyBytes, err := os.ReadFile(mainPy)
+	require.NoError(t, err)
+	updatedPyBytes := bytes.ReplaceAll(pyBytes, []byte("# EXTRA CODE HERE"), []byte(extraCode))
+	err = os.WriteFile(mainPy, updatedPyBytes, 0600)
+	require.NoError(t, err)
+
+	t.Logf("Previewing the edited program")
+	previewResult := ptest.Preview(optpreview.ExpectNoChanges())
+	t.Logf("%s", previewResult.StdOut)
+	t.Logf("%s", previewResult.StdErr)
+
+	t.Logf("Un-protecting imported resources to make cleanup easier")
+	execPulumi(t, ptest, workdir, "state", "unprotect", strings.ReplaceAll(autoGroupUrn, "::ag", "::newag"), "--yes")
 }
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {

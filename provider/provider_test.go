@@ -36,7 +36,12 @@ func getEnvRegion(t *testing.T) string {
 	return envRegion
 }
 
-func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
+type execPulumiResult struct {
+	stdout string
+	stderr string
+}
+
+func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) execPulumiResult {
 	ctx := context.Background()
 	var env []string
 	workspace := ptest.CurrentStack().Workspace()
@@ -52,6 +57,10 @@ func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args
 	t.Logf("stderr: %s", s2)
 	t.Logf("code=%v", code)
 	require.NoError(t, err)
+	return execPulumiResult{
+		stdout: s1,
+		stderr: s2,
+	}
 }
 
 type testProviderUpgradeOptions struct {
