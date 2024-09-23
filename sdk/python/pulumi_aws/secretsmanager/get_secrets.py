@@ -114,9 +114,6 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_secrets)
 def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
@@ -137,4 +134,12 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
 
     :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
+    return __ret__.apply(lambda __response__: GetSecretsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

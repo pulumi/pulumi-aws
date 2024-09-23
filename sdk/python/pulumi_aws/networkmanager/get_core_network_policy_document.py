@@ -229,9 +229,6 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[Unio
         segment_actions=pulumi.get(__ret__, 'segment_actions'),
         segments=pulumi.get(__ret__, 'segments'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_core_network_policy_document)
 def get_core_network_policy_document_output(attachment_policies: Optional[pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs', 'GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict']]]]] = None,
                                             core_network_configurations: Optional[pulumi.Input[Sequence[Union['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs', 'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict']]]] = None,
                                             network_function_groups: Optional[pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs', 'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict']]]]] = None,
@@ -325,4 +322,21 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
     :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     :param Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['attachmentPolicies'] = attachment_policies
+    __args__['coreNetworkConfigurations'] = core_network_configurations
+    __args__['networkFunctionGroups'] = network_function_groups
+    __args__['segmentActions'] = segment_actions
+    __args__['segments'] = segments
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument', __args__, opts=opts, typ=GetCoreNetworkPolicyDocumentResult)
+    return __ret__.apply(lambda __response__: GetCoreNetworkPolicyDocumentResult(
+        attachment_policies=pulumi.get(__response__, 'attachment_policies'),
+        core_network_configurations=pulumi.get(__response__, 'core_network_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        network_function_groups=pulumi.get(__response__, 'network_function_groups'),
+        segment_actions=pulumi.get(__response__, 'segment_actions'),
+        segments=pulumi.get(__response__, 'segments'),
+        version=pulumi.get(__response__, 'version')))

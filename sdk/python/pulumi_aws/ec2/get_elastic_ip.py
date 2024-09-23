@@ -333,9 +333,6 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_elastic_ip)
 def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
                           id: Optional[pulumi.Input[Optional[str]]] = None,
                           public_ip: Optional[pulumi.Input[Optional[str]]] = None,
@@ -393,4 +390,29 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param str public_ip: Public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['publicIp'] = public_ip
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult)
+    return __ret__.apply(lambda __response__: GetElasticIpResult(
+        arn=pulumi.get(__response__, 'arn'),
+        association_id=pulumi.get(__response__, 'association_id'),
+        carrier_ip=pulumi.get(__response__, 'carrier_ip'),
+        customer_owned_ip=pulumi.get(__response__, 'customer_owned_ip'),
+        customer_owned_ipv4_pool=pulumi.get(__response__, 'customer_owned_ipv4_pool'),
+        domain=pulumi.get(__response__, 'domain'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        network_interface_owner_id=pulumi.get(__response__, 'network_interface_owner_id'),
+        private_dns=pulumi.get(__response__, 'private_dns'),
+        private_ip=pulumi.get(__response__, 'private_ip'),
+        ptr_record=pulumi.get(__response__, 'ptr_record'),
+        public_dns=pulumi.get(__response__, 'public_dns'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        public_ipv4_pool=pulumi.get(__response__, 'public_ipv4_pool'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -197,9 +197,6 @@ def get_table(database_name: Optional[str] = None,
         retention_properties=pulumi.get(__ret__, 'retention_properties'),
         schemas=pulumi.get(__ret__, 'schemas'),
         table_status=pulumi.get(__ret__, 'table_status'))
-
-
-@_utilities.lift_output_func(get_table)
 def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
@@ -222,4 +219,19 @@ def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
     :param str database_name: Name of the Timestream database.
     :param str name: Name of the Timestream table.
     """
-    ...
+    __args__ = dict()
+    __args__['databaseName'] = database_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
+    return __ret__.apply(lambda __response__: GetTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        magnetic_store_write_properties=pulumi.get(__response__, 'magnetic_store_write_properties'),
+        name=pulumi.get(__response__, 'name'),
+        retention_properties=pulumi.get(__response__, 'retention_properties'),
+        schemas=pulumi.get(__response__, 'schemas'),
+        table_status=pulumi.get(__response__, 'table_status')))
