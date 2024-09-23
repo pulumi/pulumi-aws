@@ -300,12 +300,12 @@ class LifecyclePolicy(pulumi.CustomResource):
                         "count": 14,
                     },
                     "tags_to_add": {
-                        "snapshot_creator": "DLM",
+                        "SnapshotCreator": "DLM",
                     },
                     "copy_tags": False,
                 }],
                 "target_tags": {
-                    "snapshot": "true",
+                    "Snapshot": "true",
                 },
             })
         ```
@@ -348,7 +348,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                         "count": 14,
                     },
                     "tags_to_add": {
-                        "snapshot_creator": "DLM",
+                        "SnapshotCreator": "DLM",
                     },
                     "copy_tags": False,
                     "cross_region_copy_rules": [{
@@ -363,7 +363,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                     }],
                 }],
                 "target_tags": {
-                    "snapshot": "true",
+                    "Snapshot": "true",
                 },
             })
         ```
@@ -490,12 +490,12 @@ class LifecyclePolicy(pulumi.CustomResource):
                         "count": 14,
                     },
                     "tags_to_add": {
-                        "snapshot_creator": "DLM",
+                        "SnapshotCreator": "DLM",
                     },
                     "copy_tags": False,
                 }],
                 "target_tags": {
-                    "snapshot": "true",
+                    "Snapshot": "true",
                 },
             })
         ```
@@ -538,7 +538,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                         "count": 14,
                     },
                     "tags_to_add": {
-                        "snapshot_creator": "DLM",
+                        "SnapshotCreator": "DLM",
                     },
                     "copy_tags": False,
                     "cross_region_copy_rules": [{
@@ -553,7 +553,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                     }],
                 }],
                 "target_tags": {
-                    "snapshot": "true",
+                    "Snapshot": "true",
                 },
             })
         ```

@@ -247,7 +247,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class_": "blue",
+                    "class": "blue",
                 },
             },
             tierings=[{
@@ -322,7 +322,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class_": "blue",
+                    "class": "blue",
                 },
             },
             tierings=[{

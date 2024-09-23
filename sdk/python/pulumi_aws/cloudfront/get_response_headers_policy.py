@@ -188,9 +188,6 @@ def get_response_headers_policy(id: Optional[str] = None,
         remove_headers_configs=pulumi.get(__ret__, 'remove_headers_configs'),
         security_headers_configs=pulumi.get(__ret__, 'security_headers_configs'),
         server_timing_headers_configs=pulumi.get(__ret__, 'server_timing_headers_configs'))
-
-
-@_utilities.lift_output_func(get_response_headers_policy)
 def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                        name: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
@@ -223,4 +220,18 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
     :param str id: Identifier for the response headers policy.
     :param str name: Unique name to identify the response headers policy.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult)
+    return __ret__.apply(lambda __response__: GetResponseHeadersPolicyResult(
+        comment=pulumi.get(__response__, 'comment'),
+        cors_configs=pulumi.get(__response__, 'cors_configs'),
+        custom_headers_configs=pulumi.get(__response__, 'custom_headers_configs'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        remove_headers_configs=pulumi.get(__response__, 'remove_headers_configs'),
+        security_headers_configs=pulumi.get(__response__, 'security_headers_configs'),
+        server_timing_headers_configs=pulumi.get(__response__, 'server_timing_headers_configs')))
