@@ -276,8 +276,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 "filter": {
                     "and_": {
                         "tags": {
-                            "key1": "Value1",
-                            "key2": "Value2",
+                            "Key1": "Value1",
+                            "Key2": "Value2",
                         },
                     },
                 },
@@ -301,8 +301,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "and_": {
                         "prefix": "logs/",
                         "tags": {
-                            "key1": "Value1",
-                            "key2": "Value2",
+                            "Key1": "Value1",
+                            "Key2": "Value2",
                         },
                     },
                 },
@@ -604,8 +604,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 "filter": {
                     "and_": {
                         "tags": {
-                            "key1": "Value1",
-                            "key2": "Value2",
+                            "Key1": "Value1",
+                            "Key2": "Value2",
                         },
                     },
                 },
@@ -629,8 +629,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "and_": {
                         "prefix": "logs/",
                         "tags": {
-                            "key1": "Value1",
-                            "key2": "Value2",
+                            "Key1": "Value1",
+                            "Key2": "Value2",
                         },
                     },
                 },

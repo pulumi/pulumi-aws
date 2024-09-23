@@ -132,9 +132,6 @@ def get_service_account(region: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-
-
-@_utilities.lift_output_func(get_service_account)
 def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
@@ -188,4 +185,11 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     :param str region: Name of the region whose AWS CloudTrail account ID is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudtrail/getServiceAccount:getServiceAccount', __args__, opts=opts, typ=GetServiceAccountResult)
+    return __ret__.apply(lambda __response__: GetServiceAccountResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

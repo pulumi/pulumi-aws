@@ -175,9 +175,6 @@ def get_resolver_rules(name_regex: Optional[str] = None,
         resolver_rule_ids=pulumi.get(__ret__, 'resolver_rule_ids'),
         rule_type=pulumi.get(__ret__, 'rule_type'),
         share_status=pulumi.get(__ret__, 'share_status'))
-
-
-@_utilities.lift_output_func(get_resolver_rules)
 def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                               owner_id: Optional[pulumi.Input[Optional[str]]] = None,
                               resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -230,4 +227,19 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
     :param str rule_type: Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
-    ...
+    __args__ = dict()
+    __args__['nameRegex'] = name_regex
+    __args__['ownerId'] = owner_id
+    __args__['resolverEndpointId'] = resolver_endpoint_id
+    __args__['ruleType'] = rule_type
+    __args__['shareStatus'] = share_status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverRules:getResolverRules', __args__, opts=opts, typ=GetResolverRulesResult)
+    return __ret__.apply(lambda __response__: GetResolverRulesResult(
+        id=pulumi.get(__response__, 'id'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
+        resolver_rule_ids=pulumi.get(__response__, 'resolver_rule_ids'),
+        rule_type=pulumi.get(__response__, 'rule_type'),
+        share_status=pulumi.get(__response__, 'share_status')))

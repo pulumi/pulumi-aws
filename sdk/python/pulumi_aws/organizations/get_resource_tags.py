@@ -99,9 +99,6 @@ def get_resource_tags(resource_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resource_tags)
 def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTagsResult]:
@@ -121,4 +118,12 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
     :param str resource_id: ID of the resource with the tags to list. See details below.
     :param Mapping[str, str] tags: Map of key=value pairs for each tag set on the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceId'] = resource_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getResourceTags:getResourceTags', __args__, opts=opts, typ=GetResourceTagsResult)
+    return __ret__.apply(lambda __response__: GetResourceTagsResult(
+        id=pulumi.get(__response__, 'id'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        tags=pulumi.get(__response__, 'tags')))

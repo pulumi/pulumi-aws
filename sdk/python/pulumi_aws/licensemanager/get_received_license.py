@@ -269,9 +269,6 @@ def get_received_license(license_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         validities=pulumi.get(__ret__, 'validities'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_received_license)
 def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
@@ -291,4 +288,24 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
 
     :param str license_arn: The ARN of the received license you want data for.
     """
-    ...
+    __args__ = dict()
+    __args__['licenseArn'] = license_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicense:getReceivedLicense', __args__, opts=opts, typ=GetReceivedLicenseResult)
+    return __ret__.apply(lambda __response__: GetReceivedLicenseResult(
+        beneficiary=pulumi.get(__response__, 'beneficiary'),
+        consumption_configurations=pulumi.get(__response__, 'consumption_configurations'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        entitlements=pulumi.get(__response__, 'entitlements'),
+        home_region=pulumi.get(__response__, 'home_region'),
+        id=pulumi.get(__response__, 'id'),
+        issuers=pulumi.get(__response__, 'issuers'),
+        license_arn=pulumi.get(__response__, 'license_arn'),
+        license_metadatas=pulumi.get(__response__, 'license_metadatas'),
+        license_name=pulumi.get(__response__, 'license_name'),
+        product_name=pulumi.get(__response__, 'product_name'),
+        product_sku=pulumi.get(__response__, 'product_sku'),
+        received_metadatas=pulumi.get(__response__, 'received_metadatas'),
+        status=pulumi.get(__response__, 'status'),
+        validities=pulumi.get(__response__, 'validities'),
+        version=pulumi.get(__response__, 'version')))
