@@ -5822,4 +5822,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_lambda_function_recursion_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "functionName"), nil
 	}
+	prov.Resources["aws_iam_role_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "role_name"), nil
+	}
+	prov.Resources["aws_elasticache_reserved_cache_node"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "id"), nil
+	}
 }
