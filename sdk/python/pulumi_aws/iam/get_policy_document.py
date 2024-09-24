@@ -463,9 +463,6 @@ def get_policy_document(override_json: Optional[str] = None,
         source_policy_documents=pulumi.get(__ret__, 'source_policy_documents'),
         statements=pulumi.get(__ret__, 'statements'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_policy_document)
 def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str]]] = None,
                                override_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                policy_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -767,4 +764,24 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
     :param Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']] statements: Configuration block for a policy statement. Detailed below.
     :param str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
-    ...
+    __args__ = dict()
+    __args__['overrideJson'] = override_json
+    __args__['overridePolicyDocuments'] = override_policy_documents
+    __args__['policyId'] = policy_id
+    __args__['sourceJson'] = source_json
+    __args__['sourcePolicyDocuments'] = source_policy_documents
+    __args__['statements'] = statements
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts, typ=GetPolicyDocumentResult)
+    return __ret__.apply(lambda __response__: GetPolicyDocumentResult(
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        minified_json=pulumi.get(__response__, 'minified_json'),
+        override_json=pulumi.get(__response__, 'override_json'),
+        override_policy_documents=pulumi.get(__response__, 'override_policy_documents'),
+        policy_id=pulumi.get(__response__, 'policy_id'),
+        source_json=pulumi.get(__response__, 'source_json'),
+        source_policy_documents=pulumi.get(__response__, 'source_policy_documents'),
+        statements=pulumi.get(__response__, 'statements'),
+        version=pulumi.get(__response__, 'version')))

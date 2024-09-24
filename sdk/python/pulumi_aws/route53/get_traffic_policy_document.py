@@ -268,9 +268,6 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPo
         start_endpoint=pulumi.get(__ret__, 'start_endpoint'),
         start_rule=pulumi.get(__ret__, 'start_rule'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_traffic_policy_document)
 def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]]]] = None,
                                        record_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        rules: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]]]] = None,
@@ -403,4 +400,21 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     :param str start_rule: A rule to be as the starting point for the traffic policy.
     :param str version: Version of the traffic policy format.
     """
-    ...
+    __args__ = dict()
+    __args__['endpoints'] = endpoints
+    __args__['recordType'] = record_type
+    __args__['rules'] = rules
+    __args__['startEndpoint'] = start_endpoint
+    __args__['startRule'] = start_rule
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument', __args__, opts=opts, typ=GetTrafficPolicyDocumentResult)
+    return __ret__.apply(lambda __response__: GetTrafficPolicyDocumentResult(
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        record_type=pulumi.get(__response__, 'record_type'),
+        rules=pulumi.get(__response__, 'rules'),
+        start_endpoint=pulumi.get(__response__, 'start_endpoint'),
+        start_rule=pulumi.get(__response__, 'start_rule'),
+        version=pulumi.get(__response__, 'version')))

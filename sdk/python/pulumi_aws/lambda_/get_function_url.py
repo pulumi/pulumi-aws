@@ -203,9 +203,6 @@ def get_function_url(function_name: Optional[str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         qualifier=pulumi.get(__ret__, 'qualifier'),
         url_id=pulumi.get(__ret__, 'url_id'))
-
-
-@_utilities.lift_output_func(get_function_url)
 def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
                             qualifier: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionUrlResult]:
@@ -227,4 +224,20 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str function_name: The name (or ARN) of the Lambda function.
     :param str qualifier: Alias name or `"$LATEST"`.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['qualifier'] = qualifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctionUrl:getFunctionUrl', __args__, opts=opts, typ=GetFunctionUrlResult)
+    return __ret__.apply(lambda __response__: GetFunctionUrlResult(
+        authorization_type=pulumi.get(__response__, 'authorization_type'),
+        cors=pulumi.get(__response__, 'cors'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        function_arn=pulumi.get(__response__, 'function_arn'),
+        function_name=pulumi.get(__response__, 'function_name'),
+        function_url=pulumi.get(__response__, 'function_url'),
+        id=pulumi.get(__response__, 'id'),
+        invoke_mode=pulumi.get(__response__, 'invoke_mode'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        qualifier=pulumi.get(__response__, 'qualifier'),
+        url_id=pulumi.get(__response__, 'url_id')))

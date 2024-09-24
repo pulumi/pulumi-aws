@@ -103,9 +103,6 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-
-
-@_utilities.lift_output_func(get_ontap_storage_virtual_machines)
 def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
@@ -128,4 +125,11 @@ def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Opt
 
     :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines', __args__, opts=opts, typ=GetOntapStorageVirtualMachinesResult)
+    return __ret__.apply(lambda __response__: GetOntapStorageVirtualMachinesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids')))

@@ -365,9 +365,6 @@ def get_ontap_file_system(id: Optional[str] = None,
         throughput_capacity_per_ha_pair=pulumi.get(__ret__, 'throughput_capacity_per_ha_pair'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
-
-
-@_utilities.lift_output_func(get_ontap_file_system)
 def get_ontap_file_system_output(id: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapFileSystemResult]:
@@ -389,4 +386,32 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[str]] = None,
     :param str id: Identifier of the file system (e.g. `fs-12345678`).
     :param Mapping[str, str] tags: The tags associated with the file system.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapFileSystem:getOntapFileSystem', __args__, opts=opts, typ=GetOntapFileSystemResult)
+    return __ret__.apply(lambda __response__: GetOntapFileSystemResult(
+        arn=pulumi.get(__response__, 'arn'),
+        automatic_backup_retention_days=pulumi.get(__response__, 'automatic_backup_retention_days'),
+        daily_automatic_backup_start_time=pulumi.get(__response__, 'daily_automatic_backup_start_time'),
+        deployment_type=pulumi.get(__response__, 'deployment_type'),
+        disk_iops_configurations=pulumi.get(__response__, 'disk_iops_configurations'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        endpoint_ip_address_range=pulumi.get(__response__, 'endpoint_ip_address_range'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        ha_pairs=pulumi.get(__response__, 'ha_pairs'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        preferred_subnet_id=pulumi.get(__response__, 'preferred_subnet_id'),
+        route_table_ids=pulumi.get(__response__, 'route_table_ids'),
+        storage_capacity=pulumi.get(__response__, 'storage_capacity'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        throughput_capacity=pulumi.get(__response__, 'throughput_capacity'),
+        throughput_capacity_per_ha_pair=pulumi.get(__response__, 'throughput_capacity_per_ha_pair'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        weekly_maintenance_start_time=pulumi.get(__response__, 'weekly_maintenance_start_time')))

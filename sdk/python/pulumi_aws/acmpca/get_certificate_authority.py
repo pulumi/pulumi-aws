@@ -240,9 +240,6 @@ def get_certificate_authority(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         usage_mode=pulumi.get(__ret__, 'usage_mode'))
-
-
-@_utilities.lift_output_func(get_certificate_authority)
 def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
@@ -262,4 +259,23 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the certificate authority.
     :param Mapping[str, str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
+    return __ret__.apply(lambda __response__: GetCertificateAuthorityResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate=pulumi.get(__response__, 'certificate'),
+        certificate_chain=pulumi.get(__response__, 'certificate_chain'),
+        certificate_signing_request=pulumi.get(__response__, 'certificate_signing_request'),
+        id=pulumi.get(__response__, 'id'),
+        key_storage_security_standard=pulumi.get(__response__, 'key_storage_security_standard'),
+        not_after=pulumi.get(__response__, 'not_after'),
+        not_before=pulumi.get(__response__, 'not_before'),
+        revocation_configurations=pulumi.get(__response__, 'revocation_configurations'),
+        serial=pulumi.get(__response__, 'serial'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        usage_mode=pulumi.get(__response__, 'usage_mode')))
