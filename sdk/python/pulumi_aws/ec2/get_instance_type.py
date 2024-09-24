@@ -696,9 +696,6 @@ def get_instance_type(instance_type: Optional[str] = None,
         total_instance_storage=pulumi.get(__ret__, 'total_instance_storage'),
         valid_cores=pulumi.get(__ret__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__ret__, 'valid_threads_per_cores'))
-
-
-@_utilities.lift_output_func(get_instance_type)
 def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeResult]:
     """
@@ -716,4 +713,56 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
 
     :param str instance_type: Instance
     """
-    ...
+    __args__ = dict()
+    __args__['instanceType'] = instance_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceType:getInstanceType', __args__, opts=opts, typ=GetInstanceTypeResult)
+    return __ret__.apply(lambda __response__: GetInstanceTypeResult(
+        auto_recovery_supported=pulumi.get(__response__, 'auto_recovery_supported'),
+        bare_metal=pulumi.get(__response__, 'bare_metal'),
+        burstable_performance_supported=pulumi.get(__response__, 'burstable_performance_supported'),
+        current_generation=pulumi.get(__response__, 'current_generation'),
+        dedicated_hosts_supported=pulumi.get(__response__, 'dedicated_hosts_supported'),
+        default_cores=pulumi.get(__response__, 'default_cores'),
+        default_threads_per_core=pulumi.get(__response__, 'default_threads_per_core'),
+        default_vcpus=pulumi.get(__response__, 'default_vcpus'),
+        ebs_encryption_support=pulumi.get(__response__, 'ebs_encryption_support'),
+        ebs_nvme_support=pulumi.get(__response__, 'ebs_nvme_support'),
+        ebs_optimized_support=pulumi.get(__response__, 'ebs_optimized_support'),
+        ebs_performance_baseline_bandwidth=pulumi.get(__response__, 'ebs_performance_baseline_bandwidth'),
+        ebs_performance_baseline_iops=pulumi.get(__response__, 'ebs_performance_baseline_iops'),
+        ebs_performance_baseline_throughput=pulumi.get(__response__, 'ebs_performance_baseline_throughput'),
+        ebs_performance_maximum_bandwidth=pulumi.get(__response__, 'ebs_performance_maximum_bandwidth'),
+        ebs_performance_maximum_iops=pulumi.get(__response__, 'ebs_performance_maximum_iops'),
+        ebs_performance_maximum_throughput=pulumi.get(__response__, 'ebs_performance_maximum_throughput'),
+        efa_supported=pulumi.get(__response__, 'efa_supported'),
+        ena_support=pulumi.get(__response__, 'ena_support'),
+        encryption_in_transit_supported=pulumi.get(__response__, 'encryption_in_transit_supported'),
+        fpgas=pulumi.get(__response__, 'fpgas'),
+        free_tier_eligible=pulumi.get(__response__, 'free_tier_eligible'),
+        gpuses=pulumi.get(__response__, 'gpuses'),
+        hibernation_supported=pulumi.get(__response__, 'hibernation_supported'),
+        hypervisor=pulumi.get(__response__, 'hypervisor'),
+        id=pulumi.get(__response__, 'id'),
+        inference_accelerators=pulumi.get(__response__, 'inference_accelerators'),
+        instance_disks=pulumi.get(__response__, 'instance_disks'),
+        instance_storage_supported=pulumi.get(__response__, 'instance_storage_supported'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        ipv6_supported=pulumi.get(__response__, 'ipv6_supported'),
+        maximum_ipv4_addresses_per_interface=pulumi.get(__response__, 'maximum_ipv4_addresses_per_interface'),
+        maximum_ipv6_addresses_per_interface=pulumi.get(__response__, 'maximum_ipv6_addresses_per_interface'),
+        maximum_network_cards=pulumi.get(__response__, 'maximum_network_cards'),
+        maximum_network_interfaces=pulumi.get(__response__, 'maximum_network_interfaces'),
+        memory_size=pulumi.get(__response__, 'memory_size'),
+        network_performance=pulumi.get(__response__, 'network_performance'),
+        supported_architectures=pulumi.get(__response__, 'supported_architectures'),
+        supported_placement_strategies=pulumi.get(__response__, 'supported_placement_strategies'),
+        supported_root_device_types=pulumi.get(__response__, 'supported_root_device_types'),
+        supported_usages_classes=pulumi.get(__response__, 'supported_usages_classes'),
+        supported_virtualization_types=pulumi.get(__response__, 'supported_virtualization_types'),
+        sustained_clock_speed=pulumi.get(__response__, 'sustained_clock_speed'),
+        total_fpga_memory=pulumi.get(__response__, 'total_fpga_memory'),
+        total_gpu_memory=pulumi.get(__response__, 'total_gpu_memory'),
+        total_instance_storage=pulumi.get(__response__, 'total_instance_storage'),
+        valid_cores=pulumi.get(__response__, 'valid_cores'),
+        valid_threads_per_cores=pulumi.get(__response__, 'valid_threads_per_cores')))

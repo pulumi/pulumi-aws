@@ -219,9 +219,6 @@ def get_vocabulary(instance_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         vocabulary_id=pulumi.get(__ret__, 'vocabulary_id'))
-
-
-@_utilities.lift_output_func(get_vocabulary)
 def get_vocabulary_output(instance_id: Optional[pulumi.Input[str]] = None,
                           name: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -258,4 +255,22 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: A map of tags to assign to the Vocabulary.
     :param str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    __args__['vocabularyId'] = vocabulary_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getVocabulary:getVocabulary', __args__, opts=opts, typ=GetVocabularyResult)
+    return __ret__.apply(lambda __response__: GetVocabularyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        content=pulumi.get(__response__, 'content'),
+        failure_reason=pulumi.get(__response__, 'failure_reason'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        language_code=pulumi.get(__response__, 'language_code'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        vocabulary_id=pulumi.get(__response__, 'vocabulary_id')))
