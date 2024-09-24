@@ -125,9 +125,6 @@ def get_pipeline(pipeline_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_pipeline)
 def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
@@ -147,4 +144,14 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
     :param str pipeline_id: ID of the pipeline.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['pipelineId'] = pipeline_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:datapipeline/getPipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
+    return __ret__.apply(lambda __response__: GetPipelineResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        pipeline_id=pulumi.get(__response__, 'pipeline_id'),
+        tags=pulumi.get(__response__, 'tags')))

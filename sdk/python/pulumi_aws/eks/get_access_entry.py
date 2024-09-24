@@ -201,9 +201,6 @@ def get_access_entry(cluster_name: Optional[str] = None,
         tags_all=pulumi.get(__ret__, 'tags_all'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_access_entry)
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             principal_arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -226,4 +223,21 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: Name of the EKS Cluster.
     :param str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['principalArn'] = principal_arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
+    return __ret__.apply(lambda __response__: GetAccessEntryResult(
+        access_entry_arn=pulumi.get(__response__, 'access_entry_arn'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_groups=pulumi.get(__response__, 'kubernetes_groups'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        principal_arn=pulumi.get(__response__, 'principal_arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        tags_all=pulumi.get(__response__, 'tags_all'),
+        type=pulumi.get(__response__, 'type'),
+        user_name=pulumi.get(__response__, 'user_name')))

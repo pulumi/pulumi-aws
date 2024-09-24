@@ -118,9 +118,6 @@ def get_route_table_propagations(filters: Optional[Sequence[Union['GetRouteTable
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
-
-
-@_utilities.lift_output_func(get_route_table_propagations)
 def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTablePropagationsFilterArgs', 'GetRouteTablePropagationsFilterArgsDict']]]]] = None,
                                         transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablePropagationsResult]:
@@ -147,4 +144,13 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations', __args__, opts=opts, typ=GetRouteTablePropagationsResult)
+    return __ret__.apply(lambda __response__: GetRouteTablePropagationsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        transit_gateway_route_table_id=pulumi.get(__response__, 'transit_gateway_route_table_id')))

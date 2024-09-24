@@ -247,9 +247,6 @@ def get_api(api_id: Optional[str] = None,
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_api)
 def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
@@ -269,4 +266,23 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str api_id: API identifier.
     :param Mapping[str, str] tags: Map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getApi:getApi', __args__, opts=opts, typ=GetApiResult)
+    return __ret__.apply(lambda __response__: GetApiResult(
+        api_endpoint=pulumi.get(__response__, 'api_endpoint'),
+        api_id=pulumi.get(__response__, 'api_id'),
+        api_key_selection_expression=pulumi.get(__response__, 'api_key_selection_expression'),
+        arn=pulumi.get(__response__, 'arn'),
+        cors_configurations=pulumi.get(__response__, 'cors_configurations'),
+        description=pulumi.get(__response__, 'description'),
+        disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
+        execution_arn=pulumi.get(__response__, 'execution_arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        protocol_type=pulumi.get(__response__, 'protocol_type'),
+        route_selection_expression=pulumi.get(__response__, 'route_selection_expression'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))
