@@ -26,6 +26,10 @@ import * as utilities from "../utilities";
  *         RDS: true,
  *         "Storage Gateway": true,
  *         VirtualMachine: true,
+ *         CloudFormation: true,
+ *         Redshift: true,
+ *         S3: true,
+ *         "SAP HANA on Amazon EC2": true,
  *     },
  *     resourceTypeManagementPreference: {
  *         DynamoDB: true,

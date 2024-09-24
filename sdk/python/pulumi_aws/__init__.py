@@ -1593,6 +1593,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appsync/sourceApiAssociation",
+  "fqn": "pulumi_aws.appsync",
+  "classes": {
+   "aws:appsync/sourceApiAssociation:SourceApiAssociation": "SourceApiAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appsync/type",
   "fqn": "pulumi_aws.appsync",
   "classes": {
@@ -5345,6 +5353,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "elasticache/reservedCacheNode",
+  "fqn": "pulumi_aws.elasticache",
+  "classes": {
+   "aws:elasticache/reservedCacheNode:ReservedCacheNode": "ReservedCacheNode"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "elasticache/serverlessCache",
   "fqn": "pulumi_aws.elasticache",
   "classes": {
@@ -6365,6 +6381,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iam",
   "classes": {
    "aws:iam/role:Role": "Role"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iam/rolePoliciesExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/rolePoliciesExclusive:RolePoliciesExclusive": "RolePoliciesExclusive"
   }
  },
  {
@@ -8633,6 +8657,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2OptOutList",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList": "Smsvoicev2OptOutList"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2PhoneNumber",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber": "Smsvoicev2PhoneNumber"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "pipes/pipe",
   "fqn": "pulumi_aws.pipes",
   "classes": {
@@ -10741,6 +10781,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ses",
   "classes": {
    "aws:ses/template:Template": "Template"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/accountSuppressionAttributes",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes": "AccountSuppressionAttributes"
   }
  },
  {

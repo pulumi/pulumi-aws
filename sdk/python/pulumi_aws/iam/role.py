@@ -55,6 +55,9 @@ class RoleArgs:
         if force_detach_policies is not None:
             pulumi.set(__self__, "force_detach_policies", force_detach_policies)
         if inline_policies is not None:
+            warnings.warn("""Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""", DeprecationWarning)
+            pulumi.log.warn("""inline_policies is deprecated: Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""")
+        if inline_policies is not None:
             pulumi.set(__self__, "inline_policies", inline_policies)
         if managed_policy_arns is not None:
             pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
@@ -113,6 +116,7 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="inlinePolicies")
+    @_utilities.deprecated("""Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""")
     def inline_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]]]:
         """
         Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
@@ -255,6 +259,9 @@ class _RoleState:
         if force_detach_policies is not None:
             pulumi.set(__self__, "force_detach_policies", force_detach_policies)
         if inline_policies is not None:
+            warnings.warn("""Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""", DeprecationWarning)
+            pulumi.log.warn("""inline_policies is deprecated: Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""")
+        if inline_policies is not None:
             pulumi.set(__self__, "inline_policies", inline_policies)
         if managed_policy_arns is not None:
             pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
@@ -344,6 +351,7 @@ class _RoleState:
 
     @property
     @pulumi.getter(name="inlinePolicies")
+    @_utilities.deprecated("""Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""")
     def inline_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]]]:
         """
         Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
@@ -1007,6 +1015,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inlinePolicies")
+    @_utilities.deprecated("""Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.""")
     def inline_policies(self) -> pulumi.Output[Sequence['outputs.RoleInlinePolicy']]:
         """
         Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.

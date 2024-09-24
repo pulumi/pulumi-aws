@@ -55,7 +55,11 @@ import javax.annotation.Nullable;
  *                 Map.entry("Neptune", true),
  *                 Map.entry("RDS", true),
  *                 Map.entry("Storage Gateway", true),
- *                 Map.entry("VirtualMachine", true)
+ *                 Map.entry("VirtualMachine", true),
+ *                 Map.entry("CloudFormation", true),
+ *                 Map.entry("Redshift", true),
+ *                 Map.entry("S3", true),
+ *                 Map.entry("SAP HANA on Amazon EC2", true)
  *             ))
  *             .resourceTypeManagementPreference(Map.ofEntries(
  *                 Map.entry("DynamoDB", true),

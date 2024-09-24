@@ -153,6 +153,11 @@ export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
 utilities.lazyLoad(exports, ["Role"], () => require("./role"));
 
+export { RolePoliciesExclusiveArgs, RolePoliciesExclusiveState } from "./rolePoliciesExclusive";
+export type RolePoliciesExclusive = import("./rolePoliciesExclusive").RolePoliciesExclusive;
+export const RolePoliciesExclusive: typeof import("./rolePoliciesExclusive").RolePoliciesExclusive = null as any;
+utilities.lazyLoad(exports, ["RolePoliciesExclusive"], () => require("./rolePoliciesExclusive"));
+
 export { RolePolicyArgs, RolePolicyState } from "./rolePolicy";
 export type RolePolicy = import("./rolePolicy").RolePolicy;
 export const RolePolicy: typeof import("./rolePolicy").RolePolicy = null as any;
@@ -260,6 +265,8 @@ const _module = {
                 return new PolicyAttachment(name, <any>undefined, { urn })
             case "aws:iam/role:Role":
                 return new Role(name, <any>undefined, { urn })
+            case "aws:iam/rolePoliciesExclusive:RolePoliciesExclusive":
+                return new RolePoliciesExclusive(name, <any>undefined, { urn })
             case "aws:iam/rolePolicy:RolePolicy":
                 return new RolePolicy(name, <any>undefined, { urn })
             case "aws:iam/rolePolicyAttachment:RolePolicyAttachment":
@@ -307,6 +314,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/openIdConnectProvider", _modul
 pulumi.runtime.registerResourceModule("aws", "iam/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/policyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/role", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/rolePoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/samlProvider", _module)

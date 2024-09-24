@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Lex
     /// });
     /// ```
     /// 
-    /// ### `value_selection_setting` Usage
+    /// ### value_selection_setting Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

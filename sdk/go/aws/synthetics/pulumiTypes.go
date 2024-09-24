@@ -955,6 +955,133 @@ func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetRuntimeVersionsRuntimeVersion struct {
+	// Date of deprecation if the runtme version is deprecated.
+	DeprecationDate string `pulumi:"deprecationDate"`
+	// Description of the runtime version, created by Amazon.
+	Description string `pulumi:"description"`
+	// Date that the runtime version was released.
+	ReleaseDate string `pulumi:"releaseDate"`
+	// Name of the runtime version.
+	// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+	VersionName string `pulumi:"versionName"`
+}
+
+// GetRuntimeVersionsRuntimeVersionInput is an input type that accepts GetRuntimeVersionsRuntimeVersionArgs and GetRuntimeVersionsRuntimeVersionOutput values.
+// You can construct a concrete instance of `GetRuntimeVersionsRuntimeVersionInput` via:
+//
+//	GetRuntimeVersionsRuntimeVersionArgs{...}
+type GetRuntimeVersionsRuntimeVersionInput interface {
+	pulumi.Input
+
+	ToGetRuntimeVersionsRuntimeVersionOutput() GetRuntimeVersionsRuntimeVersionOutput
+	ToGetRuntimeVersionsRuntimeVersionOutputWithContext(context.Context) GetRuntimeVersionsRuntimeVersionOutput
+}
+
+type GetRuntimeVersionsRuntimeVersionArgs struct {
+	// Date of deprecation if the runtme version is deprecated.
+	DeprecationDate pulumi.StringInput `pulumi:"deprecationDate"`
+	// Description of the runtime version, created by Amazon.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Date that the runtime version was released.
+	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
+	// Name of the runtime version.
+	// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+	VersionName pulumi.StringInput `pulumi:"versionName"`
+}
+
+func (GetRuntimeVersionsRuntimeVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuntimeVersionsRuntimeVersion)(nil)).Elem()
+}
+
+func (i GetRuntimeVersionsRuntimeVersionArgs) ToGetRuntimeVersionsRuntimeVersionOutput() GetRuntimeVersionsRuntimeVersionOutput {
+	return i.ToGetRuntimeVersionsRuntimeVersionOutputWithContext(context.Background())
+}
+
+func (i GetRuntimeVersionsRuntimeVersionArgs) ToGetRuntimeVersionsRuntimeVersionOutputWithContext(ctx context.Context) GetRuntimeVersionsRuntimeVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuntimeVersionsRuntimeVersionOutput)
+}
+
+// GetRuntimeVersionsRuntimeVersionArrayInput is an input type that accepts GetRuntimeVersionsRuntimeVersionArray and GetRuntimeVersionsRuntimeVersionArrayOutput values.
+// You can construct a concrete instance of `GetRuntimeVersionsRuntimeVersionArrayInput` via:
+//
+//	GetRuntimeVersionsRuntimeVersionArray{ GetRuntimeVersionsRuntimeVersionArgs{...} }
+type GetRuntimeVersionsRuntimeVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetRuntimeVersionsRuntimeVersionArrayOutput() GetRuntimeVersionsRuntimeVersionArrayOutput
+	ToGetRuntimeVersionsRuntimeVersionArrayOutputWithContext(context.Context) GetRuntimeVersionsRuntimeVersionArrayOutput
+}
+
+type GetRuntimeVersionsRuntimeVersionArray []GetRuntimeVersionsRuntimeVersionInput
+
+func (GetRuntimeVersionsRuntimeVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuntimeVersionsRuntimeVersion)(nil)).Elem()
+}
+
+func (i GetRuntimeVersionsRuntimeVersionArray) ToGetRuntimeVersionsRuntimeVersionArrayOutput() GetRuntimeVersionsRuntimeVersionArrayOutput {
+	return i.ToGetRuntimeVersionsRuntimeVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetRuntimeVersionsRuntimeVersionArray) ToGetRuntimeVersionsRuntimeVersionArrayOutputWithContext(ctx context.Context) GetRuntimeVersionsRuntimeVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRuntimeVersionsRuntimeVersionArrayOutput)
+}
+
+type GetRuntimeVersionsRuntimeVersionOutput struct{ *pulumi.OutputState }
+
+func (GetRuntimeVersionsRuntimeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRuntimeVersionsRuntimeVersion)(nil)).Elem()
+}
+
+func (o GetRuntimeVersionsRuntimeVersionOutput) ToGetRuntimeVersionsRuntimeVersionOutput() GetRuntimeVersionsRuntimeVersionOutput {
+	return o
+}
+
+func (o GetRuntimeVersionsRuntimeVersionOutput) ToGetRuntimeVersionsRuntimeVersionOutputWithContext(ctx context.Context) GetRuntimeVersionsRuntimeVersionOutput {
+	return o
+}
+
+// Date of deprecation if the runtme version is deprecated.
+func (o GetRuntimeVersionsRuntimeVersionOutput) DeprecationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.DeprecationDate }).(pulumi.StringOutput)
+}
+
+// Description of the runtime version, created by Amazon.
+func (o GetRuntimeVersionsRuntimeVersionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Date that the runtime version was released.
+func (o GetRuntimeVersionsRuntimeVersionOutput) ReleaseDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.ReleaseDate }).(pulumi.StringOutput)
+}
+
+// Name of the runtime version.
+// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+func (o GetRuntimeVersionsRuntimeVersionOutput) VersionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionsRuntimeVersion) string { return v.VersionName }).(pulumi.StringOutput)
+}
+
+type GetRuntimeVersionsRuntimeVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRuntimeVersionsRuntimeVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRuntimeVersionsRuntimeVersion)(nil)).Elem()
+}
+
+func (o GetRuntimeVersionsRuntimeVersionArrayOutput) ToGetRuntimeVersionsRuntimeVersionArrayOutput() GetRuntimeVersionsRuntimeVersionArrayOutput {
+	return o
+}
+
+func (o GetRuntimeVersionsRuntimeVersionArrayOutput) ToGetRuntimeVersionsRuntimeVersionArrayOutputWithContext(ctx context.Context) GetRuntimeVersionsRuntimeVersionArrayOutput {
+	return o
+}
+
+func (o GetRuntimeVersionsRuntimeVersionArrayOutput) Index(i pulumi.IntInput) GetRuntimeVersionsRuntimeVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRuntimeVersionsRuntimeVersion {
+		return vs[0].([]GetRuntimeVersionsRuntimeVersion)[vs[1].(int)]
+	}).(GetRuntimeVersionsRuntimeVersionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArtifactConfigInput)(nil)).Elem(), CanaryArtifactConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArtifactConfigPtrInput)(nil)).Elem(), CanaryArtifactConfigArgs{})
@@ -968,6 +1095,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTimelineArrayInput)(nil)).Elem(), CanaryTimelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuntimeVersionsRuntimeVersionInput)(nil)).Elem(), GetRuntimeVersionsRuntimeVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRuntimeVersionsRuntimeVersionArrayInput)(nil)).Elem(), GetRuntimeVersionsRuntimeVersionArray{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigS3EncryptionOutput{})
@@ -980,4 +1109,6 @@ func init() {
 	pulumi.RegisterOutputType(CanaryTimelineArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetRuntimeVersionsRuntimeVersionOutput{})
+	pulumi.RegisterOutputType(GetRuntimeVersionsRuntimeVersionArrayOutput{})
 }

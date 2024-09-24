@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ses.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
+        /// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+        /// </summary>
+        public readonly string? IamRoleArn;
+        /// <summary>
         /// The ARN of the KMS key
         /// </summary>
         public readonly string? KmsKeyArn;
@@ -38,6 +42,8 @@ namespace Pulumi.Aws.Ses.Outputs
         private ReceiptRuleS3Action(
             string bucketName,
 
+            string? iamRoleArn,
+
             string? kmsKeyArn,
 
             string? objectKeyPrefix,
@@ -47,6 +53,7 @@ namespace Pulumi.Aws.Ses.Outputs
             string? topicArn)
         {
             BucketName = bucketName;
+            IamRoleArn = iamRoleArn;
             KmsKeyArn = kmsKeyArn;
             ObjectKeyPrefix = objectKeyPrefix;
             Position = position;

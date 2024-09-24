@@ -45,6 +45,11 @@ export type Resolver = import("./resolver").Resolver;
 export const Resolver: typeof import("./resolver").Resolver = null as any;
 utilities.lazyLoad(exports, ["Resolver"], () => require("./resolver"));
 
+export { SourceApiAssociationArgs, SourceApiAssociationState } from "./sourceApiAssociation";
+export type SourceApiAssociation = import("./sourceApiAssociation").SourceApiAssociation;
+export const SourceApiAssociation: typeof import("./sourceApiAssociation").SourceApiAssociation = null as any;
+utilities.lazyLoad(exports, ["SourceApiAssociation"], () => require("./sourceApiAssociation"));
+
 export { TypeArgs, TypeState } from "./type";
 export type Type = import("./type").Type;
 export const Type: typeof import("./type").Type = null as any;
@@ -71,6 +76,8 @@ const _module = {
                 return new GraphQLApi(name, <any>undefined, { urn })
             case "aws:appsync/resolver:Resolver":
                 return new Resolver(name, <any>undefined, { urn })
+            case "aws:appsync/sourceApiAssociation:SourceApiAssociation":
+                return new SourceApiAssociation(name, <any>undefined, { urn })
             case "aws:appsync/type:Type":
                 return new Type(name, <any>undefined, { urn })
             default:
@@ -86,4 +93,5 @@ pulumi.runtime.registerResourceModule("aws", "appsync/domainNameApiAssociation",
 pulumi.runtime.registerResourceModule("aws", "appsync/function", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/graphQLApi", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/resolver", _module)
+pulumi.runtime.registerResourceModule("aws", "appsync/sourceApiAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "appsync/type", _module)

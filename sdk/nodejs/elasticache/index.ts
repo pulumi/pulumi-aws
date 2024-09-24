@@ -20,6 +20,11 @@ export const getReplicationGroup: typeof import("./getReplicationGroup").getRepl
 export const getReplicationGroupOutput: typeof import("./getReplicationGroup").getReplicationGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationGroup","getReplicationGroupOutput"], () => require("./getReplicationGroup"));
 
+export { GetReservedCacheNodeOfferingArgs, GetReservedCacheNodeOfferingResult, GetReservedCacheNodeOfferingOutputArgs } from "./getReservedCacheNodeOffering";
+export const getReservedCacheNodeOffering: typeof import("./getReservedCacheNodeOffering").getReservedCacheNodeOffering = null as any;
+export const getReservedCacheNodeOfferingOutput: typeof import("./getReservedCacheNodeOffering").getReservedCacheNodeOfferingOutput = null as any;
+utilities.lazyLoad(exports, ["getReservedCacheNodeOffering","getReservedCacheNodeOfferingOutput"], () => require("./getReservedCacheNodeOffering"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
@@ -44,6 +49,11 @@ export { ReplicationGroupArgs, ReplicationGroupState } from "./replicationGroup"
 export type ReplicationGroup = import("./replicationGroup").ReplicationGroup;
 export const ReplicationGroup: typeof import("./replicationGroup").ReplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ReplicationGroup"], () => require("./replicationGroup"));
+
+export { ReservedCacheNodeArgs, ReservedCacheNodeState } from "./reservedCacheNode";
+export type ReservedCacheNode = import("./reservedCacheNode").ReservedCacheNode;
+export const ReservedCacheNode: typeof import("./reservedCacheNode").ReservedCacheNode = null as any;
+utilities.lazyLoad(exports, ["ReservedCacheNode"], () => require("./reservedCacheNode"));
 
 export { ServerlessCacheArgs, ServerlessCacheState } from "./serverlessCache";
 export type ServerlessCache = import("./serverlessCache").ServerlessCache;
@@ -83,6 +93,8 @@ const _module = {
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:elasticache/replicationGroup:ReplicationGroup":
                 return new ReplicationGroup(name, <any>undefined, { urn })
+            case "aws:elasticache/reservedCacheNode:ReservedCacheNode":
+                return new ReservedCacheNode(name, <any>undefined, { urn })
             case "aws:elasticache/serverlessCache:ServerlessCache":
                 return new ServerlessCache(name, <any>undefined, { urn })
             case "aws:elasticache/subnetGroup:SubnetGroup":
@@ -102,6 +114,7 @@ pulumi.runtime.registerResourceModule("aws", "elasticache/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/globalReplicationGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/replicationGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticache/reservedCacheNode", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/serverlessCache", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/subnetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/user", _module)

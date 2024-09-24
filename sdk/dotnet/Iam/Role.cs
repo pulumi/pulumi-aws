@@ -467,6 +467,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
         /// </summary>
+        [Obsolete(@"Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.")]
         public InputList<Inputs.RoleInlinePolicyArgs> InlinePolicies
         {
             get => _inlinePolicies ?? (_inlinePolicies = new InputList<Inputs.RoleInlinePolicyArgs>());
@@ -571,6 +572,7 @@ namespace Pulumi.Aws.Iam
         /// <summary>
         /// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
         /// </summary>
+        [Obsolete(@"Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.")]
         public InputList<Inputs.RoleInlinePolicyGetArgs> InlinePolicies
         {
             get => _inlinePolicies ?? (_inlinePolicies = new InputList<Inputs.RoleInlinePolicyGetArgs>());

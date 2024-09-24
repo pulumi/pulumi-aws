@@ -1257,6 +1257,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("pinpointsmsvoicev2")]
+        public Input<string>? Pinpointsmsvoicev2 { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("pipes")]
         public Input<string>? Pipes { get; set; }
 

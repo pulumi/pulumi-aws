@@ -1079,6 +1079,8 @@ func (o ReceiptRuleLambdaActionArrayOutput) Index(i pulumi.IntInput) ReceiptRule
 type ReceiptRuleS3Action struct {
 	// The name of the S3 bucket
 	BucketName string `pulumi:"bucketName"`
+	// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// The ARN of the KMS key
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The key prefix of the S3 bucket
@@ -1103,6 +1105,8 @@ type ReceiptRuleS3ActionInput interface {
 type ReceiptRuleS3ActionArgs struct {
 	// The name of the S3 bucket
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
 	// The ARN of the KMS key
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The key prefix of the S3 bucket
@@ -1167,6 +1171,11 @@ func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutputWithContext(ctx co
 // The name of the S3 bucket
 func (o ReceiptRuleS3ActionOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+func (o ReceiptRuleS3ActionOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the KMS key

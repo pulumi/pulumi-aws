@@ -597,6 +597,281 @@ func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ReplicationGroupLogDeliveryConfigurationOutput)
 }
 
+type ReservedCacheNodeRecurringCharge struct {
+	RecurringChargeAmount    float64 `pulumi:"recurringChargeAmount"`
+	RecurringChargeFrequency string  `pulumi:"recurringChargeFrequency"`
+}
+
+// ReservedCacheNodeRecurringChargeInput is an input type that accepts ReservedCacheNodeRecurringChargeArgs and ReservedCacheNodeRecurringChargeOutput values.
+// You can construct a concrete instance of `ReservedCacheNodeRecurringChargeInput` via:
+//
+//	ReservedCacheNodeRecurringChargeArgs{...}
+type ReservedCacheNodeRecurringChargeInput interface {
+	pulumi.Input
+
+	ToReservedCacheNodeRecurringChargeOutput() ReservedCacheNodeRecurringChargeOutput
+	ToReservedCacheNodeRecurringChargeOutputWithContext(context.Context) ReservedCacheNodeRecurringChargeOutput
+}
+
+type ReservedCacheNodeRecurringChargeArgs struct {
+	RecurringChargeAmount    pulumi.Float64Input `pulumi:"recurringChargeAmount"`
+	RecurringChargeFrequency pulumi.StringInput  `pulumi:"recurringChargeFrequency"`
+}
+
+func (ReservedCacheNodeRecurringChargeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedCacheNodeRecurringCharge)(nil)).Elem()
+}
+
+func (i ReservedCacheNodeRecurringChargeArgs) ToReservedCacheNodeRecurringChargeOutput() ReservedCacheNodeRecurringChargeOutput {
+	return i.ToReservedCacheNodeRecurringChargeOutputWithContext(context.Background())
+}
+
+func (i ReservedCacheNodeRecurringChargeArgs) ToReservedCacheNodeRecurringChargeOutputWithContext(ctx context.Context) ReservedCacheNodeRecurringChargeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedCacheNodeRecurringChargeOutput)
+}
+
+// ReservedCacheNodeRecurringChargeArrayInput is an input type that accepts ReservedCacheNodeRecurringChargeArray and ReservedCacheNodeRecurringChargeArrayOutput values.
+// You can construct a concrete instance of `ReservedCacheNodeRecurringChargeArrayInput` via:
+//
+//	ReservedCacheNodeRecurringChargeArray{ ReservedCacheNodeRecurringChargeArgs{...} }
+type ReservedCacheNodeRecurringChargeArrayInput interface {
+	pulumi.Input
+
+	ToReservedCacheNodeRecurringChargeArrayOutput() ReservedCacheNodeRecurringChargeArrayOutput
+	ToReservedCacheNodeRecurringChargeArrayOutputWithContext(context.Context) ReservedCacheNodeRecurringChargeArrayOutput
+}
+
+type ReservedCacheNodeRecurringChargeArray []ReservedCacheNodeRecurringChargeInput
+
+func (ReservedCacheNodeRecurringChargeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReservedCacheNodeRecurringCharge)(nil)).Elem()
+}
+
+func (i ReservedCacheNodeRecurringChargeArray) ToReservedCacheNodeRecurringChargeArrayOutput() ReservedCacheNodeRecurringChargeArrayOutput {
+	return i.ToReservedCacheNodeRecurringChargeArrayOutputWithContext(context.Background())
+}
+
+func (i ReservedCacheNodeRecurringChargeArray) ToReservedCacheNodeRecurringChargeArrayOutputWithContext(ctx context.Context) ReservedCacheNodeRecurringChargeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedCacheNodeRecurringChargeArrayOutput)
+}
+
+type ReservedCacheNodeRecurringChargeOutput struct{ *pulumi.OutputState }
+
+func (ReservedCacheNodeRecurringChargeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedCacheNodeRecurringCharge)(nil)).Elem()
+}
+
+func (o ReservedCacheNodeRecurringChargeOutput) ToReservedCacheNodeRecurringChargeOutput() ReservedCacheNodeRecurringChargeOutput {
+	return o
+}
+
+func (o ReservedCacheNodeRecurringChargeOutput) ToReservedCacheNodeRecurringChargeOutputWithContext(ctx context.Context) ReservedCacheNodeRecurringChargeOutput {
+	return o
+}
+
+func (o ReservedCacheNodeRecurringChargeOutput) RecurringChargeAmount() pulumi.Float64Output {
+	return o.ApplyT(func(v ReservedCacheNodeRecurringCharge) float64 { return v.RecurringChargeAmount }).(pulumi.Float64Output)
+}
+
+func (o ReservedCacheNodeRecurringChargeOutput) RecurringChargeFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ReservedCacheNodeRecurringCharge) string { return v.RecurringChargeFrequency }).(pulumi.StringOutput)
+}
+
+type ReservedCacheNodeRecurringChargeArrayOutput struct{ *pulumi.OutputState }
+
+func (ReservedCacheNodeRecurringChargeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReservedCacheNodeRecurringCharge)(nil)).Elem()
+}
+
+func (o ReservedCacheNodeRecurringChargeArrayOutput) ToReservedCacheNodeRecurringChargeArrayOutput() ReservedCacheNodeRecurringChargeArrayOutput {
+	return o
+}
+
+func (o ReservedCacheNodeRecurringChargeArrayOutput) ToReservedCacheNodeRecurringChargeArrayOutputWithContext(ctx context.Context) ReservedCacheNodeRecurringChargeArrayOutput {
+	return o
+}
+
+func (o ReservedCacheNodeRecurringChargeArrayOutput) Index(i pulumi.IntInput) ReservedCacheNodeRecurringChargeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReservedCacheNodeRecurringCharge {
+		return vs[0].([]ReservedCacheNodeRecurringCharge)[vs[1].(int)]
+	}).(ReservedCacheNodeRecurringChargeOutput)
+}
+
+type ReservedCacheNodeTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ReservedCacheNodeTimeoutsInput is an input type that accepts ReservedCacheNodeTimeoutsArgs and ReservedCacheNodeTimeoutsOutput values.
+// You can construct a concrete instance of `ReservedCacheNodeTimeoutsInput` via:
+//
+//	ReservedCacheNodeTimeoutsArgs{...}
+type ReservedCacheNodeTimeoutsInput interface {
+	pulumi.Input
+
+	ToReservedCacheNodeTimeoutsOutput() ReservedCacheNodeTimeoutsOutput
+	ToReservedCacheNodeTimeoutsOutputWithContext(context.Context) ReservedCacheNodeTimeoutsOutput
+}
+
+type ReservedCacheNodeTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ReservedCacheNodeTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedCacheNodeTimeouts)(nil)).Elem()
+}
+
+func (i ReservedCacheNodeTimeoutsArgs) ToReservedCacheNodeTimeoutsOutput() ReservedCacheNodeTimeoutsOutput {
+	return i.ToReservedCacheNodeTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ReservedCacheNodeTimeoutsArgs) ToReservedCacheNodeTimeoutsOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedCacheNodeTimeoutsOutput)
+}
+
+func (i ReservedCacheNodeTimeoutsArgs) ToReservedCacheNodeTimeoutsPtrOutput() ReservedCacheNodeTimeoutsPtrOutput {
+	return i.ToReservedCacheNodeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ReservedCacheNodeTimeoutsArgs) ToReservedCacheNodeTimeoutsPtrOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedCacheNodeTimeoutsOutput).ToReservedCacheNodeTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ReservedCacheNodeTimeoutsPtrInput is an input type that accepts ReservedCacheNodeTimeoutsArgs, ReservedCacheNodeTimeoutsPtr and ReservedCacheNodeTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ReservedCacheNodeTimeoutsPtrInput` via:
+//
+//	        ReservedCacheNodeTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReservedCacheNodeTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToReservedCacheNodeTimeoutsPtrOutput() ReservedCacheNodeTimeoutsPtrOutput
+	ToReservedCacheNodeTimeoutsPtrOutputWithContext(context.Context) ReservedCacheNodeTimeoutsPtrOutput
+}
+
+type reservedCacheNodeTimeoutsPtrType ReservedCacheNodeTimeoutsArgs
+
+func ReservedCacheNodeTimeoutsPtr(v *ReservedCacheNodeTimeoutsArgs) ReservedCacheNodeTimeoutsPtrInput {
+	return (*reservedCacheNodeTimeoutsPtrType)(v)
+}
+
+func (*reservedCacheNodeTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReservedCacheNodeTimeouts)(nil)).Elem()
+}
+
+func (i *reservedCacheNodeTimeoutsPtrType) ToReservedCacheNodeTimeoutsPtrOutput() ReservedCacheNodeTimeoutsPtrOutput {
+	return i.ToReservedCacheNodeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *reservedCacheNodeTimeoutsPtrType) ToReservedCacheNodeTimeoutsPtrOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReservedCacheNodeTimeoutsPtrOutput)
+}
+
+type ReservedCacheNodeTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ReservedCacheNodeTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReservedCacheNodeTimeouts)(nil)).Elem()
+}
+
+func (o ReservedCacheNodeTimeoutsOutput) ToReservedCacheNodeTimeoutsOutput() ReservedCacheNodeTimeoutsOutput {
+	return o
+}
+
+func (o ReservedCacheNodeTimeoutsOutput) ToReservedCacheNodeTimeoutsOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsOutput {
+	return o
+}
+
+func (o ReservedCacheNodeTimeoutsOutput) ToReservedCacheNodeTimeoutsPtrOutput() ReservedCacheNodeTimeoutsPtrOutput {
+	return o.ToReservedCacheNodeTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ReservedCacheNodeTimeoutsOutput) ToReservedCacheNodeTimeoutsPtrOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReservedCacheNodeTimeouts) *ReservedCacheNodeTimeouts {
+		return &v
+	}).(ReservedCacheNodeTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ReservedCacheNodeTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedCacheNodeTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ReservedCacheNodeTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedCacheNodeTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ReservedCacheNodeTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReservedCacheNodeTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ReservedCacheNodeTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReservedCacheNodeTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReservedCacheNodeTimeouts)(nil)).Elem()
+}
+
+func (o ReservedCacheNodeTimeoutsPtrOutput) ToReservedCacheNodeTimeoutsPtrOutput() ReservedCacheNodeTimeoutsPtrOutput {
+	return o
+}
+
+func (o ReservedCacheNodeTimeoutsPtrOutput) ToReservedCacheNodeTimeoutsPtrOutputWithContext(ctx context.Context) ReservedCacheNodeTimeoutsPtrOutput {
+	return o
+}
+
+func (o ReservedCacheNodeTimeoutsPtrOutput) Elem() ReservedCacheNodeTimeoutsOutput {
+	return o.ApplyT(func(v *ReservedCacheNodeTimeouts) ReservedCacheNodeTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ReservedCacheNodeTimeouts
+		return ret
+	}).(ReservedCacheNodeTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ReservedCacheNodeTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReservedCacheNodeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ReservedCacheNodeTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReservedCacheNodeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ReservedCacheNodeTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReservedCacheNodeTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerlessCacheCacheUsageLimits struct {
 	// The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
 	DataStorage *ServerlessCacheCacheUsageLimitsDataStorage `pulumi:"dataStorage"`
@@ -2044,6 +2319,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeRecurringChargeInput)(nil)).Elem(), ReservedCacheNodeRecurringChargeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeRecurringChargeArrayInput)(nil)).Elem(), ReservedCacheNodeRecurringChargeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeTimeoutsInput)(nil)).Elem(), ReservedCacheNodeTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReservedCacheNodeTimeoutsPtrInput)(nil)).Elem(), ReservedCacheNodeTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsPtrInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheCacheUsageLimitsDataStorageInput)(nil)).Elem(), ServerlessCacheCacheUsageLimitsDataStorageArgs{})
@@ -2076,6 +2355,10 @@ func init() {
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ReservedCacheNodeRecurringChargeOutput{})
+	pulumi.RegisterOutputType(ReservedCacheNodeRecurringChargeArrayOutput{})
+	pulumi.RegisterOutputType(ReservedCacheNodeTimeoutsOutput{})
+	pulumi.RegisterOutputType(ReservedCacheNodeTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheCacheUsageLimitsDataStorageOutput{})

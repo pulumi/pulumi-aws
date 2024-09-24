@@ -44,6 +44,8 @@ __all__ = [
     'ResolverRuntime',
     'ResolverSyncConfig',
     'ResolverSyncConfigLambdaConflictHandlerConfig',
+    'SourceApiAssociationSourceApiAssociationConfig',
+    'SourceApiAssociationTimeouts',
 ]
 
 @pulumi.output_type
@@ -1581,5 +1583,83 @@ class ResolverSyncConfigLambdaConflictHandlerConfig(dict):
         ARN for the Lambda function to use as the Conflict Handler.
         """
         return pulumi.get(self, "lambda_conflict_handler_arn")
+
+
+@pulumi.output_type
+class SourceApiAssociationSourceApiAssociationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mergeType":
+            suggest = "merge_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceApiAssociationSourceApiAssociationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceApiAssociationSourceApiAssociationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceApiAssociationSourceApiAssociationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 merge_type: str):
+        """
+        :param str merge_type: Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+        """
+        pulumi.set(__self__, "merge_type", merge_type)
+
+    @property
+    @pulumi.getter(name="mergeType")
+    def merge_type(self) -> str:
+        """
+        Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+        """
+        return pulumi.get(self, "merge_type")
+
+
+@pulumi.output_type
+class SourceApiAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 

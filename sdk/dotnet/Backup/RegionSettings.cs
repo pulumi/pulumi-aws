@@ -37,6 +37,10 @@ namespace Pulumi.Aws.Backup
     ///             { "RDS", true },
     ///             { "Storage Gateway", true },
     ///             { "VirtualMachine", true },
+    ///             { "CloudFormation", true },
+    ///             { "Redshift", true },
+    ///             { "S3", true },
+    ///             { "SAP HANA on Amazon EC2", true },
     ///         },
     ///         ResourceTypeManagementPreference = 
     ///         {

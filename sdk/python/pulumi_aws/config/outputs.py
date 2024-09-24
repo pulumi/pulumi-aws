@@ -449,6 +449,7 @@ class Endpoints(dict):
                  pcaconnectorad: Optional[str] = None,
                  pcs: Optional[str] = None,
                  pinpoint: Optional[str] = None,
+                 pinpointsmsvoicev2: Optional[str] = None,
                  pipes: Optional[str] = None,
                  polly: Optional[str] = None,
                  pricing: Optional[str] = None,
@@ -739,6 +740,7 @@ class Endpoints(dict):
         :param str pcaconnectorad: Use this to override the default service endpoint URL
         :param str pcs: Use this to override the default service endpoint URL
         :param str pinpoint: Use this to override the default service endpoint URL
+        :param str pinpointsmsvoicev2: Use this to override the default service endpoint URL
         :param str pipes: Use this to override the default service endpoint URL
         :param str polly: Use this to override the default service endpoint URL
         :param str pricing: Use this to override the default service endpoint URL
@@ -1236,6 +1238,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "pcs", pcs)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
+        if pinpointsmsvoicev2 is not None:
+            pulumi.set(__self__, "pinpointsmsvoicev2", pinpointsmsvoicev2)
         if pipes is not None:
             pulumi.set(__self__, "pipes", pipes)
         if polly is not None:
@@ -3056,6 +3060,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "pinpoint")
+
+    @property
+    @pulumi.getter
+    def pinpointsmsvoicev2(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pinpointsmsvoicev2")
 
     @property
     @pulumi.getter

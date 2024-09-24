@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### `value_selection_setting` Usage
+ * ### value_selection_setting Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>

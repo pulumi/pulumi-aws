@@ -10,6 +10,16 @@ export type Canary = import("./canary").Canary;
 export const Canary: typeof import("./canary").Canary = null as any;
 utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
 
+export { GetRuntimeVersionArgs, GetRuntimeVersionResult, GetRuntimeVersionOutputArgs } from "./getRuntimeVersion";
+export const getRuntimeVersion: typeof import("./getRuntimeVersion").getRuntimeVersion = null as any;
+export const getRuntimeVersionOutput: typeof import("./getRuntimeVersion").getRuntimeVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRuntimeVersion","getRuntimeVersionOutput"], () => require("./getRuntimeVersion"));
+
+export { GetRuntimeVersionsArgs, GetRuntimeVersionsResult, GetRuntimeVersionsOutputArgs } from "./getRuntimeVersions";
+export const getRuntimeVersions: typeof import("./getRuntimeVersions").getRuntimeVersions = null as any;
+export const getRuntimeVersionsOutput: typeof import("./getRuntimeVersions").getRuntimeVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRuntimeVersions","getRuntimeVersionsOutput"], () => require("./getRuntimeVersions"));
+
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;

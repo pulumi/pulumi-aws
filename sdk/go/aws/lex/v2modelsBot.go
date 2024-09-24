@@ -23,6 +23,9 @@ import (
 //
 // import (
 //
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -30,15 +33,44 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				Name: pulumi.String("example"),
-//				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
-//					&lex.V2modelsBotDataPrivacyArgs{
-//						ChildDirected: pulumi.Bool("boolean"),
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "sts:AssumeRole",
+//						"Effect": "Allow",
+//						"Sid":    "",
+//						"Principal": map[string]interface{}{
+//							"Service": "lexv2.amazonaws.com",
+//						},
 //					},
 //				},
-//				IdleSessionTtlInSeconds: pulumi.Int(10),
-//				RoleArn:                 pulumi.String("bot_example_arn"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(json0),
+//				Tags: pulumi.StringMap{
+//					"created_by": pulumi.String("aws"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Example description"),
+//				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
+//					&lex.V2modelsBotDataPrivacyArgs{
+//						ChildDirected: pulumi.Bool(false),
+//					},
+//				},
+//				IdleSessionTtlInSeconds: pulumi.Int(60),
+//				RoleArn:                 exampleRole.Arn,
+//				Type:                    pulumi.String("Bot"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

@@ -45125,16 +45125,17 @@ class V2modelsSlotTypeCompositeSlotTypeSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sub_slots: Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']):
+                 sub_slots: Optional[Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']] = None):
         """
         :param Sequence['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs'] sub_slots: Sub slots in the composite slot.
                See `sub_slots` argument reference below.
         """
-        pulumi.set(__self__, "sub_slots", sub_slots)
+        if sub_slots is not None:
+            pulumi.set(__self__, "sub_slots", sub_slots)
 
     @property
     @pulumi.getter(name="subSlots")
-    def sub_slots(self) -> Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']:
+    def sub_slots(self) -> Optional[Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']]:
         """
         Sub slots in the composite slot.
         See `sub_slots` argument reference below.
@@ -45147,8 +45148,8 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subSlotId":
-            suggest = "sub_slot_id"
+        if key == "slotTypeId":
+            suggest = "slot_type_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeCompositeSlotTypeSettingSubSlot. Access the value via the '{suggest}' property getter instead.")
@@ -45163,12 +45164,14 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 sub_slot_id: str):
+                 slot_type_id: str):
         """
         :param str name: Name of a constituent sub slot inside a composite slot.
+        :param str slot_type_id: Unique identifier assigned to a slot type.
+               This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sub_slot_id", sub_slot_id)
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
 
     @property
     @pulumi.getter
@@ -45179,9 +45182,13 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="subSlotId")
-    def sub_slot_id(self) -> str:
-        return pulumi.get(self, "sub_slot_id")
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> str:
+        """
+        Unique identifier assigned to a slot type.
+        This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+        """
+        return pulumi.get(self, "slot_type_id")
 
 
 @pulumi.output_type

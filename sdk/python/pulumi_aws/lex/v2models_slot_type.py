@@ -485,7 +485,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             locale_id=example_v2models_bot_locale.locale_id)
         ```
 
-        ### `value_selection_setting` Usage
+        ### value_selection_setting Usage
 
         ```python
         import pulumi
@@ -583,7 +583,7 @@ class V2modelsSlotType(pulumi.CustomResource):
             locale_id=example_v2models_bot_locale.locale_id)
         ```
 
-        ### `value_selection_setting` Usage
+        ### value_selection_setting Usage
 
         ```python
         import pulumi

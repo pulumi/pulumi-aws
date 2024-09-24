@@ -35,9 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lex.V2modelsBot;
  * import com.pulumi.aws.lex.V2modelsBotArgs;
  * import com.pulumi.aws.lex.inputs.V2modelsBotDataPrivacyArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,13 +54,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "lexv2.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .tags(Map.of("created_by", "aws"))
+ *             .build());
+ * 
  *         var example = new V2modelsBot("example", V2modelsBotArgs.builder()
  *             .name("example")
+ *             .description("Example description")
  *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
- *                 .childDirected("boolean")
+ *                 .childDirected(false)
  *                 .build())
- *             .idleSessionTtlInSeconds(10)
- *             .roleArn("bot_example_arn")
+ *             .idleSessionTtlInSeconds(60)
+ *             .roleArn(exampleRole.arn())
+ *             .type("Bot")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
