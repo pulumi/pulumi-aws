@@ -393,7 +393,7 @@ jobs:
             uses: actions/setup-go@v5
             with:
               cache: false
-              go-version-file: 'upstream/go.mod'
+              go-version: 1.23.x
           - name: Make upstream
             run: make upstream
           - name: upstream lint
