@@ -1278,10 +1278,8 @@ compatibility shim in favor of the new "name" field.`)
 						r := pm.Copy()
 						for k, v := range defaults {
 							if value, defined := pm[resource.PropertyKey(k)]; defined && !value.IsNull() {
-								fmt.Println("TransformOutputs does not change already defined", k, value.String())
 								continue
 							}
-							fmt.Println("TransformOutputs changes", k, v.String())
 							r[resource.PropertyKey(k)] = v
 						}
 						return r, nil
