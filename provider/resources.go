@@ -1246,6 +1246,47 @@ compatibility shim in favor of the new "name" field.`)
 						Name: "tags",
 					},
 				},
+				TransformOutputs: (func() func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					r, ok := p.ResourcesMap().GetOk("aws_autoscaling_group")
+					contract.Assertf(ok, "Expected aws_autoscaling_resource to be defined")
+					defaultValue := func(rawPropName string) resource.PropertyValue {
+						prop, ok := r.Schema().GetOk(rawPropName)
+						contract.Assertf(ok, "Expected property %q to be defined", prop)
+						def := prop.Default()
+						contract.Assertf(def != nil, "Expected property %q Default() to be defined", prop)
+						switch prop.Type() {
+						case shim.TypeString:
+							defs, ok := def.(string)
+							contract.Assertf(ok, "Expected property %q Default() to be a string", prop)
+							return resource.NewStringProperty(defs)
+						case shim.TypeBool:
+							defb, ok := def.(bool)
+							contract.Assertf(ok, "Expected property %q Default() to be a bool", prop)
+							return resource.NewBoolProperty(defb)
+						default:
+							contract.Failf("Types other than string and bool are not supported yet")
+							return resource.NewNullProperty()
+						}
+					}
+					defaults := map[string]resource.PropertyValue{
+						"forceDelete":                    defaultValue("force_delete"),
+						"forceDeleteWarmPool":            defaultValue("force_delete_warm_pool"),
+						"ignoreFailedScailingActivities": defaultValue("ignore_failed_scaling_activities"),
+						"waitForCapacityTimeout":         defaultValue("wait_for_capacity_timeout"),
+					}
+					return func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+						r := pm.Copy()
+						for k, v := range defaults {
+							if value, defined := pm[resource.PropertyKey(k)]; defined && !value.IsNull() {
+								fmt.Println("TransformOutputs does not change already defined", k, value.String())
+								continue
+							}
+							fmt.Println("TransformOutputs changes", k, v.String())
+							r[resource.PropertyKey(k)] = v
+						}
+						return r, nil
+					}
+				})(),
 			},
 			"aws_autoscaling_lifecycle_hook": {
 				Tok: awsResource(autoscalingMod, "LifecycleHook"),

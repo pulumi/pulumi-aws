@@ -18,7 +18,6 @@ import (
 	"context"
 
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/autoscaling"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
@@ -34,6 +33,5 @@ func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
 	rds.ReconfigureResources(upstreamProvider.SDKV2Provider)
-	autoscaling.ReconfigureResources(upstreamProvider.SDKV2Provider)
 	return upstreamProvider
 }
