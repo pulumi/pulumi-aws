@@ -106,9 +106,6 @@ def get_delegation_set(id: Optional[str] = None,
         caller_reference=pulumi.get(__ret__, 'caller_reference'),
         id=pulumi.get(__ret__, 'id'),
         name_servers=pulumi.get(__ret__, 'name_servers'))
-
-
-@_utilities.lift_output_func(get_delegation_set)
 def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegationSetResult]:
     """
@@ -132,4 +129,12 @@ def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
            
            The following attribute is additionally exported:
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts, typ=GetDelegationSetResult)
+    return __ret__.apply(lambda __response__: GetDelegationSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        caller_reference=pulumi.get(__response__, 'caller_reference'),
+        id=pulumi.get(__response__, 'id'),
+        name_servers=pulumi.get(__response__, 'name_servers')))
