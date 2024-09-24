@@ -85,11 +85,12 @@ func TestRegress4457(t *testing.T) {
 	t.Logf("Provisioned autoscaling group with arn=%s and urn=%s and name=%s", autoGroupArn, autoGroupUrn, autoGroupName)
 	workdir := workspace.WorkDir()
 	t.Logf("workdir = %s", workdir)
-	importResult := execPulumi(t, ptest, workdir, "import", "aws:autoscaling/group:Group", "newag", autoGroupName, "--yes")
+
+	importResult := ptest.Import("aws:autoscaling/group:Group", "newag", autoGroupName, "" /* providerUrn */)
 
 	t.Logf("Editing the program to add the code recommended by import")
-	i := strings.Index(importResult.stdout, "import pulumi")
-	extraCode := importResult.stdout[i:]
+	i := strings.Index(importResult.Stdout, "import pulumi")
+	extraCode := importResult.Stdout[i:]
 	mainPy := filepath.Join(ptest.Source(), "__main__.py")
 	pyBytes, err := os.ReadFile(mainPy)
 	require.NoError(t, err)
@@ -101,9 +102,6 @@ func TestRegress4457(t *testing.T) {
 	previewResult := ptest.Preview(optpreview.ExpectNoChanges())
 	t.Logf("%s", previewResult.StdOut)
 	t.Logf("%s", previewResult.StdErr)
-
-	t.Logf("Un-protecting imported resources to make cleanup easier")
-	execPulumi(t, ptest, workdir, "state", "unprotect", strings.ReplaceAll(autoGroupUrn, "::ag", "::newag"), "--yes")
 }
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
