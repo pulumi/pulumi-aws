@@ -118,9 +118,6 @@ def get_invocation(function_name: Optional[str] = None,
         input=pulumi.get(__ret__, 'input'),
         qualifier=pulumi.get(__ret__, 'qualifier'),
         result=pulumi.get(__ret__, 'result'))
-
-
-@_utilities.lift_output_func(get_invocation)
 def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
                           input: Optional[pulumi.Input[str]] = None,
                           qualifier: Optional[pulumi.Input[Optional[str]]] = None,
@@ -138,4 +135,15 @@ def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str qualifier: Qualifier (a.k.a version) of the lambda function. Defaults
            to `$LATEST`.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['input'] = input
+    __args__['qualifier'] = qualifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getInvocation:getInvocation', __args__, opts=opts, typ=GetInvocationResult)
+    return __ret__.apply(lambda __response__: GetInvocationResult(
+        function_name=pulumi.get(__response__, 'function_name'),
+        id=pulumi.get(__response__, 'id'),
+        input=pulumi.get(__response__, 'input'),
+        qualifier=pulumi.get(__response__, 'qualifier'),
+        result=pulumi.get(__response__, 'result')))

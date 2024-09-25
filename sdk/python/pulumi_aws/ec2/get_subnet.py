@@ -412,9 +412,6 @@ def get_subnet(availability_zone: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_subnet)
 def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
                       availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                       cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
@@ -478,4 +475,42 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
     :param str vpc_id: ID of the VPC that the desired subnet belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['availabilityZone'] = availability_zone
+    __args__['availabilityZoneId'] = availability_zone_id
+    __args__['cidrBlock'] = cidr_block
+    __args__['defaultForAz'] = default_for_az
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['ipv6CidrBlock'] = ipv6_cidr_block
+    __args__['state'] = state
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
+    return __ret__.apply(lambda __response__: GetSubnetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        assign_ipv6_address_on_creation=pulumi.get(__response__, 'assign_ipv6_address_on_creation'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        available_ip_address_count=pulumi.get(__response__, 'available_ip_address_count'),
+        cidr_block=pulumi.get(__response__, 'cidr_block'),
+        customer_owned_ipv4_pool=pulumi.get(__response__, 'customer_owned_ipv4_pool'),
+        default_for_az=pulumi.get(__response__, 'default_for_az'),
+        enable_dns64=pulumi.get(__response__, 'enable_dns64'),
+        enable_lni_at_device_index=pulumi.get(__response__, 'enable_lni_at_device_index'),
+        enable_resource_name_dns_a_record_on_launch=pulumi.get(__response__, 'enable_resource_name_dns_a_record_on_launch'),
+        enable_resource_name_dns_aaaa_record_on_launch=pulumi.get(__response__, 'enable_resource_name_dns_aaaa_record_on_launch'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
+        ipv6_cidr_block_association_id=pulumi.get(__response__, 'ipv6_cidr_block_association_id'),
+        ipv6_native=pulumi.get(__response__, 'ipv6_native'),
+        map_customer_owned_ip_on_launch=pulumi.get(__response__, 'map_customer_owned_ip_on_launch'),
+        map_public_ip_on_launch=pulumi.get(__response__, 'map_public_ip_on_launch'),
+        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        private_dns_hostname_type_on_launch=pulumi.get(__response__, 'private_dns_hostname_type_on_launch'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

@@ -161,9 +161,6 @@ def get_subnet_group(name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_subnet_group)
 def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
@@ -181,4 +178,16 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the RDS database subnet group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
+    return __ret__.apply(lambda __response__: GetSubnetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        supported_network_types=pulumi.get(__response__, 'supported_network_types'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

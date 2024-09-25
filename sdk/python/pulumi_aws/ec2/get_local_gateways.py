@@ -120,9 +120,6 @@ def get_local_gateways(filters: Optional[Sequence[Union['GetLocalGatewaysFilterA
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_local_gateways)
 def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']]]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewaysResult]:
@@ -151,4 +148,13 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local_gateways.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGateways:getLocalGateways', __args__, opts=opts, typ=GetLocalGatewaysResult)
+    return __ret__.apply(lambda __response__: GetLocalGatewaysResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

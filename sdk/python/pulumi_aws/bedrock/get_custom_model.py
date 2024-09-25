@@ -276,9 +276,6 @@ def get_custom_model(model_id: Optional[str] = None,
         training_metrics=pulumi.get(__ret__, 'training_metrics'),
         validation_data_configs=pulumi.get(__ret__, 'validation_data_configs'),
         validation_metrics=pulumi.get(__ret__, 'validation_metrics'))
-
-
-@_utilities.lift_output_func(get_custom_model)
 def get_custom_model_output(model_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomModelResult]:
     """
@@ -296,4 +293,25 @@ def get_custom_model_output(model_id: Optional[pulumi.Input[str]] = None,
 
     :param str model_id: Name or ARN of the custom model.
     """
-    ...
+    __args__ = dict()
+    __args__['modelId'] = model_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getCustomModel:getCustomModel', __args__, opts=opts, typ=GetCustomModelResult)
+    return __ret__.apply(lambda __response__: GetCustomModelResult(
+        base_model_arn=pulumi.get(__response__, 'base_model_arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        hyperparameters=pulumi.get(__response__, 'hyperparameters'),
+        id=pulumi.get(__response__, 'id'),
+        job_arn=pulumi.get(__response__, 'job_arn'),
+        job_name=pulumi.get(__response__, 'job_name'),
+        job_tags=pulumi.get(__response__, 'job_tags'),
+        model_arn=pulumi.get(__response__, 'model_arn'),
+        model_id=pulumi.get(__response__, 'model_id'),
+        model_kms_key_arn=pulumi.get(__response__, 'model_kms_key_arn'),
+        model_name=pulumi.get(__response__, 'model_name'),
+        model_tags=pulumi.get(__response__, 'model_tags'),
+        output_data_configs=pulumi.get(__response__, 'output_data_configs'),
+        training_data_configs=pulumi.get(__response__, 'training_data_configs'),
+        training_metrics=pulumi.get(__response__, 'training_metrics'),
+        validation_data_configs=pulumi.get(__response__, 'validation_data_configs'),
+        validation_metrics=pulumi.get(__response__, 'validation_metrics')))

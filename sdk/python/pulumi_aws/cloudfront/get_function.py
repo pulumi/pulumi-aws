@@ -202,9 +202,6 @@ def get_function(name: Optional[str] = None,
         runtime=pulumi.get(__ret__, 'runtime'),
         stage=pulumi.get(__ret__, 'stage'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_function)
 def get_function_output(name: Optional[pulumi.Input[str]] = None,
                         stage: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
@@ -226,4 +223,20 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the CloudFront function.
     :param str stage: Function’s stage, either `DEVELOPMENT` or `LIVE`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['stage'] = stage
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult)
+    return __ret__.apply(lambda __response__: GetFunctionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        code=pulumi.get(__response__, 'code'),
+        comment=pulumi.get(__response__, 'comment'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        key_value_store_associations=pulumi.get(__response__, 'key_value_store_associations'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        name=pulumi.get(__response__, 'name'),
+        runtime=pulumi.get(__response__, 'runtime'),
+        stage=pulumi.get(__response__, 'stage'),
+        status=pulumi.get(__response__, 'status')))
