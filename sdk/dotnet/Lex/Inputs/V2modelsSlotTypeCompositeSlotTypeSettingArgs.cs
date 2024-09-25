@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotTypeCompositeSlotTypeSettingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("subSlots", required: true)]
+        [Input("subSlots")]
         private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>? _subSlots;
 
         /// <summary>

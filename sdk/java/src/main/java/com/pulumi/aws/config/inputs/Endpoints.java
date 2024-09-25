@@ -1050,6 +1050,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String pinpointsmsvoicev2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String pipes;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2911,6 +2916,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> pinpointsmsvoicev2() {
+        return Optional.ofNullable(this.pinpointsmsvoicev2);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> pipes() {
         return Optional.ofNullable(this.pipes);
     }
@@ -3698,6 +3710,7 @@ public final class Endpoints {
         private @Nullable String pcaconnectorad;
         private @Nullable String pcs;
         private @Nullable String pinpoint;
+        private @Nullable String pinpointsmsvoicev2;
         private @Nullable String pipes;
         private @Nullable String polly;
         private @Nullable String pricing;
@@ -3990,6 +4003,7 @@ public final class Endpoints {
     	      this.pcaconnectorad = defaults.pcaconnectorad;
     	      this.pcs = defaults.pcs;
     	      this.pinpoint = defaults.pinpoint;
+    	      this.pinpointsmsvoicev2 = defaults.pinpointsmsvoicev2;
     	      this.pipes = defaults.pipes;
     	      this.polly = defaults.polly;
     	      this.pricing = defaults.pricing;
@@ -5317,6 +5331,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder pinpointsmsvoicev2(@Nullable String pinpointsmsvoicev2) {
+
+            this.pinpointsmsvoicev2 = pinpointsmsvoicev2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder pipes(@Nullable String pipes) {
 
             this.pipes = pipes;
@@ -6017,6 +6037,7 @@ public final class Endpoints {
             _resultValue.pcaconnectorad = pcaconnectorad;
             _resultValue.pcs = pcs;
             _resultValue.pinpoint = pinpoint;
+            _resultValue.pinpointsmsvoicev2 = pinpointsmsvoicev2;
             _resultValue.pipes = pipes;
             _resultValue.polly = polly;
             _resultValue.pricing = pricing;

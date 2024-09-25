@@ -399,14 +399,20 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+     * Instance class to be used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Required unless `global_replication_group_id` is set.
+     * Cannot be set if `global_replication_group_id` is set.
      * 
      */
     @Import(name="nodeType")
     private @Nullable Output<String> nodeType;
 
     /**
-     * @return Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+     * @return Instance class to be used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Required unless `global_replication_group_id` is set.
+     * Cannot be set if `global_replication_group_id` is set.
      * 
      */
     public Optional<Output<String>> nodeType() {
@@ -1398,7 +1404,10 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nodeType Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+         * @param nodeType Instance class to be used.
+         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * Required unless `global_replication_group_id` is set.
+         * Cannot be set if `global_replication_group_id` is set.
          * 
          * @return builder
          * 
@@ -1409,7 +1418,10 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nodeType Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+         * @param nodeType Instance class to be used.
+         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+         * Required unless `global_replication_group_id` is set.
+         * Cannot be set if `global_replication_group_id` is set.
          * 
          * @return builder
          * 

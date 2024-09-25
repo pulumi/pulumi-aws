@@ -90,7 +90,10 @@ class ReplicationGroupArgs:
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        :param pulumi.Input[str] node_type: Instance class to be used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               Required unless `global_replication_group_id` is set.
+               Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have.
                If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
@@ -447,7 +450,10 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        Instance class to be used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        Required unless `global_replication_group_id` is set.
+        Cannot be set if `global_replication_group_id` is set.
         """
         return pulumi.get(self, "node_type")
 
@@ -786,7 +792,10 @@ class _ReplicationGroupState:
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        :param pulumi.Input[str] node_type: Instance class to be used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               Required unless `global_replication_group_id` is set.
+               Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have.
                If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
@@ -1226,7 +1235,10 @@ class _ReplicationGroupState:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        Instance class to be used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        Required unless `global_replication_group_id` is set.
+        Cannot be set if `global_replication_group_id` is set.
         """
         return pulumi.get(self, "node_type")
 
@@ -1778,7 +1790,10 @@ class ReplicationGroup(pulumi.CustomResource):
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        :param pulumi.Input[str] node_type: Instance class to be used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               Required unless `global_replication_group_id` is set.
+               Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have.
                If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
@@ -2219,7 +2234,10 @@ class ReplicationGroup(pulumi.CustomResource):
                If `true`, `automatic_failover_enabled` must also be enabled.
                Defaults to `false`.
         :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        :param pulumi.Input[str] node_type: Instance class to be used.
+               See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+               Required unless `global_replication_group_id` is set.
+               Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have.
                If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
@@ -2518,7 +2536,10 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[str]:
         """
-        Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
+        Instance class to be used.
+        See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+        Required unless `global_replication_group_id` is set.
+        Cannot be set if `global_replication_group_id` is set.
         """
         return pulumi.get(self, "node_type")
 

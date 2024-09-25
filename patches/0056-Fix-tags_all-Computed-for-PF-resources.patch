@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/paymentcryptography/key.go b/internal/service/paymentcryptography/key.go
-index 9655aca986..a6d847cc79 100644
+index 0124fc8627..27f405de7c 100644
 --- a/internal/service/paymentcryptography/key.go
 +++ b/internal/service/paymentcryptography/key.go
 @@ -117,7 +117,7 @@ func (r *resourceKey) Schema(ctx context.Context, request resource.SchemaRequest

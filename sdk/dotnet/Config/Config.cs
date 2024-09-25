@@ -1270,6 +1270,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Pinpointsmsvoicev2 { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Pipes { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

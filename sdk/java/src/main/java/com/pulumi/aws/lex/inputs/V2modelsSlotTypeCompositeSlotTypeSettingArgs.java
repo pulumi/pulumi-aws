@@ -6,9 +6,10 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,16 +21,16 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
      * See `sub_slots` argument reference below.
      * 
      */
-    @Import(name="subSlots", required=true)
-    private Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
+    @Import(name="subSlots")
+    private @Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
 
     /**
      * @return Sub slots in the composite slot.
      * See `sub_slots` argument reference below.
      * 
      */
-    public Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots() {
-        return this.subSlots;
+    public Optional<Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>>> subSlots() {
+        return Optional.ofNullable(this.subSlots);
     }
 
     private V2modelsSlotTypeCompositeSlotTypeSettingArgs() {}
@@ -63,7 +64,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder subSlots(Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots) {
+        public Builder subSlots(@Nullable Output<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots) {
             $.subSlots = subSlots;
             return this;
         }
@@ -91,9 +92,6 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs extends com.pulu
         }
 
         public V2modelsSlotTypeCompositeSlotTypeSettingArgs build() {
-            if ($.subSlots == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingArgs", "subSlots");
-            }
             return $;
         }
     }

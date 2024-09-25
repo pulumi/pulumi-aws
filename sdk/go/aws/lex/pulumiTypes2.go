@@ -3342,8 +3342,10 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingPtrOutput) SubSlots() V2modelsSl
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlot struct {
 	// Name of a constituent sub slot inside a composite slot.
-	Name      string `pulumi:"name"`
-	SubSlotId string `pulumi:"subSlotId"`
+	Name string `pulumi:"name"`
+	// Unique identifier assigned to a slot type.
+	// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+	SlotTypeId string `pulumi:"slotTypeId"`
 }
 
 // V2modelsSlotTypeCompositeSlotTypeSettingSubSlotInput is an input type that accepts V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs and V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput values.
@@ -3359,8 +3361,10 @@ type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotInput interface {
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs struct {
 	// Name of a constituent sub slot inside a composite slot.
-	Name      pulumi.StringInput `pulumi:"name"`
-	SubSlotId pulumi.StringInput `pulumi:"subSlotId"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Unique identifier assigned to a slot type.
+	// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+	SlotTypeId pulumi.StringInput `pulumi:"slotTypeId"`
 }
 
 func (V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs) ElementType() reflect.Type {
@@ -3419,8 +3423,10 @@ func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) Name() pulumi.Str
 	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) SubSlotId() pulumi.StringOutput {
-	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.SubSlotId }).(pulumi.StringOutput)
+// Unique identifier assigned to a slot type.
+// This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+func (o V2modelsSlotTypeCompositeSlotTypeSettingSubSlotOutput) SlotTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsSlotTypeCompositeSlotTypeSettingSubSlot) string { return v.SlotTypeId }).(pulumi.StringOutput)
 }
 
 type V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArrayOutput struct{ *pulumi.OutputState }

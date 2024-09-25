@@ -15,7 +15,12 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
      * 
      */
     private String name;
-    private String subSlotId;
+    /**
+     * @return Unique identifier assigned to a slot type.
+     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * 
+     */
+    private String slotTypeId;
 
     private V2modelsSlotTypeCompositeSlotTypeSettingSubSlot() {}
     /**
@@ -25,8 +30,13 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
     public String name() {
         return this.name;
     }
-    public String subSlotId() {
-        return this.subSlotId;
+    /**
+     * @return Unique identifier assigned to a slot type.
+     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * 
+     */
+    public String slotTypeId() {
+        return this.slotTypeId;
     }
 
     public static Builder builder() {
@@ -39,12 +49,12 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
     @CustomType.Builder
     public static final class Builder {
         private String name;
-        private String subSlotId;
+        private String slotTypeId;
         public Builder() {}
         public Builder(V2modelsSlotTypeCompositeSlotTypeSettingSubSlot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
-    	      this.subSlotId = defaults.subSlotId;
+    	      this.slotTypeId = defaults.slotTypeId;
         }
 
         @CustomType.Setter
@@ -56,17 +66,17 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
             return this;
         }
         @CustomType.Setter
-        public Builder subSlotId(String subSlotId) {
-            if (subSlotId == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingSubSlot", "subSlotId");
+        public Builder slotTypeId(String slotTypeId) {
+            if (slotTypeId == null) {
+              throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingSubSlot", "slotTypeId");
             }
-            this.subSlotId = subSlotId;
+            this.slotTypeId = slotTypeId;
             return this;
         }
         public V2modelsSlotTypeCompositeSlotTypeSettingSubSlot build() {
             final var _resultValue = new V2modelsSlotTypeCompositeSlotTypeSettingSubSlot();
             _resultValue.name = name;
-            _resultValue.subSlotId = subSlotId;
+            _resultValue.slotTypeId = slotTypeId;
             return _resultValue;
         }
     }

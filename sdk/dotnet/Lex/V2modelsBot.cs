@@ -19,23 +19,52 @@ namespace Pulumi.Aws.Lex
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "lexv2.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "created_by", "aws" },
+    ///         },
+    ///     });
+    /// 
     ///     var example = new Aws.Lex.V2modelsBot("example", new()
     ///     {
     ///         Name = "example",
+    ///         Description = "Example description",
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
     ///             {
-    ///                 ChildDirected = "boolean",
+    ///                 ChildDirected = false,
     ///             },
     ///         },
-    ///         IdleSessionTtlInSeconds = 10,
-    ///         RoleArn = "bot_example_arn",
+    ///         IdleSessionTtlInSeconds = 60,
+    ///         RoleArn = exampleRole.Arn,
+    ///         Type = "Bot",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

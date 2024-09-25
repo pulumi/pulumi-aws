@@ -554,6 +554,10 @@ if not MYPY:
         """
         The position of the action in the receipt rule
         """
+        iam_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
         """
         The ARN of the KMS key
@@ -574,18 +578,22 @@ class ReceiptRuleS3ActionArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  position: pulumi.Input[int],
+                 iam_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  object_key_prefix: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket
         :param pulumi.Input[int] position: The position of the action in the receipt rule
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key
         :param pulumi.Input[str] object_key_prefix: The key prefix of the S3 bucket
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "position", position)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if object_key_prefix is not None:
@@ -616,6 +624,18 @@ class ReceiptRuleS3ActionArgs:
     @position.setter
     def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_arn", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")

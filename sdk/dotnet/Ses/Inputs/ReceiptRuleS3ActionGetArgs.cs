@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ses.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
+        /// The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+        /// </summary>
+        [Input("iamRoleArn")]
+        public Input<string>? IamRoleArn { get; set; }
+
+        /// <summary>
         /// The ARN of the KMS key
         /// </summary>
         [Input("kmsKeyArn")]

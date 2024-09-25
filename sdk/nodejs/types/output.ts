@@ -7940,6 +7940,28 @@ export namespace appsync {
         lambdaConflictHandlerArn?: string;
     }
 
+    export interface SourceApiAssociationSourceApiAssociationConfig {
+        /**
+         * Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+         */
+        mergeType: string;
+    }
+
+    export interface SourceApiAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
 }
 
 export namespace athena {
@@ -19153,6 +19175,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         pinpoint?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        pinpointsmsvoicev2?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -33495,6 +33521,26 @@ export namespace elasticache {
          * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
          */
         logType: string;
+    }
+
+    export interface ReservedCacheNodeRecurringCharge {
+        recurringChargeAmount: number;
+        recurringChargeFrequency: string;
+    }
+
+    export interface ReservedCacheNodeTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface ServerlessCacheCacheUsageLimits {
@@ -59175,7 +59221,7 @@ export namespace lex {
          * Sub slots in the composite slot.
          * See `subSlots` argument reference below.
          */
-        subSlots: outputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot[];
+        subSlots?: outputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot[];
     }
 
     export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
@@ -59183,7 +59229,11 @@ export namespace lex {
          * Name of a constituent sub slot inside a composite slot.
          */
         name: string;
-        subSlotId: string;
+        /**
+         * Unique identifier assigned to a slot type.
+         * This refers to either a built-in slot type or the unique `slotTypeId` of a custom slot type.
+         */
+        slotTypeId: string;
     }
 
     export interface V2modelsSlotTypeExternalSourceSetting {
@@ -68195,6 +68245,21 @@ export namespace pinpoint {
          * Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
          */
         value?: string;
+    }
+
+    export interface Smsvoicev2PhoneNumberTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -79333,6 +79398,45 @@ export namespace securityhub {
         values: string[];
     }
 
+    export interface GetStandardsControlAssociationsStandardsControlAssociation {
+        /**
+         * Enablement status of a control in a specific standard.
+         */
+        associationStatus: string;
+        /**
+         * List of underlying requirements in the compliance framework related to the standard.
+         */
+        relatedRequirements: string[];
+        /**
+         * ARN of the security control.
+         */
+        securityControlArn: string;
+        /**
+         * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+         */
+        securityControlId: string;
+        /**
+         * ARN of the standard.
+         */
+        standardsArn: string;
+        /**
+         * Description of the standard.
+         */
+        standardsControlDescription: string;
+        /**
+         * Title of the standard.
+         */
+        standardsControlTitle: string;
+        /**
+         * Last time that a control's enablement status in a specified standard was updated.
+         */
+        updatedAt: string;
+        /**
+         * Reason for updating a control's enablement status in a specified standard.
+         */
+        updatedReason: string;
+    }
+
     export interface InsightFilters {
         /**
          * AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -81274,6 +81378,10 @@ export namespace ses {
          */
         bucketName: string;
         /**
+         * The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         */
+        iamRoleArn?: string;
+        /**
          * The ARN of the KMS key
          */
         kmsKeyArn?: string;
@@ -83175,6 +83283,26 @@ export namespace synthetics {
          * ID of the VPC where this canary is to run.
          */
         vpcId: string;
+    }
+
+    export interface GetRuntimeVersionsRuntimeVersion {
+        /**
+         * Date of deprecation if the runtme version is deprecated.
+         */
+        deprecationDate: string;
+        /**
+         * Description of the runtime version, created by Amazon.
+         */
+        description: string;
+        /**
+         * Date that the runtime version was released.
+         */
+        releaseDate: string;
+        /**
+         * Name of the runtime version.
+         * For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+         */
+        versionName: string;
     }
 
 }

@@ -19,6 +19,11 @@ public final class ReceiptRuleS3Action {
      */
     private String bucketName;
     /**
+     * @return The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * 
+     */
+    private @Nullable String iamRoleArn;
+    /**
      * @return The ARN of the KMS key
      * 
      */
@@ -46,6 +51,13 @@ public final class ReceiptRuleS3Action {
      */
     public String bucketName() {
         return this.bucketName;
+    }
+    /**
+     * @return The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * 
+     */
+    public Optional<String> iamRoleArn() {
+        return Optional.ofNullable(this.iamRoleArn);
     }
     /**
      * @return The ARN of the KMS key
@@ -86,6 +98,7 @@ public final class ReceiptRuleS3Action {
     @CustomType.Builder
     public static final class Builder {
         private String bucketName;
+        private @Nullable String iamRoleArn;
         private @Nullable String kmsKeyArn;
         private @Nullable String objectKeyPrefix;
         private Integer position;
@@ -94,6 +107,7 @@ public final class ReceiptRuleS3Action {
         public Builder(ReceiptRuleS3Action defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
+    	      this.iamRoleArn = defaults.iamRoleArn;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.objectKeyPrefix = defaults.objectKeyPrefix;
     	      this.position = defaults.position;
@@ -106,6 +120,12 @@ public final class ReceiptRuleS3Action {
               throw new MissingRequiredPropertyException("ReceiptRuleS3Action", "bucketName");
             }
             this.bucketName = bucketName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder iamRoleArn(@Nullable String iamRoleArn) {
+
+            this.iamRoleArn = iamRoleArn;
             return this;
         }
         @CustomType.Setter
@@ -137,6 +157,7 @@ public final class ReceiptRuleS3Action {
         public ReceiptRuleS3Action build() {
             final var _resultValue = new ReceiptRuleS3Action();
             _resultValue.bucketName = bucketName;
+            _resultValue.iamRoleArn = iamRoleArn;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.objectKeyPrefix = objectKeyPrefix;
             _resultValue.position = position;

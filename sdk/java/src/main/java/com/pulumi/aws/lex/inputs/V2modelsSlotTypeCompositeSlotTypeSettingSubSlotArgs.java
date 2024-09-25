@@ -29,18 +29,28 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
         return this.name;
     }
 
-    @Import(name="subSlotId", required=true)
-    private Output<String> subSlotId;
+    /**
+     * Unique identifier assigned to a slot type.
+     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * 
+     */
+    @Import(name="slotTypeId", required=true)
+    private Output<String> slotTypeId;
 
-    public Output<String> subSlotId() {
-        return this.subSlotId;
+    /**
+     * @return Unique identifier assigned to a slot type.
+     * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+     * 
+     */
+    public Output<String> slotTypeId() {
+        return this.slotTypeId;
     }
 
     private V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs() {}
 
     private V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs(V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs $) {
         this.name = $.name;
-        this.subSlotId = $.subSlotId;
+        this.slotTypeId = $.slotTypeId;
     }
 
     public static Builder builder() {
@@ -82,21 +92,35 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs extends c
             return name(Output.of(name));
         }
 
-        public Builder subSlotId(Output<String> subSlotId) {
-            $.subSlotId = subSlotId;
+        /**
+         * @param slotTypeId Unique identifier assigned to a slot type.
+         * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slotTypeId(Output<String> slotTypeId) {
+            $.slotTypeId = slotTypeId;
             return this;
         }
 
-        public Builder subSlotId(String subSlotId) {
-            return subSlotId(Output.of(subSlotId));
+        /**
+         * @param slotTypeId Unique identifier assigned to a slot type.
+         * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slotTypeId(String slotTypeId) {
+            return slotTypeId(Output.of(slotTypeId));
         }
 
         public V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs", "name");
             }
-            if ($.subSlotId == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs", "subSlotId");
+            if ($.slotTypeId == null) {
+                throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs", "slotTypeId");
             }
             return $;
         }

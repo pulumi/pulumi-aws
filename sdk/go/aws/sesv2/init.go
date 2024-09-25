@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes":
+		r = &AccountSuppressionAttributes{}
 	case "aws:sesv2/accountVdmAttributes:AccountVdmAttributes":
 		r = &AccountVdmAttributes{}
 	case "aws:sesv2/configurationSet:ConfigurationSet":
@@ -54,6 +56,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/accountSuppressionAttributes",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/accountVdmAttributes",

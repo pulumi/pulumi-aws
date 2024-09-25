@@ -125,6 +125,10 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+                "CloudFormation": True,
+                "Redshift": True,
+                "S3": True,
+                "SAP HANA on Amazon EC2": True,
             },
             resource_type_management_preference={
                 "DynamoDB": True,
@@ -173,6 +177,10 @@ class RegionSettings(pulumi.CustomResource):
                 "RDS": True,
                 "Storage Gateway": True,
                 "VirtualMachine": True,
+                "CloudFormation": True,
+                "Redshift": True,
+                "S3": True,
+                "SAP HANA on Amazon EC2": True,
             },
             resource_type_management_preference={
                 "DynamoDB": True,

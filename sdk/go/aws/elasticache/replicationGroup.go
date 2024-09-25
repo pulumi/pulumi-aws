@@ -372,7 +372,10 @@ type ReplicationGroup struct {
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
-	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+	// Instance class to be used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Required unless `globalReplicationGroupId` is set.
+	// Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
@@ -536,7 +539,10 @@ type replicationGroupState struct {
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType *string `pulumi:"networkType"`
-	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+	// Instance class to be used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Required unless `globalReplicationGroupId` is set.
+	// Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
@@ -661,7 +667,10 @@ type ReplicationGroupState struct {
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringPtrInput
-	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+	// Instance class to be used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Required unless `globalReplicationGroupId` is set.
+	// Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
@@ -780,7 +789,10 @@ type replicationGroupArgs struct {
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType *string `pulumi:"networkType"`
-	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+	// Instance class to be used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Required unless `globalReplicationGroupId` is set.
+	// Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
@@ -888,7 +900,10 @@ type ReplicationGroupArgs struct {
 	MultiAzEnabled pulumi.BoolPtrInput
 	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
 	NetworkType pulumi.StringPtrInput
-	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+	// Instance class to be used.
+	// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+	// Required unless `globalReplicationGroupId` is set.
+	// Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
@@ -1165,7 +1180,10 @@ func (o ReplicationGroupOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+// Instance class to be used.
+// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+// Required unless `globalReplicationGroupId` is set.
+// Cannot be set if `globalReplicationGroupId` is set.
 func (o ReplicationGroupOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
 }

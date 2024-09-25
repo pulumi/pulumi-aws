@@ -35,6 +35,11 @@ export type FindingAggregator = import("./findingAggregator").FindingAggregator;
 export const FindingAggregator: typeof import("./findingAggregator").FindingAggregator = null as any;
 utilities.lazyLoad(exports, ["FindingAggregator"], () => require("./findingAggregator"));
 
+export { GetStandardsControlAssociationsArgs, GetStandardsControlAssociationsResult, GetStandardsControlAssociationsOutputArgs } from "./getStandardsControlAssociations";
+export const getStandardsControlAssociations: typeof import("./getStandardsControlAssociations").getStandardsControlAssociations = null as any;
+export const getStandardsControlAssociationsOutput: typeof import("./getStandardsControlAssociations").getStandardsControlAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getStandardsControlAssociations","getStandardsControlAssociationsOutput"], () => require("./getStandardsControlAssociations"));
+
 export { InsightArgs, InsightState } from "./insight";
 export type Insight = import("./insight").Insight;
 export const Insight: typeof import("./insight").Insight = null as any;

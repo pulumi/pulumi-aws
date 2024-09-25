@@ -405,15 +405,34 @@ class V2modelsBot(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lexv2.amazonaws.com",
+                    },
+                }],
+            }),
+            tags={
+                "created_by": "aws",
+            })
         example = aws.lex.V2modelsBot("example",
             name="example",
+            description="Example description",
             data_privacies=[{
-                "child_directed": "boolean",
+                "child_directed": False,
             }],
-            idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn",
+            idle_session_ttl_in_seconds=60,
+            role_arn=example_role.arn,
+            type="Bot",
             tags={
                 "foo": "bar",
             })
@@ -456,15 +475,34 @@ class V2modelsBot(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
+        example_role = aws.iam.Role("example",
+            name="example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": "sts:AssumeRole",
+                    "Effect": "Allow",
+                    "Sid": "",
+                    "Principal": {
+                        "Service": "lexv2.amazonaws.com",
+                    },
+                }],
+            }),
+            tags={
+                "created_by": "aws",
+            })
         example = aws.lex.V2modelsBot("example",
             name="example",
+            description="Example description",
             data_privacies=[{
-                "child_directed": "boolean",
+                "child_directed": False,
             }],
-            idle_session_ttl_in_seconds=10,
-            role_arn="bot_example_arn",
+            idle_session_ttl_in_seconds=60,
+            role_arn=example_role.arn,
+            type="Bot",
             tags={
                 "foo": "bar",
             })

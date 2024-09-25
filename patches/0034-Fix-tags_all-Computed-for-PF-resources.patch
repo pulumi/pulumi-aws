@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
-index 33be2171d4..f2f5610ca7 100644
+index b6d8c71ef7..f78c4502b0 100644
 --- a/internal/service/amp/scraper.go
 +++ b/internal/service/amp/scraper.go
 @@ -84,7 +84,7 @@ func (r *scraperResource) Schema(ctx context.Context, req resource.SchemaRequest
@@ -31,7 +31,7 @@ index e0606306fd..61981ae7fb 100644
  				CustomType: fwtypes.NewListNestedObjectTypeOf[customModelTrainingMetricsModel](ctx),
  				Computed:   true,
 diff --git a/internal/service/codeguruprofiler/profiling_group.go b/internal/service/codeguruprofiler/profiling_group.go
-index 8d4b3113e0..ceb385067c 100644
+index 6e8d8de302..af48127242 100644
 --- a/internal/service/codeguruprofiler/profiling_group.go
 +++ b/internal/service/codeguruprofiler/profiling_group.go
 @@ -73,7 +73,7 @@ func (r *resourceProfilingGroup) Schema(ctx context.Context, req resource.Schema
@@ -109,7 +109,7 @@ index 65e308761c..e3660e9b72 100644
  				Required: true,
  			},
 diff --git a/internal/service/ssoadmin/application.go b/internal/service/ssoadmin/application.go
-index a95da86dff..be96fdebb6 100644
+index 63a02f6ed6..ae5c3b3b8a 100644
 --- a/internal/service/ssoadmin/application.go
 +++ b/internal/service/ssoadmin/application.go
 @@ -96,7 +96,7 @@ func (r *resourceApplication) Schema(ctx context.Context, req resource.SchemaReq
@@ -122,7 +122,7 @@ index a95da86dff..be96fdebb6 100644
  		Blocks: map[string]schema.Block{
  			"portal_options": schema.ListNestedBlock{
 diff --git a/internal/service/ssoadmin/trusted_token_issuer.go b/internal/service/ssoadmin/trusted_token_issuer.go
-index 815c50fb5a..bc084e6a9c 100644
+index c54807a8eb..b34e6641c7 100644
 --- a/internal/service/ssoadmin/trusted_token_issuer.go
 +++ b/internal/service/ssoadmin/trusted_token_issuer.go
 @@ -86,7 +86,7 @@ func (r *resourceTrustedTokenIssuer) Schema(ctx context.Context, req resource.Sc

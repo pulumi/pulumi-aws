@@ -1228,6 +1228,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        pinpointsmsvoicev2: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         pipes: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1769,6 +1773,7 @@ class ProviderEndpointArgs:
                  pcaconnectorad: Optional[pulumi.Input[str]] = None,
                  pcs: Optional[pulumi.Input[str]] = None,
                  pinpoint: Optional[pulumi.Input[str]] = None,
+                 pinpointsmsvoicev2: Optional[pulumi.Input[str]] = None,
                  pipes: Optional[pulumi.Input[str]] = None,
                  polly: Optional[pulumi.Input[str]] = None,
                  pricing: Optional[pulumi.Input[str]] = None,
@@ -2059,6 +2064,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] pcaconnectorad: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pcs: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pinpoint: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] pinpointsmsvoicev2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pipes: Use this to override the default service endpoint URL
         :param pulumi.Input[str] polly: Use this to override the default service endpoint URL
         :param pulumi.Input[str] pricing: Use this to override the default service endpoint URL
@@ -2556,6 +2562,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "pcs", pcs)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
+        if pinpointsmsvoicev2 is not None:
+            pulumi.set(__self__, "pinpointsmsvoicev2", pinpointsmsvoicev2)
         if pipes is not None:
             pulumi.set(__self__, "pipes", pipes)
         if polly is not None:
@@ -5204,6 +5212,18 @@ class ProviderEndpointArgs:
     @pinpoint.setter
     def pinpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pinpoint", value)
+
+    @property
+    @pulumi.getter
+    def pinpointsmsvoicev2(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "pinpointsmsvoicev2")
+
+    @pinpointsmsvoicev2.setter
+    def pinpointsmsvoicev2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pinpointsmsvoicev2", value)
 
     @property
     @pulumi.getter

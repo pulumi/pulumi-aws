@@ -22,6 +22,7 @@ __all__ = [
     'CanarySchedule',
     'CanaryTimeline',
     'CanaryVpcConfig',
+    'GetRuntimeVersionsRuntimeVersionResult',
 ]
 
 @pulumi.output_type
@@ -373,5 +374,58 @@ class CanaryVpcConfig(dict):
         ID of the VPC where this canary is to run.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetRuntimeVersionsRuntimeVersionResult(dict):
+    def __init__(__self__, *,
+                 deprecation_date: str,
+                 description: str,
+                 release_date: str,
+                 version_name: str):
+        """
+        :param str deprecation_date: Date of deprecation if the runtme version is deprecated.
+        :param str description: Description of the runtime version, created by Amazon.
+        :param str release_date: Date that the runtime version was released.
+        :param str version_name: Name of the runtime version.
+               For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+        """
+        pulumi.set(__self__, "deprecation_date", deprecation_date)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "release_date", release_date)
+        pulumi.set(__self__, "version_name", version_name)
+
+    @property
+    @pulumi.getter(name="deprecationDate")
+    def deprecation_date(self) -> str:
+        """
+        Date of deprecation if the runtme version is deprecated.
+        """
+        return pulumi.get(self, "deprecation_date")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the runtime version, created by Amazon.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="releaseDate")
+    def release_date(self) -> str:
+        """
+        Date that the runtime version was released.
+        """
+        return pulumi.get(self, "release_date")
+
+    @property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> str:
+        """
+        Name of the runtime version.
+        For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
+        """
+        return pulumi.get(self, "version_name")
 
 

@@ -5,9 +5,9 @@ package com.pulumi.aws.lex.outputs;
 
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotTypeCompositeSlotTypeSetting {
@@ -16,7 +16,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
      * See `sub_slots` argument reference below.
      * 
      */
-    private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
+    private @Nullable List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
 
     private V2modelsSlotTypeCompositeSlotTypeSetting() {}
     /**
@@ -25,7 +25,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
      * 
      */
     public List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots() {
-        return this.subSlots;
+        return this.subSlots == null ? List.of() : this.subSlots;
     }
 
     public static Builder builder() {
@@ -37,7 +37,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
+        private @Nullable List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
         public Builder() {}
         public Builder(V2modelsSlotTypeCompositeSlotTypeSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,10 +45,8 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
         }
 
         @CustomType.Setter
-        public Builder subSlots(List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots) {
-            if (subSlots == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSetting", "subSlots");
-            }
+        public Builder subSlots(@Nullable List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots) {
+
             this.subSlots = subSlots;
             return this;
         }

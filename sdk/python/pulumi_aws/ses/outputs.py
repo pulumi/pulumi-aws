@@ -481,6 +481,8 @@ class ReceiptRuleS3Action(dict):
         suggest = None
         if key == "bucketName":
             suggest = "bucket_name"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
         elif key == "objectKeyPrefix":
@@ -502,18 +504,22 @@ class ReceiptRuleS3Action(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  position: int,
+                 iam_role_arn: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
                  object_key_prefix: Optional[str] = None,
                  topic_arn: Optional[str] = None):
         """
         :param str bucket_name: The name of the S3 bucket
         :param int position: The position of the action in the receipt rule
+        :param str iam_role_arn: The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
         :param str kms_key_arn: The ARN of the KMS key
         :param str object_key_prefix: The key prefix of the S3 bucket
         :param str topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "position", position)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if object_key_prefix is not None:
@@ -536,6 +542,14 @@ class ReceiptRuleS3Action(dict):
         The position of the action in the receipt rule
         """
         return pulumi.get(self, "position")
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+        """
+        return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

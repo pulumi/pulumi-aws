@@ -71,6 +71,10 @@ __all__ = [
     'ResolverSyncConfigArgsDict',
     'ResolverSyncConfigLambdaConflictHandlerConfigArgs',
     'ResolverSyncConfigLambdaConflictHandlerConfigArgsDict',
+    'SourceApiAssociationSourceApiAssociationConfigArgs',
+    'SourceApiAssociationSourceApiAssociationConfigArgsDict',
+    'SourceApiAssociationTimeoutsArgs',
+    'SourceApiAssociationTimeoutsArgsDict',
 ]
 
 MYPY = False
@@ -1843,5 +1847,108 @@ class ResolverSyncConfigLambdaConflictHandlerConfigArgs:
     @lambda_conflict_handler_arn.setter
     def lambda_conflict_handler_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_conflict_handler_arn", value)
+
+
+if not MYPY:
+    class SourceApiAssociationSourceApiAssociationConfigArgsDict(TypedDict):
+        merge_type: pulumi.Input[str]
+        """
+        Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+        """
+elif False:
+    SourceApiAssociationSourceApiAssociationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SourceApiAssociationSourceApiAssociationConfigArgs:
+    def __init__(__self__, *,
+                 merge_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] merge_type: Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+        """
+        pulumi.set(__self__, "merge_type", merge_type)
+
+    @property
+    @pulumi.getter(name="mergeType")
+    def merge_type(self) -> pulumi.Input[str]:
+        """
+        Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+        """
+        return pulumi.get(self, "merge_type")
+
+    @merge_type.setter
+    def merge_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "merge_type", value)
+
+
+if not MYPY:
+    class SourceApiAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    SourceApiAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SourceApiAssociationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 

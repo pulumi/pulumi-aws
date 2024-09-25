@@ -21116,6 +21116,181 @@ func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) Configurati
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetStandardsControlAssociationsStandardsControlAssociation struct {
+	// Enablement status of a control in a specific standard.
+	AssociationStatus string `pulumi:"associationStatus"`
+	// List of underlying requirements in the compliance framework related to the standard.
+	RelatedRequirements []string `pulumi:"relatedRequirements"`
+	// ARN of the security control.
+	SecurityControlArn string `pulumi:"securityControlArn"`
+	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+	SecurityControlId string `pulumi:"securityControlId"`
+	// ARN of the standard.
+	StandardsArn string `pulumi:"standardsArn"`
+	// Description of the standard.
+	StandardsControlDescription string `pulumi:"standardsControlDescription"`
+	// Title of the standard.
+	StandardsControlTitle string `pulumi:"standardsControlTitle"`
+	// Last time that a control's enablement status in a specified standard was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+	// Reason for updating a control's enablement status in a specified standard.
+	UpdatedReason string `pulumi:"updatedReason"`
+}
+
+// GetStandardsControlAssociationsStandardsControlAssociationInput is an input type that accepts GetStandardsControlAssociationsStandardsControlAssociationArgs and GetStandardsControlAssociationsStandardsControlAssociationOutput values.
+// You can construct a concrete instance of `GetStandardsControlAssociationsStandardsControlAssociationInput` via:
+//
+//	GetStandardsControlAssociationsStandardsControlAssociationArgs{...}
+type GetStandardsControlAssociationsStandardsControlAssociationInput interface {
+	pulumi.Input
+
+	ToGetStandardsControlAssociationsStandardsControlAssociationOutput() GetStandardsControlAssociationsStandardsControlAssociationOutput
+	ToGetStandardsControlAssociationsStandardsControlAssociationOutputWithContext(context.Context) GetStandardsControlAssociationsStandardsControlAssociationOutput
+}
+
+type GetStandardsControlAssociationsStandardsControlAssociationArgs struct {
+	// Enablement status of a control in a specific standard.
+	AssociationStatus pulumi.StringInput `pulumi:"associationStatus"`
+	// List of underlying requirements in the compliance framework related to the standard.
+	RelatedRequirements pulumi.StringArrayInput `pulumi:"relatedRequirements"`
+	// ARN of the security control.
+	SecurityControlArn pulumi.StringInput `pulumi:"securityControlArn"`
+	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
+	// ARN of the standard.
+	StandardsArn pulumi.StringInput `pulumi:"standardsArn"`
+	// Description of the standard.
+	StandardsControlDescription pulumi.StringInput `pulumi:"standardsControlDescription"`
+	// Title of the standard.
+	StandardsControlTitle pulumi.StringInput `pulumi:"standardsControlTitle"`
+	// Last time that a control's enablement status in a specified standard was updated.
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+	// Reason for updating a control's enablement status in a specified standard.
+	UpdatedReason pulumi.StringInput `pulumi:"updatedReason"`
+}
+
+func (GetStandardsControlAssociationsStandardsControlAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociation)(nil)).Elem()
+}
+
+func (i GetStandardsControlAssociationsStandardsControlAssociationArgs) ToGetStandardsControlAssociationsStandardsControlAssociationOutput() GetStandardsControlAssociationsStandardsControlAssociationOutput {
+	return i.ToGetStandardsControlAssociationsStandardsControlAssociationOutputWithContext(context.Background())
+}
+
+func (i GetStandardsControlAssociationsStandardsControlAssociationArgs) ToGetStandardsControlAssociationsStandardsControlAssociationOutputWithContext(ctx context.Context) GetStandardsControlAssociationsStandardsControlAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsControlAssociationsStandardsControlAssociationOutput)
+}
+
+// GetStandardsControlAssociationsStandardsControlAssociationArrayInput is an input type that accepts GetStandardsControlAssociationsStandardsControlAssociationArray and GetStandardsControlAssociationsStandardsControlAssociationArrayOutput values.
+// You can construct a concrete instance of `GetStandardsControlAssociationsStandardsControlAssociationArrayInput` via:
+//
+//	GetStandardsControlAssociationsStandardsControlAssociationArray{ GetStandardsControlAssociationsStandardsControlAssociationArgs{...} }
+type GetStandardsControlAssociationsStandardsControlAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutput() GetStandardsControlAssociationsStandardsControlAssociationArrayOutput
+	ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutputWithContext(context.Context) GetStandardsControlAssociationsStandardsControlAssociationArrayOutput
+}
+
+type GetStandardsControlAssociationsStandardsControlAssociationArray []GetStandardsControlAssociationsStandardsControlAssociationInput
+
+func (GetStandardsControlAssociationsStandardsControlAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsControlAssociationsStandardsControlAssociation)(nil)).Elem()
+}
+
+func (i GetStandardsControlAssociationsStandardsControlAssociationArray) ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutput() GetStandardsControlAssociationsStandardsControlAssociationArrayOutput {
+	return i.ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GetStandardsControlAssociationsStandardsControlAssociationArray) ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutputWithContext(ctx context.Context) GetStandardsControlAssociationsStandardsControlAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStandardsControlAssociationsStandardsControlAssociationArrayOutput)
+}
+
+type GetStandardsControlAssociationsStandardsControlAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsControlAssociationsStandardsControlAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociation)(nil)).Elem()
+}
+
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) ToGetStandardsControlAssociationsStandardsControlAssociationOutput() GetStandardsControlAssociationsStandardsControlAssociationOutput {
+	return o
+}
+
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) ToGetStandardsControlAssociationsStandardsControlAssociationOutputWithContext(ctx context.Context) GetStandardsControlAssociationsStandardsControlAssociationOutput {
+	return o
+}
+
+// Enablement status of a control in a specific standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) AssociationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.AssociationStatus }).(pulumi.StringOutput)
+}
+
+// List of underlying requirements in the compliance framework related to the standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) RelatedRequirements() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) []string {
+		return v.RelatedRequirements
+	}).(pulumi.StringArrayOutput)
+}
+
+// ARN of the security control.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) SecurityControlArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.SecurityControlArn }).(pulumi.StringOutput)
+}
+
+// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) SecurityControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.SecurityControlId }).(pulumi.StringOutput)
+}
+
+// ARN of the standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) StandardsArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.StandardsArn }).(pulumi.StringOutput)
+}
+
+// Description of the standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) StandardsControlDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string {
+		return v.StandardsControlDescription
+	}).(pulumi.StringOutput)
+}
+
+// Title of the standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) StandardsControlTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string {
+		return v.StandardsControlTitle
+	}).(pulumi.StringOutput)
+}
+
+// Last time that a control's enablement status in a specified standard was updated.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Reason for updating a control's enablement status in a specified standard.
+func (o GetStandardsControlAssociationsStandardsControlAssociationOutput) UpdatedReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardsControlAssociationsStandardsControlAssociation) string { return v.UpdatedReason }).(pulumi.StringOutput)
+}
+
+type GetStandardsControlAssociationsStandardsControlAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStandardsControlAssociationsStandardsControlAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStandardsControlAssociationsStandardsControlAssociation)(nil)).Elem()
+}
+
+func (o GetStandardsControlAssociationsStandardsControlAssociationArrayOutput) ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutput() GetStandardsControlAssociationsStandardsControlAssociationArrayOutput {
+	return o
+}
+
+func (o GetStandardsControlAssociationsStandardsControlAssociationArrayOutput) ToGetStandardsControlAssociationsStandardsControlAssociationArrayOutputWithContext(ctx context.Context) GetStandardsControlAssociationsStandardsControlAssociationArrayOutput {
+	return o
+}
+
+func (o GetStandardsControlAssociationsStandardsControlAssociationArrayOutput) Index(i pulumi.IntInput) GetStandardsControlAssociationsStandardsControlAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStandardsControlAssociationsStandardsControlAssociation {
+		return vs[0].([]GetStandardsControlAssociationsStandardsControlAssociation)[vs[1].(int)]
+	}).(GetStandardsControlAssociationsStandardsControlAssociationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionInput)(nil)).Elem(), AutomationRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionArrayInput)(nil)).Elem(), AutomationRuleActionArray{})
@@ -21443,6 +21618,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusArrayInput)(nil)).Elem(), InsightFiltersWorkflowStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationPtrInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociationInput)(nil)).Elem(), GetStandardsControlAssociationsStandardsControlAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardsControlAssociationsStandardsControlAssociationArrayInput)(nil)).Elem(), GetStandardsControlAssociationsStandardsControlAssociationArray{})
 	pulumi.RegisterOutputType(AutomationRuleActionOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateOutput{})
@@ -21769,4 +21946,6 @@ func init() {
 	pulumi.RegisterOutputType(InsightFiltersWorkflowStatusArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetStandardsControlAssociationsStandardsControlAssociationOutput{})
+	pulumi.RegisterOutputType(GetStandardsControlAssociationsStandardsControlAssociationArrayOutput{})
 }

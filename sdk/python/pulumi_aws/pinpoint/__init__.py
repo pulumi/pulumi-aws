@@ -17,5 +17,7 @@ from .email_template import *
 from .event_stream import *
 from .gcm_channel import *
 from .sms_channel import *
+from .smsvoicev2_opt_out_list import *
+from .smsvoicev2_phone_number import *
 from ._inputs import *
 from . import outputs

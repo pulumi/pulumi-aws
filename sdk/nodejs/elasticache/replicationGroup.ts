@@ -337,7 +337,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly networkType!: pulumi.Output<string>;
     /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+     * Instance class to be used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -678,7 +681,10 @@ export interface ReplicationGroupState {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+     * Instance class to be used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      */
     nodeType?: pulumi.Input<string>;
     /**
@@ -880,7 +886,10 @@ export interface ReplicationGroupArgs {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
+     * Instance class to be used.
+     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
+     * Required unless `globalReplicationGroupId` is set.
+     * Cannot be set if `globalReplicationGroupId` is set.
      */
     nodeType?: pulumi.Input<string>;
     /**

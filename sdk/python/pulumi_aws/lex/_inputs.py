@@ -59609,7 +59609,7 @@ class V2modelsSlotTimeoutsArgs:
 
 if not MYPY:
     class V2modelsSlotTypeCompositeSlotTypeSettingArgsDict(TypedDict):
-        sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict']]]
+        sub_slots: NotRequired[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict']]]]
         """
         Sub slots in the composite slot.
         See `sub_slots` argument reference below.
@@ -59620,16 +59620,17 @@ elif False:
 @pulumi.input_type
 class V2modelsSlotTypeCompositeSlotTypeSettingArgs:
     def __init__(__self__, *,
-                 sub_slots: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]):
+                 sub_slots: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]] sub_slots: Sub slots in the composite slot.
                See `sub_slots` argument reference below.
         """
-        pulumi.set(__self__, "sub_slots", sub_slots)
+        if sub_slots is not None:
+            pulumi.set(__self__, "sub_slots", sub_slots)
 
     @property
     @pulumi.getter(name="subSlots")
-    def sub_slots(self) -> pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]:
+    def sub_slots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]]:
         """
         Sub slots in the composite slot.
         See `sub_slots` argument reference below.
@@ -59637,7 +59638,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingArgs:
         return pulumi.get(self, "sub_slots")
 
     @sub_slots.setter
-    def sub_slots(self, value: pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]):
+    def sub_slots(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]]):
         pulumi.set(self, "sub_slots", value)
 
 
@@ -59647,7 +59648,11 @@ if not MYPY:
         """
         Name of a constituent sub slot inside a composite slot.
         """
-        sub_slot_id: pulumi.Input[str]
+        slot_type_id: pulumi.Input[str]
+        """
+        Unique identifier assigned to a slot type.
+        This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+        """
 elif False:
     V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59655,12 +59660,14 @@ elif False:
 class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 sub_slot_id: pulumi.Input[str]):
+                 slot_type_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: Name of a constituent sub slot inside a composite slot.
+        :param pulumi.Input[str] slot_type_id: Unique identifier assigned to a slot type.
+               This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sub_slot_id", sub_slot_id)
+        pulumi.set(__self__, "slot_type_id", slot_type_id)
 
     @property
     @pulumi.getter
@@ -59675,13 +59682,17 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="subSlotId")
-    def sub_slot_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "sub_slot_id")
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> pulumi.Input[str]:
+        """
+        Unique identifier assigned to a slot type.
+        This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+        """
+        return pulumi.get(self, "slot_type_id")
 
-    @sub_slot_id.setter
-    def sub_slot_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sub_slot_id", value)
+    @slot_type_id.setter
+    def slot_type_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slot_type_id", value)
 
 
 if not MYPY:

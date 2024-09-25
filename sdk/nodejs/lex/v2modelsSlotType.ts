@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### `valueSelectionSetting` Usage
+ * ### valueSelectionSetting Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

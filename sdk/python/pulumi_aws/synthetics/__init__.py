@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .canary import *
+from .get_runtime_version import *
+from .get_runtime_versions import *
 from .group import *
 from .group_association import *
 from ._inputs import *

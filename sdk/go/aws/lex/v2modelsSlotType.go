@@ -78,7 +78,7 @@ import (
 // }
 // ```
 //
-// ### `valueSelectionSetting` Usage
+// ### valueSelectionSetting Usage
 //
 // ```go
 // package main

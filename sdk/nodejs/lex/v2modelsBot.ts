@@ -18,13 +18,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example",
+ *     assumeRolePolicy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Action: "sts:AssumeRole",
+ *             Effect: "Allow",
+ *             Sid: "",
+ *             Principal: {
+ *                 Service: "lexv2.amazonaws.com",
+ *             },
+ *         }],
+ *     }),
+ *     tags: {
+ *         created_by: "aws",
+ *     },
+ * });
  * const example = new aws.lex.V2modelsBot("example", {
  *     name: "example",
+ *     description: "Example description",
  *     dataPrivacies: [{
- *         childDirected: "boolean",
+ *         childDirected: false,
  *     }],
- *     idleSessionTtlInSeconds: 10,
- *     roleArn: "bot_example_arn",
+ *     idleSessionTtlInSeconds: 60,
+ *     roleArn: exampleRole.arn,
+ *     type: "Bot",
  *     tags: {
  *         foo: "bar",
  *     },

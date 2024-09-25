@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GraphQLApi{}
 	case "aws:appsync/resolver:Resolver":
 		r = &Resolver{}
+	case "aws:appsync/sourceApiAssociation:SourceApiAssociation":
+		r = &SourceApiAssociation{}
 	case "aws:appsync/type:Type":
 		r = &Type{}
 	default:
@@ -90,6 +92,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appsync/resolver",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appsync/sourceApiAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

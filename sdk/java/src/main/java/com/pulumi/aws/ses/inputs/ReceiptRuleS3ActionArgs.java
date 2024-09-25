@@ -33,6 +33,21 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * 
+     */
+    @Import(name="iamRoleArn")
+    private @Nullable Output<String> iamRoleArn;
+
+    /**
+     * @return The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+     * 
+     */
+    public Optional<Output<String>> iamRoleArn() {
+        return Optional.ofNullable(this.iamRoleArn);
+    }
+
+    /**
      * The ARN of the KMS key
      * 
      */
@@ -96,6 +111,7 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
 
     private ReceiptRuleS3ActionArgs(ReceiptRuleS3ActionArgs $) {
         this.bucketName = $.bucketName;
+        this.iamRoleArn = $.iamRoleArn;
         this.kmsKeyArn = $.kmsKeyArn;
         this.objectKeyPrefix = $.objectKeyPrefix;
         this.position = $.position;
@@ -139,6 +155,27 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
          */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
+        }
+
+        /**
+         * @param iamRoleArn The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamRoleArn(@Nullable Output<String> iamRoleArn) {
+            $.iamRoleArn = iamRoleArn;
+            return this;
+        }
+
+        /**
+         * @param iamRoleArn The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamRoleArn(String iamRoleArn) {
+            return iamRoleArn(Output.of(iamRoleArn));
         }
 
         /**

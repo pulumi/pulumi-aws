@@ -6,7 +6,7 @@ Subject: [PATCH] Patch tags ComputedOnly for appfabric, networkmonitor,
 
 
 diff --git a/internal/service/appfabric/ingestion.go b/internal/service/appfabric/ingestion.go
-index 7ed84d218b..7f092e9590 100644
+index 5cffa7aa34..11d6d580e5 100644
 --- a/internal/service/appfabric/ingestion.go
 +++ b/internal/service/appfabric/ingestion.go
 @@ -81,7 +81,7 @@ func (r *ingestionResource) Schema(ctx context.Context, request resource.SchemaR
@@ -19,7 +19,7 @@ index 7ed84d218b..7f092e9590 100644
  				Required: true,
  				Validators: []validator.String{
 diff --git a/internal/service/appfabric/ingestion_destination.go b/internal/service/appfabric/ingestion_destination.go
-index 08eae51ad4..d0b212ddda 100644
+index d2bed80052..4633226a66 100644
 --- a/internal/service/appfabric/ingestion_destination.go
 +++ b/internal/service/appfabric/ingestion_destination.go
 @@ -85,7 +85,7 @@ func (r *ingestionDestinationResource) Schema(ctx context.Context, request resou
@@ -32,7 +32,7 @@ index 08eae51ad4..d0b212ddda 100644
  		Blocks: map[string]schema.Block{
  			"destination_configuration": schema.ListNestedBlock{
 diff --git a/internal/service/networkfirewall/tls_inspection_configuration.go b/internal/service/networkfirewall/tls_inspection_configuration.go
-index e729b2a7b0..5f4ffe9901 100644
+index 713684155c..e99aa43c39 100644
 --- a/internal/service/networkfirewall/tls_inspection_configuration.go
 +++ b/internal/service/networkfirewall/tls_inspection_configuration.go
 @@ -118,7 +118,7 @@ func (r *tlsInspectionConfigurationResource) Schema(ctx context.Context, request

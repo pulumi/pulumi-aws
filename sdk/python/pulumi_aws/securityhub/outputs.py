@@ -179,6 +179,7 @@ __all__ = [
     'InsightFiltersVerificationState',
     'InsightFiltersWorkflowStatus',
     'OrganizationConfigurationOrganizationConfiguration',
+    'GetStandardsControlAssociationsStandardsControlAssociationResult',
 ]
 
 @pulumi.output_type
@@ -6609,5 +6610,111 @@ class OrganizationConfigurationOrganizationConfiguration(dict):
         Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
         """
         return pulumi.get(self, "configuration_type")
+
+
+@pulumi.output_type
+class GetStandardsControlAssociationsStandardsControlAssociationResult(dict):
+    def __init__(__self__, *,
+                 association_status: str,
+                 related_requirements: Sequence[str],
+                 security_control_arn: str,
+                 security_control_id: str,
+                 standards_arn: str,
+                 standards_control_description: str,
+                 standards_control_title: str,
+                 updated_at: str,
+                 updated_reason: str):
+        """
+        :param str association_status: Enablement status of a control in a specific standard.
+        :param Sequence[str] related_requirements: List of underlying requirements in the compliance framework related to the standard.
+        :param str security_control_arn: ARN of the security control.
+        :param str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+        :param str standards_arn: ARN of the standard.
+        :param str standards_control_description: Description of the standard.
+        :param str standards_control_title: Title of the standard.
+        :param str updated_at: Last time that a control's enablement status in a specified standard was updated.
+        :param str updated_reason: Reason for updating a control's enablement status in a specified standard.
+        """
+        pulumi.set(__self__, "association_status", association_status)
+        pulumi.set(__self__, "related_requirements", related_requirements)
+        pulumi.set(__self__, "security_control_arn", security_control_arn)
+        pulumi.set(__self__, "security_control_id", security_control_id)
+        pulumi.set(__self__, "standards_arn", standards_arn)
+        pulumi.set(__self__, "standards_control_description", standards_control_description)
+        pulumi.set(__self__, "standards_control_title", standards_control_title)
+        pulumi.set(__self__, "updated_at", updated_at)
+        pulumi.set(__self__, "updated_reason", updated_reason)
+
+    @property
+    @pulumi.getter(name="associationStatus")
+    def association_status(self) -> str:
+        """
+        Enablement status of a control in a specific standard.
+        """
+        return pulumi.get(self, "association_status")
+
+    @property
+    @pulumi.getter(name="relatedRequirements")
+    def related_requirements(self) -> Sequence[str]:
+        """
+        List of underlying requirements in the compliance framework related to the standard.
+        """
+        return pulumi.get(self, "related_requirements")
+
+    @property
+    @pulumi.getter(name="securityControlArn")
+    def security_control_arn(self) -> str:
+        """
+        ARN of the security control.
+        """
+        return pulumi.get(self, "security_control_arn")
+
+    @property
+    @pulumi.getter(name="securityControlId")
+    def security_control_id(self) -> str:
+        """
+        The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
+        """
+        return pulumi.get(self, "security_control_id")
+
+    @property
+    @pulumi.getter(name="standardsArn")
+    def standards_arn(self) -> str:
+        """
+        ARN of the standard.
+        """
+        return pulumi.get(self, "standards_arn")
+
+    @property
+    @pulumi.getter(name="standardsControlDescription")
+    def standards_control_description(self) -> str:
+        """
+        Description of the standard.
+        """
+        return pulumi.get(self, "standards_control_description")
+
+    @property
+    @pulumi.getter(name="standardsControlTitle")
+    def standards_control_title(self) -> str:
+        """
+        Title of the standard.
+        """
+        return pulumi.get(self, "standards_control_title")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        Last time that a control's enablement status in a specified standard was updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="updatedReason")
+    def updated_reason(self) -> str:
+        """
+        Reason for updating a control's enablement status in a specified standard.
+        """
+        return pulumi.get(self, "updated_reason")
 
 

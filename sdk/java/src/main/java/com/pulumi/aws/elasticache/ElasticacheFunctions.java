@@ -8,12 +8,15 @@ import com.pulumi.aws.elasticache.inputs.GetClusterArgs;
 import com.pulumi.aws.elasticache.inputs.GetClusterPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetReplicationGroupArgs;
 import com.pulumi.aws.elasticache.inputs.GetReplicationGroupPlainArgs;
+import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
 import com.pulumi.aws.elasticache.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetUserArgs;
 import com.pulumi.aws.elasticache.inputs.GetUserPlainArgs;
 import com.pulumi.aws.elasticache.outputs.GetClusterResult;
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupResult;
+import com.pulumi.aws.elasticache.outputs.GetReservedCacheNodeOfferingResult;
 import com.pulumi.aws.elasticache.outputs.GetSubnetGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetUserResult;
 import com.pulumi.core.Output;
@@ -358,6 +361,186 @@ public final class ElasticacheFunctions {
      */
     public static CompletableFuture<GetReplicationGroupResult> getReplicationGroupPlain(GetReplicationGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getReplicationGroup:getReplicationGroup", TypeShape.of(GetReplicationGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single ElastiCache Reserved Cache Node Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
+     *             .cacheNodeType("cache.t4g.small")
+     *             .duration("P1Y")
+     *             .offeringType("No Upfront")
+     *             .productDescription("redis")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs args) {
+        return getReservedCacheNodeOffering(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single ElastiCache Reserved Cache Node Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
+     *             .cacheNodeType("cache.t4g.small")
+     *             .duration("P1Y")
+     *             .offeringType("No Upfront")
+     *             .productDescription("redis")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOfferingPlain(GetReservedCacheNodeOfferingPlainArgs args) {
+        return getReservedCacheNodeOfferingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single ElastiCache Reserved Cache Node Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
+     *             .cacheNodeType("cache.t4g.small")
+     *             .duration("P1Y")
+     *             .offeringType("No Upfront")
+     *             .productDescription("redis")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", TypeShape.of(GetReservedCacheNodeOfferingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single ElastiCache Reserved Cache Node Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getReservedCacheNodeOffering(GetReservedCacheNodeOfferingArgs.builder()
+     *             .cacheNodeType("cache.t4g.small")
+     *             .duration("P1Y")
+     *             .offeringType("No Upfront")
+     *             .productDescription("redis")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetReservedCacheNodeOfferingResult> getReservedCacheNodeOfferingPlain(GetReservedCacheNodeOfferingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", TypeShape.of(GetReservedCacheNodeOfferingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a ElastiCache Subnet Group.

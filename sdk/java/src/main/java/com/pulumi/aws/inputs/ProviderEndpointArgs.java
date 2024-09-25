@@ -3124,6 +3124,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="pinpointsmsvoicev2")
+    private @Nullable Output<String> pinpointsmsvoicev2;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> pinpointsmsvoicev2() {
+        return Optional.ofNullable(this.pinpointsmsvoicev2);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="pipes")
     private @Nullable Output<String> pipes;
 
@@ -4560,6 +4575,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.pcaconnectorad = $.pcaconnectorad;
         this.pcs = $.pcs;
         this.pinpoint = $.pinpoint;
+        this.pinpointsmsvoicev2 = $.pinpointsmsvoicev2;
         this.pipes = $.pipes;
         this.polly = $.polly;
         this.pricing = $.pricing;
@@ -9007,6 +9023,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder pinpoint(String pinpoint) {
             return pinpoint(Output.of(pinpoint));
+        }
+
+        /**
+         * @param pinpointsmsvoicev2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pinpointsmsvoicev2(@Nullable Output<String> pinpointsmsvoicev2) {
+            $.pinpointsmsvoicev2 = pinpointsmsvoicev2;
+            return this;
+        }
+
+        /**
+         * @param pinpointsmsvoicev2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pinpointsmsvoicev2(String pinpointsmsvoicev2) {
+            return pinpointsmsvoicev2(Output.of(pinpointsmsvoicev2));
         }
 
         /**

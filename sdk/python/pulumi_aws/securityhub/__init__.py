@@ -11,6 +11,7 @@ from .automation_rule import *
 from .configuration_policy import *
 from .configuration_policy_association import *
 from .finding_aggregator import *
+from .get_standards_control_associations import *
 from .insight import *
 from .invite_accepter import *
 from .member import *

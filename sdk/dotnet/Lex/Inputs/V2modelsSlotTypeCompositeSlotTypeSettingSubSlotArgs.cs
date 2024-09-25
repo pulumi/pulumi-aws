@@ -18,8 +18,12 @@ namespace Pulumi.Aws.Lex.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("subSlotId", required: true)]
-        public Input<string> SubSlotId { get; set; } = null!;
+        /// <summary>
+        /// Unique identifier assigned to a slot type.
+        /// This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
+        /// </summary>
+        [Input("slotTypeId", required: true)]
+        public Input<string> SlotTypeId { get; set; } = null!;
 
         public V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs()
         {

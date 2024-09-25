@@ -45,6 +45,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GcmChannel{}
 	case "aws:pinpoint/smsChannel:SmsChannel":
 		r = &SmsChannel{}
+	case "aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList":
+		r = &Smsvoicev2OptOutList{}
+	case "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber":
+		r = &Smsvoicev2PhoneNumber{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -116,6 +120,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"pinpoint/smsChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"pinpoint/smsvoicev2OptOutList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"pinpoint/smsvoicev2PhoneNumber",
 		&module{version},
 	)
 }

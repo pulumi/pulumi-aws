@@ -35,6 +35,7 @@ from .open_id_connect_provider import *
 from .policy import *
 from .policy_attachment import *
 from .role import *
+from .role_policies_exclusive import *
 from .role_policy import *
 from .role_policy_attachment import *
 from .saml_provider import *

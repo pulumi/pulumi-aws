@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ParameterGroup{}
 	case "aws:elasticache/replicationGroup:ReplicationGroup":
 		r = &ReplicationGroup{}
+	case "aws:elasticache/reservedCacheNode:ReservedCacheNode":
+		r = &ReservedCacheNode{}
 	case "aws:elasticache/serverlessCache:ServerlessCache":
 		r = &ServerlessCache{}
 	case "aws:elasticache/subnetGroup:SubnetGroup":
@@ -70,6 +72,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"elasticache/replicationGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"elasticache/reservedCacheNode",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

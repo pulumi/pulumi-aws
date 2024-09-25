@@ -4654,6 +4654,278 @@ func (o ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHa
 	}).(pulumi.StringPtrOutput)
 }
 
+type SourceApiAssociationSourceApiAssociationConfig struct {
+	// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+	MergeType string `pulumi:"mergeType"`
+}
+
+// SourceApiAssociationSourceApiAssociationConfigInput is an input type that accepts SourceApiAssociationSourceApiAssociationConfigArgs and SourceApiAssociationSourceApiAssociationConfigOutput values.
+// You can construct a concrete instance of `SourceApiAssociationSourceApiAssociationConfigInput` via:
+//
+//	SourceApiAssociationSourceApiAssociationConfigArgs{...}
+type SourceApiAssociationSourceApiAssociationConfigInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationSourceApiAssociationConfigOutput() SourceApiAssociationSourceApiAssociationConfigOutput
+	ToSourceApiAssociationSourceApiAssociationConfigOutputWithContext(context.Context) SourceApiAssociationSourceApiAssociationConfigOutput
+}
+
+type SourceApiAssociationSourceApiAssociationConfigArgs struct {
+	// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+	MergeType pulumi.StringInput `pulumi:"mergeType"`
+}
+
+func (SourceApiAssociationSourceApiAssociationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationSourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (i SourceApiAssociationSourceApiAssociationConfigArgs) ToSourceApiAssociationSourceApiAssociationConfigOutput() SourceApiAssociationSourceApiAssociationConfigOutput {
+	return i.ToSourceApiAssociationSourceApiAssociationConfigOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationSourceApiAssociationConfigArgs) ToSourceApiAssociationSourceApiAssociationConfigOutputWithContext(ctx context.Context) SourceApiAssociationSourceApiAssociationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationSourceApiAssociationConfigOutput)
+}
+
+// SourceApiAssociationSourceApiAssociationConfigArrayInput is an input type that accepts SourceApiAssociationSourceApiAssociationConfigArray and SourceApiAssociationSourceApiAssociationConfigArrayOutput values.
+// You can construct a concrete instance of `SourceApiAssociationSourceApiAssociationConfigArrayInput` via:
+//
+//	SourceApiAssociationSourceApiAssociationConfigArray{ SourceApiAssociationSourceApiAssociationConfigArgs{...} }
+type SourceApiAssociationSourceApiAssociationConfigArrayInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationSourceApiAssociationConfigArrayOutput() SourceApiAssociationSourceApiAssociationConfigArrayOutput
+	ToSourceApiAssociationSourceApiAssociationConfigArrayOutputWithContext(context.Context) SourceApiAssociationSourceApiAssociationConfigArrayOutput
+}
+
+type SourceApiAssociationSourceApiAssociationConfigArray []SourceApiAssociationSourceApiAssociationConfigInput
+
+func (SourceApiAssociationSourceApiAssociationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceApiAssociationSourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (i SourceApiAssociationSourceApiAssociationConfigArray) ToSourceApiAssociationSourceApiAssociationConfigArrayOutput() SourceApiAssociationSourceApiAssociationConfigArrayOutput {
+	return i.ToSourceApiAssociationSourceApiAssociationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationSourceApiAssociationConfigArray) ToSourceApiAssociationSourceApiAssociationConfigArrayOutputWithContext(ctx context.Context) SourceApiAssociationSourceApiAssociationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationSourceApiAssociationConfigArrayOutput)
+}
+
+type SourceApiAssociationSourceApiAssociationConfigOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationSourceApiAssociationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationSourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (o SourceApiAssociationSourceApiAssociationConfigOutput) ToSourceApiAssociationSourceApiAssociationConfigOutput() SourceApiAssociationSourceApiAssociationConfigOutput {
+	return o
+}
+
+func (o SourceApiAssociationSourceApiAssociationConfigOutput) ToSourceApiAssociationSourceApiAssociationConfigOutputWithContext(ctx context.Context) SourceApiAssociationSourceApiAssociationConfigOutput {
+	return o
+}
+
+// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+func (o SourceApiAssociationSourceApiAssociationConfigOutput) MergeType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceApiAssociationSourceApiAssociationConfig) string { return v.MergeType }).(pulumi.StringOutput)
+}
+
+type SourceApiAssociationSourceApiAssociationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationSourceApiAssociationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceApiAssociationSourceApiAssociationConfig)(nil)).Elem()
+}
+
+func (o SourceApiAssociationSourceApiAssociationConfigArrayOutput) ToSourceApiAssociationSourceApiAssociationConfigArrayOutput() SourceApiAssociationSourceApiAssociationConfigArrayOutput {
+	return o
+}
+
+func (o SourceApiAssociationSourceApiAssociationConfigArrayOutput) ToSourceApiAssociationSourceApiAssociationConfigArrayOutputWithContext(ctx context.Context) SourceApiAssociationSourceApiAssociationConfigArrayOutput {
+	return o
+}
+
+func (o SourceApiAssociationSourceApiAssociationConfigArrayOutput) Index(i pulumi.IntInput) SourceApiAssociationSourceApiAssociationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceApiAssociationSourceApiAssociationConfig {
+		return vs[0].([]SourceApiAssociationSourceApiAssociationConfig)[vs[1].(int)]
+	}).(SourceApiAssociationSourceApiAssociationConfigOutput)
+}
+
+type SourceApiAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// SourceApiAssociationTimeoutsInput is an input type that accepts SourceApiAssociationTimeoutsArgs and SourceApiAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `SourceApiAssociationTimeoutsInput` via:
+//
+//	SourceApiAssociationTimeoutsArgs{...}
+type SourceApiAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationTimeoutsOutput() SourceApiAssociationTimeoutsOutput
+	ToSourceApiAssociationTimeoutsOutputWithContext(context.Context) SourceApiAssociationTimeoutsOutput
+}
+
+type SourceApiAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (SourceApiAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationTimeouts)(nil)).Elem()
+}
+
+func (i SourceApiAssociationTimeoutsArgs) ToSourceApiAssociationTimeoutsOutput() SourceApiAssociationTimeoutsOutput {
+	return i.ToSourceApiAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationTimeoutsArgs) ToSourceApiAssociationTimeoutsOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationTimeoutsOutput)
+}
+
+func (i SourceApiAssociationTimeoutsArgs) ToSourceApiAssociationTimeoutsPtrOutput() SourceApiAssociationTimeoutsPtrOutput {
+	return i.ToSourceApiAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i SourceApiAssociationTimeoutsArgs) ToSourceApiAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationTimeoutsOutput).ToSourceApiAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// SourceApiAssociationTimeoutsPtrInput is an input type that accepts SourceApiAssociationTimeoutsArgs, SourceApiAssociationTimeoutsPtr and SourceApiAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `SourceApiAssociationTimeoutsPtrInput` via:
+//
+//	        SourceApiAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceApiAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToSourceApiAssociationTimeoutsPtrOutput() SourceApiAssociationTimeoutsPtrOutput
+	ToSourceApiAssociationTimeoutsPtrOutputWithContext(context.Context) SourceApiAssociationTimeoutsPtrOutput
+}
+
+type sourceApiAssociationTimeoutsPtrType SourceApiAssociationTimeoutsArgs
+
+func SourceApiAssociationTimeoutsPtr(v *SourceApiAssociationTimeoutsArgs) SourceApiAssociationTimeoutsPtrInput {
+	return (*sourceApiAssociationTimeoutsPtrType)(v)
+}
+
+func (*sourceApiAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceApiAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *sourceApiAssociationTimeoutsPtrType) ToSourceApiAssociationTimeoutsPtrOutput() SourceApiAssociationTimeoutsPtrOutput {
+	return i.ToSourceApiAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceApiAssociationTimeoutsPtrType) ToSourceApiAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceApiAssociationTimeoutsPtrOutput)
+}
+
+type SourceApiAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceApiAssociationTimeouts)(nil)).Elem()
+}
+
+func (o SourceApiAssociationTimeoutsOutput) ToSourceApiAssociationTimeoutsOutput() SourceApiAssociationTimeoutsOutput {
+	return o
+}
+
+func (o SourceApiAssociationTimeoutsOutput) ToSourceApiAssociationTimeoutsOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsOutput {
+	return o
+}
+
+func (o SourceApiAssociationTimeoutsOutput) ToSourceApiAssociationTimeoutsPtrOutput() SourceApiAssociationTimeoutsPtrOutput {
+	return o.ToSourceApiAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o SourceApiAssociationTimeoutsOutput) ToSourceApiAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceApiAssociationTimeouts) *SourceApiAssociationTimeouts {
+		return &v
+	}).(SourceApiAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SourceApiAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceApiAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o SourceApiAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceApiAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SourceApiAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceApiAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type SourceApiAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceApiAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceApiAssociationTimeouts)(nil)).Elem()
+}
+
+func (o SourceApiAssociationTimeoutsPtrOutput) ToSourceApiAssociationTimeoutsPtrOutput() SourceApiAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o SourceApiAssociationTimeoutsPtrOutput) ToSourceApiAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SourceApiAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o SourceApiAssociationTimeoutsPtrOutput) Elem() SourceApiAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *SourceApiAssociationTimeouts) SourceApiAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret SourceApiAssociationTimeouts
+		return ret
+	}).(SourceApiAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SourceApiAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceApiAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o SourceApiAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceApiAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SourceApiAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceApiAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamodbConfigInput)(nil)).Elem(), DataSourceDynamodbConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamodbConfigPtrInput)(nil)).Elem(), DataSourceDynamodbConfigArgs{})
@@ -4711,6 +4983,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigPtrInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigLambdaConflictHandlerConfigInput)(nil)).Elem(), ResolverSyncConfigLambdaConflictHandlerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigLambdaConflictHandlerConfigPtrInput)(nil)).Elem(), ResolverSyncConfigLambdaConflictHandlerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationSourceApiAssociationConfigInput)(nil)).Elem(), SourceApiAssociationSourceApiAssociationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationSourceApiAssociationConfigArrayInput)(nil)).Elem(), SourceApiAssociationSourceApiAssociationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationTimeoutsInput)(nil)).Elem(), SourceApiAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationTimeoutsPtrInput)(nil)).Elem(), SourceApiAssociationTimeoutsArgs{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDynamodbConfigDeltaSyncConfigOutput{})
@@ -4767,4 +5043,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverSyncConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigLambdaConflictHandlerConfigOutput{})
 	pulumi.RegisterOutputType(ResolverSyncConfigLambdaConflictHandlerConfigPtrOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationSourceApiAssociationConfigOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationSourceApiAssociationConfigArrayOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(SourceApiAssociationTimeoutsPtrOutput{})
 }
