@@ -138,9 +138,6 @@ def get_user_group(name: Optional[str] = None,
         precedence=pulumi.get(__ret__, 'precedence'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-
-
-@_utilities.lift_output_func(get_user_group)
 def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
                           user_pool_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupResult]:
@@ -163,4 +160,15 @@ def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the user group.
     :param str user_pool_id: User pool the client belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserGroup:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
+    return __ret__.apply(lambda __response__: GetUserGroupResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        precedence=pulumi.get(__response__, 'precedence'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id')))

@@ -181,9 +181,6 @@ def get_framework(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_framework)
 def get_framework_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
@@ -203,4 +200,18 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Backup framework name.
     :param Mapping[str, str] tags: Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:backup/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
+    return __ret__.apply(lambda __response__: GetFrameworkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        controls=pulumi.get(__response__, 'controls'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -156,9 +156,6 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
-
-
-@_utilities.lift_output_func(get_security_groups)
 def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
@@ -197,4 +194,15 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts, typ=GetSecurityGroupsResult)
+    return __ret__.apply(lambda __response__: GetSecurityGroupsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_ids=pulumi.get(__response__, 'vpc_ids')))

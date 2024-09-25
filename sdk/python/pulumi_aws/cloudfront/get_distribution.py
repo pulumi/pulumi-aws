@@ -219,9 +219,6 @@ def get_distribution(id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         web_acl_id=pulumi.get(__ret__, 'web_acl_id'))
-
-
-@_utilities.lift_output_func(get_distribution)
 def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
@@ -240,4 +237,21 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult)
+    return __ret__.apply(lambda __response__: GetDistributionResult(
+        aliases=pulumi.get(__response__, 'aliases'),
+        arn=pulumi.get(__response__, 'arn'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        etag=pulumi.get(__response__, 'etag'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        in_progress_validation_batches=pulumi.get(__response__, 'in_progress_validation_batches'),
+        last_modified_time=pulumi.get(__response__, 'last_modified_time'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        web_acl_id=pulumi.get(__response__, 'web_acl_id')))

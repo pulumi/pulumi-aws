@@ -296,9 +296,6 @@ def get_budget(account_id: Optional[str] = None,
         time_period_end=pulumi.get(__ret__, 'time_period_end'),
         time_period_start=pulumi.get(__ret__, 'time_period_start'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
-
-
-@_utilities.lift_output_func(get_budget)
 def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
@@ -326,4 +323,29 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name_prefix: The prefix of the name of a budget. Unique within accounts.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['name'] = name
+    __args__['namePrefix'] = name_prefix
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:budgets/getBudget:getBudget', __args__, opts=opts, typ=GetBudgetResult)
+    return __ret__.apply(lambda __response__: GetBudgetResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_adjust_datas=pulumi.get(__response__, 'auto_adjust_datas'),
+        budget_exceeded=pulumi.get(__response__, 'budget_exceeded'),
+        budget_limits=pulumi.get(__response__, 'budget_limits'),
+        budget_type=pulumi.get(__response__, 'budget_type'),
+        calculated_spends=pulumi.get(__response__, 'calculated_spends'),
+        cost_filters=pulumi.get(__response__, 'cost_filters'),
+        cost_types=pulumi.get(__response__, 'cost_types'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        notifications=pulumi.get(__response__, 'notifications'),
+        planned_limits=pulumi.get(__response__, 'planned_limits'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_period_end=pulumi.get(__response__, 'time_period_end'),
+        time_period_start=pulumi.get(__response__, 'time_period_start'),
+        time_unit=pulumi.get(__response__, 'time_unit')))
