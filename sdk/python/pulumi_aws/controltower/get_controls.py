@@ -98,9 +98,6 @@ def get_controls(target_identifier: Optional[str] = None,
         enabled_controls=pulumi.get(__ret__, 'enabled_controls'),
         id=pulumi.get(__ret__, 'id'),
         target_identifier=pulumi.get(__ret__, 'target_identifier'))
-
-
-@_utilities.lift_output_func(get_controls)
 def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlsResult]:
     """
@@ -120,4 +117,11 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
 
     :param str target_identifier: The ARN of the organizational unit.
     """
-    ...
+    __args__ = dict()
+    __args__['targetIdentifier'] = target_identifier
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:controltower/getControls:getControls', __args__, opts=opts, typ=GetControlsResult)
+    return __ret__.apply(lambda __response__: GetControlsResult(
+        enabled_controls=pulumi.get(__response__, 'enabled_controls'),
+        id=pulumi.get(__response__, 'id'),
+        target_identifier=pulumi.get(__response__, 'target_identifier')))
