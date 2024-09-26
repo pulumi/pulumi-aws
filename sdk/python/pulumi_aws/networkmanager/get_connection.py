@@ -191,9 +191,6 @@ def get_connection(connection_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         link_id=pulumi.get(__ret__, 'link_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_connection)
 def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
                           global_network_id: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -216,4 +213,20 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     :param str global_network_id: ID of the Global Network of the connection to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the connection.
     """
-    ...
+    __args__ = dict()
+    __args__['connectionId'] = connection_id
+    __args__['globalNetworkId'] = global_network_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
+    return __ret__.apply(lambda __response__: GetConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        connected_device_id=pulumi.get(__response__, 'connected_device_id'),
+        connected_link_id=pulumi.get(__response__, 'connected_link_id'),
+        connection_id=pulumi.get(__response__, 'connection_id'),
+        description=pulumi.get(__response__, 'description'),
+        device_id=pulumi.get(__response__, 'device_id'),
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        link_id=pulumi.get(__response__, 'link_id'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -134,9 +134,6 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         principal_type=pulumi.get(__ret__, 'principal_type'))
-
-
-@_utilities.lift_output_func(get_principal_application_assignments)
 def get_principal_application_assignments_output(application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
                                                  instance_arn: Optional[pulumi.Input[str]] = None,
                                                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -164,4 +161,16 @@ def get_principal_application_assignments_output(application_assignments: Option
     :param str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationAssignments'] = application_assignments
+    __args__['instanceArn'] = instance_arn
+    __args__['principalId'] = principal_id
+    __args__['principalType'] = principal_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments', __args__, opts=opts, typ=GetPrincipalApplicationAssignmentsResult)
+    return __ret__.apply(lambda __response__: GetPrincipalApplicationAssignmentsResult(
+        application_assignments=pulumi.get(__response__, 'application_assignments'),
+        id=pulumi.get(__response__, 'id'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        principal_type=pulumi.get(__response__, 'principal_type')))

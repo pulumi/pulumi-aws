@@ -116,9 +116,6 @@ def get_clusters(filters: Optional[Sequence[Union['GetClustersFilterArgs', 'GetC
         cluster_identifiers=pulumi.get(__ret__, 'cluster_identifiers'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_clusters)
 def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClustersResult]:
     """
@@ -141,4 +138,12 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
 
     :param Sequence[Union['GetClustersFilterArgs', 'GetClustersFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult)
+    return __ret__.apply(lambda __response__: GetClustersResult(
+        cluster_arns=pulumi.get(__response__, 'cluster_arns'),
+        cluster_identifiers=pulumi.get(__response__, 'cluster_identifiers'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id')))

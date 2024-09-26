@@ -134,9 +134,6 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
         instance_type=pulumi.get(__ret__, 'instance_type'),
         location_type=pulumi.get(__ret__, 'location_type'),
         preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
-
-
-@_utilities.lift_output_func(get_instance_type_offering)
 def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
                                       location_type: Optional[pulumi.Input[Optional[str]]] = None,
                                       preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -168,4 +165,15 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['locationType'] = location_type
+    __args__['preferredInstanceTypes'] = preferred_instance_types
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering', __args__, opts=opts, typ=GetInstanceTypeOfferingResult)
+    return __ret__.apply(lambda __response__: GetInstanceTypeOfferingResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        location_type=pulumi.get(__response__, 'location_type'),
+        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types')))

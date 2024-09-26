@@ -124,9 +124,6 @@ def get_instance_profiles(role_name: Optional[str] = None,
         names=pulumi.get(__ret__, 'names'),
         paths=pulumi.get(__ret__, 'paths'),
         role_name=pulumi.get(__ret__, 'role_name'))
-
-
-@_utilities.lift_output_func(get_instance_profiles)
 def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfilesResult]:
     """
@@ -146,4 +143,13 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
 
     :param str role_name: IAM role name.
     """
-    ...
+    __args__ = dict()
+    __args__['roleName'] = role_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getInstanceProfiles:getInstanceProfiles', __args__, opts=opts, typ=GetInstanceProfilesResult)
+    return __ret__.apply(lambda __response__: GetInstanceProfilesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        paths=pulumi.get(__response__, 'paths'),
+        role_name=pulumi.get(__response__, 'role_name')))
