@@ -150,9 +150,6 @@ def get_origin_access_control(id: Optional[str] = None,
         origin_access_control_origin_type=pulumi.get(__ret__, 'origin_access_control_origin_type'),
         signing_behavior=pulumi.get(__ret__, 'signing_behavior'),
         signing_protocol=pulumi.get(__ret__, 'signing_protocol'))
-
-
-@_utilities.lift_output_func(get_origin_access_control)
 def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
@@ -172,4 +169,15 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The identifier for the origin access control settings. For example: `E2T5VTFBZJ3BJB`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessControl:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult)
+    return __ret__.apply(lambda __response__: GetOriginAccessControlResult(
+        description=pulumi.get(__response__, 'description'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        origin_access_control_origin_type=pulumi.get(__response__, 'origin_access_control_origin_type'),
+        signing_behavior=pulumi.get(__response__, 'signing_behavior'),
+        signing_protocol=pulumi.get(__response__, 'signing_protocol')))

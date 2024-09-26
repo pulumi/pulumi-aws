@@ -270,9 +270,6 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_nat_gateway)
 def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
@@ -316,4 +313,28 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            a pair on the desired NAT Gateway.
     :param str vpc_id: ID of the VPC that the NAT Gateway resides in.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['state'] = state
+    __args__['subnetId'] = subnet_id
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
+    return __ret__.apply(lambda __response__: GetNatGatewayResult(
+        allocation_id=pulumi.get(__response__, 'allocation_id'),
+        association_id=pulumi.get(__response__, 'association_id'),
+        connectivity_type=pulumi.get(__response__, 'connectivity_type'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        private_ip=pulumi.get(__response__, 'private_ip'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
+        secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
+        secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),
+        state=pulumi.get(__response__, 'state'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))
