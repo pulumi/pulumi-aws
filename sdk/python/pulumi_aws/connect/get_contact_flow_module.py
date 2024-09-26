@@ -203,9 +203,6 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_contact_flow_module)
 def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    instance_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -242,4 +239,21 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     :param str name: Returns information on a specific Contact Flow Module by name
     :param Mapping[str, str] tags: Map of tags to assign to the Contact Flow Module.
     """
-    ...
+    __args__ = dict()
+    __args__['contactFlowModuleId'] = contact_flow_module_id
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getContactFlowModule:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult)
+    return __ret__.apply(lambda __response__: GetContactFlowModuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        contact_flow_module_id=pulumi.get(__response__, 'contact_flow_module_id'),
+        content=pulumi.get(__response__, 'content'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

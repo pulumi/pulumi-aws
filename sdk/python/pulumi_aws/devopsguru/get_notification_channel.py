@@ -106,9 +106,6 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         sns=pulumi.get(__ret__, 'sns'))
-
-
-@_utilities.lift_output_func(get_notification_channel)
 def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
                                     id: Optional[pulumi.Input[str]] = None,
                                     sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
@@ -132,4 +129,13 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
     :param str id: Unique identifier for the notification channel.
     :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['sns'] = sns
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getNotificationChannel:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
+    return __ret__.apply(lambda __response__: GetNotificationChannelResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        sns=pulumi.get(__response__, 'sns')))
