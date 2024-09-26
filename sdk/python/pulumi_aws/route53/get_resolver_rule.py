@@ -194,9 +194,6 @@ def get_resolver_rule(domain_name: Optional[str] = None,
         rule_type=pulumi.get(__ret__, 'rule_type'),
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resolver_rule)
 def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -227,4 +224,23 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
     :param str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
     :param Mapping[str, str] tags: Map of tags assigned to the resolver rule.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['name'] = name
+    __args__['resolverEndpointId'] = resolver_endpoint_id
+    __args__['resolverRuleId'] = resolver_rule_id
+    __args__['ruleType'] = rule_type
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverRule:getResolverRule', __args__, opts=opts, typ=GetResolverRuleResult)
+    return __ret__.apply(lambda __response__: GetResolverRuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
+        resolver_rule_id=pulumi.get(__response__, 'resolver_rule_id'),
+        rule_type=pulumi.get(__response__, 'rule_type'),
+        share_status=pulumi.get(__response__, 'share_status'),
+        tags=pulumi.get(__response__, 'tags')))

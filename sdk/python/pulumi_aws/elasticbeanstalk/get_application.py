@@ -122,9 +122,6 @@ def get_application(name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -144,4 +141,13 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the application
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        appversion_lifecycle=pulumi.get(__response__, 'appversion_lifecycle'),
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

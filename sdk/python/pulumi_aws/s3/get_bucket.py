@@ -201,9 +201,6 @@ def get_bucket(bucket: Optional[str] = None,
         region=pulumi.get(__ret__, 'region'),
         website_domain=pulumi.get(__ret__, 'website_domain'),
         website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
-
-
-@_utilities.lift_output_func(get_bucket)
 def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
@@ -248,4 +245,17 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
 
     :param str bucket: Name of the bucket
     """
-    ...
+    __args__ = dict()
+    __args__['bucket'] = bucket
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult)
+    return __ret__.apply(lambda __response__: GetBucketResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bucket=pulumi.get(__response__, 'bucket'),
+        bucket_domain_name=pulumi.get(__response__, 'bucket_domain_name'),
+        bucket_regional_domain_name=pulumi.get(__response__, 'bucket_regional_domain_name'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
+        website_domain=pulumi.get(__response__, 'website_domain'),
+        website_endpoint=pulumi.get(__response__, 'website_endpoint')))

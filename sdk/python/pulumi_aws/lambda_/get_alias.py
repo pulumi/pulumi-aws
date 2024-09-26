@@ -149,9 +149,6 @@ def get_alias(function_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         invoke_arn=pulumi.get(__ret__, 'invoke_arn'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_alias)
 def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
@@ -172,4 +169,16 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str function_name: Name of the aliased Lambda function.
     :param str name: Name of the Lambda alias.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
+    return __ret__.apply(lambda __response__: GetAliasResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        function_name=pulumi.get(__response__, 'function_name'),
+        function_version=pulumi.get(__response__, 'function_version'),
+        id=pulumi.get(__response__, 'id'),
+        invoke_arn=pulumi.get(__response__, 'invoke_arn'),
+        name=pulumi.get(__response__, 'name')))
