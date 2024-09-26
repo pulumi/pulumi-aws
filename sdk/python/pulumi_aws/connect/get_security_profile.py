@@ -190,9 +190,6 @@ def get_security_profile(instance_id: Optional[str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         security_profile_id=pulumi.get(__ret__, 'security_profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_security_profile)
 def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 security_profile_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -229,4 +226,20 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str security_profile_id: Returns information on a specific Security Profile by Security Profile id
     :param Mapping[str, str] tags: Map of tags to assign to the Security Profile.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['securityProfileId'] = security_profile_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getSecurityProfile:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult)
+    return __ret__.apply(lambda __response__: GetSecurityProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        name=pulumi.get(__response__, 'name'),
+        organization_resource_id=pulumi.get(__response__, 'organization_resource_id'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        security_profile_id=pulumi.get(__response__, 'security_profile_id'),
+        tags=pulumi.get(__response__, 'tags')))
