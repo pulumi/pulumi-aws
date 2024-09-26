@@ -265,9 +265,6 @@ def get_input(id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_input)
 def get_input_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
     """
@@ -287,4 +284,24 @@ def get_input_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Input.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:medialive/getInput:getInput', __args__, opts=opts, typ=GetInputResult)
+    return __ret__.apply(lambda __response__: GetInputResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attached_channels=pulumi.get(__response__, 'attached_channels'),
+        destinations=pulumi.get(__response__, 'destinations'),
+        id=pulumi.get(__response__, 'id'),
+        input_class=pulumi.get(__response__, 'input_class'),
+        input_devices=pulumi.get(__response__, 'input_devices'),
+        input_partner_ids=pulumi.get(__response__, 'input_partner_ids'),
+        input_source_type=pulumi.get(__response__, 'input_source_type'),
+        media_connect_flows=pulumi.get(__response__, 'media_connect_flows'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        sources=pulumi.get(__response__, 'sources'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

@@ -150,9 +150,6 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
         location_type=pulumi.get(__ret__, 'location_type'),
         location_types=pulumi.get(__ret__, 'location_types'),
         locations=pulumi.get(__ret__, 'locations'))
-
-
-@_utilities.lift_output_func(get_instance_type_offerings)
 def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]]]] = None,
                                        location_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
@@ -185,4 +182,15 @@ def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[S
     :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['locationType'] = location_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
+    return __ret__.apply(lambda __response__: GetInstanceTypeOfferingsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_types=pulumi.get(__response__, 'instance_types'),
+        location_type=pulumi.get(__response__, 'location_type'),
+        location_types=pulumi.get(__response__, 'location_types'),
+        locations=pulumi.get(__response__, 'locations')))

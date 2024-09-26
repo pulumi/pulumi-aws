@@ -125,9 +125,6 @@ def get_devices(global_network_id: Optional[str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         site_id=pulumi.get(__ret__, 'site_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_devices)
 def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
                        site_id: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -152,4 +149,15 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     :param str site_id: ID of the site of the devices to retrieve.
     :param Mapping[str, str] tags: Restricts the list to the devices with these tags.
     """
-    ...
+    __args__ = dict()
+    __args__['globalNetworkId'] = global_network_id
+    __args__['siteId'] = site_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getDevices:getDevices', __args__, opts=opts, typ=GetDevicesResult)
+    return __ret__.apply(lambda __response__: GetDevicesResult(
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        site_id=pulumi.get(__response__, 'site_id'),
+        tags=pulumi.get(__response__, 'tags')))

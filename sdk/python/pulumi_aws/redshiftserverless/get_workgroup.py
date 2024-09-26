@@ -187,9 +187,6 @@ def get_workgroup(workgroup_name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         workgroup_id=pulumi.get(__ret__, 'workgroup_id'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
-
-
-@_utilities.lift_output_func(get_workgroup)
 def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
@@ -209,4 +206,18 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
 
     :param str workgroup_name: The name of the workgroup associated with the database.
     """
-    ...
+    __args__ = dict()
+    __args__['workgroupName'] = workgroup_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getWorkgroup:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult)
+    return __ret__.apply(lambda __response__: GetWorkgroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
+        id=pulumi.get(__response__, 'id'),
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        workgroup_id=pulumi.get(__response__, 'workgroup_id'),
+        workgroup_name=pulumi.get(__response__, 'workgroup_name')))
