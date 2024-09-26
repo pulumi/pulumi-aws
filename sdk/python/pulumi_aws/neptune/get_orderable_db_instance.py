@@ -348,9 +348,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
         supports_performance_insights=pulumi.get(__ret__, 'supports_performance_insights'),
         supports_storage_encryption=pulumi.get(__ret__, 'supports_storage_encryption'),
         vpc=pulumi.get(__ret__, 'vpc'))
-
-
-@_utilities.lift_output_func(get_orderable_db_instance)
 def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                                      engine_version: Optional[pulumi.Input[Optional[str]]] = None,
                                      instance_class: Optional[pulumi.Input[Optional[str]]] = None,
@@ -383,4 +380,35 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
     :param Sequence[str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     :param bool vpc: Enable to show only VPC offerings.
     """
-    ...
+    __args__ = dict()
+    __args__['engine'] = engine
+    __args__['engineVersion'] = engine_version
+    __args__['instanceClass'] = instance_class
+    __args__['licenseModel'] = license_model
+    __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['vpc'] = vpc
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:neptune/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
+    return __ret__.apply(lambda __response__: GetOrderableDbInstanceResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        instance_class=pulumi.get(__response__, 'instance_class'),
+        license_model=pulumi.get(__response__, 'license_model'),
+        max_iops_per_db_instance=pulumi.get(__response__, 'max_iops_per_db_instance'),
+        max_iops_per_gib=pulumi.get(__response__, 'max_iops_per_gib'),
+        max_storage_size=pulumi.get(__response__, 'max_storage_size'),
+        min_iops_per_db_instance=pulumi.get(__response__, 'min_iops_per_db_instance'),
+        min_iops_per_gib=pulumi.get(__response__, 'min_iops_per_gib'),
+        min_storage_size=pulumi.get(__response__, 'min_storage_size'),
+        multi_az_capable=pulumi.get(__response__, 'multi_az_capable'),
+        preferred_instance_classes=pulumi.get(__response__, 'preferred_instance_classes'),
+        read_replica_capable=pulumi.get(__response__, 'read_replica_capable'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        supports_enhanced_monitoring=pulumi.get(__response__, 'supports_enhanced_monitoring'),
+        supports_iam_database_authentication=pulumi.get(__response__, 'supports_iam_database_authentication'),
+        supports_iops=pulumi.get(__response__, 'supports_iops'),
+        supports_performance_insights=pulumi.get(__response__, 'supports_performance_insights'),
+        supports_storage_encryption=pulumi.get(__response__, 'supports_storage_encryption'),
+        vpc=pulumi.get(__response__, 'vpc')))

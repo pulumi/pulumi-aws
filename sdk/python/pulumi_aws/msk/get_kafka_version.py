@@ -114,9 +114,6 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
         preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_kafka_version)
 def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                              version: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaVersionResult]:
@@ -141,4 +138,13 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
     :param Sequence[str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
     :param str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
     """
-    ...
+    __args__ = dict()
+    __args__['preferredVersions'] = preferred_versions
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getKafkaVersion:getKafkaVersion', __args__, opts=opts, typ=GetKafkaVersionResult)
+    return __ret__.apply(lambda __response__: GetKafkaVersionResult(
+        id=pulumi.get(__response__, 'id'),
+        preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        status=pulumi.get(__response__, 'status'),
+        version=pulumi.get(__response__, 'version')))

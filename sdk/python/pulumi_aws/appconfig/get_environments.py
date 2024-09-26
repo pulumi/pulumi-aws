@@ -99,9 +99,6 @@ def get_environments(application_id: Optional[str] = None,
         application_id=pulumi.get(__ret__, 'application_id'),
         environment_ids=pulumi.get(__ret__, 'environment_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_environments)
 def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
@@ -122,4 +119,11 @@ def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
 
     :param str application_id: ID of the AppConfig Application.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getEnvironments:getEnvironments', __args__, opts=opts, typ=GetEnvironmentsResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentsResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        environment_ids=pulumi.get(__response__, 'environment_ids'),
+        id=pulumi.get(__response__, 'id')))

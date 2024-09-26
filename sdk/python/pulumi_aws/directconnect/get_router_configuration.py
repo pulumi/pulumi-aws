@@ -156,9 +156,6 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
         routers=pulumi.get(__ret__, 'routers'),
         virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
         virtual_interface_name=pulumi.get(__ret__, 'virtual_interface_name'))
-
-
-@_utilities.lift_output_func(get_router_configuration)
 def get_router_configuration_output(router_type_identifier: Optional[pulumi.Input[str]] = None,
                                     virtual_interface_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouterConfigurationResult]:
@@ -198,4 +195,15 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
            ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
-    ...
+    __args__ = dict()
+    __args__['routerTypeIdentifier'] = router_type_identifier
+    __args__['virtualInterfaceId'] = virtual_interface_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getRouterConfiguration:getRouterConfiguration', __args__, opts=opts, typ=GetRouterConfigurationResult)
+    return __ret__.apply(lambda __response__: GetRouterConfigurationResult(
+        customer_router_config=pulumi.get(__response__, 'customer_router_config'),
+        id=pulumi.get(__response__, 'id'),
+        router_type_identifier=pulumi.get(__response__, 'router_type_identifier'),
+        routers=pulumi.get(__response__, 'routers'),
+        virtual_interface_id=pulumi.get(__response__, 'virtual_interface_id'),
+        virtual_interface_name=pulumi.get(__response__, 'virtual_interface_name')))

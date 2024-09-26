@@ -215,9 +215,6 @@ def get_certificate(domain: Optional[str] = None,
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         types=pulumi.get(__ret__, 'types'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
                            key_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -257,4 +254,24 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
     :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
     """
-    ...
+    __args__ = dict()
+    __args__['domain'] = domain
+    __args__['keyTypes'] = key_types
+    __args__['mostRecent'] = most_recent
+    __args__['statuses'] = statuses
+    __args__['tags'] = tags
+    __args__['types'] = types
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:acm/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate=pulumi.get(__response__, 'certificate'),
+        certificate_chain=pulumi.get(__response__, 'certificate_chain'),
+        domain=pulumi.get(__response__, 'domain'),
+        id=pulumi.get(__response__, 'id'),
+        key_types=pulumi.get(__response__, 'key_types'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        status=pulumi.get(__response__, 'status'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        tags=pulumi.get(__response__, 'tags'),
+        types=pulumi.get(__response__, 'types')))

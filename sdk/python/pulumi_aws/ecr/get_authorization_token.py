@@ -148,9 +148,6 @@ def get_authorization_token(registry_id: Optional[str] = None,
         proxy_endpoint=pulumi.get(__ret__, 'proxy_endpoint'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_authorization_token)
 def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
@@ -168,4 +165,15 @@ def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[s
 
     :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
     """
-    ...
+    __args__ = dict()
+    __args__['registryId'] = registry_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
+        authorization_token=pulumi.get(__response__, 'authorization_token'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        id=pulumi.get(__response__, 'id'),
+        password=pulumi.get(__response__, 'password'),
+        proxy_endpoint=pulumi.get(__response__, 'proxy_endpoint'),
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        user_name=pulumi.get(__response__, 'user_name')))
