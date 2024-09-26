@@ -154,9 +154,6 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         namespace=pulumi.get(__ret__, 'namespace'),
         principal_id=pulumi.get(__ret__, 'principal_id'))
-
-
-@_utilities.lift_output_func(get_quicksight_group)
 def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 group_name: Optional[pulumi.Input[str]] = None,
                                 namespace: Optional[pulumi.Input[Optional[str]]] = None,
@@ -184,4 +181,17 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[s
            The following arguments are optional:
     :param str namespace: QuickSight namespace. Defaults to `default`.
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    __args__['groupName'] = group_name
+    __args__['namespace'] = namespace
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightGroup:getQuicksightGroup', __args__, opts=opts, typ=GetQuicksightGroupResult)
+    return __ret__.apply(lambda __response__: GetQuicksightGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        description=pulumi.get(__response__, 'description'),
+        group_name=pulumi.get(__response__, 'group_name'),
+        id=pulumi.get(__response__, 'id'),
+        namespace=pulumi.get(__response__, 'namespace'),
+        principal_id=pulumi.get(__response__, 'principal_id')))

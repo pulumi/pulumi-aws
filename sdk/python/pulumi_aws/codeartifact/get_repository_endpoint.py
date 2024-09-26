@@ -137,9 +137,6 @@ def get_repository_endpoint(domain: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         repository=pulumi.get(__ret__, 'repository'),
         repository_endpoint=pulumi.get(__ret__, 'repository_endpoint'))
-
-
-@_utilities.lift_output_func(get_repository_endpoint)
 def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
                                    format: Optional[pulumi.Input[str]] = None,
@@ -165,4 +162,17 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
     :param str repository: Name of the repository.
     """
-    ...
+    __args__ = dict()
+    __args__['domain'] = domain
+    __args__['domainOwner'] = domain_owner
+    __args__['format'] = format
+    __args__['repository'] = repository
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint', __args__, opts=opts, typ=GetRepositoryEndpointResult)
+    return __ret__.apply(lambda __response__: GetRepositoryEndpointResult(
+        domain=pulumi.get(__response__, 'domain'),
+        domain_owner=pulumi.get(__response__, 'domain_owner'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        repository=pulumi.get(__response__, 'repository'),
+        repository_endpoint=pulumi.get(__response__, 'repository_endpoint')))
