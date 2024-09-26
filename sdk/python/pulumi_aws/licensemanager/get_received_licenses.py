@@ -106,9 +106,6 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_received_licenses)
 def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
@@ -134,4 +131,11 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicenses:getReceivedLicenses', __args__, opts=opts, typ=GetReceivedLicensesResult)
+    return __ret__.apply(lambda __response__: GetReceivedLicensesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id')))

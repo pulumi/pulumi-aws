@@ -44,7 +44,7 @@ import (
 //					"version": "1.0.0",
 //					"title":   "Event",
 //				},
-//				"paths": nil,
+//				"paths": map[string]interface{}{},
 //				"components": map[string]interface{}{
 //					"schemas": map[string]interface{}{
 //						"Event": map[string]interface{}{

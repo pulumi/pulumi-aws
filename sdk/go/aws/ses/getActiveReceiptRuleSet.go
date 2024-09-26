@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupActiveReceiptRuleSet(ctx, nil, nil)
+//			_, err := ses.LookupActiveReceiptRuleSet(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

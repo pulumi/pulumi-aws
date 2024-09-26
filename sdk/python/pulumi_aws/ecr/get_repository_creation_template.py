@@ -204,9 +204,6 @@ def get_repository_creation_template(prefix: Optional[str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'))
-
-
-@_utilities.lift_output_func(get_repository_creation_template)
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
@@ -226,4 +223,20 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] 
     :param str prefix: The repository name prefix that the template matches against.
     :param Mapping[str, str] resource_tags: A map of tags to assign to any created repositories.
     """
-    ...
+    __args__ = dict()
+    __args__['prefix'] = prefix
+    __args__['resourceTags'] = resource_tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult)
+    return __ret__.apply(lambda __response__: GetRepositoryCreationTemplateResult(
+        applied_fors=pulumi.get(__response__, 'applied_fors'),
+        custom_role_arn=pulumi.get(__response__, 'custom_role_arn'),
+        description=pulumi.get(__response__, 'description'),
+        encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
+        prefix=pulumi.get(__response__, 'prefix'),
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        repository_policy=pulumi.get(__response__, 'repository_policy'),
+        resource_tags=pulumi.get(__response__, 'resource_tags')))

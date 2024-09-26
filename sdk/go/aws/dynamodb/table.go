@@ -162,15 +162,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			alternate, err := aws.GetRegion(ctx, nil, nil)
+//			alternate, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			third, err := aws.GetRegion(ctx, nil, nil)
+//			third, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
