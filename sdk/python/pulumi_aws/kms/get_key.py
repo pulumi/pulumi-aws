@@ -367,9 +367,6 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
         pending_deletion_window_in_days=pulumi.get(__ret__, 'pending_deletion_window_in_days'),
         valid_to=pulumi.get(__ret__, 'valid_to'),
         xks_key_configurations=pulumi.get(__ret__, 'xks_key_configurations'))
-
-
-@_utilities.lift_output_func(get_key)
 def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    key_id: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
@@ -399,4 +396,32 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]]
            * Alias name. E.g.: `alias/my-key`
            * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
     """
-    ...
+    __args__ = dict()
+    __args__['grantTokens'] = grant_tokens
+    __args__['keyId'] = key_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kms/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
+    return __ret__.apply(lambda __response__: GetKeyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        cloud_hsm_cluster_id=pulumi.get(__response__, 'cloud_hsm_cluster_id'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        custom_key_store_id=pulumi.get(__response__, 'custom_key_store_id'),
+        customer_master_key_spec=pulumi.get(__response__, 'customer_master_key_spec'),
+        deletion_date=pulumi.get(__response__, 'deletion_date'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        expiration_model=pulumi.get(__response__, 'expiration_model'),
+        grant_tokens=pulumi.get(__response__, 'grant_tokens'),
+        id=pulumi.get(__response__, 'id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        key_manager=pulumi.get(__response__, 'key_manager'),
+        key_spec=pulumi.get(__response__, 'key_spec'),
+        key_state=pulumi.get(__response__, 'key_state'),
+        key_usage=pulumi.get(__response__, 'key_usage'),
+        multi_region=pulumi.get(__response__, 'multi_region'),
+        multi_region_configurations=pulumi.get(__response__, 'multi_region_configurations'),
+        origin=pulumi.get(__response__, 'origin'),
+        pending_deletion_window_in_days=pulumi.get(__response__, 'pending_deletion_window_in_days'),
+        valid_to=pulumi.get(__response__, 'valid_to'),
+        xks_key_configurations=pulumi.get(__response__, 'xks_key_configurations')))

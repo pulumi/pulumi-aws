@@ -99,9 +99,6 @@ def get_plan(contact_id: Optional[str] = None,
         contact_id=pulumi.get(__ret__, 'contact_id'),
         id=pulumi.get(__ret__, 'id'),
         stages=pulumi.get(__ret__, 'stages'))
-
-
-@_utilities.lift_output_func(get_plan)
 def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
     """
@@ -121,4 +118,11 @@ def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
 
     :param str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
     """
-    ...
+    __args__ = dict()
+    __args__['contactId'] = contact_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
+    return __ret__.apply(lambda __response__: GetPlanResult(
+        contact_id=pulumi.get(__response__, 'contact_id'),
+        id=pulumi.get(__response__, 'id'),
+        stages=pulumi.get(__response__, 'stages')))

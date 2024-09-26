@@ -164,9 +164,6 @@ def get_vpc_connection(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_cluster_arn=pulumi.get(__ret__, 'target_cluster_arn'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_vpc_connection)
 def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
@@ -186,4 +183,17 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the VPC Connection.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the VPC Connection.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getVpcConnection:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpcConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authentication=pulumi.get(__response__, 'authentication'),
+        client_subnets=pulumi.get(__response__, 'client_subnets'),
+        id=pulumi.get(__response__, 'id'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_cluster_arn=pulumi.get(__response__, 'target_cluster_arn'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

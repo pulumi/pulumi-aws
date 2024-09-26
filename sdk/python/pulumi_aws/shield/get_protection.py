@@ -130,9 +130,6 @@ def get_protection(protection_id: Optional[str] = None,
         protection_arn=pulumi.get(__ret__, 'protection_arn'),
         protection_id=pulumi.get(__ret__, 'protection_id'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-
-
-@_utilities.lift_output_func(get_protection)
 def get_protection_output(protection_id: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_arn: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionResult]:
@@ -163,4 +160,14 @@ def get_protection_output(protection_id: Optional[pulumi.Input[Optional[str]]] =
     :param str protection_id: Unique identifier for the protection.
     :param str resource_arn: ARN (Amazon Resource Name) of the resource being protected.
     """
-    ...
+    __args__ = dict()
+    __args__['protectionId'] = protection_id
+    __args__['resourceArn'] = resource_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:shield/getProtection:getProtection', __args__, opts=opts, typ=GetProtectionResult)
+    return __ret__.apply(lambda __response__: GetProtectionResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        protection_arn=pulumi.get(__response__, 'protection_arn'),
+        protection_id=pulumi.get(__response__, 'protection_id'),
+        resource_arn=pulumi.get(__response__, 'resource_arn')))
