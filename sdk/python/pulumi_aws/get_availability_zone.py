@@ -289,9 +289,6 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
         state=pulumi.get(__ret__, 'state'),
         zone_id=pulumi.get(__ret__, 'zone_id'),
         zone_type=pulumi.get(__ret__, 'zone_type'))
-
-
-@_utilities.lift_output_func(get_availability_zone)
 def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[Optional[bool]]] = None,
                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -363,4 +360,26 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: Zone ID of the availability zone to select.
     """
-    ...
+    __args__ = dict()
+    __args__['allAvailabilityZones'] = all_availability_zones
+    __args__['filters'] = filters
+    __args__['name'] = name
+    __args__['state'] = state
+    __args__['zoneId'] = zone_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts, typ=GetAvailabilityZoneResult)
+    return __ret__.apply(lambda __response__: GetAvailabilityZoneResult(
+        all_availability_zones=pulumi.get(__response__, 'all_availability_zones'),
+        filters=pulumi.get(__response__, 'filters'),
+        group_name=pulumi.get(__response__, 'group_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        name_suffix=pulumi.get(__response__, 'name_suffix'),
+        network_border_group=pulumi.get(__response__, 'network_border_group'),
+        opt_in_status=pulumi.get(__response__, 'opt_in_status'),
+        parent_zone_id=pulumi.get(__response__, 'parent_zone_id'),
+        parent_zone_name=pulumi.get(__response__, 'parent_zone_name'),
+        region=pulumi.get(__response__, 'region'),
+        state=pulumi.get(__response__, 'state'),
+        zone_id=pulumi.get(__response__, 'zone_id'),
+        zone_type=pulumi.get(__response__, 'zone_type')))
