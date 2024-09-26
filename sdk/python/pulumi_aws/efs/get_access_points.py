@@ -109,9 +109,6 @@ def get_access_points(file_system_id: Optional[str] = None,
         file_system_id=pulumi.get(__ret__, 'file_system_id'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-
-
-@_utilities.lift_output_func(get_access_points)
 def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointsResult]:
     """
@@ -129,4 +126,12 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
 
     :param str file_system_id: EFS File System identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['fileSystemId'] = file_system_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:efs/getAccessPoints:getAccessPoints', __args__, opts=opts, typ=GetAccessPointsResult)
+    return __ret__.apply(lambda __response__: GetAccessPointsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        file_system_id=pulumi.get(__response__, 'file_system_id'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids')))

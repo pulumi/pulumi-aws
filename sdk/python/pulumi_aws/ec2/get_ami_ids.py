@@ -173,9 +173,6 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'),
         owners=pulumi.get(__ret__, 'owners'),
         sort_ascending=pulumi.get(__ret__, 'sort_ascending'))
-
-
-@_utilities.lift_output_func(get_ami_ids)
 def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
                        include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -216,4 +213,21 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
     :param bool sort_ascending: Used to sort AMIs by creation time.
            If no value is specified, the default value is `false`.
     """
-    ...
+    __args__ = dict()
+    __args__['executableUsers'] = executable_users
+    __args__['filters'] = filters
+    __args__['includeDeprecated'] = include_deprecated
+    __args__['nameRegex'] = name_regex
+    __args__['owners'] = owners
+    __args__['sortAscending'] = sort_ascending
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult)
+    return __ret__.apply(lambda __response__: GetAmiIdsResult(
+        executable_users=pulumi.get(__response__, 'executable_users'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        owners=pulumi.get(__response__, 'owners'),
+        sort_ascending=pulumi.get(__response__, 'sort_ascending')))
