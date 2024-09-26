@@ -214,9 +214,6 @@ def get_certificate(certificate_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         valid_from_date=pulumi.get(__ret__, 'valid_from_date'),
         valid_to_date=pulumi.get(__ret__, 'valid_to_date'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
@@ -237,4 +234,21 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
 
     :param str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
     """
-    ...
+    __args__ = dict()
+    __args__['certificateId'] = certificate_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dms/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        certificate_creation_date=pulumi.get(__response__, 'certificate_creation_date'),
+        certificate_id=pulumi.get(__response__, 'certificate_id'),
+        certificate_owner=pulumi.get(__response__, 'certificate_owner'),
+        certificate_pem=pulumi.get(__response__, 'certificate_pem'),
+        certificate_wallet=pulumi.get(__response__, 'certificate_wallet'),
+        id=pulumi.get(__response__, 'id'),
+        key_length=pulumi.get(__response__, 'key_length'),
+        signing_algorithm=pulumi.get(__response__, 'signing_algorithm'),
+        tags=pulumi.get(__response__, 'tags'),
+        valid_from_date=pulumi.get(__response__, 'valid_from_date'),
+        valid_to_date=pulumi.get(__response__, 'valid_to_date')))

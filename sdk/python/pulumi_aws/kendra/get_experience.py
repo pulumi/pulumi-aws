@@ -228,9 +228,6 @@ def get_experience(experience_id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_experience)
 def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
                           index_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperienceResult]:
@@ -251,4 +248,22 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
     :param str experience_id: Identifier of the Experience.
     :param str index_id: Identifier of the index that contains the Experience.
     """
-    ...
+    __args__ = dict()
+    __args__['experienceId'] = experience_id
+    __args__['indexId'] = index_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kendra/getExperience:getExperience', __args__, opts=opts, typ=GetExperienceResult)
+    return __ret__.apply(lambda __response__: GetExperienceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        configurations=pulumi.get(__response__, 'configurations'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        endpoints=pulumi.get(__response__, 'endpoints'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        experience_id=pulumi.get(__response__, 'experience_id'),
+        id=pulumi.get(__response__, 'id'),
+        index_id=pulumi.get(__response__, 'index_id'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        status=pulumi.get(__response__, 'status'),
+        updated_at=pulumi.get(__response__, 'updated_at')))
