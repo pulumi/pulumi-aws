@@ -180,9 +180,6 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         statements=pulumi.get(__ret__, 'statements'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_log_data_protection_policy_document)
 def get_log_data_protection_policy_document_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    statements: Optional[pulumi.Input[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]]] = None,
@@ -249,4 +246,17 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['name'] = name
+    __args__['statements'] = statements
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument', __args__, opts=opts, typ=GetLogDataProtectionPolicyDocumentResult)
+    return __ret__.apply(lambda __response__: GetLogDataProtectionPolicyDocumentResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        name=pulumi.get(__response__, 'name'),
+        statements=pulumi.get(__response__, 'statements'),
+        version=pulumi.get(__response__, 'version')))

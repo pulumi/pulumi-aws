@@ -94,9 +94,6 @@ def get_hosted_zone_id(region: Optional[str] = None,
     return AwaitableGetHostedZoneIdResult(
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-
-
-@_utilities.lift_output_func(get_hosted_zone_id)
 def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneIdResult]:
     """
@@ -125,4 +122,10 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
     :param str region: Name of the region whose AWS App Runner service HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apprunner/getHostedZoneId:getHostedZoneId', __args__, opts=opts, typ=GetHostedZoneIdResult)
+    return __ret__.apply(lambda __response__: GetHostedZoneIdResult(
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

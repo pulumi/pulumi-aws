@@ -215,9 +215,6 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
         key_type=pulumi.get(__ret__, 'key_type'),
         public_key=pulumi.get(__ret__, 'public_key'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_key_pair)
 def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
                         include_public_key: Optional[pulumi.Input[Optional[bool]]] = None,
                         key_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -253,4 +250,23 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param str key_pair_id: Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['includePublicKey'] = include_public_key
+    __args__['keyName'] = key_name
+    __args__['keyPairId'] = key_pair_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getKeyPair:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult)
+    return __ret__.apply(lambda __response__: GetKeyPairResult(
+        arn=pulumi.get(__response__, 'arn'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        filters=pulumi.get(__response__, 'filters'),
+        fingerprint=pulumi.get(__response__, 'fingerprint'),
+        id=pulumi.get(__response__, 'id'),
+        include_public_key=pulumi.get(__response__, 'include_public_key'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        key_pair_id=pulumi.get(__response__, 'key_pair_id'),
+        key_type=pulumi.get(__response__, 'key_type'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -112,9 +112,6 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[str] = None
         email_identity=pulumi.get(__ret__, 'email_identity'),
         id=pulumi.get(__ret__, 'id'),
         mail_from_domain=pulumi.get(__ret__, 'mail_from_domain'))
-
-
-@_utilities.lift_output_func(get_email_identity_mail_from_attributes)
 def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulumi.Input[str]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
     """
@@ -135,4 +132,12 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
 
     :param str email_identity: The name of the email identity.
     """
-    ...
+    __args__ = dict()
+    __args__['emailIdentity'] = email_identity
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes', __args__, opts=opts, typ=GetEmailIdentityMailFromAttributesResult)
+    return __ret__.apply(lambda __response__: GetEmailIdentityMailFromAttributesResult(
+        behavior_on_mx_failure=pulumi.get(__response__, 'behavior_on_mx_failure'),
+        email_identity=pulumi.get(__response__, 'email_identity'),
+        id=pulumi.get(__response__, 'id'),
+        mail_from_domain=pulumi.get(__response__, 'mail_from_domain')))
