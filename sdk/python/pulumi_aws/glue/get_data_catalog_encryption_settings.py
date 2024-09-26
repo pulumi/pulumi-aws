@@ -88,9 +88,6 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[str] = None,
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         data_catalog_encryption_settings=pulumi.get(__ret__, 'data_catalog_encryption_settings'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_data_catalog_encryption_settings)
 def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
@@ -99,4 +96,11 @@ def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Inpu
 
     :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogId'] = catalog_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings', __args__, opts=opts, typ=GetDataCatalogEncryptionSettingsResult)
+    return __ret__.apply(lambda __response__: GetDataCatalogEncryptionSettingsResult(
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        data_catalog_encryption_settings=pulumi.get(__response__, 'data_catalog_encryption_settings'),
+        id=pulumi.get(__response__, 'id')))

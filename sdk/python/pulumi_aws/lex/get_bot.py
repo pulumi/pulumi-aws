@@ -285,9 +285,6 @@ def get_bot(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'),
         voice_id=pulumi.get(__ret__, 'voice_id'))
-
-
-@_utilities.lift_output_func(get_bot)
 def get_bot_output(name: Optional[pulumi.Input[str]] = None,
                    version: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
@@ -308,4 +305,26 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the bot. The name is case sensitive.
     :param str version: Version or alias of the bot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lex/getBot:getBot', __args__, opts=opts, typ=GetBotResult)
+    return __ret__.apply(lambda __response__: GetBotResult(
+        arn=pulumi.get(__response__, 'arn'),
+        checksum=pulumi.get(__response__, 'checksum'),
+        child_directed=pulumi.get(__response__, 'child_directed'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        detect_sentiment=pulumi.get(__response__, 'detect_sentiment'),
+        enable_model_improvements=pulumi.get(__response__, 'enable_model_improvements'),
+        failure_reason=pulumi.get(__response__, 'failure_reason'),
+        id=pulumi.get(__response__, 'id'),
+        idle_session_ttl_in_seconds=pulumi.get(__response__, 'idle_session_ttl_in_seconds'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        locale=pulumi.get(__response__, 'locale'),
+        name=pulumi.get(__response__, 'name'),
+        nlu_intent_confidence_threshold=pulumi.get(__response__, 'nlu_intent_confidence_threshold'),
+        status=pulumi.get(__response__, 'status'),
+        version=pulumi.get(__response__, 'version'),
+        voice_id=pulumi.get(__response__, 'voice_id')))

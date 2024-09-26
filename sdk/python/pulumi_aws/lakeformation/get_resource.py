@@ -109,9 +109,6 @@ def get_resource(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified=pulumi.get(__ret__, 'last_modified'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-
-
-@_utilities.lift_output_func(get_resource)
 def get_resource_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
@@ -129,4 +126,12 @@ def get_resource_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN of the resource, an S3 path.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
+    return __ret__.apply(lambda __response__: GetResourceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        role_arn=pulumi.get(__response__, 'role_arn')))

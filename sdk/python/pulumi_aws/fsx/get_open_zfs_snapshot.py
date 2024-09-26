@@ -202,9 +202,6 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
         snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
-
-
-@_utilities.lift_output_func(get_open_zfs_snapshot)
 def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]]]] = None,
                                  most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -237,4 +234,22 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, str] tags: List of Tag values, with a maximum of 50 elements.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['mostRecent'] = most_recent
+    __args__['name'] = name
+    __args__['snapshotIds'] = snapshot_ids
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot', __args__, opts=opts, typ=GetOpenZfsSnapshotResult)
+    return __ret__.apply(lambda __response__: GetOpenZfsSnapshotResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        snapshot_id=pulumi.get(__response__, 'snapshot_id'),
+        snapshot_ids=pulumi.get(__response__, 'snapshot_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        volume_id=pulumi.get(__response__, 'volume_id')))

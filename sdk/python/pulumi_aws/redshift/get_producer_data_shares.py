@@ -121,9 +121,6 @@ def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDa
         id=pulumi.get(__ret__, 'id'),
         producer_arn=pulumi.get(__ret__, 'producer_arn'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_producer_data_shares)
 def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]]]] = None,
                                     producer_arn: Optional[pulumi.Input[str]] = None,
                                     status: Optional[pulumi.Input[Optional[str]]] = None,
@@ -149,4 +146,14 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
            The following arguments are optional:
     :param str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
     """
-    ...
+    __args__ = dict()
+    __args__['dataShares'] = data_shares
+    __args__['producerArn'] = producer_arn
+    __args__['status'] = status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getProducerDataShares:getProducerDataShares', __args__, opts=opts, typ=GetProducerDataSharesResult)
+    return __ret__.apply(lambda __response__: GetProducerDataSharesResult(
+        data_shares=pulumi.get(__response__, 'data_shares'),
+        id=pulumi.get(__response__, 'id'),
+        producer_arn=pulumi.get(__response__, 'producer_arn'),
+        status=pulumi.get(__response__, 'status')))

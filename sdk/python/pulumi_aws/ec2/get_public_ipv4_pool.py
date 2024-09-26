@@ -165,9 +165,6 @@ def get_public_ipv4_pool(pool_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         total_address_count=pulumi.get(__ret__, 'total_address_count'),
         total_available_address_count=pulumi.get(__ret__, 'total_available_address_count'))
-
-
-@_utilities.lift_output_func(get_public_ipv4_pool)
 def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
@@ -189,4 +186,17 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
     :param str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
     :param Mapping[str, str] tags: Any tags for the address pool.
     """
-    ...
+    __args__ = dict()
+    __args__['poolId'] = pool_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool', __args__, opts=opts, typ=GetPublicIpv4PoolResult)
+    return __ret__.apply(lambda __response__: GetPublicIpv4PoolResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        network_border_group=pulumi.get(__response__, 'network_border_group'),
+        pool_address_ranges=pulumi.get(__response__, 'pool_address_ranges'),
+        pool_id=pulumi.get(__response__, 'pool_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        total_address_count=pulumi.get(__response__, 'total_address_count'),
+        total_available_address_count=pulumi.get(__response__, 'total_available_address_count')))
