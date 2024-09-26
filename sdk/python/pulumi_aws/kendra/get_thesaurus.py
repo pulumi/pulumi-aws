@@ -270,9 +270,6 @@ def get_thesaurus(index_id: Optional[str] = None,
         term_count=pulumi.get(__ret__, 'term_count'),
         thesaurus_id=pulumi.get(__ret__, 'thesaurus_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_thesaurus)
 def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          thesaurus_id: Optional[pulumi.Input[str]] = None,
@@ -295,4 +292,26 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: Metadata that helps organize the Thesaurus you create.
     :param str thesaurus_id: Identifier of the Thesaurus.
     """
-    ...
+    __args__ = dict()
+    __args__['indexId'] = index_id
+    __args__['tags'] = tags
+    __args__['thesaurusId'] = thesaurus_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kendra/getThesaurus:getThesaurus', __args__, opts=opts, typ=GetThesaurusResult)
+    return __ret__.apply(lambda __response__: GetThesaurusResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        file_size_bytes=pulumi.get(__response__, 'file_size_bytes'),
+        id=pulumi.get(__response__, 'id'),
+        index_id=pulumi.get(__response__, 'index_id'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        source_s3_paths=pulumi.get(__response__, 'source_s3_paths'),
+        status=pulumi.get(__response__, 'status'),
+        synonym_rule_count=pulumi.get(__response__, 'synonym_rule_count'),
+        tags=pulumi.get(__response__, 'tags'),
+        term_count=pulumi.get(__response__, 'term_count'),
+        thesaurus_id=pulumi.get(__response__, 'thesaurus_id'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

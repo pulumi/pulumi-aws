@@ -169,9 +169,6 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpn_gateway)
 def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]] = None,
                            attached_vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                            availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
@@ -210,4 +207,22 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['amazonSideAsn'] = amazon_side_asn
+    __args__['attachedVpcId'] = attached_vpc_id
+    __args__['availabilityZone'] = availability_zone
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['state'] = state
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpnGateway:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
+    return __ret__.apply(lambda __response__: GetVpnGatewayResult(
+        amazon_side_asn=pulumi.get(__response__, 'amazon_side_asn'),
+        arn=pulumi.get(__response__, 'arn'),
+        attached_vpc_id=pulumi.get(__response__, 'attached_vpc_id'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))
