@@ -130,9 +130,6 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
         id=pulumi.get(__ret__, 'id'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_eips)
 def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipsResult]:
@@ -158,4 +155,14 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
     :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getEips:getEips', __args__, opts=opts, typ=GetEipsResult)
+    return __ret__.apply(lambda __response__: GetEipsResult(
+        allocation_ids=pulumi.get(__response__, 'allocation_ids'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        public_ips=pulumi.get(__response__, 'public_ips'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -96,9 +96,6 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     return AwaitableGetLogDeliveryCanonicalUserIdResult(
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-
-
-@_utilities.lift_output_func(get_log_delivery_canonical_user_id)
 def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDeliveryCanonicalUserIdResult]:
     """
@@ -129,4 +126,10 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId', __args__, opts=opts, typ=GetLogDeliveryCanonicalUserIdResult)
+    return __ret__.apply(lambda __response__: GetLogDeliveryCanonicalUserIdResult(
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

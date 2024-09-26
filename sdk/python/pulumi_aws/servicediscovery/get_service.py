@@ -199,9 +199,6 @@ def get_service(name: Optional[str] = None,
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
         tags=pulumi.get(__ret__, 'tags'),
         tags_all=pulumi.get(__ret__, 'tags_all'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[str]] = None,
                        namespace_id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -226,4 +223,21 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param Mapping[str, str] tags_all: (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['namespaceId'] = namespace_id
+    __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        dns_configs=pulumi.get(__response__, 'dns_configs'),
+        health_check_configs=pulumi.get(__response__, 'health_check_configs'),
+        health_check_custom_configs=pulumi.get(__response__, 'health_check_custom_configs'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        namespace_id=pulumi.get(__response__, 'namespace_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        tags_all=pulumi.get(__response__, 'tags_all')))

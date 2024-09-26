@@ -101,9 +101,6 @@ def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWind
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-
-
-@_utilities.lift_output_func(get_maintenance_windows)
 def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
@@ -124,4 +121,11 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
 
     :param Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssm/getMaintenanceWindows:getMaintenanceWindows', __args__, opts=opts, typ=GetMaintenanceWindowsResult)
+    return __ret__.apply(lambda __response__: GetMaintenanceWindowsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids')))

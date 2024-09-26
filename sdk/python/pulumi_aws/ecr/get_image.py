@@ -188,9 +188,6 @@ def get_image(image_digest: Optional[str] = None,
         most_recent=pulumi.get(__ret__, 'most_recent'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
                      image_tag: Optional[pulumi.Input[Optional[str]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -217,4 +214,22 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     :param str registry_id: ID of the Registry where the repository resides.
     :param str repository_name: Name of the ECR Repository.
     """
-    ...
+    __args__ = dict()
+    __args__['imageDigest'] = image_digest
+    __args__['imageTag'] = image_tag
+    __args__['mostRecent'] = most_recent
+    __args__['registryId'] = registry_id
+    __args__['repositoryName'] = repository_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        id=pulumi.get(__response__, 'id'),
+        image_digest=pulumi.get(__response__, 'image_digest'),
+        image_pushed_at=pulumi.get(__response__, 'image_pushed_at'),
+        image_size_in_bytes=pulumi.get(__response__, 'image_size_in_bytes'),
+        image_tag=pulumi.get(__response__, 'image_tag'),
+        image_tags=pulumi.get(__response__, 'image_tags'),
+        image_uri=pulumi.get(__response__, 'image_uri'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        repository_name=pulumi.get(__response__, 'repository_name')))

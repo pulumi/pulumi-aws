@@ -102,9 +102,6 @@ def get_policies_for_target(filter: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         target_id=pulumi.get(__ret__, 'target_id'))
-
-
-@_utilities.lift_output_func(get_policies_for_target)
 def get_policies_for_target_output(filter: Optional[pulumi.Input[str]] = None,
                                    target_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoliciesForTargetResult]:
@@ -117,4 +114,13 @@ def get_policies_for_target_output(filter: Optional[pulumi.Input[str]] = None,
     :param str filter: Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
     :param str target_id: The root (string that begins with "r-" followed by 4-32 lowercase letters or digits), account (12 digit string), or Organizational Unit (string starting with "ou-" followed by 4-32 lowercase letters or digits. This string is followed by a second "-" dash and from 8-32 additional lowercase letters or digits.)
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['targetId'] = target_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getPoliciesForTarget:getPoliciesForTarget', __args__, opts=opts, typ=GetPoliciesForTargetResult)
+    return __ret__.apply(lambda __response__: GetPoliciesForTargetResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        target_id=pulumi.get(__response__, 'target_id')))

@@ -176,9 +176,6 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
         group_id=pulumi.get(__ret__, 'group_id'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']]]] = None,
                      filter: Optional[pulumi.Input[Optional[Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict']]]] = None,
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -214,4 +211,19 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union[
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['alternateIdentifier'] = alternate_identifier
+    __args__['filter'] = filter
+    __args__['groupId'] = group_id
+    __args__['identityStoreId'] = identity_store_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        alternate_identifier=pulumi.get(__response__, 'alternate_identifier'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        external_ids=pulumi.get(__response__, 'external_ids'),
+        filter=pulumi.get(__response__, 'filter'),
+        group_id=pulumi.get(__response__, 'group_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity_store_id=pulumi.get(__response__, 'identity_store_id')))
