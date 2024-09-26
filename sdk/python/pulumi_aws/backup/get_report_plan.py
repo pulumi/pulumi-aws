@@ -178,9 +178,6 @@ def get_report_plan(name: Optional[str] = None,
         report_delivery_channels=pulumi.get(__ret__, 'report_delivery_channels'),
         report_settings=pulumi.get(__ret__, 'report_settings'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_report_plan)
 def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
@@ -200,4 +197,18 @@ def get_report_plan_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Backup report plan name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:backup/getReportPlan:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult)
+    return __ret__.apply(lambda __response__: GetReportPlanResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        deployment_status=pulumi.get(__response__, 'deployment_status'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        report_delivery_channels=pulumi.get(__response__, 'report_delivery_channels'),
+        report_settings=pulumi.get(__response__, 'report_settings'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -138,9 +138,6 @@ def get_group(group_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         path=pulumi.get(__ret__, 'path'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -160,4 +157,14 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
 
     :param str group_name: Friendly IAM group name to match.
     """
-    ...
+    __args__ = dict()
+    __args__['groupName'] = group_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        group_id=pulumi.get(__response__, 'group_id'),
+        group_name=pulumi.get(__response__, 'group_name'),
+        id=pulumi.get(__response__, 'id'),
+        path=pulumi.get(__response__, 'path'),
+        users=pulumi.get(__response__, 'users')))
