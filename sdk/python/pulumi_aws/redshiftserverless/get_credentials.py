@@ -148,9 +148,6 @@ def get_credentials(db_name: Optional[str] = None,
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
-
-
-@_utilities.lift_output_func(get_credentials)
 def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None,
                            duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                            workgroup_name: Optional[pulumi.Input[str]] = None,
@@ -172,4 +169,17 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
     :param int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
     :param str workgroup_name: The name of the workgroup associated with the database.
     """
-    ...
+    __args__ = dict()
+    __args__['dbName'] = db_name
+    __args__['durationSeconds'] = duration_seconds
+    __args__['workgroupName'] = workgroup_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult)
+    return __ret__.apply(lambda __response__: GetCredentialsResult(
+        db_name=pulumi.get(__response__, 'db_name'),
+        db_password=pulumi.get(__response__, 'db_password'),
+        db_user=pulumi.get(__response__, 'db_user'),
+        duration_seconds=pulumi.get(__response__, 'duration_seconds'),
+        expiration=pulumi.get(__response__, 'expiration'),
+        id=pulumi.get(__response__, 'id'),
+        workgroup_name=pulumi.get(__response__, 'workgroup_name')))

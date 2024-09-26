@@ -245,9 +245,6 @@ def get_replication_task(replication_task_id: Optional[str] = None,
         table_mappings=pulumi.get(__ret__, 'table_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
-
-
-@_utilities.lift_output_func(get_replication_task)
 def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationTaskResult]:
@@ -273,4 +270,23 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
            - Cannot end with a hyphen.
            - Cannot contain two consecutive hyphens.
     """
-    ...
+    __args__ = dict()
+    __args__['replicationTaskId'] = replication_task_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationTask:getReplicationTask', __args__, opts=opts, typ=GetReplicationTaskResult)
+    return __ret__.apply(lambda __response__: GetReplicationTaskResult(
+        cdc_start_position=pulumi.get(__response__, 'cdc_start_position'),
+        cdc_start_time=pulumi.get(__response__, 'cdc_start_time'),
+        id=pulumi.get(__response__, 'id'),
+        migration_type=pulumi.get(__response__, 'migration_type'),
+        replication_instance_arn=pulumi.get(__response__, 'replication_instance_arn'),
+        replication_task_arn=pulumi.get(__response__, 'replication_task_arn'),
+        replication_task_id=pulumi.get(__response__, 'replication_task_id'),
+        replication_task_settings=pulumi.get(__response__, 'replication_task_settings'),
+        source_endpoint_arn=pulumi.get(__response__, 'source_endpoint_arn'),
+        start_replication_task=pulumi.get(__response__, 'start_replication_task'),
+        status=pulumi.get(__response__, 'status'),
+        table_mappings=pulumi.get(__response__, 'table_mappings'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_endpoint_arn=pulumi.get(__response__, 'target_endpoint_arn')))

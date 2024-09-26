@@ -102,9 +102,6 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_lbs)
 def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLbsResult]:
     """
@@ -128,4 +125,11 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = N
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Load Balancers.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lb/getLbs:getLbs', __args__, opts=opts, typ=GetLbsResult)
+    return __ret__.apply(lambda __response__: GetLbsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))
