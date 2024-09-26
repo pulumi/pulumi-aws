@@ -122,9 +122,6 @@ def get_cluster_parameter_group(name: Optional[str] = None,
         family=pulumi.get(__ret__, 'family'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_cluster_parameter_group)
 def get_cluster_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
@@ -142,4 +139,13 @@ def get_cluster_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: DB cluster parameter group name.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusterParameterGroup:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult)
+    return __ret__.apply(lambda __response__: GetClusterParameterGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        family=pulumi.get(__response__, 'family'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

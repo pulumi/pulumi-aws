@@ -192,9 +192,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -215,4 +212,19 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: Name of the ECS Cluster
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecs/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        id=pulumi.get(__response__, 'id'),
+        pending_tasks_count=pulumi.get(__response__, 'pending_tasks_count'),
+        registered_container_instances_count=pulumi.get(__response__, 'registered_container_instances_count'),
+        running_tasks_count=pulumi.get(__response__, 'running_tasks_count'),
+        service_connect_defaults=pulumi.get(__response__, 'service_connect_defaults'),
+        settings=pulumi.get(__response__, 'settings'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

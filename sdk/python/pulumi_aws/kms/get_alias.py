@@ -127,9 +127,6 @@ def get_alias(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         target_key_arn=pulumi.get(__ret__, 'target_key_arn'),
         target_key_id=pulumi.get(__ret__, 'target_key_id'))
-
-
-@_utilities.lift_output_func(get_alias)
 def get_alias_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
@@ -149,4 +146,13 @@ def get_alias_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kms/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
+    return __ret__.apply(lambda __response__: GetAliasResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        target_key_arn=pulumi.get(__response__, 'target_key_arn'),
+        target_key_id=pulumi.get(__response__, 'target_key_id')))

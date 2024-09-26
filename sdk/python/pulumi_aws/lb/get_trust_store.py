@@ -112,9 +112,6 @@ def get_trust_store(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_trust_store)
 def get_trust_store_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustStoreResult]:
@@ -150,4 +147,12 @@ def get_trust_store_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lb/getTrustStore:getTrustStore', __args__, opts=opts, typ=GetTrustStoreResult)
+    return __ret__.apply(lambda __response__: GetTrustStoreResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

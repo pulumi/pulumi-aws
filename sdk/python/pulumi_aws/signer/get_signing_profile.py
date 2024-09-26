@@ -204,9 +204,6 @@ def get_signing_profile(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
         version_arn=pulumi.get(__ret__, 'version_arn'))
-
-
-@_utilities.lift_output_func(get_signing_profile)
 def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
@@ -226,4 +223,20 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the target signing profile.
     :param Mapping[str, str] tags: List of tags associated with the signing profile.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningProfile:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult)
+    return __ret__.apply(lambda __response__: GetSigningProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        platform_display_name=pulumi.get(__response__, 'platform_display_name'),
+        platform_id=pulumi.get(__response__, 'platform_id'),
+        revocation_records=pulumi.get(__response__, 'revocation_records'),
+        signature_validity_periods=pulumi.get(__response__, 'signature_validity_periods'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version'),
+        version_arn=pulumi.get(__response__, 'version_arn')))
