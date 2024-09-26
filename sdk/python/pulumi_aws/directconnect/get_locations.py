@@ -84,9 +84,6 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     return AwaitableGetLocationsResult(
         id=pulumi.get(__ret__, 'id'),
         location_codes=pulumi.get(__ret__, 'location_codes'))
-
-
-@_utilities.lift_output_func(get_locations)
 def get_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationsResult]:
     """
     Retrieve information about the AWS Direct Connect locations in the current AWS Region.
@@ -103,4 +100,9 @@ def get_locations_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     available = aws.directconnect.get_locations()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult)
+    return __ret__.apply(lambda __response__: GetLocationsResult(
+        id=pulumi.get(__response__, 'id'),
+        location_codes=pulumi.get(__response__, 'location_codes')))

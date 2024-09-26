@@ -392,9 +392,6 @@ def get_windows_file_system(id: Optional[str] = None,
         throughput_capacity=pulumi.get(__ret__, 'throughput_capacity'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
-
-
-@_utilities.lift_output_func(get_windows_file_system)
 def get_windows_file_system_output(id: Optional[pulumi.Input[str]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWindowsFileSystemResult]:
@@ -416,4 +413,35 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[str]] = None,
     :param str id: Identifier of the file system (e.g. `fs-12345678`).
     :param Mapping[str, str] tags: The tags to associate with the file system.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:fsx/getWindowsFileSystem:getWindowsFileSystem', __args__, opts=opts, typ=GetWindowsFileSystemResult)
+    return __ret__.apply(lambda __response__: GetWindowsFileSystemResult(
+        active_directory_id=pulumi.get(__response__, 'active_directory_id'),
+        aliases=pulumi.get(__response__, 'aliases'),
+        arn=pulumi.get(__response__, 'arn'),
+        audit_log_configurations=pulumi.get(__response__, 'audit_log_configurations'),
+        automatic_backup_retention_days=pulumi.get(__response__, 'automatic_backup_retention_days'),
+        backup_id=pulumi.get(__response__, 'backup_id'),
+        copy_tags_to_backups=pulumi.get(__response__, 'copy_tags_to_backups'),
+        daily_automatic_backup_start_time=pulumi.get(__response__, 'daily_automatic_backup_start_time'),
+        deployment_type=pulumi.get(__response__, 'deployment_type'),
+        disk_iops_configurations=pulumi.get(__response__, 'disk_iops_configurations'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        preferred_file_server_ip=pulumi.get(__response__, 'preferred_file_server_ip'),
+        preferred_subnet_id=pulumi.get(__response__, 'preferred_subnet_id'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        skip_final_backup=pulumi.get(__response__, 'skip_final_backup'),
+        storage_capacity=pulumi.get(__response__, 'storage_capacity'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        throughput_capacity=pulumi.get(__response__, 'throughput_capacity'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        weekly_maintenance_start_time=pulumi.get(__response__, 'weekly_maintenance_start_time')))

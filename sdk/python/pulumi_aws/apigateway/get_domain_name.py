@@ -256,9 +256,6 @@ def get_domain_name(domain_name: Optional[str] = None,
         regional_zone_id=pulumi.get(__ret__, 'regional_zone_id'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_domain_name)
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
@@ -278,4 +275,24 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getDomainName:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
+    return __ret__.apply(lambda __response__: GetDomainNameResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        certificate_name=pulumi.get(__response__, 'certificate_name'),
+        certificate_upload_date=pulumi.get(__response__, 'certificate_upload_date'),
+        cloudfront_domain_name=pulumi.get(__response__, 'cloudfront_domain_name'),
+        cloudfront_zone_id=pulumi.get(__response__, 'cloudfront_zone_id'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        regional_certificate_arn=pulumi.get(__response__, 'regional_certificate_arn'),
+        regional_certificate_name=pulumi.get(__response__, 'regional_certificate_name'),
+        regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),
+        regional_zone_id=pulumi.get(__response__, 'regional_zone_id'),
+        security_policy=pulumi.get(__response__, 'security_policy'),
+        tags=pulumi.get(__response__, 'tags')))
