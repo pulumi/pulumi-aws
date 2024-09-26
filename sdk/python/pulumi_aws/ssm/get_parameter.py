@@ -150,9 +150,6 @@ def get_parameter(name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'),
         version=pulumi.get(__ret__, 'version'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
-
-
-@_utilities.lift_output_func(get_parameter)
 def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
                          with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
@@ -176,4 +173,17 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
            
            In addition to all arguments above, the following attributes are exported:
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['withDecryption'] = with_decryption
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult)
+    return __ret__.apply(lambda __response__: GetParameterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        insecure_value=pulumi.get(__response__, 'insecure_value'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type'),
+        value=pulumi.get(__response__, 'value'),
+        version=pulumi.get(__response__, 'version'),
+        with_decryption=pulumi.get(__response__, 'with_decryption')))

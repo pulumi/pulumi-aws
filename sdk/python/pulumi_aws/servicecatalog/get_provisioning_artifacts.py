@@ -114,9 +114,6 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         product_id=pulumi.get(__ret__, 'product_id'),
         provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'))
-
-
-@_utilities.lift_output_func(get_provisioning_artifacts)
 def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                                       product_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
@@ -140,4 +137,13 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['acceptLanguage'] = accept_language
+    __args__['productId'] = product_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts', __args__, opts=opts, typ=GetProvisioningArtifactsResult)
+    return __ret__.apply(lambda __response__: GetProvisioningArtifactsResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
+        id=pulumi.get(__response__, 'id'),
+        product_id=pulumi.get(__response__, 'product_id'),
+        provisioning_artifact_details=pulumi.get(__response__, 'provisioning_artifact_details')))

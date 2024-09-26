@@ -307,9 +307,6 @@ def get_vpc(cidr_block: Optional[str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpc)
 def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                    default: Optional[pulumi.Input[Optional[bool]]] = None,
                    dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -362,4 +359,31 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['cidrBlock'] = cidr_block
+    __args__['default'] = default
+    __args__['dhcpOptionsId'] = dhcp_options_id
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['state'] = state
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpc:getVpc', __args__, opts=opts, typ=GetVpcResult)
+    return __ret__.apply(lambda __response__: GetVpcResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cidr_block=pulumi.get(__response__, 'cidr_block'),
+        cidr_block_associations=pulumi.get(__response__, 'cidr_block_associations'),
+        default=pulumi.get(__response__, 'default'),
+        dhcp_options_id=pulumi.get(__response__, 'dhcp_options_id'),
+        enable_dns_hostnames=pulumi.get(__response__, 'enable_dns_hostnames'),
+        enable_dns_support=pulumi.get(__response__, 'enable_dns_support'),
+        enable_network_address_usage_metrics=pulumi.get(__response__, 'enable_network_address_usage_metrics'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_tenancy=pulumi.get(__response__, 'instance_tenancy'),
+        ipv6_association_id=pulumi.get(__response__, 'ipv6_association_id'),
+        ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
+        main_route_table_id=pulumi.get(__response__, 'main_route_table_id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

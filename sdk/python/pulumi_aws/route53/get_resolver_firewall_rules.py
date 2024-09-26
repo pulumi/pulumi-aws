@@ -125,9 +125,6 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
         firewall_rules=pulumi.get(__ret__, 'firewall_rules'),
         id=pulumi.get(__ret__, 'id'),
         priority=pulumi.get(__ret__, 'priority'))
-
-
-@_utilities.lift_output_func(get_resolver_firewall_rules)
 def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[str]]] = None,
                                        firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                                        priority: Optional[pulumi.Input[Optional[int]]] = None,
@@ -151,4 +148,15 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[st
     :param str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
     :param int priority: The setting that determines the processing order of the rules in a rule group.
     """
-    ...
+    __args__ = dict()
+    __args__['action'] = action
+    __args__['firewallRuleGroupId'] = firewall_rule_group_id
+    __args__['priority'] = priority
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRules:getResolverFirewallRules', __args__, opts=opts, typ=GetResolverFirewallRulesResult)
+    return __ret__.apply(lambda __response__: GetResolverFirewallRulesResult(
+        action=pulumi.get(__response__, 'action'),
+        firewall_rule_group_id=pulumi.get(__response__, 'firewall_rule_group_id'),
+        firewall_rules=pulumi.get(__response__, 'firewall_rules'),
+        id=pulumi.get(__response__, 'id'),
+        priority=pulumi.get(__response__, 'priority')))
