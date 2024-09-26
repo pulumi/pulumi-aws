@@ -156,9 +156,6 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
@@ -180,4 +177,16 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     :param Mapping[str, str] tags: Map of key-value pairs associated with the user.
     :param str user_name: Friendly IAM user name to match.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        path=pulumi.get(__response__, 'path'),
+        permissions_boundary=pulumi.get(__response__, 'permissions_boundary'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        user_name=pulumi.get(__response__, 'user_name')))

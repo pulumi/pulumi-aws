@@ -148,9 +148,6 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
         pool_cidrs=pulumi.get(__ret__, 'pool_cidrs'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_coip_pool)
 def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]]]] = None,
                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                          pool_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -172,4 +169,18 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
+    __args__['poolId'] = pool_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult)
+    return __ret__.apply(lambda __response__: GetCoipPoolResult(
+        arn=pulumi.get(__response__, 'arn'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        local_gateway_route_table_id=pulumi.get(__response__, 'local_gateway_route_table_id'),
+        pool_cidrs=pulumi.get(__response__, 'pool_cidrs'),
+        pool_id=pulumi.get(__response__, 'pool_id'),
+        tags=pulumi.get(__response__, 'tags')))

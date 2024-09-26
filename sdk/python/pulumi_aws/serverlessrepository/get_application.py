@@ -156,9 +156,6 @@ def get_application(application_id: Optional[str] = None,
         semantic_version=pulumi.get(__ret__, 'semantic_version'),
         source_code_url=pulumi.get(__ret__, 'source_code_url'),
         template_url=pulumi.get(__ret__, 'template_url'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            semantic_version: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
@@ -183,4 +180,16 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
     :param str application_id: ARN of the application.
     :param str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    __args__['semanticVersion'] = semantic_version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:serverlessrepository/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        required_capabilities=pulumi.get(__response__, 'required_capabilities'),
+        semantic_version=pulumi.get(__response__, 'semantic_version'),
+        source_code_url=pulumi.get(__response__, 'source_code_url'),
+        template_url=pulumi.get(__response__, 'template_url')))
