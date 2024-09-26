@@ -102,9 +102,6 @@ def get_broker_engine_types(engine_type: Optional[str] = None,
         broker_engine_types=pulumi.get(__ret__, 'broker_engine_types'),
         engine_type=pulumi.get(__ret__, 'engine_type'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_broker_engine_types)
 def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerEngineTypesResult]:
     """
@@ -124,4 +121,11 @@ def get_broker_engine_types_output(engine_type: Optional[pulumi.Input[Optional[s
 
     :param str engine_type: The MQ engine type to return version details for.
     """
-    ...
+    __args__ = dict()
+    __args__['engineType'] = engine_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mq/getBrokerEngineTypes:getBrokerEngineTypes', __args__, opts=opts, typ=GetBrokerEngineTypesResult)
+    return __ret__.apply(lambda __response__: GetBrokerEngineTypesResult(
+        broker_engine_types=pulumi.get(__response__, 'broker_engine_types'),
+        engine_type=pulumi.get(__response__, 'engine_type'),
+        id=pulumi.get(__response__, 'id')))

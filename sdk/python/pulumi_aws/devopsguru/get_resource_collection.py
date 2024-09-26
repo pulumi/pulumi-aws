@@ -119,9 +119,6 @@ def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourc
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_resource_collection)
 def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]]]] = None,
                                    type: Optional[pulumi.Input[str]] = None,
@@ -145,4 +142,14 @@ def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Option
     :param Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
     :param str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
     """
-    ...
+    __args__ = dict()
+    __args__['cloudformations'] = cloudformations
+    __args__['tags'] = tags
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getResourceCollection:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult)
+    return __ret__.apply(lambda __response__: GetResourceCollectionResult(
+        cloudformations=pulumi.get(__response__, 'cloudformations'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))
