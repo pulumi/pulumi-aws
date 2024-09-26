@@ -125,9 +125,6 @@ def get_resource(path: Optional[str] = None,
         path=pulumi.get(__ret__, 'path'),
         path_part=pulumi.get(__ret__, 'path_part'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
-
-
-@_utilities.lift_output_func(get_resource)
 def get_resource_output(path: Optional[pulumi.Input[str]] = None,
                         rest_api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
@@ -150,4 +147,14 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     :param str path: Full path of the resource.  If no path is found, an error will be returned.
     :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
-    ...
+    __args__ = dict()
+    __args__['path'] = path
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
+    return __ret__.apply(lambda __response__: GetResourceResult(
+        id=pulumi.get(__response__, 'id'),
+        parent_id=pulumi.get(__response__, 'parent_id'),
+        path=pulumi.get(__response__, 'path'),
+        path_part=pulumi.get(__response__, 'path_part'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id')))

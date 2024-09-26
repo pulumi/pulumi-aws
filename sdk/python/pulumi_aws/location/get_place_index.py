@@ -178,9 +178,6 @@ def get_place_index(index_name: Optional[str] = None,
         index_name=pulumi.get(__ret__, 'index_name'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_place_index)
 def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
@@ -200,4 +197,18 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
     :param str index_name: Name of the place index resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
     """
-    ...
+    __args__ = dict()
+    __args__['indexName'] = index_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getPlaceIndex:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult)
+    return __ret__.apply(lambda __response__: GetPlaceIndexResult(
+        create_time=pulumi.get(__response__, 'create_time'),
+        data_source=pulumi.get(__response__, 'data_source'),
+        data_source_configurations=pulumi.get(__response__, 'data_source_configurations'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        index_arn=pulumi.get(__response__, 'index_arn'),
+        index_name=pulumi.get(__response__, 'index_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_time=pulumi.get(__response__, 'update_time')))

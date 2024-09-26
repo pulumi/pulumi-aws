@@ -175,9 +175,6 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_cluster_credentials)
 def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[bool]]] = None,
                                    cluster_identifier: Optional[pulumi.Input[str]] = None,
                                    db_groups: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -206,4 +203,22 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     :param str db_user: Name of a database user. If a user name matching `db_user` exists in the database, the temporary user credentials have the same permissions as the  existing user. If `db_user` doesn't exist in the database and `auto_create` is `True`, a new user is created using the value for `db_user` with `PUBLIC` permissions.  If a database user matching the value for `db_user` doesn't exist and `not` is `False`, then the command succeeds but the connection attempt will fail because the user doesn't exist in the database.
     :param int duration_seconds: The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
     """
-    ...
+    __args__ = dict()
+    __args__['autoCreate'] = auto_create
+    __args__['clusterIdentifier'] = cluster_identifier
+    __args__['dbGroups'] = db_groups
+    __args__['dbName'] = db_name
+    __args__['dbUser'] = db_user
+    __args__['durationSeconds'] = duration_seconds
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult)
+    return __ret__.apply(lambda __response__: GetClusterCredentialsResult(
+        auto_create=pulumi.get(__response__, 'auto_create'),
+        cluster_identifier=pulumi.get(__response__, 'cluster_identifier'),
+        db_groups=pulumi.get(__response__, 'db_groups'),
+        db_name=pulumi.get(__response__, 'db_name'),
+        db_password=pulumi.get(__response__, 'db_password'),
+        db_user=pulumi.get(__response__, 'db_user'),
+        duration_seconds=pulumi.get(__response__, 'duration_seconds'),
+        expiration=pulumi.get(__response__, 'expiration'),
+        id=pulumi.get(__response__, 'id')))

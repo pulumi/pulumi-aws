@@ -150,9 +150,6 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIamPoolCidrsF
         id=pulumi.get(__ret__, 'id'),
         ipam_pool_cidrs=pulumi.get(__ret__, 'ipam_pool_cidrs'),
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'))
-
-
-@_utilities.lift_output_func(get_vpc_iam_pool_cidrs)
 def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']]]]] = None,
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
@@ -209,4 +206,13 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     pulumi.log.warn("""get_vpc_iam_pool_cidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""")
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['ipamPoolId'] = ipam_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs', __args__, opts=opts, typ=GetVpcIamPoolCidrsResult)
+    return __ret__.apply(lambda __response__: GetVpcIamPoolCidrsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipam_pool_cidrs=pulumi.get(__response__, 'ipam_pool_cidrs'),
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id')))

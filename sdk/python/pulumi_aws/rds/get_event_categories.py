@@ -107,9 +107,6 @@ def get_event_categories(source_type: Optional[str] = None,
         event_categories=pulumi.get(__ret__, 'event_categories'),
         id=pulumi.get(__ret__, 'id'),
         source_type=pulumi.get(__ret__, 'source_type'))
-
-
-@_utilities.lift_output_func(get_event_categories)
 def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventCategoriesResult]:
     """
@@ -138,4 +135,11 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
 
     :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
-    ...
+    __args__ = dict()
+    __args__['sourceType'] = source_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult)
+    return __ret__.apply(lambda __response__: GetEventCategoriesResult(
+        event_categories=pulumi.get(__response__, 'event_categories'),
+        id=pulumi.get(__response__, 'id'),
+        source_type=pulumi.get(__response__, 'source_type')))

@@ -206,9 +206,6 @@ def get_service_quota(quota_code: Optional[str] = None,
         service_name=pulumi.get(__ret__, 'service_name'),
         usage_metrics=pulumi.get(__ret__, 'usage_metrics'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_service_quota)
 def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] = None,
                              quota_name: Optional[pulumi.Input[Optional[str]]] = None,
                              service_code: Optional[pulumi.Input[str]] = None,
@@ -235,4 +232,21 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] =
     :param str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
     :param str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
-    ...
+    __args__ = dict()
+    __args__['quotaCode'] = quota_code
+    __args__['quotaName'] = quota_name
+    __args__['serviceCode'] = service_code
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult)
+    return __ret__.apply(lambda __response__: GetServiceQuotaResult(
+        adjustable=pulumi.get(__response__, 'adjustable'),
+        arn=pulumi.get(__response__, 'arn'),
+        default_value=pulumi.get(__response__, 'default_value'),
+        global_quota=pulumi.get(__response__, 'global_quota'),
+        id=pulumi.get(__response__, 'id'),
+        quota_code=pulumi.get(__response__, 'quota_code'),
+        quota_name=pulumi.get(__response__, 'quota_name'),
+        service_code=pulumi.get(__response__, 'service_code'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        usage_metrics=pulumi.get(__response__, 'usage_metrics'),
+        value=pulumi.get(__response__, 'value')))

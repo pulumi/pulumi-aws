@@ -312,9 +312,6 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
         resource_owner_account_id=pulumi.get(__ret__, 'resource_owner_account_id'),
         resource_policy_json=pulumi.get(__ret__, 'resource_policy_json'),
         results=pulumi.get(__ret__, 'results'))
-
-
-@_utilities.lift_output_func(get_principal_policy_simulation)
 def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[Sequence[str]]] = None,
                                            additional_policies_jsons: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                            caller_arn: Optional[pulumi.Input[Optional[str]]] = None,
@@ -437,4 +434,30 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
            
            The policy simulator cannot automatically load policies that are associated with individual resources, as described in the documentation for `resource_arns` above.
     """
-    ...
+    __args__ = dict()
+    __args__['actionNames'] = action_names
+    __args__['additionalPoliciesJsons'] = additional_policies_jsons
+    __args__['callerArn'] = caller_arn
+    __args__['contexts'] = contexts
+    __args__['permissionsBoundaryPoliciesJsons'] = permissions_boundary_policies_jsons
+    __args__['policySourceArn'] = policy_source_arn
+    __args__['resourceArns'] = resource_arns
+    __args__['resourceHandlingOption'] = resource_handling_option
+    __args__['resourceOwnerAccountId'] = resource_owner_account_id
+    __args__['resourcePolicyJson'] = resource_policy_json
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation', __args__, opts=opts, typ=GetPrincipalPolicySimulationResult)
+    return __ret__.apply(lambda __response__: GetPrincipalPolicySimulationResult(
+        action_names=pulumi.get(__response__, 'action_names'),
+        additional_policies_jsons=pulumi.get(__response__, 'additional_policies_jsons'),
+        all_allowed=pulumi.get(__response__, 'all_allowed'),
+        caller_arn=pulumi.get(__response__, 'caller_arn'),
+        contexts=pulumi.get(__response__, 'contexts'),
+        id=pulumi.get(__response__, 'id'),
+        permissions_boundary_policies_jsons=pulumi.get(__response__, 'permissions_boundary_policies_jsons'),
+        policy_source_arn=pulumi.get(__response__, 'policy_source_arn'),
+        resource_arns=pulumi.get(__response__, 'resource_arns'),
+        resource_handling_option=pulumi.get(__response__, 'resource_handling_option'),
+        resource_owner_account_id=pulumi.get(__response__, 'resource_owner_account_id'),
+        resource_policy_json=pulumi.get(__response__, 'resource_policy_json'),
+        results=pulumi.get(__response__, 'results')))
