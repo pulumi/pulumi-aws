@@ -165,9 +165,6 @@ def get_map(map_name: Optional[str] = None,
         map_name=pulumi.get(__ret__, 'map_name'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_map)
 def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
@@ -187,4 +184,17 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
     :param str map_name: Name of the map resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the map.
     """
-    ...
+    __args__ = dict()
+    __args__['mapName'] = map_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getMap:getMap', __args__, opts=opts, typ=GetMapResult)
+    return __ret__.apply(lambda __response__: GetMapResult(
+        configurations=pulumi.get(__response__, 'configurations'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        map_arn=pulumi.get(__response__, 'map_arn'),
+        map_name=pulumi.get(__response__, 'map_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_time=pulumi.get(__response__, 'update_time')))

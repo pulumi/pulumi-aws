@@ -211,9 +211,6 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
         owner_id=pulumi.get(__ret__, 'owner_id'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_managed_prefix_list)
 def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']]]]] = None,
                                    id: Optional[pulumi.Input[Optional[str]]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -253,4 +250,21 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     :param str name: Name of the prefix list to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getManagedPrefixList:getManagedPrefixList', __args__, opts=opts, typ=GetManagedPrefixListResult)
+    return __ret__.apply(lambda __response__: GetManagedPrefixListResult(
+        address_family=pulumi.get(__response__, 'address_family'),
+        arn=pulumi.get(__response__, 'arn'),
+        entries=pulumi.get(__response__, 'entries'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        max_entries=pulumi.get(__response__, 'max_entries'),
+        name=pulumi.get(__response__, 'name'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

@@ -160,9 +160,6 @@ def get_origin_request_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         query_strings_configs=pulumi.get(__ret__, 'query_strings_configs'))
-
-
-@_utilities.lift_output_func(get_origin_request_policy)
 def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
@@ -193,4 +190,16 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
     :param str id: Identifier for the origin request policy.
     :param str name: Unique name to identify the origin request policy.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult)
+    return __ret__.apply(lambda __response__: GetOriginRequestPolicyResult(
+        comment=pulumi.get(__response__, 'comment'),
+        cookies_configs=pulumi.get(__response__, 'cookies_configs'),
+        etag=pulumi.get(__response__, 'etag'),
+        headers_configs=pulumi.get(__response__, 'headers_configs'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        query_strings_configs=pulumi.get(__response__, 'query_strings_configs')))
