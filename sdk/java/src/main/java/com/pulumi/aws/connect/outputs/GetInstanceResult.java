@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -74,6 +75,11 @@ public final class GetInstanceResult {
      * 
      */
     private String status;
+    /**
+     * @return A map of tags to assigned to the instance.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetInstanceResult() {}
     /**
@@ -169,6 +175,13 @@ public final class GetInstanceResult {
     public String status() {
         return this.status;
     }
+    /**
+     * @return A map of tags to assigned to the instance.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -194,6 +207,7 @@ public final class GetInstanceResult {
         private Boolean outboundCallsEnabled;
         private String serviceRole;
         private String status;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -212,6 +226,7 @@ public final class GetInstanceResult {
     	      this.outboundCallsEnabled = defaults.outboundCallsEnabled;
     	      this.serviceRole = defaults.serviceRole;
     	      this.status = defaults.status;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -334,6 +349,14 @@ public final class GetInstanceResult {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetInstanceResult build() {
             final var _resultValue = new GetInstanceResult();
             _resultValue.arn = arn;
@@ -351,6 +374,7 @@ public final class GetInstanceResult {
             _resultValue.outboundCallsEnabled = outboundCallsEnabled;
             _resultValue.serviceRole = serviceRole;
             _resultValue.status = status;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

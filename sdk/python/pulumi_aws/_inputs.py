@@ -644,6 +644,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        codeconnections: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         codedeploy: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1627,6 +1631,7 @@ class ProviderEndpointArgs:
                  codebuild: Optional[pulumi.Input[str]] = None,
                  codecatalyst: Optional[pulumi.Input[str]] = None,
                  codecommit: Optional[pulumi.Input[str]] = None,
+                 codeconnections: Optional[pulumi.Input[str]] = None,
                  codedeploy: Optional[pulumi.Input[str]] = None,
                  codeguruprofiler: Optional[pulumi.Input[str]] = None,
                  codegurureviewer: Optional[pulumi.Input[str]] = None,
@@ -1918,6 +1923,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] codebuild: Use this to override the default service endpoint URL
         :param pulumi.Input[str] codecatalyst: Use this to override the default service endpoint URL
         :param pulumi.Input[str] codecommit: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] codeconnections: Use this to override the default service endpoint URL
         :param pulumi.Input[str] codedeploy: Use this to override the default service endpoint URL
         :param pulumi.Input[str] codeguruprofiler: Use this to override the default service endpoint URL
         :param pulumi.Input[str] codegurureviewer: Use this to override the default service endpoint URL
@@ -2270,6 +2276,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
+        if codeconnections is not None:
+            pulumi.set(__self__, "codeconnections", codeconnections)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
         if codeguruprofiler is not None:
@@ -3460,6 +3468,18 @@ class ProviderEndpointArgs:
     @codecommit.setter
     def codecommit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "codecommit", value)
+
+    @property
+    @pulumi.getter
+    def codeconnections(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "codeconnections")
+
+    @codeconnections.setter
+    def codeconnections(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "codeconnections", value)
 
     @property
     @pulumi.getter

@@ -42,6 +42,10 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
+        /// The tags to apply to the volume. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> TagSpecifications;
+        /// <summary>
         /// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         /// </summary>
         public readonly int? Throughput;
@@ -66,6 +70,8 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             string? snapshotId,
 
+            ImmutableArray<Outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications,
+
             int? throughput,
 
             string? volumeType)
@@ -77,6 +83,7 @@ namespace Pulumi.Aws.Ecs.Outputs
             RoleArn = roleArn;
             SizeInGb = sizeInGb;
             SnapshotId = snapshotId;
+            TagSpecifications = tagSpecifications;
             Throughput = throughput;
             VolumeType = volumeType;
         }

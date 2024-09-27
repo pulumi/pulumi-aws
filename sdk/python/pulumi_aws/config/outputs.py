@@ -303,6 +303,7 @@ class Endpoints(dict):
                  codebuild: Optional[str] = None,
                  codecatalyst: Optional[str] = None,
                  codecommit: Optional[str] = None,
+                 codeconnections: Optional[str] = None,
                  codedeploy: Optional[str] = None,
                  codeguruprofiler: Optional[str] = None,
                  codegurureviewer: Optional[str] = None,
@@ -594,6 +595,7 @@ class Endpoints(dict):
         :param str codebuild: Use this to override the default service endpoint URL
         :param str codecatalyst: Use this to override the default service endpoint URL
         :param str codecommit: Use this to override the default service endpoint URL
+        :param str codeconnections: Use this to override the default service endpoint URL
         :param str codedeploy: Use this to override the default service endpoint URL
         :param str codeguruprofiler: Use this to override the default service endpoint URL
         :param str codegurureviewer: Use this to override the default service endpoint URL
@@ -946,6 +948,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
+        if codeconnections is not None:
+            pulumi.set(__self__, "codeconnections", codeconnections)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
         if codeguruprofiler is not None:
@@ -1892,6 +1896,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "codecommit")
+
+    @property
+    @pulumi.getter
+    def codeconnections(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "codeconnections")
 
     @property
     @pulumi.getter

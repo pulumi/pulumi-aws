@@ -381,6 +381,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("codeconnections")]
+        public Input<string>? Codeconnections { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("codedeploy")]
         public Input<string>? Codedeploy { get; set; }
 

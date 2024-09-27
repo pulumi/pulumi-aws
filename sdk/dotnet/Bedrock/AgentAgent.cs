@@ -178,6 +178,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("foundationModel")]
         public Output<string> FoundationModel { get; private set; } = null!;
 
+        [Output("guardrailConfigurations")]
+        public Output<ImmutableArray<Outputs.AgentAgentGuardrailConfiguration>> GuardrailConfigurations { get; private set; } = null!;
+
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
@@ -301,6 +304,14 @@ namespace Pulumi.Aws.Bedrock
         [Input("foundationModel", required: true)]
         public Input<string> FoundationModel { get; set; } = null!;
 
+        [Input("guardrailConfigurations")]
+        private InputList<Inputs.AgentAgentGuardrailConfigurationArgs>? _guardrailConfigurations;
+        public InputList<Inputs.AgentAgentGuardrailConfigurationArgs> GuardrailConfigurations
+        {
+            get => _guardrailConfigurations ?? (_guardrailConfigurations = new InputList<Inputs.AgentAgentGuardrailConfigurationArgs>());
+            set => _guardrailConfigurations = value;
+        }
+
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
@@ -409,6 +420,14 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("foundationModel")]
         public Input<string>? FoundationModel { get; set; }
+
+        [Input("guardrailConfigurations")]
+        private InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs>? _guardrailConfigurations;
+        public InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs> GuardrailConfigurations
+        {
+            get => _guardrailConfigurations ?? (_guardrailConfigurations = new InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs>());
+            set => _guardrailConfigurations = value;
+        }
 
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.

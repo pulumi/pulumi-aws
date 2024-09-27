@@ -119,6 +119,10 @@ export interface GetTransitGatewayResult {
      */
     readonly propagationDefaultRouteTableId: string;
     /**
+     * Whether Security Group Referencing Support is enabled
+     */
+    readonly securityGroupReferencingSupport: string;
+    /**
      * Key-value tags for the EC2 Transit Gateway
      */
     readonly tags: {[key: string]: string};

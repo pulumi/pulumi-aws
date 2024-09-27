@@ -26,6 +26,7 @@ class AgentAgentArgs:
                  foundation_model: pulumi.Input[str],
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
@@ -56,6 +57,8 @@ class AgentAgentArgs:
             pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if guardrail_configurations is not None:
+            pulumi.set(__self__, "guardrail_configurations", guardrail_configurations)
         if idle_session_ttl_in_seconds is not None:
             pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if instruction is not None:
@@ -132,6 +135,15 @@ class AgentAgentArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="guardrailConfigurations")
+    def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
+        return pulumi.get(self, "guardrail_configurations")
+
+    @guardrail_configurations.setter
+    def guardrail_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]):
+        pulumi.set(self, "guardrail_configurations", value)
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
@@ -226,6 +238,7 @@ class _AgentAgentState:
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
@@ -270,6 +283,8 @@ class _AgentAgentState:
             pulumi.set(__self__, "description", description)
         if foundation_model is not None:
             pulumi.set(__self__, "foundation_model", foundation_model)
+        if guardrail_configurations is not None:
+            pulumi.set(__self__, "guardrail_configurations", guardrail_configurations)
         if idle_session_ttl_in_seconds is not None:
             pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if instruction is not None:
@@ -389,6 +404,15 @@ class _AgentAgentState:
         pulumi.set(self, "foundation_model", value)
 
     @property
+    @pulumi.getter(name="guardrailConfigurations")
+    def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
+        return pulumi.get(self, "guardrail_configurations")
+
+    @guardrail_configurations.setter
+    def guardrail_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]):
+        pulumi.set(self, "guardrail_configurations", value)
+
+    @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -493,6 +517,7 @@ class AgentAgent(pulumi.CustomResource):
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
@@ -659,6 +684,7 @@ class AgentAgent(pulumi.CustomResource):
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  foundation_model: Optional[pulumi.Input[str]] = None,
+                 guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
@@ -686,6 +712,7 @@ class AgentAgent(pulumi.CustomResource):
             if foundation_model is None and not opts.urn:
                 raise TypeError("Missing required property 'foundation_model'")
             __props__.__dict__["foundation_model"] = foundation_model
+            __props__.__dict__["guardrail_configurations"] = guardrail_configurations
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
             __props__.__dict__["instruction"] = instruction
             __props__.__dict__["prepare_agent"] = prepare_agent
@@ -715,6 +742,7 @@ class AgentAgent(pulumi.CustomResource):
             customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             foundation_model: Optional[pulumi.Input[str]] = None,
+            guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]]] = None,
             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
             instruction: Optional[pulumi.Input[str]] = None,
             prepare_agent: Optional[pulumi.Input[bool]] = None,
@@ -760,6 +788,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["customer_encryption_key_arn"] = customer_encryption_key_arn
         __props__.__dict__["description"] = description
         __props__.__dict__["foundation_model"] = foundation_model
+        __props__.__dict__["guardrail_configurations"] = guardrail_configurations
         __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         __props__.__dict__["instruction"] = instruction
         __props__.__dict__["prepare_agent"] = prepare_agent
@@ -835,6 +864,11 @@ class AgentAgent(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "foundation_model")
+
+    @property
+    @pulumi.getter(name="guardrailConfigurations")
+    def guardrail_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AgentAgentGuardrailConfiguration']]]:
+        return pulumi.get(self, "guardrail_configurations")
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")

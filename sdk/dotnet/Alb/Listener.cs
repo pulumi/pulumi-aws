@@ -364,7 +364,7 @@ namespace Pulumi.Aws.Alb
         public Output<string?> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for default actions. Detailed below.
+        /// Configuration block for default actions. See below.
         /// </summary>
         [Output("defaultActions")]
         public Output<ImmutableArray<Outputs.ListenerDefaultAction>> DefaultActions { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.Alb
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
         /// <summary>
-        /// The mutual authentication configuration information. Detailed below.
+        /// The mutual authentication configuration information. See below.
         /// </summary>
         [Output("mutualAuthentication")]
         public Output<Outputs.ListenerMutualAuthentication> MutualAuthentication { get; private set; } = null!;
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.ListenerDefaultActionArgs>? _defaultActions;
 
         /// <summary>
-        /// Configuration block for default actions. Detailed below.
+        /// Configuration block for default actions. See below.
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionArgs> DefaultActions
         {
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.Alb
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
         /// <summary>
-        /// The mutual authentication configuration information. Detailed below.
+        /// The mutual authentication configuration information. See below.
         /// </summary>
         [Input("mutualAuthentication")]
         public Input<Inputs.ListenerMutualAuthenticationArgs>? MutualAuthentication { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.Aws.Alb
         private InputList<Inputs.ListenerDefaultActionGetArgs>? _defaultActions;
 
         /// <summary>
-        /// Configuration block for default actions. Detailed below.
+        /// Configuration block for default actions. See below.
         /// </summary>
         public InputList<Inputs.ListenerDefaultActionGetArgs> DefaultActions
         {
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.Alb
         public Input<string>? LoadBalancerArn { get; set; }
 
         /// <summary>
-        /// The mutual authentication configuration information. Detailed below.
+        /// The mutual authentication configuration information. See below.
         /// </summary>
         [Input("mutualAuthentication")]
         public Input<Inputs.ListenerMutualAuthenticationGetArgs>? MutualAuthentication { get; set; }

@@ -135,6 +135,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        /// <summary>
+        /// Whether the first IPv6 GUA will be made the primary IPv6 address.
+        /// </summary>
         [Input("primaryIpv6")]
         public Input<string>? PrimaryIpv6 { get; set; }
 

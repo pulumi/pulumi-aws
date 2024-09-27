@@ -28,7 +28,7 @@ class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
     """
-    def __init__(__self__, appliance_mode_support=None, dns_support=None, filters=None, id=None, ipv6_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
+    def __init__(__self__, appliance_mode_support=None, dns_support=None, filters=None, id=None, ipv6_support=None, security_group_referencing_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
         if appliance_mode_support and not isinstance(appliance_mode_support, str):
             raise TypeError("Expected argument 'appliance_mode_support' to be a str")
         pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -44,6 +44,9 @@ class GetVpcAttachmentResult:
         if ipv6_support and not isinstance(ipv6_support, str):
             raise TypeError("Expected argument 'ipv6_support' to be a str")
         pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support and not isinstance(security_group_referencing_support, str):
+            raise TypeError("Expected argument 'security_group_referencing_support' to be a str")
+        pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -98,6 +101,14 @@ class GetVpcAttachmentResult:
         return pulumi.get(self, "ipv6_support")
 
     @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> str:
+        """
+        Whether Security Group Referencing Support is enabled.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
         """
@@ -149,6 +160,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             filters=self.filters,
             id=self.id,
             ipv6_support=self.ipv6_support,
+            security_group_referencing_support=self.security_group_referencing_support,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id,
@@ -204,6 +216,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ipv6_support=pulumi.get(__ret__, 'ipv6_support'),
+        security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),

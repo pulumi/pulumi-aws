@@ -128,6 +128,21 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    @Import(name="securityGroupReferencingSupport")
+    private @Nullable Output<String> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    public Optional<Output<String>> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
+    }
+
+    /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -182,6 +197,7 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
         this.description = $.description;
         this.dnsSupport = $.dnsSupport;
         this.multicastSupport = $.multicastSupport;
+        this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.tags = $.tags;
         this.transitGatewayCidrBlocks = $.transitGatewayCidrBlocks;
         this.vpnEcmpSupport = $.vpnEcmpSupport;
@@ -354,6 +370,27 @@ public final class TransitGatewayArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder multicastSupport(String multicastSupport) {
             return multicastSupport(Output.of(multicastSupport));
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(@Nullable Output<String> securityGroupReferencingSupport) {
+            $.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
+            return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }
 
         /**

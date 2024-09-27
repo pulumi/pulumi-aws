@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentAgentGuardrailConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentPromptOverrideConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentTimeoutsArgs;
 import com.pulumi.core.Output;
@@ -145,6 +146,13 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.foundationModel);
     }
 
+    @Import(name="guardrailConfigurations")
+    private @Nullable Output<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations;
+
+    public Optional<Output<List<AgentAgentGuardrailConfigurationArgs>>> guardrailConfigurations() {
+        return Optional.ofNullable(this.guardrailConfigurations);
+    }
+
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
@@ -276,6 +284,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
         this.customerEncryptionKeyArn = $.customerEncryptionKeyArn;
         this.description = $.description;
         this.foundationModel = $.foundationModel;
+        this.guardrailConfigurations = $.guardrailConfigurations;
         this.idleSessionTtlInSeconds = $.idleSessionTtlInSeconds;
         this.instruction = $.instruction;
         this.prepareAgent = $.prepareAgent;
@@ -474,6 +483,19 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder foundationModel(String foundationModel) {
             return foundationModel(Output.of(foundationModel));
+        }
+
+        public Builder guardrailConfigurations(@Nullable Output<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations) {
+            $.guardrailConfigurations = guardrailConfigurations;
+            return this;
+        }
+
+        public Builder guardrailConfigurations(List<AgentAgentGuardrailConfigurationArgs> guardrailConfigurations) {
+            return guardrailConfigurations(Output.of(guardrailConfigurations));
+        }
+
+        public Builder guardrailConfigurations(AgentAgentGuardrailConfigurationArgs... guardrailConfigurations) {
+            return guardrailConfigurations(List.of(guardrailConfigurations));
         }
 
         /**

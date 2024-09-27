@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -124,6 +126,21 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
     }
 
     /**
+     * The tags to apply to the volume. See below.
+     * 
+     */
+    @Import(name="tagSpecifications")
+    private @Nullable Output<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>> tagSpecifications;
+
+    /**
+     * @return The tags to apply to the volume. See below.
+     * 
+     */
+    public Optional<Output<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>>> tagSpecifications() {
+        return Optional.ofNullable(this.tagSpecifications);
+    }
+
+    /**
      * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
@@ -163,6 +180,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         this.roleArn = $.roleArn;
         this.sizeInGb = $.sizeInGb;
         this.snapshotId = $.snapshotId;
+        this.tagSpecifications = $.tagSpecifications;
         this.throughput = $.throughput;
         this.volumeType = $.volumeType;
     }
@@ -330,6 +348,37 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
          */
         public Builder snapshotId(String snapshotId) {
             return snapshotId(Output.of(snapshotId));
+        }
+
+        /**
+         * @param tagSpecifications The tags to apply to the volume. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagSpecifications(@Nullable Output<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>> tagSpecifications) {
+            $.tagSpecifications = tagSpecifications;
+            return this;
+        }
+
+        /**
+         * @param tagSpecifications The tags to apply to the volume. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagSpecifications(List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs> tagSpecifications) {
+            return tagSpecifications(Output.of(tagSpecifications));
+        }
+
+        /**
+         * @param tagSpecifications The tags to apply to the volume. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagSpecifications(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs... tagSpecifications) {
+            return tagSpecifications(List.of(tagSpecifications));
         }
 
         /**

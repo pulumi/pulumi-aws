@@ -64,6 +64,21 @@ public final class VpcAttachmentAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     * 
+     */
+    @Import(name="securityGroupReferencingSupport")
+    private @Nullable Output<String> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     * 
+     */
+    public Optional<Output<String>> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
+    }
+
+    /**
      * Identifiers of EC2 Subnets.
      * 
      */
@@ -212,6 +227,7 @@ public final class VpcAttachmentAccepterState extends com.pulumi.resources.Resou
         this.applianceModeSupport = $.applianceModeSupport;
         this.dnsSupport = $.dnsSupport;
         this.ipv6Support = $.ipv6Support;
+        this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -302,6 +318,27 @@ public final class VpcAttachmentAccepterState extends com.pulumi.resources.Resou
          */
         public Builder ipv6Support(String ipv6Support) {
             return ipv6Support(Output.of(ipv6Support));
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(@Nullable Output<String> securityGroupReferencingSupport) {
+            $.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
+            return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }
 
         /**

@@ -107,7 +107,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
@@ -123,7 +123,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
     /**
@@ -150,7 +150,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
     public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
@@ -262,7 +262,7 @@ export interface ServerlessCacheState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
     /**
@@ -278,7 +278,7 @@ export interface ServerlessCacheState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[]>;
     /**
@@ -305,7 +305,7 @@ export interface ServerlessCacheState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
     readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
     /**
@@ -348,7 +348,7 @@ export interface ServerlessCacheState {
  */
 export interface ServerlessCacheArgs {
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
     /**

@@ -65,6 +65,21 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    @Import(name="securityGroupReferencingSupport")
+    private @Nullable Output<String> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    public Optional<Output<String>> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
+    }
+
+    /**
      * Identifiers of EC2 Subnets.
      * 
      */
@@ -160,6 +175,7 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
         this.applianceModeSupport = $.applianceModeSupport;
         this.dnsSupport = $.dnsSupport;
         this.ipv6Support = $.ipv6Support;
+        this.securityGroupReferencingSupport = $.securityGroupReferencingSupport;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
         this.transitGatewayDefaultRouteTableAssociation = $.transitGatewayDefaultRouteTableAssociation;
@@ -247,6 +263,27 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipv6Support(String ipv6Support) {
             return ipv6Support(Output.of(ipv6Support));
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(@Nullable Output<String> securityGroupReferencingSupport) {
+            $.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+
+        /**
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
+            return securityGroupReferencingSupport(Output.of(securityGroupReferencingSupport));
         }
 
         /**

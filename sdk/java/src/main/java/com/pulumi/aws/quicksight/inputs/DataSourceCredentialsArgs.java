@@ -48,11 +48,27 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.credentialPair);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * 
+     */
+    @Import(name="secretArn")
+    private @Nullable Output<String> secretArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * 
+     */
+    public Optional<Output<String>> secretArn() {
+        return Optional.ofNullable(this.secretArn);
+    }
+
     private DataSourceCredentialsArgs() {}
 
     private DataSourceCredentialsArgs(DataSourceCredentialsArgs $) {
         this.copySourceArn = $.copySourceArn;
         this.credentialPair = $.credentialPair;
+        this.secretArn = $.secretArn;
     }
 
     public static Builder builder() {
@@ -115,6 +131,27 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
          */
         public Builder credentialPair(DataSourceCredentialsCredentialPairArgs credentialPair) {
             return credentialPair(Output.of(credentialPair));
+        }
+
+        /**
+         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretArn(@Nullable Output<String> secretArn) {
+            $.secretArn = secretArn;
+            return this;
+        }
+
+        /**
+         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretArn(String secretArn) {
+            return secretArn(Output.of(secretArn));
         }
 
         public DataSourceCredentialsArgs build() {

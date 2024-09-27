@@ -251,6 +251,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string PropagationDefaultRouteTableId;
         /// <summary>
+        /// Whether Security Group Referencing Support is enabled
+        /// </summary>
+        public readonly string SecurityGroupReferencingSupport;
+        /// <summary>
         /// Key-value tags for the EC2 Transit Gateway
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -291,6 +295,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string propagationDefaultRouteTableId,
 
+            string securityGroupReferencingSupport,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<string> transitGatewayCidrBlocks,
@@ -310,6 +316,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             MulticastSupport = multicastSupport;
             OwnerId = ownerId;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
             Tags = tags;
             TransitGatewayCidrBlocks = transitGatewayCidrBlocks;
             VpnEcmpSupport = vpnEcmpSupport;

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
     public sealed class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        /// </summary>
         [Input("maximum")]
         public Input<int>? Maximum { get; set; }
 
+        /// <summary>
+        /// The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        /// </summary>
         [Input("minimum")]
         public Input<int>? Minimum { get; set; }
 

@@ -110,6 +110,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> PropagationDefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Output("securityGroupReferencingSupport")]
+        public Output<string?> SecurityGroupReferencingSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
 
+        /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public Input<string>? SecurityGroupReferencingSupport { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -328,6 +340,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("propagationDefaultRouteTableId")]
         public Input<string>? PropagationDefaultRouteTableId { get; set; }
+
+        /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public Input<string>? SecurityGroupReferencingSupport { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

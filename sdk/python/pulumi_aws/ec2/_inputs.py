@@ -8365,6 +8365,9 @@ if not MYPY:
         The ID of the network interface to attach.
         """
         primary_ipv6: NotRequired[pulumi.Input[str]]
+        """
+        Whether the first IPv6 GUA will be made the primary IPv6 address.
+        """
         private_ip_address: NotRequired[pulumi.Input[str]]
         """
         The primary private IPv4 address.
@@ -8423,6 +8426,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
         :param pulumi.Input[int] network_card_index: The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach.
+        :param pulumi.Input[str] primary_ipv6: Whether the first IPv6 GUA will be made the primary IPv6 address.
         :param pulumi.Input[str] private_ip_address: The primary private IPv4 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs to associate.
         :param pulumi.Input[str] subnet_id: The VPC Subnet ID to associate.
@@ -8666,6 +8670,9 @@ class LaunchTemplateNetworkInterfaceArgs:
     @property
     @pulumi.getter(name="primaryIpv6")
     def primary_ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the first IPv6 GUA will be made the primary IPv6 address.
+        """
         return pulumi.get(self, "primary_ipv6")
 
     @primary_ipv6.setter

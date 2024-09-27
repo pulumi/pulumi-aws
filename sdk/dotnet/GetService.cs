@@ -173,7 +173,7 @@ namespace Pulumi.Aws
         public string? ReverseDnsPrefix { get; set; }
 
         /// <summary>
-        /// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
         /// </summary>
         [Input("serviceId")]
         public string? ServiceId { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws
         public Input<string>? ReverseDnsPrefix { get; set; }
 
         /// <summary>
-        /// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+        /// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
         /// </summary>
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }

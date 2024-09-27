@@ -37,6 +37,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -52,6 +53,10 @@ export interface GetInstanceArgs {
      * Returns information on a specific connect instance by id
      */
     instanceId?: string;
+    /**
+     * A map of tags to assigned to the instance.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -109,6 +114,10 @@ export interface GetInstanceResult {
      * State of the instance.
      */
     readonly status: string;
+    /**
+     * A map of tags to assigned to the instance.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Provides details about a specific Amazon Connect Instance.
@@ -143,6 +152,7 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -158,4 +168,8 @@ export interface GetInstanceOutputArgs {
      * Returns information on a specific connect instance by id
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assigned to the instance.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

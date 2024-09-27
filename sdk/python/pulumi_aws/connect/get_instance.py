@@ -26,7 +26,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, multi_party_conference_enabled=None, outbound_calls_enabled=None, service_role=None, status=None):
+    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, multi_party_conference_enabled=None, outbound_calls_enabled=None, service_role=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -72,6 +72,9 @@ class GetInstanceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -184,6 +187,14 @@ class GetInstanceResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags to assigned to the instance.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
@@ -205,11 +216,13 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             multi_party_conference_enabled=self.multi_party_conference_enabled,
             outbound_calls_enabled=self.outbound_calls_enabled,
             service_role=self.service_role,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_instance(instance_alias: Optional[str] = None,
                  instance_id: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Provides details about a specific Amazon Connect Instance.
@@ -237,10 +250,12 @@ def get_instance(instance_alias: Optional[str] = None,
 
     :param str instance_alias: Returns information on a specific connect instance by alias
     :param str instance_id: Returns information on a specific connect instance by id
+    :param Mapping[str, str] tags: A map of tags to assigned to the instance.
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias
     __args__['instanceId'] = instance_id
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
@@ -259,12 +274,14 @@ def get_instance(instance_alias: Optional[str] = None,
         multi_party_conference_enabled=pulumi.get(__ret__, 'multi_party_conference_enabled'),
         outbound_calls_enabled=pulumi.get(__ret__, 'outbound_calls_enabled'),
         service_role=pulumi.get(__ret__, 'service_role'),
-        status=pulumi.get(__ret__, 'status'))
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_instance)
 def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Provides details about a specific Amazon Connect Instance.
@@ -292,5 +309,6 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str instance_alias: Returns information on a specific connect instance by alias
     :param str instance_id: Returns information on a specific connect instance by id
+    :param Mapping[str, str] tags: A map of tags to assigned to the instance.
     """
     ...

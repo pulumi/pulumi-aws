@@ -14,28 +14,19 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ListenerDefaultAction struct {
-	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
 	AuthenticateCognito *ListenerDefaultActionAuthenticateCognito `pulumi:"authenticateCognito"`
-	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
 	AuthenticateOidc *ListenerDefaultActionAuthenticateOidc `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
-	// Detailed below.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
 	Forward *ListenerDefaultActionForward `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
+	// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 	Order *int `pulumi:"order"`
-	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+	// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
 	Redirect *ListenerDefaultActionRedirect `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	//
@@ -55,28 +46,19 @@ type ListenerDefaultActionInput interface {
 }
 
 type ListenerDefaultActionArgs struct {
-	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+	// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
 	AuthenticateCognito ListenerDefaultActionAuthenticateCognitoPtrInput `pulumi:"authenticateCognito"`
-	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+	// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
 	AuthenticateOidc ListenerDefaultActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
 	// Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
-	// Configuration block for creating an action that distributes requests among one or more target groups.
-	// Specify only if `type` is `forward`.
-	// Cannot be specified with `targetGroupArn`.
-	// Detailed below.
+	// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
 	Forward ListenerDefaultActionForwardPtrInput `pulumi:"forward"`
-	// Order for the action.
-	// The action with the lowest value for order is performed first.
-	// Valid values are between `1` and `50000`.
-	// Defaults to the position in the list of actions.
+	// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 	Order pulumi.IntPtrInput `pulumi:"order"`
-	// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+	// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
 	Redirect ListenerDefaultActionRedirectPtrInput `pulumi:"redirect"`
-	// ARN of the Target Group to which to route traffic.
-	// Specify only if `type` is `forward` and you want to route to a single target group.
-	// To route to one or more target groups, use a `forward` block instead.
-	// Cannot be specified with `forward`.
+	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
 	//
@@ -135,12 +117,12 @@ func (o ListenerDefaultActionOutput) ToListenerDefaultActionOutputWithContext(ct
 	return o
 }
 
-// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+// Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
 func (o ListenerDefaultActionOutput) AuthenticateCognito() ListenerDefaultActionAuthenticateCognitoPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionAuthenticateCognito { return v.AuthenticateCognito }).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
-// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+// Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
 func (o ListenerDefaultActionOutput) AuthenticateOidc() ListenerDefaultActionAuthenticateOidcPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionAuthenticateOidc { return v.AuthenticateOidc }).(ListenerDefaultActionAuthenticateOidcPtrOutput)
 }
@@ -150,31 +132,22 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionFixedResponse { return v.FixedResponse }).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-// Configuration block for creating an action that distributes requests among one or more target groups.
-// Specify only if `type` is `forward`.
-// Cannot be specified with `targetGroupArn`.
-// Detailed below.
+// Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
 func (o ListenerDefaultActionOutput) Forward() ListenerDefaultActionForwardPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionForward { return v.Forward }).(ListenerDefaultActionForwardPtrOutput)
 }
 
-// Order for the action.
-// The action with the lowest value for order is performed first.
-// Valid values are between `1` and `50000`.
-// Defaults to the position in the list of actions.
+// Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
 func (o ListenerDefaultActionOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
 
-// Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+// Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
 func (o ListenerDefaultActionOutput) Redirect() ListenerDefaultActionRedirectPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *ListenerDefaultActionRedirect { return v.Redirect }).(ListenerDefaultActionRedirectPtrOutput)
 }
 
-// ARN of the Target Group to which to route traffic.
-// Specify only if `type` is `forward` and you want to route to a single target group.
-// To route to one or more target groups, use a `forward` block instead.
-// Cannot be specified with `forward`.
+// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
 func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -207,7 +180,7 @@ func (o ListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) ListenerDefau
 }
 
 type ListenerDefaultActionAuthenticateCognito struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
 	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 	OnUnauthenticatedRequest *string `pulumi:"onUnauthenticatedRequest"`
@@ -239,7 +212,7 @@ type ListenerDefaultActionAuthenticateCognitoInput interface {
 }
 
 type ListenerDefaultActionAuthenticateCognitoArgs struct {
-	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+	// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
 	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
 	OnUnauthenticatedRequest pulumi.StringPtrInput `pulumi:"onUnauthenticatedRequest"`
@@ -336,7 +309,7 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 	}).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
 func (o ListenerDefaultActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) map[string]string {
 		return v.AuthenticationRequestExtraParams
@@ -404,7 +377,7 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaul
 	}).(ListenerDefaultActionAuthenticateCognitoOutput)
 }
 
-// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) map[string]string {
 		if v == nil {
@@ -1007,9 +980,9 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) StatusCode() pulumi.StringP
 }
 
 type ListenerDefaultActionForward struct {
-	// Configuration block for target group stickiness for the rule. Detailed below.
+	// Configuration block for target group stickiness for the rule. See below.
 	Stickiness *ListenerDefaultActionForwardStickiness `pulumi:"stickiness"`
-	// Set of 1-5 target group blocks. Detailed below.
+	// Set of 1-5 target group blocks. See below.
 	//
 	// The following arguments are optional:
 	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
@@ -1027,9 +1000,9 @@ type ListenerDefaultActionForwardInput interface {
 }
 
 type ListenerDefaultActionForwardArgs struct {
-	// Configuration block for target group stickiness for the rule. Detailed below.
+	// Configuration block for target group stickiness for the rule. See below.
 	Stickiness ListenerDefaultActionForwardStickinessPtrInput `pulumi:"stickiness"`
-	// Set of 1-5 target group blocks. Detailed below.
+	// Set of 1-5 target group blocks. See below.
 	//
 	// The following arguments are optional:
 	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
@@ -1112,12 +1085,12 @@ func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOut
 	}).(ListenerDefaultActionForwardPtrOutput)
 }
 
-// Configuration block for target group stickiness for the rule. Detailed below.
+// Configuration block for target group stickiness for the rule. See below.
 func (o ListenerDefaultActionForwardOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness { return v.Stickiness }).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
 
-// Set of 1-5 target group blocks. Detailed below.
+// Set of 1-5 target group blocks. See below.
 //
 // The following arguments are optional:
 func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
@@ -1148,7 +1121,7 @@ func (o ListenerDefaultActionForwardPtrOutput) Elem() ListenerDefaultActionForwa
 	}).(ListenerDefaultActionForwardOutput)
 }
 
-// Configuration block for target group stickiness for the rule. Detailed below.
+// Configuration block for target group stickiness for the rule. See below.
 func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActionForwardStickinessPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForward) *ListenerDefaultActionForwardStickiness {
 		if v == nil {
@@ -1158,7 +1131,7 @@ func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActio
 	}).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
 
-// Set of 1-5 target group blocks. Detailed below.
+// Set of 1-5 target group blocks. See below.
 //
 // The following arguments are optional:
 func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {

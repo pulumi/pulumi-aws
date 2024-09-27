@@ -69,6 +69,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly ipv6Support!: pulumi.Output<string | undefined>;
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    /**
      * Identifiers of EC2 Subnets.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -119,6 +123,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -141,6 +146,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = args ? args.ipv6Support : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
@@ -171,6 +177,10 @@ export interface VpcAttachmentState {
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     ipv6Support?: pulumi.Input<string>;
+    /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
      * Identifiers of EC2 Subnets.
      */
@@ -223,6 +233,10 @@ export interface VpcAttachmentArgs {
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     ipv6Support?: pulumi.Input<string>;
+    /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
      * Identifiers of EC2 Subnets.
      */

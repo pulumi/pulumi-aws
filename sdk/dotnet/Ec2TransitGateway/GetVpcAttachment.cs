@@ -219,6 +219,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Ipv6Support;
         /// <summary>
+        /// Whether Security Group Referencing Support is enabled.
+        /// </summary>
+        public readonly string SecurityGroupReferencingSupport;
+        /// <summary>
         /// Identifiers of EC2 Subnets.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
@@ -251,6 +255,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string ipv6Support,
 
+            string securityGroupReferencingSupport,
+
             ImmutableArray<string> subnetIds,
 
             ImmutableDictionary<string, string> tags,
@@ -266,6 +272,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Filters = filters;
             Id = id;
             Ipv6Support = ipv6Support;
+            SecurityGroupReferencingSupport = securityGroupReferencingSupport;
             SubnetIds = subnetIds;
             Tags = tags;
             TransitGatewayId = transitGatewayId;

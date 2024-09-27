@@ -39,14 +39,14 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<DataSourceCredentialsArgs> credentials;
 
     /**
-     * @return The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * @return The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
     public Optional<Output<DataSourceCredentialsArgs>> credentials() {
@@ -232,7 +232,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
          * 
          * @return builder
          * 

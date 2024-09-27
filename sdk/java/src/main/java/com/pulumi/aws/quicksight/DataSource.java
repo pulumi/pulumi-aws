@@ -112,14 +112,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
     @Export(name="credentials", refs={DataSourceCredentials.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCredentials> credentials;
 
     /**
-     * @return The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * @return The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
     public Output<Optional<DataSourceCredentials>> credentials() {
@@ -186,14 +186,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sslProperties", refs={DataSourceSslProperties.class}, tree="[0]")
-    private Output</* @Nullable */ DataSourceSslProperties> sslProperties;
+    private Output<DataSourceSslProperties> sslProperties;
 
     /**
      * @return Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
-    public Output<Optional<DataSourceSslProperties>> sslProperties() {
-        return Codegen.optional(this.sslProperties);
+    public Output<DataSourceSslProperties> sslProperties() {
+        return this.sslProperties;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

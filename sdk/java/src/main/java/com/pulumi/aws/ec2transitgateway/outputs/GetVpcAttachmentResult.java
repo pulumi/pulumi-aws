@@ -36,6 +36,11 @@ public final class GetVpcAttachmentResult {
      */
     private String ipv6Support;
     /**
+     * @return Whether Security Group Referencing Support is enabled.
+     * 
+     */
+    private String securityGroupReferencingSupport;
+    /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
@@ -94,6 +99,13 @@ public final class GetVpcAttachmentResult {
         return this.ipv6Support;
     }
     /**
+     * @return Whether Security Group Referencing Support is enabled.
+     * 
+     */
+    public String securityGroupReferencingSupport() {
+        return this.securityGroupReferencingSupport;
+    }
+    /**
      * @return Identifiers of EC2 Subnets.
      * 
      */
@@ -143,6 +155,7 @@ public final class GetVpcAttachmentResult {
         private @Nullable List<GetVpcAttachmentFilter> filters;
         private String id;
         private String ipv6Support;
+        private String securityGroupReferencingSupport;
         private List<String> subnetIds;
         private Map<String,String> tags;
         private String transitGatewayId;
@@ -156,6 +169,7 @@ public final class GetVpcAttachmentResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ipv6Support = defaults.ipv6Support;
+    	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
@@ -202,6 +216,14 @@ public final class GetVpcAttachmentResult {
               throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "ipv6Support");
             }
             this.ipv6Support = ipv6Support;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
+            if (securityGroupReferencingSupport == null) {
+              throw new MissingRequiredPropertyException("GetVpcAttachmentResult", "securityGroupReferencingSupport");
+            }
+            this.securityGroupReferencingSupport = securityGroupReferencingSupport;
             return this;
         }
         @CustomType.Setter
@@ -254,6 +276,7 @@ public final class GetVpcAttachmentResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ipv6Support = ipv6Support;
+            _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;

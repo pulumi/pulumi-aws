@@ -6414,6 +6414,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param Sequence[str] ipv6_prefixes: One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
         :param int network_card_index: The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         :param str network_interface_id: The ID of the network interface to attach.
+        :param str primary_ipv6: Whether the first IPv6 GUA will be made the primary IPv6 address.
         :param str private_ip_address: The primary private IPv4 address.
         :param Sequence[str] security_groups: A list of security group IDs to associate.
         :param str subnet_id: The VPC Subnet ID to associate.
@@ -6593,6 +6594,9 @@ class LaunchTemplateNetworkInterface(dict):
     @property
     @pulumi.getter(name="primaryIpv6")
     def primary_ipv6(self) -> Optional[str]:
+        """
+        Whether the first IPv6 GUA will be made the primary IPv6 address.
+        """
         return pulumi.get(self, "primary_ipv6")
 
     @property

@@ -39,7 +39,7 @@ import (
 //						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
 //							ClientId:  pulumi.Any(exampleAwsCognitoUserPoolClient.Id),
 //							UserPool:  pulumi.Any(exampleAwsCognitoUserPoolDomain.UserPoolId),
-//							UserGroup: pulumi.Any(exampleAwsCognitoUserGroup.Id),
+//							UserGroup: pulumi.Any(exampleAwsCognitoUserGroup.Name),
 //						},
 //					},
 //				},
@@ -118,9 +118,9 @@ type Workteam struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationOutput `pulumi:"workerAccessConfiguration"`
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
 	// The name of the workforce.
+	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
+	// The name of the Workteam (must be unique).
 	WorkteamName pulumi.StringOutput `pulumi:"workteamName"`
 }
 
@@ -184,9 +184,9 @@ type workteamState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration *WorkteamWorkerAccessConfiguration `pulumi:"workerAccessConfiguration"`
-	// The name of the Workteam (must be unique).
-	WorkforceName *string `pulumi:"workforceName"`
 	// The name of the workforce.
+	WorkforceName *string `pulumi:"workforceName"`
+	// The name of the Workteam (must be unique).
 	WorkteamName *string `pulumi:"workteamName"`
 }
 
@@ -209,9 +209,9 @@ type WorkteamState struct {
 	TagsAll pulumi.StringMapInput
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationPtrInput
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringPtrInput
 	// The name of the workforce.
+	WorkforceName pulumi.StringPtrInput
+	// The name of the Workteam (must be unique).
 	WorkteamName pulumi.StringPtrInput
 }
 
@@ -230,9 +230,9 @@ type workteamArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration *WorkteamWorkerAccessConfiguration `pulumi:"workerAccessConfiguration"`
-	// The name of the Workteam (must be unique).
-	WorkforceName string `pulumi:"workforceName"`
 	// The name of the workforce.
+	WorkforceName string `pulumi:"workforceName"`
+	// The name of the Workteam (must be unique).
 	WorkteamName string `pulumi:"workteamName"`
 }
 
@@ -248,9 +248,9 @@ type WorkteamArgs struct {
 	Tags pulumi.StringMapInput
 	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
 	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationPtrInput
-	// The name of the Workteam (must be unique).
-	WorkforceName pulumi.StringInput
 	// The name of the workforce.
+	WorkforceName pulumi.StringInput
+	// The name of the Workteam (must be unique).
 	WorkteamName pulumi.StringInput
 }
 
@@ -383,12 +383,12 @@ func (o WorkteamOutput) WorkerAccessConfiguration() WorkteamWorkerAccessConfigur
 	return o.ApplyT(func(v *Workteam) WorkteamWorkerAccessConfigurationOutput { return v.WorkerAccessConfiguration }).(WorkteamWorkerAccessConfigurationOutput)
 }
 
-// The name of the Workteam (must be unique).
+// The name of the workforce.
 func (o WorkteamOutput) WorkforceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.WorkforceName }).(pulumi.StringOutput)
 }
 
-// The name of the workforce.
+// The name of the Workteam (must be unique).
 func (o WorkteamOutput) WorkteamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.WorkteamName }).(pulumi.StringOutput)
 }

@@ -77,6 +77,11 @@ public final class GetTransitGatewayResult {
      */
     private String propagationDefaultRouteTableId;
     /**
+     * @return Whether Security Group Referencing Support is enabled
+     * 
+     */
+    private String securityGroupReferencingSupport;
+    /**
      * @return Key-value tags for the EC2 Transit Gateway
      * 
      */
@@ -181,6 +186,13 @@ public final class GetTransitGatewayResult {
         return this.propagationDefaultRouteTableId;
     }
     /**
+     * @return Whether Security Group Referencing Support is enabled
+     * 
+     */
+    public String securityGroupReferencingSupport() {
+        return this.securityGroupReferencingSupport;
+    }
+    /**
      * @return Key-value tags for the EC2 Transit Gateway
      * 
      */
@@ -224,6 +236,7 @@ public final class GetTransitGatewayResult {
         private String multicastSupport;
         private String ownerId;
         private String propagationDefaultRouteTableId;
+        private String securityGroupReferencingSupport;
         private Map<String,String> tags;
         private List<String> transitGatewayCidrBlocks;
         private String vpnEcmpSupport;
@@ -243,6 +256,7 @@ public final class GetTransitGatewayResult {
     	      this.multicastSupport = defaults.multicastSupport;
     	      this.ownerId = defaults.ownerId;
     	      this.propagationDefaultRouteTableId = defaults.propagationDefaultRouteTableId;
+    	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
     	      this.tags = defaults.tags;
     	      this.transitGatewayCidrBlocks = defaults.transitGatewayCidrBlocks;
     	      this.vpnEcmpSupport = defaults.vpnEcmpSupport;
@@ -354,6 +368,14 @@ public final class GetTransitGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder securityGroupReferencingSupport(String securityGroupReferencingSupport) {
+            if (securityGroupReferencingSupport == null) {
+              throw new MissingRequiredPropertyException("GetTransitGatewayResult", "securityGroupReferencingSupport");
+            }
+            this.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetTransitGatewayResult", "tags");
@@ -395,6 +417,7 @@ public final class GetTransitGatewayResult {
             _resultValue.multicastSupport = multicastSupport;
             _resultValue.ownerId = ownerId;
             _resultValue.propagationDefaultRouteTableId = propagationDefaultRouteTableId;
+            _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             _resultValue.tags = tags;
             _resultValue.transitGatewayCidrBlocks = transitGatewayCidrBlocks;
             _resultValue.vpnEcmpSupport = vpnEcmpSupport;

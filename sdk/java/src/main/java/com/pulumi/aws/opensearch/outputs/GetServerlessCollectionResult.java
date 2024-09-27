@@ -36,6 +36,12 @@ public final class GetServerlessCollectionResult {
      * 
      */
     private String description;
+    /**
+     * @return A failure code associated with the collection.
+     * 
+     */
+    private String failureCode;
+    private String failureMessage;
     private String id;
     /**
      * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -100,6 +106,16 @@ public final class GetServerlessCollectionResult {
     public String description() {
         return this.description;
     }
+    /**
+     * @return A failure code associated with the collection.
+     * 
+     */
+    public String failureCode() {
+        return this.failureCode;
+    }
+    public String failureMessage() {
+        return this.failureMessage;
+    }
     public String id() {
         return this.id;
     }
@@ -156,6 +172,8 @@ public final class GetServerlessCollectionResult {
         private String createdDate;
         private String dashboardEndpoint;
         private String description;
+        private String failureCode;
+        private String failureMessage;
         private String id;
         private String kmsKeyArn;
         private String lastModifiedDate;
@@ -171,6 +189,8 @@ public final class GetServerlessCollectionResult {
     	      this.createdDate = defaults.createdDate;
     	      this.dashboardEndpoint = defaults.dashboardEndpoint;
     	      this.description = defaults.description;
+    	      this.failureCode = defaults.failureCode;
+    	      this.failureMessage = defaults.failureMessage;
     	      this.id = defaults.id;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
@@ -218,6 +238,22 @@ public final class GetServerlessCollectionResult {
               throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder failureCode(String failureCode) {
+            if (failureCode == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "failureCode");
+            }
+            this.failureCode = failureCode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder failureMessage(String failureMessage) {
+            if (failureMessage == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionResult", "failureMessage");
+            }
+            this.failureMessage = failureMessage;
             return this;
         }
         @CustomType.Setter
@@ -283,6 +319,8 @@ public final class GetServerlessCollectionResult {
             _resultValue.createdDate = createdDate;
             _resultValue.dashboardEndpoint = dashboardEndpoint;
             _resultValue.description = description;
+            _resultValue.failureCode = failureCode;
+            _resultValue.failureMessage = failureMessage;
             _resultValue.id = id;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.lastModifiedDate = lastModifiedDate;

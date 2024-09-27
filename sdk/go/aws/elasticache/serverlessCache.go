@@ -138,7 +138,7 @@ type ServerlessCache struct {
 
 	// The Amazon Resource Name (ARN) of the serverless cache.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -146,7 +146,7 @@ type ServerlessCache struct {
 	DailySnapshotTime pulumi.StringOutput `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints ServerlessCacheEndpointArrayOutput `pulumi:"endpoints"`
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
@@ -161,7 +161,7 @@ type ServerlessCache struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayOutput `pulumi:"readerEndpoints"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -217,7 +217,7 @@ func GetServerlessCache(ctx *pulumi.Context,
 type serverlessCacheState struct {
 	// The Amazon Resource Name (ARN) of the serverless cache.
 	Arn *string `pulumi:"arn"`
-	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime *string `pulumi:"createTime"`
@@ -225,7 +225,7 @@ type serverlessCacheState struct {
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints []ServerlessCacheEndpoint `pulumi:"endpoints"`
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine *string `pulumi:"engine"`
@@ -240,7 +240,7 @@ type serverlessCacheState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints []ServerlessCacheReaderEndpoint `pulumi:"readerEndpoints"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -264,7 +264,7 @@ type serverlessCacheState struct {
 type ServerlessCacheState struct {
 	// The Amazon Resource Name (ARN) of the serverless cache.
 	Arn pulumi.StringPtrInput
-	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringPtrInput
@@ -272,7 +272,7 @@ type ServerlessCacheState struct {
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints ServerlessCacheEndpointArrayInput
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringPtrInput
@@ -287,7 +287,7 @@ type ServerlessCacheState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Represents the information required for client programs to connect to a cache node. See config below for details.
+	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -313,7 +313,7 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 }
 
 type serverlessCacheArgs struct {
-	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
@@ -347,7 +347,7 @@ type serverlessCacheArgs struct {
 
 // The set of arguments for constructing a ServerlessCache resource.
 type ServerlessCacheArgs struct {
-	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
@@ -471,7 +471,7 @@ func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 func (o ServerlessCacheOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheCacheUsageLimitsPtrOutput { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
@@ -491,7 +491,7 @@ func (o ServerlessCacheOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Represents the information required for client programs to connect to a cache node. See config below for details.
+// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 func (o ServerlessCacheOutput) Endpoints() ServerlessCacheEndpointArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointArrayOutput { return v.Endpoints }).(ServerlessCacheEndpointArrayOutput)
 }
@@ -524,7 +524,7 @@ func (o ServerlessCacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Represents the information required for client programs to connect to a cache node. See config below for details.
+// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 func (o ServerlessCacheOutput) ReaderEndpoints() ServerlessCacheReaderEndpointArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheReaderEndpointArrayOutput { return v.ReaderEndpoints }).(ServerlessCacheReaderEndpointArrayOutput)
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Alb.Inputs
         private InputMap<string>? _authenticationRequestExtraParams;
 
         /// <summary>
-        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         /// </summary>
         public InputMap<string> AuthenticationRequestExtraParams
         {

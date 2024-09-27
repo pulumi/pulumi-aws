@@ -116,6 +116,20 @@ public class VpcAttachmentAccepter extends com.pulumi.resources.CustomResource {
         return this.ipv6Support;
     }
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     * 
+     */
+    @Export(name="securityGroupReferencingSupport", refs={String.class}, tree="[0]")
+    private Output<String> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     * 
+     */
+    public Output<String> securityGroupReferencingSupport() {
+        return this.securityGroupReferencingSupport;
+    }
+    /**
      * Identifiers of EC2 Subnets.
      * 
      */

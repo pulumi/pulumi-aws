@@ -528,11 +528,11 @@ if not MYPY:
     class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
         data_storage: NotRequired[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]
         """
-        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
         """
         ecpu_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]
         """
-        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
         """
 elif False:
     ServerlessCacheCacheUsageLimitsArgsDict: TypeAlias = Mapping[str, Any]
@@ -543,8 +543,8 @@ class ServerlessCacheCacheUsageLimitsArgs:
                  data_storage: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']] = None,
                  ecpu_per_seconds: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]] = None):
         """
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]] ecpu_per_seconds: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
         """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
@@ -555,7 +555,7 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgs']]:
         """
-        The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
         """
         return pulumi.get(self, "data_storage")
 
@@ -567,7 +567,7 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @pulumi.getter(name="ecpuPerSeconds")
     def ecpu_per_seconds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]:
         """
-        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
         """
         return pulumi.get(self, "ecpu_per_seconds")
 
@@ -583,7 +583,13 @@ if not MYPY:
         The unit that the storage is measured in, in GB.
         """
         maximum: NotRequired[pulumi.Input[int]]
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
         minimum: NotRequired[pulumi.Input[int]]
+        """
+        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
 elif False:
     ServerlessCacheCacheUsageLimitsDataStorageArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -595,6 +601,8 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
                  minimum: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] unit: The unit that the storage is measured in, in GB.
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        :param pulumi.Input[int] minimum: The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         pulumi.set(__self__, "unit", unit)
         if maximum is not None:
@@ -617,6 +625,9 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     @property
     @pulumi.getter
     def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
@@ -626,6 +637,9 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     @property
     @pulumi.getter
     def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
@@ -636,7 +650,13 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
 if not MYPY:
     class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict(TypedDict):
         maximum: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        """
         minimum: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        """
 elif False:
     ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -645,6 +665,10 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     def __init__(__self__, *,
                  maximum: Optional[pulumi.Input[int]] = None,
                  minimum: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] maximum: The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        :param pulumi.Input[int] minimum: The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        """
         if maximum is not None:
             pulumi.set(__self__, "maximum", maximum)
         if minimum is not None:
@@ -653,6 +677,9 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     @property
     @pulumi.getter
     def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
@@ -662,6 +689,9 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     @property
     @pulumi.getter
     def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+        """
         return pulumi.get(self, "minimum")
 
     @minimum.setter

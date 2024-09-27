@@ -5,10 +5,10 @@ Subject: [PATCH] fix legacy bucket context
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 5f64a814be..d5c03b22fb 100644
+index 40fd0b7be2..e6470bb576 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -904,7 +904,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -903,7 +903,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		d.Set("bucket", d.Id())
  	}
  
@@ -17,7 +17,7 @@ index 5f64a814be..d5c03b22fb 100644
  
  	// Read the policy
  	if _, ok := d.GetOk("policy"); ok {
-@@ -1803,7 +1803,7 @@ func websiteLegacyDomainUrl(client *conns.AWSClient, region string) string {
+@@ -1802,7 +1802,7 @@ func websiteLegacyDomainUrl(client *conns.AWSClient, region string) string {
  	if isOldRegionLegacy(region) {
  		return fmt.Sprintf("s3-website-%s.amazonaws.com", region) //lintignore:AWSR001
  	}

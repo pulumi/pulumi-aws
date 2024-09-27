@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.backup.Vault;
  * import com.pulumi.aws.backup.VaultArgs;
  * import com.pulumi.aws.iam.IamFunctions;
@@ -45,6 +47,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
  *         var exampleVault = new Vault("exampleVault", VaultArgs.builder()
  *             .name("example")
  *             .build());
@@ -54,7 +58,7 @@ import javax.annotation.Nullable;
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
- *                     .identifiers("*")
+ *                     .identifiers(current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()))
  *                     .build())
  *                 .actions(                
  *                     "backup:DescribeBackupVault",

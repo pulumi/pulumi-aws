@@ -23,6 +23,11 @@ public final class DataSourceCredentials {
      * 
      */
     private @Nullable DataSourceCredentialsCredentialPair credentialPair;
+    /**
+     * @return The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * 
+     */
+    private @Nullable String secretArn;
 
     private DataSourceCredentials() {}
     /**
@@ -40,6 +45,13 @@ public final class DataSourceCredentials {
     public Optional<DataSourceCredentialsCredentialPair> credentialPair() {
         return Optional.ofNullable(this.credentialPair);
     }
+    /**
+     * @return The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * 
+     */
+    public Optional<String> secretArn() {
+        return Optional.ofNullable(this.secretArn);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -52,11 +64,13 @@ public final class DataSourceCredentials {
     public static final class Builder {
         private @Nullable String copySourceArn;
         private @Nullable DataSourceCredentialsCredentialPair credentialPair;
+        private @Nullable String secretArn;
         public Builder() {}
         public Builder(DataSourceCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copySourceArn = defaults.copySourceArn;
     	      this.credentialPair = defaults.credentialPair;
+    	      this.secretArn = defaults.secretArn;
         }
 
         @CustomType.Setter
@@ -71,10 +85,17 @@ public final class DataSourceCredentials {
             this.credentialPair = credentialPair;
             return this;
         }
+        @CustomType.Setter
+        public Builder secretArn(@Nullable String secretArn) {
+
+            this.secretArn = secretArn;
+            return this;
+        }
         public DataSourceCredentials build() {
             final var _resultValue = new DataSourceCredentials();
             _resultValue.copySourceArn = copySourceArn;
             _resultValue.credentialPair = credentialPair;
+            _resultValue.secretArn = secretArn;
             return _resultValue;
         }
     }

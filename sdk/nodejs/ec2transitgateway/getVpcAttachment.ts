@@ -87,6 +87,10 @@ export interface GetVpcAttachmentResult {
      */
     readonly ipv6Support: string;
     /**
+     * Whether Security Group Referencing Support is enabled.
+     */
+    readonly securityGroupReferencingSupport: string;
+    /**
      * Identifiers of EC2 Subnets.
      */
     readonly subnetIds: string[];

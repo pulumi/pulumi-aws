@@ -104,6 +104,8 @@ type LookupVpcAttachmentResult struct {
 	Id string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
 	Ipv6Support string `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled.
+	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
@@ -186,6 +188,11 @@ func (o LookupVpcAttachmentResultOutput) Id() pulumi.StringOutput {
 // Whether IPv6 support is enabled.
 func (o LookupVpcAttachmentResultOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Ipv6Support }).(pulumi.StringOutput)
+}
+
+// Whether Security Group Referencing Support is enabled.
+func (o LookupVpcAttachmentResultOutput) SecurityGroupReferencingSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.SecurityGroupReferencingSupport }).(pulumi.StringOutput)
 }
 
 // Identifiers of EC2 Subnets.

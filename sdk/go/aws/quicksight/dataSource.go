@@ -64,7 +64,7 @@ type DataSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
 	// An identifier for the data source.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
@@ -75,7 +75,7 @@ type DataSource struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayOutput `pulumi:"permissions"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-	SslProperties DataSourceSslPropertiesPtrOutput `pulumi:"sslProperties"`
+	SslProperties DataSourceSslPropertiesOutput `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -133,7 +133,7 @@ type dataSourceState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
 	// An identifier for the data source.
 	DataSourceId *string `pulumi:"dataSourceId"`
@@ -164,7 +164,7 @@ type DataSourceState struct {
 	Arn pulumi.StringPtrInput
 	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
 	// An identifier for the data source.
 	DataSourceId pulumi.StringPtrInput
@@ -197,7 +197,7 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
 	// An identifier for the data source.
 	DataSourceId string `pulumi:"dataSourceId"`
@@ -223,7 +223,7 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	// The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringPtrInput
-	// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
 	// An identifier for the data source.
 	DataSourceId pulumi.StringInput
@@ -342,7 +342,7 @@ func (o DataSourceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 func (o DataSourceOutput) Credentials() DataSourceCredentialsPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceCredentialsPtrOutput { return v.Credentials }).(DataSourceCredentialsPtrOutput)
 }
@@ -368,8 +368,8 @@ func (o DataSourceOutput) Permissions() DataSourcePermissionArrayOutput {
 }
 
 // Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
-func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesPtrOutput {
-	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesPtrOutput { return v.SslProperties }).(DataSourceSslPropertiesPtrOutput)
+func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesOutput { return v.SslProperties }).(DataSourceSslPropertiesOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -38,7 +38,7 @@ class ServerlessCacheArgs:
         """
         The set of arguments for constructing a ServerlessCache resource.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -98,7 +98,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
         """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
 
@@ -278,11 +278,11 @@ class _ServerlessCacheState:
         """
         Input properties used for looking up and filtering ServerlessCache resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the serverless cache.
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -291,7 +291,7 @@ class _ServerlessCacheState:
         :param pulumi.Input[str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -362,7 +362,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
         """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
 
@@ -410,7 +410,7 @@ class _ServerlessCacheState:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]]]:
         """
-        Represents the information required for client programs to connect to a cache node. See config below for details.
+        Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         """
         return pulumi.get(self, "endpoints")
 
@@ -485,7 +485,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="readerEndpoints")
     def reader_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
         """
-        Represents the information required for client programs to connect to a cache node. See config below for details.
+        Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         """
         return pulumi.get(self, "reader_endpoints")
 
@@ -684,7 +684,7 @@ class ServerlessCache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
@@ -872,11 +872,11 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the serverless cache.
-        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -885,7 +885,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
@@ -933,7 +933,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> pulumi.Output[Optional['outputs.ServerlessCacheCacheUsageLimits']]:
         """
-        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         """
         return pulumi.get(self, "cache_usage_limits")
 
@@ -965,7 +965,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheEndpoint']]:
         """
-        Represents the information required for client programs to connect to a cache node. See config below for details.
+        Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         """
         return pulumi.get(self, "endpoints")
 
@@ -1016,7 +1016,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="readerEndpoints")
     def reader_endpoints(self) -> pulumi.Output[Sequence['outputs.ServerlessCacheReaderEndpoint']]:
         """
-        Represents the information required for client programs to connect to a cache node. See config below for details.
+        Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         """
         return pulumi.get(self, "reader_endpoints")
 

@@ -19,14 +19,14 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
     public static final ListenerDefaultActionForwardArgs Empty = new ListenerDefaultActionForwardArgs();
 
     /**
-     * Configuration block for target group stickiness for the rule. Detailed below.
+     * Configuration block for target group stickiness for the rule. See below.
      * 
      */
     @Import(name="stickiness")
     private @Nullable Output<ListenerDefaultActionForwardStickinessArgs> stickiness;
 
     /**
-     * @return Configuration block for target group stickiness for the rule. Detailed below.
+     * @return Configuration block for target group stickiness for the rule. See below.
      * 
      */
     public Optional<Output<ListenerDefaultActionForwardStickinessArgs>> stickiness() {
@@ -34,7 +34,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
     }
 
     /**
-     * Set of 1-5 target group blocks. Detailed below.
+     * Set of 1-5 target group blocks. See below.
      * 
      * The following arguments are optional:
      * 
@@ -43,7 +43,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
     private Output<List<ListenerDefaultActionForwardTargetGroupArgs>> targetGroups;
 
     /**
-     * @return Set of 1-5 target group blocks. Detailed below.
+     * @return Set of 1-5 target group blocks. See below.
      * 
      * The following arguments are optional:
      * 
@@ -78,7 +78,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param stickiness Configuration block for target group stickiness for the rule. Detailed below.
+         * @param stickiness Configuration block for target group stickiness for the rule. See below.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param stickiness Configuration block for target group stickiness for the rule. Detailed below.
+         * @param stickiness Configuration block for target group stickiness for the rule. See below.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups Set of 1-5 target group blocks. Detailed below.
+         * @param targetGroups Set of 1-5 target group blocks. See below.
          * 
          * The following arguments are optional:
          * 
@@ -112,7 +112,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups Set of 1-5 target group blocks. Detailed below.
+         * @param targetGroups Set of 1-5 target group blocks. See below.
          * 
          * The following arguments are optional:
          * 
@@ -124,7 +124,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups Set of 1-5 target group blocks. Detailed below.
+         * @param targetGroups Set of 1-5 target group blocks. See below.
          * 
          * The following arguments are optional:
          * 

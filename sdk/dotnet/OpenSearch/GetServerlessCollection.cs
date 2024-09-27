@@ -129,6 +129,11 @@ namespace Pulumi.Aws.OpenSearch
         /// Description of the collection.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// A failure code associated with the collection.
+        /// </summary>
+        public readonly string FailureCode;
+        public readonly string FailureMessage;
         public readonly string Id;
         /// <summary>
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -164,6 +169,10 @@ namespace Pulumi.Aws.OpenSearch
 
             string description,
 
+            string failureCode,
+
+            string failureMessage,
+
             string id,
 
             string kmsKeyArn,
@@ -183,6 +192,8 @@ namespace Pulumi.Aws.OpenSearch
             CreatedDate = createdDate;
             DashboardEndpoint = dashboardEndpoint;
             Description = description;
+            FailureCode = failureCode;
+            FailureMessage = failureMessage;
             Id = id;
             KmsKeyArn = kmsKeyArn;
             LastModifiedDate = lastModifiedDate;

@@ -15,16 +15,32 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.
 
     public static final ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs Empty = new ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs();
 
+    /**
+     * The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     @Import(name="maximum")
     private @Nullable Output<Integer> maximum;
 
+    /**
+     * @return The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     public Optional<Output<Integer>> maximum() {
         return Optional.ofNullable(this.maximum);
     }
 
+    /**
+     * The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     @Import(name="minimum")
     private @Nullable Output<Integer> minimum;
 
+    /**
+     * @return The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     public Optional<Output<Integer>> minimum() {
         return Optional.ofNullable(this.minimum);
     }
@@ -54,20 +70,44 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs extends com.
             $ = new ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maximum The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximum(@Nullable Output<Integer> maximum) {
             $.maximum = maximum;
             return this;
         }
 
+        /**
+         * @param maximum The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximum(Integer maximum) {
             return maximum(Output.of(maximum));
         }
 
+        /**
+         * @param minimum The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimum(@Nullable Output<Integer> minimum) {
             $.minimum = minimum;
             return this;
         }
 
+        /**
+         * @param minimum The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimum(Integer minimum) {
             return minimum(Output.of(minimum));
         }

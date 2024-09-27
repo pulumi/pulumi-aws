@@ -38,14 +38,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     @Import(name="cacheUsageLimits")
     private @Nullable Output<ServerlessCacheCacheUsageLimitsArgs> cacheUsageLimits;
 
     /**
-     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     public Optional<Output<ServerlessCacheCacheUsageLimitsArgs>> cacheUsageLimits() {
@@ -98,14 +98,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<List<ServerlessCacheEndpointArgs>> endpoints;
 
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See config below for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      * 
      */
     public Optional<Output<List<ServerlessCacheEndpointArgs>>> endpoints() {
@@ -194,14 +194,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
      * 
      */
     @Import(name="readerEndpoints")
     private @Nullable Output<List<ServerlessCacheReaderEndpointArgs>> readerEndpoints;
 
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See config below for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
      * 
      */
     public Optional<Output<List<ServerlessCacheReaderEndpointArgs>>> readerEndpoints() {
@@ -405,7 +405,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param endpoints Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param endpoints Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param endpoints Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
          * 
          * @return builder
          * 
@@ -642,7 +642,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See config below for details.
+         * @param readerEndpoints Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
          * 
          * @return builder
          * 

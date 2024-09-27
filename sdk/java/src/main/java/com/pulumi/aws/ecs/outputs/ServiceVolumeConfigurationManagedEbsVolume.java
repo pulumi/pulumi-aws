@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -49,6 +51,11 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      * 
      */
     private @Nullable String snapshotId;
+    /**
+     * @return The tags to apply to the volume. See below.
+     * 
+     */
+    private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications;
     /**
      * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
@@ -111,6 +118,13 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
+     * @return The tags to apply to the volume. See below.
+     * 
+     */
+    public List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications() {
+        return this.tagSpecifications == null ? List.of() : this.tagSpecifications;
+    }
+    /**
      * @return Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
@@ -141,6 +155,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         private String roleArn;
         private @Nullable Integer sizeInGb;
         private @Nullable String snapshotId;
+        private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications;
         private @Nullable Integer throughput;
         private @Nullable String volumeType;
         public Builder() {}
@@ -153,6 +168,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
     	      this.roleArn = defaults.roleArn;
     	      this.sizeInGb = defaults.sizeInGb;
     	      this.snapshotId = defaults.snapshotId;
+    	      this.tagSpecifications = defaults.tagSpecifications;
     	      this.throughput = defaults.throughput;
     	      this.volumeType = defaults.volumeType;
         }
@@ -202,6 +218,15 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
             return this;
         }
         @CustomType.Setter
+        public Builder tagSpecifications(@Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications) {
+
+            this.tagSpecifications = tagSpecifications;
+            return this;
+        }
+        public Builder tagSpecifications(ServiceVolumeConfigurationManagedEbsVolumeTagSpecification... tagSpecifications) {
+            return tagSpecifications(List.of(tagSpecifications));
+        }
+        @CustomType.Setter
         public Builder throughput(@Nullable Integer throughput) {
 
             this.throughput = throughput;
@@ -222,6 +247,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
             _resultValue.roleArn = roleArn;
             _resultValue.sizeInGb = sizeInGb;
             _resultValue.snapshotId = snapshotId;
+            _resultValue.tagSpecifications = tagSpecifications;
             _resultValue.throughput = throughput;
             _resultValue.volumeType = volumeType;
             return _resultValue;

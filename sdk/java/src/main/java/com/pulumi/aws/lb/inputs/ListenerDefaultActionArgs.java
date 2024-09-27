@@ -23,14 +23,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     public static final ListenerDefaultActionArgs Empty = new ListenerDefaultActionArgs();
 
     /**
-     * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+     * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
      * 
      */
     @Import(name="authenticateCognito")
     private @Nullable Output<ListenerDefaultActionAuthenticateCognitoArgs> authenticateCognito;
 
     /**
-     * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+     * @return Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
      * 
      */
     public Optional<Output<ListenerDefaultActionAuthenticateCognitoArgs>> authenticateCognito() {
@@ -38,14 +38,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+     * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
      * 
      */
     @Import(name="authenticateOidc")
     private @Nullable Output<ListenerDefaultActionAuthenticateOidcArgs> authenticateOidc;
 
     /**
-     * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+     * @return Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
      * 
      */
     public Optional<Output<ListenerDefaultActionAuthenticateOidcArgs>> authenticateOidc() {
@@ -68,20 +68,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Configuration block for creating an action that distributes requests among one or more target groups.
-     * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
-     * Detailed below.
+     * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
      * 
      */
     @Import(name="forward")
     private @Nullable Output<ListenerDefaultActionForwardArgs> forward;
 
     /**
-     * @return Configuration block for creating an action that distributes requests among one or more target groups.
-     * Specify only if `type` is `forward`.
-     * Cannot be specified with `target_group_arn`.
-     * Detailed below.
+     * @return Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
      * 
      */
     public Optional<Output<ListenerDefaultActionForwardArgs>> forward() {
@@ -89,20 +83,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Order for the action.
-     * The action with the lowest value for order is performed first.
-     * Valid values are between `1` and `50000`.
-     * Defaults to the position in the list of actions.
+     * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
     /**
-     * @return Order for the action.
-     * The action with the lowest value for order is performed first.
-     * Valid values are between `1` and `50000`.
-     * Defaults to the position in the list of actions.
+     * @return Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
     public Optional<Output<Integer>> order() {
@@ -110,14 +98,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+     * Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
      * 
      */
     @Import(name="redirect")
     private @Nullable Output<ListenerDefaultActionRedirectArgs> redirect;
 
     /**
-     * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+     * @return Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
      * 
      */
     public Optional<Output<ListenerDefaultActionRedirectArgs>> redirect() {
@@ -125,20 +113,14 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * ARN of the Target Group to which to route traffic.
-     * Specify only if `type` is `forward` and you want to route to a single target group.
-     * To route to one or more target groups, use a `forward` block instead.
-     * Cannot be specified with `forward`.
+     * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
      * 
      */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
     /**
-     * @return ARN of the Target Group to which to route traffic.
-     * Specify only if `type` is `forward` and you want to route to a single target group.
-     * To route to one or more target groups, use a `forward` block instead.
-     * Cannot be specified with `forward`.
+     * @return ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
      * 
      */
     public Optional<Output<String>> targetGroupArn() {
@@ -196,7 +178,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
          * 
          * @return builder
          * 
@@ -207,7 +189,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         * @param authenticateCognito Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
          * 
          * @return builder
          * 
@@ -217,7 +199,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
          * 
          * @return builder
          * 
@@ -228,7 +210,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         * @param authenticateOidc Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
          * 
          * @return builder
          * 
@@ -259,10 +241,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forward Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `target_group_arn`.
-         * Detailed below.
+         * @param forward Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
          * 
          * @return builder
          * 
@@ -273,10 +252,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forward Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `target_group_arn`.
-         * Detailed below.
+         * @param forward Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
          * 
          * @return builder
          * 
@@ -286,10 +262,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param order Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * @param order Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
          * 
          * @return builder
          * 
@@ -300,10 +273,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param order Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * @param order Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
          * 
          * @return builder
          * 
@@ -313,7 +283,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
          * 
          * @return builder
          * 
@@ -324,7 +294,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+         * @param redirect Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
          * 
          * @return builder
          * 
@@ -334,10 +304,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetGroupArn ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * @param targetGroupArn ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
          * 
          * @return builder
          * 
@@ -348,10 +315,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetGroupArn ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * @param targetGroupArn ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
          * 
          * @return builder
          * 

@@ -66,14 +66,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for default actions. Detailed below.
+     * Configuration block for default actions. See below.
      * 
      */
     @Import(name="defaultActions")
     private @Nullable Output<List<ListenerDefaultActionArgs>> defaultActions;
 
     /**
-     * @return Configuration block for default actions. Detailed below.
+     * @return Configuration block for default actions. See below.
      * 
      */
     public Optional<Output<List<ListenerDefaultActionArgs>>> defaultActions() {
@@ -100,14 +100,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mutual authentication configuration information. Detailed below.
+     * The mutual authentication configuration information. See below.
      * 
      */
     @Import(name="mutualAuthentication")
     private @Nullable Output<ListenerMutualAuthenticationArgs> mutualAuthentication;
 
     /**
-     * @return The mutual authentication configuration information. Detailed below.
+     * @return The mutual authentication configuration information. See below.
      * 
      */
     public Optional<Output<ListenerMutualAuthenticationArgs>> mutualAuthentication() {
@@ -295,7 +295,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultActions Configuration block for default actions. Detailed below.
+         * @param defaultActions Configuration block for default actions. See below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultActions Configuration block for default actions. Detailed below.
+         * @param defaultActions Configuration block for default actions. See below.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultActions Configuration block for default actions. Detailed below.
+         * @param defaultActions Configuration block for default actions. See below.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mutualAuthentication The mutual authentication configuration information. Detailed below.
+         * @param mutualAuthentication The mutual authentication configuration information. See below.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mutualAuthentication The mutual authentication configuration information. Detailed below.
+         * @param mutualAuthentication The mutual authentication configuration information. See below.
          * 
          * @return builder
          * 

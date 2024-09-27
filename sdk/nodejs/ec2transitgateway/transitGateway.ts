@@ -101,6 +101,10 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -143,6 +147,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["multicastSupport"] = state ? state.multicastSupport : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = state ? state.transitGatewayCidrBlocks : undefined;
@@ -156,6 +161,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
@@ -221,6 +227,10 @@ export interface TransitGatewayState {
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
+    /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -274,6 +284,10 @@ export interface TransitGatewayArgs {
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     multicastSupport?: pulumi.Input<string>;
+    /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

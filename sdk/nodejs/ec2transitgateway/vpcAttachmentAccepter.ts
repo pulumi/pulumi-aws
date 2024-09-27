@@ -76,6 +76,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipv6Support!: pulumi.Output<string>;
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     */
+    public /*out*/ readonly securityGroupReferencingSupport!: pulumi.Output<string>;
+    /**
      * Identifiers of EC2 Subnets.
      */
     public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
@@ -130,6 +134,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -151,6 +156,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = undefined /*out*/;
             resourceInputs["dnsSupport"] = undefined /*out*/;
             resourceInputs["ipv6Support"] = undefined /*out*/;
+            resourceInputs["securityGroupReferencingSupport"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface VpcAttachmentAccepterState {
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
      */
     ipv6Support?: pulumi.Input<string>;
+    /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+     */
+    securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
      * Identifiers of EC2 Subnets.
      */

@@ -158,7 +158,7 @@ def get_service(dns_name: Optional[str] = None,
     :param str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
     :param str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
     :param str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-    :param str service_id: Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+    :param str service_id: Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
     """
     __args__ = dict()
     __args__['dnsName'] = dns_name
@@ -228,6 +228,6 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
     :param str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
     :param str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-    :param str service_id: Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+    :param str service_id: Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
     """
     ...

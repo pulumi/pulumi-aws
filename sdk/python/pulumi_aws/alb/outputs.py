@@ -105,22 +105,13 @@ class ListenerDefaultAction(dict):
         :param str type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
                
                The following arguments are optional:
-        :param 'ListenerDefaultActionAuthenticateCognitoArgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
-        :param 'ListenerDefaultActionAuthenticateOidcArgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        :param 'ListenerDefaultActionAuthenticateCognitoArgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
+        :param 'ListenerDefaultActionAuthenticateOidcArgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         :param 'ListenerDefaultActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups.
-               Specify only if `type` is `forward`.
-               Cannot be specified with `target_group_arn`.
-               Detailed below.
-        :param int order: Order for the action.
-               The action with the lowest value for order is performed first.
-               Valid values are between `1` and `50000`.
-               Defaults to the position in the list of actions.
-        :param 'ListenerDefaultActionRedirectArgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
-        :param str target_group_arn: ARN of the Target Group to which to route traffic.
-               Specify only if `type` is `forward` and you want to route to a single target group.
-               To route to one or more target groups, use a `forward` block instead.
-               Cannot be specified with `forward`.
+        :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
+        :param int order: Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
+        :param 'ListenerDefaultActionRedirectArgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
+        :param str target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito is not None:
@@ -152,7 +143,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter(name="authenticateCognito")
     def authenticate_cognito(self) -> Optional['outputs.ListenerDefaultActionAuthenticateCognito']:
         """
-        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
         """
         return pulumi.get(self, "authenticate_cognito")
 
@@ -160,7 +151,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter(name="authenticateOidc")
     def authenticate_oidc(self) -> Optional['outputs.ListenerDefaultActionAuthenticateOidc']:
         """
-        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         """
         return pulumi.get(self, "authenticate_oidc")
 
@@ -176,10 +167,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def forward(self) -> Optional['outputs.ListenerDefaultActionForward']:
         """
-        Configuration block for creating an action that distributes requests among one or more target groups.
-        Specify only if `type` is `forward`.
-        Cannot be specified with `target_group_arn`.
-        Detailed below.
+        Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
         """
         return pulumi.get(self, "forward")
 
@@ -187,10 +175,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def order(self) -> Optional[int]:
         """
-        Order for the action.
-        The action with the lowest value for order is performed first.
-        Valid values are between `1` and `50000`.
-        Defaults to the position in the list of actions.
+        Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
         """
         return pulumi.get(self, "order")
 
@@ -198,7 +183,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter
     def redirect(self) -> Optional['outputs.ListenerDefaultActionRedirect']:
         """
-        Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
         """
         return pulumi.get(self, "redirect")
 
@@ -206,10 +191,7 @@ class ListenerDefaultAction(dict):
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[str]:
         """
-        ARN of the Target Group to which to route traffic.
-        Specify only if `type` is `forward` and you want to route to a single target group.
-        To route to one or more target groups, use a `forward` block instead.
-        Cannot be specified with `forward`.
+        ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -260,7 +242,7 @@ class ListenerDefaultActionAuthenticateCognito(dict):
         :param str user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
                
                The following arguments are optional:
-        :param Mapping[str, str] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        :param Mapping[str, str] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         :param str on_unauthenticated_request: Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
         :param str scope: Set of user claims to be requested from the IdP.
         :param str session_cookie_name: Name of the cookie used to maintain session information.
@@ -310,7 +292,7 @@ class ListenerDefaultActionAuthenticateCognito(dict):
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
         """
-        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -607,10 +589,10 @@ class ListenerDefaultActionForward(dict):
                  target_groups: Sequence['outputs.ListenerDefaultActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerDefaultActionForwardStickiness'] = None):
         """
-        :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: Set of 1-5 target group blocks. Detailed below.
+        :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: Set of 1-5 target group blocks. See below.
                
                The following arguments are optional:
-        :param 'ListenerDefaultActionForwardStickinessArgs' stickiness: Configuration block for target group stickiness for the rule. Detailed below.
+        :param 'ListenerDefaultActionForwardStickinessArgs' stickiness: Configuration block for target group stickiness for the rule. See below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -620,7 +602,7 @@ class ListenerDefaultActionForward(dict):
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Sequence['outputs.ListenerDefaultActionForwardTargetGroup']:
         """
-        Set of 1-5 target group blocks. Detailed below.
+        Set of 1-5 target group blocks. See below.
 
         The following arguments are optional:
         """
@@ -630,7 +612,7 @@ class ListenerDefaultActionForward(dict):
     @pulumi.getter
     def stickiness(self) -> Optional['outputs.ListenerDefaultActionForwardStickiness']:
         """
-        Configuration block for target group stickiness for the rule. Detailed below.
+        Configuration block for target group stickiness for the rule. See below.
         """
         return pulumi.get(self, "stickiness")
 

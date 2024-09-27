@@ -151,7 +151,8 @@ type AgentAgent struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel pulumi.StringOutput `pulumi:"foundationModel"`
+	FoundationModel         pulumi.StringOutput                         `pulumi:"foundationModel"`
+	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayOutput `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users.
@@ -227,7 +228,8 @@ type agentAgentState struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel *string `pulumi:"foundationModel"`
+	FoundationModel         *string                            `pulumi:"foundationModel"`
+	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users.
@@ -265,7 +267,8 @@ type AgentAgentState struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel pulumi.StringPtrInput
+	FoundationModel         pulumi.StringPtrInput
+	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users.
@@ -301,7 +304,8 @@ type agentAgentArgs struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel string `pulumi:"foundationModel"`
+	FoundationModel         string                             `pulumi:"foundationModel"`
+	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
 	// Instructions that tell the agent what it should do and how it should interact with users.
@@ -330,7 +334,8 @@ type AgentAgentArgs struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel pulumi.StringInput
+	FoundationModel         pulumi.StringInput
+	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
 	// Instructions that tell the agent what it should do and how it should interact with users.
@@ -473,6 +478,10 @@ func (o AgentAgentOutput) Description() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o AgentAgentOutput) FoundationModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.FoundationModel }).(pulumi.StringOutput)
+}
+
+func (o AgentAgentOutput) GuardrailConfigurations() AgentAgentGuardrailConfigurationArrayOutput {
+	return o.ApplyT(func(v *AgentAgent) AgentAgentGuardrailConfigurationArrayOutput { return v.GuardrailConfigurations }).(AgentAgentGuardrailConfigurationArrayOutput)
 }
 
 // Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.

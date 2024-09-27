@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServerlessCacheCacheUsageLimits {
     /**
-     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
      * 
      */
     private @Nullable ServerlessCacheCacheUsageLimitsDataStorage dataStorage;
     /**
-     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
      * 
      */
     private @Nullable List<ServerlessCacheCacheUsageLimitsEcpuPerSecond> ecpuPerSeconds;
 
     private ServerlessCacheCacheUsageLimits() {}
     /**
-     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
      * 
      */
     public Optional<ServerlessCacheCacheUsageLimitsDataStorage> dataStorage() {
         return Optional.ofNullable(this.dataStorage);
     }
     /**
-     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
      * 
      */
     public List<ServerlessCacheCacheUsageLimitsEcpuPerSecond> ecpuPerSeconds() {
