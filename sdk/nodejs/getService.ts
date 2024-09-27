@@ -79,7 +79,7 @@ export interface GetServiceArgs {
      */
     reverseDnsPrefix?: string;
     /**
-     * Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
+     * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      */
     serviceId?: string;
 }
@@ -175,7 +175,7 @@ export interface GetServiceOutputArgs {
      */
     reverseDnsPrefix?: pulumi.Input<string>;
     /**
-     * Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
+     * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      */
     serviceId?: pulumi.Input<string>;
 }

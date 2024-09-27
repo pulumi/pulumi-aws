@@ -263,9 +263,17 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.networkInterfaceId);
     }
 
+    /**
+     * Whether the first IPv6 GUA will be made the primary IPv6 address.
+     * 
+     */
     @Import(name="primaryIpv6")
     private @Nullable Output<String> primaryIpv6;
 
+    /**
+     * @return Whether the first IPv6 GUA will be made the primary IPv6 address.
+     * 
+     */
     public Optional<Output<String>> primaryIpv6() {
         return Optional.ofNullable(this.primaryIpv6);
     }
@@ -740,11 +748,23 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
             return networkInterfaceId(Output.of(networkInterfaceId));
         }
 
+        /**
+         * @param primaryIpv6 Whether the first IPv6 GUA will be made the primary IPv6 address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryIpv6(@Nullable Output<String> primaryIpv6) {
             $.primaryIpv6 = primaryIpv6;
             return this;
         }
 
+        /**
+         * @param primaryIpv6 Whether the first IPv6 GUA will be made the primary IPv6 address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primaryIpv6(String primaryIpv6) {
             return primaryIpv6(Output.of(primaryIpv6));
         }

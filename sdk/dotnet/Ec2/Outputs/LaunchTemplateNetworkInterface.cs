@@ -80,6 +80,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The ID of the network interface to attach.
         /// </summary>
         public readonly string? NetworkInterfaceId;
+        /// <summary>
+        /// Whether the first IPv6 GUA will be made the primary IPv6 address.
+        /// </summary>
         public readonly string? PrimaryIpv6;
         /// <summary>
         /// The primary private IPv4 address.

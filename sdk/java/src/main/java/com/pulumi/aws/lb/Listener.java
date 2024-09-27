@@ -523,14 +523,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificateArn);
     }
     /**
-     * Configuration block for default actions. Detailed below.
+     * Configuration block for default actions. See below.
      * 
      */
     @Export(name="defaultActions", refs={List.class,ListenerDefaultAction.class}, tree="[0,1]")
     private Output<List<ListenerDefaultAction>> defaultActions;
 
     /**
-     * @return Configuration block for default actions. Detailed below.
+     * @return Configuration block for default actions. See below.
      * 
      */
     public Output<List<ListenerDefaultAction>> defaultActions() {
@@ -555,14 +555,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.loadBalancerArn;
     }
     /**
-     * The mutual authentication configuration information. Detailed below.
+     * The mutual authentication configuration information. See below.
      * 
      */
     @Export(name="mutualAuthentication", refs={ListenerMutualAuthentication.class}, tree="[0]")
     private Output<ListenerMutualAuthentication> mutualAuthentication;
 
     /**
-     * @return The mutual authentication configuration information. Detailed below.
+     * @return The mutual authentication configuration information. See below.
      * 
      */
     public Output<ListenerMutualAuthentication> mutualAuthentication() {

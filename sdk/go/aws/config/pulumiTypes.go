@@ -413,6 +413,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Codecommit *string `pulumi:"codecommit"`
 	// Use this to override the default service endpoint URL
+	Codeconnections *string `pulumi:"codeconnections"`
+	// Use this to override the default service endpoint URL
 	Codedeploy *string `pulumi:"codedeploy"`
 	// Use this to override the default service endpoint URL
 	Codeguruprofiler *string `pulumi:"codeguruprofiler"`
@@ -1006,6 +1008,8 @@ type EndpointsArgs struct {
 	Codecatalyst pulumi.StringPtrInput `pulumi:"codecatalyst"`
 	// Use this to override the default service endpoint URL
 	Codecommit pulumi.StringPtrInput `pulumi:"codecommit"`
+	// Use this to override the default service endpoint URL
+	Codeconnections pulumi.StringPtrInput `pulumi:"codeconnections"`
 	// Use this to override the default service endpoint URL
 	Codedeploy pulumi.StringPtrInput `pulumi:"codedeploy"`
 	// Use this to override the default service endpoint URL
@@ -1820,6 +1824,11 @@ func (o EndpointsOutput) Codecatalyst() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Codecommit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Codecommit }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Codeconnections() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Codeconnections }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

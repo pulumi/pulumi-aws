@@ -26,7 +26,7 @@ class GetServerlessCollectionResult:
     """
     A collection of values returned by getServerlessCollection.
     """
-    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, standby_replicas=None, tags=None, type=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, failure_code=None, failure_message=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, standby_replicas=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,12 @@ class GetServerlessCollectionResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if failure_code and not isinstance(failure_code, str):
+            raise TypeError("Expected argument 'failure_code' to be a str")
+        pulumi.set(__self__, "failure_code", failure_code)
+        if failure_message and not isinstance(failure_message, str):
+            raise TypeError("Expected argument 'failure_message' to be a str")
+        pulumi.set(__self__, "failure_message", failure_message)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -105,6 +111,19 @@ class GetServerlessCollectionResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="failureCode")
+    def failure_code(self) -> str:
+        """
+        A failure code associated with the collection.
+        """
+        return pulumi.get(self, "failure_code")
+
+    @property
+    @pulumi.getter(name="failureMessage")
+    def failure_message(self) -> str:
+        return pulumi.get(self, "failure_message")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
@@ -166,6 +185,8 @@ class AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
             created_date=self.created_date,
             dashboard_endpoint=self.dashboard_endpoint,
             description=self.description,
+            failure_code=self.failure_code,
+            failure_message=self.failure_message,
             id=self.id,
             kms_key_arn=self.kms_key_arn,
             last_modified_date=self.last_modified_date,
@@ -208,6 +229,8 @@ def get_serverless_collection(id: Optional[str] = None,
         created_date=pulumi.get(__ret__, 'created_date'),
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
         description=pulumi.get(__ret__, 'description'),
+        failure_code=pulumi.get(__ret__, 'failure_code'),
+        failure_message=pulumi.get(__ret__, 'failure_message'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),

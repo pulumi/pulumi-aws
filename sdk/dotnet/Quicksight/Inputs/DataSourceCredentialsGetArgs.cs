@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
         [Input("credentialPair")]
         public Input<Inputs.DataSourceCredentialsCredentialPairGetArgs>? CredentialPair { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        /// </summary>
+        [Input("secretArn")]
+        public Input<string>? SecretArn { get; set; }
+
         public DataSourceCredentialsGetArgs()
         {
         }

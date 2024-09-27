@@ -97,11 +97,11 @@ if not MYPY:
         """
         authenticate_cognito: NotRequired[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgsDict']]
         """
-        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
         """
         authenticate_oidc: NotRequired[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgsDict']]
         """
-        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         """
         fixed_response: NotRequired[pulumi.Input['ListenerDefaultActionFixedResponseArgsDict']]
         """
@@ -109,28 +109,19 @@ if not MYPY:
         """
         forward: NotRequired[pulumi.Input['ListenerDefaultActionForwardArgsDict']]
         """
-        Configuration block for creating an action that distributes requests among one or more target groups.
-        Specify only if `type` is `forward`.
-        Cannot be specified with `target_group_arn`.
-        Detailed below.
+        Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
         """
         order: NotRequired[pulumi.Input[int]]
         """
-        Order for the action.
-        The action with the lowest value for order is performed first.
-        Valid values are between `1` and `50000`.
-        Defaults to the position in the list of actions.
+        Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
         """
         redirect: NotRequired[pulumi.Input['ListenerDefaultActionRedirectArgsDict']]
         """
-        Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
         """
         target_group_arn: NotRequired[pulumi.Input[str]]
         """
-        ARN of the Target Group to which to route traffic.
-        Specify only if `type` is `forward` and you want to route to a single target group.
-        To route to one or more target groups, use a `forward` block instead.
-        Cannot be specified with `forward`.
+        ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         """
 elif False:
     ListenerDefaultActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -150,22 +141,13 @@ class ListenerDefaultActionArgs:
         :param pulumi.Input[str] type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
                
                The following arguments are optional:
-        :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
-        :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         :param pulumi.Input['ListenerDefaultActionFixedResponseArgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param pulumi.Input['ListenerDefaultActionForwardArgs'] forward: Configuration block for creating an action that distributes requests among one or more target groups.
-               Specify only if `type` is `forward`.
-               Cannot be specified with `target_group_arn`.
-               Detailed below.
-        :param pulumi.Input[int] order: Order for the action.
-               The action with the lowest value for order is performed first.
-               Valid values are between `1` and `50000`.
-               Defaults to the position in the list of actions.
-        :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
-        :param pulumi.Input[str] target_group_arn: ARN of the Target Group to which to route traffic.
-               Specify only if `type` is `forward` and you want to route to a single target group.
-               To route to one or more target groups, use a `forward` block instead.
-               Cannot be specified with `forward`.
+        :param pulumi.Input['ListenerDefaultActionForwardArgs'] forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
+        :param pulumi.Input[int] order: Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
+        :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
+        :param pulumi.Input[str] target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         """
         pulumi.set(__self__, "type", type)
         if authenticate_cognito is not None:
@@ -201,7 +183,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter(name="authenticateCognito")
     def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']]:
         """
-        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
         """
         return pulumi.get(self, "authenticate_cognito")
 
@@ -213,7 +195,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter(name="authenticateOidc")
     def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']]:
         """
-        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
         """
         return pulumi.get(self, "authenticate_oidc")
 
@@ -237,10 +219,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def forward(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardArgs']]:
         """
-        Configuration block for creating an action that distributes requests among one or more target groups.
-        Specify only if `type` is `forward`.
-        Cannot be specified with `target_group_arn`.
-        Detailed below.
+        Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
         """
         return pulumi.get(self, "forward")
 
@@ -252,10 +231,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
         """
-        Order for the action.
-        The action with the lowest value for order is performed first.
-        Valid values are between `1` and `50000`.
-        Defaults to the position in the list of actions.
+        Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
         """
         return pulumi.get(self, "order")
 
@@ -267,7 +243,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter
     def redirect(self) -> Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']]:
         """
-        Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
         """
         return pulumi.get(self, "redirect")
 
@@ -279,10 +255,7 @@ class ListenerDefaultActionArgs:
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN of the Target Group to which to route traffic.
-        Specify only if `type` is `forward` and you want to route to a single target group.
-        To route to one or more target groups, use a `forward` block instead.
-        Cannot be specified with `forward`.
+        ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
         """
         return pulumi.get(self, "target_group_arn")
 
@@ -309,7 +282,7 @@ if not MYPY:
         """
         authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
-        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         """
         on_unauthenticated_request: NotRequired[pulumi.Input[str]]
         """
@@ -347,7 +320,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
         :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
         :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
@@ -409,7 +382,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     @pulumi.getter(name="authenticationRequestExtraParams")
     def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+        Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
         """
         return pulumi.get(self, "authentication_request_extra_params")
 
@@ -779,13 +752,13 @@ if not MYPY:
     class ListenerDefaultActionForwardArgsDict(TypedDict):
         target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgsDict']]]
         """
-        Set of 1-5 target group blocks. Detailed below.
+        Set of 1-5 target group blocks. See below.
 
         The following arguments are optional:
         """
         stickiness: NotRequired[pulumi.Input['ListenerDefaultActionForwardStickinessArgsDict']]
         """
-        Configuration block for target group stickiness for the rule. Detailed below.
+        Configuration block for target group stickiness for the rule. See below.
         """
 elif False:
     ListenerDefaultActionForwardArgsDict: TypeAlias = Mapping[str, Any]
@@ -796,10 +769,10 @@ class ListenerDefaultActionForwardArgs:
                  target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: Set of 1-5 target group blocks. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: Set of 1-5 target group blocks. See below.
                
                The following arguments are optional:
-        :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. See below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -809,7 +782,7 @@ class ListenerDefaultActionForwardArgs:
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
         """
-        Set of 1-5 target group blocks. Detailed below.
+        Set of 1-5 target group blocks. See below.
 
         The following arguments are optional:
         """
@@ -823,7 +796,7 @@ class ListenerDefaultActionForwardArgs:
     @pulumi.getter
     def stickiness(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']]:
         """
-        Configuration block for target group stickiness for the rule. Detailed below.
+        Configuration block for target group stickiness for the rule. See below.
         """
         return pulumi.get(self, "stickiness")
 

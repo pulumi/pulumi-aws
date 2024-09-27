@@ -76,7 +76,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly awsAccountId!: pulumi.Output<string>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      */
     public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     /**
@@ -98,7 +98,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
-    public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
+    public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -187,7 +187,7 @@ export interface DataSourceState {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentials>;
     /**
@@ -241,7 +241,7 @@ export interface DataSourceArgs {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentials>;
     /**

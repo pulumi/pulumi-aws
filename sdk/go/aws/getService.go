@@ -118,7 +118,7 @@ type GetServiceArgs struct {
 	ReverseDnsName *string `pulumi:"reverseDnsName"`
 	// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
 	ReverseDnsPrefix *string `pulumi:"reverseDnsPrefix"`
-	// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
+	// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
 	ServiceId *string `pulumi:"serviceId"`
 }
 
@@ -165,7 +165,7 @@ type GetServiceOutputArgs struct {
 	ReverseDnsName pulumi.StringPtrInput `pulumi:"reverseDnsName"`
 	// Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
 	ReverseDnsPrefix pulumi.StringPtrInput `pulumi:"reverseDnsPrefix"`
-	// Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
+	// Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
 	ServiceId pulumi.StringPtrInput `pulumi:"serviceId"`
 }
 

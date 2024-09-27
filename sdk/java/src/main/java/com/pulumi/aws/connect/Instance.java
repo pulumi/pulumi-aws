@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
  * Provides an Amazon Connect instance resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
- * !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+ * !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
  * 
  * ## Example Usage
  * 
@@ -51,6 +52,7 @@ import javax.annotation.Nullable;
  *             .inboundCallsEnabled(true)
  *             .instanceAlias("friendly-name-connect")
  *             .outboundCallsEnabled(true)
+ *             .tags(Map.of("hello", "world"))
  *             .build());
  * 
  *     }
@@ -303,7 +305,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Export(name="outboundCallsEnabled", refs={Boolean.class}, tree="[0]")
@@ -311,7 +312,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Output<Boolean> outboundCallsEnabled() {
@@ -344,6 +344,40 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<String> status() {
         return this.status;
+    }
+    /**
+     * Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

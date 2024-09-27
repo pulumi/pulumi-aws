@@ -120,6 +120,8 @@ type LookupTransitGatewayResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
+	// Whether Security Group Referencing Support is enabled
+	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags map[string]string `pulumi:"tags"`
 	// The list of associated CIDR blocks
@@ -238,6 +240,11 @@ func (o LookupTransitGatewayResultOutput) OwnerId() pulumi.StringOutput {
 // Identifier of the default propagation route table
 func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// Whether Security Group Referencing Support is enabled
+func (o LookupTransitGatewayResultOutput) SecurityGroupReferencingSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.SecurityGroupReferencingSupport }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway

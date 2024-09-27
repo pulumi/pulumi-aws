@@ -225,6 +225,20 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
         return this.propagationDefaultRouteTableId;
     }
     /**
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    @Export(name="securityGroupReferencingSupport", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> securityGroupReferencingSupport;
+
+    /**
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
+    public Output<Optional<String>> securityGroupReferencingSupport() {
+        return Codegen.optional(this.securityGroupReferencingSupport);
+    }
+    /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

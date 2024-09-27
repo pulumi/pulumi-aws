@@ -3406,6 +3406,8 @@ class DataSourceCredentials(dict):
             suggest = "copy_source_arn"
         elif key == "credentialPair":
             suggest = "credential_pair"
+        elif key == "secretArn":
+            suggest = "secret_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceCredentials. Access the value via the '{suggest}' property getter instead.")
@@ -3420,16 +3422,20 @@ class DataSourceCredentials(dict):
 
     def __init__(__self__, *,
                  copy_source_arn: Optional[str] = None,
-                 credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None):
+                 credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None,
+                 secret_arn: Optional[str] = None):
         """
         :param str copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
         :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
             pulumi.set(__self__, "credential_pair", credential_pair)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="copySourceArn")
@@ -3447,6 +3453,14 @@ class DataSourceCredentials(dict):
         Credential pair. See Credential Pair below for more details.
         """
         return pulumi.get(self, "credential_pair")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

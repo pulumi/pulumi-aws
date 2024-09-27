@@ -60,6 +60,8 @@ type VpcAttachment struct {
 	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrOutput `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,6 +127,8 @@ type vpcAttachmentState struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -152,6 +156,8 @@ type VpcAttachmentState struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrInput
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,6 +189,8 @@ type vpcAttachmentArgs struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +213,8 @@ type VpcAttachmentArgs struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	Ipv6Support pulumi.StringPtrInput
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -319,6 +329,11 @@ func (o VpcAttachmentOutput) DnsSupport() pulumi.StringPtrOutput {
 // Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o VpcAttachmentOutput) Ipv6Support() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.Ipv6Support }).(pulumi.StringPtrOutput)
+}
+
+// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+func (o VpcAttachmentOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
 }
 
 // Identifiers of EC2 Subnets.

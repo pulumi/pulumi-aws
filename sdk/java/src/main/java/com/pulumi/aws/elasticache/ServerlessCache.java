@@ -158,14 +158,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     @Export(name="cacheUsageLimits", refs={ServerlessCacheCacheUsageLimits.class}, tree="[0]")
     private Output</* @Nullable */ ServerlessCacheCacheUsageLimits> cacheUsageLimits;
 
     /**
-     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     public Output<Optional<ServerlessCacheCacheUsageLimits>> cacheUsageLimits() {
@@ -214,14 +214,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      * 
      */
     @Export(name="endpoints", refs={List.class,ServerlessCacheEndpoint.class}, tree="[0,1]")
     private Output<List<ServerlessCacheEndpoint>> endpoints;
 
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See config below for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
      * 
      */
     public Output<List<ServerlessCacheEndpoint>> endpoints() {
@@ -304,14 +304,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Represents the information required for client programs to connect to a cache node. See config below for details.
+     * Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
      * 
      */
     @Export(name="readerEndpoints", refs={List.class,ServerlessCacheReaderEndpoint.class}, tree="[0,1]")
     private Output<List<ServerlessCacheReaderEndpoint>> readerEndpoints;
 
     /**
-     * @return Represents the information required for client programs to connect to a cache node. See config below for details.
+     * @return Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
      * 
      */
     public Output<List<ServerlessCacheReaderEndpoint>> readerEndpoints() {

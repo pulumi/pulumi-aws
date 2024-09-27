@@ -134,6 +134,7 @@ export class AgentAgent extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly foundationModel!: pulumi.Output<string>;
+    public readonly guardrailConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentGuardrailConfiguration[] | undefined>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
@@ -187,6 +188,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["customerEncryptionKeyArn"] = state ? state.customerEncryptionKeyArn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["foundationModel"] = state ? state.foundationModel : undefined;
+            resourceInputs["guardrailConfigurations"] = state ? state.guardrailConfigurations : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = state ? state.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = state ? state.instruction : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
@@ -211,6 +213,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["foundationModel"] = args ? args.foundationModel : undefined;
+            resourceInputs["guardrailConfigurations"] = args ? args.guardrailConfigurations : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["instruction"] = args ? args.instruction : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
@@ -266,6 +269,7 @@ export interface AgentAgentState {
      * The following arguments are optional:
      */
     foundationModel?: pulumi.Input<string>;
+    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
@@ -325,6 +329,7 @@ export interface AgentAgentArgs {
      * The following arguments are optional:
      */
     foundationModel: pulumi.Input<string>;
+    guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */

@@ -82,14 +82,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      * 
      */
     @Import(name="serviceId")
     private @Nullable String serviceId;
 
     /**
-     * @return Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+     * @return Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
      * 
      */
     public Optional<String> serviceId() {
@@ -175,7 +175,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceId Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+         * @param serviceId Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service&#39;s endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
          * 
          * @return builder
          * 

@@ -1319,6 +1319,112 @@ func (o AgentAgentAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentAgentGuardrailConfiguration struct {
+	// Unique identifier of the guardrail.
+	GuardrailIdentifier string `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail.
+	GuardrailVersion string `pulumi:"guardrailVersion"`
+}
+
+// AgentAgentGuardrailConfigurationInput is an input type that accepts AgentAgentGuardrailConfigurationArgs and AgentAgentGuardrailConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentGuardrailConfigurationInput` via:
+//
+//	AgentAgentGuardrailConfigurationArgs{...}
+type AgentAgentGuardrailConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentGuardrailConfigurationOutput() AgentAgentGuardrailConfigurationOutput
+	ToAgentAgentGuardrailConfigurationOutputWithContext(context.Context) AgentAgentGuardrailConfigurationOutput
+}
+
+type AgentAgentGuardrailConfigurationArgs struct {
+	// Unique identifier of the guardrail.
+	GuardrailIdentifier pulumi.StringInput `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail.
+	GuardrailVersion pulumi.StringInput `pulumi:"guardrailVersion"`
+}
+
+func (AgentAgentGuardrailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentGuardrailConfigurationArgs) ToAgentAgentGuardrailConfigurationOutput() AgentAgentGuardrailConfigurationOutput {
+	return i.ToAgentAgentGuardrailConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentGuardrailConfigurationArgs) ToAgentAgentGuardrailConfigurationOutputWithContext(ctx context.Context) AgentAgentGuardrailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentGuardrailConfigurationOutput)
+}
+
+// AgentAgentGuardrailConfigurationArrayInput is an input type that accepts AgentAgentGuardrailConfigurationArray and AgentAgentGuardrailConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentGuardrailConfigurationArrayInput` via:
+//
+//	AgentAgentGuardrailConfigurationArray{ AgentAgentGuardrailConfigurationArgs{...} }
+type AgentAgentGuardrailConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentGuardrailConfigurationArrayOutput() AgentAgentGuardrailConfigurationArrayOutput
+	ToAgentAgentGuardrailConfigurationArrayOutputWithContext(context.Context) AgentAgentGuardrailConfigurationArrayOutput
+}
+
+type AgentAgentGuardrailConfigurationArray []AgentAgentGuardrailConfigurationInput
+
+func (AgentAgentGuardrailConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentGuardrailConfigurationArray) ToAgentAgentGuardrailConfigurationArrayOutput() AgentAgentGuardrailConfigurationArrayOutput {
+	return i.ToAgentAgentGuardrailConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentGuardrailConfigurationArray) ToAgentAgentGuardrailConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentGuardrailConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentGuardrailConfigurationArrayOutput)
+}
+
+type AgentAgentGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentGuardrailConfigurationOutput) ToAgentAgentGuardrailConfigurationOutput() AgentAgentGuardrailConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentGuardrailConfigurationOutput) ToAgentAgentGuardrailConfigurationOutputWithContext(ctx context.Context) AgentAgentGuardrailConfigurationOutput {
+	return o
+}
+
+// Unique identifier of the guardrail.
+func (o AgentAgentGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentGuardrailConfiguration) string { return v.GuardrailIdentifier }).(pulumi.StringOutput)
+}
+
+// Version of the guardrail.
+func (o AgentAgentGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentGuardrailConfiguration) string { return v.GuardrailVersion }).(pulumi.StringOutput)
+}
+
+type AgentAgentGuardrailConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentGuardrailConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentGuardrailConfigurationArrayOutput) ToAgentAgentGuardrailConfigurationArrayOutput() AgentAgentGuardrailConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentGuardrailConfigurationArrayOutput) ToAgentAgentGuardrailConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentGuardrailConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentGuardrailConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentGuardrailConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentGuardrailConfiguration {
+		return vs[0].([]AgentAgentGuardrailConfiguration)[vs[1].(int)]
+	}).(AgentAgentGuardrailConfigurationOutput)
+}
+
 type AgentAgentKnowledgeBaseAssociationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -10110,6 +10216,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationArrayInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsPtrInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentGuardrailConfigurationInput)(nil)).Elem(), AgentAgentGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentGuardrailConfigurationArrayInput)(nil)).Elem(), AgentAgentGuardrailConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentKnowledgeBaseAssociationTimeoutsPtrInput)(nil)).Elem(), AgentAgentKnowledgeBaseAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArgs{})
@@ -10250,6 +10358,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AgentAgentGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentGuardrailConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentAgentKnowledgeBaseAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationOutput{})

@@ -320,6 +320,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String codeconnections;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String codedeploy;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1889,6 +1894,13 @@ public final class Endpoints {
      */
     public Optional<String> codecommit() {
         return Optional.ofNullable(this.codecommit);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> codeconnections() {
+        return Optional.ofNullable(this.codeconnections);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3564,6 +3576,7 @@ public final class Endpoints {
         private @Nullable String codebuild;
         private @Nullable String codecatalyst;
         private @Nullable String codecommit;
+        private @Nullable String codeconnections;
         private @Nullable String codedeploy;
         private @Nullable String codeguruprofiler;
         private @Nullable String codegurureviewer;
@@ -3857,6 +3870,7 @@ public final class Endpoints {
     	      this.codebuild = defaults.codebuild;
     	      this.codecatalyst = defaults.codecatalyst;
     	      this.codecommit = defaults.codecommit;
+    	      this.codeconnections = defaults.codeconnections;
     	      this.codedeploy = defaults.codedeploy;
     	      this.codeguruprofiler = defaults.codeguruprofiler;
     	      this.codegurureviewer = defaults.codegurureviewer;
@@ -4452,6 +4466,12 @@ public final class Endpoints {
         public Builder codecommit(@Nullable String codecommit) {
 
             this.codecommit = codecommit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder codeconnections(@Nullable String codeconnections) {
+
+            this.codeconnections = codeconnections;
             return this;
         }
         @CustomType.Setter
@@ -5891,6 +5911,7 @@ public final class Endpoints {
             _resultValue.codebuild = codebuild;
             _resultValue.codecatalyst = codecatalyst;
             _resultValue.codecommit = codecommit;
+            _resultValue.codeconnections = codeconnections;
             _resultValue.codedeploy = codedeploy;
             _resultValue.codeguruprofiler = codeguruprofiler;
             _resultValue.codegurureviewer = codegurureviewer;

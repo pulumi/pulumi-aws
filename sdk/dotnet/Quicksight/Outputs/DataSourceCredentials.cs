@@ -22,15 +22,22 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// Credential pair. See Credential Pair below for more details.
         /// </summary>
         public readonly Outputs.DataSourceCredentialsCredentialPair? CredentialPair;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        /// </summary>
+        public readonly string? SecretArn;
 
         [OutputConstructor]
         private DataSourceCredentials(
             string? copySourceArn,
 
-            Outputs.DataSourceCredentialsCredentialPair? credentialPair)
+            Outputs.DataSourceCredentialsCredentialPair? credentialPair,
+
+            string? secretArn)
         {
             CopySourceArn = copySourceArn;
             CredentialPair = credentialPair;
+            SecretArn = secretArn;
         }
     }
 }

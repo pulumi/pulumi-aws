@@ -418,13 +418,13 @@ type Listener struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	// Configuration block for default actions. Detailed below.
+	// Configuration block for default actions. See below.
 	DefaultActions ListenerDefaultActionArrayOutput `pulumi:"defaultActions"`
 	// ARN of the load balancer.
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// The mutual authentication configuration information. Detailed below.
+	// The mutual authentication configuration information. See below.
 	MutualAuthentication ListenerMutualAuthenticationOutput `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -488,13 +488,13 @@ type listenerState struct {
 	Arn *string `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// Configuration block for default actions. Detailed below.
+	// Configuration block for default actions. See below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// ARN of the load balancer.
 	//
 	// The following arguments are optional:
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
-	// The mutual authentication configuration information. Detailed below.
+	// The mutual authentication configuration information. See below.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
@@ -517,13 +517,13 @@ type ListenerState struct {
 	Arn pulumi.StringPtrInput
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
-	// Configuration block for default actions. Detailed below.
+	// Configuration block for default actions. See below.
 	DefaultActions ListenerDefaultActionArrayInput
 	// ARN of the load balancer.
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringPtrInput
-	// The mutual authentication configuration information. Detailed below.
+	// The mutual authentication configuration information. See below.
 	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
@@ -548,13 +548,13 @@ type listenerArgs struct {
 	AlpnPolicy *string `pulumi:"alpnPolicy"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// Configuration block for default actions. Detailed below.
+	// Configuration block for default actions. See below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// ARN of the load balancer.
 	//
 	// The following arguments are optional:
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	// The mutual authentication configuration information. Detailed below.
+	// The mutual authentication configuration information. See below.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
@@ -572,13 +572,13 @@ type ListenerArgs struct {
 	AlpnPolicy pulumi.StringPtrInput
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
-	// Configuration block for default actions. Detailed below.
+	// Configuration block for default actions. See below.
 	DefaultActions ListenerDefaultActionArrayInput
 	// ARN of the load balancer.
 	//
 	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringInput
-	// The mutual authentication configuration information. Detailed below.
+	// The mutual authentication configuration information. See below.
 	MutualAuthentication ListenerMutualAuthenticationPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
@@ -692,7 +692,7 @@ func (o ListenerOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for default actions. Detailed below.
+// Configuration block for default actions. See below.
 func (o ListenerOutput) DefaultActions() ListenerDefaultActionArrayOutput {
 	return o.ApplyT(func(v *Listener) ListenerDefaultActionArrayOutput { return v.DefaultActions }).(ListenerDefaultActionArrayOutput)
 }
@@ -704,7 +704,7 @@ func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
 
-// The mutual authentication configuration information. Detailed below.
+// The mutual authentication configuration information. See below.
 func (o ListenerOutput) MutualAuthentication() ListenerMutualAuthenticationOutput {
 	return o.ApplyT(func(v *Listener) ListenerMutualAuthenticationOutput { return v.MutualAuthentication }).(ListenerMutualAuthenticationOutput)
 }

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 {
     ///                     ClientId = exampleAwsCognitoUserPoolClient.Id,
     ///                     UserPool = exampleAwsCognitoUserPoolDomain.UserPoolId,
-    ///                     UserGroup = exampleAwsCognitoUserGroup.Id,
+    ///                     UserGroup = exampleAwsCognitoUserGroup.Name,
     ///                 },
     ///             },
     ///         },
@@ -139,13 +139,13 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.WorkteamWorkerAccessConfiguration> WorkerAccessConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Workteam (must be unique).
+        /// The name of the workforce.
         /// </summary>
         [Output("workforceName")]
         public Output<string> WorkforceName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the workforce.
+        /// The name of the Workteam (must be unique).
         /// </summary>
         [Output("workteamName")]
         public Output<string> WorkteamName { get; private set; } = null!;
@@ -239,13 +239,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.WorkteamWorkerAccessConfigurationArgs>? WorkerAccessConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the Workteam (must be unique).
+        /// The name of the workforce.
         /// </summary>
         [Input("workforceName", required: true)]
         public Input<string> WorkforceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workforce.
+        /// The name of the Workteam (must be unique).
         /// </summary>
         [Input("workteamName", required: true)]
         public Input<string> WorkteamName { get; set; } = null!;
@@ -326,13 +326,13 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.WorkteamWorkerAccessConfigurationGetArgs>? WorkerAccessConfiguration { get; set; }
 
         /// <summary>
-        /// The name of the Workteam (must be unique).
+        /// The name of the workforce.
         /// </summary>
         [Input("workforceName")]
         public Input<string>? WorkforceName { get; set; }
 
         /// <summary>
-        /// The name of the workforce.
+        /// The name of the Workteam (must be unique).
         /// </summary>
         [Input("workteamName")]
         public Input<string>? WorkteamName { get; set; }

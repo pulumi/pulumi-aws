@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerDefaultActionAuthenticateCognito {
     /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
      * 
      */
     private @Nullable Map<String,String> authenticationRequestExtraParams;
@@ -59,7 +59,7 @@ public final class ListenerDefaultActionAuthenticateCognito {
 
     private ListenerDefaultActionAuthenticateCognito() {}
     /**
-     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+     * @return Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
      * 
      */
     public Map<String,String> authenticationRequestExtraParams() {

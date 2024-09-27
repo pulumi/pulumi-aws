@@ -22,6 +22,8 @@ namespace Pulumi.Aws.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
     ///     var exampleVault = new Aws.Backup.Vault("example", new()
     ///     {
     ///         Name = "example",
@@ -41,7 +43,7 @@ namespace Pulumi.Aws.Backup
     ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             "*",
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
     ///                         },
     ///                     },
     ///                 },

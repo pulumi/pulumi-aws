@@ -211,6 +211,8 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 
 type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
 	// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	//
+	// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
 	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
 	// Maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
@@ -235,6 +237,8 @@ type CapacityProviderAutoScalingGroupProviderManagedScalingInput interface {
 
 type CapacityProviderAutoScalingGroupProviderManagedScalingArgs struct {
 	// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+	//
+	// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
 	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
 	// Maximum step adjustment size. A number between 1 and 10,000.
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
@@ -324,6 +328,8 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacity
 }
 
 // Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+//
+// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
 }
@@ -373,6 +379,8 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Elem() 
 }
 
 // Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+//
+// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) *int {
 		if v == nil {
@@ -4191,6 +4199,8 @@ type ServiceVolumeConfigurationManagedEbsVolume struct {
 	SizeInGb *int `pulumi:"sizeInGb"`
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId *string `pulumi:"snapshotId"`
+	// The tags to apply to the volume. See below.
+	TagSpecifications []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
 	// Volume type.
@@ -4223,6 +4233,8 @@ type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
 	SizeInGb pulumi.IntPtrInput `pulumi:"sizeInGb"`
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The tags to apply to the volume. See below.
+	TagSpecifications ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// Volume type.
@@ -4341,6 +4353,13 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) SnapshotId() pulumi.St
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
+// The tags to apply to the volume. See below.
+func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) TagSpecifications() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
+		return v.TagSpecifications
+	}).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput)
+}
+
 // Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *int { return v.Throughput }).(pulumi.IntPtrOutput)
@@ -4445,6 +4464,16 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) SnapshotId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tags to apply to the volume. See below.
+func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) TagSpecifications() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput)
+}
+
 // Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) *int {
@@ -4463,6 +4492,121 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) VolumeType() pulumi
 		}
 		return v.VolumeType
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecification struct {
+	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+	PropagateTags *string `pulumi:"propagateTags"`
+	// The type of volume resource. Valid values, `volume`.
+	ResourceType string `pulumi:"resourceType"`
+	// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput is an input type that accepts ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs and ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput` via:
+//
+//	ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs{...}
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput
+	ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutputWithContext(context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs struct {
+	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
+	// The type of volume resource. Valid values, `volume`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecification)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput {
+	return i.ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput)
+}
+
+// ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput is an input type that accepts ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray and ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput` via:
+//
+//	ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray{ ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs{...} }
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput
+	ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutputWithContext(context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray []ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput
+
+func (ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVolumeConfigurationManagedEbsVolumeTagSpecification)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return i.ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecification)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput {
+	return o
+}
+
+// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) PropagateTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
+}
+
+// The type of volume resource. Valid values, `volume`.
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVolumeConfigurationManagedEbsVolumeTagSpecification)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) ToServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutputWithContext(ctx context.Context) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
+		return vs[0].([]ServiceVolumeConfigurationManagedEbsVolumeTagSpecification)[vs[1].(int)]
+	}).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput)
 }
 
 type TaskDefinitionEphemeralStorage struct {
@@ -8471,6 +8615,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationPtrInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumePtrInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStoragePtrInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), TaskDefinitionInferenceAcceleratorArgs{})
@@ -8581,6 +8727,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumePtrOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})

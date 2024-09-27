@@ -12,9 +12,15 @@ namespace Pulumi.Aws.ElastiCache.Inputs
 
     public sealed class ServerlessCacheCacheUsageLimitsDataStorageArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        /// </summary>
         [Input("maximum")]
         public Input<int>? Maximum { get; set; }
 
+        /// <summary>
+        /// The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+        /// </summary>
         [Input("minimum")]
         public Input<int>? Minimum { get; set; }
 

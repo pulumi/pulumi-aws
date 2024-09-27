@@ -71,6 +71,8 @@ __all__ = [
     'ServiceVolumeConfigurationArgsDict',
     'ServiceVolumeConfigurationManagedEbsVolumeArgs',
     'ServiceVolumeConfigurationManagedEbsVolumeArgsDict',
+    'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs',
+    'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionEphemeralStorageArgsDict',
     'TaskDefinitionInferenceAcceleratorArgs',
@@ -221,6 +223,8 @@ if not MYPY:
         instance_warmup_period: NotRequired[pulumi.Input[int]]
         """
         Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+
+        For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
         """
         maximum_scaling_step_size: NotRequired[pulumi.Input[int]]
         """
@@ -251,6 +255,8 @@ class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
                  target_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] instance_warmup_period: Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+               
+               For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
         :param pulumi.Input[int] maximum_scaling_step_size: Maximum step adjustment size. A number between 1 and 10,000.
         :param pulumi.Input[int] minimum_scaling_step_size: Minimum step adjustment size. A number between 1 and 10,000.
         :param pulumi.Input[str] status: Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
@@ -272,6 +278,8 @@ class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
     def instance_warmup_period(self) -> Optional[pulumi.Input[int]]:
         """
         Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+
+        For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
         """
         return pulumi.get(self, "instance_warmup_period")
 
@@ -1999,6 +2007,10 @@ if not MYPY:
         """
         Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
         """
+        tag_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict']]]]
+        """
+        The tags to apply to the volume. See below.
+        """
         throughput: NotRequired[pulumi.Input[int]]
         """
         Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
@@ -2020,6 +2032,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  size_in_gb: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -2030,6 +2043,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
         :param pulumi.Input[int] size_in_gb: Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
         :param pulumi.Input[str] snapshot_id: Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]] tag_specifications: The tags to apply to the volume. See below.
         :param pulumi.Input[int] throughput: Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         :param pulumi.Input[str] volume_type: Volume type.
         """
@@ -2046,6 +2060,8 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
             pulumi.set(__self__, "size_in_gb", size_in_gb)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
         if volume_type is not None:
@@ -2136,6 +2152,18 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
         pulumi.set(self, "snapshot_id", value)
 
     @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]]]:
+        """
+        The tags to apply to the volume. See below.
+        """
+        return pulumi.get(self, "tag_specifications")
+
+    @tag_specifications.setter
+    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs']]]]):
+        pulumi.set(self, "tag_specifications", value)
+
+    @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2158,6 +2186,77 @@ class ServiceVolumeConfigurationManagedEbsVolumeArgs:
     @volume_type.setter
     def volume_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "volume_type", value)
+
+
+if not MYPY:
+    class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict(TypedDict):
+        resource_type: pulumi.Input[str]
+        """
+        The type of volume resource. Valid values, `volume`.
+        """
+        propagate_tags: NotRequired[pulumi.Input[str]]
+        """
+        Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+        """
+elif False:
+    ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] resource_type: The type of volume resource. Valid values, `volume`.
+        :param pulumi.Input[str] propagate_tags: Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        """
+        The type of volume resource. Valid values, `volume`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 if not MYPY:

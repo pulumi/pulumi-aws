@@ -65,6 +65,8 @@ type VpcAttachmentAccepter struct {
 	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+	SecurityGroupReferencingSupport pulumi.StringOutput `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,6 +128,8 @@ type vpcAttachmentAccepterState struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -155,6 +159,8 @@ type VpcAttachmentAccepterState struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringPtrInput
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,6 +310,11 @@ func (o VpcAttachmentAccepterOutput) DnsSupport() pulumi.StringOutput {
 // Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Ipv6Support }).(pulumi.StringOutput)
+}
+
+// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
+func (o VpcAttachmentAccepterOutput) SecurityGroupReferencingSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringOutput)
 }
 
 // Identifiers of EC2 Subnets.

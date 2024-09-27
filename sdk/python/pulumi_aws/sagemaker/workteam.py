@@ -32,8 +32,8 @@ class WorkteamArgs:
         The set of arguments for constructing a Workteam resource.
         :param pulumi.Input[str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
-        :param pulumi.Input[str] workteam_name: The name of the workforce.
+        :param pulumi.Input[str] workforce_name: The name of the workforce.
+        :param pulumi.Input[str] workteam_name: The name of the Workteam (must be unique).
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['WorkteamWorkerAccessConfigurationArgs'] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
@@ -77,7 +77,7 @@ class WorkteamArgs:
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> pulumi.Input[str]:
         """
-        The name of the Workteam (must be unique).
+        The name of the workforce.
         """
         return pulumi.get(self, "workforce_name")
 
@@ -89,7 +89,7 @@ class WorkteamArgs:
     @pulumi.getter(name="workteamName")
     def workteam_name(self) -> pulumi.Input[str]:
         """
-        The name of the workforce.
+        The name of the Workteam (must be unique).
         """
         return pulumi.get(self, "workteam_name")
 
@@ -157,8 +157,8 @@ class _WorkteamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['WorkteamWorkerAccessConfigurationArgs'] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
-        :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
-        :param pulumi.Input[str] workteam_name: The name of the workforce.
+        :param pulumi.Input[str] workforce_name: The name of the workforce.
+        :param pulumi.Input[str] workteam_name: The name of the Workteam (must be unique).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -285,7 +285,7 @@ class _WorkteamState:
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Workteam (must be unique).
+        The name of the workforce.
         """
         return pulumi.get(self, "workforce_name")
 
@@ -297,7 +297,7 @@ class _WorkteamState:
     @pulumi.getter(name="workteamName")
     def workteam_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the workforce.
+        The name of the Workteam (must be unique).
         """
         return pulumi.get(self, "workteam_name")
 
@@ -338,7 +338,7 @@ class Workteam(pulumi.CustomResource):
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
-                    "user_group": example_aws_cognito_user_group["id"],
+                    "user_group": example_aws_cognito_user_group["name"],
                 },
             }])
         ```
@@ -375,8 +375,8 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
-        :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
-        :param pulumi.Input[str] workteam_name: The name of the workforce.
+        :param pulumi.Input[str] workforce_name: The name of the workforce.
+        :param pulumi.Input[str] workteam_name: The name of the Workteam (must be unique).
         """
         ...
     @overload
@@ -403,7 +403,7 @@ class Workteam(pulumi.CustomResource):
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
-                    "user_group": example_aws_cognito_user_group["id"],
+                    "user_group": example_aws_cognito_user_group["name"],
                 },
             }])
         ```
@@ -517,8 +517,8 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['WorkteamWorkerAccessConfigurationArgs', 'WorkteamWorkerAccessConfigurationArgsDict']] worker_access_configuration: Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
-        :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
-        :param pulumi.Input[str] workteam_name: The name of the workforce.
+        :param pulumi.Input[str] workforce_name: The name of the workforce.
+        :param pulumi.Input[str] workteam_name: The name of the Workteam (must be unique).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -605,7 +605,7 @@ class Workteam(pulumi.CustomResource):
     @pulumi.getter(name="workforceName")
     def workforce_name(self) -> pulumi.Output[str]:
         """
-        The name of the Workteam (must be unique).
+        The name of the workforce.
         """
         return pulumi.get(self, "workforce_name")
 
@@ -613,7 +613,7 @@ class Workteam(pulumi.CustomResource):
     @pulumi.getter(name="workteamName")
     def workteam_name(self) -> pulumi.Output[str]:
         """
-        The name of the workforce.
+        The name of the Workteam (must be unique).
         """
         return pulumi.get(self, "workteam_name")
 

@@ -265,7 +265,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block for default actions. Detailed below.
+     * Configuration block for default actions. See below.
      */
     public readonly defaultActions!: pulumi.Output<outputs.alb.ListenerDefaultAction[]>;
     /**
@@ -275,7 +275,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly loadBalancerArn!: pulumi.Output<string>;
     /**
-     * The mutual authentication configuration information. Detailed below.
+     * The mutual authentication configuration information. See below.
      */
     public readonly mutualAuthentication!: pulumi.Output<outputs.alb.ListenerMutualAuthentication>;
     /**
@@ -369,7 +369,7 @@ export interface ListenerState {
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * Configuration block for default actions. Detailed below.
+     * Configuration block for default actions. See below.
      */
     defaultActions?: pulumi.Input<pulumi.Input<inputs.alb.ListenerDefaultAction>[]>;
     /**
@@ -379,7 +379,7 @@ export interface ListenerState {
      */
     loadBalancerArn?: pulumi.Input<string>;
     /**
-     * The mutual authentication configuration information. Detailed below.
+     * The mutual authentication configuration information. See below.
      */
     mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
     /**
@@ -419,7 +419,7 @@ export interface ListenerArgs {
      */
     certificateArn?: pulumi.Input<string>;
     /**
-     * Configuration block for default actions. Detailed below.
+     * Configuration block for default actions. See below.
      */
     defaultActions: pulumi.Input<pulumi.Input<inputs.alb.ListenerDefaultAction>[]>;
     /**
@@ -429,7 +429,7 @@ export interface ListenerArgs {
      */
     loadBalancerArn: pulumi.Input<string>;
     /**
-     * The mutual authentication configuration information. Detailed below.
+     * The mutual authentication configuration information. See below.
      */
     mutualAuthentication?: pulumi.Input<inputs.alb.ListenerMutualAuthentication>;
     /**

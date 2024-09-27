@@ -115,6 +115,18 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId")]
         public string? InstanceId { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assigned to the instance.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetInstanceArgs()
         {
         }
@@ -134,6 +146,18 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assigned to the instance.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetInstanceInvokeArgs()
         {
@@ -196,6 +220,10 @@ namespace Pulumi.Aws.Connect
         /// State of the instance.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// A map of tags to assigned to the instance.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetInstanceResult(
@@ -227,7 +255,9 @@ namespace Pulumi.Aws.Connect
 
             string serviceRole,
 
-            string status)
+            string status,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             AutoResolveBestVoicesEnabled = autoResolveBestVoicesEnabled;
@@ -244,6 +274,7 @@ namespace Pulumi.Aws.Connect
             OutboundCallsEnabled = outboundCallsEnabled;
             ServiceRole = serviceRole;
             Status = status;
+            Tags = tags;
         }
     }
 }

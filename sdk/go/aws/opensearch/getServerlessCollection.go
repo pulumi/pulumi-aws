@@ -70,7 +70,10 @@ type LookupServerlessCollectionResult struct {
 	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
+	// A failure code associated with the collection.
+	FailureCode    string `pulumi:"failureCode"`
+	FailureMessage string `pulumi:"failureMessage"`
+	Id             string `pulumi:"id"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Date the Collection was last modified.
@@ -153,6 +156,15 @@ func (o LookupServerlessCollectionResultOutput) DashboardEndpoint() pulumi.Strin
 // Description of the collection.
 func (o LookupServerlessCollectionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// A failure code associated with the collection.
+func (o LookupServerlessCollectionResultOutput) FailureCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.FailureCode }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessCollectionResultOutput) FailureMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.FailureMessage }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessCollectionResultOutput) Id() pulumi.StringOutput {

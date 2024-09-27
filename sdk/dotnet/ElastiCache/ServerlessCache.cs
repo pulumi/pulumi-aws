@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See config below for details.
+        /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.ServerlessCacheEndpoint>> Endpoints { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See config below for details.
+        /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         /// </summary>
         [Output("readerEndpoints")]
         public Output<ImmutableArray<Outputs.ServerlessCacheReaderEndpoint>> ReaderEndpoints { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class ServerlessCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsGetArgs>? CacheUsageLimits { get; set; }
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<Inputs.ServerlessCacheEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See config below for details.
+        /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         /// </summary>
         public InputList<Inputs.ServerlessCacheEndpointGetArgs> Endpoints
         {
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>? _readerEndpoints;
 
         /// <summary>
-        /// Represents the information required for client programs to connect to a cache node. See config below for details.
+        /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         /// </summary>
         public InputList<Inputs.ServerlessCacheReaderEndpointGetArgs> ReaderEndpoints
         {

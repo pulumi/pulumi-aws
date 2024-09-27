@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect instance resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+    /// !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
     /// 
     /// ## Example Usage
     /// 
@@ -31,6 +31,10 @@ namespace Pulumi.Aws.Connect
     ///         InboundCallsEnabled = true,
     ///         InstanceAlias = "friendly-name-connect",
     ///         OutboundCallsEnabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "hello", "world" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -158,7 +162,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Output("outboundCallsEnabled")]
         public Output<bool> OutboundCallsEnabled { get; private set; } = null!;
@@ -174,6 +177,19 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -277,10 +293,22 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled", required: true)]
         public Input<bool> OutboundCallsEnabled { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public InstanceArgs()
         {
@@ -358,7 +386,6 @@ namespace Pulumi.Aws.Connect
 
         /// <summary>
         /// Specifies whether outbound calls are enabled.
-        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
         /// </summary>
         [Input("outboundCallsEnabled")]
         public Input<bool>? OutboundCallsEnabled { get; set; }
@@ -374,6 +401,32 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public InstanceState()
         {

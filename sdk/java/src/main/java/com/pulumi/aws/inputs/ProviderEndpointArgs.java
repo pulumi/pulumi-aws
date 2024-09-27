@@ -934,6 +934,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="codeconnections")
+    private @Nullable Output<String> codeconnections;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> codeconnections() {
+        return Optional.ofNullable(this.codeconnections);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="codedeploy")
     private @Nullable Output<String> codedeploy;
 
@@ -4429,6 +4444,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.codebuild = $.codebuild;
         this.codecatalyst = $.codecatalyst;
         this.codecommit = $.codecommit;
+        this.codeconnections = $.codeconnections;
         this.codedeploy = $.codedeploy;
         this.codeguruprofiler = $.codeguruprofiler;
         this.codegurureviewer = $.codegurureviewer;
@@ -5957,6 +5973,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder codecommit(String codecommit) {
             return codecommit(Output.of(codecommit));
+        }
+
+        /**
+         * @param codeconnections Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeconnections(@Nullable Output<String> codeconnections) {
+            $.codeconnections = codeconnections;
+            return this;
+        }
+
+        /**
+         * @param codeconnections Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder codeconnections(String codeconnections) {
+            return codeconnections(Output.of(codeconnections));
         }
 
         /**

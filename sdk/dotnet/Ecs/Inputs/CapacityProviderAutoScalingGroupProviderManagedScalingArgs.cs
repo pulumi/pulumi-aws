@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         /// <summary>
         /// Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+        /// 
+        /// For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
         /// </summary>
         [Input("instanceWarmupPeriod")]
         public Input<int>? InstanceWarmupPeriod { get; set; }

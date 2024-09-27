@@ -4111,6 +4111,10 @@ if not MYPY:
         """
         Credential pair. See Credential Pair below for more details.
         """
+        secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        """
 elif False:
     DataSourceCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4118,16 +4122,20 @@ elif False:
 class DataSourceCredentialsArgs:
     def __init__(__self__, *,
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
-                 credential_pair: Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']] = None):
+                 credential_pair: Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
         :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: Credential pair. See Credential Pair below for more details.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
             pulumi.set(__self__, "credential_pair", credential_pair)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="copySourceArn")
@@ -4153,6 +4161,18 @@ class DataSourceCredentialsArgs:
     @credential_pair.setter
     def credential_pair(self, value: Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']]):
         pulumi.set(self, "credential_pair", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 if not MYPY:

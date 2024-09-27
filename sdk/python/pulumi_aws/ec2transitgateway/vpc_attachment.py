@@ -25,6 +25,7 @@ class VpcAttachmentArgs:
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None):
@@ -36,6 +37,7 @@ class VpcAttachmentArgs:
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -49,6 +51,8 @@ class VpcAttachmentArgs:
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_default_route_table_association is not None:
@@ -129,6 +133,18 @@ class VpcAttachmentArgs:
         pulumi.set(self, "ipv6_support", value)
 
     @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_referencing_support", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -171,6 +187,7 @@ class _VpcAttachmentState:
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -184,6 +201,7 @@ class _VpcAttachmentState:
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -199,6 +217,8 @@ class _VpcAttachmentState:
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -254,6 +274,18 @@ class _VpcAttachmentState:
     @ipv6_support.setter
     def ipv6_support(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_support", value)
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_referencing_support", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -361,6 +393,7 @@ class VpcAttachment(pulumi.CustomResource):
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
@@ -396,6 +429,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -450,6 +484,7 @@ class VpcAttachment(pulumi.CustomResource):
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  ipv6_support: Optional[pulumi.Input[str]] = None,
+                 security_group_referencing_support: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
@@ -468,6 +503,7 @@ class VpcAttachment(pulumi.CustomResource):
             __props__.__dict__["appliance_mode_support"] = appliance_mode_support
             __props__.__dict__["dns_support"] = dns_support
             __props__.__dict__["ipv6_support"] = ipv6_support
+            __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -495,6 +531,7 @@ class VpcAttachment(pulumi.CustomResource):
             appliance_mode_support: Optional[pulumi.Input[str]] = None,
             dns_support: Optional[pulumi.Input[str]] = None,
             ipv6_support: Optional[pulumi.Input[str]] = None,
+            security_group_referencing_support: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -513,6 +550,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -529,6 +567,7 @@ class VpcAttachment(pulumi.CustomResource):
         __props__.__dict__["appliance_mode_support"] = appliance_mode_support
         __props__.__dict__["dns_support"] = dns_support
         __props__.__dict__["ipv6_support"] = ipv6_support
+        __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -562,6 +601,14 @@ class VpcAttachment(pulumi.CustomResource):
         Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         """
         return pulumi.get(self, "ipv6_support")
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
 
     @property
     @pulumi.getter(name="subnetIds")

@@ -67,6 +67,11 @@ export interface GetServerlessCollectionResult {
      * Description of the collection.
      */
     readonly description: string;
+    /**
+     * A failure code associated with the collection.
+     */
+    readonly failureCode: string;
+    readonly failureMessage: string;
     readonly id: string;
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.

@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
  *                     .clientId(exampleAwsCognitoUserPoolClient.id())
  *                     .userPool(exampleAwsCognitoUserPoolDomain.userPoolId())
- *                     .userGroup(exampleAwsCognitoUserGroup.id())
+ *                     .userGroup(exampleAwsCognitoUserGroup.name())
  *                     .build())
  *                 .build())
  *             .build());
@@ -242,28 +242,28 @@ public class Workteam extends com.pulumi.resources.CustomResource {
         return this.workerAccessConfiguration;
     }
     /**
-     * The name of the Workteam (must be unique).
+     * The name of the workforce.
      * 
      */
     @Export(name="workforceName", refs={String.class}, tree="[0]")
     private Output<String> workforceName;
 
     /**
-     * @return The name of the Workteam (must be unique).
+     * @return The name of the workforce.
      * 
      */
     public Output<String> workforceName() {
         return this.workforceName;
     }
     /**
-     * The name of the workforce.
+     * The name of the Workteam (must be unique).
      * 
      */
     @Export(name="workteamName", refs={String.class}, tree="[0]")
     private Output<String> workteamName;
 
     /**
-     * @return The name of the workforce.
+     * @return The name of the Workteam (must be unique).
      * 
      */
     public Output<String> workteamName() {

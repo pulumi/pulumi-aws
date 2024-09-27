@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -183,7 +184,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     @Import(name="outboundCallsEnabled")
@@ -191,7 +191,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies whether outbound calls are enabled.
-     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
     public Optional<Output<Boolean>> outboundCallsEnabled() {
@@ -228,6 +227,46 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private InstanceState() {}
 
     private InstanceState(InstanceState $) {
@@ -245,6 +284,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.outboundCallsEnabled = $.outboundCallsEnabled;
         this.serviceRole = $.serviceRole;
         this.status = $.status;
+        this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -498,7 +539,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param outboundCallsEnabled Specifies whether outbound calls are enabled.
-         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
          * 
          * @return builder
          * 
@@ -510,7 +550,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param outboundCallsEnabled Specifies whether outbound calls are enabled.
-         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
          * 
          * @return builder
          * 
@@ -559,6 +598,58 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param tags Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Please use `tags` instead.
+         * 
+         */
+        @Deprecated /* Please use `tags` instead. */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Please use `tags` instead.
+         * 
+         */
+        @Deprecated /* Please use `tags` instead. */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public InstanceState build() {

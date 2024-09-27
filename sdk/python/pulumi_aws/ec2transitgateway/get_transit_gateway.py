@@ -28,7 +28,7 @@ class GetTransitGatewayResult:
     """
     A collection of values returned by getTransitGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, security_group_referencing_support=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, int):
             raise TypeError("Expected argument 'amazon_side_asn' to be a int")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -68,6 +68,9 @@ class GetTransitGatewayResult:
         if propagation_default_route_table_id and not isinstance(propagation_default_route_table_id, str):
             raise TypeError("Expected argument 'propagation_default_route_table_id' to be a str")
         pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
+        if security_group_referencing_support and not isinstance(security_group_referencing_support, str):
+            raise TypeError("Expected argument 'security_group_referencing_support' to be a str")
+        pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -180,6 +183,14 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> str:
+        """
+        Whether Security Group Referencing Support is enabled
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -223,6 +234,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             multicast_support=self.multicast_support,
             owner_id=self.owner_id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
+            security_group_referencing_support=self.security_group_referencing_support,
             tags=self.tags,
             transit_gateway_cidr_blocks=self.transit_gateway_cidr_blocks,
             vpn_ecmp_support=self.vpn_ecmp_support)
@@ -284,6 +296,7 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
         multicast_support=pulumi.get(__ret__, 'multicast_support'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
+        security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))

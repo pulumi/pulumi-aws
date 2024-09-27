@@ -15,7 +15,7 @@ import (
 // Provides an Amazon Connect instance resource. For more information see
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 //
-// !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+// !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
 //
 // ## Example Usage
 //
@@ -36,6 +36,9 @@ import (
 //				InboundCallsEnabled:    pulumi.Bool(true),
 //				InstanceAlias:          pulumi.String("friendly-name-connect"),
 //				OutboundCallsEnabled:   pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"hello": pulumi.String("world"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -138,12 +141,18 @@ type Instance struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrOutput `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolOutput `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// The state of the instance.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -208,12 +217,18 @@ type instanceState struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled *bool `pulumi:"outboundCallsEnabled"`
 	// The service role of the instance.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// The state of the instance.
 	Status *string `pulumi:"status"`
+	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type InstanceState struct {
@@ -240,12 +255,18 @@ type InstanceState struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolPtrInput
 	// The service role of the instance.
 	ServiceRole pulumi.StringPtrInput
 	// The state of the instance.
 	Status pulumi.StringPtrInput
+	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (InstanceState) ElementType() reflect.Type {
@@ -272,8 +293,10 @@ type instanceArgs struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled *bool `pulumi:"multiPartyConferenceEnabled"`
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled bool `pulumi:"outboundCallsEnabled"`
+	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Instance resource.
@@ -297,8 +320,10 @@ type InstanceArgs struct {
 	// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
 	MultiPartyConferenceEnabled pulumi.BoolPtrInput
 	// Specifies whether outbound calls are enabled.
-	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 	OutboundCallsEnabled pulumi.BoolInput
+	// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+	Tags pulumi.StringMapInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -444,7 +469,6 @@ func (o InstanceOutput) MultiPartyConferenceEnabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies whether outbound calls are enabled.
-// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
 func (o InstanceOutput) OutboundCallsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.OutboundCallsEnabled }).(pulumi.BoolOutput)
 }
@@ -457,6 +481,19 @@ func (o InstanceOutput) ServiceRole() pulumi.StringOutput {
 // The state of the instance.
 func (o InstanceOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+func (o InstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type InstanceArrayOutput struct{ *pulumi.OutputState }

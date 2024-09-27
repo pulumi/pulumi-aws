@@ -33,6 +33,8 @@ __all__ = [
     'AgentAgentAliasRoutingConfigurationArgsDict',
     'AgentAgentAliasTimeoutsArgs',
     'AgentAgentAliasTimeoutsArgsDict',
+    'AgentAgentGuardrailConfigurationArgs',
+    'AgentAgentGuardrailConfigurationArgsDict',
     'AgentAgentKnowledgeBaseAssociationTimeoutsArgs',
     'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict',
     'AgentAgentPromptOverrideConfigurationArgs',
@@ -673,6 +675,56 @@ class AgentAgentAliasTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class AgentAgentGuardrailConfigurationArgsDict(TypedDict):
+        guardrail_identifier: pulumi.Input[str]
+        """
+        Unique identifier of the guardrail.
+        """
+        guardrail_version: pulumi.Input[str]
+        """
+        Version of the guardrail.
+        """
+elif False:
+    AgentAgentGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentGuardrailConfigurationArgs:
+    def __init__(__self__, *,
+                 guardrail_identifier: pulumi.Input[str],
+                 guardrail_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] guardrail_identifier: Unique identifier of the guardrail.
+        :param pulumi.Input[str] guardrail_version: Version of the guardrail.
+        """
+        pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> pulumi.Input[str]:
+        """
+        Unique identifier of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @guardrail_identifier.setter
+    def guardrail_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> pulumi.Input[str]:
+        """
+        Version of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_version")
+
+    @guardrail_version.setter
+    def guardrail_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "guardrail_version", value)
 
 
 if not MYPY:

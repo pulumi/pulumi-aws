@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentAgentArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentState;
+import com.pulumi.aws.bedrock.outputs.AgentAgentGuardrailConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentAgentPromptOverrideConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentAgentTimeouts;
 import com.pulumi.core.Output;
@@ -243,6 +244,12 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
      */
     public Output<String> foundationModel() {
         return this.foundationModel;
+    }
+    @Export(name="guardrailConfigurations", refs={List.class,AgentAgentGuardrailConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentAgentGuardrailConfiguration>> guardrailConfigurations;
+
+    public Output<Optional<List<AgentAgentGuardrailConfiguration>>> guardrailConfigurations() {
+        return Codegen.optional(this.guardrailConfigurations);
     }
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.

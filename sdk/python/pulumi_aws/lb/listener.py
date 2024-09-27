@@ -32,13 +32,13 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. Detailed below.
+        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
@@ -65,7 +65,7 @@ class ListenerArgs:
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]:
         """
-        Configuration block for default actions. Detailed below.
+        Configuration block for default actions. See below.
         """
         return pulumi.get(self, "default_actions")
 
@@ -115,7 +115,7 @@ class ListenerArgs:
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
         """
-        The mutual authentication configuration information. Detailed below.
+        The mutual authentication configuration information. See below.
         """
         return pulumi.get(self, "mutual_authentication")
 
@@ -191,11 +191,11 @@ class _ListenerState:
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] arn: ARN of the listener (matches `id`).
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. Detailed below.
+        :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
@@ -268,7 +268,7 @@ class _ListenerState:
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
         """
-        Configuration block for default actions. Detailed below.
+        Configuration block for default actions. See below.
         """
         return pulumi.get(self, "default_actions")
 
@@ -294,7 +294,7 @@ class _ListenerState:
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
         """
-        The mutual authentication configuration information. Detailed below.
+        The mutual authentication configuration information. See below.
         """
         return pulumi.get(self, "mutual_authentication")
 
@@ -590,11 +590,11 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. Detailed below.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
@@ -894,11 +894,11 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] arn: ARN of the listener (matches `id`).
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. Detailed below.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         :param pulumi.Input[str] ssl_policy: Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
@@ -950,7 +950,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> pulumi.Output[Sequence['outputs.ListenerDefaultAction']]:
         """
-        Configuration block for default actions. Detailed below.
+        Configuration block for default actions. See below.
         """
         return pulumi.get(self, "default_actions")
 
@@ -968,7 +968,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="mutualAuthentication")
     def mutual_authentication(self) -> pulumi.Output['outputs.ListenerMutualAuthentication']:
         """
-        The mutual authentication configuration information. Detailed below.
+        The mutual authentication configuration information. See below.
         """
         return pulumi.get(self, "mutual_authentication")
 

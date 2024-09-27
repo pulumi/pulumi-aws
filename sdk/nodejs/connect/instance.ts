@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect instance resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  *
- * !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
+ * !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits). For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance. Use care when creating or deleting instances.
  *
  * ## Example Usage
  *
@@ -21,6 +21,9 @@ import * as utilities from "../utilities";
  *     inboundCallsEnabled: true,
  *     instanceAlias: "friendly-name-connect",
  *     outboundCallsEnabled: true,
+ *     tags: {
+ *         hello: "world",
+ *     },
  * });
  * ```
  *
@@ -135,7 +138,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly multiPartyConferenceEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     public readonly outboundCallsEnabled!: pulumi.Output<boolean>;
     /**
@@ -146,6 +148,17 @@ export class Instance extends pulumi.CustomResource {
      * The state of the instance.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -174,6 +187,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
             if ((!args || args.identityManagementType === undefined) && !opts.urn) {
@@ -195,10 +210,12 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
             resourceInputs["multiPartyConferenceEnabled"] = args ? args.multiPartyConferenceEnabled : undefined;
             resourceInputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
@@ -255,7 +272,6 @@ export interface InstanceState {
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled?: pulumi.Input<boolean>;
     /**
@@ -266,6 +282,17 @@ export interface InstanceState {
      * The state of the instance.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -310,7 +337,11 @@ export interface InstanceArgs {
     multiPartyConferenceEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether outbound calls are enabled.
-     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
      */
     outboundCallsEnabled: pulumi.Input<boolean>;
+    /**
+     * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

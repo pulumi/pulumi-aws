@@ -82,6 +82,8 @@ type LookupInstanceArgs struct {
 	InstanceAlias *string `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId *string `pulumi:"instanceId"`
+	// A map of tags to assigned to the instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -113,6 +115,8 @@ type LookupInstanceResult struct {
 	ServiceRole string `pulumi:"serviceRole"`
 	// State of the instance.
 	Status string `pulumi:"status"`
+	// A map of tags to assigned to the instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -140,6 +144,8 @@ type LookupInstanceOutputArgs struct {
 	InstanceAlias pulumi.StringPtrInput `pulumi:"instanceAlias"`
 	// Returns information on a specific connect instance by id
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
+	// A map of tags to assigned to the instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {
@@ -231,6 +237,11 @@ func (o LookupInstanceResultOutput) ServiceRole() pulumi.StringOutput {
 // State of the instance.
 func (o LookupInstanceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A map of tags to assigned to the instance.
+func (o LookupInstanceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

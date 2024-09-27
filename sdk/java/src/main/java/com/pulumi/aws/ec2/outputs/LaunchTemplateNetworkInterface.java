@@ -96,6 +96,10 @@ public final class LaunchTemplateNetworkInterface {
      * 
      */
     private @Nullable String networkInterfaceId;
+    /**
+     * @return Whether the first IPv6 GUA will be made the primary IPv6 address.
+     * 
+     */
     private @Nullable String primaryIpv6;
     /**
      * @return The primary private IPv4 address.
@@ -229,6 +233,10 @@ public final class LaunchTemplateNetworkInterface {
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
+    /**
+     * @return Whether the first IPv6 GUA will be made the primary IPv6 address.
+     * 
+     */
     public Optional<String> primaryIpv6() {
         return Optional.ofNullable(this.primaryIpv6);
     }

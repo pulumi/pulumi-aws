@@ -54,6 +54,18 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        [Input("tagSpecifications")]
+        private InputList<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>? _tagSpecifications;
+
+        /// <summary>
+        /// The tags to apply to the volume. See below.
+        /// </summary>
+        public InputList<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs> TagSpecifications
+        {
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>());
+            set => _tagSpecifications = value;
+        }
+
         /// <summary>
         /// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
         /// </summary>

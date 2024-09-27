@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+    /**
+     * @return The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     private @Nullable Integer maximum;
+    /**
+     * @return The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     private @Nullable Integer minimum;
 
     private ServerlessCacheCacheUsageLimitsEcpuPerSecond() {}
+    /**
+     * @return The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     public Optional<Integer> maximum() {
         return Optional.ofNullable(this.maximum);
     }
+    /**
+     * @return The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+     * 
+     */
     public Optional<Integer> minimum() {
         return Optional.ofNullable(this.minimum);
     }

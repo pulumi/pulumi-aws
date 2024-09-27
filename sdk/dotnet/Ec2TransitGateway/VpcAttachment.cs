@@ -65,6 +65,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string?> Ipv6Support { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Output("securityGroupReferencingSupport")]
+        public Output<string?> SecurityGroupReferencingSupport { get; private set; } = null!;
+
+        /// <summary>
         /// Identifiers of EC2 Subnets.
         /// </summary>
         [Output("subnetIds")]
@@ -176,6 +182,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("ipv6Support")]
         public Input<string>? Ipv6Support { get; set; }
 
+        /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public Input<string>? SecurityGroupReferencingSupport { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -249,6 +261,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("ipv6Support")]
         public Input<string>? Ipv6Support { get; set; }
+
+        /// <summary>
+        /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
+        [Input("securityGroupReferencingSupport")]
+        public Input<string>? SecurityGroupReferencingSupport { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

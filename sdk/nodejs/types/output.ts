@@ -427,11 +427,11 @@ export namespace alb {
 
     export interface ListenerDefaultAction {
         /**
-         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
          */
         authenticateCognito?: outputs.alb.ListenerDefaultActionAuthenticateCognito;
         /**
-         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
          */
         authenticateOidc?: outputs.alb.ListenerDefaultActionAuthenticateOidc;
         /**
@@ -439,28 +439,19 @@ export namespace alb {
          */
         fixedResponse?: outputs.alb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
-         * Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
          */
         forward?: outputs.alb.ListenerDefaultActionForward;
         /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
          */
         order: number;
         /**
-         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
          */
         redirect?: outputs.alb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
          */
         targetGroupArn?: string;
         /**
@@ -473,7 +464,7 @@ export namespace alb {
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
@@ -576,11 +567,11 @@ export namespace alb {
 
     export interface ListenerDefaultActionForward {
         /**
-         * Configuration block for target group stickiness for the rule. Detailed below.
+         * Configuration block for target group stickiness for the rule. See below.
          */
         stickiness?: outputs.alb.ListenerDefaultActionForwardStickiness;
         /**
-         * Set of 1-5 target group blocks. Detailed below.
+         * Set of 1-5 target group blocks. See below.
          *
          * The following arguments are optional:
          */
@@ -11313,6 +11304,17 @@ export namespace bedrock {
         update?: string;
     }
 
+    export interface AgentAgentGuardrailConfiguration {
+        /**
+         * Unique identifier of the guardrail.
+         */
+        guardrailIdentifier: string;
+        /**
+         * Version of the guardrail.
+         */
+        guardrailVersion: string;
+    }
+
     export interface AgentAgentKnowledgeBaseAssociationTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -18591,6 +18593,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         codecommit?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        codeconnections?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -29337,6 +29343,9 @@ export namespace ec2 {
          * The ID of the network interface to attach.
          */
         networkInterfaceId?: string;
+        /**
+         * Whether the first IPv6 GUA will be made the primary IPv6 address.
+         */
         primaryIpv6?: string;
         /**
          * The primary private IPv4 address.
@@ -31969,6 +31978,8 @@ export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProviderManagedScaling {
         /**
          * Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
+         *
+         * For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
          */
         instanceWarmupPeriod: number;
         /**
@@ -32527,6 +32538,10 @@ export namespace ecs {
          */
         snapshotId?: string;
         /**
+         * The tags to apply to the volume. See below.
+         */
+        tagSpecifications?: outputs.ecs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification[];
+        /**
          * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
          */
         throughput?: number;
@@ -32534,6 +32549,21 @@ export namespace ecs {
          * Volume type.
          */
         volumeType?: string;
+    }
+
+    export interface ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
+        /**
+         * Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+         */
+        propagateTags?: string;
+        /**
+         * The type of volume resource. Valid values, `volume`.
+         */
+        resourceType: string;
+        /**
+         * The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface TaskDefinitionEphemeralStorage {
@@ -33545,17 +33575,23 @@ export namespace elasticache {
 
     export interface ServerlessCacheCacheUsageLimits {
         /**
-         * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         * The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
          */
         dataStorage?: outputs.elasticache.ServerlessCacheCacheUsageLimitsDataStorage;
         /**
-         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
          */
         ecpuPerSeconds?: outputs.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecond[];
     }
 
     export interface ServerlessCacheCacheUsageLimitsDataStorage {
+        /**
+         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         */
         maximum?: number;
+        /**
+         * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+         */
         minimum?: number;
         /**
          * The unit that the storage is measured in, in GB.
@@ -33564,7 +33600,13 @@ export namespace elasticache {
     }
 
     export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
+        /**
+         * The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         */
         maximum?: number;
+        /**
+         * The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+         */
         minimum?: number;
     }
 
@@ -46445,11 +46487,11 @@ export namespace lb {
 
     export interface ListenerDefaultAction {
         /**
-         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+         * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
          */
         authenticateCognito?: outputs.lb.ListenerDefaultActionAuthenticateCognito;
         /**
-         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+         * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
          */
         authenticateOidc?: outputs.lb.ListenerDefaultActionAuthenticateOidc;
         /**
@@ -46457,28 +46499,19 @@ export namespace lb {
          */
         fixedResponse?: outputs.lb.ListenerDefaultActionFixedResponse;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups.
-         * Specify only if `type` is `forward`.
-         * Cannot be specified with `targetGroupArn`.
-         * Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
          */
         forward?: outputs.lb.ListenerDefaultActionForward;
         /**
-         * Order for the action.
-         * The action with the lowest value for order is performed first.
-         * Valid values are between `1` and `50000`.
-         * Defaults to the position in the list of actions.
+         * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
          */
         order: number;
         /**
-         * Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+         * Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
          */
         redirect?: outputs.lb.ListenerDefaultActionRedirect;
         /**
-         * ARN of the Target Group to which to route traffic.
-         * Specify only if `type` is `forward` and you want to route to a single target group.
-         * To route to one or more target groups, use a `forward` block instead.
-         * Cannot be specified with `forward`.
+         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
          */
         targetGroupArn?: string;
         /**
@@ -46491,7 +46524,7 @@ export namespace lb {
 
     export interface ListenerDefaultActionAuthenticateCognito {
         /**
-         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
+         * Query parameters to include in the redirect request to the authorization endpoint. Max: 10. See below.
          */
         authenticationRequestExtraParams?: {[key: string]: string};
         /**
@@ -46594,11 +46627,11 @@ export namespace lb {
 
     export interface ListenerDefaultActionForward {
         /**
-         * Configuration block for target group stickiness for the rule. Detailed below.
+         * Configuration block for target group stickiness for the rule. See below.
          */
         stickiness?: outputs.lb.ListenerDefaultActionForwardStickiness;
         /**
-         * Set of 1-5 target group blocks. Detailed below.
+         * Set of 1-5 target group blocks. See below.
          *
          * The following arguments are optional:
          */
@@ -70030,6 +70063,10 @@ export namespace quicksight {
          * Credential pair. See Credential Pair below for more details.
          */
         credentialPair?: outputs.quicksight.DataSourceCredentialsCredentialPair;
+        /**
+         * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         */
+        secretArn?: string;
     }
 
     export interface DataSourceCredentialsCredentialPair {

@@ -39,7 +39,7 @@ class DataSourceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[str] name: A name for the data source, maximum of 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
@@ -118,7 +118,7 @@ class DataSourceArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
         """
-        The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         """
         return pulumi.get(self, "credentials")
 
@@ -206,7 +206,7 @@ class _DataSourceState:
         Input properties used for looking up and filtering DataSource resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the data source
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[str] data_source_id: An identifier for the data source.
         :param pulumi.Input[str] name: A name for the data source, maximum of 128 characters.
         :param pulumi.Input['DataSourceParametersArgs'] parameters: The parameters used to connect to this data source (exactly one).
@@ -275,7 +275,7 @@ class _DataSourceState:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
         """
-        The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         """
         return pulumi.get(self, "credentials")
 
@@ -445,7 +445,7 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[str] data_source_id: An identifier for the data source.
         :param pulumi.Input[str] name: A name for the data source, maximum of 128 characters.
         :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] parameters: The parameters used to connect to this data source (exactly one).
@@ -577,7 +577,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the data source
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[str] data_source_id: An identifier for the data source.
         :param pulumi.Input[str] name: A name for the data source, maximum of 128 characters.
         :param pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']] parameters: The parameters used to connect to this data source (exactly one).
@@ -628,7 +628,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceCredentials']]:
         """
-        The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         """
         return pulumi.get(self, "credentials")
 
@@ -666,7 +666,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslProperties")
-    def ssl_properties(self) -> pulumi.Output[Optional['outputs.DataSourceSslProperties']]:
+    def ssl_properties(self) -> pulumi.Output['outputs.DataSourceSslProperties']:
         """
         Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         """

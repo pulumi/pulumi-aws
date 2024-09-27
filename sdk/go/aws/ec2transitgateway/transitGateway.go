@@ -73,6 +73,8 @@ type TransitGateway struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -139,6 +141,8 @@ type transitGatewayState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -176,6 +180,8 @@ type TransitGatewayState struct {
 	OwnerId pulumi.StringPtrInput
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -209,6 +215,8 @@ type transitGatewayArgs struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
@@ -235,6 +243,8 @@ type TransitGatewayArgs struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
+	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
@@ -385,6 +395,11 @@ func (o TransitGatewayOutput) OwnerId() pulumi.StringOutput {
 // Identifier of the default propagation route table
 func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+func (o TransitGatewayOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

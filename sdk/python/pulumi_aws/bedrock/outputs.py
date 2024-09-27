@@ -25,6 +25,7 @@ __all__ = [
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter',
     'AgentAgentAliasRoutingConfiguration',
     'AgentAgentAliasTimeouts',
+    'AgentAgentGuardrailConfiguration',
     'AgentAgentKnowledgeBaseAssociationTimeouts',
     'AgentAgentPromptOverrideConfiguration',
     'AgentAgentPromptOverrideConfigurationPromptConfiguration',
@@ -493,6 +494,54 @@ class AgentAgentAliasTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentAgentGuardrailConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailIdentifier":
+            suggest = "guardrail_identifier"
+        elif key == "guardrailVersion":
+            suggest = "guardrail_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentGuardrailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentGuardrailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentGuardrailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_identifier: str,
+                 guardrail_version: str):
+        """
+        :param str guardrail_identifier: Unique identifier of the guardrail.
+        :param str guardrail_version: Version of the guardrail.
+        """
+        pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> str:
+        """
+        Unique identifier of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> str:
+        """
+        Version of the guardrail.
+        """
+        return pulumi.get(self, "guardrail_version")
 
 
 @pulumi.output_type

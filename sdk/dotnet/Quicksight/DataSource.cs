@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Quicksight
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Output("sslProperties")]
-        public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
+        public Output<Outputs.DataSourceSslProperties> SslProperties { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
+        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsGetArgs>? Credentials { get; set; }

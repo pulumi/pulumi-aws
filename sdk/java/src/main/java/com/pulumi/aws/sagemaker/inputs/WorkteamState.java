@@ -149,14 +149,14 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Workteam (must be unique).
+     * The name of the workforce.
      * 
      */
     @Import(name="workforceName")
     private @Nullable Output<String> workforceName;
 
     /**
-     * @return The name of the Workteam (must be unique).
+     * @return The name of the workforce.
      * 
      */
     public Optional<Output<String>> workforceName() {
@@ -164,14 +164,14 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the workforce.
+     * The name of the Workteam (must be unique).
      * 
      */
     @Import(name="workteamName")
     private @Nullable Output<String> workteamName;
 
     /**
-     * @return The name of the workforce.
+     * @return The name of the Workteam (must be unique).
      * 
      */
     public Optional<Output<String>> workteamName() {
@@ -398,7 +398,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workforceName The name of the Workteam (must be unique).
+         * @param workforceName The name of the workforce.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workforceName The name of the Workteam (must be unique).
+         * @param workforceName The name of the workforce.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workteamName The name of the workforce.
+         * @param workteamName The name of the Workteam (must be unique).
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class WorkteamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workteamName The name of the workforce.
+         * @param workteamName The name of the Workteam (must be unique).
          * 
          * @return builder
          * 

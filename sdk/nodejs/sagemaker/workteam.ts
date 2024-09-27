@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         cognitoMemberDefinition: {
  *             clientId: exampleAwsCognitoUserPoolClient.id,
  *             userPool: exampleAwsCognitoUserPoolDomain.userPoolId,
- *             userGroup: exampleAwsCognitoUserGroup.id,
+ *             userGroup: exampleAwsCognitoUserGroup.name,
  *         },
  *     }],
  * });
@@ -121,11 +121,11 @@ export class Workteam extends pulumi.CustomResource {
      */
     public readonly workerAccessConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamWorkerAccessConfiguration>;
     /**
-     * The name of the Workteam (must be unique).
+     * The name of the workforce.
      */
     public readonly workforceName!: pulumi.Output<string>;
     /**
-     * The name of the workforce.
+     * The name of the Workteam (must be unique).
      */
     public readonly workteamName!: pulumi.Output<string>;
 
@@ -221,11 +221,11 @@ export interface WorkteamState {
      */
     workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration>;
     /**
-     * The name of the Workteam (must be unique).
+     * The name of the workforce.
      */
     workforceName?: pulumi.Input<string>;
     /**
-     * The name of the workforce.
+     * The name of the Workteam (must be unique).
      */
     workteamName?: pulumi.Input<string>;
 }
@@ -255,11 +255,11 @@ export interface WorkteamArgs {
      */
     workerAccessConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamWorkerAccessConfiguration>;
     /**
-     * The name of the Workteam (must be unique).
+     * The name of the workforce.
      */
     workforceName: pulumi.Input<string>;
     /**
-     * The name of the workforce.
+     * The name of the Workteam (must be unique).
      */
     workteamName: pulumi.Input<string>;
 }

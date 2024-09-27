@@ -22,14 +22,14 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     public static final ServerlessCacheArgs Empty = new ServerlessCacheArgs();
 
     /**
-     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     @Import(name="cacheUsageLimits")
     private @Nullable Output<ServerlessCacheCacheUsageLimitsArgs> cacheUsageLimits;
 
     /**
-     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+     * @return Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
     public Optional<Output<ServerlessCacheCacheUsageLimitsArgs>> cacheUsageLimits() {
@@ -267,7 +267,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+         * @param cacheUsageLimits Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
          * 
          * @return builder
          * 
