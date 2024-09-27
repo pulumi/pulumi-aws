@@ -217,9 +217,6 @@ def get_engine_version(engine: Optional[str] = None,
         valid_upgrade_targets=pulumi.get(__ret__, 'valid_upgrade_targets'),
         version=pulumi.get(__ret__, 'version'),
         version_description=pulumi.get(__ret__, 'version_description'))
-
-
-@_utilities.lift_output_func(get_engine_version)
 def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                               parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -247,4 +244,23 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     :param str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """
-    ...
+    __args__ = dict()
+    __args__['engine'] = engine
+    __args__['parameterGroupFamily'] = parameter_group_family
+    __args__['preferredVersions'] = preferred_versions
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:neptune/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
+    return __ret__.apply(lambda __response__: GetEngineVersionResult(
+        engine=pulumi.get(__response__, 'engine'),
+        engine_description=pulumi.get(__response__, 'engine_description'),
+        exportable_log_types=pulumi.get(__response__, 'exportable_log_types'),
+        id=pulumi.get(__response__, 'id'),
+        parameter_group_family=pulumi.get(__response__, 'parameter_group_family'),
+        preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        supported_timezones=pulumi.get(__response__, 'supported_timezones'),
+        supports_log_exports_to_cloudwatch=pulumi.get(__response__, 'supports_log_exports_to_cloudwatch'),
+        supports_read_replica=pulumi.get(__response__, 'supports_read_replica'),
+        valid_upgrade_targets=pulumi.get(__response__, 'valid_upgrade_targets'),
+        version=pulumi.get(__response__, 'version'),
+        version_description=pulumi.get(__response__, 'version_description')))

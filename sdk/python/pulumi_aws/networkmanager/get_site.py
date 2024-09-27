@@ -153,9 +153,6 @@ def get_site(global_network_id: Optional[str] = None,
         locations=pulumi.get(__ret__, 'locations'),
         site_id=pulumi.get(__ret__, 'site_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_site)
 def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     site_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -178,4 +175,17 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
     :param str site_id: ID of the specific site to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the Site.
     """
-    ...
+    __args__ = dict()
+    __args__['globalNetworkId'] = global_network_id
+    __args__['siteId'] = site_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getSite:getSite', __args__, opts=opts, typ=GetSiteResult)
+    return __ret__.apply(lambda __response__: GetSiteResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        locations=pulumi.get(__response__, 'locations'),
+        site_id=pulumi.get(__response__, 'site_id'),
+        tags=pulumi.get(__response__, 'tags')))
