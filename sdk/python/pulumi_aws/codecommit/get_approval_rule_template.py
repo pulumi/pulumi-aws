@@ -174,9 +174,6 @@ def get_approval_rule_template(name: Optional[str] = None,
         last_modified_user=pulumi.get(__ret__, 'last_modified_user'),
         name=pulumi.get(__ret__, 'name'),
         rule_content_sha256=pulumi.get(__ret__, 'rule_content_sha256'))
-
-
-@_utilities.lift_output_func(get_approval_rule_template)
 def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
@@ -194,4 +191,17 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name for the approval rule template. This needs to be less than 100 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate', __args__, opts=opts, typ=GetApprovalRuleTemplateResult)
+    return __ret__.apply(lambda __response__: GetApprovalRuleTemplateResult(
+        approval_rule_template_id=pulumi.get(__response__, 'approval_rule_template_id'),
+        content=pulumi.get(__response__, 'content'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        last_modified_user=pulumi.get(__response__, 'last_modified_user'),
+        name=pulumi.get(__response__, 'name'),
+        rule_content_sha256=pulumi.get(__response__, 'rule_content_sha256')))

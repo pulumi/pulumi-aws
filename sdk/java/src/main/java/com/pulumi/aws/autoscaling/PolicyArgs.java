@@ -204,6 +204,47 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * group scaling. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy("example", PolicyArgs.builder()
+     *             .stepAdjustments(            
+     *                 PolicyStepAdjustmentArgs.builder()
+     *                     .scalingAdjustment(-1)
+     *                     .metricIntervalLowerBound(1)
+     *                     .metricIntervalUpperBound(2)
+     *                     .build(),
+     *                 PolicyStepAdjustmentArgs.builder()
+     *                     .scalingAdjustment(1)
+     *                     .metricIntervalLowerBound(2)
+     *                     .metricIntervalUpperBound(3)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in step adjustments:
@@ -217,6 +258,47 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * group scaling. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.Policy;
+     * import com.pulumi.aws.autoscaling.PolicyArgs;
+     * import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Policy("example", PolicyArgs.builder()
+     *             .stepAdjustments(            
+     *                 PolicyStepAdjustmentArgs.builder()
+     *                     .scalingAdjustment(-1)
+     *                     .metricIntervalLowerBound(1)
+     *                     .metricIntervalUpperBound(2)
+     *                     .build(),
+     *                 PolicyStepAdjustmentArgs.builder()
+     *                     .scalingAdjustment(1)
+     *                     .metricIntervalLowerBound(2)
+     *                     .metricIntervalUpperBound(3)
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in step adjustments:
@@ -609,6 +691,47 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * group scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy("example", PolicyArgs.builder()
+         *             .stepAdjustments(            
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(-1)
+         *                     .metricIntervalLowerBound(1)
+         *                     .metricIntervalUpperBound(2)
+         *                     .build(),
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(1)
+         *                     .metricIntervalLowerBound(2)
+         *                     .metricIntervalUpperBound(3)
+         *                     .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in step adjustments:
@@ -626,6 +749,47 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * group scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy("example", PolicyArgs.builder()
+         *             .stepAdjustments(            
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(-1)
+         *                     .metricIntervalLowerBound(1)
+         *                     .metricIntervalUpperBound(2)
+         *                     .build(),
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(1)
+         *                     .metricIntervalLowerBound(2)
+         *                     .metricIntervalUpperBound(3)
+         *                     .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in step adjustments:
@@ -642,6 +806,47 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * group scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.autoscaling.Policy;
+         * import com.pulumi.aws.autoscaling.PolicyArgs;
+         * import com.pulumi.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Policy("example", PolicyArgs.builder()
+         *             .stepAdjustments(            
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(-1)
+         *                     .metricIntervalLowerBound(1)
+         *                     .metricIntervalUpperBound(2)
+         *                     .build(),
+         *                 PolicyStepAdjustmentArgs.builder()
+         *                     .scalingAdjustment(1)
+         *                     .metricIntervalLowerBound(2)
+         *                     .metricIntervalUpperBound(3)
+         *                     .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * The following fields are available in step adjustments:

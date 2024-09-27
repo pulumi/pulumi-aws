@@ -311,9 +311,6 @@ def get_cluster(name: Optional[str] = None,
         upgrade_policies=pulumi.get(__ret__, 'upgrade_policies'),
         version=pulumi.get(__ret__, 'version'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -336,4 +333,28 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the cluster.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        access_configs=pulumi.get(__response__, 'access_configs'),
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_authorities=pulumi.get(__response__, 'certificate_authorities'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        enabled_cluster_log_types=pulumi.get(__response__, 'enabled_cluster_log_types'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        identities=pulumi.get(__response__, 'identities'),
+        kubernetes_network_configs=pulumi.get(__response__, 'kubernetes_network_configs'),
+        name=pulumi.get(__response__, 'name'),
+        outpost_configs=pulumi.get(__response__, 'outpost_configs'),
+        platform_version=pulumi.get(__response__, 'platform_version'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        upgrade_policies=pulumi.get(__response__, 'upgrade_policies'),
+        version=pulumi.get(__response__, 'version'),
+        vpc_config=pulumi.get(__response__, 'vpc_config')))

@@ -190,9 +190,6 @@ def get_addon(addon_name: Optional[str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_addon)
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      cluster_name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -216,4 +213,20 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param str cluster_name: Name of the EKS Cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['addonName'] = addon_name
+    __args__['clusterName'] = cluster_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getAddon:getAddon', __args__, opts=opts, typ=GetAddonResult)
+    return __ret__.apply(lambda __response__: GetAddonResult(
+        addon_name=pulumi.get(__response__, 'addon_name'),
+        addon_version=pulumi.get(__response__, 'addon_version'),
+        arn=pulumi.get(__response__, 'arn'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        configuration_values=pulumi.get(__response__, 'configuration_values'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        modified_at=pulumi.get(__response__, 'modified_at'),
+        service_account_role_arn=pulumi.get(__response__, 'service_account_role_arn'),
+        tags=pulumi.get(__response__, 'tags')))
