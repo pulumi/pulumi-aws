@@ -561,11 +561,11 @@ class Role(pulumi.CustomResource):
                 {
                     "name": "my_inline_policy",
                     "policy": json.dumps({
-                        "version": "2012-10-17",
-                        "statement": [{
-                            "action": ["ec2:Describe*"],
-                            "effect": "Allow",
-                            "resource": "*",
+                        "Version": "2012-10-17",
+                        "Statement": [{
+                            "Action": ["ec2:Describe*"],
+                            "Effect": "Allow",
+                            "Resource": "*",
                         }],
                     }),
                 },
@@ -752,11 +752,11 @@ class Role(pulumi.CustomResource):
                 {
                     "name": "my_inline_policy",
                     "policy": json.dumps({
-                        "version": "2012-10-17",
-                        "statement": [{
-                            "action": ["ec2:Describe*"],
-                            "effect": "Allow",
-                            "resource": "*",
+                        "Version": "2012-10-17",
+                        "Statement": [{
+                            "Action": ["ec2:Describe*"],
+                            "Effect": "Allow",
+                            "Resource": "*",
                         }],
                     }),
                 },

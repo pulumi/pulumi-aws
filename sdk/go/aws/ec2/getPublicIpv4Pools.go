@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Returns all public IPv4 pools.
-//			_, err := ec2.GetPublicIpv4Pools(ctx, nil, nil)
+//			_, err := ec2.GetPublicIpv4Pools(ctx, &ec2.GetPublicIpv4PoolsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
