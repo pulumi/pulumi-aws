@@ -153,10 +153,10 @@ index eb9c6f256f..912546358c 100644
  				ElementType: types.StringType,
  				Optional:    true,
 diff --git a/internal/service/opensearchserverless/collection.go b/internal/service/opensearchserverless/collection.go
-index 53e6636756..e9cd945e10 100644
+index e2dfcda3c8..e524fcad2d 100644
 --- a/internal/service/opensearchserverless/collection.go
 +++ b/internal/service/opensearchserverless/collection.go
-@@ -123,7 +123,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
+@@ -124,7 +124,7 @@ func (r *resourceCollection) Schema(ctx context.Context, req resource.SchemaRequ
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
