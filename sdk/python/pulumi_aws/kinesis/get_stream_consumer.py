@@ -138,9 +138,6 @@ def get_stream_consumer(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'))
-
-
-@_utilities.lift_output_func(get_stream_consumer)
 def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                stream_arn: Optional[pulumi.Input[str]] = None,
@@ -165,4 +162,16 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     :param str name: Name of the stream consumer.
     :param str stream_arn: ARN of the data stream the consumer is registered with.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['streamArn'] = stream_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult)
+    return __ret__.apply(lambda __response__: GetStreamConsumerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        stream_arn=pulumi.get(__response__, 'stream_arn')))

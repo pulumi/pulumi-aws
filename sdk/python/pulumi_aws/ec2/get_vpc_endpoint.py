@@ -339,9 +339,6 @@ def get_vpc_endpoint(filters: Optional[Sequence[Union['GetVpcEndpointFilterArgs'
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_type=pulumi.get(__ret__, 'vpc_endpoint_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_vpc_endpoint)
 def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointFilterArgs', 'GetVpcEndpointFilterArgsDict']]]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             service_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -379,4 +376,34 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['serviceName'] = service_name
+    __args__['state'] = state
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult)
+    return __ret__.apply(lambda __response__: GetVpcEndpointResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cidr_blocks=pulumi.get(__response__, 'cidr_blocks'),
+        dns_entries=pulumi.get(__response__, 'dns_entries'),
+        dns_options=pulumi.get(__response__, 'dns_options'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        policy=pulumi.get(__response__, 'policy'),
+        prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
+        private_dns_enabled=pulumi.get(__response__, 'private_dns_enabled'),
+        requester_managed=pulumi.get(__response__, 'requester_managed'),
+        route_table_ids=pulumi.get(__response__, 'route_table_ids'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        state=pulumi.get(__response__, 'state'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint_type=pulumi.get(__response__, 'vpc_endpoint_type'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

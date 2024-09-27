@@ -137,9 +137,6 @@ def get_regex_pattern_set(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         regular_expressions=pulumi.get(__ret__, 'regular_expressions'),
         scope=pulumi.get(__ret__, 'scope'))
-
-
-@_utilities.lift_output_func(get_regex_pattern_set)
 def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
@@ -160,4 +157,15 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the WAFv2 Regex Pattern Set.
     :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['scope'] = scope
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getRegexPatternSet:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult)
+    return __ret__.apply(lambda __response__: GetRegexPatternSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        regular_expressions=pulumi.get(__response__, 'regular_expressions'),
+        scope=pulumi.get(__response__, 'scope')))
