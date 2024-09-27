@@ -123,9 +123,6 @@ def get_apis(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_apis)
 def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     protocol_type: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -148,4 +145,15 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired APIs.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['protocolType'] = protocol_type
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getApis:getApis', __args__, opts=opts, typ=GetApisResult)
+    return __ret__.apply(lambda __response__: GetApisResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        name=pulumi.get(__response__, 'name'),
+        protocol_type=pulumi.get(__response__, 'protocol_type'),
+        tags=pulumi.get(__response__, 'tags')))

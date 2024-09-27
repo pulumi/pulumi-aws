@@ -128,9 +128,6 @@ def search(query_string: Optional[str] = None,
         resource_counts=pulumi.get(__ret__, 'resource_counts'),
         resources=pulumi.get(__ret__, 'resources'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
-
-
-@_utilities.lift_output_func(search)
 def search_output(query_string: Optional[pulumi.Input[str]] = None,
                   view_arn: Optional[pulumi.Input[Optional[str]]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[SearchResult]:
@@ -155,4 +152,14 @@ def search_output(query_string: Optional[pulumi.Input[str]] = None,
            The following arguments are optional:
     :param str view_arn: Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
     """
-    ...
+    __args__ = dict()
+    __args__['queryString'] = query_string
+    __args__['viewArn'] = view_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:resourceexplorer/search:Search', __args__, opts=opts, typ=SearchResult)
+    return __ret__.apply(lambda __response__: SearchResult(
+        id=pulumi.get(__response__, 'id'),
+        query_string=pulumi.get(__response__, 'query_string'),
+        resource_counts=pulumi.get(__response__, 'resource_counts'),
+        resources=pulumi.get(__response__, 'resources'),
+        view_arn=pulumi.get(__response__, 'view_arn')))

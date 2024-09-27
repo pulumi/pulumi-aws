@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.GetRegistrationCode(ctx, nil, nil)
+//			example, err := iot.GetRegistrationCode(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

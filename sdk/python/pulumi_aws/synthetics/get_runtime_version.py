@@ -176,9 +176,6 @@ def get_runtime_version(latest: Optional[bool] = None,
         release_date=pulumi.get(__ret__, 'release_date'),
         version=pulumi.get(__ret__, 'version'),
         version_name=pulumi.get(__ret__, 'version_name'))
-
-
-@_utilities.lift_output_func(get_runtime_version)
 def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[bool]]] = None,
                                prefix: Optional[pulumi.Input[str]] = None,
                                version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -215,4 +212,18 @@ def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[bool]]] = 
            The following arguments are optional:
     :param str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
     """
-    ...
+    __args__ = dict()
+    __args__['latest'] = latest
+    __args__['prefix'] = prefix
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:synthetics/getRuntimeVersion:getRuntimeVersion', __args__, opts=opts, typ=GetRuntimeVersionResult)
+    return __ret__.apply(lambda __response__: GetRuntimeVersionResult(
+        deprecation_date=pulumi.get(__response__, 'deprecation_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        latest=pulumi.get(__response__, 'latest'),
+        prefix=pulumi.get(__response__, 'prefix'),
+        release_date=pulumi.get(__response__, 'release_date'),
+        version=pulumi.get(__response__, 'version'),
+        version_name=pulumi.get(__response__, 'version_name')))

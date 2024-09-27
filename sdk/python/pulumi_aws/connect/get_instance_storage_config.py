@@ -125,9 +125,6 @@ def get_instance_storage_config(association_id: Optional[str] = None,
         instance_id=pulumi.get(__ret__, 'instance_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         storage_configs=pulumi.get(__ret__, 'storage_configs'))
-
-
-@_utilities.lift_output_func(get_instance_storage_config)
 def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str]] = None,
                                        instance_id: Optional[pulumi.Input[str]] = None,
                                        resource_type: Optional[pulumi.Input[str]] = None,
@@ -151,4 +148,15 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     :param str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
-    ...
+    __args__ = dict()
+    __args__['associationId'] = association_id
+    __args__['instanceId'] = instance_id
+    __args__['resourceType'] = resource_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstanceStorageConfig:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult)
+    return __ret__.apply(lambda __response__: GetInstanceStorageConfigResult(
+        association_id=pulumi.get(__response__, 'association_id'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        storage_configs=pulumi.get(__response__, 'storage_configs')))

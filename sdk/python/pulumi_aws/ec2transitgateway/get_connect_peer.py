@@ -232,9 +232,6 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
         transit_gateway_address=pulumi.get(__ret__, 'transit_gateway_address'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
-
-
-@_utilities.lift_output_func(get_connect_peer)
 def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -270,4 +267,22 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayConnectPeerId'] = transit_gateway_connect_peer_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getConnectPeer:getConnectPeer', __args__, opts=opts, typ=GetConnectPeerResult)
+    return __ret__.apply(lambda __response__: GetConnectPeerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bgp_asn=pulumi.get(__response__, 'bgp_asn'),
+        bgp_peer_address=pulumi.get(__response__, 'bgp_peer_address'),
+        bgp_transit_gateway_addresses=pulumi.get(__response__, 'bgp_transit_gateway_addresses'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        inside_cidr_blocks=pulumi.get(__response__, 'inside_cidr_blocks'),
+        peer_address=pulumi.get(__response__, 'peer_address'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_address=pulumi.get(__response__, 'transit_gateway_address'),
+        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),
+        transit_gateway_connect_peer_id=pulumi.get(__response__, 'transit_gateway_connect_peer_id')))

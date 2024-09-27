@@ -152,9 +152,6 @@ def get_plan(plan_id: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_plan)
 def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
@@ -174,4 +171,16 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
     :param str plan_id: Backup plan ID.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the plans you create.
     """
-    ...
+    __args__ = dict()
+    __args__['planId'] = plan_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:backup/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
+    return __ret__.apply(lambda __response__: GetPlanResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        plan_id=pulumi.get(__response__, 'plan_id'),
+        rules=pulumi.get(__response__, 'rules'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

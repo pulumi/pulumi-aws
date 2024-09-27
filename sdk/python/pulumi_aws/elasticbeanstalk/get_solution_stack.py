@@ -117,9 +117,6 @@ def get_solution_stack(most_recent: Optional[bool] = None,
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
         name_regex=pulumi.get(__ret__, 'name_regex'))
-
-
-@_utilities.lift_output_func(get_solution_stack)
 def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                               name_regex: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionStackResult]:
@@ -147,4 +144,13 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
            this call will fail. Ensure that your search is specific enough to return
            a single solution stack, or use `most_recent` to choose the most recent one.
     """
-    ...
+    __args__ = dict()
+    __args__['mostRecent'] = most_recent
+    __args__['nameRegex'] = name_regex
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult)
+    return __ret__.apply(lambda __response__: GetSolutionStackResult(
+        id=pulumi.get(__response__, 'id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        name_regex=pulumi.get(__response__, 'name_regex')))
