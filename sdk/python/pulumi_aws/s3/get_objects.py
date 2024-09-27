@@ -219,9 +219,6 @@ def get_objects(bucket: Optional[str] = None,
         request_charged=pulumi.get(__ret__, 'request_charged'),
         request_payer=pulumi.get(__ret__, 'request_payer'),
         start_after=pulumi.get(__ret__, 'start_after'))
-
-
-@_utilities.lift_output_func(get_objects)
 def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                        delimiter: Optional[pulumi.Input[Optional[str]]] = None,
                        encoding_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -246,4 +243,28 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
     :param str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
     :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
-    ...
+    __args__ = dict()
+    __args__['bucket'] = bucket
+    __args__['delimiter'] = delimiter
+    __args__['encodingType'] = encoding_type
+    __args__['fetchOwner'] = fetch_owner
+    __args__['maxKeys'] = max_keys
+    __args__['prefix'] = prefix
+    __args__['requestPayer'] = request_payer
+    __args__['startAfter'] = start_after
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getObjects:getObjects', __args__, opts=opts, typ=GetObjectsResult)
+    return __ret__.apply(lambda __response__: GetObjectsResult(
+        bucket=pulumi.get(__response__, 'bucket'),
+        common_prefixes=pulumi.get(__response__, 'common_prefixes'),
+        delimiter=pulumi.get(__response__, 'delimiter'),
+        encoding_type=pulumi.get(__response__, 'encoding_type'),
+        fetch_owner=pulumi.get(__response__, 'fetch_owner'),
+        id=pulumi.get(__response__, 'id'),
+        keys=pulumi.get(__response__, 'keys'),
+        max_keys=pulumi.get(__response__, 'max_keys'),
+        owners=pulumi.get(__response__, 'owners'),
+        prefix=pulumi.get(__response__, 'prefix'),
+        request_charged=pulumi.get(__response__, 'request_charged'),
+        request_payer=pulumi.get(__response__, 'request_payer'),
+        start_after=pulumi.get(__response__, 'start_after')))

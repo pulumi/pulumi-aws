@@ -260,9 +260,6 @@ def get_instance(instance_alias: Optional[str] = None,
         outbound_calls_enabled=pulumi.get(__ret__, 'outbound_calls_enabled'),
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_instance)
 def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
@@ -293,4 +290,24 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
     :param str instance_alias: Returns information on a specific connect instance by alias
     :param str instance_id: Returns information on a specific connect instance by id
     """
-    ...
+    __args__ = dict()
+    __args__['instanceAlias'] = instance_alias
+    __args__['instanceId'] = instance_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
+    return __ret__.apply(lambda __response__: GetInstanceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auto_resolve_best_voices_enabled=pulumi.get(__response__, 'auto_resolve_best_voices_enabled'),
+        contact_flow_logs_enabled=pulumi.get(__response__, 'contact_flow_logs_enabled'),
+        contact_lens_enabled=pulumi.get(__response__, 'contact_lens_enabled'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        early_media_enabled=pulumi.get(__response__, 'early_media_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        identity_management_type=pulumi.get(__response__, 'identity_management_type'),
+        inbound_calls_enabled=pulumi.get(__response__, 'inbound_calls_enabled'),
+        instance_alias=pulumi.get(__response__, 'instance_alias'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        multi_party_conference_enabled=pulumi.get(__response__, 'multi_party_conference_enabled'),
+        outbound_calls_enabled=pulumi.get(__response__, 'outbound_calls_enabled'),
+        service_role=pulumi.get(__response__, 'service_role'),
+        status=pulumi.get(__response__, 'status')))

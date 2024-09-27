@@ -214,9 +214,6 @@ def get_job_queue(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_job_queue)
 def get_job_queue_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobQueueResult]:
@@ -237,4 +234,20 @@ def get_job_queue_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the job queue.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult)
+    return __ret__.apply(lambda __response__: GetJobQueueResult(
+        arn=pulumi.get(__response__, 'arn'),
+        compute_environment_orders=pulumi.get(__response__, 'compute_environment_orders'),
+        id=pulumi.get(__response__, 'id'),
+        job_state_time_limit_actions=pulumi.get(__response__, 'job_state_time_limit_actions'),
+        name=pulumi.get(__response__, 'name'),
+        priority=pulumi.get(__response__, 'priority'),
+        scheduling_policy_arn=pulumi.get(__response__, 'scheduling_policy_arn'),
+        state=pulumi.get(__response__, 'state'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
+        tags=pulumi.get(__response__, 'tags')))

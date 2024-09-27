@@ -48,7 +48,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			peer, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			peer, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

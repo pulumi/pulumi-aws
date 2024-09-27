@@ -287,9 +287,6 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
-
-
-@_utilities.lift_output_func(get_transit_gateway)
 def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -325,4 +322,26 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
     :param str id: Identifier of the EC2 Transit Gateway.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult)
+    return __ret__.apply(lambda __response__: GetTransitGatewayResult(
+        amazon_side_asn=pulumi.get(__response__, 'amazon_side_asn'),
+        arn=pulumi.get(__response__, 'arn'),
+        association_default_route_table_id=pulumi.get(__response__, 'association_default_route_table_id'),
+        auto_accept_shared_attachments=pulumi.get(__response__, 'auto_accept_shared_attachments'),
+        default_route_table_association=pulumi.get(__response__, 'default_route_table_association'),
+        default_route_table_propagation=pulumi.get(__response__, 'default_route_table_propagation'),
+        description=pulumi.get(__response__, 'description'),
+        dns_support=pulumi.get(__response__, 'dns_support'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        multicast_support=pulumi.get(__response__, 'multicast_support'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        propagation_default_route_table_id=pulumi.get(__response__, 'propagation_default_route_table_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_cidr_blocks=pulumi.get(__response__, 'transit_gateway_cidr_blocks'),
+        vpn_ecmp_support=pulumi.get(__response__, 'vpn_ecmp_support')))

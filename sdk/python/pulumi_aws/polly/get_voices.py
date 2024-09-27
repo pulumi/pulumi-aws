@@ -141,9 +141,6 @@ def get_voices(engine: Optional[str] = None,
         include_additional_language_codes=pulumi.get(__ret__, 'include_additional_language_codes'),
         language_code=pulumi.get(__ret__, 'language_code'),
         voices=pulumi.get(__ret__, 'voices'))
-
-
-@_utilities.lift_output_func(get_voices)
 def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                       include_additional_language_codes: Optional[pulumi.Input[Optional[bool]]] = None,
                       language_code: Optional[pulumi.Input[Optional[str]]] = None,
@@ -178,4 +175,16 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
     :param str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
     :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
-    ...
+    __args__ = dict()
+    __args__['engine'] = engine
+    __args__['includeAdditionalLanguageCodes'] = include_additional_language_codes
+    __args__['languageCode'] = language_code
+    __args__['voices'] = voices
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:polly/getVoices:getVoices', __args__, opts=opts, typ=GetVoicesResult)
+    return __ret__.apply(lambda __response__: GetVoicesResult(
+        engine=pulumi.get(__response__, 'engine'),
+        id=pulumi.get(__response__, 'id'),
+        include_additional_language_codes=pulumi.get(__response__, 'include_additional_language_codes'),
+        language_code=pulumi.get(__response__, 'language_code'),
+        voices=pulumi.get(__response__, 'voices')))
