@@ -62,7 +62,7 @@ import (
 //						},
 //						Operation: {
 //							Deidentify: {
-//								MaskConfig: nil,
+//								MaskConfig: {},
 //							},
 //						},
 //					},

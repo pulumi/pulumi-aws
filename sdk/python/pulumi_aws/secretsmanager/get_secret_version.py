@@ -188,9 +188,6 @@ def get_secret_version(secret_id: Optional[str] = None,
         version_id=pulumi.get(__ret__, 'version_id'),
         version_stage=pulumi.get(__ret__, 'version_stage'),
         version_stages=pulumi.get(__ret__, 'version_stages'))
-
-
-@_utilities.lift_output_func(get_secret_version)
 def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
                               version_id: Optional[pulumi.Input[Optional[str]]] = None,
                               version_stage: Optional[pulumi.Input[Optional[str]]] = None,
@@ -226,4 +223,19 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
     """
-    ...
+    __args__ = dict()
+    __args__['secretId'] = secret_id
+    __args__['versionId'] = version_id
+    __args__['versionStage'] = version_stage
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__, opts=opts, typ=GetSecretVersionResult)
+    return __ret__.apply(lambda __response__: GetSecretVersionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        secret_binary=pulumi.get(__response__, 'secret_binary'),
+        secret_id=pulumi.get(__response__, 'secret_id'),
+        secret_string=pulumi.get(__response__, 'secret_string'),
+        version_id=pulumi.get(__response__, 'version_id'),
+        version_stage=pulumi.get(__response__, 'version_stage'),
+        version_stages=pulumi.get(__response__, 'version_stages')))

@@ -149,9 +149,6 @@ def get_cluster(cluster_id: Optional[str] = None,
         security_group_id=pulumi.get(__ret__, 'security_group_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        cluster_state: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -171,4 +168,16 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
     :param str cluster_id: ID of Cloud HSM v2 cluster.
     :param str cluster_state: State of the cluster to be found.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    __args__['clusterState'] = cluster_state
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        cluster_certificates=pulumi.get(__response__, 'cluster_certificates'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        cluster_state=pulumi.get(__response__, 'cluster_state'),
+        id=pulumi.get(__response__, 'id'),
+        security_group_id=pulumi.get(__response__, 'security_group_id'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))
