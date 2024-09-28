@@ -152,9 +152,6 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
         minimum_engine_version=pulumi.get(__ret__, 'minimum_engine_version'),
         tags=pulumi.get(__ret__, 'tags'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
@@ -174,4 +171,16 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     :param Mapping[str, str] tags: Map of tags assigned to the user.
     :param str user_name: Name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        access_string=pulumi.get(__response__, 'access_string'),
+        arn=pulumi.get(__response__, 'arn'),
+        authentication_modes=pulumi.get(__response__, 'authentication_modes'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_engine_version=pulumi.get(__response__, 'minimum_engine_version'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_name=pulumi.get(__response__, 'user_name')))

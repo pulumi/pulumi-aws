@@ -181,9 +181,6 @@ def get_bot_alias(bot_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_bot_alias)
 def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
@@ -204,4 +201,18 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
     :param str bot_name: Name of the bot.
     :param str name: Name of the bot alias. The name is case sensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['botName'] = bot_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lex/getBotAlias:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult)
+    return __ret__.apply(lambda __response__: GetBotAliasResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bot_name=pulumi.get(__response__, 'bot_name'),
+        bot_version=pulumi.get(__response__, 'bot_version'),
+        checksum=pulumi.get(__response__, 'checksum'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        name=pulumi.get(__response__, 'name')))

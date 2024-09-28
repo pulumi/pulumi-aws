@@ -209,9 +209,6 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_resolver_firewall_rule_group_association)
 def get_resolver_firewall_rule_group_association_output(firewall_rule_group_association_id: Optional[pulumi.Input[str]] = None,
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallRuleGroupAssociationResult]:
     """
@@ -235,4 +232,22 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
            
            The following attribute is additionally exported:
     """
-    ...
+    __args__ = dict()
+    __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult)
+    return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupAssociationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        creator_request_id=pulumi.get(__response__, 'creator_request_id'),
+        firewall_rule_group_association_id=pulumi.get(__response__, 'firewall_rule_group_association_id'),
+        firewall_rule_group_id=pulumi.get(__response__, 'firewall_rule_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        managed_owner_name=pulumi.get(__response__, 'managed_owner_name'),
+        modification_time=pulumi.get(__response__, 'modification_time'),
+        mutation_protection=pulumi.get(__response__, 'mutation_protection'),
+        name=pulumi.get(__response__, 'name'),
+        priority=pulumi.get(__response__, 'priority'),
+        status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

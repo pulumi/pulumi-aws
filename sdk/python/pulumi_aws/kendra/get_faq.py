@@ -257,9 +257,6 @@ def get_faq(faq_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_faq)
 def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
                    index_id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -282,4 +279,25 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
     :param str index_id: Identifier of the index that contains the FAQ.
     :param Mapping[str, str] tags: Metadata that helps organize the FAQs you create.
     """
-    ...
+    __args__ = dict()
+    __args__['faqId'] = faq_id
+    __args__['indexId'] = index_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kendra/getFaq:getFaq', __args__, opts=opts, typ=GetFaqResult)
+    return __ret__.apply(lambda __response__: GetFaqResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        faq_id=pulumi.get(__response__, 'faq_id'),
+        file_format=pulumi.get(__response__, 'file_format'),
+        id=pulumi.get(__response__, 'id'),
+        index_id=pulumi.get(__response__, 'index_id'),
+        language_code=pulumi.get(__response__, 'language_code'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        s3_paths=pulumi.get(__response__, 's3_paths'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))
