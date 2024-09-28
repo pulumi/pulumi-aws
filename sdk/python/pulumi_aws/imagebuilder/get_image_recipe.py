@@ -243,9 +243,6 @@ def get_image_recipe(arn: Optional[str] = None,
         user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
         version=pulumi.get(__ret__, 'version'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
-
-
-@_utilities.lift_output_func(get_image_recipe)
 def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
@@ -265,4 +262,23 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the image recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipe:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult)
+    return __ret__.apply(lambda __response__: GetImageRecipeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),
+        components=pulumi.get(__response__, 'components'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        parent_image=pulumi.get(__response__, 'parent_image'),
+        platform=pulumi.get(__response__, 'platform'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_data_base64=pulumi.get(__response__, 'user_data_base64'),
+        version=pulumi.get(__response__, 'version'),
+        working_directory=pulumi.get(__response__, 'working_directory')))

@@ -249,9 +249,6 @@ def get_job_definition(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeouts=pulumi.get(__ret__, 'timeouts'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_job_definition)
 def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               revision: Optional[pulumi.Input[Optional[int]]] = None,
@@ -287,4 +284,25 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param int revision: The revision of the job definition.
     :param str status: The status of the job definition.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['revision'] = revision
+    __args__['status'] = status
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:batch/getJobDefinition:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
+    return __ret__.apply(lambda __response__: GetJobDefinitionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        arn_prefix=pulumi.get(__response__, 'arn_prefix'),
+        container_orchestration_type=pulumi.get(__response__, 'container_orchestration_type'),
+        eks_properties=pulumi.get(__response__, 'eks_properties'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        node_properties=pulumi.get(__response__, 'node_properties'),
+        retry_strategies=pulumi.get(__response__, 'retry_strategies'),
+        revision=pulumi.get(__response__, 'revision'),
+        scheduling_priority=pulumi.get(__response__, 'scheduling_priority'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        timeouts=pulumi.get(__response__, 'timeouts'),
+        type=pulumi.get(__response__, 'type')))

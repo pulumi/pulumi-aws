@@ -167,9 +167,6 @@ def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetCon
         transit_gateway_connect_id=pulumi.get(__ret__, 'transit_gateway_connect_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transport_attachment_id=pulumi.get(__ret__, 'transport_attachment_id'))
-
-
-@_utilities.lift_output_func(get_connect)
 def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']]]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        transit_gateway_connect_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -205,4 +202,17 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayConnectId'] = transit_gateway_connect_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getConnect:getConnect', __args__, opts=opts, typ=GetConnectResult)
+    return __ret__.apply(lambda __response__: GetConnectResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_connect_id=pulumi.get(__response__, 'transit_gateway_connect_id'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        transport_attachment_id=pulumi.get(__response__, 'transport_attachment_id')))

@@ -58,7 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := iot.GetRegistrationCode(ctx, nil, nil)
+//			example, err := iot.GetRegistrationCode(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
