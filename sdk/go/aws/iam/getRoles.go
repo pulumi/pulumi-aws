@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetRoles(ctx, nil, nil)
+//			_, err := iam.GetRoles(ctx, &iam.GetRolesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
