@@ -221,9 +221,6 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_route_table)
 def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
                            gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                            route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -261,4 +258,24 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
     :param str vpc_id: ID of the VPC that the desired Route Table belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['gatewayId'] = gateway_id
+    __args__['routeTableId'] = route_table_id
+    __args__['subnetId'] = subnet_id
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
+    return __ret__.apply(lambda __response__: GetRouteTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        associations=pulumi.get(__response__, 'associations'),
+        filters=pulumi.get(__response__, 'filters'),
+        gateway_id=pulumi.get(__response__, 'gateway_id'),
+        id=pulumi.get(__response__, 'id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
+        routes=pulumi.get(__response__, 'routes'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

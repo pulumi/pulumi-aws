@@ -245,9 +245,6 @@ def get_listener(listener_identifier: Optional[str] = None,
         service_id=pulumi.get(__ret__, 'service_id'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_listener)
 def get_listener_output(listener_identifier: Optional[pulumi.Input[str]] = None,
                         service_identifier: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -271,4 +268,24 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[str]] = None,
     :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network
     :param Mapping[str, str] tags: List of tags associated with the listener.
     """
-    ...
+    __args__ = dict()
+    __args__['listenerIdentifier'] = listener_identifier
+    __args__['serviceIdentifier'] = service_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getListener:getListener', __args__, opts=opts, typ=GetListenerResult)
+    return __ret__.apply(lambda __response__: GetListenerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        default_actions=pulumi.get(__response__, 'default_actions'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        listener_id=pulumi.get(__response__, 'listener_id'),
+        listener_identifier=pulumi.get(__response__, 'listener_identifier'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        service_arn=pulumi.get(__response__, 'service_arn'),
+        service_id=pulumi.get(__response__, 'service_id'),
+        service_identifier=pulumi.get(__response__, 'service_identifier'),
+        tags=pulumi.get(__response__, 'tags')))

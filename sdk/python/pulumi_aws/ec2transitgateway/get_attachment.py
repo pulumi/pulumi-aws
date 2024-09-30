@@ -240,9 +240,6 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_owner_id=pulumi.get(__ret__, 'transit_gateway_owner_id'))
-
-
-@_utilities.lift_output_func(get_attachment)
 def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           transit_gateway_attachment_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -273,4 +270,23 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param Mapping[str, str] tags: Key-value tags for the attachment.
     :param str transit_gateway_attachment_id: ID of the attachment.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getAttachment:getAttachment', __args__, opts=opts, typ=GetAttachmentResult)
+    return __ret__.apply(lambda __response__: GetAttachmentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        association_state=pulumi.get(__response__, 'association_state'),
+        association_transit_gateway_route_table_id=pulumi.get(__response__, 'association_transit_gateway_route_table_id'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        resource_owner_id=pulumi.get(__response__, 'resource_owner_id'),
+        resource_type=pulumi.get(__response__, 'resource_type'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        transit_gateway_owner_id=pulumi.get(__response__, 'transit_gateway_owner_id')))

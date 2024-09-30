@@ -97,9 +97,6 @@ def get_delegated_services(account_id: Optional[str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         delegated_services=pulumi.get(__ret__, 'delegated_services'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_delegated_services)
 def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedServicesResult]:
     """
@@ -117,4 +114,11 @@ def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None
 
     :param str account_id: Account ID number of a delegated administrator account in the organization.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getDelegatedServices:getDelegatedServices', __args__, opts=opts, typ=GetDelegatedServicesResult)
+    return __ret__.apply(lambda __response__: GetDelegatedServicesResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        delegated_services=pulumi.get(__response__, 'delegated_services'),
+        id=pulumi.get(__response__, 'id')))

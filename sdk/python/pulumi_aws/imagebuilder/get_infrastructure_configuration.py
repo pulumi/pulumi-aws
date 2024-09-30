@@ -282,9 +282,6 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
         terminate_instance_on_failure=pulumi.get(__ret__, 'terminate_instance_on_failure'))
-
-
-@_utilities.lift_output_func(get_infrastructure_configuration)
 def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -306,4 +303,27 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
     :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['resourceTags'] = resource_tags
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration', __args__, opts=opts, typ=GetInfrastructureConfigurationResult)
+    return __ret__.apply(lambda __response__: GetInfrastructureConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        date_updated=pulumi.get(__response__, 'date_updated'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_metadata_options=pulumi.get(__response__, 'instance_metadata_options'),
+        instance_profile_name=pulumi.get(__response__, 'instance_profile_name'),
+        instance_types=pulumi.get(__response__, 'instance_types'),
+        key_pair=pulumi.get(__response__, 'key_pair'),
+        loggings=pulumi.get(__response__, 'loggings'),
+        name=pulumi.get(__response__, 'name'),
+        resource_tags=pulumi.get(__response__, 'resource_tags'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        terminate_instance_on_failure=pulumi.get(__response__, 'terminate_instance_on_failure')))

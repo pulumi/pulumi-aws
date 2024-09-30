@@ -109,9 +109,6 @@ def get_site(id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_site)
 def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
@@ -131,4 +128,13 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Identifier of the Site.
     :param str name: Name of the Site.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getSite:getSite', __args__, opts=opts, typ=GetSiteResult)
+    return __ret__.apply(lambda __response__: GetSiteResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

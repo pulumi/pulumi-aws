@@ -121,11 +121,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			test, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			testGetRegion, err := aws.GetRegion(ctx, nil, nil)
+//			testGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
