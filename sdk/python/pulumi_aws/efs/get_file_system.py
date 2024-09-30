@@ -286,9 +286,6 @@ def get_file_system(creation_token: Optional[str] = None,
         size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
         tags=pulumi.get(__ret__, 'tags'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
-
-
-@_utilities.lift_output_func(get_file_system)
 def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]] = None,
                            file_system_id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -317,4 +314,27 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
     :param str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
     :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
-    ...
+    __args__ = dict()
+    __args__['creationToken'] = creation_token
+    __args__['fileSystemId'] = file_system_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult)
+    return __ret__.apply(lambda __response__: GetFileSystemResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
+        creation_token=pulumi.get(__response__, 'creation_token'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        file_system_id=pulumi.get(__response__, 'file_system_id'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
+        name=pulumi.get(__response__, 'name'),
+        performance_mode=pulumi.get(__response__, 'performance_mode'),
+        protections=pulumi.get(__response__, 'protections'),
+        provisioned_throughput_in_mibps=pulumi.get(__response__, 'provisioned_throughput_in_mibps'),
+        size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
+        tags=pulumi.get(__response__, 'tags'),
+        throughput_mode=pulumi.get(__response__, 'throughput_mode')))

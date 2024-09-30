@@ -186,7 +186,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -216,7 +216,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -230,7 +230,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(2),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -258,7 +258,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -272,7 +272,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -286,7 +286,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -316,7 +316,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -330,7 +330,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -344,7 +344,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -416,7 +416,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -446,7 +446,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -460,7 +460,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(2),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -488,7 +488,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -502,7 +502,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -516,7 +516,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -546,7 +546,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -560,7 +560,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -574,7 +574,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
@@ -602,7 +602,7 @@ import (
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
-//							ValuesImportanceMap: nil,
+//							ValuesImportanceMap: pulumi.IntMap{},
 //						},
 //					},
 //					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{

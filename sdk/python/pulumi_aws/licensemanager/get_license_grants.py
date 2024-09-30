@@ -107,9 +107,6 @@ def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterA
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_license_grants)
 def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseGrantsResult]:
     """
@@ -136,4 +133,11 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[U
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getLicenseGrants:getLicenseGrants', __args__, opts=opts, typ=GetLicenseGrantsResult)
+    return __ret__.apply(lambda __response__: GetLicenseGrantsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id')))

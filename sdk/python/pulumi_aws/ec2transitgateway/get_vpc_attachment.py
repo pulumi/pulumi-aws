@@ -222,9 +222,6 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
-
-
-@_utilities.lift_output_func(get_vpc_attachment)
 def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -260,4 +257,21 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult)
+    return __ret__.apply(lambda __response__: GetVpcAttachmentResult(
+        appliance_mode_support=pulumi.get(__response__, 'appliance_mode_support'),
+        dns_support=pulumi.get(__response__, 'dns_support'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_support=pulumi.get(__response__, 'ipv6_support'),
+        security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        vpc_owner_id=pulumi.get(__response__, 'vpc_owner_id')))

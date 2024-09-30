@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.GetRegions(ctx, nil, nil)
+//			_, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

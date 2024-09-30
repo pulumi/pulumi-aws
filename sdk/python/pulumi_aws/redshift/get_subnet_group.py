@@ -138,9 +138,6 @@ def get_subnet_group(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_subnet_group)
 def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
@@ -160,4 +157,15 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the cluster subnet group for which information is requested.
     :param Mapping[str, str] tags: Tags associated to the Subnet Group
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
+    return __ret__.apply(lambda __response__: GetSubnetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags')))

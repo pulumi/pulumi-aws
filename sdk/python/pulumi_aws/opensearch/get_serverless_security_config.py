@@ -155,9 +155,6 @@ def get_serverless_security_config(id: Optional[str] = None,
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_serverless_security_config)
 def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None,
                                           saml_options: Optional[pulumi.Input[Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
@@ -179,4 +176,16 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None
     :param str id: The unique identifier of the security configuration.
     :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['samlOptions'] = saml_options
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig', __args__, opts=opts, typ=GetServerlessSecurityConfigResult)
+    return __ret__.apply(lambda __response__: GetServerlessSecurityConfigResult(
+        config_version=pulumi.get(__response__, 'config_version'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        saml_options=pulumi.get(__response__, 'saml_options'),
+        type=pulumi.get(__response__, 'type')))

@@ -75,6 +75,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+     * 
      * @deprecated
      * The inline_policy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      * 
@@ -84,6 +86,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<RoleInlinePolicyArgs>> inlinePolicies;
 
     /**
+     * @return Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+     * 
      * @deprecated
      * The inline_policy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      * 
@@ -296,6 +300,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param inlinePolicies Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -309,6 +315,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param inlinePolicies Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -321,6 +329,8 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param inlinePolicies Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
+         * 
          * @return builder
          * 
          * @deprecated
