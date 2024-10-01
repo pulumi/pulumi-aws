@@ -874,7 +874,8 @@ compatibility shim in favor of the new "name" field.`)
 			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
 
-			newLightSchema(*spec).sync()
+			light := filepath.Join("provider", "cmd", "pulumi-resource-aws", "schema-light.json")
+			newLightSchema(*spec).write(light)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{

@@ -26,10 +26,6 @@ type lightSchema struct {
 	schema.PackageSpec
 }
 
-const (
-	lightSchemaFile = "cmd/pulumi-resource-aws/schema-light.json"
-)
-
 func newLightSchema(realSchema schema.PackageSpec) *lightSchema {
 	bytes, err := json.Marshal(realSchema)
 	contract.AssertNoErrorf(err, "json.Marshal failed on a schema")
@@ -234,7 +230,7 @@ func (ls *lightSchema) rewrite(schema any) any {
 	}
 }
 
-func (ls *lightSchema) sync() {
+func (ls *lightSchema) write(lightSchemaFile string) {
 	bytes, err := json.Marshal(ls.PackageSpec)
 	contract.AssertNoErrorf(err, "json.Marshal failed to serialize a schema")
 	err = os.WriteFile(lightSchemaFile, bytes, 0600)

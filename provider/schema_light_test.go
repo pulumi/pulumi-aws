@@ -18,11 +18,12 @@ func TestNoDanglingReferencesInLightSchema(t *testing.T) {
 	// Keep schema-light.json up to date for the check.
 	var rawSchema schema.PackageSpec
 	realSchemaFile := "cmd/pulumi-resource-aws/schema.json"
+	lightSchemaFile := "cmd/pulumi-resource-aws/schema-light.json"
 	bytes, err := os.ReadFile(realSchemaFile)
 	contract.AssertNoErrorf(err, "failed to read schema.json")
 	err = json.Unmarshal(bytes, &rawSchema)
 	contract.AssertNoErrorf(err, "failed to unmarshal schema.json")
-	newLightSchema(rawSchema).sync()
+	newLightSchema(rawSchema).write(lightSchemaFile)
 
 	// Check that schema-light.json has no dangling references.
 	bytes, err = os.ReadFile(lightSchemaFile)
