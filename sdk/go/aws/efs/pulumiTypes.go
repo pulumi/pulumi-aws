@@ -1603,6 +1603,31 @@ func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput)
 }
 
+// GetFileSystemLifecyclePolicyArrayInput is an input type that accepts GetFileSystemLifecyclePolicyArray and GetFileSystemLifecyclePolicyArrayOutput values.
+// You can construct a concrete instance of `GetFileSystemLifecyclePolicyArrayInput` via:
+//
+//	GetFileSystemLifecyclePolicyArray{ GetFileSystemLifecyclePolicyArgs{...} }
+type GetFileSystemLifecyclePolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetFileSystemLifecyclePolicyArrayOutput() GetFileSystemLifecyclePolicyArrayOutput
+	ToGetFileSystemLifecyclePolicyArrayOutputWithContext(context.Context) GetFileSystemLifecyclePolicyArrayOutput
+}
+
+type GetFileSystemLifecyclePolicyArray []GetFileSystemLifecyclePolicyInput
+
+func (GetFileSystemLifecyclePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (i GetFileSystemLifecyclePolicyArray) ToGetFileSystemLifecyclePolicyArrayOutput() GetFileSystemLifecyclePolicyArrayOutput {
+	return i.ToGetFileSystemLifecyclePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetFileSystemLifecyclePolicyArray) ToGetFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyArrayOutput)
+}
+
 type GetFileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetFileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -1627,6 +1652,26 @@ func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput
 
 func (o GetFileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringOutput)
+}
+
+type GetFileSystemLifecyclePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFileSystemLifecyclePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFileSystemLifecyclePolicy)(nil)).Elem()
+}
+
+func (o GetFileSystemLifecyclePolicyArrayOutput) ToGetFileSystemLifecyclePolicyArrayOutput() GetFileSystemLifecyclePolicyArrayOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyArrayOutput) ToGetFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyArrayOutput {
+	return o
+}
+
+func (o GetFileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) GetFileSystemLifecyclePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFileSystemLifecyclePolicy {
+		return vs[0].([]GetFileSystemLifecyclePolicy)[vs[1].(int)]
+	}).(GetFileSystemLifecyclePolicyOutput)
 }
 
 type GetFileSystemProtection struct {
@@ -1747,6 +1792,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoArrayInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyArrayInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemProtectionInput)(nil)).Elem(), GetFileSystemProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemProtectionArrayInput)(nil)).Elem(), GetFileSystemProtectionArray{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
@@ -1772,6 +1818,7 @@ func init() {
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoOutput{})
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryCreationInfoArrayOutput{})
 	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(GetFileSystemLifecyclePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetFileSystemProtectionOutput{})
 	pulumi.RegisterOutputType(GetFileSystemProtectionArrayOutput{})
 }

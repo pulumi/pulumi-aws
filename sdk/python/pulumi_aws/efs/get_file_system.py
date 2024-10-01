@@ -27,7 +27,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policy=None, name=None, performance_mode=None, protections=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policies=None, lifecycle_policy=None, name=None, performance_mode=None, protections=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetFileSystemResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if lifecycle_policies and not isinstance(lifecycle_policies, list):
+            raise TypeError("Expected argument 'lifecycle_policies' to be a list")
+        pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
         if lifecycle_policy and not isinstance(lifecycle_policy, dict):
             raise TypeError("Expected argument 'lifecycle_policy' to be a dict")
         pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
@@ -147,7 +150,13 @@ class GetFileSystemResult:
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="lifecyclePolicies")
+    def lifecycle_policies(self) -> Sequence['outputs.GetFileSystemLifecyclePolicyResult']:
+        return pulumi.get(self, "lifecycle_policies")
+
+    @property
     @pulumi.getter(name="lifecyclePolicy")
+    @_utilities.deprecated("""Use `lifecycle_policies` instead. This field will be removed in the next major version.""")
     def lifecycle_policy(self) -> 'outputs.GetFileSystemLifecyclePolicyResult':
         """
         File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
@@ -223,6 +232,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             file_system_id=self.file_system_id,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            lifecycle_policies=self.lifecycle_policies,
             lifecycle_policy=self.lifecycle_policy,
             name=self.name,
             performance_mode=self.performance_mode,
@@ -278,6 +288,7 @@ def get_file_system(creation_token: Optional[str] = None,
         file_system_id=pulumi.get(__ret__, 'file_system_id'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        lifecycle_policies=pulumi.get(__ret__, 'lifecycle_policies'),
         lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         name=pulumi.get(__ret__, 'name'),
         performance_mode=pulumi.get(__ret__, 'performance_mode'),
