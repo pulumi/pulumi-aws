@@ -21,6 +21,7 @@ import (
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -273,6 +274,43 @@ func TestRegress4446(t *testing.T) {
 	t.Logf("#%v", upResult.Summary)
 	result := test.Preview(optpreview.ExpectNoChanges())
 	t.Logf("#%v", result.ChangeSummary)
+}
+
+func TestRegress4568(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "regress-4568")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	upResult := test.Up()
+	t.Logf("#%v", upResult.Summary)
+
+	// The singular lifecyclePolicy should contain the first value
+	assert.Equal(t, map[string]interface{}{
+		"transitionToIa":                  "AFTER_30_DAYS",
+		"transitionToArchive":             "",
+		"transitionToPrimaryStorageClass": "",
+	}, upResult.Outputs["lifecyclePolicy"].Value, "lifecyclePolicy should be set")
+
+	// The plural lifecyclePolicies should contain both values
+	lifecyclePolicies := upResult.Outputs["lifecyclePolicies"].Value.([]interface{})
+	assert.Len(t, lifecyclePolicies, 2, "lifecyclePolicies should have two elements")
+
+	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
+		"transitionToIa":                  "AFTER_30_DAYS",
+		"transitionToArchive":             "",
+		"transitionToPrimaryStorageClass": "",
+	})
+	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
+		"transitionToPrimaryStorageClass": "AFTER_1_ACCESS",
+		"transitionToIa":                  "",
+		"transitionToArchive":             "",
+	})
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
