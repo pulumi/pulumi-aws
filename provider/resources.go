@@ -873,6 +873,8 @@ compatibility shim in favor of the new "name" field.`)
 			}
 			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
+
+			newLightSchema(*spec).sync()
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
