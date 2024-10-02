@@ -142,9 +142,6 @@ def get_spot_price(availability_zone: Optional[str] = None,
         instance_type=pulumi.get(__ret__, 'instance_type'),
         spot_price=pulumi.get(__ret__, 'spot_price'),
         spot_price_timestamp=pulumi.get(__ret__, 'spot_price_timestamp'))
-
-
-@_utilities.lift_output_func(get_spot_price)
 def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
                           filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]]]] = None,
                           instance_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -171,4 +168,16 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
     :param Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param str instance_type: Type of instance for which to query Spot Price information.
     """
-    ...
+    __args__ = dict()
+    __args__['availabilityZone'] = availability_zone
+    __args__['filters'] = filters
+    __args__['instanceType'] = instance_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSpotPrice:getSpotPrice', __args__, opts=opts, typ=GetSpotPriceResult)
+    return __ret__.apply(lambda __response__: GetSpotPriceResult(
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        spot_price=pulumi.get(__response__, 'spot_price'),
+        spot_price_timestamp=pulumi.get(__response__, 'spot_price_timestamp')))

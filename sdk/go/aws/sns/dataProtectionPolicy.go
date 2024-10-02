@@ -46,7 +46,7 @@ import (
 //							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //						},
 //						"Operation": map[string]interface{}{
-//							"Deny": nil,
+//							"Deny": map[string]interface{}{},
 //						},
 //						"Principal": []string{
 //							"*",
