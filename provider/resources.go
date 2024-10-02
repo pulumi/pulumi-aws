@@ -5378,7 +5378,10 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			RespectSchemaVersion: true,
-			Namespaces:           namespaceMap,
+			PackageReferences: map[string]string{
+				"Pulumi": "3.*",
+			},
+			Namespaces: namespaceMap,
 		},
 	}
 
