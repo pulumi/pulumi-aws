@@ -33,7 +33,7 @@ import (
 //			_, err := securitylake.NewSubscriberNotification(ctx, "example", &securitylake.SubscriberNotificationArgs{
 //				SubscriberId: pulumi.Any(exampleAwsSecuritylakeSubscriber.Id),
 //				Configuration: &securitylake.SubscriberNotificationConfigurationArgs{
-//					SqsNotificationConfiguration: nil,
+//					SqsNotificationConfiguration: &securitylake.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs{},
 //				},
 //			})
 //			if err != nil {

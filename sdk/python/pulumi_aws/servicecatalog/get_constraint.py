@@ -182,9 +182,6 @@ def get_constraint(accept_language: Optional[str] = None,
         product_id=pulumi.get(__ret__, 'product_id'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_constraint)
 def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                           description: Optional[pulumi.Input[Optional[str]]] = None,
                           id: Optional[pulumi.Input[str]] = None,
@@ -211,4 +208,19 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['acceptLanguage'] = accept_language
+    __args__['description'] = description
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getConstraint:getConstraint', __args__, opts=opts, typ=GetConstraintResult)
+    return __ret__.apply(lambda __response__: GetConstraintResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        owner=pulumi.get(__response__, 'owner'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        portfolio_id=pulumi.get(__response__, 'portfolio_id'),
+        product_id=pulumi.get(__response__, 'product_id'),
+        status=pulumi.get(__response__, 'status'),
+        type=pulumi.get(__response__, 'type')))

@@ -112,9 +112,6 @@ def get_domain_identity(domain: Optional[str] = None,
         domain=pulumi.get(__ret__, 'domain'),
         id=pulumi.get(__ret__, 'id'),
         verification_token=pulumi.get(__ret__, 'verification_token'))
-
-
-@_utilities.lift_output_func(get_domain_identity)
 def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainIdentityResult]:
     """
@@ -132,4 +129,12 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
 
     :param str domain: Name of the domain
     """
-    ...
+    __args__ = dict()
+    __args__['domain'] = domain
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ses/getDomainIdentity:getDomainIdentity', __args__, opts=opts, typ=GetDomainIdentityResult)
+    return __ret__.apply(lambda __response__: GetDomainIdentityResult(
+        arn=pulumi.get(__response__, 'arn'),
+        domain=pulumi.get(__response__, 'domain'),
+        id=pulumi.get(__response__, 'id'),
+        verification_token=pulumi.get(__response__, 'verification_token')))

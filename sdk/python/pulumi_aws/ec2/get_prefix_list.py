@@ -160,9 +160,6 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'))
-
-
-@_utilities.lift_output_func(get_prefix_list)
 def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -217,4 +214,15 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['name'] = name
+    __args__['prefixListId'] = prefix_list_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPrefixList:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult)
+    return __ret__.apply(lambda __response__: GetPrefixListResult(
+        cidr_blocks=pulumi.get(__response__, 'cidr_blocks'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        prefix_list_id=pulumi.get(__response__, 'prefix_list_id')))

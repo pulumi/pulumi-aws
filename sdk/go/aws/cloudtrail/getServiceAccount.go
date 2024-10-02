@@ -33,7 +33,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := cloudtrail.GetServiceAccount(ctx, nil, nil);
+// main, err := cloudtrail.GetServiceAccount(ctx, &cloudtrail.GetServiceAccountArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

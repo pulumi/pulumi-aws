@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.LookupSerialConsoleAccess(ctx, nil, nil)
+//			_, err := ec2.LookupSerialConsoleAccess(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

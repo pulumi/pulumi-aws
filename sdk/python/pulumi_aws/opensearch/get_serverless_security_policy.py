@@ -162,9 +162,6 @@ def get_serverless_security_policy(name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         policy_version=pulumi.get(__ret__, 'policy_version'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_serverless_security_policy)
 def get_serverless_security_policy_output(name: Optional[pulumi.Input[str]] = None,
                                           type: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityPolicyResult]:
@@ -185,4 +182,17 @@ def get_serverless_security_policy_output(name: Optional[pulumi.Input[str]] = No
     :param str name: Name of the policy
     :param str type: Type of security policy. One of `encryption` or `network`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy', __args__, opts=opts, typ=GetServerlessSecurityPolicyResult)
+    return __ret__.apply(lambda __response__: GetServerlessSecurityPolicyResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
+        policy_version=pulumi.get(__response__, 'policy_version'),
+        type=pulumi.get(__response__, 'type')))
