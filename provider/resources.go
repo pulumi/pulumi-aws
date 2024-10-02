@@ -4702,17 +4702,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ecs_task_execution":       {Tok: awsDataSource(ecsMod, "getTaskExecution")},
 
 			// Elastic Filesystem
-			"aws_efs_file_system": {
-				Tok: awsDataSource(efsMod, "getFileSystem"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Removing `MaxItems: 1`, Seems to be a hedge
-					// against the future, but does not become present
-					// in the TF API. See
-					// https://github.com/hashicorp/terraform-provider-aws/commit/362c03ec27e839a571de312060e87657d617038b
-					// for details.
-					"lifecycle_policy": {MaxItemsOne: ref(true)},
-				},
-			},
+			"aws_efs_file_system":   {Tok: awsDataSource(efsMod, "getFileSystem")},
 			"aws_efs_mount_target":  {Tok: awsDataSource(efsMod, "getMountTarget")},
 			"aws_efs_access_point":  {Tok: awsDataSource(efsMod, "getAccessPoint")},
 			"aws_efs_access_points": {Tok: awsDataSource(efsMod, "getAccessPoints")},

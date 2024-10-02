@@ -54,10 +54,15 @@ public final class GetFileSystemResult {
      * 
      */
     private String kmsKeyId;
+    private List<GetFileSystemLifecyclePolicy> lifecyclePolicies;
     /**
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
+     * @deprecated
+     * Use `lifecycle_policies` instead. This field will be removed in the next major version.
+     * 
      */
+    @Deprecated /* Use `lifecycle_policies` instead. This field will be removed in the next major version. */
     private GetFileSystemLifecyclePolicy lifecyclePolicy;
     /**
      * @return The value of the file system&#39;s `Name` tag.
@@ -147,10 +152,17 @@ public final class GetFileSystemResult {
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    public List<GetFileSystemLifecyclePolicy> lifecyclePolicies() {
+        return this.lifecyclePolicies;
+    }
     /**
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
+     * @deprecated
+     * Use `lifecycle_policies` instead. This field will be removed in the next major version.
+     * 
      */
+    @Deprecated /* Use `lifecycle_policies` instead. This field will be removed in the next major version. */
     public GetFileSystemLifecyclePolicy lifecyclePolicy() {
         return this.lifecyclePolicy;
     }
@@ -218,6 +230,7 @@ public final class GetFileSystemResult {
         private String fileSystemId;
         private String id;
         private String kmsKeyId;
+        private List<GetFileSystemLifecyclePolicy> lifecyclePolicies;
         private GetFileSystemLifecyclePolicy lifecyclePolicy;
         private String name;
         private String performanceMode;
@@ -238,6 +251,7 @@ public final class GetFileSystemResult {
     	      this.fileSystemId = defaults.fileSystemId;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.lifecyclePolicies = defaults.lifecyclePolicies;
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
     	      this.name = defaults.name;
     	      this.performanceMode = defaults.performanceMode;
@@ -321,6 +335,17 @@ public final class GetFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder lifecyclePolicies(List<GetFileSystemLifecyclePolicy> lifecyclePolicies) {
+            if (lifecyclePolicies == null) {
+              throw new MissingRequiredPropertyException("GetFileSystemResult", "lifecyclePolicies");
+            }
+            this.lifecyclePolicies = lifecyclePolicies;
+            return this;
+        }
+        public Builder lifecyclePolicies(GetFileSystemLifecyclePolicy... lifecyclePolicies) {
+            return lifecyclePolicies(List.of(lifecyclePolicies));
+        }
+        @CustomType.Setter
         public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
             if (lifecyclePolicy == null) {
               throw new MissingRequiredPropertyException("GetFileSystemResult", "lifecyclePolicy");
@@ -398,6 +423,7 @@ public final class GetFileSystemResult {
             _resultValue.fileSystemId = fileSystemId;
             _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
+            _resultValue.lifecyclePolicies = lifecyclePolicies;
             _resultValue.lifecyclePolicy = lifecyclePolicy;
             _resultValue.name = name;
             _resultValue.performanceMode = performanceMode;
