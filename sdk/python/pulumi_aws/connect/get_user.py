@@ -233,9 +233,6 @@ def get_user(instance_id: Optional[str] = None,
         security_profile_ids=pulumi.get(__ret__, 'security_profile_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         user_id=pulumi.get(__ret__, 'user_id'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(instance_id: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -272,4 +269,23 @@ def get_user_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: A map of tags to assign to the User.
     :param str user_id: Returns information on a specific User by User id
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        arn=pulumi.get(__response__, 'arn'),
+        directory_user_id=pulumi.get(__response__, 'directory_user_id'),
+        hierarchy_group_id=pulumi.get(__response__, 'hierarchy_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        identity_infos=pulumi.get(__response__, 'identity_infos'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        name=pulumi.get(__response__, 'name'),
+        phone_configs=pulumi.get(__response__, 'phone_configs'),
+        routing_profile_id=pulumi.get(__response__, 'routing_profile_id'),
+        security_profile_ids=pulumi.get(__response__, 'security_profile_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_id=pulumi.get(__response__, 'user_id')))

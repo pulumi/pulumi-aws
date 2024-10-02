@@ -185,9 +185,6 @@ def get_intent(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         parent_intent_signature=pulumi.get(__ret__, 'parent_intent_signature'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_intent)
 def get_intent_output(name: Optional[pulumi.Input[str]] = None,
                       version: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntentResult]:
@@ -208,4 +205,18 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the intent. The name is case sensitive.
     :param str version: Version of the intent.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lex/getIntent:getIntent', __args__, opts=opts, typ=GetIntentResult)
+    return __ret__.apply(lambda __response__: GetIntentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        checksum=pulumi.get(__response__, 'checksum'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        name=pulumi.get(__response__, 'name'),
+        parent_intent_signature=pulumi.get(__response__, 'parent_intent_signature'),
+        version=pulumi.get(__response__, 'version')))

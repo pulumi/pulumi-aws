@@ -133,7 +133,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetPartition(ctx, nil, nil)
+//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

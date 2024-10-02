@@ -58,8 +58,8 @@ import (
 //					map[string]interface{}{
 //						"Identifier":  "abcdef-abcd-abcd-abcd-abcdefghijkl",
 //						"Type":        "DisconnectParticipant",
-//						"Transitions": nil,
-//						"Parameters":  nil,
+//						"Transitions": map[string]interface{}{},
+//						"Parameters":  map[string]interface{}{},
 //					},
 //				},
 //			})

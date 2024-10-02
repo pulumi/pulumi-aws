@@ -99,9 +99,6 @@ def get_bucket_policy(bucket: Optional[str] = None,
         bucket=pulumi.get(__ret__, 'bucket'),
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'))
-
-
-@_utilities.lift_output_func(get_bucket_policy)
 def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
@@ -122,4 +119,11 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
 
     :param str bucket: Bucket name.
     """
-    ...
+    __args__ = dict()
+    __args__['bucket'] = bucket
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucketPolicy:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult)
+    return __ret__.apply(lambda __response__: GetBucketPolicyResult(
+        bucket=pulumi.get(__response__, 'bucket'),
+        id=pulumi.get(__response__, 'id'),
+        policy=pulumi.get(__response__, 'policy')))

@@ -166,9 +166,6 @@ def get_portfolio(accept_language: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_portfolio)
 def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                          id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -192,4 +189,18 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
            The following arguments are optional:
     :param Mapping[str, str] tags: Tags applied to the portfolio.
     """
-    ...
+    __args__ = dict()
+    __args__['acceptLanguage'] = accept_language
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolio:getPortfolio', __args__, opts=opts, typ=GetPortfolioResult)
+    return __ret__.apply(lambda __response__: GetPortfolioResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -194,9 +194,6 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
         public_key=pulumi.get(__ret__, 'public_key'),
         public_key_pem=pulumi.get(__ret__, 'public_key_pem'),
         signing_algorithms=pulumi.get(__ret__, 'signing_algorithms'))
-
-
-@_utilities.lift_output_func(get_public_key)
 def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                           key_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
@@ -223,4 +220,19 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
            * Alias name. E.g. - `alias/my-key`
            * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
     """
-    ...
+    __args__ = dict()
+    __args__['grantTokens'] = grant_tokens
+    __args__['keyId'] = key_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kms/getPublicKey:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
+    return __ret__.apply(lambda __response__: GetPublicKeyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        customer_master_key_spec=pulumi.get(__response__, 'customer_master_key_spec'),
+        encryption_algorithms=pulumi.get(__response__, 'encryption_algorithms'),
+        grant_tokens=pulumi.get(__response__, 'grant_tokens'),
+        id=pulumi.get(__response__, 'id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        key_usage=pulumi.get(__response__, 'key_usage'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        public_key_pem=pulumi.get(__response__, 'public_key_pem'),
+        signing_algorithms=pulumi.get(__response__, 'signing_algorithms')))

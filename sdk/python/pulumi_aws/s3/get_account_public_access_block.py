@@ -135,9 +135,6 @@ def get_account_public_access_block(account_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ignore_public_acls=pulumi.get(__ret__, 'ignore_public_acls'),
         restrict_public_buckets=pulumi.get(__ret__, 'restrict_public_buckets'))
-
-
-@_utilities.lift_output_func(get_account_public_access_block)
 def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountPublicAccessBlockResult]:
     """
@@ -155,4 +152,14 @@ def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Opt
 
     :param str account_id: AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock', __args__, opts=opts, typ=GetAccountPublicAccessBlockResult)
+    return __ret__.apply(lambda __response__: GetAccountPublicAccessBlockResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        block_public_acls=pulumi.get(__response__, 'block_public_acls'),
+        block_public_policy=pulumi.get(__response__, 'block_public_policy'),
+        id=pulumi.get(__response__, 'id'),
+        ignore_public_acls=pulumi.get(__response__, 'ignore_public_acls'),
+        restrict_public_buckets=pulumi.get(__response__, 'restrict_public_buckets')))
