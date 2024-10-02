@@ -245,9 +245,6 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         master_account_name=pulumi.get(__ret__, 'master_account_name'),
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
         roots=pulumi.get(__ret__, 'roots'))
-
-
-@_utilities.lift_output_func(get_organization)
 def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Get information about the organization that the user's account belongs to
@@ -294,4 +291,19 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
         policy=sns_topic_policy.json)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
+    return __ret__.apply(lambda __response__: GetOrganizationResult(
+        accounts=pulumi.get(__response__, 'accounts'),
+        arn=pulumi.get(__response__, 'arn'),
+        aws_service_access_principals=pulumi.get(__response__, 'aws_service_access_principals'),
+        enabled_policy_types=pulumi.get(__response__, 'enabled_policy_types'),
+        feature_set=pulumi.get(__response__, 'feature_set'),
+        id=pulumi.get(__response__, 'id'),
+        master_account_arn=pulumi.get(__response__, 'master_account_arn'),
+        master_account_email=pulumi.get(__response__, 'master_account_email'),
+        master_account_id=pulumi.get(__response__, 'master_account_id'),
+        master_account_name=pulumi.get(__response__, 'master_account_name'),
+        non_master_accounts=pulumi.get(__response__, 'non_master_accounts'),
+        roots=pulumi.get(__response__, 'roots')))

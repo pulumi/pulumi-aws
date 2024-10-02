@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := bedrockfoundation.GetModels(ctx, nil, nil)
+//			_, err := bedrockfoundation.GetModels(ctx, &bedrockfoundation.GetModelsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

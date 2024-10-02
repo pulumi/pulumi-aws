@@ -168,9 +168,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
         license_model=pulumi.get(__ret__, 'license_model'),
         preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
         vpc=pulumi.get(__ret__, 'vpc'))
-
-
-@_utilities.lift_output_func(get_orderable_db_instance)
 def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                                      engine_version: Optional[pulumi.Input[Optional[str]]] = None,
                                      instance_class: Optional[pulumi.Input[Optional[str]]] = None,
@@ -205,4 +202,21 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
     :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
     :param bool vpc: Enable to show only VPC.
     """
-    ...
+    __args__ = dict()
+    __args__['engine'] = engine
+    __args__['engineVersion'] = engine_version
+    __args__['instanceClass'] = instance_class
+    __args__['licenseModel'] = license_model
+    __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['vpc'] = vpc
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:docdb/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
+    return __ret__.apply(lambda __response__: GetOrderableDbInstanceResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        instance_class=pulumi.get(__response__, 'instance_class'),
+        license_model=pulumi.get(__response__, 'license_model'),
+        preferred_instance_classes=pulumi.get(__response__, 'preferred_instance_classes'),
+        vpc=pulumi.get(__response__, 'vpc')))

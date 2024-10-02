@@ -289,9 +289,6 @@ def get_table(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         ttl=pulumi.get(__ret__, 'ttl'),
         write_capacity=pulumi.get(__ret__, 'write_capacity'))
-
-
-@_utilities.lift_output_func(get_table)
 def get_table_output(name: Optional[pulumi.Input[str]] = None,
                      server_side_encryption: Optional[pulumi.Input[Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -311,4 +308,32 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the DynamoDB table.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['serverSideEncryption'] = server_side_encryption
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
+    return __ret__.apply(lambda __response__: GetTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attributes=pulumi.get(__response__, 'attributes'),
+        billing_mode=pulumi.get(__response__, 'billing_mode'),
+        deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
+        global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        hash_key=pulumi.get(__response__, 'hash_key'),
+        id=pulumi.get(__response__, 'id'),
+        local_secondary_indexes=pulumi.get(__response__, 'local_secondary_indexes'),
+        name=pulumi.get(__response__, 'name'),
+        point_in_time_recovery=pulumi.get(__response__, 'point_in_time_recovery'),
+        range_key=pulumi.get(__response__, 'range_key'),
+        read_capacity=pulumi.get(__response__, 'read_capacity'),
+        replicas=pulumi.get(__response__, 'replicas'),
+        server_side_encryption=pulumi.get(__response__, 'server_side_encryption'),
+        stream_arn=pulumi.get(__response__, 'stream_arn'),
+        stream_enabled=pulumi.get(__response__, 'stream_enabled'),
+        stream_label=pulumi.get(__response__, 'stream_label'),
+        stream_view_type=pulumi.get(__response__, 'stream_view_type'),
+        table_class=pulumi.get(__response__, 'table_class'),
+        tags=pulumi.get(__response__, 'tags'),
+        ttl=pulumi.get(__response__, 'ttl'),
+        write_capacity=pulumi.get(__response__, 'write_capacity')))

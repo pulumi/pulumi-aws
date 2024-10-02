@@ -159,9 +159,6 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
         id=pulumi.get(__ret__, 'id'),
         result=pulumi.get(__ret__, 'result'),
         service_code=pulumi.get(__ret__, 'service_code'))
-
-
-@_utilities.lift_output_func(get_product)
 def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
                        service_code: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
@@ -229,4 +226,13 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProduct
     :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['serviceCode'] = service_code
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
+    return __ret__.apply(lambda __response__: GetProductResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        result=pulumi.get(__response__, 'result'),
+        service_code=pulumi.get(__response__, 'service_code')))

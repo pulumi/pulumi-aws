@@ -359,9 +359,6 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
         transport_protocol=pulumi.get(__ret__, 'transport_protocol'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpn_port=pulumi.get(__ret__, 'vpn_port'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                         filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']]]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -397,4 +394,32 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
     :param Sequence[Union['GetEndpointFilterArgs', 'GetEndpointFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['clientVpnEndpointId'] = client_vpn_endpoint_id
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2clientvpn/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authentication_options=pulumi.get(__response__, 'authentication_options'),
+        client_cidr_block=pulumi.get(__response__, 'client_cidr_block'),
+        client_connect_options=pulumi.get(__response__, 'client_connect_options'),
+        client_login_banner_options=pulumi.get(__response__, 'client_login_banner_options'),
+        client_vpn_endpoint_id=pulumi.get(__response__, 'client_vpn_endpoint_id'),
+        connection_log_options=pulumi.get(__response__, 'connection_log_options'),
+        description=pulumi.get(__response__, 'description'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        dns_servers=pulumi.get(__response__, 'dns_servers'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        self_service_portal=pulumi.get(__response__, 'self_service_portal'),
+        self_service_portal_url=pulumi.get(__response__, 'self_service_portal_url'),
+        server_certificate_arn=pulumi.get(__response__, 'server_certificate_arn'),
+        session_timeout_hours=pulumi.get(__response__, 'session_timeout_hours'),
+        split_tunnel=pulumi.get(__response__, 'split_tunnel'),
+        tags=pulumi.get(__response__, 'tags'),
+        transport_protocol=pulumi.get(__response__, 'transport_protocol'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        vpn_port=pulumi.get(__response__, 'vpn_port')))

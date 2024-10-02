@@ -75,7 +75,7 @@ import (
 //								},
 //								"Operation": map[string]interface{}{
 //									"Deidentify": map[string]interface{}{
-//										"MaskConfig": nil,
+//										"MaskConfig": map[string]interface{}{},
 //									},
 //								},
 //							},
