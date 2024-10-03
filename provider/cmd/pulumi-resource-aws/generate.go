@@ -19,45 +19,69 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io/fs"
-	"io/ioutil"
 	"log"
 	"os"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
+type compressAndVersionSchemaFileOptions struct {
+	sourceFile string
+	destFile   string
+	version    string
+}
+
+func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) error {
+	schemaContents, err := os.ReadFile(opts.sourceFile)
+	if err != nil {
+		return fmt.Errorf("cannot read sourceFile: %w", err)
+	}
+	var packageSpec schema.PackageSpec
+	err = json.Unmarshal(schemaContents, &packageSpec)
+	if err != nil {
+		return fmt.Errorf("cannot deserialize schema: %w", err)
+	}
+	packageSpec.Version = opts.version
+	versionedContents, err := json.Marshal(packageSpec)
+	if err != nil {
+		return fmt.Errorf("cannot reserialize schema: %w", err)
+	}
+	err = os.WriteFile(opts.destFile, versionedContents, 0600)
+	if err != nil {
+		return fmt.Errorf("cannot write destFile: %w", err)
+	}
+	return nil
+}
+
 func main() {
+	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
+	err := os.Remove("./schema.go")
+	if err != nil && !errors.Is(err, fs.ErrNotExist) {
+		log.Fatal(err)
+	}
+
 	version, found := os.LookupEnv("VERSION")
 	if !found {
 		log.Fatal("version not found")
 	}
 
-	schemaContents, err := ioutil.ReadFile("./schema.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var packageSpec schema.PackageSpec
-	err = json.Unmarshal(schemaContents, &packageSpec)
-	if err != nil {
-		log.Fatalf("cannot deserialize schema: %v", err)
-	}
-
-	packageSpec.Version = version
-	versionedContents, err := json.Marshal(packageSpec)
-	if err != nil {
-		log.Fatalf("cannot reserialize schema: %v", err)
-	}
-
-	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
-	err = os.Remove("./schema.go")
-	if err != nil && !errors.Is(err, fs.ErrNotExist) {
-		log.Fatal(err)
-	}
-
-	err = ioutil.WriteFile("./schema-embed.json", versionedContents, 0600)
-	if err != nil {
-		log.Fatal(err)
+	for _, opts := range []compressAndVersionSchemaFileOptions{
+		{
+			sourceFile: "schema.json",
+			destFile:   "schema-embed.json",
+			version:    version,
+		},
+		{
+			sourceFile: "schema-light.json",
+			destFile:   "schema-light-embed.json",
+			version:    version,
+		},
+	} {
+		err = compressAndVersionSchemaFile(opts)
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
