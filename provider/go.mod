@@ -19,11 +19,11 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/providertest v0.0.14
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.1
-	github.com/pulumi/pulumi/pkg/v3 v3.133.0
-	github.com/pulumi/pulumi/sdk/v3 v3.133.0
+	github.com/pulumi/providertest v0.1.2
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.2-0.20241003150318-ac12ff3e6a6a
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.2-0.20241003150318-ac12ff3e6a6a
+	github.com/pulumi/pulumi/pkg/v3 v3.135.0
+	github.com/pulumi/pulumi/sdk/v3 v3.135.0
 	github.com/stretchr/testify v1.9.0
 	pgregory.net/rapid v0.6.1
 )
@@ -456,7 +456,7 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.16.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.10.0 // indirect
+	github.com/pulumi/pulumi-yaml v1.10.3 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
