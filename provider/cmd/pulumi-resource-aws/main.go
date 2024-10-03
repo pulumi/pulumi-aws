@@ -19,16 +19,27 @@ package main
 import (
 	"context"
 	_ "embed"
+	"os"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
 	pf "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 )
 
 //go:embed schema-embed.json
 var pulumiSchema []byte
 
+//go:embed schema-light-embed.json
+var pulumiSchemaLight []byte
+
 func main() {
 	ctx := context.Background()
 	info := aws.Provider()
-	pf.MainWithMuxer(ctx, "aws", *info, pulumiSchema)
+
+	s := pulumiSchema
+	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_LIGHT_SCHEMA")) {
+		s = pulumiSchemaLight
+	}
+
+	pf.MainWithMuxer(ctx, "aws", *info, s)
 }
