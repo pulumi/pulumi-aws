@@ -140,9 +140,6 @@ def get_sink(sink_identifier: Optional[str] = None,
         sink_id=pulumi.get(__ret__, 'sink_id'),
         sink_identifier=pulumi.get(__ret__, 'sink_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_sink)
 def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSinkResult]:
@@ -164,4 +161,15 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
     :param str sink_identifier: ARN of the sink.
     :param Mapping[str, str] tags: Tags assigned to the sink.
     """
-    ...
+    __args__ = dict()
+    __args__['sinkIdentifier'] = sink_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:oam/getSink:getSink', __args__, opts=opts, typ=GetSinkResult)
+    return __ret__.apply(lambda __response__: GetSinkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        sink_id=pulumi.get(__response__, 'sink_id'),
+        sink_identifier=pulumi.get(__response__, 'sink_identifier'),
+        tags=pulumi.get(__response__, 'tags')))

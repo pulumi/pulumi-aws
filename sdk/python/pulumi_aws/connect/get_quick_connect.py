@@ -181,9 +181,6 @@ def get_quick_connect(instance_id: Optional[str] = None,
         quick_connect_configs=pulumi.get(__ret__, 'quick_connect_configs'),
         quick_connect_id=pulumi.get(__ret__, 'quick_connect_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_quick_connect)
 def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              quick_connect_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -220,4 +217,19 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
     :param Mapping[str, str] tags: Map of tags to assign to the Quick Connect.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['quickConnectId'] = quick_connect_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getQuickConnect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult)
+    return __ret__.apply(lambda __response__: GetQuickConnectResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        name=pulumi.get(__response__, 'name'),
+        quick_connect_configs=pulumi.get(__response__, 'quick_connect_configs'),
+        quick_connect_id=pulumi.get(__response__, 'quick_connect_id'),
+        tags=pulumi.get(__response__, 'tags')))

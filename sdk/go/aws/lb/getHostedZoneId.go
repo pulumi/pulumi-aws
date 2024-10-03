@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := lb.GetHostedZoneId(ctx, nil, nil)
+//			main, err := lb.GetHostedZoneId(ctx, &lb.GetHostedZoneIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -205,9 +205,6 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
         ip_address=pulumi.get(__ret__, 'ip_address'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_customer_gateway)
 def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']]]]] = None,
                                 id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -242,4 +239,20 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     :param str id: ID of the gateway.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult)
+    return __ret__.apply(lambda __response__: GetCustomerGatewayResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bgp_asn=pulumi.get(__response__, 'bgp_asn'),
+        bgp_asn_extended=pulumi.get(__response__, 'bgp_asn_extended'),
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        device_name=pulumi.get(__response__, 'device_name'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

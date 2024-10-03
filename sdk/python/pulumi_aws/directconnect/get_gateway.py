@@ -109,9 +109,6 @@ def get_gateway(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'))
-
-
-@_utilities.lift_output_func(get_gateway)
 def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
@@ -129,4 +126,12 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the gateway to retrieve.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
+    return __ret__.apply(lambda __response__: GetGatewayResult(
+        amazon_side_asn=pulumi.get(__response__, 'amazon_side_asn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner_account_id=pulumi.get(__response__, 'owner_account_id')))
