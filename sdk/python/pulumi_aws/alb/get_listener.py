@@ -192,9 +192,6 @@ def get_listener(arn: Optional[str] = None,
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_listener)
 def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         load_balancer_arn: Optional[pulumi.Input[Optional[str]]] = None,
                         port: Optional[pulumi.Input[Optional[int]]] = None,
@@ -227,4 +224,22 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
     :param int port: Port of the listener. Required if `arn` is not set.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['loadBalancerArn'] = load_balancer_arn
+    __args__['port'] = port
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:alb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult)
+    return __ret__.apply(lambda __response__: GetListenerResult(
+        alpn_policy=pulumi.get(__response__, 'alpn_policy'),
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        default_actions=pulumi.get(__response__, 'default_actions'),
+        id=pulumi.get(__response__, 'id'),
+        load_balancer_arn=pulumi.get(__response__, 'load_balancer_arn'),
+        mutual_authentications=pulumi.get(__response__, 'mutual_authentications'),
+        port=pulumi.get(__response__, 'port'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        ssl_policy=pulumi.get(__response__, 'ssl_policy'),
+        tags=pulumi.get(__response__, 'tags')))

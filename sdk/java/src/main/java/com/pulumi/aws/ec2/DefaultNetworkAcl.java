@@ -36,6 +36,60 @@ import javax.annotation.Nullable;
  * The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultNetworkAcl;
+ * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()
+ *             .cidrBlock("10.1.0.0/16")
+ *             .build());
+ * 
+ *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
+ *             .ingress(DefaultNetworkAclIngressArgs.builder()
+ *                 .protocol(-1)
+ *                 .ruleNo(100)
+ *                 .action("allow")
+ *                 .cidrBlock("0.0.0.0/0")
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .egress(DefaultNetworkAclEgressArgs.builder()
+ *                 .protocol(-1)
+ *                 .ruleNo(100)
+ *                 .action("allow")
+ *                 .cidrBlock("0.0.0.0/0")
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example: Deny All Egress Traffic, Allow Ingress
@@ -43,6 +97,51 @@ import javax.annotation.Nullable;
  * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultNetworkAcl;
+ * import com.pulumi.aws.ec2.DefaultNetworkAclArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultNetworkAclIngressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()
+ *             .cidrBlock("10.1.0.0/16")
+ *             .build());
+ * 
+ *         var default_ = new DefaultNetworkAcl("default", DefaultNetworkAclArgs.builder()
+ *             .defaultNetworkAclId(mainvpc.defaultNetworkAclId())
+ *             .ingress(DefaultNetworkAclIngressArgs.builder()
+ *                 .protocol(-1)
+ *                 .ruleNo(100)
+ *                 .action("allow")
+ *                 .cidrBlock(mainvpcAwsDefaultVpc.cidrBlock())
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
