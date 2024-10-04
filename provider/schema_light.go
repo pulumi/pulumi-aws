@@ -231,7 +231,9 @@ func (ls *lightSchema) rewrite(schema any) any {
 }
 
 func (ls *lightSchema) write(lightSchemaFile string) {
-	bytes, err := json.MarshalIndent(ls.PackageSpec, "", "  ")
+	copy := ls.PackageSpec
+	copy.Version = ""
+	bytes, err := json.MarshalIndent(copy, "", "  ")
 	contract.AssertNoErrorf(err, "json.Marshal failed to serialize a schema")
 	err = os.WriteFile(lightSchemaFile, bytes, 0600)
 	contract.AssertNoErrorf(err, "failed to write the light schema")
