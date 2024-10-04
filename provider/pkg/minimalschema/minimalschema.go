@@ -12,16 +12,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-// The light schema is a correct approximation of the real schema.
+// The minimal schema is a correct approximation of the real schema.
 //
 // In the V6 major version of the provider, the real schema has structural integrity issues such unresolved references
 // to types (for example, `aws:iot/policy:Policy`). These issues break third-party tooling that assumes the schema is
 // clean. Resolving the issues however necessitates small breaking changes to the user programs, as for historical
 // reasons the current output depends on SDK generation behavior over unresolved references.
 //
-// For the duration of V6 the compromise is to derive a light schema that is clean with respect to references, while
+// For the duration of V6 the compromise is to derive a minimal schema that is clean with respect to references, while
 // continuing to feed the existing schema to SDK generation. At the time of V7 release the intent is to take the
-// necessary breaking changes to make the real schema clean and remove the light schema.
+// necessary breaking changes to make the real schema clean and remove the minimal schema.
 type MinimalSchema struct {
 	spec schema.PackageSpec
 }
@@ -236,5 +236,5 @@ func (ls *MinimalSchema) Write(destinationFile string) {
 	bytes, err := json.MarshalIndent(copy, "", "  ")
 	contract.AssertNoErrorf(err, "json.Marshal failed to serialize a schema")
 	err = os.WriteFile(destinationFile, bytes, 0600)
-	contract.AssertNoErrorf(err, "failed to write the light schema")
+	contract.AssertNoErrorf(err, "failed to write the minimal schema")
 }
