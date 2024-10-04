@@ -17,9 +17,11 @@
 package main
 
 import (
+	"compress/gzip"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"io/fs"
 	"log"
 	"os"
@@ -39,6 +41,7 @@ type compressAndVersionSchemaFileOptions struct {
 	sourceFile string
 	destFile   string
 	version    string
+	gzip       bool
 }
 
 func readPackageSpecFile(sourceFile string) (*schema.PackageSpec, error) {
@@ -57,13 +60,20 @@ func readPackageSpecFile(sourceFile string) (*schema.PackageSpec, error) {
 func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) error {
 	packageSpec, err := readPackageSpecFile(opts.sourceFile)
 	packageSpec.Version = opts.version
-	versionedContents, err := json.Marshal(packageSpec)
+	// Open a file for writing, creating it if it doesn't exist, and truncating it if it does
+	file, err := os.OpenFile(opts.destFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	if err != nil {
+		log.Fatalf("failed to open file: %s", err)
+	}
+	defer file.Close()
+	var w io.Writer = file
+	if opts.gzip {
+		w = gzip.NewWriter(file)
+	}
+	enc := json.NewEncoder(w)
+	err = enc.Encode(packageSpec)
 	if err != nil {
 		return fmt.Errorf("cannot reserialize schema: %w", err)
-	}
-	err = os.WriteFile(opts.destFile, versionedContents, 0600)
-	if err != nil {
-		return fmt.Errorf("cannot write destFile: %w", err)
 	}
 	return nil
 }
@@ -75,7 +85,6 @@ func computeMinimalSchema(version string) {
 		log.Fatal(err)
 	}
 	minimalschema.NewMinimalSchema(*s).Write(schemaMinimalJSON)
-	embedMinimalSchema(version)
 }
 
 func embedMinimalSchema(version string) {
@@ -83,6 +92,7 @@ func embedMinimalSchema(version string) {
 		sourceFile: schemaMinimalJSON,
 		destFile:   strings.ReplaceAll(schemaMinimalJSON, ".json", "-embed.json"),
 		version:    version,
+		gzip:       true,
 	}); err != nil {
 		log.Fatal(err)
 	}
@@ -97,6 +107,7 @@ func main() {
 	// If called with PULUMI_AWS_MINIMAL_SCHEMA=true, process the minimal schema only and stop.
 	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
 		computeMinimalSchema(version)
+		embedMinimalSchema(version)
 		return
 	}
 
@@ -115,6 +126,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Also embed the minimal schema.
+	// Also compute the embedded version of the minimal schema.
 	embedMinimalSchema(version)
 }
