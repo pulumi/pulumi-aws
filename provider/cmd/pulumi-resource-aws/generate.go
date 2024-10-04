@@ -75,6 +75,10 @@ func computeMinimalSchema(version string) {
 		log.Fatal(err)
 	}
 	minimalschema.NewMinimalSchema(*s).Write(schemaMinimalJSON)
+	embedMinimalSchema(version)
+}
+
+func embedMinimalSchema(version string) {
 	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
 		sourceFile: schemaMinimalJSON,
 		destFile:   strings.ReplaceAll(schemaMinimalJSON, ".json", "-embed.json"),
@@ -110,4 +114,7 @@ func main() {
 	}); err != nil {
 		log.Fatal(err)
 	}
+
+	// Also embed the minimal schema.
+	embedMinimalSchema(version)
 }
