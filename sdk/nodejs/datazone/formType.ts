@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const domainExecutionRole = new aws.iam.Role("domain_execution_role", {
- *     name: "example name",
+ *     name: "example-role",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         ],
  *     }),
  *     inlinePolicies: [{
- *         name: "example name",
+ *         name: "example-policy",
  *         policy: JSON.stringify({
  *             Version: "2012-10-17",
  *             Statement: [{
@@ -63,10 +63,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const test = new aws.datazone.Domain("test", {
- *     name: "example name",
+ *     name: "example",
  *     domainExecutionRole: domainExecutionRole.arn,
  * });
- * const testSecurityGroup = new aws.ec2.SecurityGroup("test", {name: "example name"});
+ * const testSecurityGroup = new aws.ec2.SecurityGroup("test", {name: "example"});
  * const testProject = new aws.datazone.Project("test", {
  *     domainIdentifier: test.id,
  *     glossaryTerms: ["2N8w6XJCwZf"],

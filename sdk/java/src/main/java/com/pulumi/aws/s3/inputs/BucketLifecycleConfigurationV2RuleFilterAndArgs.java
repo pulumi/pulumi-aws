@@ -18,14 +18,14 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs extends com.p
     public static final BucketLifecycleConfigurationV2RuleFilterAndArgs Empty = new BucketLifecycleConfigurationV2RuleFilterAndArgs();
 
     /**
-     * Minimum object size to which the rule applies. Value must be at least `0` if specified.
+     * Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
      * 
      */
     @Import(name="objectSizeGreaterThan")
     private @Nullable Output<Integer> objectSizeGreaterThan;
 
     /**
-     * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
+     * @return Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
      * 
      */
     public Optional<Output<Integer>> objectSizeGreaterThan() {
@@ -105,7 +105,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs extends com.p
         }
 
         /**
-         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified.
+         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs extends com.p
         }
 
         /**
-         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified.
+         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
          * 
          * @return builder
          * 

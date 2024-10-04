@@ -69,9 +69,9 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly ipv6Support!: pulumi.Output<string | undefined>;
     /**
-     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
-    public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
+    public readonly securityGroupReferencingSupport!: pulumi.Output<string>;
     /**
      * Identifiers of EC2 Subnets.
      */
@@ -178,7 +178,7 @@ export interface VpcAttachmentState {
      */
     ipv6Support?: pulumi.Input<string>;
     /**
-     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     securityGroupReferencingSupport?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface VpcAttachmentArgs {
      */
     ipv6Support?: pulumi.Input<string>;
     /**
-     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     securityGroupReferencingSupport?: pulumi.Input<string>;
     /**

@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
- *             .name("example name")
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  *                     ))
  *                 )))
  *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example name")
+ *                 .name("example-policy")
  *                 .policy(serializeJson(
  *                     jsonObject(
  *                         jsonProperty("Version", "2012-10-17"),
@@ -107,12 +107,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Domain("test", DomainArgs.builder()
- *             .name("example name")
+ *             .name("example")
  *             .domainExecutionRole(domainExecutionRole.arn())
  *             .build());
  * 
  *         var testSecurityGroup = new SecurityGroup("testSecurityGroup", SecurityGroupArgs.builder()
- *             .name("example name")
+ *             .name("example")
  *             .build());
  * 
  *         var testProject = new Project("testProject", ProjectArgs.builder()

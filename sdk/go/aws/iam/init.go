@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "aws:iam/groupMembership:GroupMembership":
 		r = &GroupMembership{}
+	case "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive":
+		r = &GroupPoliciesExclusive{}
 	case "aws:iam/groupPolicy:GroupPolicy":
 		r = &GroupPolicy{}
 	case "aws:iam/groupPolicyAttachment:GroupPolicyAttachment":
@@ -71,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserGroupMembership{}
 	case "aws:iam/userLoginProfile:UserLoginProfile":
 		r = &UserLoginProfile{}
+	case "aws:iam/userPoliciesExclusive:UserPoliciesExclusive":
+		r = &UserPoliciesExclusive{}
 	case "aws:iam/userPolicy:UserPolicy":
 		r = &UserPolicy{}
 	case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
@@ -113,6 +117,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/groupMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/groupPoliciesExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -213,6 +222,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/userLoginProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/userPoliciesExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

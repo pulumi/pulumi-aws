@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class AgentDataSourceVectorIngestionConfiguration {
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration;
     /**
+     * @return Configuration for custom transformation of data source documents.
+     * 
+     */
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration;
+    /**
      * @return Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
      * 
      */
@@ -30,6 +36,13 @@ public final class AgentDataSourceVectorIngestionConfiguration {
      */
     public Optional<AgentDataSourceVectorIngestionConfigurationChunkingConfiguration> chunkingConfiguration() {
         return Optional.ofNullable(this.chunkingConfiguration);
+    }
+    /**
+     * @return Configuration for custom transformation of data source documents.
+     * 
+     */
+    public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration> customTransformationConfiguration() {
+        return Optional.ofNullable(this.customTransformationConfiguration);
     }
     /**
      * @return Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
@@ -49,11 +62,13 @@ public final class AgentDataSourceVectorIngestionConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration;
+        private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration;
         private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfiguration parsingConfiguration;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.chunkingConfiguration = defaults.chunkingConfiguration;
+    	      this.customTransformationConfiguration = defaults.customTransformationConfiguration;
     	      this.parsingConfiguration = defaults.parsingConfiguration;
         }
 
@@ -61,6 +76,12 @@ public final class AgentDataSourceVectorIngestionConfiguration {
         public Builder chunkingConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration) {
 
             this.chunkingConfiguration = chunkingConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customTransformationConfiguration(@Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration) {
+
+            this.customTransformationConfiguration = customTransformationConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +93,7 @@ public final class AgentDataSourceVectorIngestionConfiguration {
         public AgentDataSourceVectorIngestionConfiguration build() {
             final var _resultValue = new AgentDataSourceVectorIngestionConfiguration();
             _resultValue.chunkingConfiguration = chunkingConfiguration;
+            _resultValue.customTransformationConfiguration = customTransformationConfiguration;
             _resultValue.parsingConfiguration = parsingConfiguration;
             return _resultValue;
         }

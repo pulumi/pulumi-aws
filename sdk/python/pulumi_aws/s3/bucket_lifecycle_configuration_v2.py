@@ -23,17 +23,21 @@ class BucketLifecycleConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]],
-                 expected_bucket_owner: Optional[pulumi.Input[str]] = None):
+                 expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+                 transition_default_minimum_object_size: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketLifecycleConfigurationV2 resource.
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if transition_default_minimum_object_size is not None:
+            pulumi.set(__self__, "transition_default_minimum_object_size", transition_default_minimum_object_size)
 
     @property
     @pulumi.getter
@@ -71,18 +75,32 @@ class BucketLifecycleConfigurationV2Args:
     def expected_bucket_owner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
+    @property
+    @pulumi.getter(name="transitionDefaultMinimumObjectSize")
+    def transition_default_minimum_object_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        """
+        return pulumi.get(self, "transition_default_minimum_object_size")
+
+    @transition_default_minimum_object_size.setter
+    def transition_default_minimum_object_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_default_minimum_object_size", value)
+
 
 @pulumi.input_type
 class _BucketLifecycleConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
+                 transition_default_minimum_object_size: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketLifecycleConfigurationV2 resources.
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -90,6 +108,8 @@ class _BucketLifecycleConfigurationV2State:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+        if transition_default_minimum_object_size is not None:
+            pulumi.set(__self__, "transition_default_minimum_object_size", transition_default_minimum_object_size)
 
     @property
     @pulumi.getter
@@ -127,6 +147,18 @@ class _BucketLifecycleConfigurationV2State:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+    @property
+    @pulumi.getter(name="transitionDefaultMinimumObjectSize")
+    def transition_default_minimum_object_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        """
+        return pulumi.get(self, "transition_default_minimum_object_size")
+
+    @transition_default_minimum_object_size.setter
+    def transition_default_minimum_object_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_default_minimum_object_size", value)
+
 
 class BucketLifecycleConfigurationV2(pulumi.CustomResource):
     @overload
@@ -136,6 +168,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+                 transition_default_minimum_object_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
@@ -312,7 +345,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         ### Specifying a filter based on object size
 
-        Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
+        Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
 
         ```python
         import pulumi
@@ -321,11 +354,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
             rules=[{
-                "id": "rule-1",
+                "id": "Allow small object transitions",
                 "filter": {
-                    "object_size_greater_than": "500",
+                    "object_size_greater_than": "1",
                 },
                 "status": "Enabled",
+                "transitions": [{
+                    "days": 365,
+                    "storage_class": "GLACIER_IR",
+                }],
             }])
         ```
 
@@ -458,6 +495,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         ...
     @overload
@@ -640,7 +678,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         ### Specifying a filter based on object size
 
-        Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
+        Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
 
         ```python
         import pulumi
@@ -649,11 +687,15 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
             rules=[{
-                "id": "rule-1",
+                "id": "Allow small object transitions",
                 "filter": {
-                    "object_size_greater_than": "500",
+                    "object_size_greater_than": "1",
                 },
                 "status": "Enabled",
+                "transitions": [{
+                    "days": 365,
+                    "storage_class": "GLACIER_IR",
+                }],
             }])
         ```
 
@@ -799,6 +841,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+                 transition_default_minimum_object_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -815,6 +858,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
         super(BucketLifecycleConfigurationV2, __self__).__init__(
             'aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2',
             resource_name,
@@ -827,7 +871,8 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None) -> 'BucketLifecycleConfigurationV2':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
+            transition_default_minimum_object_size: Optional[pulumi.Input[str]] = None) -> 'BucketLifecycleConfigurationV2':
         """
         Get an existing BucketLifecycleConfigurationV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -838,6 +883,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -846,6 +892,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
         __props__.__dict__["rules"] = rules
+        __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
         return BucketLifecycleConfigurationV2(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -871,4 +918,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         List of configuration blocks describing the rules managing the replication. See below.
         """
         return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter(name="transitionDefaultMinimumObjectSize")
+    def transition_default_minimum_object_size(self) -> pulumi.Output[str]:
+        """
+        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        """
+        return pulumi.get(self, "transition_default_minimum_object_size")
 

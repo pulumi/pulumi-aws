@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var analytics = new BucketV2("analytics", BucketV2Args.builder()
- *             .bucket("analytics destination")
+ *             .bucket("analytics-destination")
  *             .build());
  * 
  *         var example_entire_bucket = new AnalyticsConfiguration("example-entire-bucket", AnalyticsConfigurationArgs.builder()

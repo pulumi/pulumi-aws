@@ -83,11 +83,11 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
-//				Name:             pulumi.String("example name"),
+//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
-//						Name:   pulumi.String("example name"),
+//						Name:   pulumi.String("example-policy"),
 //						Policy: pulumi.String(json1),
 //					},
 //				},
@@ -96,14 +96,14 @@ import (
 //				return err
 //			}
 //			test, err := datazone.NewDomain(ctx, "test", &datazone.DomainArgs{
-//				Name:                pulumi.String("example name"),
+//				Name:                pulumi.String("example"),
 //				DomainExecutionRole: domainExecutionRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewSecurityGroup(ctx, "test", &ec2.SecurityGroupArgs{
-//				Name: pulumi.String("example name"),
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

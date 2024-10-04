@@ -3173,7 +3173,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Tag() BucketLifecycle
 }
 
 type BucketLifecycleConfigurationV2RuleFilterAnd struct {
-	// Minimum object size to which the rule applies. Value must be at least `0` if specified.
+	// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 	ObjectSizeGreaterThan *int `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
@@ -3195,7 +3195,7 @@ type BucketLifecycleConfigurationV2RuleFilterAndInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
-	// Minimum object size to which the rule applies. Value must be at least `0` if specified.
+	// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 	ObjectSizeGreaterThan pulumi.IntPtrInput `pulumi:"objectSizeGreaterThan"`
 	// Maximum object size to which the rule applies. Value must be at least `1` if specified.
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
@@ -3282,7 +3282,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConf
 	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
 }
 
-// Minimum object size to which the rule applies. Value must be at least `0` if specified.
+// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *int { return v.ObjectSizeGreaterThan }).(pulumi.IntPtrOutput)
 }
@@ -3326,7 +3326,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Elem() BucketLifec
 	}).(BucketLifecycleConfigurationV2RuleFilterAndOutput)
 }
 
-// Minimum object size to which the rule applies. Value must be at least `0` if specified.
+// Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ObjectSizeGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) *int {
 		if v == nil {

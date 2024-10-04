@@ -28,7 +28,6 @@ export function getStandardsControlAssociations(args: GetStandardsControlAssocia
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
         "securityControlId": args.securityControlId,
-        "standardsControlAssociations": args.standardsControlAssociations,
     }, opts);
 }
 
@@ -40,11 +39,6 @@ export interface GetStandardsControlAssociationsArgs {
      * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
      */
     securityControlId: string;
-    /**
-     * A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standardsControlAssociations` below.
-     */
-    standardsControlAssociations?: inputs.securityhub.GetStandardsControlAssociationsStandardsControlAssociation[];
 }
 
 /**
@@ -60,7 +54,7 @@ export interface GetStandardsControlAssociationsResult {
      * A list that provides the status and other details for each security control that applies to each enabled standard.
      * See `standardsControlAssociations` below.
      */
-    readonly standardsControlAssociations?: outputs.securityhub.GetStandardsControlAssociationsStandardsControlAssociation[];
+    readonly standardsControlAssociations: outputs.securityhub.GetStandardsControlAssociationsStandardsControlAssociation[];
 }
 /**
  * Data source for managing an AWS Security Hub Standards Control Associations.
@@ -83,7 +77,6 @@ export function getStandardsControlAssociationsOutput(args: GetStandardsControlA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
         "securityControlId": args.securityControlId,
-        "standardsControlAssociations": args.standardsControlAssociations,
     }, opts);
 }
 
@@ -95,9 +88,4 @@ export interface GetStandardsControlAssociationsOutputArgs {
      * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
      */
     securityControlId: pulumi.Input<string>;
-    /**
-     * A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standardsControlAssociations` below.
-     */
-    standardsControlAssociations?: pulumi.Input<pulumi.Input<inputs.securityhub.GetStandardsControlAssociationsStandardsControlAssociationArgs>[]>;
 }

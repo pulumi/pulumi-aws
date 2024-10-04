@@ -110,6 +110,8 @@ type LookupSnapshotResult struct {
 	// Snapshot ID (e.g., snap-59fcb34e).
 	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
+	// Time stamp when the snapshot was initiated.
+	StartTime string `pulumi:"startTime"`
 	// Snapshot state.
 	State string `pulumi:"state"`
 	// Storage tier in which the snapshot is stored.
@@ -246,6 +248,11 @@ func (o LookupSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
 
 func (o LookupSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.SnapshotIds }).(pulumi.StringArrayOutput)
+}
+
+// Time stamp when the snapshot was initiated.
+func (o LookupSnapshotResultOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 // Snapshot state.

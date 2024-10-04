@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointGroupEndpointConfiguration {
     /**
+     * @return An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+     * 
+     */
+    private @Nullable String attachmentArn;
+    /**
      * @return Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
      * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
      * 
@@ -31,6 +36,13 @@ public final class EndpointGroupEndpointConfiguration {
     private @Nullable Integer weight;
 
     private EndpointGroupEndpointConfiguration() {}
+    /**
+     * @return An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+     * 
+     */
+    public Optional<String> attachmentArn() {
+        return Optional.ofNullable(this.attachmentArn);
+    }
     /**
      * @return Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
      * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
@@ -63,17 +75,25 @@ public final class EndpointGroupEndpointConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String attachmentArn;
         private @Nullable Boolean clientIpPreservationEnabled;
         private @Nullable String endpointId;
         private @Nullable Integer weight;
         public Builder() {}
         public Builder(EndpointGroupEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.attachmentArn = defaults.attachmentArn;
     	      this.clientIpPreservationEnabled = defaults.clientIpPreservationEnabled;
     	      this.endpointId = defaults.endpointId;
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
+        public Builder attachmentArn(@Nullable String attachmentArn) {
+
+            this.attachmentArn = attachmentArn;
+            return this;
+        }
         @CustomType.Setter
         public Builder clientIpPreservationEnabled(@Nullable Boolean clientIpPreservationEnabled) {
 
@@ -94,6 +114,7 @@ public final class EndpointGroupEndpointConfiguration {
         }
         public EndpointGroupEndpointConfiguration build() {
             final var _resultValue = new EndpointGroupEndpointConfiguration();
+            _resultValue.attachmentArn = attachmentArn;
             _resultValue.clientIpPreservationEnabled = clientIpPreservationEnabled;
             _resultValue.endpointId = endpointId;
             _resultValue.weight = weight;

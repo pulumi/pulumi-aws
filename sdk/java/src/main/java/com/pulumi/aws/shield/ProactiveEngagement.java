@@ -34,15 +34,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.shield.DrtAccessRoleArnAssociation;
  * import com.pulumi.aws.shield.DrtAccessRoleArnAssociationArgs;
- * import com.pulumi.aws.shield.ProtectionGroup;
- * import com.pulumi.aws.shield.ProtectionGroupArgs;
  * import com.pulumi.aws.shield.ProactiveEngagement;
  * import com.pulumi.aws.shield.ProactiveEngagementArgs;
  * import com.pulumi.aws.shield.inputs.ProactiveEngagementEmergencyContactArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.shield.ProtectionGroup;
+ * import com.pulumi.aws.shield.ProtectionGroupArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -58,8 +58,8 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         var example = new Role("example", RoleArgs.builder()
- *             .name(awsShieldDrtAccessRoleArn)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -74,37 +74,37 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(example.name())
- *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
- *             .build());
- * 
  *         var exampleDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("exampleDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()
- *             .roleArn(example.arn())
+ *             .roleArn(exampleRole.arn())
  *             .build());
  * 
- *         var test = new ProtectionGroup("test", ProtectionGroupArgs.builder()
- *             .protectionGroupId("example")
- *             .aggregation("MAX")
- *             .pattern("ALL")
- *             .build());
- * 
- *         var testProactiveEngagement = new ProactiveEngagement("testProactiveEngagement", ProactiveEngagementArgs.builder()
+ *         var example = new ProactiveEngagement("example", ProactiveEngagementArgs.builder()
  *             .enabled(true)
  *             .emergencyContacts(            
  *                 ProactiveEngagementEmergencyContactArgs.builder()
  *                     .contactNotes("Notes")
- *                     .emailAddress("test}{@literal @}{@code company.com")
+ *                     .emailAddress("contact1}{@literal @}{@code example.com")
  *                     .phoneNumber("+12358132134")
  *                     .build(),
  *                 ProactiveEngagementEmergencyContactArgs.builder()
  *                     .contactNotes("Notes 2")
- *                     .emailAddress("test2}{@literal @}{@code company.com")
+ *                     .emailAddress("contact2}{@literal @}{@code example.com")
  *                     .phoneNumber("+12358132134")
  *                     .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testAwsShieldDrtAccessRoleArnAssociation)
+ *                 .dependsOn(exampleDrtAccessRoleArnAssociation)
  *                 .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .role(exampleRole.name())
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
+ *             .build());
+ * 
+ *         var exampleProtectionGroup = new ProtectionGroup("exampleProtectionGroup", ProtectionGroupArgs.builder()
+ *             .protectionGroupId("example")
+ *             .aggregation("MAX")
+ *             .pattern("ALL")
+ *             .build());
  * 
  *     }}{@code
  * }}{@code

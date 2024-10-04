@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from .connect import *
 from .connect_peer import *
+from .default_route_table_association import *
+from .default_route_table_propagation import *
 from .get_attachment import *
 from .get_attachments import *
 from .get_connect import *

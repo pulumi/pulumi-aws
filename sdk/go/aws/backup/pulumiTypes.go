@@ -409,6 +409,143 @@ func (o FrameworkControlScopePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+type LogicallyAirGappedVaultTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// LogicallyAirGappedVaultTimeoutsInput is an input type that accepts LogicallyAirGappedVaultTimeoutsArgs and LogicallyAirGappedVaultTimeoutsOutput values.
+// You can construct a concrete instance of `LogicallyAirGappedVaultTimeoutsInput` via:
+//
+//	LogicallyAirGappedVaultTimeoutsArgs{...}
+type LogicallyAirGappedVaultTimeoutsInput interface {
+	pulumi.Input
+
+	ToLogicallyAirGappedVaultTimeoutsOutput() LogicallyAirGappedVaultTimeoutsOutput
+	ToLogicallyAirGappedVaultTimeoutsOutputWithContext(context.Context) LogicallyAirGappedVaultTimeoutsOutput
+}
+
+type LogicallyAirGappedVaultTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (LogicallyAirGappedVaultTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogicallyAirGappedVaultTimeouts)(nil)).Elem()
+}
+
+func (i LogicallyAirGappedVaultTimeoutsArgs) ToLogicallyAirGappedVaultTimeoutsOutput() LogicallyAirGappedVaultTimeoutsOutput {
+	return i.ToLogicallyAirGappedVaultTimeoutsOutputWithContext(context.Background())
+}
+
+func (i LogicallyAirGappedVaultTimeoutsArgs) ToLogicallyAirGappedVaultTimeoutsOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedVaultTimeoutsOutput)
+}
+
+func (i LogicallyAirGappedVaultTimeoutsArgs) ToLogicallyAirGappedVaultTimeoutsPtrOutput() LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return i.ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i LogicallyAirGappedVaultTimeoutsArgs) ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedVaultTimeoutsOutput).ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(ctx)
+}
+
+// LogicallyAirGappedVaultTimeoutsPtrInput is an input type that accepts LogicallyAirGappedVaultTimeoutsArgs, LogicallyAirGappedVaultTimeoutsPtr and LogicallyAirGappedVaultTimeoutsPtrOutput values.
+// You can construct a concrete instance of `LogicallyAirGappedVaultTimeoutsPtrInput` via:
+//
+//	        LogicallyAirGappedVaultTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogicallyAirGappedVaultTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToLogicallyAirGappedVaultTimeoutsPtrOutput() LogicallyAirGappedVaultTimeoutsPtrOutput
+	ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(context.Context) LogicallyAirGappedVaultTimeoutsPtrOutput
+}
+
+type logicallyAirGappedVaultTimeoutsPtrType LogicallyAirGappedVaultTimeoutsArgs
+
+func LogicallyAirGappedVaultTimeoutsPtr(v *LogicallyAirGappedVaultTimeoutsArgs) LogicallyAirGappedVaultTimeoutsPtrInput {
+	return (*logicallyAirGappedVaultTimeoutsPtrType)(v)
+}
+
+func (*logicallyAirGappedVaultTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogicallyAirGappedVaultTimeouts)(nil)).Elem()
+}
+
+func (i *logicallyAirGappedVaultTimeoutsPtrType) ToLogicallyAirGappedVaultTimeoutsPtrOutput() LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return i.ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *logicallyAirGappedVaultTimeoutsPtrType) ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedVaultTimeoutsPtrOutput)
+}
+
+type LogicallyAirGappedVaultTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (LogicallyAirGappedVaultTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogicallyAirGappedVaultTimeouts)(nil)).Elem()
+}
+
+func (o LogicallyAirGappedVaultTimeoutsOutput) ToLogicallyAirGappedVaultTimeoutsOutput() LogicallyAirGappedVaultTimeoutsOutput {
+	return o
+}
+
+func (o LogicallyAirGappedVaultTimeoutsOutput) ToLogicallyAirGappedVaultTimeoutsOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsOutput {
+	return o
+}
+
+func (o LogicallyAirGappedVaultTimeoutsOutput) ToLogicallyAirGappedVaultTimeoutsPtrOutput() LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return o.ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o LogicallyAirGappedVaultTimeoutsOutput) ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogicallyAirGappedVaultTimeouts) *LogicallyAirGappedVaultTimeouts {
+		return &v
+	}).(LogicallyAirGappedVaultTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o LogicallyAirGappedVaultTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogicallyAirGappedVaultTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type LogicallyAirGappedVaultTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (LogicallyAirGappedVaultTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogicallyAirGappedVaultTimeouts)(nil)).Elem()
+}
+
+func (o LogicallyAirGappedVaultTimeoutsPtrOutput) ToLogicallyAirGappedVaultTimeoutsPtrOutput() LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return o
+}
+
+func (o LogicallyAirGappedVaultTimeoutsPtrOutput) ToLogicallyAirGappedVaultTimeoutsPtrOutputWithContext(ctx context.Context) LogicallyAirGappedVaultTimeoutsPtrOutput {
+	return o
+}
+
+func (o LogicallyAirGappedVaultTimeoutsPtrOutput) Elem() LogicallyAirGappedVaultTimeoutsOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedVaultTimeouts) LogicallyAirGappedVaultTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret LogicallyAirGappedVaultTimeouts
+		return ret
+	}).(LogicallyAirGappedVaultTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o LogicallyAirGappedVaultTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedVaultTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type PlanAdvancedBackupSetting struct {
 	// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
 	BackupOptions map[string]string `pulumi:"backupOptions"`
@@ -3252,6 +3389,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkControlInputParameterArrayInput)(nil)).Elem(), FrameworkControlInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkControlScopeInput)(nil)).Elem(), FrameworkControlScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkControlScopePtrInput)(nil)).Elem(), FrameworkControlScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedVaultTimeoutsInput)(nil)).Elem(), LogicallyAirGappedVaultTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedVaultTimeoutsPtrInput)(nil)).Elem(), LogicallyAirGappedVaultTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAdvancedBackupSettingInput)(nil)).Elem(), PlanAdvancedBackupSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAdvancedBackupSettingArrayInput)(nil)).Elem(), PlanAdvancedBackupSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleInput)(nil)).Elem(), PlanRuleArgs{})
@@ -3302,6 +3441,8 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkControlInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(FrameworkControlScopeOutput{})
 	pulumi.RegisterOutputType(FrameworkControlScopePtrOutput{})
+	pulumi.RegisterOutputType(LogicallyAirGappedVaultTimeoutsOutput{})
+	pulumi.RegisterOutputType(LogicallyAirGappedVaultTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PlanAdvancedBackupSettingOutput{})
 	pulumi.RegisterOutputType(PlanAdvancedBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(PlanRuleOutput{})

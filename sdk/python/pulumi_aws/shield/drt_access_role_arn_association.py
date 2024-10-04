@@ -110,8 +110,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.iam.Role("test",
-            name=aws_shield_drt_access_role_arn,
+        example_role = aws.iam.Role("example",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -123,10 +123,10 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                     "Action": "sts:AssumeRole",
                 }],
             }))
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("test",
-            role=test.name,
+        example = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
 
         ## Import
@@ -160,8 +160,8 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.iam.Role("test",
-            name=aws_shield_drt_access_role_arn,
+        example_role = aws.iam.Role("example",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -173,10 +173,10 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                     "Action": "sts:AssumeRole",
                 }],
             }))
-        test_role_policy_attachment = aws.iam.RolePolicyAttachment("test",
-            role=test.name,
+        example = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
 
         ## Import

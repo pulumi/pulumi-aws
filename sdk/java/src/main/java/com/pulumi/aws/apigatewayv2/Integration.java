@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .name("Example")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs16.x")
+ *             .runtime("nodejs20.x")
  *             .build());
  * 
  *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()

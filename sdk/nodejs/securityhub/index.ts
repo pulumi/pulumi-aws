@@ -75,6 +75,11 @@ export type StandardsControl = import("./standardsControl").StandardsControl;
 export const StandardsControl: typeof import("./standardsControl").StandardsControl = null as any;
 utilities.lazyLoad(exports, ["StandardsControl"], () => require("./standardsControl"));
 
+export { StandardsControlAssociationArgs, StandardsControlAssociationState } from "./standardsControlAssociation";
+export type StandardsControlAssociation = import("./standardsControlAssociation").StandardsControlAssociation;
+export const StandardsControlAssociation: typeof import("./standardsControlAssociation").StandardsControlAssociation = null as any;
+utilities.lazyLoad(exports, ["StandardsControlAssociation"], () => require("./standardsControlAssociation"));
+
 export { StandardsSubscriptionArgs, StandardsSubscriptionState } from "./standardsSubscription";
 export type StandardsSubscription = import("./standardsSubscription").StandardsSubscription;
 export const StandardsSubscription: typeof import("./standardsSubscription").StandardsSubscription = null as any;
@@ -111,6 +116,8 @@ const _module = {
                 return new ProductSubscription(name, <any>undefined, { urn })
             case "aws:securityhub/standardsControl:StandardsControl":
                 return new StandardsControl(name, <any>undefined, { urn })
+            case "aws:securityhub/standardsControlAssociation:StandardsControlAssociation":
+                return new StandardsControlAssociation(name, <any>undefined, { urn })
             case "aws:securityhub/standardsSubscription:StandardsSubscription":
                 return new StandardsSubscription(name, <any>undefined, { urn })
             default:
@@ -131,4 +138,5 @@ pulumi.runtime.registerResourceModule("aws", "securityhub/organizationAdminAccou
 pulumi.runtime.registerResourceModule("aws", "securityhub/organizationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/productSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/standardsControl", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/standardsControlAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/standardsSubscription", _module)

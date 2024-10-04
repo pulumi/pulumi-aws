@@ -278,7 +278,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Specifying a filter based on object size
     /// 
-    /// Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
+    /// Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -295,12 +295,20 @@ namespace Pulumi.Aws.S3
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleArgs
     ///             {
-    ///                 Id = "rule-1",
+    ///                 Id = "Allow small object transitions",
     ///                 Filter = new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleFilterArgs
     ///                 {
-    ///                     ObjectSizeGreaterThan = "500",
+    ///                     ObjectSizeGreaterThan = "1",
     ///                 },
     ///                 Status = "Enabled",
+    ///                 Transitions = new[]
+    ///                 {
+    ///                     new Aws.S3.Inputs.BucketLifecycleConfigurationV2RuleTransitionArgs
+    ///                     {
+    ///                         Days = 365,
+    ///                         StorageClass = "GLACIER_IR",
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -522,6 +530,12 @@ namespace Pulumi.Aws.S3
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketLifecycleConfigurationV2Rule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// </summary>
+        [Output("transitionDefaultMinimumObjectSize")]
+        public Output<string> TransitionDefaultMinimumObjectSize { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BucketLifecycleConfigurationV2 resource with the given unique name, arguments, and options.
@@ -592,6 +606,12 @@ namespace Pulumi.Aws.S3
             set => _rules = value;
         }
 
+        /// <summary>
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// </summary>
+        [Input("transitionDefaultMinimumObjectSize")]
+        public Input<string>? TransitionDefaultMinimumObjectSize { get; set; }
+
         public BucketLifecycleConfigurationV2Args()
         {
         }
@@ -623,6 +643,12 @@ namespace Pulumi.Aws.S3
             get => _rules ?? (_rules = new InputList<Inputs.BucketLifecycleConfigurationV2RuleGetArgs>());
             set => _rules = value;
         }
+
+        /// <summary>
+        /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        /// </summary>
+        [Input("transitionDefaultMinimumObjectSize")]
+        public Input<string>? TransitionDefaultMinimumObjectSize { get; set; }
 
         public BucketLifecycleConfigurationV2State()
         {

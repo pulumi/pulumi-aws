@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *         var lambdaLayer = new LayerVersion("lambdaLayer", LayerVersionArgs.builder()
  *             .code(new FileArchive("lambda_layer_payload.zip"))
  *             .layerName("lambda_layer_name")
- *             .compatibleRuntimes("nodejs16.x")
+ *             .compatibleRuntimes("nodejs20.x")
  *             .build());
  * 
  *     }

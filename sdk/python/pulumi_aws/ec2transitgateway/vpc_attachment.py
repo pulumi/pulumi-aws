@@ -37,7 +37,7 @@ class VpcAttachmentArgs:
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -136,7 +136,7 @@ class VpcAttachmentArgs:
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         """
         return pulumi.get(self, "security_group_referencing_support")
 
@@ -201,7 +201,7 @@ class _VpcAttachmentState:
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -279,7 +279,7 @@ class _VpcAttachmentState:
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         """
         return pulumi.get(self, "security_group_referencing_support")
 
@@ -429,7 +429,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -550,7 +550,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] appliance_mode_support: Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -604,9 +604,9 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupReferencingSupport")
-    def security_group_referencing_support(self) -> pulumi.Output[Optional[str]]:
+    def security_group_referencing_support(self) -> pulumi.Output[str]:
         """
-        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+        Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         """
         return pulumi.get(self, "security_group_referencing_support")
 

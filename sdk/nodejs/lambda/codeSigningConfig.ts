@@ -29,6 +29,9 @@ import * as utilities from "../utilities";
  *         untrustedArtifactOnDeployment: "Warn",
  *     },
  *     description: "My awesome code signing config.",
+ *     tags: {
+ *         Name: "dynamodb",
+ *     },
  * });
  * ```
  *
@@ -92,6 +95,16 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
     public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
+    /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CodeSigningConfig resource with the given unique name, arguments, and options.
@@ -112,6 +125,8 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["policies"] = state ? state.policies : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CodeSigningConfigArgs | undefined;
             if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
@@ -120,9 +135,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configId"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts);
@@ -157,6 +174,16 @@ export interface CodeSigningConfigState {
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,4 +202,8 @@ export interface CodeSigningConfigArgs {
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

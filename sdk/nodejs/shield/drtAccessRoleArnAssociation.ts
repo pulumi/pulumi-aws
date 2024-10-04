@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.iam.Role("test", {
- *     name: awsShieldDrtAccessRoleArn,
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const testRolePolicyAttachment = new aws.iam.RolePolicyAttachment("test", {
- *     role: test.name,
+ * const example = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: exampleRole.arn});
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     role: exampleRole.name,
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
  * });
- * const testDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("test", {roleArn: test.arn});
  * ```
  *
  * ## Import

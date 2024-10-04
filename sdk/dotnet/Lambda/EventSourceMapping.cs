@@ -32,6 +32,10 @@ namespace Pulumi.Aws.Lambda
     ///         EventSourceArn = exampleAwsDynamodbTable.StreamArn,
     ///         FunctionName = exampleAwsLambdaFunction.Arn,
     ///         StartingPosition = "LATEST",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "dynamodb" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -283,6 +287,12 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> AmazonManagedKafkaEventSourceConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The event source mapping ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// </summary>
         [Output("batchSize")]
@@ -325,7 +335,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingFilterCriteria?> FilterCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        /// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
@@ -437,6 +447,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("stateTransitionReason")]
         public Output<string> StateTransitionReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
@@ -646,6 +668,18 @@ namespace Pulumi.Aws.Lambda
         [Input("startingPositionTimestamp")]
         public Input<string>? StartingPositionTimestamp { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("topics")]
         private InputList<string>? _topics;
 
@@ -677,6 +711,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("amazonManagedKafkaEventSourceConfig")]
         public Input<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigGetArgs>? AmazonManagedKafkaEventSourceConfig { get; set; }
+
+        /// <summary>
+        /// The event source mapping ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
@@ -721,7 +761,7 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingFilterCriteriaGetArgs>? FilterCriteria { get; set; }
 
         /// <summary>
-        /// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        /// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }
@@ -845,6 +885,31 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("stateTransitionReason")]
         public Input<string>? StateTransitionReason { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         [Input("topics")]
         private InputList<string>? _topics;

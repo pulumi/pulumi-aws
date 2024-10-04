@@ -25,6 +25,9 @@ import * as utilities from "../utilities";
  *     eventSourceArn: exampleAwsDynamodbTable.streamArn,
  *     functionName: exampleAwsLambdaFunction.arn,
  *     startingPosition: "LATEST",
+ *     tags: {
+ *         Name: "dynamodb",
+ *     },
  * });
  * ```
  *
@@ -213,6 +216,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly amazonManagedKafkaEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
     /**
+     * The event source mapping ARN.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
@@ -241,7 +248,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
     /**
-     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+     * The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
@@ -317,6 +324,16 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public /*out*/ readonly stateTransitionReason!: pulumi.Output<string>;
     /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */
     public readonly topics!: pulumi.Output<string[] | undefined>;
@@ -343,6 +360,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventSourceMappingState | undefined;
             resourceInputs["amazonManagedKafkaEventSourceConfig"] = state ? state.amazonManagedKafkaEventSourceConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["batchSize"] = state ? state.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = state ? state.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = state ? state.destinationConfig : undefined;
@@ -369,6 +387,8 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["startingPositionTimestamp"] = state ? state.startingPositionTimestamp : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["stateTransitionReason"] = state ? state.stateTransitionReason : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["topics"] = state ? state.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = state ? state.tumblingWindowInSeconds : undefined;
             resourceInputs["uuid"] = state ? state.uuid : undefined;
@@ -399,13 +419,16 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
             resourceInputs["startingPosition"] = args ? args.startingPosition : undefined;
             resourceInputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
             resourceInputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["lastProcessingResult"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateTransitionReason"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -421,6 +444,10 @@ export interface EventSourceMappingState {
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
      */
     amazonManagedKafkaEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfig>;
+    /**
+     * The event source mapping ARN.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      */
@@ -450,7 +477,7 @@ export interface EventSourceMappingState {
      */
     filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
     /**
-     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+     * The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
     functionArn?: pulumi.Input<string>;
     /**
@@ -525,6 +552,16 @@ export interface EventSourceMappingState {
      * The reason the event source mapping is in its current state.
      */
     stateTransitionReason?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */
@@ -631,6 +668,10 @@ export interface EventSourceMappingArgs {
      * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      */
     startingPositionTimestamp?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      */

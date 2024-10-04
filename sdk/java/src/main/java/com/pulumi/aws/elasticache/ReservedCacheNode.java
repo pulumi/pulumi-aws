@@ -56,9 +56,19 @@ public class ReservedCacheNode extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Number of cache node instances to reserve.
+     * Default value is `1`.
+     * 
+     */
     @Export(name="cacheNodeCount", refs={Double.class}, tree="[0]")
     private Output<Double> cacheNodeCount;
 
+    /**
+     * @return Number of cache node instances to reserve.
+     * Default value is `1`.
+     * 
+     */
     public Output<Double> cacheNodeCount() {
         return this.cacheNodeCount;
     }

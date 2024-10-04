@@ -22,6 +22,7 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -62,6 +63,7 @@ import javax.annotation.Nullable;
  *             .eventSourceArn(exampleAwsDynamodbTable.streamArn())
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .startingPosition("LATEST")
+ *             .tags(Map.of("Name", "dynamodb"))
  *             .build());
  * 
  *     }
@@ -411,6 +413,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return this.amazonManagedKafkaEventSourceConfig;
     }
     /**
+     * The event source mapping ARN.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The event source mapping ARN.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * 
      */
@@ -509,14 +525,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filterCriteria);
     }
     /**
-     * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
     /**
-     * @return The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+     * @return The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
     public Output<String> functionArn() {
@@ -773,6 +789,38 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      */
     public Output<String> stateTransitionReason() {
         return this.stateTransitionReason;
+    }
+    /**
+     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.

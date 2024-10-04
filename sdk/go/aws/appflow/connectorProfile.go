@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
-//				Bucket: pulumi.String("example_bucket"),
+//				Bucket: pulumi.String("example-bucket"),
 //			})
 //			if err != nil {
 //				return err

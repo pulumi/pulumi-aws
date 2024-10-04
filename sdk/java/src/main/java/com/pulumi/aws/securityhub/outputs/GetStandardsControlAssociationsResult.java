@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardsControlAssociationsResult {
@@ -24,7 +23,7 @@ public final class GetStandardsControlAssociationsResult {
      * See `standards_control_associations` below.
      * 
      */
-    private @Nullable List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
+    private List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
 
     private GetStandardsControlAssociationsResult() {}
     public String id() {
@@ -43,7 +42,7 @@ public final class GetStandardsControlAssociationsResult {
      * 
      */
     public List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations() {
-        return this.standardsControlAssociations == null ? List.of() : this.standardsControlAssociations;
+        return this.standardsControlAssociations;
     }
 
     public static Builder builder() {
@@ -57,7 +56,7 @@ public final class GetStandardsControlAssociationsResult {
     public static final class Builder {
         private String id;
         private String securityControlId;
-        private @Nullable List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
+        private List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
         public Builder() {}
         public Builder(GetStandardsControlAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,8 +82,10 @@ public final class GetStandardsControlAssociationsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder standardsControlAssociations(@Nullable List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations) {
-
+        public Builder standardsControlAssociations(List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations) {
+            if (standardsControlAssociations == null) {
+              throw new MissingRequiredPropertyException("GetStandardsControlAssociationsResult", "standardsControlAssociations");
+            }
             this.standardsControlAssociations = standardsControlAssociations;
             return this;
         }

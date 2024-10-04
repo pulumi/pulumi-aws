@@ -54,6 +54,10 @@ export class ReservedCacheNode extends pulumi.CustomResource {
      * ARN for the reserved cache node.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Number of cache node instances to reserve.
+     * Default value is `1`.
+     */
     public readonly cacheNodeCount!: pulumi.Output<number>;
     /**
      * Node type for the reserved cache nodes.
@@ -172,6 +176,10 @@ export interface ReservedCacheNodeState {
      * ARN for the reserved cache node.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Number of cache node instances to reserve.
+     * Default value is `1`.
+     */
     cacheNodeCount?: pulumi.Input<number>;
     /**
      * Node type for the reserved cache nodes.
@@ -233,6 +241,10 @@ export interface ReservedCacheNodeState {
  * The set of arguments for constructing a ReservedCacheNode resource.
  */
 export interface ReservedCacheNodeArgs {
+    /**
+     * Number of cache node instances to reserve.
+     * Default value is `1`.
+     */
     cacheNodeCount?: pulumi.Input<number>;
     /**
      * ID of the reserved cache node offering to purchase.

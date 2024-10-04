@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
 import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaArgs;
+import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -164,6 +165,21 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
+    @Import(name="prepareAgent")
+    private @Nullable Output<Boolean> prepareAgent;
+
+    /**
+     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> prepareAgent() {
+        return Optional.ofNullable(this.prepareAgent);
+    }
+
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      * 
      */
@@ -178,6 +194,13 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.skipResourceInUseCheck);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<AgentAgentActionGroupTimeoutsArgs> timeouts;
+
+    public Optional<Output<AgentAgentActionGroupTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private AgentAgentActionGroupArgs() {}
 
     private AgentAgentActionGroupArgs(AgentAgentActionGroupArgs $) {
@@ -190,7 +213,9 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         this.description = $.description;
         this.functionSchema = $.functionSchema;
         this.parentActionGroupSignature = $.parentActionGroupSignature;
+        this.prepareAgent = $.prepareAgent;
         this.skipResourceInUseCheck = $.skipResourceInUseCheck;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -409,6 +434,27 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prepareAgent(@Nullable Output<Boolean> prepareAgent) {
+            $.prepareAgent = prepareAgent;
+            return this;
+        }
+
+        /**
+         * @param prepareAgent Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prepareAgent(Boolean prepareAgent) {
+            return prepareAgent(Output.of(prepareAgent));
+        }
+
+        /**
          * @param skipResourceInUseCheck Whether the in-use check is skipped when deleting the action group.
          * 
          * @return builder
@@ -427,6 +473,15 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Resour
          */
         public Builder skipResourceInUseCheck(Boolean skipResourceInUseCheck) {
             return skipResourceInUseCheck(Output.of(skipResourceInUseCheck));
+        }
+
+        public Builder timeouts(@Nullable Output<AgentAgentActionGroupTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(AgentAgentActionGroupTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public AgentAgentActionGroupArgs build() {

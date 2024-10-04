@@ -201,9 +201,14 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
      */
     public readonly parentActionGroupSignature!: pulumi.Output<string | undefined>;
     /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
+    public readonly prepareAgent!: pulumi.Output<boolean>;
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      */
     public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
+    public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentActionGroupTimeouts | undefined>;
 
     /**
      * Create a AgentAgentActionGroup resource with the given unique name, arguments, and options.
@@ -228,7 +233,9 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["functionSchema"] = state ? state.functionSchema : undefined;
             resourceInputs["parentActionGroupSignature"] = state ? state.parentActionGroupSignature : undefined;
+            resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
+            resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as AgentAgentActionGroupArgs | undefined;
             if ((!args || args.actionGroupName === undefined) && !opts.urn) {
@@ -249,7 +256,9 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionSchema"] = args ? args.functionSchema : undefined;
             resourceInputs["parentActionGroupSignature"] = args ? args.parentActionGroupSignature : undefined;
+            resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
             resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
+            resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["actionGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -306,9 +315,14 @@ export interface AgentAgentActionGroupState {
      */
     parentActionGroupSignature?: pulumi.Input<string>;
     /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
+    prepareAgent?: pulumi.Input<boolean>;
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts>;
 }
 
 /**
@@ -356,7 +370,12 @@ export interface AgentAgentActionGroupArgs {
      */
     parentActionGroupSignature?: pulumi.Input<string>;
     /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     */
+    prepareAgent?: pulumi.Input<boolean>;
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean>;
+    timeouts?: pulumi.Input<inputs.bedrock.AgentAgentActionGroupTimeouts>;
 }

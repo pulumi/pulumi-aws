@@ -145,7 +145,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         Name = "mylambda",
     ///         Role = role.Arn,
     ///         Handler = "lambda.lambda_handler",
-    ///         Runtime = Aws.Lambda.Runtime.Python3d7,
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
     ///         SourceCodeHash = Std.Filebase64sha256.Invoke(new()
     ///         {
     ///             Input = "lambda.zip",

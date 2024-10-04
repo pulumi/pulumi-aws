@@ -472,7 +472,9 @@ class EndpointGroupEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientIpPreservationEnabled":
+        if key == "attachmentArn":
+            suggest = "attachment_arn"
+        elif key == "clientIpPreservationEnabled":
             suggest = "client_ip_preservation_enabled"
         elif key == "endpointId":
             suggest = "endpoint_id"
@@ -489,21 +491,33 @@ class EndpointGroupEndpointConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 attachment_arn: Optional[str] = None,
                  client_ip_preservation_enabled: Optional[bool] = None,
                  endpoint_id: Optional[str] = None,
                  weight: Optional[int] = None):
         """
+        :param str attachment_arn: An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
         :param bool client_ip_preservation_enabled: Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
                **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
         :param str endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         :param int weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         """
+        if attachment_arn is not None:
+            pulumi.set(__self__, "attachment_arn", attachment_arn)
         if client_ip_preservation_enabled is not None:
             pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="attachmentArn")
+    def attachment_arn(self) -> Optional[str]:
+        """
+        An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+        """
+        return pulumi.get(self, "attachment_arn")
 
     @property
     @pulumi.getter(name="clientIpPreservationEnabled")
