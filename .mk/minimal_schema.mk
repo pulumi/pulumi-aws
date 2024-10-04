@@ -6,8 +6,8 @@ minimal_schema_no_deps:
 
 # To work around CI limitations, ensure that minimal schema is rebuilt for embedding right before the provider binary is
 # built for a given platform.
-provider_dist-linux-amd64: minimal_schema_no_deps
-provider_dist-linux-arm64: minimal_schema_no_deps
-provider_dist-darwin-amd64: minimal_schema_no_deps
-provider_dist-darwin-arm64: minimal_schema_no_deps
-provider_dist-windows-amd64: minimal_schema_no_deps
+bin/linux-amd64/$(PROVIDER): minimal_schema_no_deps
+bin/linux-arm64/$(PROVIDER): minimal_schema_no_deps
+bin/darwin-amd64/$(PROVIDER): minimal_schema_no_deps
+bin/darwin-arm64/$(PROVIDER): minimal_schema_no_deps
+bin/windows-amd64/$(PROVIDER).exe: minimal_schema_no_deps
