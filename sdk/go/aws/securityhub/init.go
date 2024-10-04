@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductSubscription{}
 	case "aws:securityhub/standardsControl:StandardsControl":
 		r = &StandardsControl{}
+	case "aws:securityhub/standardsControlAssociation:StandardsControlAssociation":
+		r = &StandardsControlAssociation{}
 	case "aws:securityhub/standardsSubscription:StandardsSubscription":
 		r = &StandardsSubscription{}
 	default:
@@ -125,6 +127,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securityhub/standardsControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securityhub/standardsControlAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

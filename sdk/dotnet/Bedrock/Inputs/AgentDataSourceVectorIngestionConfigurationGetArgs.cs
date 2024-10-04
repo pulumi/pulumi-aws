@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationGetArgs>? ChunkingConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration for custom transformation of data source documents.
+        /// </summary>
+        [Input("customTransformationConfiguration")]
+        public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationGetArgs>? CustomTransformationConfiguration { get; set; }
+
+        /// <summary>
         /// Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         /// </summary>
         [Input("parsingConfiguration")]

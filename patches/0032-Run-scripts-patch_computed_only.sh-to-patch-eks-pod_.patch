@@ -32,10 +32,10 @@ index ce583fa5c4..9fdeea49d8 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grant.go b/internal/service/s3control/access_grant.go
-index ce4d1a042d..f91e56ba64 100644
+index 6bd3274a3f..55ec1a948a 100644
 --- a/internal/service/s3control/access_grant.go
 +++ b/internal/service/s3control/access_grant.go
-@@ -103,7 +103,7 @@ func (r *accessGrantResource) Schema(ctx context.Context, request resource.Schem
+@@ -102,7 +102,7 @@ func (r *accessGrantResource) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -58,10 +58,10 @@ index 5f13ed2859..5a0e3e931b 100644
  	}
  }
 diff --git a/internal/service/s3control/access_grants_location.go b/internal/service/s3control/access_grants_location.go
-index ca060273a1..1189fbc20c 100644
+index 9443dfb091..2f064132c3 100644
 --- a/internal/service/s3control/access_grants_location.go
 +++ b/internal/service/s3control/access_grants_location.go
-@@ -84,7 +84,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou
+@@ -83,7 +83,7 @@ func (r *accessGrantsLocationResource) Schema(ctx context.Context, request resou
  			},
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),

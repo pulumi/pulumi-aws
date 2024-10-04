@@ -28,6 +28,7 @@ from .get_user_ssh_key import *
 from .get_users import *
 from .group import *
 from .group_membership import *
+from .group_policies_exclusive import *
 from .group_policy import *
 from .group_policy_attachment import *
 from .instance_profile import *
@@ -48,6 +49,7 @@ from .ssh_key import *
 from .user import *
 from .user_group_membership import *
 from .user_login_profile import *
+from .user_policies_exclusive import *
 from .user_policy import *
 from .user_policy_attachment import *
 from .virtual_mfa_device import *

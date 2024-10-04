@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.iam.Role("example", {
- *     name: awsShieldDrtAccessRoleArn,
+ * const exampleRole = new aws.iam.Role("example", {
+ *     name: "example-role",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -33,32 +33,32 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     role: example.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
- * });
- * const exampleDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: example.arn});
- * const test = new aws.shield.ProtectionGroup("test", {
- *     protectionGroupId: "example",
- *     aggregation: "MAX",
- *     pattern: "ALL",
- * });
- * const testProactiveEngagement = new aws.shield.ProactiveEngagement("test", {
+ * const exampleDrtAccessRoleArnAssociation = new aws.shield.DrtAccessRoleArnAssociation("example", {roleArn: exampleRole.arn});
+ * const example = new aws.shield.ProactiveEngagement("example", {
  *     enabled: true,
  *     emergencyContacts: [
  *         {
  *             contactNotes: "Notes",
- *             emailAddress: "test@company.com",
+ *             emailAddress: "contact1@example.com",
  *             phoneNumber: "+12358132134",
  *         },
  *         {
  *             contactNotes: "Notes 2",
- *             emailAddress: "test2@company.com",
+ *             emailAddress: "contact2@example.com",
  *             phoneNumber: "+12358132134",
  *         },
  *     ],
  * }, {
- *     dependsOn: [testAwsShieldDrtAccessRoleArnAssociation],
+ *     dependsOn: [exampleDrtAccessRoleArnAssociation],
+ * });
+ * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
+ *     role: exampleRole.name,
+ *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
+ * });
+ * const exampleProtectionGroup = new aws.shield.ProtectionGroup("example", {
+ *     protectionGroupId: "example",
+ *     aggregation: "MAX",
+ *     pattern: "ALL",
  * });
  * ```
  *

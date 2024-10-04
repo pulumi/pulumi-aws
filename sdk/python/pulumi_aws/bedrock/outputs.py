@@ -23,6 +23,7 @@ __all__ = [
     'AgentAgentActionGroupFunctionSchemaMemberFunctions',
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunction',
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter',
+    'AgentAgentActionGroupTimeouts',
     'AgentAgentAliasRoutingConfiguration',
     'AgentAgentAliasTimeouts',
     'AgentAgentGuardrailConfiguration',
@@ -41,6 +42,12 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration',
     'AgentDataSourceVectorIngestionConfigurationParsingConfiguration',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt',
@@ -74,6 +81,7 @@ __all__ = [
     'GuardrailTimeouts',
     'GuardrailTopicPolicyConfig',
     'GuardrailTopicPolicyConfigTopicsConfig',
+    'GuardrailVersionTimeouts',
     'GuardrailWordPolicyConfig',
     'GuardrailWordPolicyConfigManagedWordListsConfig',
     'GuardrailWordPolicyConfigWordsConfig',
@@ -403,6 +411,37 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameter(dict):
         Whether the parameter is required for the agent to complete the function for action group invocation.
         """
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class AgentAgentActionGroupTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
@@ -1035,6 +1074,8 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
         suggest = None
         if key == "chunkingConfiguration":
             suggest = "chunking_configuration"
+        elif key == "customTransformationConfiguration":
+            suggest = "custom_transformation_configuration"
         elif key == "parsingConfiguration":
             suggest = "parsing_configuration"
 
@@ -1051,13 +1092,17 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
 
     def __init__(__self__, *,
                  chunking_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration'] = None,
+                 custom_transformation_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration'] = None,
                  parsing_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration'] = None):
         """
         :param 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs' chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs' custom_transformation_configuration: Configuration for custom transformation of data source documents.
         :param 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs' parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if custom_transformation_configuration is not None:
+            pulumi.set(__self__, "custom_transformation_configuration", custom_transformation_configuration)
         if parsing_configuration is not None:
             pulumi.set(__self__, "parsing_configuration", parsing_configuration)
 
@@ -1068,6 +1113,14 @@ class AgentDataSourceVectorIngestionConfiguration(dict):
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
         """
         return pulumi.get(self, "chunking_configuration")
+
+    @property
+    @pulumi.getter(name="customTransformationConfiguration")
+    def custom_transformation_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration']:
+        """
+        Configuration for custom transformation of data source documents.
+        """
+        return pulumi.get(self, "custom_transformation_configuration")
 
     @property
     @pulumi.getter(name="parsingConfiguration")
@@ -1341,6 +1394,224 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @pulumi.getter(name="maxToken")
     def max_token(self) -> float:
         return pulumi.get(self, "max_token")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intermediateStorage":
+            suggest = "intermediate_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 intermediate_storage: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage'] = None,
+                 transformation: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation'] = None):
+        """
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs' intermediate_storage: The intermediate storage for custom transformation.
+        """
+        if intermediate_storage is not None:
+            pulumi.set(__self__, "intermediate_storage", intermediate_storage)
+        if transformation is not None:
+            pulumi.set(__self__, "transformation", transformation)
+
+    @property
+    @pulumi.getter(name="intermediateStorage")
+    def intermediate_storage(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage']:
+        """
+        The intermediate storage for custom transformation.
+        """
+        return pulumi.get(self, "intermediate_storage")
+
+    @property
+    @pulumi.getter
+    def transformation(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation']:
+        return pulumi.get(self, "transformation")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location'] = None):
+        """
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs' s3_location: Configuration block for intermedia S3 storage.
+        """
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location']:
+        """
+        Configuration block for intermedia S3 storage.
+        """
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location(dict):
+    def __init__(__self__, *,
+                 uri: str):
+        """
+        :param str uri: S3 URI for intermediate storage.
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        S3 URI for intermediate storage.
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepToApply":
+            suggest = "step_to_apply"
+        elif key == "transformationFunction":
+            suggest = "transformation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 step_to_apply: str,
+                 transformation_function: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction'] = None):
+        """
+        :param str step_to_apply: Currently only `POST_CHUNKING` is supported.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: The configuration of transformation function.
+        """
+        pulumi.set(__self__, "step_to_apply", step_to_apply)
+        if transformation_function is not None:
+            pulumi.set(__self__, "transformation_function", transformation_function)
+
+    @property
+    @pulumi.getter(name="stepToApply")
+    def step_to_apply(self) -> str:
+        """
+        Currently only `POST_CHUNKING` is supported.
+        """
+        return pulumi.get(self, "step_to_apply")
+
+    @property
+    @pulumi.getter(name="transformationFunction")
+    def transformation_function(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction']:
+        """
+        The configuration of transformation function.
+        """
+        return pulumi.get(self, "transformation_function")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "transformationLambdaConfiguration":
+            suggest = "transformation_lambda_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 transformation_lambda_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration'] = None):
+        """
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: The lambda configuration for custom transformation.
+        """
+        if transformation_lambda_configuration is not None:
+            pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
+
+    @property
+    @pulumi.getter(name="transformationLambdaConfiguration")
+    def transformation_lambda_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration']:
+        """
+        The lambda configuration for custom transformation.
+        """
+        return pulumi.get(self, "transformation_lambda_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str):
+        """
+        :param str lambda_arn: The ARN of the lambda to use for custom transformation.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        The ARN of the lambda to use for custom transformation.
+        """
+        return pulumi.get(self, "lambda_arn")
 
 
 @pulumi.output_type
@@ -2932,6 +3203,37 @@ class GuardrailTopicPolicyConfigTopicsConfig(dict):
         List of text examples.
         """
         return pulumi.get(self, "examples")
+
+
+@pulumi.output_type
+class GuardrailVersionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

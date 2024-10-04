@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
     ///     {
-    ///         Bucket = "example_bucket",
+    ///         Bucket = "example-bucket",
     ///     });
     /// 
     ///     var exampleCluster = new Aws.RedShift.Cluster("example", new()

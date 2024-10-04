@@ -460,7 +460,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS16D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         test_alias = aws.lambda_.Alias("test_alias",
             name="testalias",
             description="a sample description",
@@ -501,7 +501,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_called_from_sns",
             role=default_role.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D7)
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
         with_sns = aws.lambda_.Permission("with_sns",
             statement_id="AllowExecutionFromSNS",
             action="lambda:InvokeFunction",
@@ -554,7 +554,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_called_from_cloudwatch_logs",
             handler="exports.handler",
             role=default_role.arn,
-            runtime=aws.lambda_.Runtime.PYTHON3D7)
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
         logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
             function=logging_function.name,
@@ -654,7 +654,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS16D_X)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         test_alias = aws.lambda_.Alias("test_alias",
             name="testalias",
             description="a sample description",
@@ -695,7 +695,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_called_from_sns",
             role=default_role.arn,
             handler="exports.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D7)
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
         with_sns = aws.lambda_.Permission("with_sns",
             statement_id="AllowExecutionFromSNS",
             action="lambda:InvokeFunction",
@@ -748,7 +748,7 @@ class Permission(pulumi.CustomResource):
             name="lambda_called_from_cloudwatch_logs",
             handler="exports.handler",
             role=default_role.arn,
-            runtime=aws.lambda_.Runtime.PYTHON3D7)
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
         logging = aws.lambda_.Permission("logging",
             action="lambda:InvokeFunction",
             function=logging_function.name,

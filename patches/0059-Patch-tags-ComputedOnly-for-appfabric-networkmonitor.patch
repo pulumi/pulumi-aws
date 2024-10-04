@@ -6,7 +6,7 @@ Subject: [PATCH] Patch tags ComputedOnly for appfabric, networkmonitor,
 
 
 diff --git a/internal/service/appfabric/ingestion.go b/internal/service/appfabric/ingestion.go
-index 5cffa7aa34..11d6d580e5 100644
+index a8c231c98b..5ab0190384 100644
 --- a/internal/service/appfabric/ingestion.go
 +++ b/internal/service/appfabric/ingestion.go
 @@ -81,7 +81,7 @@ func (r *ingestionResource) Schema(ctx context.Context, request resource.SchemaR
@@ -19,7 +19,7 @@ index 5cffa7aa34..11d6d580e5 100644
  				Required: true,
  				Validators: []validator.String{
 diff --git a/internal/service/appfabric/ingestion_destination.go b/internal/service/appfabric/ingestion_destination.go
-index d2bed80052..4633226a66 100644
+index 0bd92bba6b..6bdbed0689 100644
 --- a/internal/service/appfabric/ingestion_destination.go
 +++ b/internal/service/appfabric/ingestion_destination.go
 @@ -85,7 +85,7 @@ func (r *ingestionDestinationResource) Schema(ctx context.Context, request resou
@@ -58,7 +58,7 @@ index 83bf8577da..fba50e09bc 100644
  	}
  }
 diff --git a/internal/service/networkmonitor/probe.go b/internal/service/networkmonitor/probe.go
-index e07e500122..1cabc845d8 100644
+index 8fefba9ca3..598cca0f80 100644
 --- a/internal/service/networkmonitor/probe.go
 +++ b/internal/service/networkmonitor/probe.go
 @@ -109,7 +109,7 @@ func (r *probeResource) Schema(ctx context.Context, request resource.SchemaReque

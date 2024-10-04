@@ -65,7 +65,7 @@ import (
 //				Name:    pulumi.String("Example"),
 //				Role:    pulumi.Any(exampleAwsIamRole.Arn),
 //				Handler: pulumi.String("index.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //			})
 //			if err != nil {
 //				return err

@@ -19,9 +19,19 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
 
     public static final ReservedCacheNodeArgs Empty = new ReservedCacheNodeArgs();
 
+    /**
+     * Number of cache node instances to reserve.
+     * Default value is `1`.
+     * 
+     */
     @Import(name="cacheNodeCount")
     private @Nullable Output<Double> cacheNodeCount;
 
+    /**
+     * @return Number of cache node instances to reserve.
+     * Default value is `1`.
+     * 
+     */
     public Optional<Output<Double>> cacheNodeCount() {
         return Optional.ofNullable(this.cacheNodeCount);
     }
@@ -96,11 +106,25 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.ResourceAr
             $ = new ReservedCacheNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cacheNodeCount Number of cache node instances to reserve.
+         * Default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cacheNodeCount(@Nullable Output<Double> cacheNodeCount) {
             $.cacheNodeCount = cacheNodeCount;
             return this;
         }
 
+        /**
+         * @param cacheNodeCount Number of cache node instances to reserve.
+         * Default value is `1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cacheNodeCount(Double cacheNodeCount) {
             return cacheNodeCount(Output.of(cacheNodeCount));
         }

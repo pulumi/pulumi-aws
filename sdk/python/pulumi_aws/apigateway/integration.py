@@ -707,7 +707,7 @@ class Integration(pulumi.CustomResource):
             name="mylambda",
             role=role.arn,
             handler="lambda.lambda_handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D7,
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
             source_code_hash=std.filebase64sha256(input="lambda.zip").result)
         integration = aws.apigateway.Integration("integration",
             rest_api=api.id,
@@ -902,7 +902,7 @@ class Integration(pulumi.CustomResource):
             name="mylambda",
             role=role.arn,
             handler="lambda.lambda_handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D7,
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
             source_code_hash=std.filebase64sha256(input="lambda.zip").result)
         integration = aws.apigateway.Integration("integration",
             rest_api=api.id,

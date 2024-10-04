@@ -58,9 +58,6 @@ func GetStandardsControlAssociations(ctx *pulumi.Context, args *GetStandardsCont
 type GetStandardsControlAssociationsArgs struct {
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId string `pulumi:"securityControlId"`
-	// A list that provides the status and other details for each security control that applies to each enabled standard.
-	// See `standardsControlAssociations` below.
-	StandardsControlAssociations []GetStandardsControlAssociationsStandardsControlAssociation `pulumi:"standardsControlAssociations"`
 }
 
 // A collection of values returned by getStandardsControlAssociations.
@@ -96,9 +93,6 @@ func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandard
 type GetStandardsControlAssociationsOutputArgs struct {
 	// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
 	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
-	// A list that provides the status and other details for each security control that applies to each enabled standard.
-	// See `standardsControlAssociations` below.
-	StandardsControlAssociations GetStandardsControlAssociationsStandardsControlAssociationArrayInput `pulumi:"standardsControlAssociations"`
 }
 
 func (GetStandardsControlAssociationsOutputArgs) ElementType() reflect.Type {

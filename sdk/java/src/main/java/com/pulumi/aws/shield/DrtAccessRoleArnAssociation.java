@@ -33,10 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.shield.DrtAccessRoleArnAssociation;
  * import com.pulumi.aws.shield.DrtAccessRoleArnAssociationArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new Role("test", RoleArgs.builder()
- *             .name(awsShieldDrtAccessRoleArn)
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
+ *             .name("example-role")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -67,13 +67,13 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var testRolePolicyAttachment = new RolePolicyAttachment("testRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
- *             .role(test.name())
- *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
+ *         var example = new DrtAccessRoleArnAssociation("example", DrtAccessRoleArnAssociationArgs.builder()
+ *             .roleArn(exampleRole.arn())
  *             .build());
  * 
- *         var testDrtAccessRoleArnAssociation = new DrtAccessRoleArnAssociation("testDrtAccessRoleArnAssociation", DrtAccessRoleArnAssociationArgs.builder()
- *             .roleArn(test.arn())
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment("exampleRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .role(exampleRole.name())
+ *             .policyArn("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
  *             .build());
  * 
  *     }

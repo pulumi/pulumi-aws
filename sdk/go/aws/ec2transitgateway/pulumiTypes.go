@@ -13,6 +13,356 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DefaultRouteTableAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DefaultRouteTableAssociationTimeoutsInput is an input type that accepts DefaultRouteTableAssociationTimeoutsArgs and DefaultRouteTableAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `DefaultRouteTableAssociationTimeoutsInput` via:
+//
+//	DefaultRouteTableAssociationTimeoutsArgs{...}
+type DefaultRouteTableAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableAssociationTimeoutsOutput() DefaultRouteTableAssociationTimeoutsOutput
+	ToDefaultRouteTableAssociationTimeoutsOutputWithContext(context.Context) DefaultRouteTableAssociationTimeoutsOutput
+}
+
+type DefaultRouteTableAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DefaultRouteTableAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTableAssociationTimeouts)(nil)).Elem()
+}
+
+func (i DefaultRouteTableAssociationTimeoutsArgs) ToDefaultRouteTableAssociationTimeoutsOutput() DefaultRouteTableAssociationTimeoutsOutput {
+	return i.ToDefaultRouteTableAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTableAssociationTimeoutsArgs) ToDefaultRouteTableAssociationTimeoutsOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableAssociationTimeoutsOutput)
+}
+
+func (i DefaultRouteTableAssociationTimeoutsArgs) ToDefaultRouteTableAssociationTimeoutsPtrOutput() DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return i.ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTableAssociationTimeoutsArgs) ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableAssociationTimeoutsOutput).ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DefaultRouteTableAssociationTimeoutsPtrInput is an input type that accepts DefaultRouteTableAssociationTimeoutsArgs, DefaultRouteTableAssociationTimeoutsPtr and DefaultRouteTableAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DefaultRouteTableAssociationTimeoutsPtrInput` via:
+//
+//	        DefaultRouteTableAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DefaultRouteTableAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTableAssociationTimeoutsPtrOutput() DefaultRouteTableAssociationTimeoutsPtrOutput
+	ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(context.Context) DefaultRouteTableAssociationTimeoutsPtrOutput
+}
+
+type defaultRouteTableAssociationTimeoutsPtrType DefaultRouteTableAssociationTimeoutsArgs
+
+func DefaultRouteTableAssociationTimeoutsPtr(v *DefaultRouteTableAssociationTimeoutsArgs) DefaultRouteTableAssociationTimeoutsPtrInput {
+	return (*defaultRouteTableAssociationTimeoutsPtrType)(v)
+}
+
+func (*defaultRouteTableAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTableAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *defaultRouteTableAssociationTimeoutsPtrType) ToDefaultRouteTableAssociationTimeoutsPtrOutput() DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return i.ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRouteTableAssociationTimeoutsPtrType) ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableAssociationTimeoutsPtrOutput)
+}
+
+type DefaultRouteTableAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTableAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTableAssociationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultRouteTableAssociationTimeoutsOutput) ToDefaultRouteTableAssociationTimeoutsOutput() DefaultRouteTableAssociationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultRouteTableAssociationTimeoutsOutput) ToDefaultRouteTableAssociationTimeoutsOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultRouteTableAssociationTimeoutsOutput) ToDefaultRouteTableAssociationTimeoutsPtrOutput() DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return o.ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRouteTableAssociationTimeoutsOutput) ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRouteTableAssociationTimeouts) *DefaultRouteTableAssociationTimeouts {
+		return &v
+	}).(DefaultRouteTableAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTableAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DefaultRouteTableAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTableAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRouteTableAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTableAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTableAssociationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) ToDefaultRouteTableAssociationTimeoutsPtrOutput() DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) ToDefaultRouteTableAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTableAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) Elem() DefaultRouteTableAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *DefaultRouteTableAssociationTimeouts) DefaultRouteTableAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultRouteTableAssociationTimeouts
+		return ret
+	}).(DefaultRouteTableAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTableAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTableAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTableAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTableAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultRouteTablePropagationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DefaultRouteTablePropagationTimeoutsInput is an input type that accepts DefaultRouteTablePropagationTimeoutsArgs and DefaultRouteTablePropagationTimeoutsOutput values.
+// You can construct a concrete instance of `DefaultRouteTablePropagationTimeoutsInput` via:
+//
+//	DefaultRouteTablePropagationTimeoutsArgs{...}
+type DefaultRouteTablePropagationTimeoutsInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTablePropagationTimeoutsOutput() DefaultRouteTablePropagationTimeoutsOutput
+	ToDefaultRouteTablePropagationTimeoutsOutputWithContext(context.Context) DefaultRouteTablePropagationTimeoutsOutput
+}
+
+type DefaultRouteTablePropagationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DefaultRouteTablePropagationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTablePropagationTimeouts)(nil)).Elem()
+}
+
+func (i DefaultRouteTablePropagationTimeoutsArgs) ToDefaultRouteTablePropagationTimeoutsOutput() DefaultRouteTablePropagationTimeoutsOutput {
+	return i.ToDefaultRouteTablePropagationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTablePropagationTimeoutsArgs) ToDefaultRouteTablePropagationTimeoutsOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePropagationTimeoutsOutput)
+}
+
+func (i DefaultRouteTablePropagationTimeoutsArgs) ToDefaultRouteTablePropagationTimeoutsPtrOutput() DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return i.ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DefaultRouteTablePropagationTimeoutsArgs) ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePropagationTimeoutsOutput).ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DefaultRouteTablePropagationTimeoutsPtrInput is an input type that accepts DefaultRouteTablePropagationTimeoutsArgs, DefaultRouteTablePropagationTimeoutsPtr and DefaultRouteTablePropagationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DefaultRouteTablePropagationTimeoutsPtrInput` via:
+//
+//	        DefaultRouteTablePropagationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DefaultRouteTablePropagationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDefaultRouteTablePropagationTimeoutsPtrOutput() DefaultRouteTablePropagationTimeoutsPtrOutput
+	ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(context.Context) DefaultRouteTablePropagationTimeoutsPtrOutput
+}
+
+type defaultRouteTablePropagationTimeoutsPtrType DefaultRouteTablePropagationTimeoutsArgs
+
+func DefaultRouteTablePropagationTimeoutsPtr(v *DefaultRouteTablePropagationTimeoutsArgs) DefaultRouteTablePropagationTimeoutsPtrInput {
+	return (*defaultRouteTablePropagationTimeoutsPtrType)(v)
+}
+
+func (*defaultRouteTablePropagationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTablePropagationTimeouts)(nil)).Elem()
+}
+
+func (i *defaultRouteTablePropagationTimeoutsPtrType) ToDefaultRouteTablePropagationTimeoutsPtrOutput() DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return i.ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *defaultRouteTablePropagationTimeoutsPtrType) ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTablePropagationTimeoutsPtrOutput)
+}
+
+type DefaultRouteTablePropagationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTablePropagationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultRouteTablePropagationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultRouteTablePropagationTimeoutsOutput) ToDefaultRouteTablePropagationTimeoutsOutput() DefaultRouteTablePropagationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultRouteTablePropagationTimeoutsOutput) ToDefaultRouteTablePropagationTimeoutsOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsOutput {
+	return o
+}
+
+func (o DefaultRouteTablePropagationTimeoutsOutput) ToDefaultRouteTablePropagationTimeoutsPtrOutput() DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return o.ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultRouteTablePropagationTimeoutsOutput) ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultRouteTablePropagationTimeouts) *DefaultRouteTablePropagationTimeouts {
+		return &v
+	}).(DefaultRouteTablePropagationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTablePropagationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTablePropagationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DefaultRouteTablePropagationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTablePropagationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTablePropagationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTablePropagationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DefaultRouteTablePropagationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultRouteTablePropagationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultRouteTablePropagationTimeouts)(nil)).Elem()
+}
+
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) ToDefaultRouteTablePropagationTimeoutsPtrOutput() DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) ToDefaultRouteTablePropagationTimeoutsPtrOutputWithContext(ctx context.Context) DefaultRouteTablePropagationTimeoutsPtrOutput {
+	return o
+}
+
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) Elem() DefaultRouteTablePropagationTimeoutsOutput {
+	return o.ApplyT(func(v *DefaultRouteTablePropagationTimeouts) DefaultRouteTablePropagationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultRouteTablePropagationTimeouts
+		return ret
+	}).(DefaultRouteTablePropagationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTablePropagationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTablePropagationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DefaultRouteTablePropagationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultRouteTablePropagationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceConnectEndpointTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -2475,6 +2825,10 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableAssociationTimeoutsInput)(nil)).Elem(), DefaultRouteTableAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableAssociationTimeoutsPtrInput)(nil)).Elem(), DefaultRouteTableAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTablePropagationTimeoutsInput)(nil)).Elem(), DefaultRouteTablePropagationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTablePropagationTimeoutsPtrInput)(nil)).Elem(), DefaultRouteTablePropagationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsPtrInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
@@ -2519,6 +2873,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentsFilterArrayInput)(nil)).Elem(), GetVpcAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterInput)(nil)).Elem(), GetVpnAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
+	pulumi.RegisterOutputType(DefaultRouteTableAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTableAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTablePropagationTimeoutsOutput{})
+	pulumi.RegisterOutputType(DefaultRouteTablePropagationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentOptionsOutput{})

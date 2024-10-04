@@ -29,6 +29,8 @@ __all__ = [
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict',
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs',
     'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict',
+    'AgentAgentActionGroupTimeoutsArgs',
+    'AgentAgentActionGroupTimeoutsArgsDict',
     'AgentAgentAliasRoutingConfigurationArgs',
     'AgentAgentAliasRoutingConfigurationArgsDict',
     'AgentAgentAliasTimeoutsArgs',
@@ -65,6 +67,18 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs',
@@ -131,6 +145,8 @@ __all__ = [
     'GuardrailTopicPolicyConfigArgsDict',
     'GuardrailTopicPolicyConfigTopicsConfigArgs',
     'GuardrailTopicPolicyConfigTopicsConfigArgsDict',
+    'GuardrailVersionTimeoutsArgs',
+    'GuardrailVersionTimeoutsArgsDict',
     'GuardrailWordPolicyConfigArgs',
     'GuardrailWordPolicyConfigArgsDict',
     'GuardrailWordPolicyConfigManagedWordListsConfigArgs',
@@ -553,6 +569,58 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs:
     @required.setter
     def required(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "required", value)
+
+
+if not MYPY:
+    class AgentAgentActionGroupTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentAgentActionGroupTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentActionGroupTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:
@@ -1346,6 +1414,10 @@ if not MYPY:
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
         """
+        custom_transformation_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict']]
+        """
+        Configuration for custom transformation of data source documents.
+        """
         parsing_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict']]
         """
         Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
@@ -1357,13 +1429,17 @@ elif False:
 class AgentDataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
                  chunking_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']] = None,
+                 custom_transformation_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs']] = None,
                  parsing_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs']] = None):
         """
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs'] custom_transformation_configuration: Configuration for custom transformation of data source documents.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs'] parsing_configuration: Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if custom_transformation_configuration is not None:
+            pulumi.set(__self__, "custom_transformation_configuration", custom_transformation_configuration)
         if parsing_configuration is not None:
             pulumi.set(__self__, "parsing_configuration", parsing_configuration)
 
@@ -1378,6 +1454,18 @@ class AgentDataSourceVectorIngestionConfigurationArgs:
     @chunking_configuration.setter
     def chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
+
+    @property
+    @pulumi.getter(name="customTransformationConfiguration")
+    def custom_transformation_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs']]:
+        """
+        Configuration for custom transformation of data source documents.
+        """
+        return pulumi.get(self, "custom_transformation_configuration")
+
+    @custom_transformation_configuration.setter
+    def custom_transformation_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs']]):
+        pulumi.set(self, "custom_transformation_configuration", value)
 
     @property
     @pulumi.getter(name="parsingConfiguration")
@@ -1674,6 +1762,228 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @max_token.setter
     def max_token(self, value: pulumi.Input[float]):
         pulumi.set(self, "max_token", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict(TypedDict):
+        intermediate_storage: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict']]
+        """
+        The intermediate storage for custom transformation.
+        """
+        transformation: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgsDict']]
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs:
+    def __init__(__self__, *,
+                 intermediate_storage: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs']] = None,
+                 transformation: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs']] = None):
+        """
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs'] intermediate_storage: The intermediate storage for custom transformation.
+        """
+        if intermediate_storage is not None:
+            pulumi.set(__self__, "intermediate_storage", intermediate_storage)
+        if transformation is not None:
+            pulumi.set(__self__, "transformation", transformation)
+
+    @property
+    @pulumi.getter(name="intermediateStorage")
+    def intermediate_storage(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs']]:
+        """
+        The intermediate storage for custom transformation.
+        """
+        return pulumi.get(self, "intermediate_storage")
+
+    @intermediate_storage.setter
+    def intermediate_storage(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs']]):
+        pulumi.set(self, "intermediate_storage", value)
+
+    @property
+    @pulumi.getter
+    def transformation(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs']]:
+        return pulumi.get(self, "transformation")
+
+    @transformation.setter
+    def transformation(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs']]):
+        pulumi.set(self, "transformation", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict(TypedDict):
+        s3_location: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgsDict']]
+        """
+        Configuration block for intermedia S3 storage.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs:
+    def __init__(__self__, *,
+                 s3_location: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs']] = None):
+        """
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs'] s3_location: Configuration block for intermedia S3 storage.
+        """
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs']]:
+        """
+        Configuration block for intermedia S3 storage.
+        """
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs']]):
+        pulumi.set(self, "s3_location", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgsDict(TypedDict):
+        uri: pulumi.Input[str]
+        """
+        S3 URI for intermediate storage.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] uri: S3 URI for intermediate storage.
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        S3 URI for intermediate storage.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgsDict(TypedDict):
+        step_to_apply: pulumi.Input[str]
+        """
+        Currently only `POST_CHUNKING` is supported.
+        """
+        transformation_function: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict']]
+        """
+        The configuration of transformation function.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs:
+    def __init__(__self__, *,
+                 step_to_apply: pulumi.Input[str],
+                 transformation_function: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs']] = None):
+        """
+        :param pulumi.Input[str] step_to_apply: Currently only `POST_CHUNKING` is supported.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs'] transformation_function: The configuration of transformation function.
+        """
+        pulumi.set(__self__, "step_to_apply", step_to_apply)
+        if transformation_function is not None:
+            pulumi.set(__self__, "transformation_function", transformation_function)
+
+    @property
+    @pulumi.getter(name="stepToApply")
+    def step_to_apply(self) -> pulumi.Input[str]:
+        """
+        Currently only `POST_CHUNKING` is supported.
+        """
+        return pulumi.get(self, "step_to_apply")
+
+    @step_to_apply.setter
+    def step_to_apply(self, value: pulumi.Input[str]):
+        pulumi.set(self, "step_to_apply", value)
+
+    @property
+    @pulumi.getter(name="transformationFunction")
+    def transformation_function(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs']]:
+        """
+        The configuration of transformation function.
+        """
+        return pulumi.get(self, "transformation_function")
+
+    @transformation_function.setter
+    def transformation_function(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs']]):
+        pulumi.set(self, "transformation_function", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict(TypedDict):
+        transformation_lambda_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict']]
+        """
+        The lambda configuration for custom transformation.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs:
+    def __init__(__self__, *,
+                 transformation_lambda_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs'] transformation_lambda_configuration: The lambda configuration for custom transformation.
+        """
+        if transformation_lambda_configuration is not None:
+            pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
+
+    @property
+    @pulumi.getter(name="transformationLambdaConfiguration")
+    def transformation_lambda_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs']]:
+        """
+        The lambda configuration for custom transformation.
+        """
+        return pulumi.get(self, "transformation_lambda_configuration")
+
+    @transformation_lambda_configuration.setter
+    def transformation_lambda_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs']]):
+        pulumi.set(self, "transformation_lambda_configuration", value)
+
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[str]
+        """
+        The ARN of the lambda to use for custom transformation.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lambda_arn: The ARN of the lambda to use for custom transformation.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the lambda to use for custom transformation.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
 
 
 if not MYPY:
@@ -3569,6 +3879,58 @@ class GuardrailTopicPolicyConfigTopicsConfigArgs:
     @examples.setter
     def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "examples", value)
+
+
+if not MYPY:
+    class GuardrailVersionTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    GuardrailVersionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardrailVersionTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
 
 
 if not MYPY:

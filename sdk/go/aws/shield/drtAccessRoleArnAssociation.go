@@ -51,22 +51,22 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
-//				Name:             pulumi.Any(awsShieldDrtAccessRoleArn),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
-//				Role:      test.Name,
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
+//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "example", &shield.DrtAccessRoleArnAssociationArgs{
+//				RoleArn: exampleRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "test", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: test.Arn,
+//			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
+//				Role:      exampleRole.Name,
+//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
 //			})
 //			if err != nil {
 //				return err

@@ -127,6 +127,10 @@ export interface GetSnapshotResult {
     readonly snapshotId: string;
     readonly snapshotIds?: string[];
     /**
+     * Time stamp when the snapshot was initiated.
+     */
+    readonly startTime: string;
+    /**
      * Snapshot state.
      */
     readonly state: string;

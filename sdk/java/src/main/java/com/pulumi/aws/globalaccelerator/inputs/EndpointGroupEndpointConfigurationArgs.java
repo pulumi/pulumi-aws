@@ -18,6 +18,21 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
     public static final EndpointGroupEndpointConfigurationArgs Empty = new EndpointGroupEndpointConfigurationArgs();
 
     /**
+     * An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+     * 
+     */
+    @Import(name="attachmentArn")
+    private @Nullable Output<String> attachmentArn;
+
+    /**
+     * @return An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+     * 
+     */
+    public Optional<Output<String>> attachmentArn() {
+        return Optional.ofNullable(this.attachmentArn);
+    }
+
+    /**
      * Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
      * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
      * 
@@ -67,6 +82,7 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
     private EndpointGroupEndpointConfigurationArgs() {}
 
     private EndpointGroupEndpointConfigurationArgs(EndpointGroupEndpointConfigurationArgs $) {
+        this.attachmentArn = $.attachmentArn;
         this.clientIpPreservationEnabled = $.clientIpPreservationEnabled;
         this.endpointId = $.endpointId;
         this.weight = $.weight;
@@ -88,6 +104,27 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
 
         public Builder(EndpointGroupEndpointConfigurationArgs defaults) {
             $ = new EndpointGroupEndpointConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param attachmentArn An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentArn(@Nullable Output<String> attachmentArn) {
+            $.attachmentArn = attachmentArn;
+            return this;
+        }
+
+        /**
+         * @param attachmentArn An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentArn(String attachmentArn) {
+            return attachmentArn(Output.of(attachmentArn));
         }
 
         /**

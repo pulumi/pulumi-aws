@@ -40,6 +40,11 @@ export type GlobalSettings = import("./globalSettings").GlobalSettings;
 export const GlobalSettings: typeof import("./globalSettings").GlobalSettings = null as any;
 utilities.lazyLoad(exports, ["GlobalSettings"], () => require("./globalSettings"));
 
+export { LogicallyAirGappedVaultArgs, LogicallyAirGappedVaultState } from "./logicallyAirGappedVault";
+export type LogicallyAirGappedVault = import("./logicallyAirGappedVault").LogicallyAirGappedVault;
+export const LogicallyAirGappedVault: typeof import("./logicallyAirGappedVault").LogicallyAirGappedVault = null as any;
+utilities.lazyLoad(exports, ["LogicallyAirGappedVault"], () => require("./logicallyAirGappedVault"));
+
 export { PlanArgs, PlanState } from "./plan";
 export type Plan = import("./plan").Plan;
 export const Plan: typeof import("./plan").Plan = null as any;
@@ -89,6 +94,8 @@ const _module = {
                 return new Framework(name, <any>undefined, { urn })
             case "aws:backup/globalSettings:GlobalSettings":
                 return new GlobalSettings(name, <any>undefined, { urn })
+            case "aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault":
+                return new LogicallyAirGappedVault(name, <any>undefined, { urn })
             case "aws:backup/plan:Plan":
                 return new Plan(name, <any>undefined, { urn })
             case "aws:backup/regionSettings:RegionSettings":
@@ -112,6 +119,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "backup/framework", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/globalSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "backup/logicallyAirGappedVault", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/plan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/regionSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/reportPlan", _module)

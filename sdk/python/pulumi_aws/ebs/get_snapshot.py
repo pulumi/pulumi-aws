@@ -28,7 +28,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, outpost_arn=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, state=None, storage_tier=None, tags=None, volume_id=None, volume_size=None):
+    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, outpost_arn=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, start_time=None, state=None, storage_tier=None, tags=None, volume_id=None, volume_size=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -74,6 +74,9 @@ class GetSnapshotResult:
         if snapshot_ids and not isinstance(snapshot_ids, list):
             raise TypeError("Expected argument 'snapshot_ids' to be a list")
         pulumi.set(__self__, "snapshot_ids", snapshot_ids)
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        pulumi.set(__self__, "start_time", start_time)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -196,6 +199,14 @@ class GetSnapshotResult:
         return pulumi.get(self, "snapshot_ids")
 
     @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Time stamp when the snapshot was initiated.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -257,6 +268,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             restorable_by_user_ids=self.restorable_by_user_ids,
             snapshot_id=self.snapshot_id,
             snapshot_ids=self.snapshot_ids,
+            start_time=self.start_time,
             state=self.state,
             storage_tier=self.storage_tier,
             tags=self.tags,
@@ -330,6 +342,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
         restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
         snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
+        start_time=pulumi.get(__ret__, 'start_time'),
         state=pulumi.get(__ret__, 'state'),
         storage_tier=pulumi.get(__ret__, 'storage_tier'),
         tags=pulumi.get(__ret__, 'tags'),

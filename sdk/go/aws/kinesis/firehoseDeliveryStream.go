@@ -104,7 +104,7 @@ import (
 //				Name:    pulumi.String("firehose_lambda_processor"),
 //				Role:    lambdaIam.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //			})
 //			if err != nil {
 //				return err

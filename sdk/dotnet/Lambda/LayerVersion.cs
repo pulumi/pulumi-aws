@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Lambda
     ///         LayerName = "lambda_layer_name",
     ///         CompatibleRuntimes = new[]
     ///         {
-    ///             "nodejs16.x",
+    ///             "nodejs20.x",
     ///         },
     ///     });
     /// 

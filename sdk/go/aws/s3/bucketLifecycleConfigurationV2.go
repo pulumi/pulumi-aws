@@ -310,7 +310,7 @@ import (
 //
 // ### Specifying a filter based on object size
 //
-// Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
+// Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`objectSizeGreaterThan`) or a maximum size (`objectSizeLessThan`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
 //
 // ```go
 // package main
@@ -328,11 +328,17 @@ import (
 //				Bucket: pulumi.Any(bucket.Id),
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
-//						Id: pulumi.String("rule-1"),
+//						Id: pulumi.String("Allow small object transitions"),
 //						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{
-//							ObjectSizeGreaterThan: pulumi.String("500"),
+//							ObjectSizeGreaterThan: pulumi.String("1"),
 //						},
 //						Status: pulumi.String("Enabled"),
+//						Transitions: s3.BucketLifecycleConfigurationV2RuleTransitionArray{
+//							&s3.BucketLifecycleConfigurationV2RuleTransitionArgs{
+//								Days:         pulumi.Int(365),
+//								StorageClass: pulumi.String("GLACIER_IR"),
+//							},
+//						},
 //					},
 //				},
 //			})
@@ -540,6 +546,8 @@ type BucketLifecycleConfigurationV2 struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayOutput `pulumi:"rules"`
+	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+	TransitionDefaultMinimumObjectSize pulumi.StringOutput `pulumi:"transitionDefaultMinimumObjectSize"`
 }
 
 // NewBucketLifecycleConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -584,6 +592,8 @@ type bucketLifecycleConfigurationV2State struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
+	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+	TransitionDefaultMinimumObjectSize *string `pulumi:"transitionDefaultMinimumObjectSize"`
 }
 
 type BucketLifecycleConfigurationV2State struct {
@@ -593,6 +603,8 @@ type BucketLifecycleConfigurationV2State struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayInput
+	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+	TransitionDefaultMinimumObjectSize pulumi.StringPtrInput
 }
 
 func (BucketLifecycleConfigurationV2State) ElementType() reflect.Type {
@@ -606,6 +618,8 @@ type bucketLifecycleConfigurationV2Args struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules []BucketLifecycleConfigurationV2Rule `pulumi:"rules"`
+	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+	TransitionDefaultMinimumObjectSize *string `pulumi:"transitionDefaultMinimumObjectSize"`
 }
 
 // The set of arguments for constructing a BucketLifecycleConfigurationV2 resource.
@@ -616,6 +630,8 @@ type BucketLifecycleConfigurationV2Args struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
 	Rules BucketLifecycleConfigurationV2RuleArrayInput
+	// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+	TransitionDefaultMinimumObjectSize pulumi.StringPtrInput
 }
 
 func (BucketLifecycleConfigurationV2Args) ElementType() reflect.Type {
@@ -718,6 +734,13 @@ func (o BucketLifecycleConfigurationV2Output) ExpectedBucketOwner() pulumi.Strin
 // List of configuration blocks describing the rules managing the replication. See below.
 func (o BucketLifecycleConfigurationV2Output) Rules() BucketLifecycleConfigurationV2RuleArrayOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) BucketLifecycleConfigurationV2RuleArrayOutput { return v.Rules }).(BucketLifecycleConfigurationV2RuleArrayOutput)
+}
+
+// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+func (o BucketLifecycleConfigurationV2Output) TransitionDefaultMinimumObjectSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringOutput {
+		return v.TransitionDefaultMinimumObjectSize
+	}).(pulumi.StringOutput)
 }
 
 type BucketLifecycleConfigurationV2ArrayOutput struct{ *pulumi.OutputState }

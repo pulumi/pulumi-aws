@@ -27,7 +27,7 @@ namespace Pulumi.Aws.DataZone
     /// {
     ///     var domainExecutionRole = new Aws.Iam.Role("domain_execution_role", new()
     ///     {
-    ///         Name = "example name",
+    ///         Name = "example-role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.DataZone
     ///         {
     ///             new Aws.Iam.Inputs.RoleInlinePolicyArgs
     ///             {
-    ///                 Name = "example name",
+    ///                 Name = "example-policy",
     ///                 Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["Version"] = "2012-10-17",
@@ -91,13 +91,13 @@ namespace Pulumi.Aws.DataZone
     /// 
     ///     var test = new Aws.DataZone.Domain("test", new()
     ///     {
-    ///         Name = "example name",
+    ///         Name = "example",
     ///         DomainExecutionRole = domainExecutionRole.Arn,
     ///     });
     /// 
     ///     var testSecurityGroup = new Aws.Ec2.SecurityGroup("test", new()
     ///     {
-    ///         Name = "example name",
+    ///         Name = "example",
     ///     });
     /// 
     ///     var testProject = new Aws.DataZone.Project("test", new()

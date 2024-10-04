@@ -1038,6 +1038,162 @@ func (o AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray
 	}).(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput)
 }
 
+type AgentAgentActionGroupTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AgentAgentActionGroupTimeoutsInput is an input type that accepts AgentAgentActionGroupTimeoutsArgs and AgentAgentActionGroupTimeoutsOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupTimeoutsInput` via:
+//
+//	AgentAgentActionGroupTimeoutsArgs{...}
+type AgentAgentActionGroupTimeoutsInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupTimeoutsOutput() AgentAgentActionGroupTimeoutsOutput
+	ToAgentAgentActionGroupTimeoutsOutputWithContext(context.Context) AgentAgentActionGroupTimeoutsOutput
+}
+
+type AgentAgentActionGroupTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AgentAgentActionGroupTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupTimeouts)(nil)).Elem()
+}
+
+func (i AgentAgentActionGroupTimeoutsArgs) ToAgentAgentActionGroupTimeoutsOutput() AgentAgentActionGroupTimeoutsOutput {
+	return i.ToAgentAgentActionGroupTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupTimeoutsArgs) ToAgentAgentActionGroupTimeoutsOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupTimeoutsOutput)
+}
+
+func (i AgentAgentActionGroupTimeoutsArgs) ToAgentAgentActionGroupTimeoutsPtrOutput() AgentAgentActionGroupTimeoutsPtrOutput {
+	return i.ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AgentAgentActionGroupTimeoutsArgs) ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupTimeoutsOutput).ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AgentAgentActionGroupTimeoutsPtrInput is an input type that accepts AgentAgentActionGroupTimeoutsArgs, AgentAgentActionGroupTimeoutsPtr and AgentAgentActionGroupTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AgentAgentActionGroupTimeoutsPtrInput` via:
+//
+//	        AgentAgentActionGroupTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentAgentActionGroupTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAgentAgentActionGroupTimeoutsPtrOutput() AgentAgentActionGroupTimeoutsPtrOutput
+	ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(context.Context) AgentAgentActionGroupTimeoutsPtrOutput
+}
+
+type agentAgentActionGroupTimeoutsPtrType AgentAgentActionGroupTimeoutsArgs
+
+func AgentAgentActionGroupTimeoutsPtr(v *AgentAgentActionGroupTimeoutsArgs) AgentAgentActionGroupTimeoutsPtrInput {
+	return (*agentAgentActionGroupTimeoutsPtrType)(v)
+}
+
+func (*agentAgentActionGroupTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupTimeouts)(nil)).Elem()
+}
+
+func (i *agentAgentActionGroupTimeoutsPtrType) ToAgentAgentActionGroupTimeoutsPtrOutput() AgentAgentActionGroupTimeoutsPtrOutput {
+	return i.ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *agentAgentActionGroupTimeoutsPtrType) ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentActionGroupTimeoutsPtrOutput)
+}
+
+type AgentAgentActionGroupTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentActionGroupTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupTimeoutsOutput) ToAgentAgentActionGroupTimeoutsOutput() AgentAgentActionGroupTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupTimeoutsOutput) ToAgentAgentActionGroupTimeoutsOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupTimeoutsOutput) ToAgentAgentActionGroupTimeoutsPtrOutput() AgentAgentActionGroupTimeoutsPtrOutput {
+	return o.ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AgentAgentActionGroupTimeoutsOutput) ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentAgentActionGroupTimeouts) *AgentAgentActionGroupTimeouts {
+		return &v
+	}).(AgentAgentActionGroupTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentActionGroupTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentActionGroupTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentAgentActionGroupTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AgentAgentActionGroupTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentActionGroupTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentAgentActionGroupTimeouts)(nil)).Elem()
+}
+
+func (o AgentAgentActionGroupTimeoutsPtrOutput) ToAgentAgentActionGroupTimeoutsPtrOutput() AgentAgentActionGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupTimeoutsPtrOutput) ToAgentAgentActionGroupTimeoutsPtrOutputWithContext(ctx context.Context) AgentAgentActionGroupTimeoutsPtrOutput {
+	return o
+}
+
+func (o AgentAgentActionGroupTimeoutsPtrOutput) Elem() AgentAgentActionGroupTimeoutsOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupTimeouts) AgentAgentActionGroupTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AgentAgentActionGroupTimeouts
+		return ret
+	}).(AgentAgentActionGroupTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentActionGroupTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AgentAgentActionGroupTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroupTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentAgentAliasRoutingConfiguration struct {
 	// Version of the agent with which the alias is associated.
 	AgentVersion string `pulumi:"agentVersion"`
@@ -2780,6 +2936,8 @@ func (o AgentDataSourceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 type AgentDataSourceVectorIngestionConfiguration struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration *AgentDataSourceVectorIngestionConfigurationChunkingConfiguration `pulumi:"chunkingConfiguration"`
+	// Configuration for custom transformation of data source documents.
+	CustomTransformationConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
 	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
 	ParsingConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfiguration `pulumi:"parsingConfiguration"`
 }
@@ -2798,6 +2956,8 @@ type AgentDataSourceVectorIngestionConfigurationInput interface {
 type AgentDataSourceVectorIngestionConfigurationArgs struct {
 	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunkingConfiguration` block for details.
 	ChunkingConfiguration AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
+	// Configuration for custom transformation of data source documents.
+	CustomTransformationConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
 	// Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
 	ParsingConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput `pulumi:"parsingConfiguration"`
 }
@@ -2886,6 +3046,13 @@ func (o AgentDataSourceVectorIngestionConfigurationOutput) ChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
 }
 
+// Configuration for custom transformation of data source documents.
+func (o AgentDataSourceVectorIngestionConfigurationOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
+		return v.CustomTransformationConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
+}
+
 // Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
@@ -2925,6 +3092,16 @@ func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) ChunkingConfigurat
 		}
 		return v.ChunkingConfiguration
 	}).(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationPtrOutput)
+}
+
+// Configuration for custom transformation of data source documents.
+func (o AgentDataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTransformationConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
 }
 
 // Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
@@ -3733,6 +3910,878 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 		}
 		return &v.MaxToken
 	}).(pulumi.Float64PtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration struct {
+	// The intermediate storage for custom transformation.
+	IntermediateStorage *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage `pulumi:"intermediateStorage"`
+	Transformation      *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation      `pulumi:"transformation"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs struct {
+	// The intermediate storage for custom transformation.
+	IntermediateStorage AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput `pulumi:"intermediateStorage"`
+	Transformation      AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput      `pulumi:"transformation"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput)
+}
+
+// The intermediate storage for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) IntermediateStorage() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
+		return v.IntermediateStorage
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
+		return v.Transformation
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput)
+}
+
+// The intermediate storage for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) IntermediateStorage() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
+		if v == nil {
+			return nil
+		}
+		return v.IntermediateStorage
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.Transformation
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage struct {
+	// Configuration block for intermedia S3 storage.
+	S3Location *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location `pulumi:"s3Location"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs struct {
+	// Configuration block for intermedia S3 storage.
+	S3Location AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput `pulumi:"s3Location"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
+}
+
+// Configuration block for intermedia S3 storage.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput) S3Location() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
+		return v.S3Location
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput)
+}
+
+// Configuration block for intermedia S3 storage.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput) S3Location() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3Location
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location struct {
+	// S3 URI for intermediate storage.
+	Uri string `pulumi:"uri"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs struct {
+	// S3 URI for intermediate storage.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput)
+}
+
+// S3 URI for intermediate storage.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput)
+}
+
+// S3 URI for intermediate storage.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation struct {
+	// Currently only `POST_CHUNKING` is supported.
+	StepToApply string `pulumi:"stepToApply"`
+	// The configuration of transformation function.
+	TransformationFunction *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction `pulumi:"transformationFunction"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs struct {
+	// Currently only `POST_CHUNKING` is supported.
+	StepToApply pulumi.StringInput `pulumi:"stepToApply"`
+	// The configuration of transformation function.
+	TransformationFunction AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput `pulumi:"transformationFunction"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput)
+}
+
+// Currently only `POST_CHUNKING` is supported.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) StepToApply() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) string {
+		return v.StepToApply
+	}).(pulumi.StringOutput)
+}
+
+// The configuration of transformation function.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
+		return v.TransformationFunction
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput)
+}
+
+// Currently only `POST_CHUNKING` is supported.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) StepToApply() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StepToApply
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of transformation function.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
+		if v == nil {
+			return nil
+		}
+		return v.TransformationFunction
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction struct {
+	// The lambda configuration for custom transformation.
+	TransformationLambdaConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration `pulumi:"transformationLambdaConfiguration"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs struct {
+	// The lambda configuration for custom transformation.
+	TransformationLambdaConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput `pulumi:"transformationLambdaConfiguration"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
+}
+
+// The lambda configuration for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
+		return v.TransformationLambdaConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput)
+}
+
+// The lambda configuration for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TransformationLambdaConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration struct {
+	// The ARN of the lambda to use for custom transformation.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs struct {
+	// The ARN of the lambda to use for custom transformation.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs, AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtr and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrType AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput)
+}
+
+// The ARN of the lambda to use for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) string {
+		return v.LambdaArn
+	}).(pulumi.StringOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput)
+}
+
+// The ARN of the lambda to use for custom transformation.
+func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfiguration struct {
@@ -8746,6 +9795,162 @@ func (o GuardrailTopicPolicyConfigTopicsConfigArrayOutput) Index(i pulumi.IntInp
 	}).(GuardrailTopicPolicyConfigTopicsConfigOutput)
 }
 
+type GuardrailVersionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// GuardrailVersionTimeoutsInput is an input type that accepts GuardrailVersionTimeoutsArgs and GuardrailVersionTimeoutsOutput values.
+// You can construct a concrete instance of `GuardrailVersionTimeoutsInput` via:
+//
+//	GuardrailVersionTimeoutsArgs{...}
+type GuardrailVersionTimeoutsInput interface {
+	pulumi.Input
+
+	ToGuardrailVersionTimeoutsOutput() GuardrailVersionTimeoutsOutput
+	ToGuardrailVersionTimeoutsOutputWithContext(context.Context) GuardrailVersionTimeoutsOutput
+}
+
+type GuardrailVersionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (GuardrailVersionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailVersionTimeouts)(nil)).Elem()
+}
+
+func (i GuardrailVersionTimeoutsArgs) ToGuardrailVersionTimeoutsOutput() GuardrailVersionTimeoutsOutput {
+	return i.ToGuardrailVersionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i GuardrailVersionTimeoutsArgs) ToGuardrailVersionTimeoutsOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailVersionTimeoutsOutput)
+}
+
+func (i GuardrailVersionTimeoutsArgs) ToGuardrailVersionTimeoutsPtrOutput() GuardrailVersionTimeoutsPtrOutput {
+	return i.ToGuardrailVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailVersionTimeoutsArgs) ToGuardrailVersionTimeoutsPtrOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailVersionTimeoutsOutput).ToGuardrailVersionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// GuardrailVersionTimeoutsPtrInput is an input type that accepts GuardrailVersionTimeoutsArgs, GuardrailVersionTimeoutsPtr and GuardrailVersionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `GuardrailVersionTimeoutsPtrInput` via:
+//
+//	        GuardrailVersionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailVersionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailVersionTimeoutsPtrOutput() GuardrailVersionTimeoutsPtrOutput
+	ToGuardrailVersionTimeoutsPtrOutputWithContext(context.Context) GuardrailVersionTimeoutsPtrOutput
+}
+
+type guardrailVersionTimeoutsPtrType GuardrailVersionTimeoutsArgs
+
+func GuardrailVersionTimeoutsPtr(v *GuardrailVersionTimeoutsArgs) GuardrailVersionTimeoutsPtrInput {
+	return (*guardrailVersionTimeoutsPtrType)(v)
+}
+
+func (*guardrailVersionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailVersionTimeouts)(nil)).Elem()
+}
+
+func (i *guardrailVersionTimeoutsPtrType) ToGuardrailVersionTimeoutsPtrOutput() GuardrailVersionTimeoutsPtrOutput {
+	return i.ToGuardrailVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailVersionTimeoutsPtrType) ToGuardrailVersionTimeoutsPtrOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailVersionTimeoutsPtrOutput)
+}
+
+type GuardrailVersionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (GuardrailVersionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailVersionTimeouts)(nil)).Elem()
+}
+
+func (o GuardrailVersionTimeoutsOutput) ToGuardrailVersionTimeoutsOutput() GuardrailVersionTimeoutsOutput {
+	return o
+}
+
+func (o GuardrailVersionTimeoutsOutput) ToGuardrailVersionTimeoutsOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsOutput {
+	return o
+}
+
+func (o GuardrailVersionTimeoutsOutput) ToGuardrailVersionTimeoutsPtrOutput() GuardrailVersionTimeoutsPtrOutput {
+	return o.ToGuardrailVersionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailVersionTimeoutsOutput) ToGuardrailVersionTimeoutsPtrOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailVersionTimeouts) *GuardrailVersionTimeouts {
+		return &v
+	}).(GuardrailVersionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GuardrailVersionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailVersionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o GuardrailVersionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailVersionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type GuardrailVersionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailVersionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailVersionTimeouts)(nil)).Elem()
+}
+
+func (o GuardrailVersionTimeoutsPtrOutput) ToGuardrailVersionTimeoutsPtrOutput() GuardrailVersionTimeoutsPtrOutput {
+	return o
+}
+
+func (o GuardrailVersionTimeoutsPtrOutput) ToGuardrailVersionTimeoutsPtrOutputWithContext(ctx context.Context) GuardrailVersionTimeoutsPtrOutput {
+	return o
+}
+
+func (o GuardrailVersionTimeoutsPtrOutput) Elem() GuardrailVersionTimeoutsOutput {
+	return o.ApplyT(func(v *GuardrailVersionTimeouts) GuardrailVersionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailVersionTimeouts
+		return ret
+	}).(GuardrailVersionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o GuardrailVersionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuardrailVersionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o GuardrailVersionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuardrailVersionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GuardrailWordPolicyConfig struct {
 	// A config for the list of managed words. See Managed Word Lists Config for more information.
 	ManagedWordListsConfigs []GuardrailWordPolicyConfigManagedWordListsConfig `pulumi:"managedWordListsConfigs"`
@@ -10212,6 +11417,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayInput)(nil)).Elem(), AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupTimeoutsInput)(nil)).Elem(), AgentAgentActionGroupTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupTimeoutsPtrInput)(nil)).Elem(), AgentAgentActionGroupTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasRoutingConfigurationArrayInput)(nil)).Elem(), AgentAgentAliasRoutingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
@@ -10248,6 +11455,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
@@ -10314,6 +11533,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicPolicyConfigPtrInput)(nil)).Elem(), GuardrailTopicPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicPolicyConfigTopicsConfigInput)(nil)).Elem(), GuardrailTopicPolicyConfigTopicsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicPolicyConfigTopicsConfigArrayInput)(nil)).Elem(), GuardrailTopicPolicyConfigTopicsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailVersionTimeoutsInput)(nil)).Elem(), GuardrailVersionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailVersionTimeoutsPtrInput)(nil)).Elem(), GuardrailVersionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigPtrInput)(nil)).Elem(), GuardrailWordPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigManagedWordListsConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigManagedWordListsConfigArgs{})
@@ -10354,6 +11575,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupTimeoutsOutput{})
+	pulumi.RegisterOutputType(AgentAgentActionGroupTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasRoutingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsOutput{})
@@ -10390,6 +11613,18 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput{})
@@ -10456,6 +11691,8 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailTopicPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicPolicyConfigTopicsConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicPolicyConfigTopicsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GuardrailVersionTimeoutsOutput{})
+	pulumi.RegisterOutputType(GuardrailVersionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigManagedWordListsConfigOutput{})

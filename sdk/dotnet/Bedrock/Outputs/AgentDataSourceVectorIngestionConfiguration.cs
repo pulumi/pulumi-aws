@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration? ChunkingConfiguration;
         /// <summary>
+        /// Configuration for custom transformation of data source documents.
+        /// </summary>
+        public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration? CustomTransformationConfiguration;
+        /// <summary>
         /// Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration? ParsingConfiguration;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentDataSourceVectorIngestionConfiguration(
             Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration? chunkingConfiguration,
 
+            Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration? customTransformationConfiguration,
+
             Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration? parsingConfiguration)
         {
             ChunkingConfiguration = chunkingConfiguration;
+            CustomTransformationConfiguration = customTransformationConfiguration;
             ParsingConfiguration = parsingConfiguration;
         }
     }

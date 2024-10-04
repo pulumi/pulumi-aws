@@ -358,7 +358,7 @@ class FormType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
-            name="example name",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [
@@ -385,7 +385,7 @@ class FormType(pulumi.CustomResource):
                 ],
             }),
             inline_policies=[{
-                "name": "example name",
+                "name": "example-policy",
                 "policy": json.dumps({
                     "version": "2012-10-17",
                     "statement": [{
@@ -401,9 +401,9 @@ class FormType(pulumi.CustomResource):
                 }),
             }])
         test = aws.datazone.Domain("test",
-            name="example name",
+            name="example",
             domain_execution_role=domain_execution_role.arn)
-        test_security_group = aws.ec2.SecurityGroup("test", name="example name")
+        test_security_group = aws.ec2.SecurityGroup("test", name="example")
         test_project = aws.datazone.Project("test",
             domain_identifier=test.id,
             glossary_terms=["2N8w6XJCwZf"],
@@ -467,7 +467,7 @@ class FormType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         domain_execution_role = aws.iam.Role("domain_execution_role",
-            name="example name",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [
@@ -494,7 +494,7 @@ class FormType(pulumi.CustomResource):
                 ],
             }),
             inline_policies=[{
-                "name": "example name",
+                "name": "example-policy",
                 "policy": json.dumps({
                     "version": "2012-10-17",
                     "statement": [{
@@ -510,9 +510,9 @@ class FormType(pulumi.CustomResource):
                 }),
             }])
         test = aws.datazone.Domain("test",
-            name="example name",
+            name="example",
             domain_execution_role=domain_execution_role.arn)
-        test_security_group = aws.ec2.SecurityGroup("test", name="example name")
+        test_security_group = aws.ec2.SecurityGroup("test", name="example")
         test_project = aws.datazone.Project("test",
             domain_identifier=test.id,
             glossary_terms=["2N8w6XJCwZf"],

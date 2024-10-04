@@ -41,6 +41,9 @@ import (
 //					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
 //				},
 //				Description: pulumi.String("My awesome code signing config."),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("dynamodb"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -73,6 +76,12 @@ type CodeSigningConfig struct {
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesOutput `pulumi:"policies"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCodeSigningConfig registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +129,12 @@ type codeSigningConfigState struct {
 	LastModified *string `pulumi:"lastModified"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CodeSigningConfigState struct {
@@ -135,6 +150,12 @@ type CodeSigningConfigState struct {
 	LastModified pulumi.StringPtrInput
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (CodeSigningConfigState) ElementType() reflect.Type {
@@ -148,6 +169,8 @@ type codeSigningConfigArgs struct {
 	Description *string `pulumi:"description"`
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeSigningConfig resource.
@@ -158,6 +181,8 @@ type CodeSigningConfigArgs struct {
 	Description pulumi.StringPtrInput
 	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (CodeSigningConfigArgs) ElementType() reflect.Type {
@@ -275,6 +300,18 @@ func (o CodeSigningConfigOutput) LastModified() pulumi.StringOutput {
 // A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
 func (o CodeSigningConfigOutput) Policies() CodeSigningConfigPoliciesOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigPoliciesOutput { return v.Policies }).(CodeSigningConfigPoliciesOutput)
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CodeSigningConfigOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o CodeSigningConfigOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type CodeSigningConfigArrayOutput struct{ *pulumi.OutputState }

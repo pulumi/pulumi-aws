@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example_bucket"});
+ * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
  * const exampleCluster = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "example_cluster",
  *     databaseName: "example_db",

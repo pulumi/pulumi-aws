@@ -5848,9 +5848,18 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		return attr(state, "functionName"), nil
 	}
 	prov.Resources["aws_iam_role_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "role_name"), nil
+		return attr(state, "roleName"), nil
 	}
 	prov.Resources["aws_elasticache_reserved_cache_node"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "id"), nil
+	}
+	prov.Resources["aws_bedrock_guardrail_version"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "guardrailArn", "version"), nil
+	}
+	prov.Resources["aws_iam_group_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "groupName"), nil
+	}
+	prov.Resources["aws_iam_user_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+		return attr(state, "userName"), nil
 	}
 }

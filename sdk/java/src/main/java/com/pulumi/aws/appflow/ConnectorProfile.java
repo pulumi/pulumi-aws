@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
- *             .bucket("example_bucket")
+ *             .bucket("example-bucket")
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()

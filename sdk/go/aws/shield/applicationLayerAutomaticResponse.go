@@ -15,6 +15,52 @@ import (
 // Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			cfg := config.New(ctx, "")
+//			// The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
+//			distributionId := cfg.Require("distributionId")
+//			_, err = shield.NewApplicationLayerAutomaticResponse(ctx, "example", &shield.ApplicationLayerAutomaticResponseArgs{
+//				ResourceArn: pulumi.Sprintf("arn:%v:cloudfront:%v:distribution/%v", currentGetPartition.Partition, currentGetCallerIdentity.AccountId, distributionId),
+//				Action:      pulumi.String("COUNT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type ApplicationLayerAutomaticResponse struct {
 	pulumi.CustomResourceState
 

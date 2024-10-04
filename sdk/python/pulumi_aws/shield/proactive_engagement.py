@@ -118,8 +118,8 @@ class ProactiveEngagement(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            name=aws_shield_drt_access_role_arn,
+        example_role = aws.iam.Role("example",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -131,29 +131,29 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "Action": "sts:AssumeRole",
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example.arn)
-        test = aws.shield.ProtectionGroup("test",
-            protection_group_id="example",
-            aggregation="MAX",
-            pattern="ALL")
-        test_proactive_engagement = aws.shield.ProactiveEngagement("test",
+        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
+        example = aws.shield.ProactiveEngagement("example",
             enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
-                    "email_address": "test@company.com",
+                    "email_address": "contact1@example.com",
                     "phone_number": "+12358132134",
                 },
                 {
                     "contact_notes": "Notes 2",
-                    "email_address": "test2@company.com",
+                    "email_address": "contact2@example.com",
                     "phone_number": "+12358132134",
                 },
             ],
-            opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
+        example_protection_group = aws.shield.ProtectionGroup("example",
+            protection_group_id="example",
+            aggregation="MAX",
+            pattern="ALL")
         ```
 
         ## Import
@@ -188,8 +188,8 @@ class ProactiveEngagement(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            name=aws_shield_drt_access_role_arn,
+        example_role = aws.iam.Role("example",
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -201,29 +201,29 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "Action": "sts:AssumeRole",
                 }],
             }))
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            role=example.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example.arn)
-        test = aws.shield.ProtectionGroup("test",
-            protection_group_id="example",
-            aggregation="MAX",
-            pattern="ALL")
-        test_proactive_engagement = aws.shield.ProactiveEngagement("test",
+        example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
+        example = aws.shield.ProactiveEngagement("example",
             enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
-                    "email_address": "test@company.com",
+                    "email_address": "contact1@example.com",
                     "phone_number": "+12358132134",
                 },
                 {
                     "contact_notes": "Notes 2",
-                    "email_address": "test2@company.com",
+                    "email_address": "contact2@example.com",
                     "phone_number": "+12358132134",
                 },
             ],
-            opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
+        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
+            role=example_role.name,
+            policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
+        example_protection_group = aws.shield.ProtectionGroup("example",
+            protection_group_id="example",
+            aggregation="MAX",
+            pattern="ALL")
         ```
 
         ## Import

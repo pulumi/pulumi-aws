@@ -233,7 +233,7 @@ import javax.annotation.Nullable;
  *             .name("example_lambda_name")
  *             .role(iamForLambda.arn())
  *             .handler("exports.example")
- *             .runtime("go1.x")
+ *             .runtime("nodejs20.x")
  *             .build());
  * 
  *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
@@ -325,7 +325,7 @@ import javax.annotation.Nullable;
  *             .name("example_lambda_name1")
  *             .role(iamForLambda.arn())
  *             .handler("exports.example")
- *             .runtime("go1.x")
+ *             .runtime("nodejs20.x")
  *             .build());
  * 
  *         var bucket = new BucketV2("bucket", BucketV2Args.builder()

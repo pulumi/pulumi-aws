@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     name: "firehose_lambda_processor",
  *     role: lambdaIam.arn,
  *     handler: "exports.handler",
- *     runtime: aws.lambda.Runtime.NodeJS16dX,
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
  * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extended_s3_stream", {
  *     name: "kinesis-firehose-extended-s3-test-stream",

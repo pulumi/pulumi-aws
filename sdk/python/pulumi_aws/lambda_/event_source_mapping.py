@@ -43,6 +43,7 @@ class EventSourceMappingArgs:
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -69,6 +70,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[int] tumbling_window_in_seconds: The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         """
@@ -115,6 +117,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "starting_position", starting_position)
         if starting_position_timestamp is not None:
             pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
@@ -386,6 +390,18 @@ class EventSourceMappingArgs:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
@@ -413,6 +429,7 @@ class EventSourceMappingArgs:
 class _EventSourceMappingState:
     def __init__(__self__, *,
                  amazon_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
@@ -439,12 +456,15 @@ class _EventSourceMappingState:
                  starting_position_timestamp: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  state_transition_reason: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  uuid: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventSourceMapping resources.
         :param pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs'] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        :param pulumi.Input[str] arn: The event source mapping ARN.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
@@ -452,7 +472,7 @@ class _EventSourceMappingState:
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-        :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        :param pulumi.Input[str] function_arn: The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         :param pulumi.Input[str] kms_key_arn: The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
@@ -471,12 +491,16 @@ class _EventSourceMappingState:
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         :param pulumi.Input[str] state: The state of the event source mapping.
         :param pulumi.Input[str] state_transition_reason: The reason the event source mapping is in its current state.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[int] tumbling_window_in_seconds: The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         :param pulumi.Input[str] uuid: The UUID of the created event source mapping.
         """
         if amazon_managed_kafka_event_source_config is not None:
             pulumi.set(__self__, "amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
         if bisect_batch_on_function_error is not None:
@@ -529,6 +553,13 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "state", state)
         if state_transition_reason is not None:
             pulumi.set(__self__, "state_transition_reason", state_transition_reason)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
@@ -547,6 +578,18 @@ class _EventSourceMappingState:
     @amazon_managed_kafka_event_source_config.setter
     def amazon_managed_kafka_event_source_config(self, value: Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']]):
         pulumi.set(self, "amazon_managed_kafka_event_source_config", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event source mapping ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -636,7 +679,7 @@ class _EventSourceMappingState:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         """
         return pulumi.get(self, "function_arn")
 
@@ -862,6 +905,31 @@ class _EventSourceMappingState:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
@@ -924,6 +992,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -944,7 +1013,10 @@ class EventSourceMapping(pulumi.CustomResource):
         example = aws.lambda_.EventSourceMapping("example",
             event_source_arn=example_aws_dynamodb_table["streamArn"],
             function_name=example_aws_lambda_function["arn"],
-            starting_position="LATEST")
+            starting_position="LATEST",
+            tags={
+                "Name": "dynamodb",
+            })
         ```
 
         ### Kinesis
@@ -1117,6 +1189,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]] source_access_configurations: For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         :param pulumi.Input[str] starting_position: The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[int] tumbling_window_in_seconds: The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         """
@@ -1143,7 +1216,10 @@ class EventSourceMapping(pulumi.CustomResource):
         example = aws.lambda_.EventSourceMapping("example",
             event_source_arn=example_aws_dynamodb_table["streamArn"],
             function_name=example_aws_lambda_function["arn"],
-            starting_position="LATEST")
+            starting_position="LATEST",
+            tags={
+                "Name": "dynamodb",
+            })
         ```
 
         ### Kinesis
@@ -1329,6 +1405,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]]] = None,
                  starting_position: Optional[pulumi.Input[str]] = None,
                  starting_position_timestamp: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -1364,13 +1441,16 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["source_access_configurations"] = source_access_configurations
             __props__.__dict__["starting_position"] = starting_position
             __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            __props__.__dict__["arn"] = None
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["last_processing_result"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_transition_reason"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
         super(EventSourceMapping, __self__).__init__(
             'aws:lambda/eventSourceMapping:EventSourceMapping',
@@ -1383,6 +1463,7 @@ class EventSourceMapping(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             amazon_managed_kafka_event_source_config: Optional[pulumi.Input[Union['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs', 'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict']]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             batch_size: Optional[pulumi.Input[int]] = None,
             bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
             destination_config: Optional[pulumi.Input[Union['EventSourceMappingDestinationConfigArgs', 'EventSourceMappingDestinationConfigArgsDict']]] = None,
@@ -1409,6 +1490,8 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position_timestamp: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             state_transition_reason: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
             uuid: Optional[pulumi.Input[str]] = None) -> 'EventSourceMapping':
@@ -1420,6 +1503,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs', 'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict']] amazon_managed_kafka_event_source_config: Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
+        :param pulumi.Input[str] arn: The event source mapping ARN.
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input[Union['EventSourceMappingDestinationConfigArgs', 'EventSourceMappingDestinationConfigArgsDict']] destination_config: - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
@@ -1427,7 +1511,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input[Union['EventSourceMappingFilterCriteriaArgs', 'EventSourceMappingFilterCriteriaArgsDict']] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-        :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        :param pulumi.Input[str] function_arn: The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         :param pulumi.Input[str] kms_key_arn: The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
@@ -1446,6 +1530,8 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[str] starting_position_timestamp: A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         :param pulumi.Input[str] state: The state of the event source mapping.
         :param pulumi.Input[str] state_transition_reason: The reason the event source mapping is in its current state.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[int] tumbling_window_in_seconds: The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         :param pulumi.Input[str] uuid: The UUID of the created event source mapping.
@@ -1455,6 +1541,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__ = _EventSourceMappingState.__new__(_EventSourceMappingState)
 
         __props__.__dict__["amazon_managed_kafka_event_source_config"] = amazon_managed_kafka_event_source_config
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["batch_size"] = batch_size
         __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         __props__.__dict__["destination_config"] = destination_config
@@ -1481,6 +1568,8 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
         __props__.__dict__["state"] = state
         __props__.__dict__["state_transition_reason"] = state_transition_reason
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["topics"] = topics
         __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
         __props__.__dict__["uuid"] = uuid
@@ -1493,6 +1582,14 @@ class EventSourceMapping(pulumi.CustomResource):
         Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         """
         return pulumi.get(self, "amazon_managed_kafka_event_source_config")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The event source mapping ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="batchSize")
@@ -1554,7 +1651,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
         """
-        The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
+        The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         """
         return pulumi.get(self, "function_arn")
 
@@ -1701,6 +1798,23 @@ class EventSourceMapping(pulumi.CustomResource):
         The reason the event source mapping is in its current state.
         """
         return pulumi.get(self, "state_transition_reason")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
