@@ -29,16 +29,16 @@ import (
 //go:embed schema-embed.json
 var pulumiSchema []byte
 
-//go:embed schema-light-embed.json
-var pulumiSchemaLight []byte
+//go:embed schema-minimal-embed.json
+var pulumiMinimalSchema []byte
 
 func main() {
 	ctx := context.Background()
 	info := aws.Provider()
 
 	s := pulumiSchema
-	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_LIGHT_SCHEMA")) {
-		s = pulumiSchemaLight
+	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
+		s = pulumiMinimalSchema
 	}
 
 	pf.MainWithMuxer(ctx, "aws", *info, s)
