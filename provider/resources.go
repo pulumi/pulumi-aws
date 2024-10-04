@@ -43,7 +43,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
@@ -874,14 +873,6 @@ compatibility shim in favor of the new "name" field.`)
 			}
 			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
-
-			ls := newLightSchema(*spec)
-			if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_LIGHT_SCHEMA")) {
-				spec = &ls.PackageSpec
-			}
-
-			schemaLightFile := filepath.Join("provider", "cmd", "pulumi-resource-aws", "schema-light.json")
-			ls.write(schemaLightFile)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{

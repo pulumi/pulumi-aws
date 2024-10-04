@@ -1,4 +1,4 @@
-// Copyright 2016-2020, Pulumi Corporation.
+// Copyright 2016-2024, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,8 +23,16 @@ import (
 	"io/fs"
 	"log"
 	"os"
+	"strings"
 
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/minimalschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
+)
+
+const (
+	schemaJSON        = "schema.json"
+	schemaMinimalJSON = "schema-minimal.json"
 )
 
 type compressAndVersionSchemaFileOptions struct {
@@ -33,16 +41,21 @@ type compressAndVersionSchemaFileOptions struct {
 	version    string
 }
 
-func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) error {
-	schemaContents, err := os.ReadFile(opts.sourceFile)
+func readPackageSpecFile(sourceFile string) (*schema.PackageSpec, error) {
+	schemaContents, err := os.ReadFile(sourceFile)
 	if err != nil {
-		return fmt.Errorf("cannot read sourceFile: %w", err)
+		return nil, fmt.Errorf("cannot read sourceFile: %w", err)
 	}
 	var packageSpec schema.PackageSpec
 	err = json.Unmarshal(schemaContents, &packageSpec)
 	if err != nil {
-		return fmt.Errorf("cannot deserialize schema: %w", err)
+		return nil, fmt.Errorf("cannot deserialize schema: %w", err)
 	}
+	return &packageSpec, nil
+}
+
+func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) error {
+	packageSpec, err := readPackageSpecFile(opts.sourceFile)
 	packageSpec.Version = opts.version
 	versionedContents, err := json.Marshal(packageSpec)
 	if err != nil {
@@ -55,33 +68,46 @@ func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) erro
 	return nil
 }
 
+// Compute minimal schema and its embedded version from the actual schema.
+func computeMinimalSchema(version string) {
+	s, err := readPackageSpecFile(schemaJSON)
+	if err != nil {
+		log.Fatal(err)
+	}
+	minimalschema.NewMinimalSchema(*s).Write(schemaMinimalJSON)
+	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
+		sourceFile: schemaMinimalJSON,
+		destFile:   strings.ReplaceAll(schemaMinimalJSON, ".json", "-embed.json"),
+		version:    version,
+	}); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func main() {
-	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
+	version, found := os.LookupEnv("VERSION")
+	if !found {
+		log.Fatal("VERSION environment variable is required but was not set")
+	}
+
+	// If called with PULUMI_AWS_MINIMAL_SCHEMA=true, process the minimal schema only and stop.
+	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
+		computeMinimalSchema(version)
+		return
+	}
+
+	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file is not present.
 	err := os.Remove("./schema.go")
 	if err != nil && !errors.Is(err, fs.ErrNotExist) {
 		log.Fatal(err)
 	}
 
-	version, found := os.LookupEnv("VERSION")
-	if !found {
-		log.Fatal("version not found")
-	}
-
-	for _, opts := range []compressAndVersionSchemaFileOptions{
-		{
-			sourceFile: "schema.json",
-			destFile:   "schema-embed.json",
-			version:    version,
-		},
-		{
-			sourceFile: "schema-light.json",
-			destFile:   "schema-light-embed.json",
-			version:    version,
-		},
-	} {
-		err = compressAndVersionSchemaFile(opts)
-		if err != nil {
-			log.Fatal(err)
-		}
+	// Compute the embed version of the regular schema.
+	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
+		sourceFile: schemaJSON,
+		destFile:   strings.ReplaceAll(schemaJSON, ".json", "-embed.json"),
+		version:    version,
+	}); err != nil {
+		log.Fatal(err)
 	}
 }
