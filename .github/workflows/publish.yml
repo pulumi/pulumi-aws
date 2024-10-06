@@ -87,7 +87,7 @@ jobs:
         {
           echo 'summary<<EOF'
           if [[ "$LAST_VERSION" != "No stable release" ]]; then
-            schema-tools compare --provider="aws" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-aws/schema.json"
+            schema-tools compare --provider="aws" --old-commit="$LAST_VERSION" --repository="github://api.github.com/pulumi" --new-commit="--local-path=provider/cmd/pulumi-resource-aws/schema.json"
           fi
           echo 'EOF'
         } >> "$GITHUB_OUTPUT"
