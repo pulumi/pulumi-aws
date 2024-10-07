@@ -6,7 +6,6 @@ const config = new pulumi.Config();
 const customData = config.require("customData");
 
 const matchmakingRuleSetResource = new aws.gamelift.MatchmakingRuleSet("matchmakingRuleSetResource", {
-    name: "RuleSetName",
     ruleSetBody: `
         {
           "name": "players_vs_monster_5_vs_1",
@@ -29,7 +28,6 @@ const matchmakingRuleSetResource = new aws.gamelift.MatchmakingRuleSet("matchmak
 const mc = new aws.gamelift.MatchmakingConfiguration("mc", {
     acceptanceRequired: false,
     flexMatchMode: "STANDALONE",
-    name: "Name",
     ruleSetName: matchmakingRuleSetResource.name,
     requestTimeoutSeconds: 10,
     gameSessionData: "",
