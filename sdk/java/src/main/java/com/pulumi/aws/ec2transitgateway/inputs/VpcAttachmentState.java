@@ -64,14 +64,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      * 
      */
     @Import(name="securityGroupReferencingSupport")
     private @Nullable Output<String> securityGroupReferencingSupport;
 
     /**
-     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+     * @return Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      * 
      */
     public Optional<Output<String>> securityGroupReferencingSupport() {
@@ -305,7 +305,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
+         * @param securityGroupReferencingSupport Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
          * 
          * @return builder
          * 

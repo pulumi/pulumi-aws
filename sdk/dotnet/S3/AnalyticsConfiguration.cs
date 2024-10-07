@@ -33,7 +33,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var analytics = new Aws.S3.BucketV2("analytics", new()
     ///     {
-    ///         Bucket = "analytics destination",
+    ///         Bucket = "analytics-destination",
     ///     });
     /// 
     ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()

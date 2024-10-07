@@ -62,7 +62,7 @@ import (
 //				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //			})
 //			if err != nil {
 //				return err
@@ -146,7 +146,7 @@ import (
 //				Name:    pulumi.String("lambda_called_from_sns"),
 //				Role:    defaultRole.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String(lambda.RuntimePython3d7),
+//				Runtime: pulumi.String(lambda.RuntimePython3d12),
 //			})
 //			if err != nil {
 //				return err
@@ -274,7 +274,7 @@ import (
 //				Name:    pulumi.String("lambda_called_from_cloudwatch_logs"),
 //				Handler: pulumi.String("exports.handler"),
 //				Role:    defaultRole.Arn,
-//				Runtime: pulumi.String(lambda.RuntimePython3d7),
+//				Runtime: pulumi.String(lambda.RuntimePython3d12),
 //			})
 //			if err != nil {
 //				return err

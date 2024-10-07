@@ -1801,6 +1801,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "backup/logicallyAirGappedVault",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault": "LogicallyAirGappedVault"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "backup/plan",
   "fqn": "pulumi_aws.backup",
   "classes": {
@@ -1965,6 +1973,14 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrock",
   "classes": {
    "aws:bedrock/guardrail:Guardrail": "Guardrail"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/guardrailVersion",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/guardrailVersion:GuardrailVersion": "GuardrailVersion"
   }
  },
  {
@@ -4921,6 +4937,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2transitgateway/defaultRouteTableAssociation",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation": "DefaultRouteTableAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/defaultRouteTablePropagation",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation": "DefaultRouteTablePropagation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2transitgateway/instanceConnectEndpoint",
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
@@ -6329,6 +6361,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/groupPoliciesExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive": "GroupPoliciesExclusive"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/groupPolicy",
   "fqn": "pulumi_aws.iam",
   "classes": {
@@ -6485,6 +6525,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iam",
   "classes": {
    "aws:iam/userLoginProfile:UserLoginProfile": "UserLoginProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iam/userPoliciesExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/userPoliciesExclusive:UserPoliciesExclusive": "UserPoliciesExclusive"
   }
  },
  {
@@ -10437,6 +10485,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/standardsControl:StandardsControl": "StandardsControl"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/standardsControlAssociation",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/standardsControlAssociation:StandardsControlAssociation": "StandardsControlAssociation"
   }
  },
  {

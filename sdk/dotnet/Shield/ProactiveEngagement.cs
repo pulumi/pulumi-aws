@@ -26,9 +26,9 @@ namespace Pulumi.Aws.Shield
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
-    ///         Name = awsShieldDrtAccessRoleArn,
+    ///         Name = "example-role",
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -48,25 +48,12 @@ namespace Pulumi.Aws.Shield
     ///         }),
     ///     });
     /// 
-    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
-    ///     {
-    ///         Role = example.Name,
-    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
-    ///     });
-    /// 
     ///     var exampleDrtAccessRoleArnAssociation = new Aws.Shield.DrtAccessRoleArnAssociation("example", new()
     ///     {
-    ///         RoleArn = example.Arn,
+    ///         RoleArn = exampleRole.Arn,
     ///     });
     /// 
-    ///     var test = new Aws.Shield.ProtectionGroup("test", new()
-    ///     {
-    ///         ProtectionGroupId = "example",
-    ///         Aggregation = "MAX",
-    ///         Pattern = "ALL",
-    ///     });
-    /// 
-    ///     var testProactiveEngagement = new Aws.Shield.ProactiveEngagement("test", new()
+    ///     var example = new Aws.Shield.ProactiveEngagement("example", new()
     ///     {
     ///         Enabled = true,
     ///         EmergencyContacts = new[]
@@ -74,13 +61,13 @@ namespace Pulumi.Aws.Shield
     ///             new Aws.Shield.Inputs.ProactiveEngagementEmergencyContactArgs
     ///             {
     ///                 ContactNotes = "Notes",
-    ///                 EmailAddress = "test@company.com",
+    ///                 EmailAddress = "contact1@example.com",
     ///                 PhoneNumber = "+12358132134",
     ///             },
     ///             new Aws.Shield.Inputs.ProactiveEngagementEmergencyContactArgs
     ///             {
     ///                 ContactNotes = "Notes 2",
-    ///                 EmailAddress = "test2@company.com",
+    ///                 EmailAddress = "contact2@example.com",
     ///                 PhoneNumber = "+12358132134",
     ///             },
     ///         },
@@ -88,8 +75,21 @@ namespace Pulumi.Aws.Shield
     ///     {
     ///         DependsOn =
     ///         {
-    ///             testAwsShieldDrtAccessRoleArnAssociation,
+    ///             exampleDrtAccessRoleArnAssociation,
     ///         },
+    ///     });
+    /// 
+    ///     var exampleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("example", new()
+    ///     {
+    ///         Role = exampleRole.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy",
+    ///     });
+    /// 
+    ///     var exampleProtectionGroup = new Aws.Shield.ProtectionGroup("example", new()
+    ///     {
+    ///         ProtectionGroupId = "example",
+    ///         Aggregation = "MAX",
+    ///         Pattern = "ALL",
     ///     });
     /// 
     /// });

@@ -288,7 +288,7 @@ class ConnectorProfile(pulumi.CustomResource):
                     },
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example_bucket")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example-bucket")
         example_cluster = aws.redshift.Cluster("example",
             cluster_identifier="example_cluster",
             database_name="example_db",
@@ -372,7 +372,7 @@ class ConnectorProfile(pulumi.CustomResource):
                     },
                 }],
             }))
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example_bucket")
+        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example-bucket")
         example_cluster = aws.redshift.Cluster("example",
             cluster_identifier="example_cluster",
             database_name="example_db",

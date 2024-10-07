@@ -62,12 +62,28 @@ public final class BucketLifecycleConfigurationV2State extends com.pulumi.resour
         return Optional.ofNullable(this.rules);
     }
 
+    /**
+     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+     * 
+     */
+    @Import(name="transitionDefaultMinimumObjectSize")
+    private @Nullable Output<String> transitionDefaultMinimumObjectSize;
+
+    /**
+     * @return The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+     * 
+     */
+    public Optional<Output<String>> transitionDefaultMinimumObjectSize() {
+        return Optional.ofNullable(this.transitionDefaultMinimumObjectSize);
+    }
+
     private BucketLifecycleConfigurationV2State() {}
 
     private BucketLifecycleConfigurationV2State(BucketLifecycleConfigurationV2State $) {
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.rules = $.rules;
+        this.transitionDefaultMinimumObjectSize = $.transitionDefaultMinimumObjectSize;
     }
 
     public static Builder builder() {
@@ -159,6 +175,27 @@ public final class BucketLifecycleConfigurationV2State extends com.pulumi.resour
          */
         public Builder rules(BucketLifecycleConfigurationV2RuleArgs... rules) {
             return rules(List.of(rules));
+        }
+
+        /**
+         * @param transitionDefaultMinimumObjectSize The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitionDefaultMinimumObjectSize(@Nullable Output<String> transitionDefaultMinimumObjectSize) {
+            $.transitionDefaultMinimumObjectSize = transitionDefaultMinimumObjectSize;
+            return this;
+        }
+
+        /**
+         * @param transitionDefaultMinimumObjectSize The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitionDefaultMinimumObjectSize(String transitionDefaultMinimumObjectSize) {
+            return transitionDefaultMinimumObjectSize(Output.of(transitionDefaultMinimumObjectSize));
         }
 
         public BucketLifecycleConfigurationV2State build() {

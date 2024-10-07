@@ -15,6 +15,16 @@ export type ConnectPeer = import("./connectPeer").ConnectPeer;
 export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
 utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
 
+export { DefaultRouteTableAssociationArgs, DefaultRouteTableAssociationState } from "./defaultRouteTableAssociation";
+export type DefaultRouteTableAssociation = import("./defaultRouteTableAssociation").DefaultRouteTableAssociation;
+export const DefaultRouteTableAssociation: typeof import("./defaultRouteTableAssociation").DefaultRouteTableAssociation = null as any;
+utilities.lazyLoad(exports, ["DefaultRouteTableAssociation"], () => require("./defaultRouteTableAssociation"));
+
+export { DefaultRouteTablePropagationArgs, DefaultRouteTablePropagationState } from "./defaultRouteTablePropagation";
+export type DefaultRouteTablePropagation = import("./defaultRouteTablePropagation").DefaultRouteTablePropagation;
+export const DefaultRouteTablePropagation: typeof import("./defaultRouteTablePropagation").DefaultRouteTablePropagation = null as any;
+utilities.lazyLoad(exports, ["DefaultRouteTablePropagation"], () => require("./defaultRouteTablePropagation"));
+
 export { GetAttachmentArgs, GetAttachmentResult, GetAttachmentOutputArgs } from "./getAttachment";
 export const getAttachment: typeof import("./getAttachment").getAttachment = null as any;
 export const getAttachmentOutput: typeof import("./getAttachment").getAttachmentOutput = null as any;
@@ -194,6 +204,10 @@ const _module = {
                 return new Connect(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/connectPeer:ConnectPeer":
                 return new ConnectPeer(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation":
+                return new DefaultRouteTableAssociation(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation":
+                return new DefaultRouteTablePropagation(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint":
                 return new InstanceConnectEndpoint(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/instanceState:InstanceState":
@@ -237,6 +251,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connect", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connectPeer", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/defaultRouteTableAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/defaultRouteTablePropagation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/instanceConnectEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/instanceState", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomain", _module)

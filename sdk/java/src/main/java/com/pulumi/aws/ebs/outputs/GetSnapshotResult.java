@@ -73,6 +73,11 @@ public final class GetSnapshotResult {
     private String snapshotId;
     private @Nullable List<String> snapshotIds;
     /**
+     * @return Time stamp when the snapshot was initiated.
+     * 
+     */
+    private String startTime;
+    /**
      * @return Snapshot state.
      * 
      */
@@ -185,6 +190,13 @@ public final class GetSnapshotResult {
         return this.snapshotIds == null ? List.of() : this.snapshotIds;
     }
     /**
+     * @return Time stamp when the snapshot was initiated.
+     * 
+     */
+    public String startTime() {
+        return this.startTime;
+    }
+    /**
      * @return Snapshot state.
      * 
      */
@@ -244,6 +256,7 @@ public final class GetSnapshotResult {
         private @Nullable List<String> restorableByUserIds;
         private String snapshotId;
         private @Nullable List<String> snapshotIds;
+        private String startTime;
         private String state;
         private String storageTier;
         private Map<String,String> tags;
@@ -267,6 +280,7 @@ public final class GetSnapshotResult {
     	      this.restorableByUserIds = defaults.restorableByUserIds;
     	      this.snapshotId = defaults.snapshotId;
     	      this.snapshotIds = defaults.snapshotIds;
+    	      this.startTime = defaults.startTime;
     	      this.state = defaults.state;
     	      this.storageTier = defaults.storageTier;
     	      this.tags = defaults.tags;
@@ -397,6 +411,14 @@ public final class GetSnapshotResult {
             return snapshotIds(List.of(snapshotIds));
         }
         @CustomType.Setter
+        public Builder startTime(String startTime) {
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "startTime");
+            }
+            this.startTime = startTime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetSnapshotResult", "state");
@@ -453,6 +475,7 @@ public final class GetSnapshotResult {
             _resultValue.restorableByUserIds = restorableByUserIds;
             _resultValue.snapshotId = snapshotId;
             _resultValue.snapshotIds = snapshotIds;
+            _resultValue.startTime = startTime;
             _resultValue.state = state;
             _resultValue.storageTier = storageTier;
             _resultValue.tags = tags;

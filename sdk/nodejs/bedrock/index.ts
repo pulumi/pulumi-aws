@@ -60,6 +60,11 @@ export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
 utilities.lazyLoad(exports, ["Guardrail"], () => require("./guardrail"));
 
+export { GuardrailVersionArgs, GuardrailVersionState } from "./guardrailVersion";
+export type GuardrailVersion = import("./guardrailVersion").GuardrailVersion;
+export const GuardrailVersion: typeof import("./guardrailVersion").GuardrailVersion = null as any;
+utilities.lazyLoad(exports, ["GuardrailVersion"], () => require("./guardrailVersion"));
+
 export { ProvisionedModelThroughputArgs, ProvisionedModelThroughputState } from "./provisionedModelThroughput";
 export type ProvisionedModelThroughput = import("./provisionedModelThroughput").ProvisionedModelThroughput;
 export const ProvisionedModelThroughput: typeof import("./provisionedModelThroughput").ProvisionedModelThroughput = null as any;
@@ -86,6 +91,8 @@ const _module = {
                 return new CustomModel(name, <any>undefined, { urn })
             case "aws:bedrock/guardrail:Guardrail":
                 return new Guardrail(name, <any>undefined, { urn })
+            case "aws:bedrock/guardrailVersion:GuardrailVersion":
+                return new GuardrailVersion(name, <any>undefined, { urn })
             case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
                 return new ProvisionedModelThroughput(name, <any>undefined, { urn })
             default:
@@ -101,4 +108,5 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentDataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentKnowledgeBase", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)

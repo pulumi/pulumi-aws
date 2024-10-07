@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
  *             .name("mylambda")
  *             .role(role.arn())
  *             .handler("lambda.lambda_handler")
- *             .runtime("python3.7")
+ *             .runtime("python3.12")
  *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
  *                 .input("lambda.zip")
  *                 .build()).result())

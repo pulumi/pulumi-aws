@@ -134,6 +134,23 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        config = pulumi.Config()
+        # The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
+        distribution_id = config.require("distributionId")
+        example = aws.shield.ApplicationLayerAutomaticResponse("example",
+            resource_arn=f"arn:{current_get_partition.partition}:cloudfront:{current_get_caller_identity.account_id}:distribution/{distribution_id}",
+            action="COUNT")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: One of `COUNT` or `BLOCK`
@@ -149,6 +166,23 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_caller_identity = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        config = pulumi.Config()
+        # The Cloudfront Distribution on which to enable the Application Layer Automatic Response.
+        distribution_id = config.require("distributionId")
+        example = aws.shield.ApplicationLayerAutomaticResponse("example",
+            resource_arn=f"arn:{current_get_partition.partition}:cloudfront:{current_get_caller_identity.account_id}:distribution/{distribution_id}",
+            action="COUNT")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationLayerAutomaticResponseArgs args: The arguments to use to populate this resource's properties.

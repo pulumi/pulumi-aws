@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 6e6ba29267..1f0e418e56 100644
+index 4a13fe036e..716e2c75a6 100644
 --- a/internal/service/appfabric/app_authorization.go
 +++ b/internal/service/appfabric/app_authorization.go
 @@ -109,7 +109,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
@@ -18,7 +18,7 @@ index 6e6ba29267..1f0e418e56 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/appfabric/app_bundle.go b/internal/service/appfabric/app_bundle.go
-index 0c9af1db2d..e25fca4e4e 100644
+index 3bca6523df..aae9b30c5f 100644
 --- a/internal/service/appfabric/app_bundle.go
 +++ b/internal/service/appfabric/app_bundle.go
 @@ -61,7 +61,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR

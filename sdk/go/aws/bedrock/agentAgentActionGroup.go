@@ -228,8 +228,11 @@ type AgentAgentActionGroup struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrOutput `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrOutput `pulumi:"parentActionGroupSignature"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
 	// Whether the in-use check is skipped when deleting the action group.
-	SkipResourceInUseCheck pulumi.BoolOutput `pulumi:"skipResourceInUseCheck"`
+	SkipResourceInUseCheck pulumi.BoolOutput                      `pulumi:"skipResourceInUseCheck"`
+	Timeouts               AgentAgentActionGroupTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewAgentAgentActionGroup registers a new resource with the given unique name, arguments, and options.
@@ -295,8 +298,11 @@ type agentAgentActionGroupState struct {
 	FunctionSchema *AgentAgentActionGroupFunctionSchema `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Whether the in-use check is skipped when deleting the action group.
-	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
+	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
+	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
 }
 
 type AgentAgentActionGroupState struct {
@@ -324,8 +330,11 @@ type AgentAgentActionGroupState struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrInput
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent pulumi.BoolPtrInput
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
+	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
 }
 
 func (AgentAgentActionGroupState) ElementType() reflect.Type {
@@ -355,8 +364,11 @@ type agentAgentActionGroupArgs struct {
 	FunctionSchema *AgentAgentActionGroupFunctionSchema `pulumi:"functionSchema"`
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature *string `pulumi:"parentActionGroupSignature"`
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent *bool `pulumi:"prepareAgent"`
 	// Whether the in-use check is skipped when deleting the action group.
-	SkipResourceInUseCheck *bool `pulumi:"skipResourceInUseCheck"`
+	SkipResourceInUseCheck *bool                          `pulumi:"skipResourceInUseCheck"`
+	Timeouts               *AgentAgentActionGroupTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a AgentAgentActionGroup resource.
@@ -383,8 +395,11 @@ type AgentAgentActionGroupArgs struct {
 	FunctionSchema AgentAgentActionGroupFunctionSchemaPtrInput
 	// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `apiSchema`, and `actionGroupExecutor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
 	ParentActionGroupSignature pulumi.StringPtrInput
+	// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+	PrepareAgent pulumi.BoolPtrInput
 	// Whether the in-use check is skipped when deleting the action group.
 	SkipResourceInUseCheck pulumi.BoolPtrInput
+	Timeouts               AgentAgentActionGroupTimeoutsPtrInput
 }
 
 func (AgentAgentActionGroupArgs) ElementType() reflect.Type {
@@ -530,9 +545,18 @@ func (o AgentAgentActionGroupOutput) ParentActionGroupSignature() pulumi.StringP
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.StringPtrOutput { return v.ParentActionGroupSignature }).(pulumi.StringPtrOutput)
 }
 
+// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+func (o AgentAgentActionGroupOutput) PrepareAgent() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
+}
+
 // Whether the in-use check is skipped when deleting the action group.
 func (o AgentAgentActionGroupOutput) SkipResourceInUseCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentActionGroup) pulumi.BoolOutput { return v.SkipResourceInUseCheck }).(pulumi.BoolOutput)
+}
+
+func (o AgentAgentActionGroupOutput) Timeouts() AgentAgentActionGroupTimeoutsPtrOutput {
+	return o.ApplyT(func(v *AgentAgentActionGroup) AgentAgentActionGroupTimeoutsPtrOutput { return v.Timeouts }).(AgentAgentActionGroupTimeoutsPtrOutput)
 }
 
 type AgentAgentActionGroupArrayOutput struct{ *pulumi.OutputState }

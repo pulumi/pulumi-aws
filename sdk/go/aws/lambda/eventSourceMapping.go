@@ -37,6 +37,9 @@ import (
 //				EventSourceArn:   pulumi.Any(exampleAwsDynamodbTable.StreamArn),
 //				FunctionName:     pulumi.Any(exampleAwsLambdaFunction.Arn),
 //				StartingPosition: pulumi.String("LATEST"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("dynamodb"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -327,6 +330,8 @@ type EventSourceMapping struct {
 
 	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput `pulumi:"amazonManagedKafkaEventSourceConfig"`
+	// The event source mapping ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
 	BatchSize pulumi.IntPtrOutput `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -341,7 +346,7 @@ type EventSourceMapping struct {
 	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
-	// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+	// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -379,6 +384,12 @@ type EventSourceMapping struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The reason the event source mapping is in its current state.
 	StateTransitionReason pulumi.StringOutput `pulumi:"stateTransitionReason"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
@@ -422,6 +433,8 @@ func GetEventSourceMapping(ctx *pulumi.Context,
 type eventSourceMappingState struct {
 	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
 	AmazonManagedKafkaEventSourceConfig *EventSourceMappingAmazonManagedKafkaEventSourceConfig `pulumi:"amazonManagedKafkaEventSourceConfig"`
+	// The event source mapping ARN.
+	Arn *string `pulumi:"arn"`
 	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
 	BatchSize *int `pulumi:"batchSize"`
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -436,7 +449,7 @@ type eventSourceMappingState struct {
 	EventSourceArn *string `pulumi:"eventSourceArn"`
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
-	// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+	// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 	FunctionArn *string `pulumi:"functionArn"`
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName *string `pulumi:"functionName"`
@@ -474,6 +487,12 @@ type eventSourceMappingState struct {
 	State *string `pulumi:"state"`
 	// The reason the event source mapping is in its current state.
 	StateTransitionReason *string `pulumi:"stateTransitionReason"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 	Topics []string `pulumi:"topics"`
 	// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
@@ -485,6 +504,8 @@ type eventSourceMappingState struct {
 type EventSourceMappingState struct {
 	// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
 	AmazonManagedKafkaEventSourceConfig EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrInput
+	// The event source mapping ARN.
+	Arn pulumi.StringPtrInput
 	// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
 	BatchSize pulumi.IntPtrInput
 	// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
@@ -499,7 +520,7 @@ type EventSourceMappingState struct {
 	EventSourceArn pulumi.StringPtrInput
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
-	// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+	// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 	FunctionArn pulumi.StringPtrInput
 	// The name or the ARN of the Lambda function that will be subscribing to events.
 	FunctionName pulumi.StringPtrInput
@@ -537,6 +558,12 @@ type EventSourceMappingState struct {
 	State pulumi.StringPtrInput
 	// The reason the event source mapping is in its current state.
 	StateTransitionReason pulumi.StringPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 	// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 	Topics pulumi.StringArrayInput
 	// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
@@ -594,6 +621,8 @@ type eventSourceMappingArgs struct {
 	StartingPosition *string `pulumi:"startingPosition"`
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
 	StartingPositionTimestamp *string `pulumi:"startingPositionTimestamp"`
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 	Topics []string `pulumi:"topics"`
 	// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
@@ -646,6 +675,8 @@ type EventSourceMappingArgs struct {
 	StartingPosition pulumi.StringPtrInput
 	// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `startingPosition` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
 	StartingPositionTimestamp pulumi.StringPtrInput
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
 	Topics pulumi.StringArrayInput
 	// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
@@ -746,6 +777,11 @@ func (o EventSourceMappingOutput) AmazonManagedKafkaEventSourceConfig() EventSou
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
 }
 
+// The event source mapping ARN.
+func (o EventSourceMappingOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
 func (o EventSourceMappingOutput) BatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.BatchSize }).(pulumi.IntPtrOutput)
@@ -783,7 +819,7 @@ func (o EventSourceMappingOutput) FilterCriteria() EventSourceMappingFilterCrite
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingFilterCriteriaPtrOutput { return v.FilterCriteria }).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
+// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
 func (o EventSourceMappingOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }
@@ -882,6 +918,18 @@ func (o EventSourceMappingOutput) State() pulumi.StringOutput {
 // The reason the event source mapping is in its current state.
 func (o EventSourceMappingOutput) StateTransitionReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringOutput { return v.StateTransitionReason }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o EventSourceMappingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o EventSourceMappingOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.

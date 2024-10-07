@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Framework{}
 	case "aws:backup/globalSettings:GlobalSettings":
 		r = &GlobalSettings{}
+	case "aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault":
+		r = &LogicallyAirGappedVault{}
 	case "aws:backup/plan:Plan":
 		r = &Plan{}
 	case "aws:backup/regionSettings:RegionSettings":
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"backup/globalSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/logicallyAirGappedVault",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

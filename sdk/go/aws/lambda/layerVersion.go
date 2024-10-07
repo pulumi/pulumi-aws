@@ -36,7 +36,7 @@ import (
 //				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
 //				LayerName: pulumi.String("lambda_layer_name"),
 //				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs16.x"),
+//					pulumi.String("nodejs20.x"),
 //				},
 //			})
 //			if err != nil {

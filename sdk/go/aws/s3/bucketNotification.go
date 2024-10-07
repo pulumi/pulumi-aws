@@ -233,7 +233,7 @@ import (
 //				Name:    pulumi.String("example_lambda_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.example"),
-//				Runtime: pulumi.String(lambda.RuntimeGo1dx),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //			})
 //			if err != nil {
 //				return err
@@ -327,7 +327,7 @@ import (
 //				Name:    pulumi.String("example_lambda_name1"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.example"),
-//				Runtime: pulumi.String(lambda.RuntimeGo1dx),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
 //			})
 //			if err != nil {
 //				return err

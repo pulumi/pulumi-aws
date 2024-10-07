@@ -232,7 +232,7 @@ namespace Pulumi.Aws.S3
     ///         Name = "example_lambda_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.example",
-    ///         Runtime = Aws.Lambda.Runtime.Go1dx,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///     });
     /// 
     ///     var bucket = new Aws.S3.BucketV2("bucket", new()
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.S3
     ///         Name = "example_lambda_name1",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.example",
-    ///         Runtime = Aws.Lambda.Runtime.Go1dx,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///     });
     /// 
     ///     var bucket = new Aws.S3.BucketV2("bucket", new()

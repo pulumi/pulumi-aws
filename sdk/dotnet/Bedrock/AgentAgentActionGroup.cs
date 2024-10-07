@@ -245,10 +245,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<string?> ParentActionGroupSignature { get; private set; } = null!;
 
         /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Output("prepareAgent")]
+        public Output<bool> PrepareAgent { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Output("skipResourceInUseCheck")]
         public Output<bool> SkipResourceInUseCheck { get; private set; } = null!;
+
+        [Output("timeouts")]
+        public Output<Outputs.AgentAgentActionGroupTimeouts?> Timeouts { get; private set; } = null!;
 
 
         /// <summary>
@@ -355,10 +364,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ParentActionGroupSignature { get; set; }
 
         /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Input("prepareAgent")]
+        public Input<bool>? PrepareAgent { get; set; }
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }
+
+        [Input("timeouts")]
+        public Input<Inputs.AgentAgentActionGroupTimeoutsArgs>? Timeouts { get; set; }
 
         public AgentAgentActionGroupArgs()
         {
@@ -433,10 +451,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? ParentActionGroupSignature { get; set; }
 
         /// <summary>
+        /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        /// </summary>
+        [Input("prepareAgent")]
+        public Input<bool>? PrepareAgent { get; set; }
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
         [Input("skipResourceInUseCheck")]
         public Input<bool>? SkipResourceInUseCheck { get; set; }
+
+        [Input("timeouts")]
+        public Input<Inputs.AgentAgentActionGroupTimeoutsGetArgs>? Timeouts { get; set; }
 
         public AgentAgentActionGroupState()
         {

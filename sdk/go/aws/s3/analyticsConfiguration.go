@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			analytics, err := s3.NewBucketV2(ctx, "analytics", &s3.BucketV2Args{
-//				Bucket: pulumi.String("analytics destination"),
+//				Bucket: pulumi.String("analytics-destination"),
 //			})
 //			if err != nil {
 //				return err

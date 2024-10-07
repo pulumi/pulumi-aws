@@ -9314,6 +9314,13 @@ export namespace backup {
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface LogicallyAirGappedVaultTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
     export interface PlanAdvancedBackupSetting {
         /**
          * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
@@ -10092,6 +10099,17 @@ export namespace bedrock {
         type: pulumi.Input<string>;
     }
 
+    export interface AgentAgentActionGroupTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
     export interface AgentAgentAliasRoutingConfiguration {
         /**
          * Version of the agent with which the alias is associated.
@@ -10266,6 +10284,10 @@ export namespace bedrock {
          */
         chunkingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration>;
         /**
+         * Configuration for custom transformation of data source documents.
+         */
+        customTransformationConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration>;
+        /**
          * Configuration for custom parsing of data source documents. See `parsingConfiguration` block for details.
          */
         parsingConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfiguration>;
@@ -10329,6 +10351,53 @@ export namespace bedrock {
          */
         bufferSize: pulumi.Input<number>;
         maxToken: pulumi.Input<number>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration {
+        /**
+         * The intermediate storage for custom transformation.
+         */
+        intermediateStorage?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage>;
+        transformation?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage {
+        /**
+         * Configuration block for intermedia S3 storage.
+         */
+        s3Location?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3Location {
+        /**
+         * S3 URI for intermediate storage.
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
+        /**
+         * Currently only `POST_CHUNKING` is supported.
+         */
+        stepToApply: pulumi.Input<string>;
+        /**
+         * The configuration of transformation function.
+         */
+        transformationFunction?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
+        /**
+         * The lambda configuration for custom transformation.
+         */
+        transformationLambdaConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration>;
+    }
+
+    export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
+        /**
+         * The ARN of the lambda to use for custom transformation.
+         */
+        lambdaArn: pulumi.Input<string>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationParsingConfiguration {
@@ -10816,6 +10885,17 @@ export namespace bedrock {
          * Type of topic in a policy.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface GuardrailVersionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 
     export interface GuardrailWordPolicyConfig {
@@ -25772,6 +25852,36 @@ export namespace ec2clientvpn {
 }
 
 export namespace ec2transitgateway {
+    export interface DefaultRouteTableAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface DefaultRouteTablePropagationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
     export interface GetAttachmentFilter {
         /**
          * Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -31325,6 +31435,10 @@ export namespace globalaccelerator {
     }
 
     export interface EndpointGroupEndpointConfiguration {
+        /**
+         * An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+         */
+        attachmentArn?: pulumi.Input<string>;
         /**
          * Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
          * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
@@ -65293,7 +65407,7 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleFilterAnd {
         /**
-         * Minimum object size to which the rule applies. Value must be at least `0` if specified.
+         * Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storageClass` values unless `transitionDefaultMinimumObjectSize` specifies otherwise.
          */
         objectSizeGreaterThan?: pulumi.Input<number>;
         /**
@@ -71194,84 +71308,6 @@ export namespace securityhub {
 
     export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
         values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface GetStandardsControlAssociationsStandardsControlAssociation {
-        /**
-         * Enablement status of a control in a specific standard.
-         */
-        associationStatus?: string;
-        /**
-         * List of underlying requirements in the compliance framework related to the standard.
-         */
-        relatedRequirements?: string[];
-        /**
-         * ARN of the security control.
-         */
-        securityControlArn?: string;
-        /**
-         * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-         */
-        securityControlId?: string;
-        /**
-         * ARN of the standard.
-         */
-        standardsArn?: string;
-        /**
-         * Description of the standard.
-         */
-        standardsControlDescription?: string;
-        /**
-         * Title of the standard.
-         */
-        standardsControlTitle?: string;
-        /**
-         * Last time that a control's enablement status in a specified standard was updated.
-         */
-        updatedAt?: string;
-        /**
-         * Reason for updating a control's enablement status in a specified standard.
-         */
-        updatedReason?: string;
-    }
-
-    export interface GetStandardsControlAssociationsStandardsControlAssociationArgs {
-        /**
-         * Enablement status of a control in a specific standard.
-         */
-        associationStatus?: pulumi.Input<string>;
-        /**
-         * List of underlying requirements in the compliance framework related to the standard.
-         */
-        relatedRequirements?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * ARN of the security control.
-         */
-        securityControlArn?: pulumi.Input<string>;
-        /**
-         * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-         */
-        securityControlId?: pulumi.Input<string>;
-        /**
-         * ARN of the standard.
-         */
-        standardsArn?: pulumi.Input<string>;
-        /**
-         * Description of the standard.
-         */
-        standardsControlDescription?: pulumi.Input<string>;
-        /**
-         * Title of the standard.
-         */
-        standardsControlTitle?: pulumi.Input<string>;
-        /**
-         * Last time that a control's enablement status in a specified standard was updated.
-         */
-        updatedAt?: pulumi.Input<string>;
-        /**
-         * Reason for updating a control's enablement status in a specified standard.
-         */
-        updatedReason?: pulumi.Input<string>;
     }
 
     export interface InsightFilters {

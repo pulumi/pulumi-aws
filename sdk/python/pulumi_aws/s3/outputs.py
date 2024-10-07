@@ -1346,7 +1346,7 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param int object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        :param int object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         :param int object_size_less_than: Maximum object size to which the rule applies. Value must be at least `1` if specified.
         :param str prefix: Prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
@@ -1364,7 +1364,7 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[int]:
         """
-        Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         """
         return pulumi.get(self, "object_size_greater_than")
 

@@ -77,19 +77,6 @@ namespace Pulumi.Aws.SecurityHub
         [Input("securityControlId", required: true)]
         public string SecurityControlId { get; set; } = null!;
 
-        [Input("standardsControlAssociations")]
-        private List<Inputs.GetStandardsControlAssociationsStandardsControlAssociationArgs>? _standardsControlAssociations;
-
-        /// <summary>
-        /// A list that provides the status and other details for each security control that applies to each enabled standard.
-        /// See `standards_control_associations` below.
-        /// </summary>
-        public List<Inputs.GetStandardsControlAssociationsStandardsControlAssociationArgs> StandardsControlAssociations
-        {
-            get => _standardsControlAssociations ?? (_standardsControlAssociations = new List<Inputs.GetStandardsControlAssociationsStandardsControlAssociationArgs>());
-            set => _standardsControlAssociations = value;
-        }
-
         public GetStandardsControlAssociationsArgs()
         {
         }
@@ -103,19 +90,6 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("securityControlId", required: true)]
         public Input<string> SecurityControlId { get; set; } = null!;
-
-        [Input("standardsControlAssociations")]
-        private InputList<Inputs.GetStandardsControlAssociationsStandardsControlAssociationInputArgs>? _standardsControlAssociations;
-
-        /// <summary>
-        /// A list that provides the status and other details for each security control that applies to each enabled standard.
-        /// See `standards_control_associations` below.
-        /// </summary>
-        public InputList<Inputs.GetStandardsControlAssociationsStandardsControlAssociationInputArgs> StandardsControlAssociations
-        {
-            get => _standardsControlAssociations ?? (_standardsControlAssociations = new InputList<Inputs.GetStandardsControlAssociationsStandardsControlAssociationInputArgs>());
-            set => _standardsControlAssociations = value;
-        }
 
         public GetStandardsControlAssociationsInvokeArgs()
         {

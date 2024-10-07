@@ -23,18 +23,22 @@ class CodeSigningConfigArgs:
     def __init__(__self__, *,
                  allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None):
+                 policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -72,6 +76,18 @@ class CodeSigningConfigArgs:
     def policies(self, value: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]):
         pulumi.set(self, "policies", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _CodeSigningConfigState:
@@ -81,7 +97,9 @@ class _CodeSigningConfigState:
                  config_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None):
+                 policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CodeSigningConfig resources.
         :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
@@ -90,6 +108,8 @@ class _CodeSigningConfigState:
         :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[str] last_modified: The date and time that the code signing configuration was last modified.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if allowed_publishers is not None:
             pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -103,6 +123,13 @@ class _CodeSigningConfigState:
             pulumi.set(__self__, "last_modified", last_modified)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -176,6 +203,31 @@ class _CodeSigningConfigState:
     def policies(self, value: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]):
         pulumi.set(self, "policies", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class CodeSigningConfig(pulumi.CustomResource):
     @overload
@@ -185,6 +237,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -207,7 +260,10 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
-            description="My awesome code signing config.")
+            description="My awesome code signing config.",
+            tags={
+                "Name": "dynamodb",
+            })
         ```
 
         ## Import
@@ -223,6 +279,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
         :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -251,7 +308,10 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
-            description="My awesome code signing config.")
+            description="My awesome code signing config.",
+            tags={
+                "Name": "dynamodb",
+            })
         ```
 
         ## Import
@@ -280,6 +340,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,9 +355,11 @@ class CodeSigningConfig(pulumi.CustomResource):
             __props__.__dict__["allowed_publishers"] = allowed_publishers
             __props__.__dict__["description"] = description
             __props__.__dict__["policies"] = policies
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["config_id"] = None
             __props__.__dict__["last_modified"] = None
+            __props__.__dict__["tags_all"] = None
         super(CodeSigningConfig, __self__).__init__(
             'aws:lambda/codeSigningConfig:CodeSigningConfig',
             resource_name,
@@ -312,7 +375,9 @@ class CodeSigningConfig(pulumi.CustomResource):
             config_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             last_modified: Optional[pulumi.Input[str]] = None,
-            policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None) -> 'CodeSigningConfig':
+            policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CodeSigningConfig':
         """
         Get an existing CodeSigningConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -326,6 +391,8 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input[str] last_modified: The date and time that the code signing configuration was last modified.
         :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -337,6 +404,8 @@ class CodeSigningConfig(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["policies"] = policies
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return CodeSigningConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -386,4 +455,21 @@ class CodeSigningConfig(pulumi.CustomResource):
         A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
         return pulumi.get(self, "policies")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

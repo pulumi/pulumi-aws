@@ -33,6 +33,10 @@ namespace Pulumi.Aws.ElastiCache
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of cache node instances to reserve.
+        /// Default value is `1`.
+        /// </summary>
         [Output("cacheNodeCount")]
         public Output<double> CacheNodeCount { get; private set; } = null!;
 
@@ -160,6 +164,10 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class ReservedCacheNodeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of cache node instances to reserve.
+        /// Default value is `1`.
+        /// </summary>
         [Input("cacheNodeCount")]
         public Input<double>? CacheNodeCount { get; set; }
 
@@ -201,6 +209,10 @@ namespace Pulumi.Aws.ElastiCache
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Number of cache node instances to reserve.
+        /// Default value is `1`.
+        /// </summary>
         [Input("cacheNodeCount")]
         public Input<double>? CacheNodeCount { get; set; }
 

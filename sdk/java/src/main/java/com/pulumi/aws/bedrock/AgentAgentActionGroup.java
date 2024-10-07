@@ -9,6 +9,7 @@ import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupState;
 import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupActionGroupExecutor;
 import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupApiSchema;
 import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupFunctionSchema;
+import com.pulumi.aws.bedrock.outputs.AgentAgentActionGroupTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -394,6 +395,20 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentActionGroupSignature);
     }
     /**
+     * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
+    @Export(name="prepareAgent", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> prepareAgent;
+
+    /**
+     * @return Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> prepareAgent() {
+        return this.prepareAgent;
+    }
+    /**
      * Whether the in-use check is skipped when deleting the action group.
      * 
      */
@@ -406,6 +421,12 @@ public class AgentAgentActionGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> skipResourceInUseCheck() {
         return this.skipResourceInUseCheck;
+    }
+    @Export(name="timeouts", refs={AgentAgentActionGroupTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ AgentAgentActionGroupTimeouts> timeouts;
+
+    public Output<Optional<AgentAgentActionGroupTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

@@ -309,6 +309,10 @@ namespace Pulumi.Aws.Ebs
         public readonly string SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
         /// <summary>
+        /// Time stamp when the snapshot was initiated.
+        /// </summary>
+        public readonly string StartTime;
+        /// <summary>
         /// Snapshot state.
         /// </summary>
         public readonly string State;
@@ -361,6 +365,8 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableArray<string> snapshotIds,
 
+            string startTime,
+
             string state,
 
             string storageTier,
@@ -386,6 +392,7 @@ namespace Pulumi.Aws.Ebs
             RestorableByUserIds = restorableByUserIds;
             SnapshotId = snapshotId;
             SnapshotIds = snapshotIds;
+            StartTime = startTime;
             State = state;
             StorageTier = storageTier;
             Tags = tags;

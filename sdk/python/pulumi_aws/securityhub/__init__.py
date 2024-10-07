@@ -19,6 +19,7 @@ from .organization_admin_account import *
 from .organization_configuration import *
 from .product_subscription import *
 from .standards_control import *
+from .standards_control_association import *
 from .standards_subscription import *
 from ._inputs import *
 from . import outputs

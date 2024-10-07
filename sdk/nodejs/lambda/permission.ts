@@ -36,7 +36,7 @@ import {Function} from "./index";
  *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "exports.handler",
- *     runtime: aws.lambda.Runtime.NodeJS16dX,
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
  * const testAlias = new aws.lambda.Alias("test_alias", {
  *     name: "testalias",
@@ -80,7 +80,7 @@ import {Function} from "./index";
  *     name: "lambda_called_from_sns",
  *     role: defaultRole.arn,
  *     handler: "exports.handler",
- *     runtime: aws.lambda.Runtime.Python3d7,
+ *     runtime: aws.lambda.Runtime.Python3d12,
  * });
  * const withSns = new aws.lambda.Permission("with_sns", {
  *     statementId: "AllowExecutionFromSNS",
@@ -141,7 +141,7 @@ import {Function} from "./index";
  *     name: "lambda_called_from_cloudwatch_logs",
  *     handler: "exports.handler",
  *     role: defaultRole.arn,
- *     runtime: aws.lambda.Runtime.Python3d7,
+ *     runtime: aws.lambda.Runtime.Python3d12,
  * });
  * const logging = new aws.lambda.Permission("logging", {
  *     action: "lambda:InvokeFunction",

@@ -381,7 +381,7 @@ import javax.annotation.Nullable;
  * 
  * ### Specifying a filter based on object size
  * 
- * Object size values are in bytes. Maximum filter size is 5TB. Some storage classes have minimum object size limitations, for more information, see [Comparing the Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-compare).
+ * Object size values are in bytes. Maximum filter size is 5TB. Amazon S3 applies a default behavior to your Lifecycle configuration that prevents objects smaller than 128 KB from being transitioned to any storage class. You can allow smaller objects to transition by adding a minimum size (`object_size_greater_than`) or a maximum size (`object_size_less_than`) filter that specifies a smaller size to the configuration. This example allows any object smaller than 128 KB to transition to the S3 Glacier Instant Retrieval storage class:
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -411,11 +411,15 @@ import javax.annotation.Nullable;
  *         var example = new BucketLifecycleConfigurationV2("example", BucketLifecycleConfigurationV2Args.builder()
  *             .bucket(bucket.id())
  *             .rules(BucketLifecycleConfigurationV2RuleArgs.builder()
- *                 .id("rule-1")
+ *                 .id("Allow small object transitions")
  *                 .filter(BucketLifecycleConfigurationV2RuleFilterArgs.builder()
- *                     .objectSizeGreaterThan(500)
+ *                     .objectSizeGreaterThan(1)
  *                     .build())
  *                 .status("Enabled")
+ *                 .transitions(BucketLifecycleConfigurationV2RuleTransitionArgs.builder()
+ *                     .days(365)
+ *                     .storageClass("GLACIER_IR")
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -671,6 +675,20 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
      */
     public Output<List<BucketLifecycleConfigurationV2Rule>> rules() {
         return this.rules;
+    }
+    /**
+     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+     * 
+     */
+    @Export(name="transitionDefaultMinimumObjectSize", refs={String.class}, tree="[0]")
+    private Output<String> transitionDefaultMinimumObjectSize;
+
+    /**
+     * @return The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+     * 
+     */
+    public Output<String> transitionDefaultMinimumObjectSize() {
+        return this.transitionDefaultMinimumObjectSize;
     }
 
     /**

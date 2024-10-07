@@ -116,6 +116,11 @@ export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
 utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
+export { GroupPoliciesExclusiveArgs, GroupPoliciesExclusiveState } from "./groupPoliciesExclusive";
+export type GroupPoliciesExclusive = import("./groupPoliciesExclusive").GroupPoliciesExclusive;
+export const GroupPoliciesExclusive: typeof import("./groupPoliciesExclusive").GroupPoliciesExclusive = null as any;
+utilities.lazyLoad(exports, ["GroupPoliciesExclusive"], () => require("./groupPoliciesExclusive"));
+
 export { GroupPolicyArgs, GroupPolicyState } from "./groupPolicy";
 export type GroupPolicy = import("./groupPolicy").GroupPolicy;
 export const GroupPolicy: typeof import("./groupPolicy").GroupPolicy = null as any;
@@ -218,6 +223,11 @@ export type UserLoginProfile = import("./userLoginProfile").UserLoginProfile;
 export const UserLoginProfile: typeof import("./userLoginProfile").UserLoginProfile = null as any;
 utilities.lazyLoad(exports, ["UserLoginProfile"], () => require("./userLoginProfile"));
 
+export { UserPoliciesExclusiveArgs, UserPoliciesExclusiveState } from "./userPoliciesExclusive";
+export type UserPoliciesExclusive = import("./userPoliciesExclusive").UserPoliciesExclusive;
+export const UserPoliciesExclusive: typeof import("./userPoliciesExclusive").UserPoliciesExclusive = null as any;
+utilities.lazyLoad(exports, ["UserPoliciesExclusive"], () => require("./userPoliciesExclusive"));
+
 export { UserPolicyArgs, UserPolicyState } from "./userPolicy";
 export type UserPolicy = import("./userPolicy").UserPolicy;
 export const UserPolicy: typeof import("./userPolicy").UserPolicy = null as any;
@@ -251,6 +261,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "aws:iam/groupMembership:GroupMembership":
                 return new GroupMembership(name, <any>undefined, { urn })
+            case "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive":
+                return new GroupPoliciesExclusive(name, <any>undefined, { urn })
             case "aws:iam/groupPolicy:GroupPolicy":
                 return new GroupPolicy(name, <any>undefined, { urn })
             case "aws:iam/groupPolicyAttachment:GroupPolicyAttachment":
@@ -291,6 +303,8 @@ const _module = {
                 return new UserGroupMembership(name, <any>undefined, { urn })
             case "aws:iam/userLoginProfile:UserLoginProfile":
                 return new UserLoginProfile(name, <any>undefined, { urn })
+            case "aws:iam/userPoliciesExclusive:UserPoliciesExclusive":
+                return new UserPoliciesExclusive(name, <any>undefined, { urn })
             case "aws:iam/userPolicy:UserPolicy":
                 return new UserPolicy(name, <any>undefined, { urn })
             case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
@@ -307,6 +321,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/accountAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/accountPasswordPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/group", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupMembership", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/groupPoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/instanceProfile", _module)
@@ -327,6 +342,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/user", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userGroupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userLoginProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/userPoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/virtualMfaDevice", _module)

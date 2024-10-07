@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_function_name")
  *             .role(iamForLambda.arn())
  *             .handler("exports.handler")
- *             .runtime("nodejs16.x")
+ *             .runtime("nodejs20.x")
  *             .build());
  * 
  *         var testAlias = new Alias("testAlias", AliasArgs.builder()
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_called_from_sns")
  *             .role(defaultRole.arn())
  *             .handler("exports.handler")
- *             .runtime("python3.7")
+ *             .runtime("python3.12")
  *             .build());
  * 
  *         var withSns = new Permission("withSns", PermissionArgs.builder()
@@ -289,7 +289,7 @@ import javax.annotation.Nullable;
  *             .name("lambda_called_from_cloudwatch_logs")
  *             .handler("exports.handler")
  *             .role(defaultRole.arn())
- *             .runtime("python3.7")
+ *             .runtime("python3.12")
  *             .build());
  * 
  *         var logging = new Permission("logging", PermissionArgs.builder()

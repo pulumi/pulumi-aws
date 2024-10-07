@@ -20,6 +20,54 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponse;
+ * import com.pulumi.aws.shield.ApplicationLayerAutomaticResponseArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var current = AwsFunctions.getRegion();
+ * 
+ *         final var currentGetCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition();
+ * 
+ *         final var distributionId = config.get("distributionId");
+ *         var example = new ApplicationLayerAutomaticResponse("example", ApplicationLayerAutomaticResponseArgs.builder()
+ *             .resourceArn(String.format("arn:%s:cloudfront:%s:distribution/%s", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetCallerIdentity.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId()),distributionId))
+ *             .action("COUNT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse")
 public class ApplicationLayerAutomaticResponse extends com.pulumi.resources.CustomResource {

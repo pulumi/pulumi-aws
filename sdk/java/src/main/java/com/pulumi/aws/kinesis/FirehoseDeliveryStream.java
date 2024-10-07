@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .name("firehose_lambda_processor")
  *             .role(lambdaIam.arn())
  *             .handler("exports.handler")
- *             .runtime("nodejs16.x")
+ *             .runtime("nodejs20.x")
  *             .build());
  * 
  *         var extendedS3Stream = new FirehoseDeliveryStream("extendedS3Stream", FirehoseDeliveryStreamArgs.builder()

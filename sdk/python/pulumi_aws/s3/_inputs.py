@@ -1769,7 +1769,7 @@ if not MYPY:
     class BucketLifecycleConfigurationV2RuleFilterAndArgsDict(TypedDict):
         object_size_greater_than: NotRequired[pulumi.Input[int]]
         """
-        Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         """
         object_size_less_than: NotRequired[pulumi.Input[int]]
         """
@@ -1794,7 +1794,7 @@ class BucketLifecycleConfigurationV2RuleFilterAndArgs:
                  prefix: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[int] object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        :param pulumi.Input[int] object_size_greater_than: Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         :param pulumi.Input[int] object_size_less_than: Maximum object size to which the rule applies. Value must be at least `1` if specified.
         :param pulumi.Input[str] prefix: Prefix identifying one or more objects to which the rule applies.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply.
@@ -1812,7 +1812,7 @@ class BucketLifecycleConfigurationV2RuleFilterAndArgs:
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        Minimum object size to which the rule applies. Value must be at least `0` if specified.
+        Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
         """
         return pulumi.get(self, "object_size_greater_than")
 

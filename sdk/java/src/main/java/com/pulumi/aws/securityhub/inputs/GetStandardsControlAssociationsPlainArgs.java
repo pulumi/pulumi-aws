@@ -3,14 +3,10 @@
 
 package com.pulumi.aws.securityhub.inputs;
 
-import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsStandardsControlAssociation;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetStandardsControlAssociationsPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -32,28 +28,10 @@ public final class GetStandardsControlAssociationsPlainArgs extends com.pulumi.r
         return this.securityControlId;
     }
 
-    /**
-     * A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standards_control_associations` below.
-     * 
-     */
-    @Import(name="standardsControlAssociations")
-    private @Nullable List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations;
-
-    /**
-     * @return A list that provides the status and other details for each security control that applies to each enabled standard.
-     * See `standards_control_associations` below.
-     * 
-     */
-    public Optional<List<GetStandardsControlAssociationsStandardsControlAssociation>> standardsControlAssociations() {
-        return Optional.ofNullable(this.standardsControlAssociations);
-    }
-
     private GetStandardsControlAssociationsPlainArgs() {}
 
     private GetStandardsControlAssociationsPlainArgs(GetStandardsControlAssociationsPlainArgs $) {
         this.securityControlId = $.securityControlId;
-        this.standardsControlAssociations = $.standardsControlAssociations;
     }
 
     public static Builder builder() {
@@ -83,29 +61,6 @@ public final class GetStandardsControlAssociationsPlainArgs extends com.pulumi.r
         public Builder securityControlId(String securityControlId) {
             $.securityControlId = securityControlId;
             return this;
-        }
-
-        /**
-         * @param standardsControlAssociations A list that provides the status and other details for each security control that applies to each enabled standard.
-         * See `standards_control_associations` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder standardsControlAssociations(@Nullable List<GetStandardsControlAssociationsStandardsControlAssociation> standardsControlAssociations) {
-            $.standardsControlAssociations = standardsControlAssociations;
-            return this;
-        }
-
-        /**
-         * @param standardsControlAssociations A list that provides the status and other details for each security control that applies to each enabled standard.
-         * See `standards_control_associations` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder standardsControlAssociations(GetStandardsControlAssociationsStandardsControlAssociation... standardsControlAssociations) {
-            return standardsControlAssociations(List.of(standardsControlAssociations));
         }
 
         public GetStandardsControlAssociationsPlainArgs build() {

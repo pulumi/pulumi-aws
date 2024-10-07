@@ -309,7 +309,7 @@ class BucketNotification(pulumi.CustomResource):
             name="example_lambda_name",
             role=iam_for_lambda.arn,
             handler="exports.example",
-            runtime=aws.lambda_.Runtime.GO1DX)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
         allow_bucket = aws.lambda_.Permission("allow_bucket",
             statement_id="AllowExecutionFromS3Bucket",
@@ -350,7 +350,7 @@ class BucketNotification(pulumi.CustomResource):
             name="example_lambda_name1",
             role=iam_for_lambda.arn,
             handler="exports.example",
-            runtime=aws.lambda_.Runtime.GO1DX)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
         allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
             statement_id="AllowExecutionFromS3Bucket1",
@@ -568,7 +568,7 @@ class BucketNotification(pulumi.CustomResource):
             name="example_lambda_name",
             role=iam_for_lambda.arn,
             handler="exports.example",
-            runtime=aws.lambda_.Runtime.GO1DX)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
         allow_bucket = aws.lambda_.Permission("allow_bucket",
             statement_id="AllowExecutionFromS3Bucket",
@@ -609,7 +609,7 @@ class BucketNotification(pulumi.CustomResource):
             name="example_lambda_name1",
             role=iam_for_lambda.arn,
             handler="exports.example",
-            runtime=aws.lambda_.Runtime.GO1DX)
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X)
         bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
         allow_bucket1 = aws.lambda_.Permission("allow_bucket1",
             statement_id="AllowExecutionFromS3Bucket1",

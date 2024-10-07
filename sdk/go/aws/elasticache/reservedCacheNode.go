@@ -29,7 +29,9 @@ type ReservedCacheNode struct {
 	pulumi.CustomResourceState
 
 	// ARN for the reserved cache node.
-	Arn            pulumi.StringOutput  `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Number of cache node instances to reserve.
+	// Default value is `1`.
 	CacheNodeCount pulumi.Float64Output `pulumi:"cacheNodeCount"`
 	// Node type for the reserved cache nodes.
 	CacheNodeType pulumi.StringOutput `pulumi:"cacheNodeType"`
@@ -97,7 +99,9 @@ func GetReservedCacheNode(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ReservedCacheNode resources.
 type reservedCacheNodeState struct {
 	// ARN for the reserved cache node.
-	Arn            *string  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Number of cache node instances to reserve.
+	// Default value is `1`.
 	CacheNodeCount *float64 `pulumi:"cacheNodeCount"`
 	// Node type for the reserved cache nodes.
 	CacheNodeType *string `pulumi:"cacheNodeType"`
@@ -133,7 +137,9 @@ type reservedCacheNodeState struct {
 
 type ReservedCacheNodeState struct {
 	// ARN for the reserved cache node.
-	Arn            pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Number of cache node instances to reserve.
+	// Default value is `1`.
 	CacheNodeCount pulumi.Float64PtrInput
 	// Node type for the reserved cache nodes.
 	CacheNodeType pulumi.StringPtrInput
@@ -172,6 +178,8 @@ func (ReservedCacheNodeState) ElementType() reflect.Type {
 }
 
 type reservedCacheNodeArgs struct {
+	// Number of cache node instances to reserve.
+	// Default value is `1`.
 	CacheNodeCount *float64 `pulumi:"cacheNodeCount"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
@@ -185,6 +193,8 @@ type reservedCacheNodeArgs struct {
 
 // The set of arguments for constructing a ReservedCacheNode resource.
 type ReservedCacheNodeArgs struct {
+	// Number of cache node instances to reserve.
+	// Default value is `1`.
 	CacheNodeCount pulumi.Float64PtrInput
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
@@ -288,6 +298,8 @@ func (o ReservedCacheNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Number of cache node instances to reserve.
+// Default value is `1`.
 func (o ReservedCacheNodeOutput) CacheNodeCount() pulumi.Float64Output {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.Float64Output { return v.CacheNodeCount }).(pulumi.Float64Output)
 }

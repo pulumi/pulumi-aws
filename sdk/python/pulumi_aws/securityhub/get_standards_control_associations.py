@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetStandardsControlAssociationsResult',
@@ -54,7 +53,7 @@ class GetStandardsControlAssociationsResult:
 
     @property
     @pulumi.getter(name="standardsControlAssociations")
-    def standards_control_associations(self) -> Optional[Sequence['outputs.GetStandardsControlAssociationsStandardsControlAssociationResult']]:
+    def standards_control_associations(self) -> Sequence['outputs.GetStandardsControlAssociationsStandardsControlAssociationResult']:
         """
         A list that provides the status and other details for each security control that applies to each enabled standard.
         See `standards_control_associations` below.
@@ -74,7 +73,6 @@ class AwaitableGetStandardsControlAssociationsResult(GetStandardsControlAssociat
 
 
 def get_standards_control_associations(security_control_id: Optional[str] = None,
-                                       standards_control_associations: Optional[Sequence[Union['GetStandardsControlAssociationsStandardsControlAssociationArgs', 'GetStandardsControlAssociationsStandardsControlAssociationArgsDict']]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardsControlAssociationsResult:
     """
     Data source for managing an AWS Security Hub Standards Control Associations.
@@ -93,12 +91,9 @@ def get_standards_control_associations(security_control_id: Optional[str] = None
 
 
     :param str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-    :param Sequence[Union['GetStandardsControlAssociationsStandardsControlAssociationArgs', 'GetStandardsControlAssociationsStandardsControlAssociationArgsDict']] standards_control_associations: A list that provides the status and other details for each security control that applies to each enabled standard.
-           See `standards_control_associations` below.
     """
     __args__ = dict()
     __args__['securityControlId'] = security_control_id
-    __args__['standardsControlAssociations'] = standards_control_associations
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations', __args__, opts=opts, typ=GetStandardsControlAssociationsResult).value
 
@@ -110,7 +105,6 @@ def get_standards_control_associations(security_control_id: Optional[str] = None
 
 @_utilities.lift_output_func(get_standards_control_associations)
 def get_standards_control_associations_output(security_control_id: Optional[pulumi.Input[str]] = None,
-                                              standards_control_associations: Optional[pulumi.Input[Optional[Sequence[Union['GetStandardsControlAssociationsStandardsControlAssociationArgs', 'GetStandardsControlAssociationsStandardsControlAssociationArgsDict']]]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
     """
     Data source for managing an AWS Security Hub Standards Control Associations.
@@ -129,7 +123,5 @@ def get_standards_control_associations_output(security_control_id: Optional[pulu
 
 
     :param str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
-    :param Sequence[Union['GetStandardsControlAssociationsStandardsControlAssociationArgs', 'GetStandardsControlAssociationsStandardsControlAssociationArgsDict']] standards_control_associations: A list that provides the status and other details for each security control that applies to each enabled standard.
-           See `standards_control_associations` below.
     """
     ...

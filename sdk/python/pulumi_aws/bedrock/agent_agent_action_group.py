@@ -30,7 +30,9 @@ class AgentAgentActionGroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  function_schema: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs']] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
-                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None):
+                 prepare_agent: Optional[pulumi.Input[bool]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
+                 timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentActionGroup resource.
         :param pulumi.Input[str] action_group_name: Name of the action group.
@@ -46,6 +48,7 @@ class AgentAgentActionGroupArgs:
                Each function represents an action in an action group.
                See `function_schema` Block for details.
         :param pulumi.Input[str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         pulumi.set(__self__, "action_group_name", action_group_name)
@@ -63,8 +66,12 @@ class AgentAgentActionGroupArgs:
             pulumi.set(__self__, "function_schema", function_schema)
         if parent_action_group_signature is not None:
             pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
+        if prepare_agent is not None:
+            pulumi.set(__self__, "prepare_agent", prepare_agent)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="actionGroupName")
@@ -179,6 +186,18 @@ class AgentAgentActionGroupArgs:
         pulumi.set(self, "parent_action_group_signature", value)
 
     @property
+    @pulumi.getter(name="prepareAgent")
+    def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
+        return pulumi.get(self, "prepare_agent")
+
+    @prepare_agent.setter
+    def prepare_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prepare_agent", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -189,6 +208,15 @@ class AgentAgentActionGroupArgs:
     @skip_resource_in_use_check.setter
     def skip_resource_in_use_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_resource_in_use_check", value)
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
@@ -204,7 +232,9 @@ class _AgentAgentActionGroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  function_schema: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs']] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
-                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None):
+                 prepare_agent: Optional[pulumi.Input[bool]] = None,
+                 skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
+                 timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentActionGroup resources.
         :param pulumi.Input['AgentAgentActionGroupActionGroupExecutorArgs'] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
@@ -221,6 +251,7 @@ class _AgentAgentActionGroupState:
                Each function represents an action in an action group.
                See `function_schema` Block for details.
         :param pulumi.Input[str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         if action_group_executor is not None:
@@ -243,8 +274,12 @@ class _AgentAgentActionGroupState:
             pulumi.set(__self__, "function_schema", function_schema)
         if parent_action_group_signature is not None:
             pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
+        if prepare_agent is not None:
+            pulumi.set(__self__, "prepare_agent", prepare_agent)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
+        if timeouts is not None:
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter(name="actionGroupExecutor")
@@ -371,6 +406,18 @@ class _AgentAgentActionGroupState:
         pulumi.set(self, "parent_action_group_signature", value)
 
     @property
+    @pulumi.getter(name="prepareAgent")
+    def prepare_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
+        return pulumi.get(self, "prepare_agent")
+
+    @prepare_agent.setter
+    def prepare_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prepare_agent", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -381,6 +428,15 @@ class _AgentAgentActionGroupState:
     @skip_resource_in_use_check.setter
     def skip_resource_in_use_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_resource_in_use_check", value)
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']]:
+        return pulumi.get(self, "timeouts")
+
+    @timeouts.setter
+    def timeouts(self, value: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']]):
+        pulumi.set(self, "timeouts", value)
 
 
 class AgentAgentActionGroup(pulumi.CustomResource):
@@ -397,7 +453,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
+                 prepare_agent: Optional[pulumi.Input[bool]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Action Group.
@@ -527,6 +585,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                Each function represents an action in an action group.
                See `function_schema` Block for details.
         :param pulumi.Input[str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         ...
@@ -672,7 +731,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
+                 prepare_agent: Optional[pulumi.Input[bool]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -697,7 +758,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["function_schema"] = function_schema
             __props__.__dict__["parent_action_group_signature"] = parent_action_group_signature
+            __props__.__dict__["prepare_agent"] = prepare_agent
             __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
+            __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["action_group_id"] = None
         super(AgentAgentActionGroup, __self__).__init__(
             'aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup',
@@ -719,7 +782,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
             parent_action_group_signature: Optional[pulumi.Input[str]] = None,
-            skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None) -> 'AgentAgentActionGroup':
+            prepare_agent: Optional[pulumi.Input[bool]] = None,
+            skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
+            timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None) -> 'AgentAgentActionGroup':
         """
         Get an existing AgentAgentActionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -741,6 +806,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                Each function represents an action in an action group.
                See `function_schema` Block for details.
         :param pulumi.Input[str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
+        :param pulumi.Input[bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -757,7 +823,9 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["function_schema"] = function_schema
         __props__.__dict__["parent_action_group_signature"] = parent_action_group_signature
+        __props__.__dict__["prepare_agent"] = prepare_agent
         __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
+        __props__.__dict__["timeouts"] = timeouts
         return AgentAgentActionGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -845,10 +913,23 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         return pulumi.get(self, "parent_action_group_signature")
 
     @property
+    @pulumi.getter(name="prepareAgent")
+    def prepare_agent(self) -> pulumi.Output[bool]:
+        """
+        Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        """
+        return pulumi.get(self, "prepare_agent")
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Output[bool]:
         """
         Whether the in-use check is skipped when deleting the action group.
         """
         return pulumi.get(self, "skip_resource_in_use_check")
+
+    @property
+    @pulumi.getter
+    def timeouts(self) -> pulumi.Output[Optional['outputs.AgentAgentActionGroupTimeouts']]:
+        return pulumi.get(self, "timeouts")
 

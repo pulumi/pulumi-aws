@@ -51,51 +51,51 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.Any(awsShieldDrtAccessRoleArn),
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//				Name:             pulumi.String("example-role"),
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			exampleDrtAccessRoleArnAssociation, err := shield.NewDrtAccessRoleArnAssociation(ctx, "example", &shield.DrtAccessRoleArnAssociationArgs{
+//				RoleArn: exampleRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = shield.NewProactiveEngagement(ctx, "example", &shield.ProactiveEngagementArgs{
+//				Enabled: pulumi.Bool(true),
+//				EmergencyContacts: shield.ProactiveEngagementEmergencyContactArray{
+//					&shield.ProactiveEngagementEmergencyContactArgs{
+//						ContactNotes: pulumi.String("Notes"),
+//						EmailAddress: pulumi.String("contact1@example.com"),
+//						PhoneNumber:  pulumi.String("+12358132134"),
+//					},
+//					&shield.ProactiveEngagementEmergencyContactArgs{
+//						ContactNotes: pulumi.String("Notes 2"),
+//						EmailAddress: pulumi.String("contact2@example.com"),
+//						PhoneNumber:  pulumi.String("+12358132134"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleDrtAccessRoleArnAssociation,
+//			}))
+//			if err != nil {
+//				return err
+//			}
 //			_, err = iam.NewRolePolicyAttachment(ctx, "example", &iam.RolePolicyAttachmentArgs{
-//				Role:      example.Name,
+//				Role:      exampleRole.Name,
 //				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = shield.NewDrtAccessRoleArnAssociation(ctx, "example", &shield.DrtAccessRoleArnAssociationArgs{
-//				RoleArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProtectionGroup(ctx, "test", &shield.ProtectionGroupArgs{
+//			_, err = shield.NewProtectionGroup(ctx, "example", &shield.ProtectionGroupArgs{
 //				ProtectionGroupId: pulumi.String("example"),
 //				Aggregation:       pulumi.String("MAX"),
 //				Pattern:           pulumi.String("ALL"),
 //			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = shield.NewProactiveEngagement(ctx, "test", &shield.ProactiveEngagementArgs{
-//				Enabled: pulumi.Bool(true),
-//				EmergencyContacts: shield.ProactiveEngagementEmergencyContactArray{
-//					&shield.ProactiveEngagementEmergencyContactArgs{
-//						ContactNotes: pulumi.String("Notes"),
-//						EmailAddress: pulumi.String("test@company.com"),
-//						PhoneNumber:  pulumi.String("+12358132134"),
-//					},
-//					&shield.ProactiveEngagementEmergencyContactArgs{
-//						ContactNotes: pulumi.String("Notes 2"),
-//						EmailAddress: pulumi.String("test2@company.com"),
-//						PhoneNumber:  pulumi.String("+12358132134"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAwsShieldDrtAccessRoleArnAssociation,
-//			}))
 //			if err != nil {
 //				return err
 //			}
