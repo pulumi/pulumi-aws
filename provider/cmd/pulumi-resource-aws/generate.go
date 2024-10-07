@@ -1,4 +1,4 @@
-// Copyright 2016-2020, Pulumi Corporation.
+// Copyright 2016-2024, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,47 +17,115 @@
 package main
 
 import (
+	"compress/gzip"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"io"
 	"io/fs"
-	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/minimalschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 )
+
+const (
+	schemaJSON        = "schema.json"
+	schemaMinimalJSON = "schema-minimal.json"
+)
+
+type compressAndVersionSchemaFileOptions struct {
+	sourceFile string
+	destFile   string
+	version    string
+	gzip       bool
+}
+
+func readPackageSpecFile(sourceFile string) (*schema.PackageSpec, error) {
+	schemaContents, err := os.ReadFile(sourceFile)
+	if err != nil {
+		return nil, fmt.Errorf("cannot read sourceFile: %w", err)
+	}
+	var packageSpec schema.PackageSpec
+	err = json.Unmarshal(schemaContents, &packageSpec)
+	if err != nil {
+		return nil, fmt.Errorf("cannot deserialize schema: %w", err)
+	}
+	return &packageSpec, nil
+}
+
+func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) error {
+	packageSpec, err := readPackageSpecFile(opts.sourceFile)
+	packageSpec.Version = opts.version
+	// Open a file for writing, creating it if it doesn't exist, and truncating it if it does
+	file, err := os.OpenFile(opts.destFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0644)
+	if err != nil {
+		log.Fatalf("failed to open file: %s", err)
+	}
+	defer file.Close()
+	var w io.Writer = file
+	if opts.gzip {
+		w = gzip.NewWriter(file)
+	}
+	enc := json.NewEncoder(w)
+	err = enc.Encode(packageSpec)
+	if err != nil {
+		return fmt.Errorf("cannot reserialize schema: %w", err)
+	}
+	return nil
+}
+
+// Compute minimal schema and its embedded version from the actual schema.
+func computeMinimalSchema(version string) {
+	s, err := readPackageSpecFile(schemaJSON)
+	if err != nil {
+		log.Fatal(err)
+	}
+	minimalschema.NewMinimalSchema(*s).Write(schemaMinimalJSON)
+}
+
+func embedMinimalSchema(version string) {
+	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
+		sourceFile: schemaMinimalJSON,
+		destFile:   strings.ReplaceAll(schemaMinimalJSON, ".json", "-embed.json"),
+		version:    version,
+		gzip:       true,
+	}); err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main() {
 	version, found := os.LookupEnv("VERSION")
 	if !found {
-		log.Fatal("version not found")
+		log.Fatal("VERSION environment variable is required but was not set")
 	}
 
-	schemaContents, err := ioutil.ReadFile("./schema.json")
-	if err != nil {
-		log.Fatal(err)
+	// If called with PULUMI_AWS_MINIMAL_SCHEMA=true, process the minimal schema only and stop.
+	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
+		computeMinimalSchema(version)
+		embedMinimalSchema(version)
+		return
 	}
 
-	var packageSpec schema.PackageSpec
-	err = json.Unmarshal(schemaContents, &packageSpec)
-	if err != nil {
-		log.Fatalf("cannot deserialize schema: %v", err)
-	}
-
-	packageSpec.Version = version
-	versionedContents, err := json.Marshal(packageSpec)
-	if err != nil {
-		log.Fatalf("cannot reserialize schema: %v", err)
-	}
-
-	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
-	err = os.Remove("./schema.go")
+	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file is not present.
+	err := os.Remove("./schema.go")
 	if err != nil && !errors.Is(err, fs.ErrNotExist) {
 		log.Fatal(err)
 	}
 
-	err = ioutil.WriteFile("./schema-embed.json", versionedContents, 0600)
-	if err != nil {
+	// Compute the embed version of the regular schema.
+	if err := compressAndVersionSchemaFile(compressAndVersionSchemaFileOptions{
+		sourceFile: schemaJSON,
+		destFile:   strings.ReplaceAll(schemaJSON, ".json", "-embed.json"),
+		version:    version,
+	}); err != nil {
 		log.Fatal(err)
 	}
+
+	// Also compute the embedded version of the minimal schema.
+	embedMinimalSchema(version)
 }
