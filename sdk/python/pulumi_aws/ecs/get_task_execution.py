@@ -333,9 +333,6 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
         tags=pulumi.get(__ret__, 'tags'),
         task_arns=pulumi.get(__ret__, 'task_arns'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-
-
-@_utilities.lift_output_func(get_task_execution)
 def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Input[Optional[Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']]]]] = None,
                               client_token: Optional[pulumi.Input[Optional[str]]] = None,
                               cluster: Optional[pulumi.Input[str]] = None,
@@ -401,4 +398,45 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['capacityProviderStrategies'] = capacity_provider_strategies
+    __args__['clientToken'] = client_token
+    __args__['cluster'] = cluster
+    __args__['desiredCount'] = desired_count
+    __args__['enableEcsManagedTags'] = enable_ecs_managed_tags
+    __args__['enableExecuteCommand'] = enable_execute_command
+    __args__['group'] = group
+    __args__['launchType'] = launch_type
+    __args__['networkConfiguration'] = network_configuration
+    __args__['overrides'] = overrides
+    __args__['placementConstraints'] = placement_constraints
+    __args__['placementStrategies'] = placement_strategies
+    __args__['platformVersion'] = platform_version
+    __args__['propagateTags'] = propagate_tags
+    __args__['referenceId'] = reference_id
+    __args__['startedBy'] = started_by
+    __args__['tags'] = tags
+    __args__['taskDefinition'] = task_definition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecs/getTaskExecution:getTaskExecution', __args__, opts=opts, typ=GetTaskExecutionResult)
+    return __ret__.apply(lambda __response__: GetTaskExecutionResult(
+        capacity_provider_strategies=pulumi.get(__response__, 'capacity_provider_strategies'),
+        client_token=pulumi.get(__response__, 'client_token'),
+        cluster=pulumi.get(__response__, 'cluster'),
+        desired_count=pulumi.get(__response__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__response__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__response__, 'enable_execute_command'),
+        group=pulumi.get(__response__, 'group'),
+        id=pulumi.get(__response__, 'id'),
+        launch_type=pulumi.get(__response__, 'launch_type'),
+        network_configuration=pulumi.get(__response__, 'network_configuration'),
+        overrides=pulumi.get(__response__, 'overrides'),
+        placement_constraints=pulumi.get(__response__, 'placement_constraints'),
+        placement_strategies=pulumi.get(__response__, 'placement_strategies'),
+        platform_version=pulumi.get(__response__, 'platform_version'),
+        propagate_tags=pulumi.get(__response__, 'propagate_tags'),
+        reference_id=pulumi.get(__response__, 'reference_id'),
+        started_by=pulumi.get(__response__, 'started_by'),
+        tags=pulumi.get(__response__, 'tags'),
+        task_arns=pulumi.get(__response__, 'task_arns'),
+        task_definition=pulumi.get(__response__, 'task_definition')))

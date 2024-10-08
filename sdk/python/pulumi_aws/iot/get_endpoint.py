@@ -92,9 +92,6 @@ def get_endpoint(endpoint_type: Optional[str] = None,
         endpoint_address=pulumi.get(__ret__, 'endpoint_address'),
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -103,4 +100,11 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
 
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointType'] = endpoint_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iot/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        endpoint_address=pulumi.get(__response__, 'endpoint_address'),
+        endpoint_type=pulumi.get(__response__, 'endpoint_type'),
+        id=pulumi.get(__response__, 'id')))

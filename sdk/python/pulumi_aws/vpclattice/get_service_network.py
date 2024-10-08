@@ -188,9 +188,6 @@ def get_service_network(service_network_identifier: Optional[str] = None,
         number_of_associated_vpcs=pulumi.get(__ret__, 'number_of_associated_vpcs'),
         service_network_identifier=pulumi.get(__ret__, 'service_network_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service_network)
 def get_service_network_output(service_network_identifier: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkResult]:
@@ -211,4 +208,19 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
 
     :param str service_network_identifier: Identifier of the service network.
     """
-    ...
+    __args__ = dict()
+    __args__['serviceNetworkIdentifier'] = service_network_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getServiceNetwork:getServiceNetwork', __args__, opts=opts, typ=GetServiceNetworkResult)
+    return __ret__.apply(lambda __response__: GetServiceNetworkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auth_type=pulumi.get(__response__, 'auth_type'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        name=pulumi.get(__response__, 'name'),
+        number_of_associated_services=pulumi.get(__response__, 'number_of_associated_services'),
+        number_of_associated_vpcs=pulumi.get(__response__, 'number_of_associated_vpcs'),
+        service_network_identifier=pulumi.get(__response__, 'service_network_identifier'),
+        tags=pulumi.get(__response__, 'tags')))

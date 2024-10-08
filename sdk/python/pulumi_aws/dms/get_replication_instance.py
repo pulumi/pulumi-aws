@@ -290,9 +290,6 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
         replication_subnet_group_id=pulumi.get(__ret__, 'replication_subnet_group_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_replication_instance)
 def get_replication_instance_output(replication_instance_id: Optional[pulumi.Input[str]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationInstanceResult]:
@@ -311,4 +308,27 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
 
     :param str replication_instance_id: The replication instance identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['replicationInstanceId'] = replication_instance_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationInstance:getReplicationInstance', __args__, opts=opts, typ=GetReplicationInstanceResult)
+    return __ret__.apply(lambda __response__: GetReplicationInstanceResult(
+        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
+        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        multi_az=pulumi.get(__response__, 'multi_az'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        replication_instance_arn=pulumi.get(__response__, 'replication_instance_arn'),
+        replication_instance_class=pulumi.get(__response__, 'replication_instance_class'),
+        replication_instance_id=pulumi.get(__response__, 'replication_instance_id'),
+        replication_instance_private_ips=pulumi.get(__response__, 'replication_instance_private_ips'),
+        replication_instance_public_ips=pulumi.get(__response__, 'replication_instance_public_ips'),
+        replication_subnet_group_id=pulumi.get(__response__, 'replication_subnet_group_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

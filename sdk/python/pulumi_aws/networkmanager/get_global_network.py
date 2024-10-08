@@ -125,9 +125,6 @@ def get_global_network(global_network_id: Optional[str] = None,
         global_network_id=pulumi.get(__ret__, 'global_network_id'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_global_network)
 def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworkResult]:
@@ -147,4 +144,14 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
     :param str global_network_id: ID of the specific global network to retrieve.
     :param Mapping[str, str] tags: Map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['globalNetworkId'] = global_network_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getGlobalNetwork:getGlobalNetwork', __args__, opts=opts, typ=GetGlobalNetworkResult)
+    return __ret__.apply(lambda __response__: GetGlobalNetworkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags')))

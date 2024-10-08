@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := rds.GetEventCategories(ctx, nil, nil)
+//			example, err := rds.GetEventCategories(ctx, &rds.GetEventCategoriesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

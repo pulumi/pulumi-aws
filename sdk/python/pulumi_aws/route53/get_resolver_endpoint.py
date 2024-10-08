@@ -194,9 +194,6 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
         status=pulumi.get(__ret__, 'status'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_resolver_endpoint)
 def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
                                  resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverEndpointResult]:
@@ -232,4 +229,20 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
            In addition to all arguments above, the following attributes are exported:
     :param str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['resolverEndpointId'] = resolver_endpoint_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult)
+    return __ret__.apply(lambda __response__: GetResolverEndpointResult(
+        arn=pulumi.get(__response__, 'arn'),
+        direction=pulumi.get(__response__, 'direction'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ip_addresses=pulumi.get(__response__, 'ip_addresses'),
+        name=pulumi.get(__response__, 'name'),
+        protocols=pulumi.get(__response__, 'protocols'),
+        resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
+        resolver_endpoint_type=pulumi.get(__response__, 'resolver_endpoint_type'),
+        status=pulumi.get(__response__, 'status'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

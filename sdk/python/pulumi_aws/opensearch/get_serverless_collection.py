@@ -238,9 +238,6 @@ def get_serverless_collection(id: Optional[str] = None,
         standby_replicas=pulumi.get(__ret__, 'standby_replicas'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_serverless_collection)
 def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessCollectionResult]:
@@ -262,4 +259,23 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
     :param str id: ID of the collection. Either `id` or `name` must be provided.
     :param str name: Name of the collection. Either `name` or `id` must be provided.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessCollection:getServerlessCollection', __args__, opts=opts, typ=GetServerlessCollectionResult)
+    return __ret__.apply(lambda __response__: GetServerlessCollectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        collection_endpoint=pulumi.get(__response__, 'collection_endpoint'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
+        description=pulumi.get(__response__, 'description'),
+        failure_code=pulumi.get(__response__, 'failure_code'),
+        failure_message=pulumi.get(__response__, 'failure_message'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        name=pulumi.get(__response__, 'name'),
+        standby_replicas=pulumi.get(__response__, 'standby_replicas'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

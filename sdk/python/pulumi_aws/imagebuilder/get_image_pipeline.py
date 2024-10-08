@@ -305,9 +305,6 @@ def get_image_pipeline(arn: Optional[str] = None,
         schedules=pulumi.get(__ret__, 'schedules'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_image_pipeline)
 def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
@@ -327,4 +324,28 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the image pipeline.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult)
+    return __ret__.apply(lambda __response__: GetImagePipelineResult(
+        arn=pulumi.get(__response__, 'arn'),
+        container_recipe_arn=pulumi.get(__response__, 'container_recipe_arn'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        date_last_run=pulumi.get(__response__, 'date_last_run'),
+        date_next_run=pulumi.get(__response__, 'date_next_run'),
+        date_updated=pulumi.get(__response__, 'date_updated'),
+        description=pulumi.get(__response__, 'description'),
+        distribution_configuration_arn=pulumi.get(__response__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__response__, 'enhanced_image_metadata_enabled'),
+        id=pulumi.get(__response__, 'id'),
+        image_recipe_arn=pulumi.get(__response__, 'image_recipe_arn'),
+        image_scanning_configurations=pulumi.get(__response__, 'image_scanning_configurations'),
+        image_tests_configurations=pulumi.get(__response__, 'image_tests_configurations'),
+        infrastructure_configuration_arn=pulumi.get(__response__, 'infrastructure_configuration_arn'),
+        name=pulumi.get(__response__, 'name'),
+        platform=pulumi.get(__response__, 'platform'),
+        schedules=pulumi.get(__response__, 'schedules'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))
