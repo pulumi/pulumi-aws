@@ -49,15 +49,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentGetPartition, err := aws.GetPartition(ctx, nil, nil)
+//			currentGetPartition, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentGetRegion, err := aws.GetRegion(ctx, nil, nil)
+//			currentGetRegion, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

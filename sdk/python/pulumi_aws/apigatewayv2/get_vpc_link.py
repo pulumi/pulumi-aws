@@ -153,9 +153,6 @@ def get_vpc_link(tags: Optional[Mapping[str, str]] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
-
-
-@_utilities.lift_output_func(get_vpc_link)
 def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         vpc_link_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
@@ -177,4 +174,16 @@ def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]
     :param Mapping[str, str] tags: VPC Link Tags.
     :param str vpc_link_id: VPC Link ID
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['vpcLinkId'] = vpc_link_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getVpcLink:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult)
+    return __ret__.apply(lambda __response__: GetVpcLinkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_link_id=pulumi.get(__response__, 'vpc_link_id')))

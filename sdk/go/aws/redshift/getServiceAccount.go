@@ -34,7 +34,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := redshift.GetServiceAccount(ctx, nil, nil);
+// main, err := redshift.GetServiceAccount(ctx, &redshift.GetServiceAccountArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

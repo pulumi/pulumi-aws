@@ -149,9 +149,6 @@ def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetA
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_framework)
 def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]]]] = None,
                          framework_type: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
@@ -174,4 +171,18 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[U
 
     :param str name: Name of the framework.
     """
-    ...
+    __args__ = dict()
+    __args__['controlSets'] = control_sets
+    __args__['frameworkType'] = framework_type
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
+    return __ret__.apply(lambda __response__: GetFrameworkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        compliance_type=pulumi.get(__response__, 'compliance_type'),
+        control_sets=pulumi.get(__response__, 'control_sets'),
+        description=pulumi.get(__response__, 'description'),
+        framework_type=pulumi.get(__response__, 'framework_type'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -200,9 +200,6 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-
-
-@_utilities.lift_output_func(get_hours_of_operation)
 def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   instance_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -239,4 +236,20 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     :param str name: Returns information on a specific Hours of Operation by name
     :param Mapping[str, str] tags: Map of tags to assign to the Hours of Operation.
     """
-    ...
+    __args__ = dict()
+    __args__['hoursOfOperationId'] = hours_of_operation_id
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult)
+    return __ret__.apply(lambda __response__: GetHoursOfOperationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        configs=pulumi.get(__response__, 'configs'),
+        description=pulumi.get(__response__, 'description'),
+        hours_of_operation_id=pulumi.get(__response__, 'hours_of_operation_id'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_zone=pulumi.get(__response__, 'time_zone')))
