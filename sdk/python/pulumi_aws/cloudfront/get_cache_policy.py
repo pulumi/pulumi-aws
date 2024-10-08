@@ -175,9 +175,6 @@ def get_cache_policy(id: Optional[str] = None,
         min_ttl=pulumi.get(__ret__, 'min_ttl'),
         name=pulumi.get(__ret__, 'name'),
         parameters_in_cache_key_and_forwarded_to_origins=pulumi.get(__ret__, 'parameters_in_cache_key_and_forwarded_to_origins'))
-
-
-@_utilities.lift_output_func(get_cache_policy)
 def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
@@ -210,4 +207,17 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Identifier for the cache policy.
     :param str name: Unique name to identify the cache policy.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getCachePolicy:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult)
+    return __ret__.apply(lambda __response__: GetCachePolicyResult(
+        comment=pulumi.get(__response__, 'comment'),
+        default_ttl=pulumi.get(__response__, 'default_ttl'),
+        etag=pulumi.get(__response__, 'etag'),
+        id=pulumi.get(__response__, 'id'),
+        max_ttl=pulumi.get(__response__, 'max_ttl'),
+        min_ttl=pulumi.get(__response__, 'min_ttl'),
+        name=pulumi.get(__response__, 'name'),
+        parameters_in_cache_key_and_forwarded_to_origins=pulumi.get(__response__, 'parameters_in_cache_key_and_forwarded_to_origins')))

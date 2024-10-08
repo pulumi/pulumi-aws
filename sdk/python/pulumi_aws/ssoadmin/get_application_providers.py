@@ -90,9 +90,6 @@ def get_application_providers(application_providers: Optional[Sequence[Union['Ge
     return AwaitableGetApplicationProvidersResult(
         application_providers=pulumi.get(__ret__, 'application_providers'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_application_providers)
 def get_application_providers_output(application_providers: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
@@ -112,4 +109,10 @@ def get_application_providers_output(application_providers: Optional[pulumi.Inpu
 
     :param Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']] application_providers: A list of application providers available in the current region. See `application_providers` below.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationProviders'] = application_providers
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationProviders:getApplicationProviders', __args__, opts=opts, typ=GetApplicationProvidersResult)
+    return __ret__.apply(lambda __response__: GetApplicationProvidersResult(
+        application_providers=pulumi.get(__response__, 'application_providers'),
+        id=pulumi.get(__response__, 'id')))

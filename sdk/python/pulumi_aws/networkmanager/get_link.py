@@ -192,9 +192,6 @@ def get_link(global_network_id: Optional[str] = None,
         site_id=pulumi.get(__ret__, 'site_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_link)
 def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     link_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -217,4 +214,20 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
     :param str link_id: ID of the specific link to retrieve.
     :param Mapping[str, str] tags: Key-value tags for the link.
     """
-    ...
+    __args__ = dict()
+    __args__['globalNetworkId'] = global_network_id
+    __args__['linkId'] = link_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getLink:getLink', __args__, opts=opts, typ=GetLinkResult)
+    return __ret__.apply(lambda __response__: GetLinkResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bandwidths=pulumi.get(__response__, 'bandwidths'),
+        description=pulumi.get(__response__, 'description'),
+        global_network_id=pulumi.get(__response__, 'global_network_id'),
+        id=pulumi.get(__response__, 'id'),
+        link_id=pulumi.get(__response__, 'link_id'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        site_id=pulumi.get(__response__, 'site_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

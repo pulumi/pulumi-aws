@@ -82,6 +82,49 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
      * Set of adjustments that manage scaling. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appautoscaling.Policy;
+     * import com.pulumi.aws.appautoscaling.PolicyArgs;
+     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+     *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+     *                 .stepAdjustments(                
+     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+     *                         .metricIntervalLowerBound(1)
+     *                         .metricIntervalUpperBound(2)
+     *                         .scalingAdjustment(-1)
+     *                         .build(),
+     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+     *                         .metricIntervalLowerBound(2)
+     *                         .metricIntervalUpperBound(3)
+     *                         .scalingAdjustment(1)
+     *                         .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -92,6 +135,49 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
      * @return Set of adjustments that manage scaling. These have the following structure:
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.appautoscaling.Policy;
+     * import com.pulumi.aws.appautoscaling.PolicyArgs;
+     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+     *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+     *                 .stepAdjustments(                
+     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+     *                         .metricIntervalLowerBound(1)
+     *                         .metricIntervalUpperBound(2)
+     *                         .scalingAdjustment(-1)
+     *                         .build(),
+     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+     *                         .metricIntervalLowerBound(2)
+     *                         .metricIntervalUpperBound(3)
+     *                         .scalingAdjustment(1)
+     *                         .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -215,6 +301,49 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.appautoscaling.Policy;
+         * import com.pulumi.aws.appautoscaling.PolicyArgs;
+         * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+         *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+         *                 .stepAdjustments(                
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(1)
+         *                         .metricIntervalUpperBound(2)
+         *                         .scalingAdjustment(-1)
+         *                         .build(),
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(2)
+         *                         .metricIntervalUpperBound(3)
+         *                         .scalingAdjustment(1)
+         *                         .build())
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -229,6 +358,49 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.appautoscaling.Policy;
+         * import com.pulumi.aws.appautoscaling.PolicyArgs;
+         * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+         *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+         *                 .stepAdjustments(                
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(1)
+         *                         .metricIntervalUpperBound(2)
+         *                         .scalingAdjustment(-1)
+         *                         .build(),
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(2)
+         *                         .metricIntervalUpperBound(3)
+         *                         .scalingAdjustment(1)
+         *                         .build())
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
@@ -242,6 +414,49 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
          * &lt;!--Start PulumiCodeChooser --&gt;
+         * <pre>
+         * {@code
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.appautoscaling.Policy;
+         * import com.pulumi.aws.appautoscaling.PolicyArgs;
+         * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+         *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+         *                 .stepAdjustments(                
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(1)
+         *                         .metricIntervalUpperBound(2)
+         *                         .scalingAdjustment(-1)
+         *                         .build(),
+         *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+         *                         .metricIntervalLowerBound(2)
+         *                         .metricIntervalUpperBound(3)
+         *                         .scalingAdjustment(1)
+         *                         .build())
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * }
+         * </pre>
          * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder

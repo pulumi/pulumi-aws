@@ -261,9 +261,6 @@ def get_product(accept_language: Optional[str] = None,
         support_url=pulumi.get(__ret__, 'support_url'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_product)
 def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -291,4 +288,25 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
            The following arguments are optional:
     :param Mapping[str, str] tags: Tags applied to the product.
     """
-    ...
+    __args__ = dict()
+    __args__['acceptLanguage'] = accept_language
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
+    return __ret__.apply(lambda __response__: GetProductResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        description=pulumi.get(__response__, 'description'),
+        distributor=pulumi.get(__response__, 'distributor'),
+        has_default_path=pulumi.get(__response__, 'has_default_path'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        status=pulumi.get(__response__, 'status'),
+        support_description=pulumi.get(__response__, 'support_description'),
+        support_email=pulumi.get(__response__, 'support_email'),
+        support_url=pulumi.get(__response__, 'support_url'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

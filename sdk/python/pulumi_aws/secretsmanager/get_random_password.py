@@ -188,9 +188,6 @@ def get_random_password(exclude_characters: Optional[str] = None,
         password_length=pulumi.get(__ret__, 'password_length'),
         random_password=pulumi.get(__ret__, 'random_password'),
         require_each_included_type=pulumi.get(__ret__, 'require_each_included_type'))
-
-
-@_utilities.lift_output_func(get_random_password)
 def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optional[str]]] = None,
                                exclude_lowercase: Optional[pulumi.Input[Optional[bool]]] = None,
                                exclude_numbers: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -223,4 +220,25 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     :param int password_length: Length of the password.
     :param bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
-    ...
+    __args__ = dict()
+    __args__['excludeCharacters'] = exclude_characters
+    __args__['excludeLowercase'] = exclude_lowercase
+    __args__['excludeNumbers'] = exclude_numbers
+    __args__['excludePunctuation'] = exclude_punctuation
+    __args__['excludeUppercase'] = exclude_uppercase
+    __args__['includeSpace'] = include_space
+    __args__['passwordLength'] = password_length
+    __args__['requireEachIncludedType'] = require_each_included_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult)
+    return __ret__.apply(lambda __response__: GetRandomPasswordResult(
+        exclude_characters=pulumi.get(__response__, 'exclude_characters'),
+        exclude_lowercase=pulumi.get(__response__, 'exclude_lowercase'),
+        exclude_numbers=pulumi.get(__response__, 'exclude_numbers'),
+        exclude_punctuation=pulumi.get(__response__, 'exclude_punctuation'),
+        exclude_uppercase=pulumi.get(__response__, 'exclude_uppercase'),
+        id=pulumi.get(__response__, 'id'),
+        include_space=pulumi.get(__response__, 'include_space'),
+        password_length=pulumi.get(__response__, 'password_length'),
+        random_password=pulumi.get(__response__, 'random_password'),
+        require_each_included_type=pulumi.get(__response__, 'require_each_included_type')))
