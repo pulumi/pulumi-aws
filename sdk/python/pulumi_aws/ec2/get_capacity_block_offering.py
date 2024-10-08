@@ -204,9 +204,6 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[int] = None,
         start_date_range=pulumi.get(__ret__, 'start_date_range'),
         tenancy=pulumi.get(__ret__, 'tenancy'),
         upfront_fee=pulumi.get(__ret__, 'upfront_fee'))
-
-
-@_utilities.lift_output_func(get_capacity_block_offering)
 def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.Input[int]] = None,
                                        end_date_range: Optional[pulumi.Input[Optional[str]]] = None,
                                        instance_count: Optional[pulumi.Input[int]] = None,
@@ -236,4 +233,23 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
     :param str instance_type: The instance type for which to reserve capacity.
     :param str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     """
-    ...
+    __args__ = dict()
+    __args__['capacityDurationHours'] = capacity_duration_hours
+    __args__['endDateRange'] = end_date_range
+    __args__['instanceCount'] = instance_count
+    __args__['instanceType'] = instance_type
+    __args__['startDateRange'] = start_date_range
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering', __args__, opts=opts, typ=GetCapacityBlockOfferingResult)
+    return __ret__.apply(lambda __response__: GetCapacityBlockOfferingResult(
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        capacity_block_offering_id=pulumi.get(__response__, 'capacity_block_offering_id'),
+        capacity_duration_hours=pulumi.get(__response__, 'capacity_duration_hours'),
+        currency_code=pulumi.get(__response__, 'currency_code'),
+        end_date_range=pulumi.get(__response__, 'end_date_range'),
+        id=pulumi.get(__response__, 'id'),
+        instance_count=pulumi.get(__response__, 'instance_count'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        start_date_range=pulumi.get(__response__, 'start_date_range'),
+        tenancy=pulumi.get(__response__, 'tenancy'),
+        upfront_fee=pulumi.get(__response__, 'upfront_fee')))

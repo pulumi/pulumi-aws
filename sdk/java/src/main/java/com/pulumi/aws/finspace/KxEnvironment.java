@@ -129,6 +129,75 @@ import javax.annotation.Nullable;
  * ### With Transit Gateway Attachment Network ACL Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.finspace.KxEnvironment;
+ * import com.pulumi.aws.finspace.KxEnvironmentArgs;
+ * import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationArgs;
+ * import com.pulumi.aws.finspace.inputs.KxEnvironmentCustomDnsConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Key("example", KeyArgs.builder()
+ *             .description("Sample KMS Key")
+ *             .deletionWindowInDays(7)
+ *             .build());
+ * 
+ *         var exampleTransitGateway = new TransitGateway("exampleTransitGateway", TransitGatewayArgs.builder()
+ *             .description("example")
+ *             .build());
+ * 
+ *         var exampleEnv = new KxEnvironment("exampleEnv", KxEnvironmentArgs.builder()
+ *             .name("my-tf-kx-environment")
+ *             .description("Environment description")
+ *             .kmsKeyId(example.arn())
+ *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()
+ *                 .transitGatewayId(exampleTransitGateway.id())
+ *                 .routableCidrSpace("100.64.0.0/26")
+ *                 .attachmentNetworkAclConfigurations(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs.builder()
+ *                     .ruleNumber(1)
+ *                     .protocol("6")
+ *                     .ruleAction("allow")
+ *                     .cidrBlock("0.0.0.0/0")
+ *                     .portRange(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs.builder()
+ *                         .from(53)
+ *                         .to(53)
+ *                         .build())
+ *                     .icmpTypeCode(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs.builder()
+ *                         .type(-1)
+ *                         .code(-1)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .customDnsConfigurations(KxEnvironmentCustomDnsConfigurationArgs.builder()
+ *                 .customDnsServerName("example.finspace.amazonaws.com")
+ *                 .customDnsServerIp("10.0.0.76")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
