@@ -31,7 +31,7 @@ public final class BucketLifecycleRule {
      */
     private Boolean enabled;
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Specifies a period in the object&#39;s expire (documented below).
      * 
      */
     private @Nullable BucketLifecycleRuleExpiration expiration;
@@ -41,12 +41,14 @@ public final class BucketLifecycleRule {
      */
     private @Nullable String id;
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return Specifies when noncurrent object versions expire (documented below).
      * 
      */
     private @Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration;
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     private @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
@@ -61,7 +63,7 @@ public final class BucketLifecycleRule {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Specifies a period in the object&#39;s transitions (documented below).
      * 
      */
     private @Nullable List<BucketLifecycleRuleTransition> transitions;
@@ -82,7 +84,7 @@ public final class BucketLifecycleRule {
         return this.enabled;
     }
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Specifies a period in the object&#39;s expire (documented below).
      * 
      */
     public Optional<BucketLifecycleRuleExpiration> expiration() {
@@ -96,14 +98,16 @@ public final class BucketLifecycleRule {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return Specifies when noncurrent object versions expire (documented below).
      * 
      */
     public Optional<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpiration() {
         return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     public List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
@@ -124,7 +128,7 @@ public final class BucketLifecycleRule {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Specifies a period in the object&#39;s transitions (documented below).
      * 
      */
     public List<BucketLifecycleRuleTransition> transitions() {

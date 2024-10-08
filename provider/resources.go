@@ -3756,7 +3756,7 @@ compatibility shim in favor of the new "name" field.`)
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
-				Docs: &tfbridge.DocInfo{Source: "../../../../docs/resource/aws_s3_bucket_legacy.md"},
+				Docs: &tfbridge.DocInfo{Markdown: maybeReadFile("docs/resource/aws_s3_bucket_legacy.md")},
 			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},

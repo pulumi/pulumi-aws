@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Minutes { get; set; }
 
         /// <summary>
-        /// Status of replication metrics. Either `Enabled` or `Disabled`.
+        /// The status of replication metrics. Either `Enabled` or `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

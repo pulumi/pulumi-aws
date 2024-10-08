@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly int? Minutes;
         /// <summary>
-        /// Status of RTC. Either `Enabled` or `Disabled`.
+        /// The status of RTC. Either `Enabled` or `Disabled`.
         /// </summary>
         public readonly string? Status;
 
