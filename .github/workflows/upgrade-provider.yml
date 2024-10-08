@@ -9,21 +9,35 @@ jobs:
     name: upgrade-provider
     runs-on: ubuntu-latest
     steps:
-    # Run as first step so we don't delete things that have just been installed
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
-      with:
-        tool-cache: false
-        swap-storage: false
-    - name: Call upgrade provider action
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.12
-      with:
-        kind: all
-        email: bot@pulumi.com
-        username: pulumi-bot
+      # Run as first step so we don't delete things that have just been installed
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          tool-cache: false
+          swap-storage: false
+          dotnet: false
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Setup tools
+        uses: ./.github/actions/setup-tools
+        with:
+          tools: pulumictl, pulumicli, go, nodejs, dotnet, python, java
+      - name: Install upgrade-provider
+        run: go install github.com/pulumi/upgrade-provider@main
+        shell: bash
+      - name: "Set up git identity: name"
+        run: |
+          git config --global user.name 'bot@pulumi.com'
+          git config --global user.email 'bot@pulumi.com'
+        shell: bash
+      - name: Run upgrade-provider
+        run: upgrade-provider "${{ github.repository }}" --kind="all" 
+        shell: bash
 name: Upgrade provider
 on:
   issues:
     types:
-    - opened
+      - opened
   workflow_dispatch: {}
