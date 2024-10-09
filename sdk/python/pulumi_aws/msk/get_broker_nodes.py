@@ -94,9 +94,6 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         id=pulumi.get(__ret__, 'id'),
         node_info_lists=pulumi.get(__ret__, 'node_info_lists'))
-
-
-@_utilities.lift_output_func(get_broker_nodes)
 def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
@@ -114,4 +111,11 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getBrokerNodes:getBrokerNodes', __args__, opts=opts, typ=GetBrokerNodesResult)
+    return __ret__.apply(lambda __response__: GetBrokerNodesResult(
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        id=pulumi.get(__response__, 'id'),
+        node_info_lists=pulumi.get(__response__, 'node_info_lists')))

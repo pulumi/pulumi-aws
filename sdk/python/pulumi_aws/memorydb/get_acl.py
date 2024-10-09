@@ -138,9 +138,6 @@ def get_acl(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         user_names=pulumi.get(__ret__, 'user_names'))
-
-
-@_utilities.lift_output_func(get_acl)
 def get_acl_output(name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
@@ -160,4 +157,15 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the ACL.
     :param Mapping[str, str] tags: Map of tags assigned to the ACL.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getAcl:getAcl', __args__, opts=opts, typ=GetAclResult)
+    return __ret__.apply(lambda __response__: GetAclResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_engine_version=pulumi.get(__response__, 'minimum_engine_version'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_names=pulumi.get(__response__, 'user_names')))

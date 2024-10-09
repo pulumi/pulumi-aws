@@ -85,9 +85,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     return AwaitableGetCanonicalUserIdResult(
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_canonical_user_id)
 def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCanonicalUserIdResult]:
     """
     The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -105,4 +102,9 @@ def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     pulumi.export("canonicalUserId", current.id)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts, typ=GetCanonicalUserIdResult)
+    return __ret__.apply(lambda __response__: GetCanonicalUserIdResult(
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id')))

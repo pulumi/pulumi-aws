@@ -189,9 +189,6 @@ def get_connection(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         physical_connection_requirements=pulumi.get(__ret__, 'physical_connection_requirements'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_connection)
 def get_connection_output(id: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
@@ -212,4 +209,19 @@ def get_connection_output(id: Optional[pulumi.Input[str]] = None,
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
     :param Mapping[str, str] tags: Tags assigned to the resource
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
+    return __ret__.apply(lambda __response__: GetConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        connection_properties=pulumi.get(__response__, 'connection_properties'),
+        connection_type=pulumi.get(__response__, 'connection_type'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        match_criterias=pulumi.get(__response__, 'match_criterias'),
+        name=pulumi.get(__response__, 'name'),
+        physical_connection_requirements=pulumi.get(__response__, 'physical_connection_requirements'),
+        tags=pulumi.get(__response__, 'tags')))

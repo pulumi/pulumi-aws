@@ -155,9 +155,6 @@ def get_alias(description: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_configurations=pulumi.get(__ret__, 'routing_configurations'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'))
-
-
-@_utilities.lift_output_func(get_alias)
 def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      statemachine_arn: Optional[pulumi.Input[str]] = None,
@@ -182,4 +179,17 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the State Machine alias.
     :param str statemachine_arn: ARN of the State Machine.
     """
-    ...
+    __args__ = dict()
+    __args__['description'] = description
+    __args__['name'] = name
+    __args__['statemachineArn'] = statemachine_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sfn/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
+    return __ret__.apply(lambda __response__: GetAliasResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        routing_configurations=pulumi.get(__response__, 'routing_configurations'),
+        statemachine_arn=pulumi.get(__response__, 'statemachine_arn')))
