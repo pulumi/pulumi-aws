@@ -101,9 +101,6 @@ def get_standards_control_associations(security_control_id: Optional[str] = None
         id=pulumi.get(__ret__, 'id'),
         security_control_id=pulumi.get(__ret__, 'security_control_id'),
         standards_control_associations=pulumi.get(__ret__, 'standards_control_associations'))
-
-
-@_utilities.lift_output_func(get_standards_control_associations)
 def get_standards_control_associations_output(security_control_id: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
     """
@@ -124,4 +121,11 @@ def get_standards_control_associations_output(security_control_id: Optional[pulu
 
     :param str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
     """
-    ...
+    __args__ = dict()
+    __args__['securityControlId'] = security_control_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations', __args__, opts=opts, typ=GetStandardsControlAssociationsResult)
+    return __ret__.apply(lambda __response__: GetStandardsControlAssociationsResult(
+        id=pulumi.get(__response__, 'id'),
+        security_control_id=pulumi.get(__response__, 'security_control_id'),
+        standards_control_associations=pulumi.get(__response__, 'standards_control_associations')))

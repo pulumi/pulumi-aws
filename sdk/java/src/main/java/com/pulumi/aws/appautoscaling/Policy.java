@@ -82,6 +82,60 @@ import javax.annotation.Nullable;
  * ### ECS Service Autoscaling
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appautoscaling.Target;
+ * import com.pulumi.aws.appautoscaling.TargetArgs;
+ * import com.pulumi.aws.appautoscaling.Policy;
+ * import com.pulumi.aws.appautoscaling.PolicyArgs;
+ * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ecsTarget = new Target("ecsTarget", TargetArgs.builder()
+ *             .maxCapacity(4)
+ *             .minCapacity(1)
+ *             .resourceId("service/clusterName/serviceName")
+ *             .scalableDimension("ecs:service:DesiredCount")
+ *             .serviceNamespace("ecs")
+ *             .build());
+ * 
+ *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
+ *             .name("scale-down")
+ *             .policyType("StepScaling")
+ *             .resourceId(ecsTarget.resourceId())
+ *             .scalableDimension(ecsTarget.scalableDimension())
+ *             .serviceNamespace(ecsTarget.serviceNamespace())
+ *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
+ *                 .adjustmentType("ChangeInCapacity")
+ *                 .cooldown(60)
+ *                 .metricAggregationType("Maximum")
+ *                 .stepAdjustments(PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
+ *                     .metricIntervalUpperBound(0)
+ *                     .scalingAdjustment(-1)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Preserve desired count when updating an autoscaled ECS Service

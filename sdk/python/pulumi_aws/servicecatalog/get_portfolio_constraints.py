@@ -133,9 +133,6 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
         product_id=pulumi.get(__ret__, 'product_id'))
-
-
-@_utilities.lift_output_func(get_portfolio_constraints)
 def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                                      portfolio_id: Optional[pulumi.Input[str]] = None,
                                      product_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -161,4 +158,15 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
            The following arguments are optional:
     :param str product_id: Product identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['acceptLanguage'] = accept_language
+    __args__['portfolioId'] = portfolio_id
+    __args__['productId'] = product_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult)
+    return __ret__.apply(lambda __response__: GetPortfolioConstraintsResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
+        details=pulumi.get(__response__, 'details'),
+        id=pulumi.get(__response__, 'id'),
+        portfolio_id=pulumi.get(__response__, 'portfolio_id'),
+        product_id=pulumi.get(__response__, 'product_id')))

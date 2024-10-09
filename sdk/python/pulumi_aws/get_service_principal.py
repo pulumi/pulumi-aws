@@ -127,9 +127,6 @@ def get_service_principal(region: Optional[str] = None,
         region=pulumi.get(__ret__, 'region'),
         service_name=pulumi.get(__ret__, 'service_name'),
         suffix=pulumi.get(__ret__, 'suffix'))
-
-
-@_utilities.lift_output_func(get_service_principal)
 def get_service_principal_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                                  service_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServicePrincipalResult]:
@@ -151,4 +148,14 @@ def get_service_principal_output(region: Optional[pulumi.Input[Optional[str]]] =
     :param str region: Region you'd like the SPN for. By default, uses the current region.
     :param str service_name: Name of the service you want to generate a Service Principal Name for.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getServicePrincipal:getServicePrincipal', __args__, opts=opts, typ=GetServicePrincipalResult)
+    return __ret__.apply(lambda __response__: GetServicePrincipalResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        suffix=pulumi.get(__response__, 'suffix')))
