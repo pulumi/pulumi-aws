@@ -186,9 +186,6 @@ def get_accelerator(arn: Optional[str] = None,
         ip_sets=pulumi.get(__ret__, 'ip_sets'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_accelerator)
 def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -219,4 +216,21 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['id'] = id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult)
+    return __ret__.apply(lambda __response__: GetAcceleratorResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attributes=pulumi.get(__response__, 'attributes'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        dual_stack_dns_name=pulumi.get(__response__, 'dual_stack_dns_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ip_sets=pulumi.get(__response__, 'ip_sets'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

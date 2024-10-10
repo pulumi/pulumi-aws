@@ -123,9 +123,6 @@ def get_scheduling_policy(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_scheduling_policy)
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
@@ -145,4 +142,14 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the scheduling policy.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:batch/getSchedulingPolicy:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult)
+    return __ret__.apply(lambda __response__: GetSchedulingPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        fair_share_policies=pulumi.get(__response__, 'fair_share_policies'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

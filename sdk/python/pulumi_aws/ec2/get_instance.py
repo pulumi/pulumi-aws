@@ -705,9 +705,6 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
         user_data=pulumi.get(__ret__, 'user_data'),
         user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_instance)
 def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]]]] = None,
                         get_password_data: Optional[pulumi.Input[Optional[bool]]] = None,
                         get_user_data: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -754,4 +751,61 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
            exactly match a pair on the desired Instance.
     :param Mapping[str, str] tags: Map of tags assigned to the Instance.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['getPasswordData'] = get_password_data
+    __args__['getUserData'] = get_user_data
+    __args__['instanceId'] = instance_id
+    __args__['instanceTags'] = instance_tags
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
+    return __ret__.apply(lambda __response__: GetInstanceResult(
+        ami=pulumi.get(__response__, 'ami'),
+        arn=pulumi.get(__response__, 'arn'),
+        associate_public_ip_address=pulumi.get(__response__, 'associate_public_ip_address'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        credit_specifications=pulumi.get(__response__, 'credit_specifications'),
+        disable_api_stop=pulumi.get(__response__, 'disable_api_stop'),
+        disable_api_termination=pulumi.get(__response__, 'disable_api_termination'),
+        ebs_block_devices=pulumi.get(__response__, 'ebs_block_devices'),
+        ebs_optimized=pulumi.get(__response__, 'ebs_optimized'),
+        enclave_options=pulumi.get(__response__, 'enclave_options'),
+        ephemeral_block_devices=pulumi.get(__response__, 'ephemeral_block_devices'),
+        filters=pulumi.get(__response__, 'filters'),
+        get_password_data=pulumi.get(__response__, 'get_password_data'),
+        get_user_data=pulumi.get(__response__, 'get_user_data'),
+        host_id=pulumi.get(__response__, 'host_id'),
+        host_resource_group_arn=pulumi.get(__response__, 'host_resource_group_arn'),
+        iam_instance_profile=pulumi.get(__response__, 'iam_instance_profile'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        instance_state=pulumi.get(__response__, 'instance_state'),
+        instance_tags=pulumi.get(__response__, 'instance_tags'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        launch_time=pulumi.get(__response__, 'launch_time'),
+        maintenance_options=pulumi.get(__response__, 'maintenance_options'),
+        metadata_options=pulumi.get(__response__, 'metadata_options'),
+        monitoring=pulumi.get(__response__, 'monitoring'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        password_data=pulumi.get(__response__, 'password_data'),
+        placement_group=pulumi.get(__response__, 'placement_group'),
+        placement_partition_number=pulumi.get(__response__, 'placement_partition_number'),
+        private_dns=pulumi.get(__response__, 'private_dns'),
+        private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),
+        private_ip=pulumi.get(__response__, 'private_ip'),
+        public_dns=pulumi.get(__response__, 'public_dns'),
+        public_ip=pulumi.get(__response__, 'public_ip'),
+        root_block_devices=pulumi.get(__response__, 'root_block_devices'),
+        secondary_private_ips=pulumi.get(__response__, 'secondary_private_ips'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        source_dest_check=pulumi.get(__response__, 'source_dest_check'),
+        subnet_id=pulumi.get(__response__, 'subnet_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        tenancy=pulumi.get(__response__, 'tenancy'),
+        user_data=pulumi.get(__response__, 'user_data'),
+        user_data_base64=pulumi.get(__response__, 'user_data_base64'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

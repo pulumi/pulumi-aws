@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = codepipeline.NewPipeline(ctx, "example", &codepipeline.PipelineArgs{
 //				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
-//					nil,
+//					&codepipeline.PipelineArtifactStoreArgs{},
 //				},
 //				Stages: codepipeline.PipelineStageArray{
 //					&codepipeline.PipelineStageArgs{
@@ -64,13 +64,13 @@ import (
 //					},
 //					&codepipeline.PipelineStageArgs{
 //						Actions: codepipeline.PipelineStageActionArray{
-//							nil,
+//							&codepipeline.PipelineStageActionArgs{},
 //						},
 //						Name: pulumi.String("Build"),
 //					},
 //					&codepipeline.PipelineStageArgs{
 //						Actions: codepipeline.PipelineStageActionArray{
-//							nil,
+//							&codepipeline.PipelineStageActionArgs{},
 //						},
 //						Name: pulumi.String("Deploy"),
 //					},

@@ -81,9 +81,6 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
     return AwaitableGetSitesResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
-
-
-@_utilities.lift_output_func(get_sites)
 def get_sites_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSitesResult]:
     """
     Provides details about multiple Outposts Sites.
@@ -97,4 +94,9 @@ def get_sites_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     all = aws.outposts.get_sites()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getSites:getSites', __args__, opts=opts, typ=GetSitesResult)
+    return __ret__.apply(lambda __response__: GetSitesResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids')))

@@ -196,9 +196,6 @@ def get_analysis(analysis_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
-
-
-@_utilities.lift_output_func(get_analysis)
 def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
                         aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -224,4 +221,22 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
     :param str aws_account_id: AWS account ID.
     """
     pulumi.log.warn("""get_analysis is deprecated: aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis""")
-    ...
+    __args__ = dict()
+    __args__['analysisId'] = analysis_id
+    __args__['awsAccountId'] = aws_account_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getAnalysis:getAnalysis', __args__, opts=opts, typ=GetAnalysisResult)
+    return __ret__.apply(lambda __response__: GetAnalysisResult(
+        analysis_id=pulumi.get(__response__, 'analysis_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        last_published_time=pulumi.get(__response__, 'last_published_time'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        theme_arn=pulumi.get(__response__, 'theme_arn')))

@@ -176,9 +176,6 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-
-
-@_utilities.lift_output_func(get_route_table)
 def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -220,4 +217,17 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
+    return __ret__.apply(lambda __response__: GetRouteTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        default_association_route_table=pulumi.get(__response__, 'default_association_route_table'),
+        default_propagation_route_table=pulumi.get(__response__, 'default_propagation_route_table'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

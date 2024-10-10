@@ -168,9 +168,6 @@ def get_snapshot(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
@@ -190,4 +187,17 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the snapshot.
     :param Mapping[str, str] tags: Map of tags assigned to the snapshot.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
+    return __ret__.apply(lambda __response__: GetSnapshotResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cluster_configurations=pulumi.get(__response__, 'cluster_configurations'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        name=pulumi.get(__response__, 'name'),
+        source=pulumi.get(__response__, 'source'),
+        tags=pulumi.get(__response__, 'tags')))

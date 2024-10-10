@@ -127,9 +127,6 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
         parameter_values=pulumi.get(__ret__, 'parameter_values'),
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'))
-
-
-@_utilities.lift_output_func(get_pipeline_definition)
 def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
                                    pipeline_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
@@ -149,4 +146,14 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
     :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
     :param str pipeline_id: ID of the pipeline.
     """
-    ...
+    __args__ = dict()
+    __args__['parameterValues'] = parameter_values
+    __args__['pipelineId'] = pipeline_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:datapipeline/getPipelineDefinition:getPipelineDefinition', __args__, opts=opts, typ=GetPipelineDefinitionResult)
+    return __ret__.apply(lambda __response__: GetPipelineDefinitionResult(
+        id=pulumi.get(__response__, 'id'),
+        parameter_objects=pulumi.get(__response__, 'parameter_objects'),
+        parameter_values=pulumi.get(__response__, 'parameter_values'),
+        pipeline_id=pulumi.get(__response__, 'pipeline_id'),
+        pipeline_objects=pulumi.get(__response__, 'pipeline_objects')))

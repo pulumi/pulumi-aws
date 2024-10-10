@@ -286,9 +286,6 @@ def get_load_balancer(name: Optional[str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
@@ -317,4 +314,30 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Unique name of the load balancer.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        access_logs=pulumi.get(__response__, 'access_logs'),
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        connection_draining=pulumi.get(__response__, 'connection_draining'),
+        connection_draining_timeout=pulumi.get(__response__, 'connection_draining_timeout'),
+        cross_zone_load_balancing=pulumi.get(__response__, 'cross_zone_load_balancing'),
+        desync_mitigation_mode=pulumi.get(__response__, 'desync_mitigation_mode'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        health_check=pulumi.get(__response__, 'health_check'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout=pulumi.get(__response__, 'idle_timeout'),
+        instances=pulumi.get(__response__, 'instances'),
+        internal=pulumi.get(__response__, 'internal'),
+        listeners=pulumi.get(__response__, 'listeners'),
+        name=pulumi.get(__response__, 'name'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        source_security_group=pulumi.get(__response__, 'source_security_group'),
+        source_security_group_id=pulumi.get(__response__, 'source_security_group_id'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags'),
+        zone_id=pulumi.get(__response__, 'zone_id')))

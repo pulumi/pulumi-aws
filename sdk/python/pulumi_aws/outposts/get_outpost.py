@@ -216,9 +216,6 @@ def get_outpost(arn: Optional[str] = None,
         site_id=pulumi.get(__ret__, 'site_id'),
         supported_hardware_type=pulumi.get(__ret__, 'supported_hardware_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_outpost)
 def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -244,4 +241,24 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str owner_id: AWS Account identifier of the Outpost owner.
     :param Mapping[str, str] tags: The Outpost tags.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['ownerId'] = owner_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpost:getOutpost', __args__, opts=opts, typ=GetOutpostResult)
+    return __ret__.apply(lambda __response__: GetOutpostResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        lifecycle_status=pulumi.get(__response__, 'lifecycle_status'),
+        name=pulumi.get(__response__, 'name'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        site_arn=pulumi.get(__response__, 'site_arn'),
+        site_id=pulumi.get(__response__, 'site_id'),
+        supported_hardware_type=pulumi.get(__response__, 'supported_hardware_type'),
+        tags=pulumi.get(__response__, 'tags')))

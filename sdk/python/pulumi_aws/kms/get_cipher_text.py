@@ -133,9 +133,6 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
         id=pulumi.get(__ret__, 'id'),
         key_id=pulumi.get(__ret__, 'key_id'),
         plaintext=pulumi.get(__ret__, 'plaintext'))
-
-
-@_utilities.lift_output_func(get_cipher_text)
 def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            key_id: Optional[pulumi.Input[str]] = None,
                            plaintext: Optional[pulumi.Input[str]] = None,
@@ -168,4 +165,15 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     :param str key_id: Globally unique key ID for the customer master key.
     :param str plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
     """
-    ...
+    __args__ = dict()
+    __args__['context'] = context
+    __args__['keyId'] = key_id
+    __args__['plaintext'] = plaintext
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kms/getCipherText:getCipherText', __args__, opts=opts, typ=GetCipherTextResult)
+    return __ret__.apply(lambda __response__: GetCipherTextResult(
+        ciphertext_blob=pulumi.get(__response__, 'ciphertext_blob'),
+        context=pulumi.get(__response__, 'context'),
+        id=pulumi.get(__response__, 'id'),
+        key_id=pulumi.get(__response__, 'key_id'),
+        plaintext=pulumi.get(__response__, 'plaintext')))

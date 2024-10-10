@@ -213,7 +213,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				InlinePolicies: iam.RoleInlinePolicyArray{
-//					nil,
+//					&iam.RoleInlinePolicyArgs{},
 //				},
 //				Name:             pulumi.String("yak_role"),
 //				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),

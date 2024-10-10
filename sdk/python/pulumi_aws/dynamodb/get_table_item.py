@@ -148,9 +148,6 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
         key=pulumi.get(__ret__, 'key'),
         projection_expression=pulumi.get(__ret__, 'projection_expression'),
         table_name=pulumi.get(__ret__, 'table_name'))
-
-
-@_utilities.lift_output_func(get_table_item)
 def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           key: Optional[pulumi.Input[str]] = None,
                           projection_expression: Optional[pulumi.Input[Optional[str]]] = None,
@@ -187,4 +184,17 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
            If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
     :param str table_name: The name of the table containing the requested item.
     """
-    ...
+    __args__ = dict()
+    __args__['expressionAttributeNames'] = expression_attribute_names
+    __args__['key'] = key
+    __args__['projectionExpression'] = projection_expression
+    __args__['tableName'] = table_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTableItem:getTableItem', __args__, opts=opts, typ=GetTableItemResult)
+    return __ret__.apply(lambda __response__: GetTableItemResult(
+        expression_attribute_names=pulumi.get(__response__, 'expression_attribute_names'),
+        id=pulumi.get(__response__, 'id'),
+        item=pulumi.get(__response__, 'item'),
+        key=pulumi.get(__response__, 'key'),
+        projection_expression=pulumi.get(__response__, 'projection_expression'),
+        table_name=pulumi.get(__response__, 'table_name')))

@@ -174,9 +174,6 @@ def get_profiling_group(name: Optional[str] = None,
         profiling_statuses=pulumi.get(__ret__, 'profiling_statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_profiling_group)
 def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
@@ -196,4 +193,17 @@ def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the profiling group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codeguruprofiler/getProfilingGroup:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult)
+    return __ret__.apply(lambda __response__: GetProfilingGroupResult(
+        agent_orchestration_configs=pulumi.get(__response__, 'agent_orchestration_configs'),
+        arn=pulumi.get(__response__, 'arn'),
+        compute_platform=pulumi.get(__response__, 'compute_platform'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        profiling_statuses=pulumi.get(__response__, 'profiling_statuses'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

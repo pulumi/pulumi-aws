@@ -164,9 +164,6 @@ def get_email_identity(email_identity: Optional[str] = None,
         identity_type=pulumi.get(__ret__, 'identity_type'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_for_sending_status=pulumi.get(__ret__, 'verified_for_sending_status'))
-
-
-@_utilities.lift_output_func(get_email_identity)
 def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
@@ -188,4 +185,17 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None
     :param str email_identity: The name of the email identity.
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['emailIdentity'] = email_identity
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
+    return __ret__.apply(lambda __response__: GetEmailIdentityResult(
+        arn=pulumi.get(__response__, 'arn'),
+        configuration_set_name=pulumi.get(__response__, 'configuration_set_name'),
+        dkim_signing_attributes=pulumi.get(__response__, 'dkim_signing_attributes'),
+        email_identity=pulumi.get(__response__, 'email_identity'),
+        id=pulumi.get(__response__, 'id'),
+        identity_type=pulumi.get(__response__, 'identity_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        verified_for_sending_status=pulumi.get(__response__, 'verified_for_sending_status')))

@@ -35,6 +35,56 @@ import javax.annotation.Nullable;
  * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroup;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupIngressArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupEgressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()
+ *             .cidrBlock("10.1.0.0/16")
+ *             .build());
+ * 
+ *         var default_ = new DefaultSecurityGroup("default", DefaultSecurityGroupArgs.builder()
+ *             .vpcId(mainvpc.id())
+ *             .ingress(DefaultSecurityGroupIngressArgs.builder()
+ *                 .protocol(-1)
+ *                 .self(true)
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .egress(DefaultSecurityGroupEgressArgs.builder()
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .protocol("-1")
+ *                 .cidrBlocks("0.0.0.0/0")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example Config To Deny All Egress Traffic, Allowing Ingress
@@ -42,6 +92,49 @@ import javax.annotation.Nullable;
  * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroup;
+ * import com.pulumi.aws.ec2.DefaultSecurityGroupArgs;
+ * import com.pulumi.aws.ec2.inputs.DefaultSecurityGroupIngressArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var mainvpc = new Vpc("mainvpc", VpcArgs.builder()
+ *             .cidrBlock("10.1.0.0/16")
+ *             .build());
+ * 
+ *         var default_ = new DefaultSecurityGroup("default", DefaultSecurityGroupArgs.builder()
+ *             .vpcId(mainvpc.id())
+ *             .ingress(DefaultSecurityGroupIngressArgs.builder()
+ *                 .protocol(-1)
+ *                 .self(true)
+ *                 .fromPort(0)
+ *                 .toPort(0)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration

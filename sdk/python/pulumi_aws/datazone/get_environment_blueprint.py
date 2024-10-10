@@ -142,9 +142,6 @@ def get_environment_blueprint(domain_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         managed=pulumi.get(__ret__, 'managed'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_environment_blueprint)
 def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[str]] = None,
                                      managed: Optional[pulumi.Input[bool]] = None,
                                      name: Optional[pulumi.Input[str]] = None,
@@ -173,4 +170,16 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[str]] = No
     :param bool managed: Whether the blueprint is managed by Amazon DataZone.
     :param str name: Name of the blueprint.
     """
-    ...
+    __args__ = dict()
+    __args__['domainId'] = domain_id
+    __args__['managed'] = managed
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint', __args__, opts=opts, typ=GetEnvironmentBlueprintResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentBlueprintResult(
+        blueprint_provider=pulumi.get(__response__, 'blueprint_provider'),
+        description=pulumi.get(__response__, 'description'),
+        domain_id=pulumi.get(__response__, 'domain_id'),
+        id=pulumi.get(__response__, 'id'),
+        managed=pulumi.get(__response__, 'managed'),
+        name=pulumi.get(__response__, 'name')))

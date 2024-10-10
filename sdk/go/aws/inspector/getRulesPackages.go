@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Declare the data source
-//			rules, err := inspector.GetRulesPackages(ctx, nil, nil)
+//			rules, err := inspector.GetRulesPackages(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

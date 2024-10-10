@@ -132,9 +132,6 @@ def get_named_query(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         querystring=pulumi.get(__ret__, 'querystring'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
-
-
-@_utilities.lift_output_func(get_named_query)
 def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
                            workgroup: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
@@ -154,4 +151,15 @@ def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The plain language name for the query. Maximum length of 128.
     :param str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['workgroup'] = workgroup
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:athena/getNamedQuery:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult)
+    return __ret__.apply(lambda __response__: GetNamedQueryResult(
+        database=pulumi.get(__response__, 'database'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        querystring=pulumi.get(__response__, 'querystring'),
+        workgroup=pulumi.get(__response__, 'workgroup')))

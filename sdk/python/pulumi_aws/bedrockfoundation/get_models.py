@@ -147,9 +147,6 @@ def get_models(by_customization_type: Optional[str] = None,
         by_provider=pulumi.get(__ret__, 'by_provider'),
         id=pulumi.get(__ret__, 'id'),
         model_summaries=pulumi.get(__ret__, 'model_summaries'))
-
-
-@_utilities.lift_output_func(get_models)
 def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]]] = None,
                       by_inference_type: Optional[pulumi.Input[Optional[str]]] = None,
                       by_output_modality: Optional[pulumi.Input[Optional[str]]] = None,
@@ -184,4 +181,17 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
     :param str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param str by_provider: Model provider to filter on.
     """
-    ...
+    __args__ = dict()
+    __args__['byCustomizationType'] = by_customization_type
+    __args__['byInferenceType'] = by_inference_type
+    __args__['byOutputModality'] = by_output_modality
+    __args__['byProvider'] = by_provider
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModels:getModels', __args__, opts=opts, typ=GetModelsResult)
+    return __ret__.apply(lambda __response__: GetModelsResult(
+        by_customization_type=pulumi.get(__response__, 'by_customization_type'),
+        by_inference_type=pulumi.get(__response__, 'by_inference_type'),
+        by_output_modality=pulumi.get(__response__, 'by_output_modality'),
+        by_provider=pulumi.get(__response__, 'by_provider'),
+        id=pulumi.get(__response__, 'id'),
+        model_summaries=pulumi.get(__response__, 'model_summaries')))

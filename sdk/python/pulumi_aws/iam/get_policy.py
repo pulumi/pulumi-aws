@@ -209,9 +209,6 @@ def get_policy(arn: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
@@ -251,4 +248,21 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            Conflicts with `arn`.
     :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['pathPrefix'] = path_prefix
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attachment_count=pulumi.get(__response__, 'attachment_count'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        path_prefix=pulumi.get(__response__, 'path_prefix'),
+        policy=pulumi.get(__response__, 'policy'),
+        policy_id=pulumi.get(__response__, 'policy_id'),
+        tags=pulumi.get(__response__, 'tags')))

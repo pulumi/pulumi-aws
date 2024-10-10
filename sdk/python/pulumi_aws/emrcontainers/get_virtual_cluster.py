@@ -167,9 +167,6 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_cluster_id=pulumi.get(__ret__, 'virtual_cluster_id'))
-
-
-@_utilities.lift_output_func(get_virtual_cluster)
 def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                virtual_cluster_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualClusterResult]:
@@ -191,4 +188,17 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     :param str virtual_cluster_id: ID of the cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['virtualClusterId'] = virtual_cluster_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:emrcontainers/getVirtualCluster:getVirtualCluster', __args__, opts=opts, typ=GetVirtualClusterResult)
+    return __ret__.apply(lambda __response__: GetVirtualClusterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        container_providers=pulumi.get(__response__, 'container_providers'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        virtual_cluster_id=pulumi.get(__response__, 'virtual_cluster_id')))

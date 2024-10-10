@@ -149,9 +149,6 @@ def get_arn(arn: Optional[str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource=pulumi.get(__ret__, 'resource'),
         service=pulumi.get(__ret__, 'service'))
-
-
-@_utilities.lift_output_func(get_arn)
 def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArnResult]:
@@ -170,4 +167,16 @@ def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN to parse.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getArn:getArn', __args__, opts=opts, typ=GetArnResult)
+    return __ret__.apply(lambda __response__: GetArnResult(
+        account=pulumi.get(__response__, 'account'),
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        partition=pulumi.get(__response__, 'partition'),
+        region=pulumi.get(__response__, 'region'),
+        resource=pulumi.get(__response__, 'resource'),
+        service=pulumi.get(__response__, 'service')))

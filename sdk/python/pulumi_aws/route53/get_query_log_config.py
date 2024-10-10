@@ -186,9 +186,6 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
         resolver_query_log_config_id=pulumi.get(__ret__, 'resolver_query_log_config_id'),
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_query_log_config)
 def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']]]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 resolver_query_log_config_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -234,4 +231,20 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
            
            [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['name'] = name
+    __args__['resolverQueryLogConfigId'] = resolver_query_log_config_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getQueryLogConfig:getQueryLogConfig', __args__, opts=opts, typ=GetQueryLogConfigResult)
+    return __ret__.apply(lambda __response__: GetQueryLogConfigResult(
+        arn=pulumi.get(__response__, 'arn'),
+        destination_arn=pulumi.get(__response__, 'destination_arn'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        resolver_query_log_config_id=pulumi.get(__response__, 'resolver_query_log_config_id'),
+        share_status=pulumi.get(__response__, 'share_status'),
+        tags=pulumi.get(__response__, 'tags')))

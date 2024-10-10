@@ -103,9 +103,6 @@ def get_agent_agent_versions(agent_id: Optional[str] = None,
         agent_id=pulumi.get(__ret__, 'agent_id'),
         agent_version_summaries=pulumi.get(__ret__, 'agent_version_summaries'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_agent_agent_versions)
 def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[str]] = None,
                                     agent_version_summaries: Optional[pulumi.Input[Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentAgentVersionsResult]:
@@ -127,4 +124,12 @@ def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[str]] = None
     :param str agent_id: Unique identifier of the agent.
     :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
     """
-    ...
+    __args__ = dict()
+    __args__['agentId'] = agent_id
+    __args__['agentVersionSummaries'] = agent_version_summaries
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getAgentAgentVersions:getAgentAgentVersions', __args__, opts=opts, typ=GetAgentAgentVersionsResult)
+    return __ret__.apply(lambda __response__: GetAgentAgentVersionsResult(
+        agent_id=pulumi.get(__response__, 'agent_id'),
+        agent_version_summaries=pulumi.get(__response__, 'agent_version_summaries'),
+        id=pulumi.get(__response__, 'id')))

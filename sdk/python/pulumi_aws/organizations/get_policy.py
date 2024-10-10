@@ -154,9 +154,6 @@ def get_policy(policy_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_policy)
 def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
@@ -167,4 +164,16 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
 
     :param str policy_id: The unique identifier (ID) of the policy that you want more details on. Policy id starts with a "p-" followed by 8-28 lowercase or uppercase letters, digits, and underscores.
     """
-    ...
+    __args__ = dict()
+    __args__['policyId'] = policy_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
+    return __ret__.apply(lambda __response__: GetPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_managed=pulumi.get(__response__, 'aws_managed'),
+        content=pulumi.get(__response__, 'content'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        policy_id=pulumi.get(__response__, 'policy_id'),
+        type=pulumi.get(__response__, 'type')))

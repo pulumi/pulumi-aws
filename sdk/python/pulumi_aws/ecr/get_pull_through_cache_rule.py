@@ -122,9 +122,6 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'))
-
-
-@_utilities.lift_output_func(get_pull_through_cache_rule)
 def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
@@ -142,4 +139,13 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
 
     :param str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
     """
-    ...
+    __args__ = dict()
+    __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule', __args__, opts=opts, typ=GetPullThroughCacheRuleResult)
+    return __ret__.apply(lambda __response__: GetPullThroughCacheRuleResult(
+        credential_arn=pulumi.get(__response__, 'credential_arn'),
+        ecr_repository_prefix=pulumi.get(__response__, 'ecr_repository_prefix'),
+        id=pulumi.get(__response__, 'id'),
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        upstream_registry_url=pulumi.get(__response__, 'upstream_registry_url')))

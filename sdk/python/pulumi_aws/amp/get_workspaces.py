@@ -134,9 +134,6 @@ def get_workspaces(alias_prefix: Optional[str] = None,
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         workspace_ids=pulumi.get(__ret__, 'workspace_ids'))
-
-
-@_utilities.lift_output_func(get_workspaces)
 def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacesResult]:
     """
@@ -166,4 +163,13 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str alias_prefix: Limits results to workspaces with aliases that begin with this value.
     """
-    ...
+    __args__ = dict()
+    __args__['aliasPrefix'] = alias_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:amp/getWorkspaces:getWorkspaces', __args__, opts=opts, typ=GetWorkspacesResult)
+    return __ret__.apply(lambda __response__: GetWorkspacesResult(
+        alias_prefix=pulumi.get(__response__, 'alias_prefix'),
+        aliases=pulumi.get(__response__, 'aliases'),
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        workspace_ids=pulumi.get(__response__, 'workspace_ids')))

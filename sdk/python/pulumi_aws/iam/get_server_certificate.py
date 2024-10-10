@@ -210,9 +210,6 @@ def get_server_certificate(latest: Optional[bool] = None,
         path=pulumi.get(__ret__, 'path'),
         path_prefix=pulumi.get(__ret__, 'path_prefix'),
         upload_date=pulumi.get(__ret__, 'upload_date'))
-
-
-@_utilities.lift_output_func(get_server_certificate)
 def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]] = None,
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
                                   name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
@@ -246,4 +243,22 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
     :param str name_prefix: prefix of cert to filter by
     :param str path_prefix: prefix of path to filter by
     """
-    ...
+    __args__ = dict()
+    __args__['latest'] = latest
+    __args__['name'] = name
+    __args__['namePrefix'] = name_prefix
+    __args__['pathPrefix'] = path_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult)
+    return __ret__.apply(lambda __response__: GetServerCertificateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_body=pulumi.get(__response__, 'certificate_body'),
+        certificate_chain=pulumi.get(__response__, 'certificate_chain'),
+        expiration_date=pulumi.get(__response__, 'expiration_date'),
+        id=pulumi.get(__response__, 'id'),
+        latest=pulumi.get(__response__, 'latest'),
+        name=pulumi.get(__response__, 'name'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        path=pulumi.get(__response__, 'path'),
+        path_prefix=pulumi.get(__response__, 'path_prefix'),
+        upload_date=pulumi.get(__response__, 'upload_date')))

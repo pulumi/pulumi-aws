@@ -140,9 +140,6 @@ def get_contact(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_contact)
 def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
@@ -164,4 +161,15 @@ def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
     :param Mapping[str, str] tags: Map of tags to assign to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getContact:getContact', __args__, opts=opts, typ=GetContactResult)
+    return __ret__.apply(lambda __response__: GetContactResult(
+        alias=pulumi.get(__response__, 'alias'),
+        arn=pulumi.get(__response__, 'arn'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

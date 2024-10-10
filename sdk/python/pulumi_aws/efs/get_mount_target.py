@@ -243,9 +243,6 @@ def get_mount_target(access_point_id: Optional[str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'))
-
-
-@_utilities.lift_output_func(get_mount_target)
 def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]]] = None,
                             file_system_id: Optional[pulumi.Input[Optional[str]]] = None,
                             mount_target_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -271,4 +268,24 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
     :param str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
     :param str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
     """
-    ...
+    __args__ = dict()
+    __args__['accessPointId'] = access_point_id
+    __args__['fileSystemId'] = file_system_id
+    __args__['mountTargetId'] = mount_target_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult)
+    return __ret__.apply(lambda __response__: GetMountTargetResult(
+        access_point_id=pulumi.get(__response__, 'access_point_id'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        file_system_arn=pulumi.get(__response__, 'file_system_arn'),
+        file_system_id=pulumi.get(__response__, 'file_system_id'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        mount_target_dns_name=pulumi.get(__response__, 'mount_target_dns_name'),
+        mount_target_id=pulumi.get(__response__, 'mount_target_id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        subnet_id=pulumi.get(__response__, 'subnet_id')))

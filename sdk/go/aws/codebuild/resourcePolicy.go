@@ -42,11 +42,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			current, err := aws.GetPartition(ctx, nil, nil)
+//			current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			currentGetCallerIdentity, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

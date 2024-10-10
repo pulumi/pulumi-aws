@@ -155,9 +155,6 @@ def get_parameter_group(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_parameter_group)
 def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
@@ -177,4 +174,16 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the parameter group.
     :param Mapping[str, str] tags: Map of tags assigned to the parameter group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getParameterGroup:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult)
+    return __ret__.apply(lambda __response__: GetParameterGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        family=pulumi.get(__response__, 'family'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -181,9 +181,6 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
         level_id=pulumi.get(__ret__, 'level_id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_user_hierarchy_group)
 def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Optional[str]]] = None,
                                     instance_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -220,4 +217,19 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     :param str name: Returns information on a specific hierarchy group by name
     :param Mapping[str, str] tags: Map of tags to assign to the hierarchy group.
     """
-    ...
+    __args__ = dict()
+    __args__['hierarchyGroupId'] = hierarchy_group_id
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getUserHierarchyGroup:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult)
+    return __ret__.apply(lambda __response__: GetUserHierarchyGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        hierarchy_group_id=pulumi.get(__response__, 'hierarchy_group_id'),
+        hierarchy_paths=pulumi.get(__response__, 'hierarchy_paths'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        level_id=pulumi.get(__response__, 'level_id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))
