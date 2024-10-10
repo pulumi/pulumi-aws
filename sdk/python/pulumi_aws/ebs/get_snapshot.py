@@ -348,9 +348,6 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_size=pulumi.get(__ret__, 'volume_size'))
-
-
-@_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
                         most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                         owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -391,4 +388,34 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['mostRecent'] = most_recent
+    __args__['owners'] = owners
+    __args__['restorableByUserIds'] = restorable_by_user_ids
+    __args__['snapshotIds'] = snapshot_ids
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ebs/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
+    return __ret__.apply(lambda __response__: GetSnapshotResult(
+        arn=pulumi.get(__response__, 'arn'),
+        data_encryption_key_id=pulumi.get(__response__, 'data_encryption_key_id'),
+        description=pulumi.get(__response__, 'description'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        owner_alias=pulumi.get(__response__, 'owner_alias'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        owners=pulumi.get(__response__, 'owners'),
+        restorable_by_user_ids=pulumi.get(__response__, 'restorable_by_user_ids'),
+        snapshot_id=pulumi.get(__response__, 'snapshot_id'),
+        snapshot_ids=pulumi.get(__response__, 'snapshot_ids'),
+        start_time=pulumi.get(__response__, 'start_time'),
+        state=pulumi.get(__response__, 'state'),
+        storage_tier=pulumi.get(__response__, 'storage_tier'),
+        tags=pulumi.get(__response__, 'tags'),
+        volume_id=pulumi.get(__response__, 'volume_id'),
+        volume_size=pulumi.get(__response__, 'volume_size')))

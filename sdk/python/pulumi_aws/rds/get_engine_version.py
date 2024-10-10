@@ -484,9 +484,6 @@ def get_engine_version(default_only: Optional[bool] = None,
         version=pulumi.get(__ret__, 'version'),
         version_actual=pulumi.get(__ret__, 'version_actual'),
         version_description=pulumi.get(__ret__, 'version_description'))
-
-
-@_utilities.lift_output_func(get_engine_version)
 def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]]] = None,
                               engine: Optional[pulumi.Input[str]] = None,
                               filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']]]]] = None,
@@ -548,4 +545,50 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     :param Sequence[str] preferred_upgrade_targets: Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
     :param Sequence[str] preferred_versions: Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
     """
-    ...
+    __args__ = dict()
+    __args__['defaultOnly'] = default_only
+    __args__['engine'] = engine
+    __args__['filters'] = filters
+    __args__['hasMajorTarget'] = has_major_target
+    __args__['hasMinorTarget'] = has_minor_target
+    __args__['includeAll'] = include_all
+    __args__['latest'] = latest
+    __args__['parameterGroupFamily'] = parameter_group_family
+    __args__['preferredMajorTargets'] = preferred_major_targets
+    __args__['preferredUpgradeTargets'] = preferred_upgrade_targets
+    __args__['preferredVersions'] = preferred_versions
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
+    return __ret__.apply(lambda __response__: GetEngineVersionResult(
+        default_character_set=pulumi.get(__response__, 'default_character_set'),
+        default_only=pulumi.get(__response__, 'default_only'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_description=pulumi.get(__response__, 'engine_description'),
+        exportable_log_types=pulumi.get(__response__, 'exportable_log_types'),
+        filters=pulumi.get(__response__, 'filters'),
+        has_major_target=pulumi.get(__response__, 'has_major_target'),
+        has_minor_target=pulumi.get(__response__, 'has_minor_target'),
+        id=pulumi.get(__response__, 'id'),
+        include_all=pulumi.get(__response__, 'include_all'),
+        latest=pulumi.get(__response__, 'latest'),
+        parameter_group_family=pulumi.get(__response__, 'parameter_group_family'),
+        preferred_major_targets=pulumi.get(__response__, 'preferred_major_targets'),
+        preferred_upgrade_targets=pulumi.get(__response__, 'preferred_upgrade_targets'),
+        preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        status=pulumi.get(__response__, 'status'),
+        supported_character_sets=pulumi.get(__response__, 'supported_character_sets'),
+        supported_feature_names=pulumi.get(__response__, 'supported_feature_names'),
+        supported_modes=pulumi.get(__response__, 'supported_modes'),
+        supported_timezones=pulumi.get(__response__, 'supported_timezones'),
+        supports_global_databases=pulumi.get(__response__, 'supports_global_databases'),
+        supports_limitless_database=pulumi.get(__response__, 'supports_limitless_database'),
+        supports_log_exports_to_cloudwatch=pulumi.get(__response__, 'supports_log_exports_to_cloudwatch'),
+        supports_parallel_query=pulumi.get(__response__, 'supports_parallel_query'),
+        supports_read_replica=pulumi.get(__response__, 'supports_read_replica'),
+        valid_major_targets=pulumi.get(__response__, 'valid_major_targets'),
+        valid_minor_targets=pulumi.get(__response__, 'valid_minor_targets'),
+        valid_upgrade_targets=pulumi.get(__response__, 'valid_upgrade_targets'),
+        version=pulumi.get(__response__, 'version'),
+        version_actual=pulumi.get(__response__, 'version_actual'),
+        version_description=pulumi.get(__response__, 'version_description')))

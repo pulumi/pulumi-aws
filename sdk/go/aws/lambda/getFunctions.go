@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.GetFunctions(ctx, nil, nil)
+//			_, err := lambda.GetFunctions(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

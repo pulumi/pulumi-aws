@@ -295,9 +295,6 @@ def get_container_recipe(arn: Optional[str] = None,
         target_repositories=pulumi.get(__ret__, 'target_repositories'),
         version=pulumi.get(__ret__, 'version'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
-
-
-@_utilities.lift_output_func(get_container_recipe)
 def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipeResult]:
@@ -317,4 +314,27 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the container recipe.
     :param Mapping[str, str] tags: Key-value map of resource tags for the container recipe.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getContainerRecipe:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult)
+    return __ret__.apply(lambda __response__: GetContainerRecipeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        components=pulumi.get(__response__, 'components'),
+        container_type=pulumi.get(__response__, 'container_type'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        description=pulumi.get(__response__, 'description'),
+        dockerfile_template_data=pulumi.get(__response__, 'dockerfile_template_data'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        id=pulumi.get(__response__, 'id'),
+        instance_configurations=pulumi.get(__response__, 'instance_configurations'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        parent_image=pulumi.get(__response__, 'parent_image'),
+        platform=pulumi.get(__response__, 'platform'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_repositories=pulumi.get(__response__, 'target_repositories'),
+        version=pulumi.get(__response__, 'version'),
+        working_directory=pulumi.get(__response__, 'working_directory')))

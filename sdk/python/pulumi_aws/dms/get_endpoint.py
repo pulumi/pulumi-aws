@@ -328,9 +328,6 @@ def get_endpoint(endpoint_id: Optional[str] = None,
         ssl_mode=pulumi.get(__ret__, 'ssl_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
@@ -351,4 +348,35 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
 
     :param str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
     """
-    ...
+    __args__ = dict()
+    __args__['endpointId'] = endpoint_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dms/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
+    return __ret__.apply(lambda __response__: GetEndpointResult(
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        elasticsearch_settings=pulumi.get(__response__, 'elasticsearch_settings'),
+        endpoint_arn=pulumi.get(__response__, 'endpoint_arn'),
+        endpoint_id=pulumi.get(__response__, 'endpoint_id'),
+        endpoint_type=pulumi.get(__response__, 'endpoint_type'),
+        engine_name=pulumi.get(__response__, 'engine_name'),
+        extra_connection_attributes=pulumi.get(__response__, 'extra_connection_attributes'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_settings=pulumi.get(__response__, 'kafka_settings'),
+        kinesis_settings=pulumi.get(__response__, 'kinesis_settings'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        mongodb_settings=pulumi.get(__response__, 'mongodb_settings'),
+        password=pulumi.get(__response__, 'password'),
+        port=pulumi.get(__response__, 'port'),
+        postgres_settings=pulumi.get(__response__, 'postgres_settings'),
+        redis_settings=pulumi.get(__response__, 'redis_settings'),
+        redshift_settings=pulumi.get(__response__, 'redshift_settings'),
+        s3_settings=pulumi.get(__response__, 's3_settings'),
+        secrets_manager_access_role_arn=pulumi.get(__response__, 'secrets_manager_access_role_arn'),
+        secrets_manager_arn=pulumi.get(__response__, 'secrets_manager_arn'),
+        server_name=pulumi.get(__response__, 'server_name'),
+        service_access_role=pulumi.get(__response__, 'service_access_role'),
+        ssl_mode=pulumi.get(__response__, 'ssl_mode'),
+        tags=pulumi.get(__response__, 'tags'),
+        username=pulumi.get(__response__, 'username')))
