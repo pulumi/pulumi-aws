@@ -228,7 +228,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewPatchBaseline(ctx, "al_2017_09", &ssm.PatchBaselineArgs{
 //				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
-//					nil,
+//					&ssm.PatchBaselineApprovalRuleArgs{},
 //				},
 //				Name:            pulumi.String("Amazon-Linux-2017.09"),
 //				Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),

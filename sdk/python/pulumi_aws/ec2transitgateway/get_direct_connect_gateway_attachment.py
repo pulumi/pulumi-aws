@@ -130,9 +130,6 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-
-
-@_utilities.lift_output_func(get_direct_connect_gateway_attachment)
 def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]]]] = None,
                                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -159,4 +156,16 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['dxGatewayId'] = dx_gateway_id
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayId'] = transit_gateway_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult)
+    return __ret__.apply(lambda __response__: GetDirectConnectGatewayAttachmentResult(
+        dx_gateway_id=pulumi.get(__response__, 'dx_gateway_id'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

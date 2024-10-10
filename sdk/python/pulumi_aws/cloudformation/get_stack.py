@@ -224,9 +224,6 @@ def get_stack(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'),
         timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
-
-
-@_utilities.lift_output_func(get_stack)
 def get_stack_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
@@ -254,4 +251,21 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the stack
     :param Mapping[str, str] tags: Map of tags associated with this stack.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult)
+    return __ret__.apply(lambda __response__: GetStackResult(
+        capabilities=pulumi.get(__response__, 'capabilities'),
+        description=pulumi.get(__response__, 'description'),
+        disable_rollback=pulumi.get(__response__, 'disable_rollback'),
+        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        notification_arns=pulumi.get(__response__, 'notification_arns'),
+        outputs=pulumi.get(__response__, 'outputs'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        tags=pulumi.get(__response__, 'tags'),
+        template_body=pulumi.get(__response__, 'template_body'),
+        timeout_in_minutes=pulumi.get(__response__, 'timeout_in_minutes')))

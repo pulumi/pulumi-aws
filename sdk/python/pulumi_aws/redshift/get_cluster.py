@@ -585,9 +585,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -598,4 +595,50 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     :param str cluster_identifier: Cluster identifier
     :param Mapping[str, str] tags: Tags associated to the cluster
     """
-    ...
+    __args__ = dict()
+    __args__['clusterIdentifier'] = cluster_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        allow_version_upgrade=pulumi.get(__response__, 'allow_version_upgrade'),
+        aqua_configuration_status=pulumi.get(__response__, 'aqua_configuration_status'),
+        arn=pulumi.get(__response__, 'arn'),
+        automated_snapshot_retention_period=pulumi.get(__response__, 'automated_snapshot_retention_period'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_relocation_enabled=pulumi.get(__response__, 'availability_zone_relocation_enabled'),
+        bucket_name=pulumi.get(__response__, 'bucket_name'),
+        cluster_identifier=pulumi.get(__response__, 'cluster_identifier'),
+        cluster_namespace_arn=pulumi.get(__response__, 'cluster_namespace_arn'),
+        cluster_nodes=pulumi.get(__response__, 'cluster_nodes'),
+        cluster_parameter_group_name=pulumi.get(__response__, 'cluster_parameter_group_name'),
+        cluster_public_key=pulumi.get(__response__, 'cluster_public_key'),
+        cluster_revision_number=pulumi.get(__response__, 'cluster_revision_number'),
+        cluster_subnet_group_name=pulumi.get(__response__, 'cluster_subnet_group_name'),
+        cluster_type=pulumi.get(__response__, 'cluster_type'),
+        cluster_version=pulumi.get(__response__, 'cluster_version'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        default_iam_role_arn=pulumi.get(__response__, 'default_iam_role_arn'),
+        elastic_ip=pulumi.get(__response__, 'elastic_ip'),
+        enable_logging=pulumi.get(__response__, 'enable_logging'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        log_destination_type=pulumi.get(__response__, 'log_destination_type'),
+        log_exports=pulumi.get(__response__, 'log_exports'),
+        maintenance_track_name=pulumi.get(__response__, 'maintenance_track_name'),
+        manual_snapshot_retention_period=pulumi.get(__response__, 'manual_snapshot_retention_period'),
+        master_username=pulumi.get(__response__, 'master_username'),
+        multi_az=pulumi.get(__response__, 'multi_az'),
+        node_type=pulumi.get(__response__, 'node_type'),
+        number_of_nodes=pulumi.get(__response__, 'number_of_nodes'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        s3_key_prefix=pulumi.get(__response__, 's3_key_prefix'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

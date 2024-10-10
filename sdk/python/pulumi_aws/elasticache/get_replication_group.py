@@ -318,9 +318,6 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'))
-
-
-@_utilities.lift_output_func(get_replication_group)
 def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
@@ -338,4 +335,28 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
 
     :param str replication_group_id: Identifier for the replication group.
     """
-    ...
+    __args__ = dict()
+    __args__['replicationGroupId'] = replication_group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult)
+    return __ret__.apply(lambda __response__: GetReplicationGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auth_token_enabled=pulumi.get(__response__, 'auth_token_enabled'),
+        automatic_failover_enabled=pulumi.get(__response__, 'automatic_failover_enabled'),
+        cluster_mode=pulumi.get(__response__, 'cluster_mode'),
+        configuration_endpoint_address=pulumi.get(__response__, 'configuration_endpoint_address'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        log_delivery_configurations=pulumi.get(__response__, 'log_delivery_configurations'),
+        member_clusters=pulumi.get(__response__, 'member_clusters'),
+        multi_az_enabled=pulumi.get(__response__, 'multi_az_enabled'),
+        node_type=pulumi.get(__response__, 'node_type'),
+        num_cache_clusters=pulumi.get(__response__, 'num_cache_clusters'),
+        num_node_groups=pulumi.get(__response__, 'num_node_groups'),
+        port=pulumi.get(__response__, 'port'),
+        primary_endpoint_address=pulumi.get(__response__, 'primary_endpoint_address'),
+        reader_endpoint_address=pulumi.get(__response__, 'reader_endpoint_address'),
+        replicas_per_node_group=pulumi.get(__response__, 'replicas_per_node_group'),
+        replication_group_id=pulumi.get(__response__, 'replication_group_id'),
+        snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
+        snapshot_window=pulumi.get(__response__, 'snapshot_window')))
