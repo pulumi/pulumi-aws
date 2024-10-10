@@ -114,9 +114,6 @@ def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfra
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_infrastructure_configurations)
 def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]]]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationsResult]:
     """
@@ -137,4 +134,12 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
 
     :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations', __args__, opts=opts, typ=GetInfrastructureConfigurationsResult)
+    return __ret__.apply(lambda __response__: GetInfrastructureConfigurationsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

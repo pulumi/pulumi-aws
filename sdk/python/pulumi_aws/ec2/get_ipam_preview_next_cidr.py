@@ -130,9 +130,6 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
         id=pulumi.get(__ret__, 'id'),
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
         netmask_length=pulumi.get(__ret__, 'netmask_length'))
-
-
-@_utilities.lift_output_func(get_ipam_preview_next_cidr)
 def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                       netmask_length: Optional[pulumi.Input[Optional[int]]] = None,
@@ -162,4 +159,15 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     :param str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
     :param int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
     """
-    ...
+    __args__ = dict()
+    __args__['disallowedCidrs'] = disallowed_cidrs
+    __args__['ipamPoolId'] = ipam_pool_id
+    __args__['netmaskLength'] = netmask_length
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult)
+    return __ret__.apply(lambda __response__: GetIpamPreviewNextCidrResult(
+        cidr=pulumi.get(__response__, 'cidr'),
+        disallowed_cidrs=pulumi.get(__response__, 'disallowed_cidrs'),
+        id=pulumi.get(__response__, 'id'),
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
+        netmask_length=pulumi.get(__response__, 'netmask_length')))

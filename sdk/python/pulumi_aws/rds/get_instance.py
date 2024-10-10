@@ -617,9 +617,6 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timezone=pulumi.get(__ret__, 'timezone'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-
-
-@_utilities.lift_output_func(get_instance)
 def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
@@ -639,4 +636,52 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     :param str db_instance_identifier: Name of the RDS instance.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
-    ...
+    __args__ = dict()
+    __args__['dbInstanceIdentifier'] = db_instance_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
+    return __ret__.apply(lambda __response__: GetInstanceResult(
+        address=pulumi.get(__response__, 'address'),
+        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
+        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
+        ca_cert_identifier=pulumi.get(__response__, 'ca_cert_identifier'),
+        db_cluster_identifier=pulumi.get(__response__, 'db_cluster_identifier'),
+        db_instance_arn=pulumi.get(__response__, 'db_instance_arn'),
+        db_instance_class=pulumi.get(__response__, 'db_instance_class'),
+        db_instance_identifier=pulumi.get(__response__, 'db_instance_identifier'),
+        db_instance_port=pulumi.get(__response__, 'db_instance_port'),
+        db_name=pulumi.get(__response__, 'db_name'),
+        db_parameter_groups=pulumi.get(__response__, 'db_parameter_groups'),
+        db_subnet_group=pulumi.get(__response__, 'db_subnet_group'),
+        enabled_cloudwatch_logs_exports=pulumi.get(__response__, 'enabled_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        iops=pulumi.get(__response__, 'iops'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        license_model=pulumi.get(__response__, 'license_model'),
+        master_user_secrets=pulumi.get(__response__, 'master_user_secrets'),
+        master_username=pulumi.get(__response__, 'master_username'),
+        max_allocated_storage=pulumi.get(__response__, 'max_allocated_storage'),
+        monitoring_interval=pulumi.get(__response__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__response__, 'monitoring_role_arn'),
+        multi_az=pulumi.get(__response__, 'multi_az'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        option_group_memberships=pulumi.get(__response__, 'option_group_memberships'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        replicate_source_db=pulumi.get(__response__, 'replicate_source_db'),
+        resource_id=pulumi.get(__response__, 'resource_id'),
+        storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),
+        storage_throughput=pulumi.get(__response__, 'storage_throughput'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        tags=pulumi.get(__response__, 'tags'),
+        timezone=pulumi.get(__response__, 'timezone'),
+        vpc_security_groups=pulumi.get(__response__, 'vpc_security_groups')))
