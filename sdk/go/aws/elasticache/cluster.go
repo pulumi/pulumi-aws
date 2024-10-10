@@ -186,7 +186,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := outposts.GetOutposts(ctx, nil, nil)
+//			example, err := outposts.GetOutposts(ctx, &outposts.GetOutpostsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

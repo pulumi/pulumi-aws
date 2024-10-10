@@ -137,9 +137,6 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
         ids=pulumi.get(__ret__, 'ids'),
         owners=pulumi.get(__ret__, 'owners'),
         restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'))
-
-
-@_utilities.lift_output_func(get_snapshot_ids)
 def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
                             owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -174,4 +171,15 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
     :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['owners'] = owners
+    __args__['restorableByUserIds'] = restorable_by_user_ids
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult)
+    return __ret__.apply(lambda __response__: GetSnapshotIdsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        owners=pulumi.get(__response__, 'owners'),
+        restorable_by_user_ids=pulumi.get(__response__, 'restorable_by_user_ids')))

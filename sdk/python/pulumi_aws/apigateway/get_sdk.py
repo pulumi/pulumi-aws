@@ -167,9 +167,6 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         sdk_type=pulumi.get(__ret__, 'sdk_type'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
-
-
-@_utilities.lift_output_func(get_sdk)
 def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    rest_api_id: Optional[pulumi.Input[str]] = None,
                    sdk_type: Optional[pulumi.Input[str]] = None,
@@ -199,4 +196,19 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     :param str sdk_type: Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
     :param str stage_name: Name of the Stage that will be exported.
     """
-    ...
+    __args__ = dict()
+    __args__['parameters'] = parameters
+    __args__['restApiId'] = rest_api_id
+    __args__['sdkType'] = sdk_type
+    __args__['stageName'] = stage_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getSdk:getSdk', __args__, opts=opts, typ=GetSdkResult)
+    return __ret__.apply(lambda __response__: GetSdkResult(
+        body=pulumi.get(__response__, 'body'),
+        content_disposition=pulumi.get(__response__, 'content_disposition'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        id=pulumi.get(__response__, 'id'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id'),
+        sdk_type=pulumi.get(__response__, 'sdk_type'),
+        stage_name=pulumi.get(__response__, 'stage_name')))

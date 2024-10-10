@@ -147,9 +147,6 @@ def get_open_id_connect_provider(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         thumbprint_lists=pulumi.get(__ret__, 'thumbprint_lists'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_open_id_connect_provider)
 def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                         url: Optional[pulumi.Input[Optional[str]]] = None,
@@ -180,4 +177,16 @@ def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]
     :param Mapping[str, str] tags: Map of resource tags for the IAM OIDC provider.
     :param str url: URL of the OpenID Connect provider.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    __args__['url'] = url
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult)
+    return __ret__.apply(lambda __response__: GetOpenIdConnectProviderResult(
+        arn=pulumi.get(__response__, 'arn'),
+        client_id_lists=pulumi.get(__response__, 'client_id_lists'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        thumbprint_lists=pulumi.get(__response__, 'thumbprint_lists'),
+        url=pulumi.get(__response__, 'url')))

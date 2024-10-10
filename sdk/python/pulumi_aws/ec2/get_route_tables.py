@@ -142,9 +142,6 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_route_tables)
 def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -184,4 +181,15 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
            which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getRouteTables:getRouteTables', __args__, opts=opts, typ=GetRouteTablesResult)
+    return __ret__.apply(lambda __response__: GetRouteTablesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

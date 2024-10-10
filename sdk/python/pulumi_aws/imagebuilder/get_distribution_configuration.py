@@ -165,9 +165,6 @@ def get_distribution_configuration(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_distribution_configuration)
 def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
@@ -187,4 +184,17 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
     :param str arn: ARN of the distribution configuration.
     :param Mapping[str, str] tags: Key-value map of resource tags for the distribution configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration', __args__, opts=opts, typ=GetDistributionConfigurationResult)
+    return __ret__.apply(lambda __response__: GetDistributionConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        date_updated=pulumi.get(__response__, 'date_updated'),
+        description=pulumi.get(__response__, 'description'),
+        distributions=pulumi.get(__response__, 'distributions'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

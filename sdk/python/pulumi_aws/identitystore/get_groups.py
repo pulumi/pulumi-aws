@@ -100,9 +100,6 @@ def get_groups(identity_store_id: Optional[str] = None,
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
-
-
-@_utilities.lift_output_func(get_groups)
 def get_groups_output(identity_store_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
     """
@@ -123,4 +120,11 @@ def get_groups_output(identity_store_id: Optional[pulumi.Input[str]] = None,
 
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
     """
-    ...
+    __args__ = dict()
+    __args__['identityStoreId'] = identity_store_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
+    return __ret__.apply(lambda __response__: GetGroupsResult(
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        identity_store_id=pulumi.get(__response__, 'identity_store_id')))

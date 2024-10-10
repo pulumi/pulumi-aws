@@ -138,9 +138,6 @@ def get_connector(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_connector)
 def get_connector_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
@@ -160,4 +157,15 @@ def get_connector_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the connector.
     :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mskconnect/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult)
+    return __ret__.apply(lambda __response__: GetConnectorResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        version=pulumi.get(__response__, 'version')))

@@ -144,9 +144,6 @@ def get_users(name_regex: Optional[str] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'),
         names=pulumi.get(__ret__, 'names'),
         path_prefix=pulumi.get(__ret__, 'path_prefix'))
-
-
-@_utilities.lift_output_func(get_users)
 def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
@@ -188,4 +185,14 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name_regex: Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
     :param str path_prefix: Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
     """
-    ...
+    __args__ = dict()
+    __args__['nameRegex'] = name_regex
+    __args__['pathPrefix'] = path_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
+    return __ret__.apply(lambda __response__: GetUsersResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        names=pulumi.get(__response__, 'names'),
+        path_prefix=pulumi.get(__response__, 'path_prefix')))

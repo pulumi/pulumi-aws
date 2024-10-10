@@ -613,9 +613,6 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         tpm_support=pulumi.get(__ret__, 'tpm_support'),
         usage_operation=pulumi.get(__ret__, 'usage_operation'),
         virtualization_type=pulumi.get(__ret__, 'virtualization_type'))
-
-
-@_utilities.lift_output_func(get_ami)
 def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]]]] = None,
                    include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -678,4 +675,53 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
            * `tags.#.key` - Key name of the tag.
            * `tags.#.value` - Value of the tag.
     """
-    ...
+    __args__ = dict()
+    __args__['executableUsers'] = executable_users
+    __args__['filters'] = filters
+    __args__['includeDeprecated'] = include_deprecated
+    __args__['mostRecent'] = most_recent
+    __args__['nameRegex'] = name_regex
+    __args__['owners'] = owners
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult)
+    return __ret__.apply(lambda __response__: GetAmiResult(
+        architecture=pulumi.get(__response__, 'architecture'),
+        arn=pulumi.get(__response__, 'arn'),
+        block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),
+        boot_mode=pulumi.get(__response__, 'boot_mode'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        deprecation_time=pulumi.get(__response__, 'deprecation_time'),
+        description=pulumi.get(__response__, 'description'),
+        ena_support=pulumi.get(__response__, 'ena_support'),
+        executable_users=pulumi.get(__response__, 'executable_users'),
+        filters=pulumi.get(__response__, 'filters'),
+        hypervisor=pulumi.get(__response__, 'hypervisor'),
+        id=pulumi.get(__response__, 'id'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        image_location=pulumi.get(__response__, 'image_location'),
+        image_owner_alias=pulumi.get(__response__, 'image_owner_alias'),
+        image_type=pulumi.get(__response__, 'image_type'),
+        imds_support=pulumi.get(__response__, 'imds_support'),
+        include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        kernel_id=pulumi.get(__response__, 'kernel_id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        owners=pulumi.get(__response__, 'owners'),
+        platform=pulumi.get(__response__, 'platform'),
+        platform_details=pulumi.get(__response__, 'platform_details'),
+        product_codes=pulumi.get(__response__, 'product_codes'),
+        public=pulumi.get(__response__, 'public'),
+        ramdisk_id=pulumi.get(__response__, 'ramdisk_id'),
+        root_device_name=pulumi.get(__response__, 'root_device_name'),
+        root_device_type=pulumi.get(__response__, 'root_device_type'),
+        root_snapshot_id=pulumi.get(__response__, 'root_snapshot_id'),
+        sriov_net_support=pulumi.get(__response__, 'sriov_net_support'),
+        state=pulumi.get(__response__, 'state'),
+        state_reason=pulumi.get(__response__, 'state_reason'),
+        tags=pulumi.get(__response__, 'tags'),
+        tpm_support=pulumi.get(__response__, 'tpm_support'),
+        usage_operation=pulumi.get(__response__, 'usage_operation'),
+        virtualization_type=pulumi.get(__response__, 'virtualization_type')))

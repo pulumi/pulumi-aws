@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroupstaggingapi.GetResources(ctx, nil, nil)
+//			_, err := resourcegroupstaggingapi.GetResources(ctx, &resourcegroupstaggingapi.GetResourcesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

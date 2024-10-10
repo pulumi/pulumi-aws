@@ -151,9 +151,6 @@ def get_custom_plugin(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_custom_plugin)
 def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
@@ -173,4 +170,16 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the custom plugin.
     :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult)
+    return __ret__.apply(lambda __response__: GetCustomPluginResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        latest_revision=pulumi.get(__response__, 'latest_revision'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -302,9 +302,6 @@ def get_catalog_table(catalog_id: Optional[str] = None,
         transaction_id=pulumi.get(__ret__, 'transaction_id'),
         view_expanded_text=pulumi.get(__ret__, 'view_expanded_text'),
         view_original_text=pulumi.get(__ret__, 'view_original_text'))
-
-
-@_utilities.lift_output_func(get_catalog_table)
 def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
                              database_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
@@ -331,4 +328,30 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
     :param str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
     :param int transaction_id: The transaction ID at which to read the table contents.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogId'] = catalog_id
+    __args__['databaseName'] = database_name
+    __args__['name'] = name
+    __args__['queryAsOfTime'] = query_as_of_time
+    __args__['transactionId'] = transaction_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:glue/getCatalogTable:getCatalogTable', __args__, opts=opts, typ=GetCatalogTableResult)
+    return __ret__.apply(lambda __response__: GetCatalogTableResult(
+        arn=pulumi.get(__response__, 'arn'),
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        partition_indices=pulumi.get(__response__, 'partition_indices'),
+        partition_keys=pulumi.get(__response__, 'partition_keys'),
+        query_as_of_time=pulumi.get(__response__, 'query_as_of_time'),
+        retention=pulumi.get(__response__, 'retention'),
+        storage_descriptors=pulumi.get(__response__, 'storage_descriptors'),
+        table_type=pulumi.get(__response__, 'table_type'),
+        target_tables=pulumi.get(__response__, 'target_tables'),
+        transaction_id=pulumi.get(__response__, 'transaction_id'),
+        view_expanded_text=pulumi.get(__response__, 'view_expanded_text'),
+        view_original_text=pulumi.get(__response__, 'view_original_text')))

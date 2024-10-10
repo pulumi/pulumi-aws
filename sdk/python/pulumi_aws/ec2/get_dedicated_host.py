@@ -281,9 +281,6 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
         sockets=pulumi.get(__ret__, 'sockets'),
         tags=pulumi.get(__ret__, 'tags'),
         total_vcpus=pulumi.get(__ret__, 'total_vcpus'))
-
-
-@_utilities.lift_output_func(get_dedicated_host)
 def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
                               host_id: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -319,4 +316,26 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str host_id: ID of the Dedicated Host.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['hostId'] = host_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
+    return __ret__.apply(lambda __response__: GetDedicatedHostResult(
+        arn=pulumi.get(__response__, 'arn'),
+        asset_id=pulumi.get(__response__, 'asset_id'),
+        auto_placement=pulumi.get(__response__, 'auto_placement'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        cores=pulumi.get(__response__, 'cores'),
+        filters=pulumi.get(__response__, 'filters'),
+        host_id=pulumi.get(__response__, 'host_id'),
+        host_recovery=pulumi.get(__response__, 'host_recovery'),
+        id=pulumi.get(__response__, 'id'),
+        instance_family=pulumi.get(__response__, 'instance_family'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        sockets=pulumi.get(__response__, 'sockets'),
+        tags=pulumi.get(__response__, 'tags'),
+        total_vcpus=pulumi.get(__response__, 'total_vcpus')))

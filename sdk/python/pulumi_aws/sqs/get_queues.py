@@ -98,9 +98,6 @@ def get_queues(queue_name_prefix: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         queue_name_prefix=pulumi.get(__ret__, 'queue_name_prefix'),
         queue_urls=pulumi.get(__ret__, 'queue_urls'))
-
-
-@_utilities.lift_output_func(get_queues)
 def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueuesResult]:
     """
@@ -120,4 +117,11 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] =
 
     :param str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
     """
-    ...
+    __args__ = dict()
+    __args__['queueNamePrefix'] = queue_name_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sqs/getQueues:getQueues', __args__, opts=opts, typ=GetQueuesResult)
+    return __ret__.apply(lambda __response__: GetQueuesResult(
+        id=pulumi.get(__response__, 'id'),
+        queue_name_prefix=pulumi.get(__response__, 'queue_name_prefix'),
+        queue_urls=pulumi.get(__response__, 'queue_urls')))

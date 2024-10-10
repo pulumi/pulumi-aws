@@ -97,9 +97,6 @@ def get_delegated_administrators(service_principal: Optional[str] = None,
         delegated_administrators=pulumi.get(__ret__, 'delegated_administrators'),
         id=pulumi.get(__ret__, 'id'),
         service_principal=pulumi.get(__ret__, 'service_principal'))
-
-
-@_utilities.lift_output_func(get_delegated_administrators)
 def get_delegated_administrators_output(service_principal: Optional[pulumi.Input[Optional[str]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedAdministratorsResult]:
     """
@@ -117,4 +114,11 @@ def get_delegated_administrators_output(service_principal: Optional[pulumi.Input
 
     :param str service_principal: Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
     """
-    ...
+    __args__ = dict()
+    __args__['servicePrincipal'] = service_principal
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators', __args__, opts=opts, typ=GetDelegatedAdministratorsResult)
+    return __ret__.apply(lambda __response__: GetDelegatedAdministratorsResult(
+        delegated_administrators=pulumi.get(__response__, 'delegated_administrators'),
+        id=pulumi.get(__response__, 'id'),
+        service_principal=pulumi.get(__response__, 'service_principal')))

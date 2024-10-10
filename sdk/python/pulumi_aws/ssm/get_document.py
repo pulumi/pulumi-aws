@@ -162,9 +162,6 @@ def get_document(document_format: Optional[str] = None,
         document_version=pulumi.get(__ret__, 'document_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_document)
 def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] = None,
                         document_version: Optional[pulumi.Input[Optional[str]]] = None,
                         name: Optional[pulumi.Input[str]] = None,
@@ -200,4 +197,17 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     :param str document_version: The document version.
     :param str name: The name of the document.
     """
-    ...
+    __args__ = dict()
+    __args__['documentFormat'] = document_format
+    __args__['documentVersion'] = document_version
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult)
+    return __ret__.apply(lambda __response__: GetDocumentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        content=pulumi.get(__response__, 'content'),
+        document_format=pulumi.get(__response__, 'document_format'),
+        document_type=pulumi.get(__response__, 'document_type'),
+        document_version=pulumi.get(__response__, 'document_version'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

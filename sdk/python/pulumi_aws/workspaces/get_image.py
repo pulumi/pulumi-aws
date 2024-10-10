@@ -145,9 +145,6 @@ def get_image(image_id: Optional[str] = None,
         operating_system_type=pulumi.get(__ret__, 'operating_system_type'),
         required_tenancy=pulumi.get(__ret__, 'required_tenancy'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -165,4 +162,15 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
 
     :param str image_id: ID of the image.
     """
-    ...
+    __args__ = dict()
+    __args__['imageId'] = image_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        name=pulumi.get(__response__, 'name'),
+        operating_system_type=pulumi.get(__response__, 'operating_system_type'),
+        required_tenancy=pulumi.get(__response__, 'required_tenancy'),
+        state=pulumi.get(__response__, 'state')))

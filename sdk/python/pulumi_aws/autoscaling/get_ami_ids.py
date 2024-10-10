@@ -133,9 +133,6 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_ami_ids)
 def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
                        names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
@@ -174,4 +171,13 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[str] names: List of autoscaling group names
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['names'] = names
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:autoscaling/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult)
+    return __ret__.apply(lambda __response__: GetAmiIdsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

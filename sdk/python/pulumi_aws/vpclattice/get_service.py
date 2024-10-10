@@ -193,9 +193,6 @@ def get_service(name: Optional[str] = None,
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                        service_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -219,4 +216,20 @@ def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['serviceIdentifier'] = service_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auth_type=pulumi.get(__response__, 'auth_type'),
+        certificate_arn=pulumi.get(__response__, 'certificate_arn'),
+        custom_domain_name=pulumi.get(__response__, 'custom_domain_name'),
+        dns_entries=pulumi.get(__response__, 'dns_entries'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        service_identifier=pulumi.get(__response__, 'service_identifier'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

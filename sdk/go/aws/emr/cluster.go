@@ -369,7 +369,7 @@ import (
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),
 //				},
-//				CoreInstanceGroup: nil,
+//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{},
 //			})
 //			if err != nil {
 //				return err

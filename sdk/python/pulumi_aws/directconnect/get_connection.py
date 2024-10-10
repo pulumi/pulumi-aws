@@ -203,9 +203,6 @@ def get_connection(name: Optional[str] = None,
         provider_name=pulumi.get(__ret__, 'provider_name'),
         tags=pulumi.get(__ret__, 'tags'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-
-
-@_utilities.lift_output_func(get_connection)
 def get_connection_output(name: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
@@ -225,4 +222,20 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the connection to retrieve.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
+    return __ret__.apply(lambda __response__: GetConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_device=pulumi.get(__response__, 'aws_device'),
+        bandwidth=pulumi.get(__response__, 'bandwidth'),
+        id=pulumi.get(__response__, 'id'),
+        location=pulumi.get(__response__, 'location'),
+        name=pulumi.get(__response__, 'name'),
+        owner_account_id=pulumi.get(__response__, 'owner_account_id'),
+        partner_name=pulumi.get(__response__, 'partner_name'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        vlan_id=pulumi.get(__response__, 'vlan_id')))

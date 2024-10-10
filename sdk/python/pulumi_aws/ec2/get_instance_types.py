@@ -118,9 +118,6 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'))
-
-
-@_utilities.lift_output_func(get_instance_types)
 def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
@@ -158,4 +155,11 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypes:getInstanceTypes', __args__, opts=opts, typ=GetInstanceTypesResult)
+    return __ret__.apply(lambda __response__: GetInstanceTypesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_types=pulumi.get(__response__, 'instance_types')))

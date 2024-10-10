@@ -187,9 +187,6 @@ def get_model(model_id: Optional[str] = None,
         output_modalities=pulumi.get(__ret__, 'output_modalities'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
         response_streaming_supported=pulumi.get(__ret__, 'response_streaming_supported'))
-
-
-@_utilities.lift_output_func(get_model)
 def get_model_output(model_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
     """
@@ -210,4 +207,18 @@ def get_model_output(model_id: Optional[pulumi.Input[str]] = None,
 
     :param str model_id: Model identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['modelId'] = model_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModel:getModel', __args__, opts=opts, typ=GetModelResult)
+    return __ret__.apply(lambda __response__: GetModelResult(
+        customizations_supporteds=pulumi.get(__response__, 'customizations_supporteds'),
+        id=pulumi.get(__response__, 'id'),
+        inference_types_supporteds=pulumi.get(__response__, 'inference_types_supporteds'),
+        input_modalities=pulumi.get(__response__, 'input_modalities'),
+        model_arn=pulumi.get(__response__, 'model_arn'),
+        model_id=pulumi.get(__response__, 'model_id'),
+        model_name=pulumi.get(__response__, 'model_name'),
+        output_modalities=pulumi.get(__response__, 'output_modalities'),
+        provider_name=pulumi.get(__response__, 'provider_name'),
+        response_streaming_supported=pulumi.get(__response__, 'response_streaming_supported')))

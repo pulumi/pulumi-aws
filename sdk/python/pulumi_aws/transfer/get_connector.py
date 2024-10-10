@@ -179,9 +179,6 @@ def get_connector(id: Optional[str] = None,
         sftp_configs=pulumi.get(__ret__, 'sftp_configs'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_connector)
 def get_connector_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
@@ -190,4 +187,18 @@ def get_connector_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: Unique identifier for connector
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:transfer/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult)
+    return __ret__.apply(lambda __response__: GetConnectorResult(
+        access_role=pulumi.get(__response__, 'access_role'),
+        arn=pulumi.get(__response__, 'arn'),
+        as2_configs=pulumi.get(__response__, 'as2_configs'),
+        id=pulumi.get(__response__, 'id'),
+        logging_role=pulumi.get(__response__, 'logging_role'),
+        security_policy_name=pulumi.get(__response__, 'security_policy_name'),
+        service_managed_egress_ip_addresses=pulumi.get(__response__, 'service_managed_egress_ip_addresses'),
+        sftp_configs=pulumi.get(__response__, 'sftp_configs'),
+        tags=pulumi.get(__response__, 'tags'),
+        url=pulumi.get(__response__, 'url')))

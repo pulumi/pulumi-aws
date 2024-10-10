@@ -304,9 +304,6 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_policy_supported=pulumi.get(__ret__, 'vpc_endpoint_policy_supported'))
-
-
-@_utilities.lift_output_func(get_vpc_endpoint_service)
 def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]]]] = None,
                                     service: Optional[pulumi.Input[Optional[str]]] = None,
                                     service_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -366,4 +363,28 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
            
            > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['service'] = service
+    __args__['serviceName'] = service_name
+    __args__['serviceType'] = service_type
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts, typ=GetVpcEndpointServiceResult)
+    return __ret__.apply(lambda __response__: GetVpcEndpointServiceResult(
+        acceptance_required=pulumi.get(__response__, 'acceptance_required'),
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        base_endpoint_dns_names=pulumi.get(__response__, 'base_endpoint_dns_names'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        manages_vpc_endpoints=pulumi.get(__response__, 'manages_vpc_endpoints'),
+        owner=pulumi.get(__response__, 'owner'),
+        private_dns_name=pulumi.get(__response__, 'private_dns_name'),
+        service=pulumi.get(__response__, 'service'),
+        service_id=pulumi.get(__response__, 'service_id'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        service_type=pulumi.get(__response__, 'service_type'),
+        supported_ip_address_types=pulumi.get(__response__, 'supported_ip_address_types'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint_policy_supported=pulumi.get(__response__, 'vpc_endpoint_policy_supported')))

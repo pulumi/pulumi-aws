@@ -33,7 +33,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// main, err := elb.GetServiceAccount(ctx, nil, nil);
+// main, err := elb.GetServiceAccount(ctx, &elb.GetServiceAccountArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

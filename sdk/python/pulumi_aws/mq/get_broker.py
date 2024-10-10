@@ -297,9 +297,6 @@ def get_broker(broker_id: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         users=pulumi.get(__ret__, 'users'))
-
-
-@_utilities.lift_output_func(get_broker)
 def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
                       broker_name: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -328,4 +325,32 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str broker_id: Unique id of the mq broker.
     :param str broker_name: Unique name of the mq broker.
     """
-    ...
+    __args__ = dict()
+    __args__['brokerId'] = broker_id
+    __args__['brokerName'] = broker_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult)
+    return __ret__.apply(lambda __response__: GetBrokerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authentication_strategy=pulumi.get(__response__, 'authentication_strategy'),
+        auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
+        broker_id=pulumi.get(__response__, 'broker_id'),
+        broker_name=pulumi.get(__response__, 'broker_name'),
+        configuration=pulumi.get(__response__, 'configuration'),
+        deployment_mode=pulumi.get(__response__, 'deployment_mode'),
+        encryption_options=pulumi.get(__response__, 'encryption_options'),
+        engine_type=pulumi.get(__response__, 'engine_type'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        host_instance_type=pulumi.get(__response__, 'host_instance_type'),
+        id=pulumi.get(__response__, 'id'),
+        instances=pulumi.get(__response__, 'instances'),
+        ldap_server_metadatas=pulumi.get(__response__, 'ldap_server_metadatas'),
+        logs=pulumi.get(__response__, 'logs'),
+        maintenance_window_start_time=pulumi.get(__response__, 'maintenance_window_start_time'),
+        publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        storage_type=pulumi.get(__response__, 'storage_type'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        users=pulumi.get(__response__, 'users')))

@@ -6,11 +6,11 @@ require (
 	github.com/aws/aws-sdk-go v1.55.5
 	github.com/aws/aws-sdk-go-v2/config v1.27.39
 	github.com/aws/aws-sdk-go-v2/service/iam v1.36.3
-	github.com/pulumi/providertest v0.0.14
+	github.com/pulumi/providertest v0.1.2
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.44.1
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.45.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.133.0
+	github.com/pulumi/pulumi/pkg/v3 v3.136.1
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -449,10 +449,10 @@ require (
 	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.16.1 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.91.1 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi-yaml v1.10.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.133.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.92.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.10 // indirect
+	github.com/pulumi/pulumi-yaml v1.10.3 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.136.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect

@@ -127,9 +127,6 @@ def get_queue(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
@@ -151,4 +148,14 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the queue to match.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sqs/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        url=pulumi.get(__response__, 'url')))

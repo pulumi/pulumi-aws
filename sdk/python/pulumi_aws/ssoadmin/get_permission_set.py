@@ -177,9 +177,6 @@ def get_permission_set(arn: Optional[str] = None,
         relay_state=pulumi.get(__ret__, 'relay_state'),
         session_duration=pulumi.get(__ret__, 'session_duration'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_permission_set)
 def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               instance_arn: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -206,4 +203,20 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the SSO Permission Set.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['instanceArn'] = instance_arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPermissionSet:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult)
+    return __ret__.apply(lambda __response__: GetPermissionSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        name=pulumi.get(__response__, 'name'),
+        relay_state=pulumi.get(__response__, 'relay_state'),
+        session_duration=pulumi.get(__response__, 'session_duration'),
+        tags=pulumi.get(__response__, 'tags')))

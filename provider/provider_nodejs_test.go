@@ -74,7 +74,7 @@ func TestRegress3094(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up()
+	upResult := test.Up(t)
 	t.Logf("#%v", upResult.Summary)
 }
 
@@ -89,7 +89,7 @@ func TestRegress3835(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	result := test.Preview()
+	result := test.Preview(t)
 	t.Logf("#%v", result.ChangeSummary)
 }
 
@@ -107,8 +107,8 @@ func TestChangingRegion(t *testing.T) {
 	t.Run("default provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
 		for _, region := range []string{"us-east-1", "us-west-1"} {
-			test.SetConfig("aws:region", region)
-			res := test.Up()
+			test.SetConfig(t, "aws:region", region)
+			res := test.Up(t)
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
@@ -116,8 +116,8 @@ func TestChangingRegion(t *testing.T) {
 	t.Run("explicit provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
 		for _, region := range []string{"us-east-1", "us-west-1"} {
-			test.SetConfig("desired-region", region)
-			res := test.Up()
+			test.SetConfig(t, "desired-region", region)
+			res := test.Up(t)
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
@@ -135,7 +135,7 @@ func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	result := test.Preview()
+	result := test.Preview(t)
 	t.Logf("#%v", result.ChangeSummary)
 }
 
@@ -152,8 +152,8 @@ func TestRegress4079(t *testing.T) {
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 
-	test.SetConfig("targetGroupCount", "2")
-	r1 := test.Up()
+	test.SetConfig(t, "targetGroupCount", "2")
+	r1 := test.Up(t)
 	t.Logf("Stdout: %v", r1.StdOut)
 	t.Logf("Stderr: %v", r1.StdErr)
 
@@ -173,11 +173,11 @@ func TestRegress4079(t *testing.T) {
 	})
 	require.NoError(t, err)
 
-	rr := test.Refresh()
+	rr := test.Refresh(t)
 	t.Logf("Stdout: %v", rr.StdOut)
 	t.Logf("Stderr: %v", rr.StdErr)
 
-	refreshedState := test.ExportStack()
+	refreshedState := test.ExportStack(t)
 
 	type resource struct {
 		Type    string         `json:"type"`
@@ -251,11 +251,11 @@ func TestGameLift(t *testing.T) {
 	}
 
 	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-typescript"))
-	ptest.SetConfig("customData", "A")
-	result1 := ptest.Up()
+	ptest.SetConfig(t, "customData", "A")
+	result1 := ptest.Up(t)
 	require.Equal(t, "A", result1.Outputs["CustomEventData"].Value)
-	ptest.SetConfig("customData", "B")
-	result2 := ptest.Up()
+	ptest.SetConfig(t, "customData", "B")
+	result2 := ptest.Up(t)
 	require.Equal(t, "B", result2.Outputs["CustomEventData"].Value)
 }
 
@@ -270,9 +270,9 @@ func TestRegress4446(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up()
+	upResult := test.Up(t)
 	t.Logf("#%v", upResult.Summary)
-	result := test.Preview(optpreview.ExpectNoChanges())
+	result := test.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("#%v", result.ChangeSummary)
 }
 
@@ -287,7 +287,7 @@ func TestRegress4568(t *testing.T) {
 		opttest.YarnLink("@pulumi/aws"),
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up()
+	upResult := test.Up(t)
 	t.Logf("#%v", upResult.Summary)
 
 	// The singular lifecyclePolicy should contain the first value

@@ -148,9 +148,6 @@ def get_repository(repository_name: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         repository_id=pulumi.get(__ret__, 'repository_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-
-
-@_utilities.lift_output_func(get_repository)
 def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
@@ -168,4 +165,15 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
 
     :param str repository_name: Name for the repository. This needs to be less than 100 characters.
     """
-    ...
+    __args__ = dict()
+    __args__['repositoryName'] = repository_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
+    return __ret__.apply(lambda __response__: GetRepositoryResult(
+        arn=pulumi.get(__response__, 'arn'),
+        clone_url_http=pulumi.get(__response__, 'clone_url_http'),
+        clone_url_ssh=pulumi.get(__response__, 'clone_url_ssh'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        repository_id=pulumi.get(__response__, 'repository_id'),
+        repository_name=pulumi.get(__response__, 'repository_name')))

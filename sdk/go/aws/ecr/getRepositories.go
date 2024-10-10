@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetRepositories(ctx, nil, nil)
+//			_, err := ecr.GetRepositories(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

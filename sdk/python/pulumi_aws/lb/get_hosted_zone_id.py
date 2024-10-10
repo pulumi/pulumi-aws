@@ -106,9 +106,6 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
         region=pulumi.get(__ret__, 'region'))
-
-
-@_utilities.lift_output_func(get_hosted_zone_id)
 def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional[str]]] = None,
                               region: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneIdResult]:
@@ -138,4 +135,12 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
     :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
            Defaults to the region from the AWS provider configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['loadBalancerType'] = load_balancer_type
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lb/getHostedZoneId:getHostedZoneId', __args__, opts=opts, typ=GetHostedZoneIdResult)
+    return __ret__.apply(lambda __response__: GetHostedZoneIdResult(
+        id=pulumi.get(__response__, 'id'),
+        load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
+        region=pulumi.get(__response__, 'region')))

@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.GetUsers(ctx, nil, nil)
+//			_, err := iam.GetUsers(ctx, &iam.GetUsersArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

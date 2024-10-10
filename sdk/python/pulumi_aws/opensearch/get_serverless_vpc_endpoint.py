@@ -148,9 +148,6 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_serverless_vpc_endpoint)
 def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
@@ -168,4 +165,15 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[st
 
     :param str vpc_endpoint_id: The unique identifier of the endpoint.
     """
-    ...
+    __args__ = dict()
+    __args__['vpcEndpointId'] = vpc_endpoint_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint', __args__, opts=opts, typ=GetServerlessVpcEndpointResult)
+    return __ret__.apply(lambda __response__: GetServerlessVpcEndpointResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

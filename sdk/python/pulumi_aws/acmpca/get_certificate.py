@@ -123,9 +123,6 @@ def get_certificate(arn: Optional[str] = None,
         certificate_authority_arn=pulumi.get(__ret__, 'certificate_authority_arn'),
         certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
                            certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
@@ -146,4 +143,14 @@ def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the certificate issued by the private certificate authority.
     :param str certificate_authority_arn: ARN of the certificate authority.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['certificateAuthorityArn'] = certificate_authority_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:acmpca/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate=pulumi.get(__response__, 'certificate'),
+        certificate_authority_arn=pulumi.get(__response__, 'certificate_authority_arn'),
+        certificate_chain=pulumi.get(__response__, 'certificate_chain'),
+        id=pulumi.get(__response__, 'id')))
