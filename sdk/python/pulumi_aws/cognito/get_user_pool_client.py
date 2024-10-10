@@ -365,9 +365,6 @@ def get_user_pool_client(client_id: Optional[str] = None,
         token_validity_units=pulumi.get(__ret__, 'token_validity_units'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         write_attributes=pulumi.get(__ret__, 'write_attributes'))
-
-
-@_utilities.lift_output_func(get_user_pool_client)
 def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
                                 user_pool_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
@@ -388,4 +385,33 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
     :param str client_id: Client Id of the user pool.
     :param str user_pool_id: User pool the client belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['clientId'] = client_id
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolClient:getUserPoolClient', __args__, opts=opts, typ=GetUserPoolClientResult)
+    return __ret__.apply(lambda __response__: GetUserPoolClientResult(
+        access_token_validity=pulumi.get(__response__, 'access_token_validity'),
+        allowed_oauth_flows=pulumi.get(__response__, 'allowed_oauth_flows'),
+        allowed_oauth_flows_user_pool_client=pulumi.get(__response__, 'allowed_oauth_flows_user_pool_client'),
+        allowed_oauth_scopes=pulumi.get(__response__, 'allowed_oauth_scopes'),
+        analytics_configurations=pulumi.get(__response__, 'analytics_configurations'),
+        callback_urls=pulumi.get(__response__, 'callback_urls'),
+        client_id=pulumi.get(__response__, 'client_id'),
+        client_secret=pulumi.get(__response__, 'client_secret'),
+        default_redirect_uri=pulumi.get(__response__, 'default_redirect_uri'),
+        enable_propagate_additional_user_context_data=pulumi.get(__response__, 'enable_propagate_additional_user_context_data'),
+        enable_token_revocation=pulumi.get(__response__, 'enable_token_revocation'),
+        explicit_auth_flows=pulumi.get(__response__, 'explicit_auth_flows'),
+        generate_secret=pulumi.get(__response__, 'generate_secret'),
+        id=pulumi.get(__response__, 'id'),
+        id_token_validity=pulumi.get(__response__, 'id_token_validity'),
+        logout_urls=pulumi.get(__response__, 'logout_urls'),
+        name=pulumi.get(__response__, 'name'),
+        prevent_user_existence_errors=pulumi.get(__response__, 'prevent_user_existence_errors'),
+        read_attributes=pulumi.get(__response__, 'read_attributes'),
+        refresh_token_validity=pulumi.get(__response__, 'refresh_token_validity'),
+        supported_identity_providers=pulumi.get(__response__, 'supported_identity_providers'),
+        token_validity_units=pulumi.get(__response__, 'token_validity_units'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id'),
+        write_attributes=pulumi.get(__response__, 'write_attributes')))

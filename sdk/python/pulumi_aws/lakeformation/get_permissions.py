@@ -277,9 +277,6 @@ def get_permissions(catalog_id: Optional[str] = None,
         principal=pulumi.get(__ret__, 'principal'),
         table=pulumi.get(__ret__, 'table'),
         table_with_columns=pulumi.get(__ret__, 'table_with_columns'))
-
-
-@_utilities.lift_output_func(get_permissions)
 def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
                            catalog_resource: Optional[pulumi.Input[Optional[bool]]] = None,
                            data_cells_filter: Optional[pulumi.Input[Optional[Union['GetPermissionsDataCellsFilterArgs', 'GetPermissionsDataCellsFilterArgsDict']]]] = None,
@@ -364,4 +361,30 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['catalogId'] = catalog_id
+    __args__['catalogResource'] = catalog_resource
+    __args__['dataCellsFilter'] = data_cells_filter
+    __args__['dataLocation'] = data_location
+    __args__['database'] = database
+    __args__['lfTag'] = lf_tag
+    __args__['lfTagPolicy'] = lf_tag_policy
+    __args__['principal'] = principal
+    __args__['table'] = table
+    __args__['tableWithColumns'] = table_with_columns
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult)
+    return __ret__.apply(lambda __response__: GetPermissionsResult(
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        catalog_resource=pulumi.get(__response__, 'catalog_resource'),
+        data_cells_filter=pulumi.get(__response__, 'data_cells_filter'),
+        data_location=pulumi.get(__response__, 'data_location'),
+        database=pulumi.get(__response__, 'database'),
+        id=pulumi.get(__response__, 'id'),
+        lf_tag=pulumi.get(__response__, 'lf_tag'),
+        lf_tag_policy=pulumi.get(__response__, 'lf_tag_policy'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        permissions_with_grant_options=pulumi.get(__response__, 'permissions_with_grant_options'),
+        principal=pulumi.get(__response__, 'principal'),
+        table=pulumi.get(__response__, 'table'),
+        table_with_columns=pulumi.get(__response__, 'table_with_columns')))

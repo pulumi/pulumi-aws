@@ -101,9 +101,6 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         release_labels=pulumi.get(__ret__, 'release_labels'))
-
-
-@_utilities.lift_output_func(get_release_labels)
 def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
@@ -124,4 +121,11 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['Get
 
     :param Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:emr/getReleaseLabels:getReleaseLabels', __args__, opts=opts, typ=GetReleaseLabelsResult)
+    return __ret__.apply(lambda __response__: GetReleaseLabelsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        release_labels=pulumi.get(__response__, 'release_labels')))

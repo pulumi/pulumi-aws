@@ -144,9 +144,6 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
-
-
-@_utilities.lift_output_func(get_vpn_attachment)
 def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -187,4 +184,16 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayId'] = transit_gateway_id
+    __args__['vpnConnectionId'] = vpn_connection_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpnAttachment:getVpnAttachment', __args__, opts=opts, typ=GetVpnAttachmentResult)
+    return __ret__.apply(lambda __response__: GetVpnAttachmentResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id')))

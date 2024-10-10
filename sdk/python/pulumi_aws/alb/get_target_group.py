@@ -308,9 +308,6 @@ def get_target_group(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_type=pulumi.get(__ret__, 'target_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_target_group)
 def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                             load_balancing_anomaly_mitigation: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -349,4 +346,33 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['loadBalancingAnomalyMitigation'] = load_balancing_anomaly_mitigation
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:alb/getTargetGroup:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
+    return __ret__.apply(lambda __response__: GetTargetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        arn_suffix=pulumi.get(__response__, 'arn_suffix'),
+        connection_termination=pulumi.get(__response__, 'connection_termination'),
+        deregistration_delay=pulumi.get(__response__, 'deregistration_delay'),
+        health_check=pulumi.get(__response__, 'health_check'),
+        id=pulumi.get(__response__, 'id'),
+        lambda_multi_value_headers_enabled=pulumi.get(__response__, 'lambda_multi_value_headers_enabled'),
+        load_balancer_arns=pulumi.get(__response__, 'load_balancer_arns'),
+        load_balancing_algorithm_type=pulumi.get(__response__, 'load_balancing_algorithm_type'),
+        load_balancing_anomaly_mitigation=pulumi.get(__response__, 'load_balancing_anomaly_mitigation'),
+        load_balancing_cross_zone_enabled=pulumi.get(__response__, 'load_balancing_cross_zone_enabled'),
+        name=pulumi.get(__response__, 'name'),
+        port=pulumi.get(__response__, 'port'),
+        preserve_client_ip=pulumi.get(__response__, 'preserve_client_ip'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        protocol_version=pulumi.get(__response__, 'protocol_version'),
+        proxy_protocol_v2=pulumi.get(__response__, 'proxy_protocol_v2'),
+        slow_start=pulumi.get(__response__, 'slow_start'),
+        stickiness=pulumi.get(__response__, 'stickiness'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_type=pulumi.get(__response__, 'target_type'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

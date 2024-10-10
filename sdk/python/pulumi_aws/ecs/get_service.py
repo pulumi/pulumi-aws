@@ -179,9 +179,6 @@ def get_service(cluster_arn: Optional[str] = None,
         service_name=pulumi.get(__ret__, 'service_name'),
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -205,4 +202,19 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     :param str service_name: Name of the ECS Service
     :param Mapping[str, str] tags: Resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    __args__['serviceName'] = service_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecs/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        desired_count=pulumi.get(__response__, 'desired_count'),
+        id=pulumi.get(__response__, 'id'),
+        launch_type=pulumi.get(__response__, 'launch_type'),
+        scheduling_strategy=pulumi.get(__response__, 'scheduling_strategy'),
+        service_name=pulumi.get(__response__, 'service_name'),
+        tags=pulumi.get(__response__, 'tags'),
+        task_definition=pulumi.get(__response__, 'task_definition')))

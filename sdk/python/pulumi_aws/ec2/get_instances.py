@@ -185,9 +185,6 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         private_ips=pulumi.get(__ret__, 'private_ips'),
         public_ips=pulumi.get(__ret__, 'public_ips'))
-
-
-@_utilities.lift_output_func(get_instances)
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
                          instance_state_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -231,4 +228,18 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     :param Mapping[str, str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['instanceStateNames'] = instance_state_names
+    __args__['instanceTags'] = instance_tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
+    return __ret__.apply(lambda __response__: GetInstancesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        instance_state_names=pulumi.get(__response__, 'instance_state_names'),
+        instance_tags=pulumi.get(__response__, 'instance_tags'),
+        ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
+        private_ips=pulumi.get(__response__, 'private_ips'),
+        public_ips=pulumi.get(__response__, 'public_ips')))

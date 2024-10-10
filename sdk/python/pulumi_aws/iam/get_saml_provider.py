@@ -153,9 +153,6 @@ def get_saml_provider(arn: Optional[str] = None,
         saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
         tags=pulumi.get(__ret__, 'tags'),
         valid_until=pulumi.get(__ret__, 'valid_until'))
-
-
-@_utilities.lift_output_func(get_saml_provider)
 def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlProviderResult]:
@@ -177,4 +174,16 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN assigned by AWS for the provider.
     :param Mapping[str, str] tags: Tags attached to the SAML provider.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getSamlProvider:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult)
+    return __ret__.apply(lambda __response__: GetSamlProviderResult(
+        arn=pulumi.get(__response__, 'arn'),
+        create_date=pulumi.get(__response__, 'create_date'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        saml_metadata_document=pulumi.get(__response__, 'saml_metadata_document'),
+        tags=pulumi.get(__response__, 'tags'),
+        valid_until=pulumi.get(__response__, 'valid_until')))

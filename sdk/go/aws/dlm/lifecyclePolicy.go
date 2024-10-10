@@ -154,7 +154,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// ...other configuration...
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -255,7 +255,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -268,7 +268,7 @@ import (
 //						Name: pulumi.String("tf-acc-basic"),
 //						CrossRegionCopies: dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{
 //							&dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{
-//								EncryptionConfiguration: nil,
+//								EncryptionConfiguration: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs{},
 //								RetainRule: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{
 //									Interval:     pulumi.Int(15),
 //									IntervalUnit: pulumi.String("MONTHS"),

@@ -96,9 +96,6 @@ def get_authorizers(rest_api_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
-
-
-@_utilities.lift_output_func(get_authorizers)
 def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizersResult]:
     """
@@ -116,4 +113,11 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
 
     :param str rest_api_id: ID of the associated REST API.
     """
-    ...
+    __args__ = dict()
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getAuthorizers:getAuthorizers', __args__, opts=opts, typ=GetAuthorizersResult)
+    return __ret__.apply(lambda __response__: GetAuthorizersResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id')))

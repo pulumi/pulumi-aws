@@ -123,9 +123,6 @@ def get_local_disk(disk_node: Optional[str] = None,
         disk_path=pulumi.get(__ret__, 'disk_path'),
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_local_disk)
 def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = None,
                           disk_path: Optional[pulumi.Input[Optional[str]]] = None,
                           gateway_arn: Optional[pulumi.Input[str]] = None,
@@ -148,4 +145,15 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
     :param str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
     :param str gateway_arn: ARN of the gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['diskNode'] = disk_node
+    __args__['diskPath'] = disk_path
+    __args__['gatewayArn'] = gateway_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts, typ=GetLocalDiskResult)
+    return __ret__.apply(lambda __response__: GetLocalDiskResult(
+        disk_id=pulumi.get(__response__, 'disk_id'),
+        disk_node=pulumi.get(__response__, 'disk_node'),
+        disk_path=pulumi.get(__response__, 'disk_path'),
+        gateway_arn=pulumi.get(__response__, 'gateway_arn'),
+        id=pulumi.get(__response__, 'id')))

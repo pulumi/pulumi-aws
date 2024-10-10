@@ -191,9 +191,6 @@ def get_secret(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_secret)
 def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -226,4 +223,19 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the secret to retrieve.
     :param Mapping[str, str] tags: Tags of the secret.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
+    return __ret__.apply(lambda __response__: GetSecretResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        last_changed_date=pulumi.get(__response__, 'last_changed_date'),
+        name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
+        tags=pulumi.get(__response__, 'tags')))

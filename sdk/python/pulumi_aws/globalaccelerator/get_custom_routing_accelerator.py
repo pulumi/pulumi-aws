@@ -179,9 +179,6 @@ def get_custom_routing_accelerator(arn: Optional[str] = None,
         ip_sets=pulumi.get(__ret__, 'ip_sets'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_custom_routing_accelerator)
 def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                           name: Optional[pulumi.Input[Optional[str]]] = None,
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -212,4 +209,20 @@ def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[st
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator', __args__, opts=opts, typ=GetCustomRoutingAcceleratorResult)
+    return __ret__.apply(lambda __response__: GetCustomRoutingAcceleratorResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attributes=pulumi.get(__response__, 'attributes'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        ip_sets=pulumi.get(__response__, 'ip_sets'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -151,9 +151,6 @@ def get_contact_channel(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_contact_channel)
 def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactChannelResult]:
     """
@@ -173,4 +170,15 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Amazon Resource Name (ARN) of the contact channel.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getContactChannel:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult)
+    return __ret__.apply(lambda __response__: GetContactChannelResult(
+        activation_status=pulumi.get(__response__, 'activation_status'),
+        arn=pulumi.get(__response__, 'arn'),
+        contact_id=pulumi.get(__response__, 'contact_id'),
+        delivery_addresses=pulumi.get(__response__, 'delivery_addresses'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        type=pulumi.get(__response__, 'type')))

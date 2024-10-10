@@ -167,9 +167,6 @@ def get_replication_set(tags: Optional[Mapping[str, str]] = None,
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_replication_set)
 def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
@@ -191,4 +188,16 @@ def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
     :param Mapping[str, str] tags: All tags applied to the replication set.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssmincidents/getReplicationSet:getReplicationSet', __args__, opts=opts, typ=GetReplicationSetResult)
+    return __ret__.apply(lambda __response__: GetReplicationSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        deletion_protected=pulumi.get(__response__, 'deletion_protected'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified_by=pulumi.get(__response__, 'last_modified_by'),
+        regions=pulumi.get(__response__, 'regions'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

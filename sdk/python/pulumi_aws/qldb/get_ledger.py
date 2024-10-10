@@ -135,9 +135,6 @@ def get_ledger(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         permissions_mode=pulumi.get(__ret__, 'permissions_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ledger)
 def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
@@ -156,4 +153,16 @@ def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Friendly name of the ledger to match.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:qldb/getLedger:getLedger', __args__, opts=opts, typ=GetLedgerResult)
+    return __ret__.apply(lambda __response__: GetLedgerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key=pulumi.get(__response__, 'kms_key'),
+        name=pulumi.get(__response__, 'name'),
+        permissions_mode=pulumi.get(__response__, 'permissions_mode'),
+        tags=pulumi.get(__response__, 'tags')))

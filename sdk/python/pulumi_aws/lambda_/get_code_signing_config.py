@@ -151,9 +151,6 @@ def get_code_signing_config(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified=pulumi.get(__ret__, 'last_modified'),
         policies=pulumi.get(__ret__, 'policies'))
-
-
-@_utilities.lift_output_func(get_code_signing_config)
 def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
@@ -173,4 +170,15 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN of the code signing configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getCodeSigningConfig:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult)
+    return __ret__.apply(lambda __response__: GetCodeSigningConfigResult(
+        allowed_publishers=pulumi.get(__response__, 'allowed_publishers'),
+        arn=pulumi.get(__response__, 'arn'),
+        config_id=pulumi.get(__response__, 'config_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        policies=pulumi.get(__response__, 'policies')))

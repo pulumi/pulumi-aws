@@ -181,9 +181,6 @@ def get_key(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         value=pulumi.get(__ret__, 'value'))
-
-
-@_utilities.lift_output_func(get_key)
 def get_key_output(id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
@@ -204,4 +201,18 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
     :param str id: ID of the API Key to look up.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
+    return __ret__.apply(lambda __response__: GetKeyResult(
+        created_date=pulumi.get(__response__, 'created_date'),
+        customer_id=pulumi.get(__response__, 'customer_id'),
+        description=pulumi.get(__response__, 'description'),
+        enabled=pulumi.get(__response__, 'enabled'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        value=pulumi.get(__response__, 'value')))

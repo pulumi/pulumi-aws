@@ -257,9 +257,6 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-
-
-@_utilities.lift_output_func(get_query_suggestions_block_list)
 def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]] = None,
                                             query_suggestions_block_list_id: Optional[pulumi.Input[str]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -282,4 +279,25 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]
     :param str query_suggestions_block_list_id: Identifier of the block list.
     :param Mapping[str, str] tags: Metadata that helps organize the block list you create.
     """
-    ...
+    __args__ = dict()
+    __args__['indexId'] = index_id
+    __args__['querySuggestionsBlockListId'] = query_suggestions_block_list_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList', __args__, opts=opts, typ=GetQuerySuggestionsBlockListResult)
+    return __ret__.apply(lambda __response__: GetQuerySuggestionsBlockListResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        file_size_bytes=pulumi.get(__response__, 'file_size_bytes'),
+        id=pulumi.get(__response__, 'id'),
+        index_id=pulumi.get(__response__, 'index_id'),
+        item_count=pulumi.get(__response__, 'item_count'),
+        name=pulumi.get(__response__, 'name'),
+        query_suggestions_block_list_id=pulumi.get(__response__, 'query_suggestions_block_list_id'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        source_s3_paths=pulumi.get(__response__, 'source_s3_paths'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at')))

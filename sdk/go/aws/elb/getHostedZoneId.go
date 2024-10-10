@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := elb.GetHostedZoneId(ctx, nil, nil)
+//			main, err := elb.GetHostedZoneId(ctx, &elb.GetHostedZoneIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

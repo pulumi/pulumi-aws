@@ -138,9 +138,6 @@ def get_resource(identifier: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         type_name=pulumi.get(__ret__, 'type_name'),
         type_version_id=pulumi.get(__ret__, 'type_version_id'))
-
-
-@_utilities.lift_output_func(get_resource)
 def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
                         role_arn: Optional[pulumi.Input[Optional[str]]] = None,
                         type_name: Optional[pulumi.Input[str]] = None,
@@ -167,4 +164,17 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
            The following arguments are optional:
     :param str type_version_id: Identifier of the CloudFormation resource type version.
     """
-    ...
+    __args__ = dict()
+    __args__['identifier'] = identifier
+    __args__['roleArn'] = role_arn
+    __args__['typeName'] = type_name
+    __args__['typeVersionId'] = type_version_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudcontrol/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
+    return __ret__.apply(lambda __response__: GetResourceResult(
+        id=pulumi.get(__response__, 'id'),
+        identifier=pulumi.get(__response__, 'identifier'),
+        properties=pulumi.get(__response__, 'properties'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        type_name=pulumi.get(__response__, 'type_name'),
+        type_version_id=pulumi.get(__response__, 'type_version_id')))

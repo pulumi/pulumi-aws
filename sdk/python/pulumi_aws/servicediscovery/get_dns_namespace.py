@@ -152,9 +152,6 @@ def get_dns_namespace(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_dns_namespace)
 def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              type: Optional[pulumi.Input[str]] = None,
@@ -177,4 +174,17 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: Map of tags for the resource.
     :param str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getDnsNamespace:getDnsNamespace', __args__, opts=opts, typ=GetDnsNamespaceResult)
+    return __ret__.apply(lambda __response__: GetDnsNamespaceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        hosted_zone=pulumi.get(__response__, 'hosted_zone'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

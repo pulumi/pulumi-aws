@@ -138,9 +138,6 @@ def get_vault(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         recovery_points=pulumi.get(__ret__, 'recovery_points'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vault)
 def get_vault_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
@@ -160,4 +157,15 @@ def get_vault_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the backup vault.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the resources that you create.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:backup/getVault:getVault', __args__, opts=opts, typ=GetVaultResult)
+    return __ret__.apply(lambda __response__: GetVaultResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        name=pulumi.get(__response__, 'name'),
+        recovery_points=pulumi.get(__response__, 'recovery_points'),
+        tags=pulumi.get(__response__, 'tags')))

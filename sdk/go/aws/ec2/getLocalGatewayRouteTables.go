@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.GetLocalGatewayRouteTables(ctx, nil, nil)
+//			foo, err := ec2.GetLocalGatewayRouteTables(ctx, &ec2.GetLocalGatewayRouteTablesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -128,9 +128,6 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'))
-
-
-@_utilities.lift_output_func(get_container_recipes)
 def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
                                  owner: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipesResult]:
@@ -154,4 +151,14 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
     :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getContainerRecipes:getContainerRecipes', __args__, opts=opts, typ=GetContainerRecipesResult)
+    return __ret__.apply(lambda __response__: GetContainerRecipesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        owner=pulumi.get(__response__, 'owner')))

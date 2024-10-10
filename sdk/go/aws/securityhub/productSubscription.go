@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			current, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -255,9 +255,6 @@ def get_component(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_component)
 def get_component_output(arn: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
@@ -277,4 +274,24 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: ARN of the component.
     :param Mapping[str, str] tags: Key-value map of resource tags for the component.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getComponent:getComponent', __args__, opts=opts, typ=GetComponentResult)
+    return __ret__.apply(lambda __response__: GetComponentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        change_description=pulumi.get(__response__, 'change_description'),
+        data=pulumi.get(__response__, 'data'),
+        date_created=pulumi.get(__response__, 'date_created'),
+        description=pulumi.get(__response__, 'description'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        platform=pulumi.get(__response__, 'platform'),
+        supported_os_versions=pulumi.get(__response__, 'supported_os_versions'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

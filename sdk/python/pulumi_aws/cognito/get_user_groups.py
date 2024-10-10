@@ -99,9 +99,6 @@ def get_user_groups(user_pool_id: Optional[str] = None,
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-
-
-@_utilities.lift_output_func(get_user_groups)
 def get_user_groups_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupsResult]:
     """
@@ -121,4 +118,11 @@ def get_user_groups_output(user_pool_id: Optional[pulumi.Input[str]] = None,
 
     :param str user_pool_id: User pool the client belongs to.
     """
-    ...
+    __args__ = dict()
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserGroups:getUserGroups', __args__, opts=opts, typ=GetUserGroupsResult)
+    return __ret__.apply(lambda __response__: GetUserGroupsResult(
+        groups=pulumi.get(__response__, 'groups'),
+        id=pulumi.get(__response__, 'id'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id')))

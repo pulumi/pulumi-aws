@@ -291,9 +291,6 @@ def get_image(arn: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_change_reasons=pulumi.get(__ret__, 'state_change_reasons'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_image)
 def get_image_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -310,4 +307,31 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
     :param str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['mostRecent'] = most_recent
+    __args__['name'] = name
+    __args__['nameRegex'] = name_regex
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appstream/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
+    return __ret__.apply(lambda __response__: GetImageResult(
+        applications=pulumi.get(__response__, 'applications'),
+        appstream_agent_version=pulumi.get(__response__, 'appstream_agent_version'),
+        arn=pulumi.get(__response__, 'arn'),
+        base_image_arn=pulumi.get(__response__, 'base_image_arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        description=pulumi.get(__response__, 'description'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        id=pulumi.get(__response__, 'id'),
+        image_builder_name=pulumi.get(__response__, 'image_builder_name'),
+        image_builder_supported=pulumi.get(__response__, 'image_builder_supported'),
+        image_permissions=pulumi.get(__response__, 'image_permissions'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        name=pulumi.get(__response__, 'name'),
+        name_regex=pulumi.get(__response__, 'name_regex'),
+        platform=pulumi.get(__response__, 'platform'),
+        public_base_image_released_date=pulumi.get(__response__, 'public_base_image_released_date'),
+        state=pulumi.get(__response__, 'state'),
+        state_change_reasons=pulumi.get(__response__, 'state_change_reasons'),
+        type=pulumi.get(__response__, 'type')))

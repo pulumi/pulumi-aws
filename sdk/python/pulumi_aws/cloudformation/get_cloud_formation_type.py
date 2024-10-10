@@ -277,9 +277,6 @@ def get_cloud_formation_type(arn: Optional[str] = None,
         type_name=pulumi.get(__ret__, 'type_name'),
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
-
-
-@_utilities.lift_output_func(get_cloud_formation_type)
 def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                     type: Optional[pulumi.Input[Optional[str]]] = None,
                                     type_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -304,4 +301,28 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
     :param str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param str version_id: Identifier of the CloudFormation Type version.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['type'] = type
+    __args__['typeName'] = type_name
+    __args__['versionId'] = version_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getCloudFormationType:getCloudFormationType', __args__, opts=opts, typ=GetCloudFormationTypeResult)
+    return __ret__.apply(lambda __response__: GetCloudFormationTypeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        default_version_id=pulumi.get(__response__, 'default_version_id'),
+        deprecated_status=pulumi.get(__response__, 'deprecated_status'),
+        description=pulumi.get(__response__, 'description'),
+        documentation_url=pulumi.get(__response__, 'documentation_url'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        id=pulumi.get(__response__, 'id'),
+        is_default_version=pulumi.get(__response__, 'is_default_version'),
+        logging_configs=pulumi.get(__response__, 'logging_configs'),
+        provisioning_type=pulumi.get(__response__, 'provisioning_type'),
+        schema=pulumi.get(__response__, 'schema'),
+        source_url=pulumi.get(__response__, 'source_url'),
+        type=pulumi.get(__response__, 'type'),
+        type_arn=pulumi.get(__response__, 'type_arn'),
+        type_name=pulumi.get(__response__, 'type_name'),
+        version_id=pulumi.get(__response__, 'version_id'),
+        visibility=pulumi.get(__response__, 'visibility')))

@@ -116,9 +116,6 @@ def get_caller_identity(id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         user_id=pulumi.get(__ret__, 'user_id'))
-
-
-@_utilities.lift_output_func(get_caller_identity)
 def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCallerIdentityResult]:
     """
@@ -140,4 +137,12 @@ def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str id: Account ID number of the account that owns or contains the calling entity.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts, typ=GetCallerIdentityResult)
+    return __ret__.apply(lambda __response__: GetCallerIdentityResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        user_id=pulumi.get(__response__, 'user_id')))

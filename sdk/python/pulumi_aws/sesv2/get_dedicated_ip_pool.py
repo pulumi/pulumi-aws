@@ -141,9 +141,6 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
         pool_name=pulumi.get(__ret__, 'pool_name'),
         scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dedicated_ip_pool)
 def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
@@ -165,4 +162,15 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     :param str pool_name: Name of the dedicated IP pool.
     :param Mapping[str, str] tags: A map of tags attached to the pool.
     """
-    ...
+    __args__ = dict()
+    __args__['poolName'] = pool_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getDedicatedIpPool:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult)
+    return __ret__.apply(lambda __response__: GetDedicatedIpPoolResult(
+        arn=pulumi.get(__response__, 'arn'),
+        dedicated_ips=pulumi.get(__response__, 'dedicated_ips'),
+        id=pulumi.get(__response__, 'id'),
+        pool_name=pulumi.get(__response__, 'pool_name'),
+        scaling_mode=pulumi.get(__response__, 'scaling_mode'),
+        tags=pulumi.get(__response__, 'tags')))

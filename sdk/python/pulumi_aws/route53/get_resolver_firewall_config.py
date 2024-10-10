@@ -109,9 +109,6 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
-
-
-@_utilities.lift_output_func(get_resolver_firewall_config)
 def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallConfigResult]:
     """
@@ -135,4 +132,12 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]]
            
            The following attribute is additionally exported:
     """
-    ...
+    __args__ = dict()
+    __args__['resourceId'] = resource_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallConfig:getResolverFirewallConfig', __args__, opts=opts, typ=GetResolverFirewallConfigResult)
+    return __ret__.apply(lambda __response__: GetResolverFirewallConfigResult(
+        firewall_fail_open=pulumi.get(__response__, 'firewall_fail_open'),
+        id=pulumi.get(__response__, 'id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        resource_id=pulumi.get(__response__, 'resource_id')))

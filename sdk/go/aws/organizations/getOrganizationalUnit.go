@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			org, err := organizations.LookupOrganization(ctx, nil, nil)
+//			org, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

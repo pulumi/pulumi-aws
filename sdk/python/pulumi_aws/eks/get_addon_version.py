@@ -133,9 +133,6 @@ def get_addon_version(addon_name: Optional[str] = None,
         kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_addon_version)
 def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
                              kubernetes_version: Optional[pulumi.Input[str]] = None,
                              most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -168,4 +165,15 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
     :param str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param bool most_recent: Determines if the most recent or default version of the addon should be returned.
     """
-    ...
+    __args__ = dict()
+    __args__['addonName'] = addon_name
+    __args__['kubernetesVersion'] = kubernetes_version
+    __args__['mostRecent'] = most_recent
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:eks/getAddonVersion:getAddonVersion', __args__, opts=opts, typ=GetAddonVersionResult)
+    return __ret__.apply(lambda __response__: GetAddonVersionResult(
+        addon_name=pulumi.get(__response__, 'addon_name'),
+        id=pulumi.get(__response__, 'id'),
+        kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        version=pulumi.get(__response__, 'version')))

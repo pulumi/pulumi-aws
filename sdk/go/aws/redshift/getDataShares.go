@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.GetDataShares(ctx, nil, nil)
+//			_, err := redshift.GetDataShares(ctx, &redshift.GetDataSharesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

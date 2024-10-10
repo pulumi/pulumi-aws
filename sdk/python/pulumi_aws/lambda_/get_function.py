@@ -502,9 +502,6 @@ def get_function(function_name: Optional[str] = None,
         tracing_config=pulumi.get(__ret__, 'tracing_config'),
         version=pulumi.get(__ret__, 'version'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-
-
-@_utilities.lift_output_func(get_function)
 def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         qualifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -527,4 +524,44 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     :param str function_name: Name of the lambda function.
     :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
     """
-    ...
+    __args__ = dict()
+    __args__['functionName'] = function_name
+    __args__['qualifier'] = qualifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult)
+    return __ret__.apply(lambda __response__: GetFunctionResult(
+        architectures=pulumi.get(__response__, 'architectures'),
+        arn=pulumi.get(__response__, 'arn'),
+        code_sha256=pulumi.get(__response__, 'code_sha256'),
+        code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
+        dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
+        description=pulumi.get(__response__, 'description'),
+        environment=pulumi.get(__response__, 'environment'),
+        ephemeral_storages=pulumi.get(__response__, 'ephemeral_storages'),
+        file_system_configs=pulumi.get(__response__, 'file_system_configs'),
+        function_name=pulumi.get(__response__, 'function_name'),
+        handler=pulumi.get(__response__, 'handler'),
+        id=pulumi.get(__response__, 'id'),
+        image_uri=pulumi.get(__response__, 'image_uri'),
+        invoke_arn=pulumi.get(__response__, 'invoke_arn'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        layers=pulumi.get(__response__, 'layers'),
+        logging_configs=pulumi.get(__response__, 'logging_configs'),
+        memory_size=pulumi.get(__response__, 'memory_size'),
+        qualified_arn=pulumi.get(__response__, 'qualified_arn'),
+        qualified_invoke_arn=pulumi.get(__response__, 'qualified_invoke_arn'),
+        qualifier=pulumi.get(__response__, 'qualifier'),
+        reserved_concurrent_executions=pulumi.get(__response__, 'reserved_concurrent_executions'),
+        role=pulumi.get(__response__, 'role'),
+        runtime=pulumi.get(__response__, 'runtime'),
+        signing_job_arn=pulumi.get(__response__, 'signing_job_arn'),
+        signing_profile_version_arn=pulumi.get(__response__, 'signing_profile_version_arn'),
+        source_code_hash=pulumi.get(__response__, 'source_code_hash'),
+        source_code_size=pulumi.get(__response__, 'source_code_size'),
+        tags=pulumi.get(__response__, 'tags'),
+        timeout=pulumi.get(__response__, 'timeout'),
+        tracing_config=pulumi.get(__response__, 'tracing_config'),
+        version=pulumi.get(__response__, 'version'),
+        vpc_config=pulumi.get(__response__, 'vpc_config')))

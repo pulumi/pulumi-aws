@@ -206,9 +206,6 @@ def get_identity_pool(identity_pool_name: Optional[str] = None,
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_identity_pool)
 def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
@@ -230,4 +227,20 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[str]] = N
     :param str identity_pool_name: The Cognito Identity Pool name.
     :param Mapping[str, str] tags: A map of tags to assigned to the Identity Pool.
     """
-    ...
+    __args__ = dict()
+    __args__['identityPoolName'] = identity_pool_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
+    return __ret__.apply(lambda __response__: GetIdentityPoolResult(
+        allow_classic_flow=pulumi.get(__response__, 'allow_classic_flow'),
+        allow_unauthenticated_identities=pulumi.get(__response__, 'allow_unauthenticated_identities'),
+        arn=pulumi.get(__response__, 'arn'),
+        cognito_identity_providers=pulumi.get(__response__, 'cognito_identity_providers'),
+        developer_provider_name=pulumi.get(__response__, 'developer_provider_name'),
+        id=pulumi.get(__response__, 'id'),
+        identity_pool_name=pulumi.get(__response__, 'identity_pool_name'),
+        openid_connect_provider_arns=pulumi.get(__response__, 'openid_connect_provider_arns'),
+        saml_provider_arns=pulumi.get(__response__, 'saml_provider_arns'),
+        supported_login_providers=pulumi.get(__response__, 'supported_login_providers'),
+        tags=pulumi.get(__response__, 'tags')))

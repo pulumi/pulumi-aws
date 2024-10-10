@@ -191,9 +191,6 @@ def get_repository(name: Optional[str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_url=pulumi.get(__ret__, 'repository_url'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_repository)
 def get_repository_output(name: Optional[pulumi.Input[str]] = None,
                           registry_id: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -215,4 +212,20 @@ def get_repository_output(name: Optional[pulumi.Input[str]] = None,
     :param str registry_id: Registry ID where the repository was created.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['registryId'] = registry_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
+    return __ret__.apply(lambda __response__: GetRepositoryResult(
+        arn=pulumi.get(__response__, 'arn'),
+        encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
+        id=pulumi.get(__response__, 'id'),
+        image_scanning_configurations=pulumi.get(__response__, 'image_scanning_configurations'),
+        image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
+        most_recent_image_tags=pulumi.get(__response__, 'most_recent_image_tags'),
+        name=pulumi.get(__response__, 'name'),
+        registry_id=pulumi.get(__response__, 'registry_id'),
+        repository_url=pulumi.get(__response__, 'repository_url'),
+        tags=pulumi.get(__response__, 'tags')))

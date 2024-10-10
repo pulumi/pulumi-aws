@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := apprunner.GetHostedZoneId(ctx, nil, nil)
+//			main, err := apprunner.GetHostedZoneId(ctx, &apprunner.GetHostedZoneIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

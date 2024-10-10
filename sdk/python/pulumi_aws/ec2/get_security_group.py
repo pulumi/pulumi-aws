@@ -167,9 +167,6 @@ def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterA
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_security_group)
 def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -212,4 +209,19 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSecurityGroup:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult)
+    return __ret__.apply(lambda __response__: GetSecurityGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

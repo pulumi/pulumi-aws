@@ -178,9 +178,6 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
-
-
-@_utilities.lift_output_func(get_peering_attachment)
 def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]]]] = None,
                                   id: Optional[pulumi.Input[Optional[str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -220,4 +217,18 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult)
+    return __ret__.apply(lambda __response__: GetPeeringAttachmentResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        peer_account_id=pulumi.get(__response__, 'peer_account_id'),
+        peer_region=pulumi.get(__response__, 'peer_region'),
+        peer_transit_gateway_id=pulumi.get(__response__, 'peer_transit_gateway_id'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

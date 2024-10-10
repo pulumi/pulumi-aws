@@ -284,9 +284,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
         rejected_patches=pulumi.get(__ret__, 'rejected_patches'),
         rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
         sources=pulumi.get(__ret__, 'sources'))
-
-
-@_utilities.lift_output_func(get_patch_baseline)
 def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[bool]]] = None,
                               name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                               operating_system: Optional[pulumi.Input[Optional[str]]] = None,
@@ -328,4 +325,27 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['defaultBaseline'] = default_baseline
+    __args__['namePrefix'] = name_prefix
+    __args__['operatingSystem'] = operating_system
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult)
+    return __ret__.apply(lambda __response__: GetPatchBaselineResult(
+        approval_rules=pulumi.get(__response__, 'approval_rules'),
+        approved_patches=pulumi.get(__response__, 'approved_patches'),
+        approved_patches_compliance_level=pulumi.get(__response__, 'approved_patches_compliance_level'),
+        approved_patches_enable_non_security=pulumi.get(__response__, 'approved_patches_enable_non_security'),
+        default_baseline=pulumi.get(__response__, 'default_baseline'),
+        description=pulumi.get(__response__, 'description'),
+        global_filters=pulumi.get(__response__, 'global_filters'),
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        name=pulumi.get(__response__, 'name'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        operating_system=pulumi.get(__response__, 'operating_system'),
+        owner=pulumi.get(__response__, 'owner'),
+        rejected_patches=pulumi.get(__response__, 'rejected_patches'),
+        rejected_patches_action=pulumi.get(__response__, 'rejected_patches_action'),
+        sources=pulumi.get(__response__, 'sources')))

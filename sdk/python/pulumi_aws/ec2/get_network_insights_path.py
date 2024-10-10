@@ -231,9 +231,6 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_network_insights_path)
 def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
                                      network_insights_path_id: Optional[pulumi.Input[Optional[str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -255,4 +252,23 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
     :param str network_insights_path_id: ID of the Network Insights Path to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['networkInsightsPathId'] = network_insights_path_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult)
+    return __ret__.apply(lambda __response__: GetNetworkInsightsPathResult(
+        arn=pulumi.get(__response__, 'arn'),
+        destination=pulumi.get(__response__, 'destination'),
+        destination_arn=pulumi.get(__response__, 'destination_arn'),
+        destination_ip=pulumi.get(__response__, 'destination_ip'),
+        destination_port=pulumi.get(__response__, 'destination_port'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        network_insights_path_id=pulumi.get(__response__, 'network_insights_path_id'),
+        protocol=pulumi.get(__response__, 'protocol'),
+        source=pulumi.get(__response__, 'source'),
+        source_arn=pulumi.get(__response__, 'source_arn'),
+        source_ip=pulumi.get(__response__, 'source_ip'),
+        tags=pulumi.get(__response__, 'tags')))

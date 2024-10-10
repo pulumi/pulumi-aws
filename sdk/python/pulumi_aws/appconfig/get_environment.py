@@ -182,9 +182,6 @@ def get_environment(application_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_environment)
 def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
                            environment_id: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -209,4 +206,19 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     :param str environment_id: ID of the AppConfig Environment.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    __args__['environmentId'] = environment_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetEnvironmentResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        environment_id=pulumi.get(__response__, 'environment_id'),
+        id=pulumi.get(__response__, 'id'),
+        monitors=pulumi.get(__response__, 'monitors'),
+        name=pulumi.get(__response__, 'name'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

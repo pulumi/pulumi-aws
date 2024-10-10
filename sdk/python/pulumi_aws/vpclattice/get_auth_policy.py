@@ -117,9 +117,6 @@ def get_auth_policy(policy: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_auth_policy)
 def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_identifier: Optional[pulumi.Input[str]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
@@ -143,4 +140,14 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
     :param str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     :param str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
     """
-    ...
+    __args__ = dict()
+    __args__['policy'] = policy
+    __args__['resourceIdentifier'] = resource_identifier
+    __args__['state'] = state
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getAuthPolicy:getAuthPolicy', __args__, opts=opts, typ=GetAuthPolicyResult)
+    return __ret__.apply(lambda __response__: GetAuthPolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        policy=pulumi.get(__response__, 'policy'),
+        resource_identifier=pulumi.get(__response__, 'resource_identifier'),
+        state=pulumi.get(__response__, 'state')))

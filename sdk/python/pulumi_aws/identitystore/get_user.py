@@ -319,9 +319,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'),
         user_type=pulumi.get(__ret__, 'user_type'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
                     filter: Optional[pulumi.Input[Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[str]] = None,
@@ -357,4 +354,30 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
     """
-    ...
+    __args__ = dict()
+    __args__['alternateIdentifier'] = alternate_identifier
+    __args__['filter'] = filter
+    __args__['identityStoreId'] = identity_store_id
+    __args__['userId'] = user_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        addresses=pulumi.get(__response__, 'addresses'),
+        alternate_identifier=pulumi.get(__response__, 'alternate_identifier'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        emails=pulumi.get(__response__, 'emails'),
+        external_ids=pulumi.get(__response__, 'external_ids'),
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        identity_store_id=pulumi.get(__response__, 'identity_store_id'),
+        locale=pulumi.get(__response__, 'locale'),
+        names=pulumi.get(__response__, 'names'),
+        nickname=pulumi.get(__response__, 'nickname'),
+        phone_numbers=pulumi.get(__response__, 'phone_numbers'),
+        preferred_language=pulumi.get(__response__, 'preferred_language'),
+        profile_url=pulumi.get(__response__, 'profile_url'),
+        timezone=pulumi.get(__response__, 'timezone'),
+        title=pulumi.get(__response__, 'title'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        user_type=pulumi.get(__response__, 'user_type')))
