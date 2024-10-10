@@ -139,9 +139,6 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         node_type=pulumi.get(__ret__, 'node_type'),
         preferred_node_types=pulumi.get(__ret__, 'preferred_node_types'))
-
-
-@_utilities.lift_output_func(get_orderable_cluster)
 def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[str]]] = None,
                                  cluster_version: Optional[pulumi.Input[Optional[str]]] = None,
                                  node_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -169,4 +166,17 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
     :param str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
     :param Sequence[str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterType'] = cluster_type
+    __args__['clusterVersion'] = cluster_version
+    __args__['nodeType'] = node_type
+    __args__['preferredNodeTypes'] = preferred_node_types
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getOrderableCluster:getOrderableCluster', __args__, opts=opts, typ=GetOrderableClusterResult)
+    return __ret__.apply(lambda __response__: GetOrderableClusterResult(
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        cluster_type=pulumi.get(__response__, 'cluster_type'),
+        cluster_version=pulumi.get(__response__, 'cluster_version'),
+        id=pulumi.get(__response__, 'id'),
+        node_type=pulumi.get(__response__, 'node_type'),
+        preferred_node_types=pulumi.get(__response__, 'preferred_node_types')))

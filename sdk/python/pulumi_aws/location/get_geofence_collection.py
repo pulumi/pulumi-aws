@@ -169,9 +169,6 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_geofence_collection)
 def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] = None,
                                    kms_key_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -195,4 +192,18 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
     :param str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the geofence collection.
     """
-    ...
+    __args__ = dict()
+    __args__['collectionName'] = collection_name
+    __args__['kmsKeyId'] = kms_key_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getGeofenceCollection:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult)
+    return __ret__.apply(lambda __response__: GetGeofenceCollectionResult(
+        collection_arn=pulumi.get(__response__, 'collection_arn'),
+        collection_name=pulumi.get(__response__, 'collection_name'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_time=pulumi.get(__response__, 'update_time')))
