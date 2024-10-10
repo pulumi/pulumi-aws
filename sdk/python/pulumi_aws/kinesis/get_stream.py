@@ -236,9 +236,6 @@ def get_stream(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_stream)
 def get_stream_output(name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
@@ -261,4 +258,22 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Kinesis Stream.
     :param Mapping[str, str] tags: Map of tags to assigned to the stream.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStream:getStream', __args__, opts=opts, typ=GetStreamResult)
+    return __ret__.apply(lambda __response__: GetStreamResult(
+        arn=pulumi.get(__response__, 'arn'),
+        closed_shards=pulumi.get(__response__, 'closed_shards'),
+        creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
+        encryption_type=pulumi.get(__response__, 'encryption_type'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        name=pulumi.get(__response__, 'name'),
+        open_shards=pulumi.get(__response__, 'open_shards'),
+        retention_period=pulumi.get(__response__, 'retention_period'),
+        shard_level_metrics=pulumi.get(__response__, 'shard_level_metrics'),
+        status=pulumi.get(__response__, 'status'),
+        stream_mode_details=pulumi.get(__response__, 'stream_mode_details'),
+        tags=pulumi.get(__response__, 'tags')))

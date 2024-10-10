@@ -213,9 +213,6 @@ def get_bootstrap_brokers(cluster_arn: Optional[str] = None,
         bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_tls'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_bootstrap_brokers)
 def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
@@ -233,4 +230,20 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[str]] = None
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterArn'] = cluster_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getBootstrapBrokers:getBootstrapBrokers', __args__, opts=opts, typ=GetBootstrapBrokersResult)
+    return __ret__.apply(lambda __response__: GetBootstrapBrokersResult(
+        bootstrap_brokers=pulumi.get(__response__, 'bootstrap_brokers'),
+        bootstrap_brokers_public_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_iam'),
+        bootstrap_brokers_public_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_scram'),
+        bootstrap_brokers_public_tls=pulumi.get(__response__, 'bootstrap_brokers_public_tls'),
+        bootstrap_brokers_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_sasl_iam'),
+        bootstrap_brokers_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_sasl_scram'),
+        bootstrap_brokers_tls=pulumi.get(__response__, 'bootstrap_brokers_tls'),
+        bootstrap_brokers_vpc_connectivity_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_sasl_iam'),
+        bootstrap_brokers_vpc_connectivity_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_sasl_scram'),
+        bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_tls'),
+        cluster_arn=pulumi.get(__response__, 'cluster_arn'),
+        id=pulumi.get(__response__, 'id')))
