@@ -214,9 +214,6 @@ def get_authorizer(authorizer_id: Optional[str] = None,
         provider_arns=pulumi.get(__ret__, 'provider_arns'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_authorizer)
 def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
                           rest_api_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
@@ -237,4 +234,21 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     :param str authorizer_id: Authorizer identifier.
     :param str rest_api_id: ID of the associated REST API.
     """
-    ...
+    __args__ = dict()
+    __args__['authorizerId'] = authorizer_id
+    __args__['restApiId'] = rest_api_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getAuthorizer:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
+    return __ret__.apply(lambda __response__: GetAuthorizerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        authorizer_credentials=pulumi.get(__response__, 'authorizer_credentials'),
+        authorizer_id=pulumi.get(__response__, 'authorizer_id'),
+        authorizer_result_ttl_in_seconds=pulumi.get(__response__, 'authorizer_result_ttl_in_seconds'),
+        authorizer_uri=pulumi.get(__response__, 'authorizer_uri'),
+        id=pulumi.get(__response__, 'id'),
+        identity_source=pulumi.get(__response__, 'identity_source'),
+        identity_validation_expression=pulumi.get(__response__, 'identity_validation_expression'),
+        name=pulumi.get(__response__, 'name'),
+        provider_arns=pulumi.get(__response__, 'provider_arns'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id'),
+        type=pulumi.get(__response__, 'type')))

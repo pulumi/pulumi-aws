@@ -298,9 +298,6 @@ def get_index(id: Optional[str] = None,
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_group_resolution_configurations=pulumi.get(__ret__, 'user_group_resolution_configurations'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
-
-
-@_utilities.lift_output_func(get_index)
 def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
@@ -320,4 +317,27 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
     :param str id: Returns information on a specific Index by id.
     :param Mapping[str, str] tags: Metadata that helps organize the Indices you create.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kendra/getIndex:getIndex', __args__, opts=opts, typ=GetIndexResult)
+    return __ret__.apply(lambda __response__: GetIndexResult(
+        arn=pulumi.get(__response__, 'arn'),
+        capacity_units=pulumi.get(__response__, 'capacity_units'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        description=pulumi.get(__response__, 'description'),
+        document_metadata_configuration_updates=pulumi.get(__response__, 'document_metadata_configuration_updates'),
+        edition=pulumi.get(__response__, 'edition'),
+        error_message=pulumi.get(__response__, 'error_message'),
+        id=pulumi.get(__response__, 'id'),
+        index_statistics=pulumi.get(__response__, 'index_statistics'),
+        name=pulumi.get(__response__, 'name'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        server_side_encryption_configurations=pulumi.get(__response__, 'server_side_encryption_configurations'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        updated_at=pulumi.get(__response__, 'updated_at'),
+        user_context_policy=pulumi.get(__response__, 'user_context_policy'),
+        user_group_resolution_configurations=pulumi.get(__response__, 'user_group_resolution_configurations'),
+        user_token_configurations=pulumi.get(__response__, 'user_token_configurations')))

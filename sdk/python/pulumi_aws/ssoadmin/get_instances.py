@@ -96,9 +96,6 @@ def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIn
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_ids=pulumi.get(__ret__, 'identity_store_ids'))
-
-
-@_utilities.lift_output_func(get_instances)
 def get_instances_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -114,4 +111,10 @@ def get_instances_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     pulumi.export("identityStoreId", example.identity_store_ids[0])
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
+    return __ret__.apply(lambda __response__: GetInstancesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        identity_store_ids=pulumi.get(__response__, 'identity_store_ids')))

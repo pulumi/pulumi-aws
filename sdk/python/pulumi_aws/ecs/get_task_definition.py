@@ -212,9 +212,6 @@ def get_task_definition(task_definition: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         task_definition=pulumi.get(__ret__, 'task_definition'),
         task_role_arn=pulumi.get(__ret__, 'task_role_arn'))
-
-
-@_utilities.lift_output_func(get_task_definition)
 def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
@@ -257,4 +254,18 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
 
     :param str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
-    ...
+    __args__ = dict()
+    __args__['taskDefinition'] = task_definition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
+    return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        arn_without_revision=pulumi.get(__response__, 'arn_without_revision'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
+        family=pulumi.get(__response__, 'family'),
+        id=pulumi.get(__response__, 'id'),
+        network_mode=pulumi.get(__response__, 'network_mode'),
+        revision=pulumi.get(__response__, 'revision'),
+        status=pulumi.get(__response__, 'status'),
+        task_definition=pulumi.get(__response__, 'task_definition'),
+        task_role_arn=pulumi.get(__response__, 'task_role_arn')))

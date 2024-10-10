@@ -33,14 +33,14 @@ import (
 //				Domains: pulumi.StringArray{
 //					pulumi.String("example.com"),
 //				},
-//				Tags: nil,
+//				Tags: pulumi.StringMap{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleResolverFirewallRuleGroup, err := route53.NewResolverFirewallRuleGroup(ctx, "example", &route53.ResolverFirewallRuleGroupArgs{
 //				Name: pulumi.String("example"),
-//				Tags: nil,
+//				Tags: pulumi.StringMap{},
 //			})
 //			if err != nil {
 //				return err

@@ -125,9 +125,6 @@ def get_queue(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(id: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
@@ -147,4 +144,14 @@ def get_queue_output(id: Optional[pulumi.Input[str]] = None,
     :param str id: Unique identifier of the queue. The same as `name`.
     :param Mapping[str, str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mediaconvert/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

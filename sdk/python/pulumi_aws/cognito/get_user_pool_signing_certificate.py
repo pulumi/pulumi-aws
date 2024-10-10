@@ -96,9 +96,6 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
         certificate=pulumi.get(__ret__, 'certificate'),
         id=pulumi.get(__ret__, 'id'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-
-
-@_utilities.lift_output_func(get_user_pool_signing_certificate)
 def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolSigningCertificateResult]:
     """
@@ -116,4 +113,11 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
 
     :param str user_pool_id: Cognito user pool ID.
     """
-    ...
+    __args__ = dict()
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate', __args__, opts=opts, typ=GetUserPoolSigningCertificateResult)
+    return __ret__.apply(lambda __response__: GetUserPoolSigningCertificateResult(
+        certificate=pulumi.get(__response__, 'certificate'),
+        id=pulumi.get(__response__, 'id'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id')))

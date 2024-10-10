@@ -389,9 +389,6 @@ def get_cluster(cluster_id: Optional[str] = None,
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'),
         subnet_group_name=pulumi.get(__ret__, 'subnet_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -411,4 +408,34 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
     :param str cluster_id: Group identifier.
     :param Mapping[str, str] tags: Tags assigned to the resource
     """
-    ...
+    __args__ = dict()
+    __args__['clusterId'] = cluster_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        cache_nodes=pulumi.get(__response__, 'cache_nodes'),
+        cluster_address=pulumi.get(__response__, 'cluster_address'),
+        cluster_id=pulumi.get(__response__, 'cluster_id'),
+        configuration_endpoint=pulumi.get(__response__, 'configuration_endpoint'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        ip_discovery=pulumi.get(__response__, 'ip_discovery'),
+        log_delivery_configurations=pulumi.get(__response__, 'log_delivery_configurations'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        node_type=pulumi.get(__response__, 'node_type'),
+        notification_topic_arn=pulumi.get(__response__, 'notification_topic_arn'),
+        num_cache_nodes=pulumi.get(__response__, 'num_cache_nodes'),
+        parameter_group_name=pulumi.get(__response__, 'parameter_group_name'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_outpost_arn=pulumi.get(__response__, 'preferred_outpost_arn'),
+        replication_group_id=pulumi.get(__response__, 'replication_group_id'),
+        security_group_ids=pulumi.get(__response__, 'security_group_ids'),
+        snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
+        snapshot_window=pulumi.get(__response__, 'snapshot_window'),
+        subnet_group_name=pulumi.get(__response__, 'subnet_group_name'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -173,9 +173,6 @@ def get_state_machine(name: Optional[str] = None,
         revision_id=pulumi.get(__ret__, 'revision_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_state_machine)
 def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineResult]:
     """
@@ -195,4 +192,17 @@ def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Friendly name of the state machine to match.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult)
+    return __ret__.apply(lambda __response__: GetStateMachineResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        definition=pulumi.get(__response__, 'definition'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        revision_id=pulumi.get(__response__, 'revision_id'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        status=pulumi.get(__response__, 'status')))

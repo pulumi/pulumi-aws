@@ -175,9 +175,6 @@ def get_access_point(access_point_id: Optional[str] = None,
         posix_users=pulumi.get(__ret__, 'posix_users'),
         root_directories=pulumi.get(__ret__, 'root_directories'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_access_point)
 def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
@@ -197,4 +194,18 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
     :param str access_point_id: ID that identifies the file system.
     :param Mapping[str, str] tags: Key-value mapping of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['accessPointId'] = access_point_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:efs/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
+    return __ret__.apply(lambda __response__: GetAccessPointResult(
+        access_point_id=pulumi.get(__response__, 'access_point_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        file_system_arn=pulumi.get(__response__, 'file_system_arn'),
+        file_system_id=pulumi.get(__response__, 'file_system_id'),
+        id=pulumi.get(__response__, 'id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        posix_users=pulumi.get(__response__, 'posix_users'),
+        root_directories=pulumi.get(__response__, 'root_directories'),
+        tags=pulumi.get(__response__, 'tags')))

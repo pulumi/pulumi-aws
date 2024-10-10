@@ -191,9 +191,6 @@ def get_virtual_router(mesh_name: Optional[str] = None,
         resource_owner=pulumi.get(__ret__, 'resource_owner'),
         specs=pulumi.get(__ret__, 'specs'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_virtual_router)
 def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
                               mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
@@ -217,4 +214,21 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the virtual router.
     :param Mapping[str, str] tags: Map of tags.
     """
-    ...
+    __args__ = dict()
+    __args__['meshName'] = mesh_name
+    __args__['meshOwner'] = mesh_owner
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getVirtualRouter:getVirtualRouter', __args__, opts=opts, typ=GetVirtualRouterResult)
+    return __ret__.apply(lambda __response__: GetVirtualRouterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        mesh_name=pulumi.get(__response__, 'mesh_name'),
+        mesh_owner=pulumi.get(__response__, 'mesh_owner'),
+        name=pulumi.get(__response__, 'name'),
+        resource_owner=pulumi.get(__response__, 'resource_owner'),
+        specs=pulumi.get(__response__, 'specs'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -247,9 +247,6 @@ def get_theme(aws_account_id: Optional[str] = None,
         theme_id=pulumi.get(__ret__, 'theme_id'),
         version_description=pulumi.get(__ret__, 'version_description'),
         version_number=pulumi.get(__ret__, 'version_number'))
-
-
-@_utilities.lift_output_func(get_theme)
 def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
@@ -275,4 +272,24 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = Non
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    __args__['tags'] = tags
+    __args__['themeId'] = theme_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getTheme:getTheme', __args__, opts=opts, typ=GetThemeResult)
+    return __ret__.apply(lambda __response__: GetThemeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        base_theme_id=pulumi.get(__response__, 'base_theme_id'),
+        configurations=pulumi.get(__response__, 'configurations'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        theme_id=pulumi.get(__response__, 'theme_id'),
+        version_description=pulumi.get(__response__, 'version_description'),
+        version_number=pulumi.get(__response__, 'version_number')))

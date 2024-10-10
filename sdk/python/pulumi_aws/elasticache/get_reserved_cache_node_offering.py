@@ -158,9 +158,6 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[str] = None,
         offering_id=pulumi.get(__ret__, 'offering_id'),
         offering_type=pulumi.get(__ret__, 'offering_type'),
         product_description=pulumi.get(__ret__, 'product_description'))
-
-
-@_utilities.lift_output_func(get_reserved_cache_node_offering)
 def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Input[str]] = None,
                                             duration: Optional[pulumi.Input[str]] = None,
                                             offering_type: Optional[pulumi.Input[str]] = None,
@@ -194,4 +191,18 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
     :param str product_description: Engine type for the reserved cache node.
            Valid values are `redis` and `memcached`.
     """
-    ...
+    __args__ = dict()
+    __args__['cacheNodeType'] = cache_node_type
+    __args__['duration'] = duration
+    __args__['offeringType'] = offering_type
+    __args__['productDescription'] = product_description
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering', __args__, opts=opts, typ=GetReservedCacheNodeOfferingResult)
+    return __ret__.apply(lambda __response__: GetReservedCacheNodeOfferingResult(
+        cache_node_type=pulumi.get(__response__, 'cache_node_type'),
+        duration=pulumi.get(__response__, 'duration'),
+        fixed_price=pulumi.get(__response__, 'fixed_price'),
+        id=pulumi.get(__response__, 'id'),
+        offering_id=pulumi.get(__response__, 'offering_id'),
+        offering_type=pulumi.get(__response__, 'offering_type'),
+        product_description=pulumi.get(__response__, 'product_description')))

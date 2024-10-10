@@ -915,7 +915,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Sum",
                         "unit": "Count",
                         "dimensions": {
-                            "load_balancer": "app/web",
+                            "LoadBalancer": "app/web",
                         },
                     },
                 },
@@ -928,7 +928,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Sum",
                         "unit": "Count",
                         "dimensions": {
-                            "load_balancer": "app/web",
+                            "LoadBalancer": "app/web",
                         },
                     },
                 },
@@ -963,7 +963,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Average",
                         "unit": "Count",
                         "dimensions": {
-                            "instance_id": "i-abc123",
+                            "InstanceId": "i-abc123",
                         },
                     },
                 },
@@ -1125,7 +1125,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Sum",
                         "unit": "Count",
                         "dimensions": {
-                            "load_balancer": "app/web",
+                            "LoadBalancer": "app/web",
                         },
                     },
                 },
@@ -1138,7 +1138,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Sum",
                         "unit": "Count",
                         "dimensions": {
-                            "load_balancer": "app/web",
+                            "LoadBalancer": "app/web",
                         },
                     },
                 },
@@ -1173,7 +1173,7 @@ class MetricAlarm(pulumi.CustomResource):
                         "stat": "Average",
                         "unit": "Count",
                         "dimensions": {
-                            "instance_id": "i-abc123",
+                            "InstanceId": "i-abc123",
                         },
                     },
                 },

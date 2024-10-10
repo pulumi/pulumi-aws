@@ -161,7 +161,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

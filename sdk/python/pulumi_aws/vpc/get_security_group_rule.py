@@ -251,9 +251,6 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
         security_group_rule_id=pulumi.get(__ret__, 'security_group_rule_id'),
         tags=pulumi.get(__ret__, 'tags'),
         to_port=pulumi.get(__ret__, 'to_port'))
-
-
-@_utilities.lift_output_func(get_security_group_rule)
 def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]]]] = None,
                                    security_group_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
@@ -273,4 +270,24 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
     :param Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str security_group_rule_id: ID of the security group rule to select.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['securityGroupRuleId'] = security_group_rule_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpc/getSecurityGroupRule:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult)
+    return __ret__.apply(lambda __response__: GetSecurityGroupRuleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        cidr_ipv4=pulumi.get(__response__, 'cidr_ipv4'),
+        cidr_ipv6=pulumi.get(__response__, 'cidr_ipv6'),
+        description=pulumi.get(__response__, 'description'),
+        filters=pulumi.get(__response__, 'filters'),
+        from_port=pulumi.get(__response__, 'from_port'),
+        id=pulumi.get(__response__, 'id'),
+        ip_protocol=pulumi.get(__response__, 'ip_protocol'),
+        is_egress=pulumi.get(__response__, 'is_egress'),
+        prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
+        referenced_security_group_id=pulumi.get(__response__, 'referenced_security_group_id'),
+        security_group_id=pulumi.get(__response__, 'security_group_id'),
+        security_group_rule_id=pulumi.get(__response__, 'security_group_rule_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        to_port=pulumi.get(__response__, 'to_port')))

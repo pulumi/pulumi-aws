@@ -31,7 +31,8 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := aws.GetRegion(ctx, nil, nil);
+// example, err := aws.GetRegion(ctx, &aws.GetRegionArgs{
+// }, nil);
 // if err != nil {
 // return err
 // }

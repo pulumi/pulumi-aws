@@ -284,9 +284,6 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
         source_code_hash=pulumi.get(__ret__, 'source_code_hash'),
         source_code_size=pulumi.get(__ret__, 'source_code_size'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_layer_version)
 def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Optional[str]]] = None,
                              compatible_runtime: Optional[pulumi.Input[Optional[str]]] = None,
                              layer_name: Optional[pulumi.Input[str]] = None,
@@ -312,4 +309,28 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     :param str layer_name: Name of the lambda layer.
     :param int version: Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
     """
-    ...
+    __args__ = dict()
+    __args__['compatibleArchitecture'] = compatible_architecture
+    __args__['compatibleRuntime'] = compatible_runtime
+    __args__['layerName'] = layer_name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult)
+    return __ret__.apply(lambda __response__: GetLayerVersionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        code_sha256=pulumi.get(__response__, 'code_sha256'),
+        compatible_architecture=pulumi.get(__response__, 'compatible_architecture'),
+        compatible_architectures=pulumi.get(__response__, 'compatible_architectures'),
+        compatible_runtime=pulumi.get(__response__, 'compatible_runtime'),
+        compatible_runtimes=pulumi.get(__response__, 'compatible_runtimes'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        layer_arn=pulumi.get(__response__, 'layer_arn'),
+        layer_name=pulumi.get(__response__, 'layer_name'),
+        license_info=pulumi.get(__response__, 'license_info'),
+        signing_job_arn=pulumi.get(__response__, 'signing_job_arn'),
+        signing_profile_version_arn=pulumi.get(__response__, 'signing_profile_version_arn'),
+        source_code_hash=pulumi.get(__response__, 'source_code_hash'),
+        source_code_size=pulumi.get(__response__, 'source_code_size'),
+        version=pulumi.get(__response__, 'version')))

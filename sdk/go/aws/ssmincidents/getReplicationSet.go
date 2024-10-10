@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssmincidents.LookupReplicationSet(ctx, nil, nil)
+//			_, err := ssmincidents.LookupReplicationSet(ctx, &ssmincidents.LookupReplicationSetArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

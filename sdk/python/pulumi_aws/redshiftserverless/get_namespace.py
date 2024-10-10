@@ -187,9 +187,6 @@ def get_namespace(namespace_name: Optional[str] = None,
         log_exports=pulumi.get(__ret__, 'log_exports'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
         namespace_name=pulumi.get(__ret__, 'namespace_name'))
-
-
-@_utilities.lift_output_func(get_namespace)
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
@@ -207,4 +204,18 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
 
     :param str namespace_name: The name of the namespace.
     """
-    ...
+    __args__ = dict()
+    __args__['namespaceName'] = namespace_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
+    return __ret__.apply(lambda __response__: GetNamespaceResult(
+        admin_username=pulumi.get(__response__, 'admin_username'),
+        arn=pulumi.get(__response__, 'arn'),
+        db_name=pulumi.get(__response__, 'db_name'),
+        default_iam_role_arn=pulumi.get(__response__, 'default_iam_role_arn'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        log_exports=pulumi.get(__response__, 'log_exports'),
+        namespace_id=pulumi.get(__response__, 'namespace_id'),
+        namespace_name=pulumi.get(__response__, 'namespace_name')))

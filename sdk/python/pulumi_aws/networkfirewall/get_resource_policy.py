@@ -96,9 +96,6 @@ def get_resource_policy(resource_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-
-
-@_utilities.lift_output_func(get_resource_policy)
 def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
@@ -116,4 +113,11 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
 
     :param str resource_arn: The Amazon Resource Name (ARN) that identifies the resource policy.
     """
-    ...
+    __args__ = dict()
+    __args__['resourceArn'] = resource_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getResourcePolicy:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
+    return __ret__.apply(lambda __response__: GetResourcePolicyResult(
+        id=pulumi.get(__response__, 'id'),
+        policy=pulumi.get(__response__, 'policy'),
+        resource_arn=pulumi.get(__response__, 'resource_arn')))

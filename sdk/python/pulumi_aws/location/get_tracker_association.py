@@ -99,9 +99,6 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
         consumer_arn=pulumi.get(__ret__, 'consumer_arn'),
         id=pulumi.get(__ret__, 'id'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'))
-
-
-@_utilities.lift_output_func(get_tracker_association)
 def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = None,
                                    tracker_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerAssociationResult]:
@@ -124,4 +121,12 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
     :param str consumer_arn: ARN of the geofence collection associated to tracker resource.
     :param str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
-    ...
+    __args__ = dict()
+    __args__['consumerArn'] = consumer_arn
+    __args__['trackerName'] = tracker_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getTrackerAssociation:getTrackerAssociation', __args__, opts=opts, typ=GetTrackerAssociationResult)
+    return __ret__.apply(lambda __response__: GetTrackerAssociationResult(
+        consumer_arn=pulumi.get(__response__, 'consumer_arn'),
+        id=pulumi.get(__response__, 'id'),
+        tracker_name=pulumi.get(__response__, 'tracker_name')))

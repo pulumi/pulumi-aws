@@ -136,9 +136,6 @@ def get_selection(plan_id: Optional[str] = None,
         plan_id=pulumi.get(__ret__, 'plan_id'),
         resources=pulumi.get(__ret__, 'resources'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
-
-
-@_utilities.lift_output_func(get_selection)
 def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
                          selection_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSelectionResult]:
@@ -159,4 +156,15 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     :param str plan_id: Backup plan ID associated with the selection of resources.
     :param str selection_id: Backup selection ID.
     """
-    ...
+    __args__ = dict()
+    __args__['planId'] = plan_id
+    __args__['selectionId'] = selection_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:backup/getSelection:getSelection', __args__, opts=opts, typ=GetSelectionResult)
+    return __ret__.apply(lambda __response__: GetSelectionResult(
+        iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        plan_id=pulumi.get(__response__, 'plan_id'),
+        resources=pulumi.get(__response__, 'resources'),
+        selection_id=pulumi.get(__response__, 'selection_id')))

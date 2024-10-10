@@ -164,9 +164,6 @@ def get_log_group(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_log_group)
 def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupResult]:
@@ -186,4 +183,17 @@ def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Cloudwatch log group
     :param Mapping[str, str] tags: Map of tags to assign to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
+    return __ret__.apply(lambda __response__: GetLogGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        log_group_class=pulumi.get(__response__, 'log_group_class'),
+        name=pulumi.get(__response__, 'name'),
+        retention_in_days=pulumi.get(__response__, 'retention_in_days'),
+        tags=pulumi.get(__response__, 'tags')))

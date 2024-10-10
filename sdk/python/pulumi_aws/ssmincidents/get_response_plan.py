@@ -181,9 +181,6 @@ def get_response_plan(arn: Optional[str] = None,
         integrations=pulumi.get(__ret__, 'integrations'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_response_plan)
 def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponsePlanResult]:
@@ -196,4 +193,19 @@ def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: The Amazon Resource Name (ARN) of the response plan.
     :param Mapping[str, str] tags: The tags applied to the response plan.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssmincidents/getResponsePlan:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult)
+    return __ret__.apply(lambda __response__: GetResponsePlanResult(
+        actions=pulumi.get(__response__, 'actions'),
+        arn=pulumi.get(__response__, 'arn'),
+        chat_channels=pulumi.get(__response__, 'chat_channels'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        engagements=pulumi.get(__response__, 'engagements'),
+        id=pulumi.get(__response__, 'id'),
+        incident_templates=pulumi.get(__response__, 'incident_templates'),
+        integrations=pulumi.get(__response__, 'integrations'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

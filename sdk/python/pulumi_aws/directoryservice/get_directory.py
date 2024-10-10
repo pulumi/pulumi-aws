@@ -273,9 +273,6 @@ def get_directory(directory_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vpc_settings=pulumi.get(__ret__, 'vpc_settings'))
-
-
-@_utilities.lift_output_func(get_directory)
 def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
@@ -295,4 +292,26 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     :param str directory_id: ID of the directory.
     :param Mapping[str, str] tags: A map of tags assigned to the directory/connector.
     """
-    ...
+    __args__ = dict()
+    __args__['directoryId'] = directory_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directoryservice/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
+    return __ret__.apply(lambda __response__: GetDirectoryResult(
+        access_url=pulumi.get(__response__, 'access_url'),
+        alias=pulumi.get(__response__, 'alias'),
+        connect_settings=pulumi.get(__response__, 'connect_settings'),
+        description=pulumi.get(__response__, 'description'),
+        directory_id=pulumi.get(__response__, 'directory_id'),
+        dns_ip_addresses=pulumi.get(__response__, 'dns_ip_addresses'),
+        edition=pulumi.get(__response__, 'edition'),
+        enable_sso=pulumi.get(__response__, 'enable_sso'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        radius_settings=pulumi.get(__response__, 'radius_settings'),
+        security_group_id=pulumi.get(__response__, 'security_group_id'),
+        short_name=pulumi.get(__response__, 'short_name'),
+        size=pulumi.get(__response__, 'size'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        vpc_settings=pulumi.get(__response__, 'vpc_settings')))

@@ -174,9 +174,6 @@ def get_certificate(id: Optional[str] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         valid_from=pulumi.get(__ret__, 'valid_from'),
         valid_till=pulumi.get(__ret__, 'valid_till'))
-
-
-@_utilities.lift_output_func(get_certificate)
 def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                            latest_valid_till: Optional[pulumi.Input[Optional[bool]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
@@ -196,4 +193,18 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Certificate identifier. For example, `rds-ca-2019`.
     :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['latestValidTill'] = latest_valid_till
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
+    return __ret__.apply(lambda __response__: GetCertificateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate_type=pulumi.get(__response__, 'certificate_type'),
+        customer_override=pulumi.get(__response__, 'customer_override'),
+        customer_override_valid_till=pulumi.get(__response__, 'customer_override_valid_till'),
+        id=pulumi.get(__response__, 'id'),
+        latest_valid_till=pulumi.get(__response__, 'latest_valid_till'),
+        thumbprint=pulumi.get(__response__, 'thumbprint'),
+        valid_from=pulumi.get(__response__, 'valid_from'),
+        valid_till=pulumi.get(__response__, 'valid_till')))

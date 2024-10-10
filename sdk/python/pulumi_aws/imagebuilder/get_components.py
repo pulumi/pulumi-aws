@@ -128,9 +128,6 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'))
-
-
-@_utilities.lift_output_func(get_components)
 def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]]]] = None,
                           owner: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentsResult]:
@@ -154,4 +151,14 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getComponents:getComponents', __args__, opts=opts, typ=GetComponentsResult)
+    return __ret__.apply(lambda __response__: GetComponentsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        owner=pulumi.get(__response__, 'owner')))

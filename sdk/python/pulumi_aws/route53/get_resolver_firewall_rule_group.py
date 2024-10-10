@@ -189,9 +189,6 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = Non
         share_status=pulumi.get(__ret__, 'share_status'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
-
-
-@_utilities.lift_output_func(get_resolver_firewall_rule_group)
 def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
     """
@@ -215,4 +212,20 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
            
            The following attribute is additionally exported:
     """
-    ...
+    __args__ = dict()
+    __args__['firewallRuleGroupId'] = firewall_rule_group_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup', __args__, opts=opts, typ=GetResolverFirewallRuleGroupResult)
+    return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        creator_request_id=pulumi.get(__response__, 'creator_request_id'),
+        firewall_rule_group_id=pulumi.get(__response__, 'firewall_rule_group_id'),
+        id=pulumi.get(__response__, 'id'),
+        modification_time=pulumi.get(__response__, 'modification_time'),
+        name=pulumi.get(__response__, 'name'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        rule_count=pulumi.get(__response__, 'rule_count'),
+        share_status=pulumi.get(__response__, 'share_status'),
+        status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message')))

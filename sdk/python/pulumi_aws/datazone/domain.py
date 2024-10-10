@@ -389,16 +389,16 @@ class Domain(pulumi.CustomResource):
             inline_policies=[{
                 "name": "domain_execution_policy",
                 "policy": json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
                             "datazone:*",
                             "ram:*",
                             "sso:*",
                             "kms:*",
                         ],
-                        "effect": "Allow",
-                        "resource": "*",
+                        "Effect": "Allow",
+                        "Resource": "*",
                     }],
                 }),
             }])
@@ -474,16 +474,16 @@ class Domain(pulumi.CustomResource):
             inline_policies=[{
                 "name": "domain_execution_policy",
                 "policy": json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
                             "datazone:*",
                             "ram:*",
                             "sso:*",
                             "kms:*",
                         ],
-                        "effect": "Allow",
-                        "resource": "*",
+                        "Effect": "Allow",
+                        "Resource": "*",
                     }],
                 }),
             }])

@@ -312,9 +312,6 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_vpc_peering_connection)
 def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                                       filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']]]]] = None,
                                       id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -368,4 +365,37 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
            which take the following arguments:
     :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
-    ...
+    __args__ = dict()
+    __args__['cidrBlock'] = cidr_block
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['ownerId'] = owner_id
+    __args__['peerCidrBlock'] = peer_cidr_block
+    __args__['peerOwnerId'] = peer_owner_id
+    __args__['peerRegion'] = peer_region
+    __args__['peerVpcId'] = peer_vpc_id
+    __args__['region'] = region
+    __args__['status'] = status
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts, typ=GetVpcPeeringConnectionResult)
+    return __ret__.apply(lambda __response__: GetVpcPeeringConnectionResult(
+        accepter=pulumi.get(__response__, 'accepter'),
+        cidr_block=pulumi.get(__response__, 'cidr_block'),
+        cidr_block_sets=pulumi.get(__response__, 'cidr_block_sets'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_cidr_block_sets=pulumi.get(__response__, 'ipv6_cidr_block_sets'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        peer_cidr_block=pulumi.get(__response__, 'peer_cidr_block'),
+        peer_cidr_block_sets=pulumi.get(__response__, 'peer_cidr_block_sets'),
+        peer_ipv6_cidr_block_sets=pulumi.get(__response__, 'peer_ipv6_cidr_block_sets'),
+        peer_owner_id=pulumi.get(__response__, 'peer_owner_id'),
+        peer_region=pulumi.get(__response__, 'peer_region'),
+        peer_vpc_id=pulumi.get(__response__, 'peer_vpc_id'),
+        region=pulumi.get(__response__, 'region'),
+        requester=pulumi.get(__response__, 'requester'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

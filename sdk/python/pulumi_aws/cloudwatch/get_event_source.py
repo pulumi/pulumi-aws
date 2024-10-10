@@ -137,9 +137,6 @@ def get_event_source(name_prefix: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         state=pulumi.get(__ret__, 'state'))
-
-
-@_utilities.lift_output_func(get_event_source)
 def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceResult]:
     """
@@ -159,4 +156,14 @@ def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] =
 
     :param str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
     """
-    ...
+    __args__ = dict()
+    __args__['namePrefix'] = name_prefix
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventSource:getEventSource', __args__, opts=opts, typ=GetEventSourceResult)
+    return __ret__.apply(lambda __response__: GetEventSourceResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_by=pulumi.get(__response__, 'created_by'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        state=pulumi.get(__response__, 'state')))

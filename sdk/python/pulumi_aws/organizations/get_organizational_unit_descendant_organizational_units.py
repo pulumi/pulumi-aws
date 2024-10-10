@@ -98,9 +98,6 @@ def get_organizational_unit_descendant_organizational_units(parent_id: Optional[
         childrens=pulumi.get(__ret__, 'childrens'),
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
-
-
-@_utilities.lift_output_func(get_organizational_unit_descendant_organizational_units)
 def get_organizational_unit_descendant_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = None,
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitDescendantOrganizationalUnitsResult]:
     """
@@ -119,4 +116,11 @@ def get_organizational_unit_descendant_organizational_units_output(parent_id: Op
 
     :param str parent_id: Parent ID of the organizational unit.
     """
-    ...
+    __args__ = dict()
+    __args__['parentId'] = parent_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits', __args__, opts=opts, typ=GetOrganizationalUnitDescendantOrganizationalUnitsResult)
+    return __ret__.apply(lambda __response__: GetOrganizationalUnitDescendantOrganizationalUnitsResult(
+        childrens=pulumi.get(__response__, 'childrens'),
+        id=pulumi.get(__response__, 'id'),
+        parent_id=pulumi.get(__response__, 'parent_id')))

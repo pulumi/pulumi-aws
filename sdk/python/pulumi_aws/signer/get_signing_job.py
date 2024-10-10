@@ -279,9 +279,6 @@ def get_signing_job(job_id: Optional[str] = None,
         sources=pulumi.get(__ret__, 'sources'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'))
-
-
-@_utilities.lift_output_func(get_signing_job)
 def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningJobResult]:
     """
@@ -299,4 +296,25 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
 
     :param str job_id: ID of the signing job on output.
     """
-    ...
+    __args__ = dict()
+    __args__['jobId'] = job_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningJob:getSigningJob', __args__, opts=opts, typ=GetSigningJobResult)
+    return __ret__.apply(lambda __response__: GetSigningJobResult(
+        completed_at=pulumi.get(__response__, 'completed_at'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        id=pulumi.get(__response__, 'id'),
+        job_id=pulumi.get(__response__, 'job_id'),
+        job_invoker=pulumi.get(__response__, 'job_invoker'),
+        job_owner=pulumi.get(__response__, 'job_owner'),
+        platform_display_name=pulumi.get(__response__, 'platform_display_name'),
+        platform_id=pulumi.get(__response__, 'platform_id'),
+        profile_name=pulumi.get(__response__, 'profile_name'),
+        profile_version=pulumi.get(__response__, 'profile_version'),
+        requested_by=pulumi.get(__response__, 'requested_by'),
+        revocation_records=pulumi.get(__response__, 'revocation_records'),
+        signature_expires_at=pulumi.get(__response__, 'signature_expires_at'),
+        signed_objects=pulumi.get(__response__, 'signed_objects'),
+        sources=pulumi.get(__response__, 'sources'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason')))

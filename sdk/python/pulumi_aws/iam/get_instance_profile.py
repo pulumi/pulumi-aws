@@ -163,9 +163,6 @@ def get_instance_profile(name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         role_id=pulumi.get(__ret__, 'role_id'),
         role_name=pulumi.get(__ret__, 'role_name'))
-
-
-@_utilities.lift_output_func(get_instance_profile)
 def get_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
@@ -185,4 +182,16 @@ def get_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Friendly IAM instance profile name to match.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getInstanceProfile:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
+    return __ret__.apply(lambda __response__: GetInstanceProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        create_date=pulumi.get(__response__, 'create_date'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        role_id=pulumi.get(__response__, 'role_id'),
+        role_name=pulumi.get(__response__, 'role_name')))

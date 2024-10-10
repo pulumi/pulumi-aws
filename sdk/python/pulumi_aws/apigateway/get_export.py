@@ -174,9 +174,6 @@ def get_export(accepts: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
-
-
-@_utilities.lift_output_func(get_export)
 def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
                       export_type: Optional[pulumi.Input[str]] = None,
                       parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -202,4 +199,21 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
     :param str rest_api_id: Identifier of the associated REST API.
     :param str stage_name: Name of the Stage that will be exported.
     """
-    ...
+    __args__ = dict()
+    __args__['accepts'] = accepts
+    __args__['exportType'] = export_type
+    __args__['parameters'] = parameters
+    __args__['restApiId'] = rest_api_id
+    __args__['stageName'] = stage_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getExport:getExport', __args__, opts=opts, typ=GetExportResult)
+    return __ret__.apply(lambda __response__: GetExportResult(
+        accepts=pulumi.get(__response__, 'accepts'),
+        body=pulumi.get(__response__, 'body'),
+        content_disposition=pulumi.get(__response__, 'content_disposition'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        export_type=pulumi.get(__response__, 'export_type'),
+        id=pulumi.get(__response__, 'id'),
+        parameters=pulumi.get(__response__, 'parameters'),
+        rest_api_id=pulumi.get(__response__, 'rest_api_id'),
+        stage_name=pulumi.get(__response__, 'stage_name')))

@@ -98,9 +98,6 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_global_networks)
 def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworksResult]:
     """
@@ -120,4 +117,11 @@ def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
     :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getGlobalNetworks:getGlobalNetworks', __args__, opts=opts, typ=GetGlobalNetworksResult)
+    return __ret__.apply(lambda __response__: GetGlobalNetworksResult(
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

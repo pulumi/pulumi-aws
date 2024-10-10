@@ -314,9 +314,6 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         language=pulumi.get(__ret__, 'language'),
         python_script=pulumi.get(__ret__, 'python_script'),
         scala_code=pulumi.get(__ret__, 'scala_code'))
-
-
-@_utilities.lift_output_func(get_script)
 def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
                       dag_nodes: Optional[pulumi.Input[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
                       language: Optional[pulumi.Input[Optional[str]]] = None,
@@ -515,4 +512,16 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
     :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     """
-    ...
+    __args__ = dict()
+    __args__['dagEdges'] = dag_edges
+    __args__['dagNodes'] = dag_nodes
+    __args__['language'] = language
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:glue/getScript:getScript', __args__, opts=opts, typ=GetScriptResult)
+    return __ret__.apply(lambda __response__: GetScriptResult(
+        dag_edges=pulumi.get(__response__, 'dag_edges'),
+        dag_nodes=pulumi.get(__response__, 'dag_nodes'),
+        id=pulumi.get(__response__, 'id'),
+        language=pulumi.get(__response__, 'language'),
+        python_script=pulumi.get(__response__, 'python_script'),
+        scala_code=pulumi.get(__response__, 'scala_code')))

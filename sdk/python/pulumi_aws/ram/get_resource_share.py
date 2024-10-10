@@ -206,9 +206,6 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_resource_share)
 def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_owner: Optional[pulumi.Input[str]] = None,
@@ -248,4 +245,22 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, str] tags: Tags attached to the resource share.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['name'] = name
+    __args__['resourceOwner'] = resource_owner
+    __args__['resourceShareStatus'] = resource_share_status
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts, typ=GetResourceShareResult)
+    return __ret__.apply(lambda __response__: GetResourceShareResult(
+        arn=pulumi.get(__response__, 'arn'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owning_account_id=pulumi.get(__response__, 'owning_account_id'),
+        resource_arns=pulumi.get(__response__, 'resource_arns'),
+        resource_owner=pulumi.get(__response__, 'resource_owner'),
+        resource_share_status=pulumi.get(__response__, 'resource_share_status'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

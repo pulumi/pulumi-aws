@@ -83,9 +83,6 @@ def get_rule(name: Optional[str] = None,
     return AwaitableGetRuleResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_rule)
 def get_rule_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
@@ -103,4 +100,10 @@ def get_rule_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the WAF rule.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:waf/getRule:getRule', __args__, opts=opts, typ=GetRuleResult)
+    return __ret__.apply(lambda __response__: GetRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

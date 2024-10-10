@@ -157,9 +157,6 @@ def get_origin_access_identity(id: Optional[str] = None,
         iam_arn=pulumi.get(__ret__, 'iam_arn'),
         id=pulumi.get(__ret__, 'id'),
         s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
-
-
-@_utilities.lift_output_func(get_origin_access_identity)
 def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
     """
@@ -179,4 +176,15 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The identifier for the origin access identity. For example: `E1ZAKK699EOLAL`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity', __args__, opts=opts, typ=GetOriginAccessIdentityResult)
+    return __ret__.apply(lambda __response__: GetOriginAccessIdentityResult(
+        caller_reference=pulumi.get(__response__, 'caller_reference'),
+        cloudfront_access_identity_path=pulumi.get(__response__, 'cloudfront_access_identity_path'),
+        comment=pulumi.get(__response__, 'comment'),
+        etag=pulumi.get(__response__, 'etag'),
+        iam_arn=pulumi.get(__response__, 'iam_arn'),
+        id=pulumi.get(__response__, 'id'),
+        s3_canonical_user_id=pulumi.get(__response__, 's3_canonical_user_id')))

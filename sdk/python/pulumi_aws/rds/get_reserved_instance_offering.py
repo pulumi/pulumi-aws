@@ -178,9 +178,6 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
         offering_id=pulumi.get(__ret__, 'offering_id'),
         offering_type=pulumi.get(__ret__, 'offering_type'),
         product_description=pulumi.get(__ret__, 'product_description'))
-
-
-@_utilities.lift_output_func(get_reserved_instance_offering)
 def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Input[str]] = None,
                                           duration: Optional[pulumi.Input[int]] = None,
                                           multi_az: Optional[pulumi.Input[bool]] = None,
@@ -210,4 +207,21 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     :param str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param str product_description: Description of the reserved DB instance.
     """
-    ...
+    __args__ = dict()
+    __args__['dbInstanceClass'] = db_instance_class
+    __args__['duration'] = duration
+    __args__['multiAz'] = multi_az
+    __args__['offeringType'] = offering_type
+    __args__['productDescription'] = product_description
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getReservedInstanceOffering:getReservedInstanceOffering', __args__, opts=opts, typ=GetReservedInstanceOfferingResult)
+    return __ret__.apply(lambda __response__: GetReservedInstanceOfferingResult(
+        currency_code=pulumi.get(__response__, 'currency_code'),
+        db_instance_class=pulumi.get(__response__, 'db_instance_class'),
+        duration=pulumi.get(__response__, 'duration'),
+        fixed_price=pulumi.get(__response__, 'fixed_price'),
+        id=pulumi.get(__response__, 'id'),
+        multi_az=pulumi.get(__response__, 'multi_az'),
+        offering_id=pulumi.get(__response__, 'offering_id'),
+        offering_type=pulumi.get(__response__, 'offering_type'),
+        product_description=pulumi.get(__response__, 'product_description')))

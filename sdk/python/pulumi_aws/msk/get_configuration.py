@@ -148,9 +148,6 @@ def get_configuration(name: Optional[str] = None,
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
         server_properties=pulumi.get(__ret__, 'server_properties'))
-
-
-@_utilities.lift_output_func(get_configuration)
 def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
@@ -168,4 +165,15 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
+    return __ret__.apply(lambda __response__: GetConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_versions=pulumi.get(__response__, 'kafka_versions'),
+        latest_revision=pulumi.get(__response__, 'latest_revision'),
+        name=pulumi.get(__response__, 'name'),
+        server_properties=pulumi.get(__response__, 'server_properties')))

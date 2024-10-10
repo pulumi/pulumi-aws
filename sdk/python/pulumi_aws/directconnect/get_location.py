@@ -138,9 +138,6 @@ def get_location(location_code: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         location_code=pulumi.get(__ret__, 'location_code'),
         location_name=pulumi.get(__ret__, 'location_name'))
-
-
-@_utilities.lift_output_func(get_location)
 def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
     """
@@ -161,4 +158,14 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
 
     :param str location_code: Code for the location to retrieve.
     """
-    ...
+    __args__ = dict()
+    __args__['locationCode'] = location_code
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
+    return __ret__.apply(lambda __response__: GetLocationResult(
+        available_macsec_port_speeds=pulumi.get(__response__, 'available_macsec_port_speeds'),
+        available_port_speeds=pulumi.get(__response__, 'available_port_speeds'),
+        available_providers=pulumi.get(__response__, 'available_providers'),
+        id=pulumi.get(__response__, 'id'),
+        location_code=pulumi.get(__response__, 'location_code'),
+        location_name=pulumi.get(__response__, 'location_name')))

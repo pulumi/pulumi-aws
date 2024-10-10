@@ -262,9 +262,6 @@ def get_zone(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-
-
-@_utilities.lift_output_func(get_zone)
 def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     private_zone: Optional[pulumi.Input[Optional[bool]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -301,4 +298,26 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
     :param str zone_id: Hosted Zone id of the desired Hosted Zone.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['privateZone'] = private_zone
+    __args__['tags'] = tags
+    __args__['vpcId'] = vpc_id
+    __args__['zoneId'] = zone_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getZone:getZone', __args__, opts=opts, typ=GetZoneResult)
+    return __ret__.apply(lambda __response__: GetZoneResult(
+        arn=pulumi.get(__response__, 'arn'),
+        caller_reference=pulumi.get(__response__, 'caller_reference'),
+        comment=pulumi.get(__response__, 'comment'),
+        id=pulumi.get(__response__, 'id'),
+        linked_service_description=pulumi.get(__response__, 'linked_service_description'),
+        linked_service_principal=pulumi.get(__response__, 'linked_service_principal'),
+        name=pulumi.get(__response__, 'name'),
+        name_servers=pulumi.get(__response__, 'name_servers'),
+        primary_name_server=pulumi.get(__response__, 'primary_name_server'),
+        private_zone=pulumi.get(__response__, 'private_zone'),
+        resource_record_set_count=pulumi.get(__response__, 'resource_record_set_count'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        zone_id=pulumi.get(__response__, 'zone_id')))

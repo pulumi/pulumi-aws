@@ -167,9 +167,6 @@ def get_connection(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provider_type=pulumi.get(__ret__, 'provider_type'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_connection)
 def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                           name: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -204,4 +201,17 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codestarconnections/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
+    return __ret__.apply(lambda __response__: GetConnectionResult(
+        arn=pulumi.get(__response__, 'arn'),
+        connection_status=pulumi.get(__response__, 'connection_status'),
+        host_arn=pulumi.get(__response__, 'host_arn'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        provider_type=pulumi.get(__response__, 'provider_type'),
+        tags=pulumi.get(__response__, 'tags')))

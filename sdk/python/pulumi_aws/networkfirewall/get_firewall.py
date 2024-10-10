@@ -270,9 +270,6 @@ def get_firewall(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_token=pulumi.get(__ret__, 'update_token'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_firewall)
 def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -315,4 +312,24 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Descriptive name of the firewall.
     :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
+    return __ret__.apply(lambda __response__: GetFirewallResult(
+        arn=pulumi.get(__response__, 'arn'),
+        delete_protection=pulumi.get(__response__, 'delete_protection'),
+        description=pulumi.get(__response__, 'description'),
+        encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
+        firewall_policy_arn=pulumi.get(__response__, 'firewall_policy_arn'),
+        firewall_policy_change_protection=pulumi.get(__response__, 'firewall_policy_change_protection'),
+        firewall_statuses=pulumi.get(__response__, 'firewall_statuses'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
+        subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_token=pulumi.get(__response__, 'update_token'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

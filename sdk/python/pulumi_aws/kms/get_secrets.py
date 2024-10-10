@@ -98,9 +98,6 @@ def get_secrets(secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSec
         id=pulumi.get(__ret__, 'id'),
         plaintext=pulumi.get(__ret__, 'plaintext'),
         secrets=pulumi.get(__ret__, 'secrets'))
-
-
-@_utilities.lift_output_func(get_secrets)
 def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
@@ -118,4 +115,11 @@ def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecrets
 
     :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
-    ...
+    __args__ = dict()
+    __args__['secrets'] = secrets
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:kms/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
+    return __ret__.apply(lambda __response__: GetSecretsResult(
+        id=pulumi.get(__response__, 'id'),
+        plaintext=pulumi.get(__response__, 'plaintext'),
+        secrets=pulumi.get(__response__, 'secrets')))

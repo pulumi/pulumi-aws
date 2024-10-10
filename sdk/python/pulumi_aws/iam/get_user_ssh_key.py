@@ -150,9 +150,6 @@ def get_user_ssh_key(encoding: Optional[str] = None,
         ssh_public_key_id=pulumi.get(__ret__, 'ssh_public_key_id'),
         status=pulumi.get(__ret__, 'status'),
         username=pulumi.get(__ret__, 'username'))
-
-
-@_utilities.lift_output_func(get_user_ssh_key)
 def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
                             ssh_public_key_id: Optional[pulumi.Input[str]] = None,
                             username: Optional[pulumi.Input[str]] = None,
@@ -176,4 +173,17 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
     :param str ssh_public_key_id: Unique identifier for the SSH public key.
     :param str username: Name of the IAM user associated with the SSH public key.
     """
-    ...
+    __args__ = dict()
+    __args__['encoding'] = encoding
+    __args__['sshPublicKeyId'] = ssh_public_key_id
+    __args__['username'] = username
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getUserSshKey:getUserSshKey', __args__, opts=opts, typ=GetUserSshKeyResult)
+    return __ret__.apply(lambda __response__: GetUserSshKeyResult(
+        encoding=pulumi.get(__response__, 'encoding'),
+        fingerprint=pulumi.get(__response__, 'fingerprint'),
+        id=pulumi.get(__response__, 'id'),
+        public_key=pulumi.get(__response__, 'public_key'),
+        ssh_public_key_id=pulumi.get(__response__, 'ssh_public_key_id'),
+        status=pulumi.get(__response__, 'status'),
+        username=pulumi.get(__response__, 'username')))

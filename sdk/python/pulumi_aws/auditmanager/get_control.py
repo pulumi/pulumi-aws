@@ -198,9 +198,6 @@ def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlCont
         tags=pulumi.get(__ret__, 'tags'),
         testing_information=pulumi.get(__ret__, 'testing_information'),
         type=pulumi.get(__ret__, 'type'))
-
-
-@_utilities.lift_output_func(get_control)
 def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        type: Optional[pulumi.Input[str]] = None,
@@ -252,4 +249,20 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     :param str name: Name of the control.
     :param str type: Type of control. Valid values are `Custom` and `Standard`.
     """
-    ...
+    __args__ = dict()
+    __args__['controlMappingSources'] = control_mapping_sources
+    __args__['name'] = name
+    __args__['type'] = type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getControl:getControl', __args__, opts=opts, typ=GetControlResult)
+    return __ret__.apply(lambda __response__: GetControlResult(
+        action_plan_instructions=pulumi.get(__response__, 'action_plan_instructions'),
+        action_plan_title=pulumi.get(__response__, 'action_plan_title'),
+        arn=pulumi.get(__response__, 'arn'),
+        control_mapping_sources=pulumi.get(__response__, 'control_mapping_sources'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        testing_information=pulumi.get(__response__, 'testing_information'),
+        type=pulumi.get(__response__, 'type')))

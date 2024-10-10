@@ -188,9 +188,6 @@ def get_multi_region_access_point(account_id: Optional[str] = None,
         public_access_blocks=pulumi.get(__ret__, 'public_access_blocks'),
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_multi_region_access_point)
 def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
@@ -210,4 +207,19 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
     :param str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
     :param str name: The name of the Multi-Region Access Point.
     """
-    ...
+    __args__ = dict()
+    __args__['accountId'] = account_id
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult)
+    return __ret__.apply(lambda __response__: GetMultiRegionAccessPointResult(
+        account_id=pulumi.get(__response__, 'account_id'),
+        alias=pulumi.get(__response__, 'alias'),
+        arn=pulumi.get(__response__, 'arn'),
+        created_at=pulumi.get(__response__, 'created_at'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        public_access_blocks=pulumi.get(__response__, 'public_access_blocks'),
+        regions=pulumi.get(__response__, 'regions'),
+        status=pulumi.get(__response__, 'status')))
