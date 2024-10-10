@@ -263,9 +263,6 @@ def get_route(carrier_gateway_id: Optional[str] = None,
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
-
-
-@_utilities.lift_output_func(get_route)
 def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                      core_network_arn: Optional[pulumi.Input[Optional[str]]] = None,
                      destination_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
@@ -320,4 +317,36 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
     :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
     """
-    ...
+    __args__ = dict()
+    __args__['carrierGatewayId'] = carrier_gateway_id
+    __args__['coreNetworkArn'] = core_network_arn
+    __args__['destinationCidrBlock'] = destination_cidr_block
+    __args__['destinationIpv6CidrBlock'] = destination_ipv6_cidr_block
+    __args__['destinationPrefixListId'] = destination_prefix_list_id
+    __args__['egressOnlyGatewayId'] = egress_only_gateway_id
+    __args__['gatewayId'] = gateway_id
+    __args__['instanceId'] = instance_id
+    __args__['localGatewayId'] = local_gateway_id
+    __args__['natGatewayId'] = nat_gateway_id
+    __args__['networkInterfaceId'] = network_interface_id
+    __args__['routeTableId'] = route_table_id
+    __args__['transitGatewayId'] = transit_gateway_id
+    __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getRoute:getRoute', __args__, opts=opts, typ=GetRouteResult)
+    return __ret__.apply(lambda __response__: GetRouteResult(
+        carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),
+        core_network_arn=pulumi.get(__response__, 'core_network_arn'),
+        destination_cidr_block=pulumi.get(__response__, 'destination_cidr_block'),
+        destination_ipv6_cidr_block=pulumi.get(__response__, 'destination_ipv6_cidr_block'),
+        destination_prefix_list_id=pulumi.get(__response__, 'destination_prefix_list_id'),
+        egress_only_gateway_id=pulumi.get(__response__, 'egress_only_gateway_id'),
+        gateway_id=pulumi.get(__response__, 'gateway_id'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
+        nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
+        network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        vpc_peering_connection_id=pulumi.get(__response__, 'vpc_peering_connection_id')))

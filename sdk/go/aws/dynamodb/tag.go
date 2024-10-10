@@ -34,11 +34,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			replica, err := aws.GetRegion(ctx, nil, nil)
+//			replica, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			current, err := aws.GetRegion(ctx, nil, nil)
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
