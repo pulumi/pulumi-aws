@@ -90,9 +90,6 @@ def get_data_shares(data_shares: Optional[Sequence[Union['GetDataSharesDataShare
     return AwaitableGetDataSharesResult(
         data_shares=pulumi.get(__ret__, 'data_shares'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_data_shares)
 def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSharesResult]:
     """
@@ -112,4 +109,10 @@ def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[
 
     :param Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the current region. See `data_shares` below.
     """
-    ...
+    __args__ = dict()
+    __args__['dataShares'] = data_shares
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:redshift/getDataShares:getDataShares', __args__, opts=opts, typ=GetDataSharesResult)
+    return __ret__.apply(lambda __response__: GetDataSharesResult(
+        data_shares=pulumi.get(__response__, 'data_shares'),
+        id=pulumi.get(__response__, 'id')))

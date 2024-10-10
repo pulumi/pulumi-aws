@@ -122,9 +122,6 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
         id=pulumi.get(__ret__, 'id'),
         password=pulumi.get(__ret__, 'password'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_authorization_token)
 def get_authorization_token_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
@@ -140,4 +137,12 @@ def get_authorization_token_output(opts: Optional[pulumi.InvokeOptions] = None) 
     token = aws.ecrpublic.get_authorization_token()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecrpublic/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
+        authorization_token=pulumi.get(__response__, 'authorization_token'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        id=pulumi.get(__response__, 'id'),
+        password=pulumi.get(__response__, 'password'),
+        user_name=pulumi.get(__response__, 'user_name')))

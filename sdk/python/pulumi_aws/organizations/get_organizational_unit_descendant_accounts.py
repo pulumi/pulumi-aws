@@ -98,9 +98,6 @@ def get_organizational_unit_descendant_accounts(parent_id: Optional[str] = None,
         accounts=pulumi.get(__ret__, 'accounts'),
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
-
-
-@_utilities.lift_output_func(get_organizational_unit_descendant_accounts)
 def get_organizational_unit_descendant_accounts_output(parent_id: Optional[pulumi.Input[str]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitDescendantAccountsResult]:
     """
@@ -119,4 +116,11 @@ def get_organizational_unit_descendant_accounts_output(parent_id: Optional[pulum
 
     :param str parent_id: The parent ID of the accounts.
     """
-    ...
+    __args__ = dict()
+    __args__['parentId'] = parent_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts', __args__, opts=opts, typ=GetOrganizationalUnitDescendantAccountsResult)
+    return __ret__.apply(lambda __response__: GetOrganizationalUnitDescendantAccountsResult(
+        accounts=pulumi.get(__response__, 'accounts'),
+        id=pulumi.get(__response__, 'id'),
+        parent_id=pulumi.get(__response__, 'parent_id')))

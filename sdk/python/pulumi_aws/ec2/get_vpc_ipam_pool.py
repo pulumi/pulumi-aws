@@ -339,9 +339,6 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = No
         source_ipam_pool_id=pulumi.get(__ret__, 'source_ipam_pool_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpc_ipam_pool)
 def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']]]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -387,4 +384,32 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['allocationResourceTags'] = allocation_resource_tags
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['ipamPoolId'] = ipam_pool_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpamPool:getVpcIpamPool', __args__, opts=opts, typ=GetVpcIpamPoolResult)
+    return __ret__.apply(lambda __response__: GetVpcIpamPoolResult(
+        address_family=pulumi.get(__response__, 'address_family'),
+        allocation_default_netmask_length=pulumi.get(__response__, 'allocation_default_netmask_length'),
+        allocation_max_netmask_length=pulumi.get(__response__, 'allocation_max_netmask_length'),
+        allocation_min_netmask_length=pulumi.get(__response__, 'allocation_min_netmask_length'),
+        allocation_resource_tags=pulumi.get(__response__, 'allocation_resource_tags'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_import=pulumi.get(__response__, 'auto_import'),
+        aws_service=pulumi.get(__response__, 'aws_service'),
+        description=pulumi.get(__response__, 'description'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
+        ipam_scope_id=pulumi.get(__response__, 'ipam_scope_id'),
+        ipam_scope_type=pulumi.get(__response__, 'ipam_scope_type'),
+        locale=pulumi.get(__response__, 'locale'),
+        pool_depth=pulumi.get(__response__, 'pool_depth'),
+        publicly_advertisable=pulumi.get(__response__, 'publicly_advertisable'),
+        source_ipam_pool_id=pulumi.get(__response__, 'source_ipam_pool_id'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags')))

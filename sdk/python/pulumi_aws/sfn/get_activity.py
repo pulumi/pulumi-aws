@@ -109,9 +109,6 @@ def get_activity(arn: Optional[str] = None,
         creation_date=pulumi.get(__ret__, 'creation_date'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_activity)
 def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
@@ -131,4 +128,13 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str arn: ARN that identifies the activity.
     :param str name: Name that identifies the activity.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sfn/getActivity:getActivity', __args__, opts=opts, typ=GetActivityResult)
+    return __ret__.apply(lambda __response__: GetActivityResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

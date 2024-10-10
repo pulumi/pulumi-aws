@@ -97,9 +97,6 @@ def get_user_hierarchy_structure(instance_id: Optional[str] = None,
         hierarchy_structures=pulumi.get(__ret__, 'hierarchy_structures'),
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'))
-
-
-@_utilities.lift_output_func(get_user_hierarchy_structure)
 def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
@@ -117,4 +114,11 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[str]]
 
     :param str instance_id: Reference to the hosting Amazon Connect Instance
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getUserHierarchyStructure:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult)
+    return __ret__.apply(lambda __response__: GetUserHierarchyStructureResult(
+        hierarchy_structures=pulumi.get(__response__, 'hierarchy_structures'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id')))

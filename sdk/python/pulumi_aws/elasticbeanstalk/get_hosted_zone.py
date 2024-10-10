@@ -86,9 +86,6 @@ def get_hosted_zone(region: Optional[str] = None,
     return AwaitableGetHostedZoneResult(
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
-
-
-@_utilities.lift_output_func(get_hosted_zone)
 def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
@@ -106,4 +103,10 @@ def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult)
+    return __ret__.apply(lambda __response__: GetHostedZoneResult(
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

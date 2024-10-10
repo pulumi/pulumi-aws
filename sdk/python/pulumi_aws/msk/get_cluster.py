@@ -284,9 +284,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         zookeeper_connect_string=pulumi.get(__ret__, 'zookeeper_connect_string'),
         zookeeper_connect_string_tls=pulumi.get(__ret__, 'zookeeper_connect_string_tls'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -308,4 +305,26 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: Name of the cluster.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the cluster.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterName'] = cluster_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        bootstrap_brokers=pulumi.get(__response__, 'bootstrap_brokers'),
+        bootstrap_brokers_public_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_iam'),
+        bootstrap_brokers_public_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_scram'),
+        bootstrap_brokers_public_tls=pulumi.get(__response__, 'bootstrap_brokers_public_tls'),
+        bootstrap_brokers_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_sasl_iam'),
+        bootstrap_brokers_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_sasl_scram'),
+        bootstrap_brokers_tls=pulumi.get(__response__, 'bootstrap_brokers_tls'),
+        broker_node_group_infos=pulumi.get(__response__, 'broker_node_group_infos'),
+        cluster_name=pulumi.get(__response__, 'cluster_name'),
+        cluster_uuid=pulumi.get(__response__, 'cluster_uuid'),
+        id=pulumi.get(__response__, 'id'),
+        kafka_version=pulumi.get(__response__, 'kafka_version'),
+        number_of_broker_nodes=pulumi.get(__response__, 'number_of_broker_nodes'),
+        tags=pulumi.get(__response__, 'tags'),
+        zookeeper_connect_string=pulumi.get(__response__, 'zookeeper_connect_string'),
+        zookeeper_connect_string_tls=pulumi.get(__response__, 'zookeeper_connect_string_tls')))

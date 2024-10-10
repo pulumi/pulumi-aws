@@ -103,9 +103,6 @@ def get_templates(region: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         templates=pulumi.get(__ret__, 'templates'))
-
-
-@_utilities.lift_output_func(get_templates)
 def get_templates_output(region: Optional[pulumi.Input[str]] = None,
                          templates: Optional[pulumi.Input[Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
@@ -127,4 +124,12 @@ def get_templates_output(region: Optional[pulumi.Input[str]] = None,
     :param str region: AWS Region to which the quota increases apply.
     :param Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']] templates: A list of quota increase templates for specified region. See `templates`.
     """
-    ...
+    __args__ = dict()
+    __args__['region'] = region
+    __args__['templates'] = templates
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult)
+    return __ret__.apply(lambda __response__: GetTemplatesResult(
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
+        templates=pulumi.get(__response__, 'templates')))

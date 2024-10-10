@@ -227,9 +227,6 @@ def get_proxy(name: Optional[str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
-
-
-@_utilities.lift_output_func(get_proxy)
 def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProxyResult]:
     """
@@ -247,4 +244,21 @@ def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the DB proxy.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getProxy:getProxy', __args__, opts=opts, typ=GetProxyResult)
+    return __ret__.apply(lambda __response__: GetProxyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        auths=pulumi.get(__response__, 'auths'),
+        debug_logging=pulumi.get(__response__, 'debug_logging'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        engine_family=pulumi.get(__response__, 'engine_family'),
+        id=pulumi.get(__response__, 'id'),
+        idle_client_timeout=pulumi.get(__response__, 'idle_client_timeout'),
+        name=pulumi.get(__response__, 'name'),
+        require_tls=pulumi.get(__response__, 'require_tls'),
+        role_arn=pulumi.get(__response__, 'role_arn'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids'),
+        vpc_subnet_ids=pulumi.get(__response__, 'vpc_subnet_ids')))

@@ -101,9 +101,6 @@ def get_configuration_profiles(application_id: Optional[str] = None,
         application_id=pulumi.get(__ret__, 'application_id'),
         configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_configuration_profiles)
 def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
@@ -126,4 +123,11 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
 
     :param str application_id: ID of the AppConfig Application.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult)
+    return __ret__.apply(lambda __response__: GetConfigurationProfilesResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        configuration_profile_ids=pulumi.get(__response__, 'configuration_profile_ids'),
+        id=pulumi.get(__response__, 'id')))

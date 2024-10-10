@@ -135,9 +135,6 @@ def get_authorization_token(domain: Optional[str] = None,
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_authorization_token)
 def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
@@ -159,4 +156,16 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
     :param str domain_owner: Account number of the AWS account that owns the domain.
     :param int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
     """
-    ...
+    __args__ = dict()
+    __args__['domain'] = domain
+    __args__['domainOwner'] = domain_owner
+    __args__['durationSeconds'] = duration_seconds
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
+    return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
+        authorization_token=pulumi.get(__response__, 'authorization_token'),
+        domain=pulumi.get(__response__, 'domain'),
+        domain_owner=pulumi.get(__response__, 'domain_owner'),
+        duration_seconds=pulumi.get(__response__, 'duration_seconds'),
+        expiration=pulumi.get(__response__, 'expiration'),
+        id=pulumi.get(__response__, 'id')))

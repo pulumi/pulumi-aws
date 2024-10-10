@@ -205,9 +205,6 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         update_policies=pulumi.get(__ret__, 'update_policies'))
-
-
-@_utilities.lift_output_func(get_compute_environment)
 def get_compute_environment_output(compute_environment_name: Optional[pulumi.Input[str]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
@@ -228,4 +225,20 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
     :param str compute_environment_name: Name of the Batch Compute Environment
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
-    ...
+    __args__ = dict()
+    __args__['computeEnvironmentName'] = compute_environment_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetComputeEnvironmentResult(
+        arn=pulumi.get(__response__, 'arn'),
+        compute_environment_name=pulumi.get(__response__, 'compute_environment_name'),
+        ecs_cluster_arn=pulumi.get(__response__, 'ecs_cluster_arn'),
+        id=pulumi.get(__response__, 'id'),
+        service_role=pulumi.get(__response__, 'service_role'),
+        state=pulumi.get(__response__, 'state'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        update_policies=pulumi.get(__response__, 'update_policies')))

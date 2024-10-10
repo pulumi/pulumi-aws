@@ -187,9 +187,6 @@ def get_ip_ranges(id: Optional[str] = None,
         services=pulumi.get(__ret__, 'services'),
         sync_token=pulumi.get(__ret__, 'sync_token'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_ip_ranges)
 def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          services: Optional[pulumi.Input[Sequence[str]]] = None,
@@ -238,4 +235,19 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
            CIDR blocks, this call will fail.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    __args__['regions'] = regions
+    __args__['services'] = services
+    __args__['url'] = url
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult)
+    return __ret__.apply(lambda __response__: GetIpRangesResult(
+        cidr_blocks=pulumi.get(__response__, 'cidr_blocks'),
+        create_date=pulumi.get(__response__, 'create_date'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_cidr_blocks=pulumi.get(__response__, 'ipv6_cidr_blocks'),
+        regions=pulumi.get(__response__, 'regions'),
+        services=pulumi.get(__response__, 'services'),
+        sync_token=pulumi.get(__response__, 'sync_token'),
+        url=pulumi.get(__response__, 'url')))

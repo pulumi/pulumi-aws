@@ -202,9 +202,6 @@ def get_container_definition(container_name: Optional[str] = None,
         memory=pulumi.get(__ret__, 'memory'),
         memory_reservation=pulumi.get(__ret__, 'memory_reservation'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
-
-
-@_utilities.lift_output_func(get_container_definition)
 def get_container_definition_output(container_name: Optional[pulumi.Input[str]] = None,
                                     task_definition: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerDefinitionResult]:
@@ -226,4 +223,20 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     :param str container_name: Name of the container definition
     :param str task_definition: ARN of the task definition which contains the container
     """
-    ...
+    __args__ = dict()
+    __args__['containerName'] = container_name
+    __args__['taskDefinition'] = task_definition
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts, typ=GetContainerDefinitionResult)
+    return __ret__.apply(lambda __response__: GetContainerDefinitionResult(
+        container_name=pulumi.get(__response__, 'container_name'),
+        cpu=pulumi.get(__response__, 'cpu'),
+        disable_networking=pulumi.get(__response__, 'disable_networking'),
+        docker_labels=pulumi.get(__response__, 'docker_labels'),
+        environment=pulumi.get(__response__, 'environment'),
+        id=pulumi.get(__response__, 'id'),
+        image=pulumi.get(__response__, 'image'),
+        image_digest=pulumi.get(__response__, 'image_digest'),
+        memory=pulumi.get(__response__, 'memory'),
+        memory_reservation=pulumi.get(__response__, 'memory_reservation'),
+        task_definition=pulumi.get(__response__, 'task_definition')))

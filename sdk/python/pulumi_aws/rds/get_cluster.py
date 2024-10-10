@@ -400,9 +400,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_cluster)
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
@@ -422,4 +419,42 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     :param str cluster_identifier: Cluster identifier of the RDS cluster.
     :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['clusterIdentifier'] = cluster_identifier
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
+    return __ret__.apply(lambda __response__: GetClusterResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        backtrack_window=pulumi.get(__response__, 'backtrack_window'),
+        backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
+        cluster_identifier=pulumi.get(__response__, 'cluster_identifier'),
+        cluster_members=pulumi.get(__response__, 'cluster_members'),
+        cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),
+        database_name=pulumi.get(__response__, 'database_name'),
+        db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),
+        db_subnet_group_name=pulumi.get(__response__, 'db_subnet_group_name'),
+        db_system_id=pulumi.get(__response__, 'db_system_id'),
+        enabled_cloudwatch_logs_exports=pulumi.get(__response__, 'enabled_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_mode=pulumi.get(__response__, 'engine_mode'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        final_snapshot_identifier=pulumi.get(__response__, 'final_snapshot_identifier'),
+        hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
+        iam_database_authentication_enabled=pulumi.get(__response__, 'iam_database_authentication_enabled'),
+        iam_roles=pulumi.get(__response__, 'iam_roles'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        master_user_secrets=pulumi.get(__response__, 'master_user_secrets'),
+        master_username=pulumi.get(__response__, 'master_username'),
+        network_type=pulumi.get(__response__, 'network_type'),
+        port=pulumi.get(__response__, 'port'),
+        preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
+        reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
+        replication_source_identifier=pulumi.get(__response__, 'replication_source_identifier'),
+        storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

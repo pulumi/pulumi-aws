@@ -79,7 +79,7 @@ import (
 //						Mutable:                    pulumi.Bool(false),
 //						Required:                   pulumi.Bool(false),
 //						DeveloperOnlyAttribute:     pulumi.Bool(false),
-//						StringAttributeConstraints: nil,
+//						StringAttributeConstraints: &cognito.UserPoolSchemaStringAttributeConstraintsArgs{},
 //					},
 //				},
 //			})

@@ -164,9 +164,6 @@ def get_route_calculator(calculator_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_route_calculator)
 def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteCalculatorResult]:
@@ -186,4 +183,17 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
     :param str calculator_name: Name of the route calculator resource.
     :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
     """
-    ...
+    __args__ = dict()
+    __args__['calculatorName'] = calculator_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getRouteCalculator:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult)
+    return __ret__.apply(lambda __response__: GetRouteCalculatorResult(
+        calculator_arn=pulumi.get(__response__, 'calculator_arn'),
+        calculator_name=pulumi.get(__response__, 'calculator_name'),
+        create_time=pulumi.get(__response__, 'create_time'),
+        data_source=pulumi.get(__response__, 'data_source'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_time=pulumi.get(__response__, 'update_time')))

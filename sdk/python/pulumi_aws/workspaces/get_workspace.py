@@ -224,9 +224,6 @@ def get_workspace(directory_id: Optional[str] = None,
         volume_encryption_key=pulumi.get(__ret__, 'volume_encryption_key'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_properties=pulumi.get(__ret__, 'workspace_properties'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          user_name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -262,4 +259,24 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
     :param str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
     :param str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
     """
-    ...
+    __args__ = dict()
+    __args__['directoryId'] = directory_id
+    __args__['tags'] = tags
+    __args__['userName'] = user_name
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        bundle_id=pulumi.get(__response__, 'bundle_id'),
+        computer_name=pulumi.get(__response__, 'computer_name'),
+        directory_id=pulumi.get(__response__, 'directory_id'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address=pulumi.get(__response__, 'ip_address'),
+        root_volume_encryption_enabled=pulumi.get(__response__, 'root_volume_encryption_enabled'),
+        state=pulumi.get(__response__, 'state'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        user_volume_encryption_enabled=pulumi.get(__response__, 'user_volume_encryption_enabled'),
+        volume_encryption_key=pulumi.get(__response__, 'volume_encryption_key'),
+        workspace_id=pulumi.get(__response__, 'workspace_id'),
+        workspace_properties=pulumi.get(__response__, 'workspace_properties')))

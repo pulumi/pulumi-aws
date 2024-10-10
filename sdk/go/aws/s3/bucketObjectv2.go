@@ -277,7 +277,7 @@ import (
 //				},
 //				OverrideProvider: &s3.BucketObjectv2OverrideProviderArgs{
 //					DefaultTags: &s3.BucketObjectv2OverrideProviderDefaultTagsArgs{
-//						Tags: nil,
+//						Tags: pulumi.StringMap{},
 //					},
 //				},
 //			})

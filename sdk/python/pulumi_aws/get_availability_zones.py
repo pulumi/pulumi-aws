@@ -222,9 +222,6 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
         names=pulumi.get(__ret__, 'names'),
         state=pulumi.get(__ret__, 'state'),
         zone_ids=pulumi.get(__ret__, 'zone_ids'))
-
-
-@_utilities.lift_output_func(get_availability_zones)
 def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[Optional[bool]]] = None,
                                   exclude_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                   exclude_zone_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -296,4 +293,21 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
            `"unavailable"`. By default the list includes a complete set of Availability Zones
            to which the underlying AWS account has access, regardless of their state.
     """
-    ...
+    __args__ = dict()
+    __args__['allAvailabilityZones'] = all_availability_zones
+    __args__['excludeNames'] = exclude_names
+    __args__['excludeZoneIds'] = exclude_zone_ids
+    __args__['filters'] = filters
+    __args__['state'] = state
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts, typ=GetAvailabilityZonesResult)
+    return __ret__.apply(lambda __response__: GetAvailabilityZonesResult(
+        all_availability_zones=pulumi.get(__response__, 'all_availability_zones'),
+        exclude_names=pulumi.get(__response__, 'exclude_names'),
+        exclude_zone_ids=pulumi.get(__response__, 'exclude_zone_ids'),
+        filters=pulumi.get(__response__, 'filters'),
+        group_names=pulumi.get(__response__, 'group_names'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        state=pulumi.get(__response__, 'state'),
+        zone_ids=pulumi.get(__response__, 'zone_ids')))

@@ -120,7 +120,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "bucket_name": example_aws_s3_bucket["bucket"],
+                        "bucketName": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
                     "log_destination_type": "S3",
@@ -140,7 +140,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "log_group": example_aws_cloudwatch_log_group["name"],
+                        "logGroup": example_aws_cloudwatch_log_group["name"],
                     },
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
@@ -159,7 +159,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
+                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",
@@ -202,7 +202,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "bucket_name": example_aws_s3_bucket["bucket"],
+                        "bucketName": example_aws_s3_bucket["bucket"],
                         "prefix": "/example",
                     },
                     "log_destination_type": "S3",
@@ -222,7 +222,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "log_group": example_aws_cloudwatch_log_group["name"],
+                        "logGroup": example_aws_cloudwatch_log_group["name"],
                     },
                     "log_destination_type": "CloudWatchLogs",
                     "log_type": "ALERT",
@@ -241,7 +241,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration={
                 "log_destination_configs": [{
                     "log_destination": {
-                        "delivery_stream": example_aws_kinesis_firehose_delivery_stream["name"],
+                        "deliveryStream": example_aws_kinesis_firehose_delivery_stream["name"],
                     },
                     "log_destination_type": "KinesisDataFirehose",
                     "log_type": "TLS",

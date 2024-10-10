@@ -179,9 +179,6 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
-
-
-@_utilities.lift_output_func(get_resolver_firewall_domain_list)
 def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
@@ -205,4 +202,19 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
            
            The following attribute is additionally exported:
     """
-    ...
+    __args__ = dict()
+    __args__['firewallDomainListId'] = firewall_domain_list_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList', __args__, opts=opts, typ=GetResolverFirewallDomainListResult)
+    return __ret__.apply(lambda __response__: GetResolverFirewallDomainListResult(
+        arn=pulumi.get(__response__, 'arn'),
+        creation_time=pulumi.get(__response__, 'creation_time'),
+        creator_request_id=pulumi.get(__response__, 'creator_request_id'),
+        domain_count=pulumi.get(__response__, 'domain_count'),
+        firewall_domain_list_id=pulumi.get(__response__, 'firewall_domain_list_id'),
+        id=pulumi.get(__response__, 'id'),
+        managed_owner_name=pulumi.get(__response__, 'managed_owner_name'),
+        modification_time=pulumi.get(__response__, 'modification_time'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message')))

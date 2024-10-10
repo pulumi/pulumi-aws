@@ -125,9 +125,6 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpc_peering_connections)
 def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']]]]] = None,
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
@@ -161,4 +158,13 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections', __args__, opts=opts, typ=GetVpcPeeringConnectionsResult)
+    return __ret__.apply(lambda __response__: GetVpcPeeringConnectionsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

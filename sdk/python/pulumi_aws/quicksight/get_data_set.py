@@ -246,9 +246,6 @@ def get_data_set(aws_account_id: Optional[str] = None,
         row_level_permission_tag_configurations=pulumi.get(__ret__, 'row_level_permission_tag_configurations'),
         tags=pulumi.get(__ret__, 'tags'),
         tags_all=pulumi.get(__ret__, 'tags_all'))
-
-
-@_utilities.lift_output_func(get_data_set)
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -274,4 +271,28 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    __args__['dataSetId'] = data_set_id
+    __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult)
+    return __ret__.apply(lambda __response__: GetDataSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        column_groups=pulumi.get(__response__, 'column_groups'),
+        column_level_permission_rules=pulumi.get(__response__, 'column_level_permission_rules'),
+        data_set_id=pulumi.get(__response__, 'data_set_id'),
+        data_set_usage_configurations=pulumi.get(__response__, 'data_set_usage_configurations'),
+        field_folders=pulumi.get(__response__, 'field_folders'),
+        id=pulumi.get(__response__, 'id'),
+        import_mode=pulumi.get(__response__, 'import_mode'),
+        logical_table_maps=pulumi.get(__response__, 'logical_table_maps'),
+        name=pulumi.get(__response__, 'name'),
+        permissions=pulumi.get(__response__, 'permissions'),
+        physical_table_maps=pulumi.get(__response__, 'physical_table_maps'),
+        row_level_permission_data_sets=pulumi.get(__response__, 'row_level_permission_data_sets'),
+        row_level_permission_tag_configurations=pulumi.get(__response__, 'row_level_permission_tag_configurations'),
+        tags=pulumi.get(__response__, 'tags'),
+        tags_all=pulumi.get(__response__, 'tags_all')))

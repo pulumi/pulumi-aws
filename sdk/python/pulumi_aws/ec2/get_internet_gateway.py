@@ -156,9 +156,6 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_internet_gateway)
 def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]]]] = None,
                                 internet_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -189,4 +186,17 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['internetGatewayId'] = internet_gateway_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
+    return __ret__.apply(lambda __response__: GetInternetGatewayResult(
+        arn=pulumi.get(__response__, 'arn'),
+        attachments=pulumi.get(__response__, 'attachments'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        internet_gateway_id=pulumi.get(__response__, 'internet_gateway_id'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        tags=pulumi.get(__response__, 'tags')))

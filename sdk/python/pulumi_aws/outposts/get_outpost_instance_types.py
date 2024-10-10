@@ -96,9 +96,6 @@ def get_outpost_instance_types(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'))
-
-
-@_utilities.lift_output_func(get_outpost_instance_types)
 def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostInstanceTypesResult]:
     """
@@ -116,4 +113,11 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: Outpost ARN.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts, typ=GetOutpostInstanceTypesResult)
+    return __ret__.apply(lambda __response__: GetOutpostInstanceTypesResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        instance_types=pulumi.get(__response__, 'instance_types')))

@@ -187,9 +187,6 @@ def get_mesh(mesh_owner: Optional[str] = None,
         resource_owner=pulumi.get(__ret__, 'resource_owner'),
         specs=pulumi.get(__ret__, 'specs'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_mesh)
 def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -220,4 +217,19 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the service mesh.
     :param Mapping[str, str] tags: Map of tags.
     """
-    ...
+    __args__ = dict()
+    __args__['meshOwner'] = mesh_owner
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getMesh:getMesh', __args__, opts=opts, typ=GetMeshResult)
+    return __ret__.apply(lambda __response__: GetMeshResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        mesh_owner=pulumi.get(__response__, 'mesh_owner'),
+        name=pulumi.get(__response__, 'name'),
+        resource_owner=pulumi.get(__response__, 'resource_owner'),
+        specs=pulumi.get(__response__, 'specs'),
+        tags=pulumi.get(__response__, 'tags')))

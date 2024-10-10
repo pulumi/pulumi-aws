@@ -219,9 +219,6 @@ def get_role(name: Optional[str] = None,
         role_last_useds=pulumi.get(__ret__, 'role_last_useds'),
         tags=pulumi.get(__ret__, 'tags'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
-
-
-@_utilities.lift_output_func(get_role)
 def get_role_output(name: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
@@ -243,4 +240,21 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Friendly IAM role name to match.
     :param Mapping[str, str] tags: Tags attached to the role.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getRole:getRole', __args__, opts=opts, typ=GetRoleResult)
+    return __ret__.apply(lambda __response__: GetRoleResult(
+        arn=pulumi.get(__response__, 'arn'),
+        assume_role_policy=pulumi.get(__response__, 'assume_role_policy'),
+        create_date=pulumi.get(__response__, 'create_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        max_session_duration=pulumi.get(__response__, 'max_session_duration'),
+        name=pulumi.get(__response__, 'name'),
+        path=pulumi.get(__response__, 'path'),
+        permissions_boundary=pulumi.get(__response__, 'permissions_boundary'),
+        role_last_useds=pulumi.get(__response__, 'role_last_useds'),
+        tags=pulumi.get(__response__, 'tags'),
+        unique_id=pulumi.get(__response__, 'unique_id')))

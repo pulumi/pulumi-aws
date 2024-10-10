@@ -360,9 +360,6 @@ def get_domain(domain_name: Optional[str] = None,
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
@@ -382,4 +379,32 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain.
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticsearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        access_policies=pulumi.get(__response__, 'access_policies'),
+        advanced_options=pulumi.get(__response__, 'advanced_options'),
+        advanced_security_options=pulumi.get(__response__, 'advanced_security_options'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_tune_options=pulumi.get(__response__, 'auto_tune_options'),
+        cluster_configs=pulumi.get(__response__, 'cluster_configs'),
+        cognito_options=pulumi.get(__response__, 'cognito_options'),
+        created=pulumi.get(__response__, 'created'),
+        deleted=pulumi.get(__response__, 'deleted'),
+        domain_id=pulumi.get(__response__, 'domain_id'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        ebs_options=pulumi.get(__response__, 'ebs_options'),
+        elasticsearch_version=pulumi.get(__response__, 'elasticsearch_version'),
+        encryption_at_rests=pulumi.get(__response__, 'encryption_at_rests'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        id=pulumi.get(__response__, 'id'),
+        kibana_endpoint=pulumi.get(__response__, 'kibana_endpoint'),
+        log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
+        node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
+        processing=pulumi.get(__response__, 'processing'),
+        snapshot_options=pulumi.get(__response__, 'snapshot_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_options=pulumi.get(__response__, 'vpc_options')))

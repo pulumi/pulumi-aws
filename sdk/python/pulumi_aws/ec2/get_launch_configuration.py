@@ -295,9 +295,6 @@ def get_launch_configuration(name: Optional[str] = None,
         security_groups=pulumi.get(__ret__, 'security_groups'),
         spot_price=pulumi.get(__ret__, 'spot_price'),
         user_data=pulumi.get(__ret__, 'user_data'))
-
-
-@_utilities.lift_output_func(get_launch_configuration)
 def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
@@ -315,4 +312,26 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the launch configuration.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts, typ=GetLaunchConfigurationResult)
+    return __ret__.apply(lambda __response__: GetLaunchConfigurationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        associate_public_ip_address=pulumi.get(__response__, 'associate_public_ip_address'),
+        ebs_block_devices=pulumi.get(__response__, 'ebs_block_devices'),
+        ebs_optimized=pulumi.get(__response__, 'ebs_optimized'),
+        enable_monitoring=pulumi.get(__response__, 'enable_monitoring'),
+        ephemeral_block_devices=pulumi.get(__response__, 'ephemeral_block_devices'),
+        iam_instance_profile=pulumi.get(__response__, 'iam_instance_profile'),
+        id=pulumi.get(__response__, 'id'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        metadata_options=pulumi.get(__response__, 'metadata_options'),
+        name=pulumi.get(__response__, 'name'),
+        placement_tenancy=pulumi.get(__response__, 'placement_tenancy'),
+        root_block_devices=pulumi.get(__response__, 'root_block_devices'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        spot_price=pulumi.get(__response__, 'spot_price'),
+        user_data=pulumi.get(__response__, 'user_data')))

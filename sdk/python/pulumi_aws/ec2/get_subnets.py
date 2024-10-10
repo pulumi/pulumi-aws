@@ -106,9 +106,6 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_subnets)
 def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetsResult]:
@@ -123,4 +120,13 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSubnets:getSubnets', __args__, opts=opts, typ=GetSubnetsResult)
+    return __ret__.apply(lambda __response__: GetSubnetsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

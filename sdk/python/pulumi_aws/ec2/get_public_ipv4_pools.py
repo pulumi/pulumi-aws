@@ -129,9 +129,6 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
         id=pulumi.get(__ret__, 'id'),
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_public_ipv4_pools)
 def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
@@ -169,4 +166,13 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools', __args__, opts=opts, typ=GetPublicIpv4PoolsResult)
+    return __ret__.apply(lambda __response__: GetPublicIpv4PoolsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        pool_ids=pulumi.get(__response__, 'pool_ids'),
+        tags=pulumi.get(__response__, 'tags')))

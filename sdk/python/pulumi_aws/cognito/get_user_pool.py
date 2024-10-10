@@ -357,9 +357,6 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))
-
-
-@_utilities.lift_output_func(get_user_pool)
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
@@ -379,4 +376,32 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
 
     :param str user_pool_id: The cognito pool ID
     """
-    ...
+    __args__ = dict()
+    __args__['userPoolId'] = user_pool_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPool:getUserPool', __args__, opts=opts, typ=GetUserPoolResult)
+    return __ret__.apply(lambda __response__: GetUserPoolResult(
+        account_recovery_settings=pulumi.get(__response__, 'account_recovery_settings'),
+        admin_create_user_configs=pulumi.get(__response__, 'admin_create_user_configs'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_verified_attributes=pulumi.get(__response__, 'auto_verified_attributes'),
+        creation_date=pulumi.get(__response__, 'creation_date'),
+        custom_domain=pulumi.get(__response__, 'custom_domain'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
+        device_configurations=pulumi.get(__response__, 'device_configurations'),
+        domain=pulumi.get(__response__, 'domain'),
+        email_configurations=pulumi.get(__response__, 'email_configurations'),
+        estimated_number_of_users=pulumi.get(__response__, 'estimated_number_of_users'),
+        id=pulumi.get(__response__, 'id'),
+        lambda_configs=pulumi.get(__response__, 'lambda_configs'),
+        last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        mfa_configuration=pulumi.get(__response__, 'mfa_configuration'),
+        name=pulumi.get(__response__, 'name'),
+        schema_attributes=pulumi.get(__response__, 'schema_attributes'),
+        sms_authentication_message=pulumi.get(__response__, 'sms_authentication_message'),
+        sms_configuration_failure=pulumi.get(__response__, 'sms_configuration_failure'),
+        sms_verification_message=pulumi.get(__response__, 'sms_verification_message'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_pool_id=pulumi.get(__response__, 'user_pool_id'),
+        user_pool_tags=pulumi.get(__response__, 'user_pool_tags'),
+        username_attributes=pulumi.get(__response__, 'username_attributes')))

@@ -268,9 +268,6 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
-
-
-@_utilities.lift_output_func(get_multicast_domain)
 def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -306,4 +303,25 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getMulticastDomain:getMulticastDomain', __args__, opts=opts, typ=GetMulticastDomainResult)
+    return __ret__.apply(lambda __response__: GetMulticastDomainResult(
+        arn=pulumi.get(__response__, 'arn'),
+        associations=pulumi.get(__response__, 'associations'),
+        auto_accept_shared_associations=pulumi.get(__response__, 'auto_accept_shared_associations'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        igmpv2_support=pulumi.get(__response__, 'igmpv2_support'),
+        members=pulumi.get(__response__, 'members'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        sources=pulumi.get(__response__, 'sources'),
+        state=pulumi.get(__response__, 'state'),
+        static_sources_support=pulumi.get(__response__, 'static_sources_support'),
+        tags=pulumi.get(__response__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),
+        transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
+        transit_gateway_multicast_domain_id=pulumi.get(__response__, 'transit_gateway_multicast_domain_id')))

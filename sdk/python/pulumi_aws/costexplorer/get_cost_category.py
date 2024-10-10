@@ -188,9 +188,6 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_cost_category)
 def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostCategoryResult]:
@@ -210,4 +207,19 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = No
     :param str cost_category_arn: Unique name for the Cost Category.
     :param Mapping[str, str] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
     """
-    ...
+    __args__ = dict()
+    __args__['costCategoryArn'] = cost_category_arn
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:costexplorer/getCostCategory:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult)
+    return __ret__.apply(lambda __response__: GetCostCategoryResult(
+        cost_category_arn=pulumi.get(__response__, 'cost_category_arn'),
+        default_value=pulumi.get(__response__, 'default_value'),
+        effective_end=pulumi.get(__response__, 'effective_end'),
+        effective_start=pulumi.get(__response__, 'effective_start'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        rule_version=pulumi.get(__response__, 'rule_version'),
+        rules=pulumi.get(__response__, 'rules'),
+        split_charge_rules=pulumi.get(__response__, 'split_charge_rules'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -177,9 +177,6 @@ def get_firewall_policy(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         update_token=pulumi.get(__ret__, 'update_token'))
-
-
-@_utilities.lift_output_func(get_firewall_policy)
 def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -226,4 +223,17 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     :param str name: Descriptive name of the firewall policy.
     :param Mapping[str, str] tags: Key-value tags for the firewall policy.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
+    return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        firewall_policies=pulumi.get(__response__, 'firewall_policies'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
+        update_token=pulumi.get(__response__, 'update_token')))

@@ -353,9 +353,6 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_cluster_snapshot)
 def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                                 db_cluster_snapshot_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                                 include_public: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -405,4 +402,35 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired DB cluster snapshot.
     """
-    ...
+    __args__ = dict()
+    __args__['dbClusterIdentifier'] = db_cluster_identifier
+    __args__['dbClusterSnapshotIdentifier'] = db_cluster_snapshot_identifier
+    __args__['includePublic'] = include_public
+    __args__['includeShared'] = include_shared
+    __args__['mostRecent'] = most_recent
+    __args__['snapshotType'] = snapshot_type
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts, typ=GetClusterSnapshotResult)
+    return __ret__.apply(lambda __response__: GetClusterSnapshotResult(
+        allocated_storage=pulumi.get(__response__, 'allocated_storage'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        db_cluster_identifier=pulumi.get(__response__, 'db_cluster_identifier'),
+        db_cluster_snapshot_arn=pulumi.get(__response__, 'db_cluster_snapshot_arn'),
+        db_cluster_snapshot_identifier=pulumi.get(__response__, 'db_cluster_snapshot_identifier'),
+        engine=pulumi.get(__response__, 'engine'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        include_public=pulumi.get(__response__, 'include_public'),
+        include_shared=pulumi.get(__response__, 'include_shared'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        license_model=pulumi.get(__response__, 'license_model'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        port=pulumi.get(__response__, 'port'),
+        snapshot_create_time=pulumi.get(__response__, 'snapshot_create_time'),
+        snapshot_type=pulumi.get(__response__, 'snapshot_type'),
+        source_db_cluster_snapshot_arn=pulumi.get(__response__, 'source_db_cluster_snapshot_arn'),
+        status=pulumi.get(__response__, 'status'),
+        storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

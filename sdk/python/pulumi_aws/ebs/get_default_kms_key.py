@@ -85,9 +85,6 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     return AwaitableGetDefaultKmsKeyResult(
         id=pulumi.get(__ret__, 'id'),
         key_arn=pulumi.get(__ret__, 'key_arn'))
-
-
-@_utilities.lift_output_func(get_default_kms_key)
 def get_default_kms_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultKmsKeyResult]:
     """
     Use this data source to get the default EBS encryption KMS key in the current region.
@@ -105,4 +102,9 @@ def get_default_kms_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> p
         kms_key_id=current.key_arn)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ebs/getDefaultKmsKey:getDefaultKmsKey', __args__, opts=opts, typ=GetDefaultKmsKeyResult)
+    return __ret__.apply(lambda __response__: GetDefaultKmsKeyResult(
+        id=pulumi.get(__response__, 'id'),
+        key_arn=pulumi.get(__response__, 'key_arn')))

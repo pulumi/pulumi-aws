@@ -139,9 +139,6 @@ def get_asset(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         rack_elevation=pulumi.get(__ret__, 'rack_elevation'),
         rack_id=pulumi.get(__ret__, 'rack_id'))
-
-
-@_utilities.lift_output_func(get_asset)
 def get_asset_output(arn: Optional[pulumi.Input[str]] = None,
                      asset_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
@@ -152,4 +149,16 @@ def get_asset_output(arn: Optional[pulumi.Input[str]] = None,
     :param str arn: Outpost ARN.
     :param str asset_id: ID of the asset.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['assetId'] = asset_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getAsset:getAsset', __args__, opts=opts, typ=GetAssetResult)
+    return __ret__.apply(lambda __response__: GetAssetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        asset_id=pulumi.get(__response__, 'asset_id'),
+        asset_type=pulumi.get(__response__, 'asset_type'),
+        host_id=pulumi.get(__response__, 'host_id'),
+        id=pulumi.get(__response__, 'id'),
+        rack_elevation=pulumi.get(__response__, 'rack_elevation'),
+        rack_id=pulumi.get(__response__, 'rack_id')))

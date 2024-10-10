@@ -168,9 +168,6 @@ def get_user(access_string: Optional[str] = None,
         passwords=pulumi.get(__ret__, 'passwords'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
-
-
-@_utilities.lift_output_func(get_user)
 def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
                     authentication_modes: Optional[pulumi.Input[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]]]] = None,
                     engine: Optional[pulumi.Input[Optional[str]]] = None,
@@ -196,4 +193,22 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
     :param str user_id: Identifier for the user.
     :param str user_name: User name of the user.
     """
-    ...
+    __args__ = dict()
+    __args__['accessString'] = access_string
+    __args__['authenticationModes'] = authentication_modes
+    __args__['engine'] = engine
+    __args__['noPasswordRequired'] = no_password_required
+    __args__['passwords'] = passwords
+    __args__['userId'] = user_id
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
+    return __ret__.apply(lambda __response__: GetUserResult(
+        access_string=pulumi.get(__response__, 'access_string'),
+        authentication_modes=pulumi.get(__response__, 'authentication_modes'),
+        engine=pulumi.get(__response__, 'engine'),
+        id=pulumi.get(__response__, 'id'),
+        no_password_required=pulumi.get(__response__, 'no_password_required'),
+        passwords=pulumi.get(__response__, 'passwords'),
+        user_id=pulumi.get(__response__, 'user_id'),
+        user_name=pulumi.get(__response__, 'user_name')))

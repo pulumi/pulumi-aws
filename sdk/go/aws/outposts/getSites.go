@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetSites(ctx, nil, nil)
+//			_, err := outposts.GetSites(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}

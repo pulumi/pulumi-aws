@@ -156,9 +156,6 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-
-
-@_utilities.lift_output_func(get_replication_subnet_group)
 def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
@@ -179,4 +176,17 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
 
     :param str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
     """
-    ...
+    __args__ = dict()
+    __args__['replicationSubnetGroupId'] = replication_subnet_group_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup', __args__, opts=opts, typ=GetReplicationSubnetGroupResult)
+    return __ret__.apply(lambda __response__: GetReplicationSubnetGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        replication_subnet_group_arn=pulumi.get(__response__, 'replication_subnet_group_arn'),
+        replication_subnet_group_description=pulumi.get(__response__, 'replication_subnet_group_description'),
+        replication_subnet_group_id=pulumi.get(__response__, 'replication_subnet_group_id'),
+        subnet_group_status=pulumi.get(__response__, 'subnet_group_status'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

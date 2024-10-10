@@ -134,7 +134,7 @@ import (
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"schemaVersion": "1.2",
 //				"description":   "Stop an instance",
-//				"parameters":    nil,
+//				"parameters":    map[string]interface{}{},
 //				"runtimeConfig": map[string]interface{}{
 //					"aws:runShellScript": map[string]interface{}{
 //						"properties": []map[string]interface{}{

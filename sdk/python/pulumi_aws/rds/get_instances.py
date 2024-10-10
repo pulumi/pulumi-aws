@@ -140,9 +140,6 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         instance_arns=pulumi.get(__ret__, 'instance_arns'),
         instance_identifiers=pulumi.get(__ret__, 'instance_identifiers'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_instances)
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
@@ -178,4 +175,14 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:rds/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
+    return __ret__.apply(lambda __response__: GetInstancesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        instance_arns=pulumi.get(__response__, 'instance_arns'),
+        instance_identifiers=pulumi.get(__response__, 'instance_identifiers'),
+        tags=pulumi.get(__response__, 'tags')))

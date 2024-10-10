@@ -196,9 +196,6 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
         principal_id=pulumi.get(__ret__, 'principal_id'),
         user_name=pulumi.get(__ret__, 'user_name'),
         user_role=pulumi.get(__ret__, 'user_role'))
-
-
-@_utilities.lift_output_func(get_quicksight_user)
 def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                namespace: Optional[pulumi.Input[Optional[str]]] = None,
                                user_name: Optional[pulumi.Input[str]] = None,
@@ -226,4 +223,20 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['awsAccountId'] = aws_account_id
+    __args__['namespace'] = namespace
+    __args__['userName'] = user_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightUser:getQuicksightUser', __args__, opts=opts, typ=GetQuicksightUserResult)
+    return __ret__.apply(lambda __response__: GetQuicksightUserResult(
+        active=pulumi.get(__response__, 'active'),
+        arn=pulumi.get(__response__, 'arn'),
+        aws_account_id=pulumi.get(__response__, 'aws_account_id'),
+        email=pulumi.get(__response__, 'email'),
+        id=pulumi.get(__response__, 'id'),
+        identity_type=pulumi.get(__response__, 'identity_type'),
+        namespace=pulumi.get(__response__, 'namespace'),
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        user_name=pulumi.get(__response__, 'user_name'),
+        user_role=pulumi.get(__response__, 'user_role')))
