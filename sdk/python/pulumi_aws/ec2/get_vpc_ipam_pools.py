@@ -111,9 +111,6 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[Union['GetVpcIpamPoolsFilterAr
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ipam_pools=pulumi.get(__ret__, 'ipam_pools'))
-
-
-@_utilities.lift_output_func(get_vpc_ipam_pools)
 def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIpamPoolsResult]:
     """
@@ -144,4 +141,11 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetVpcIpamPoolsFilterArgs', 'GetVpcIpamPoolsFilterArgsDict']] filters: Custom filter block as described below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpamPools:getVpcIpamPools', __args__, opts=opts, typ=GetVpcIpamPoolsResult)
+    return __ret__.apply(lambda __response__: GetVpcIpamPoolsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipam_pools=pulumi.get(__response__, 'ipam_pools')))

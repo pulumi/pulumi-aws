@@ -188,9 +188,6 @@ def get_slot_type(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         value_selection_strategy=pulumi.get(__ret__, 'value_selection_strategy'),
         version=pulumi.get(__ret__, 'version'))
-
-
-@_utilities.lift_output_func(get_slot_type)
 def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
                          version: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlotTypeResult]:
@@ -211,4 +208,18 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the slot type. The name is case sensitive.
     :param str version: Version of the slot type.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['version'] = version
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lex/getSlotType:getSlotType', __args__, opts=opts, typ=GetSlotTypeResult)
+    return __ret__.apply(lambda __response__: GetSlotTypeResult(
+        checksum=pulumi.get(__response__, 'checksum'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        enumeration_values=pulumi.get(__response__, 'enumeration_values'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        name=pulumi.get(__response__, 'name'),
+        value_selection_strategy=pulumi.get(__response__, 'value_selection_strategy'),
+        version=pulumi.get(__response__, 'version')))

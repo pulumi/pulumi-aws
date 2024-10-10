@@ -177,9 +177,6 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
         tracker_arn=pulumi.get(__ret__, 'tracker_arn'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'),
         update_time=pulumi.get(__ret__, 'update_time'))
-
-
-@_utilities.lift_output_func(get_tracker)
 def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        tracker_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
@@ -199,4 +196,18 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
     :param str tracker_name: Name of the tracker resource.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['trackerName'] = tracker_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:location/getTracker:getTracker', __args__, opts=opts, typ=GetTrackerResult)
+    return __ret__.apply(lambda __response__: GetTrackerResult(
+        create_time=pulumi.get(__response__, 'create_time'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        position_filtering=pulumi.get(__response__, 'position_filtering'),
+        tags=pulumi.get(__response__, 'tags'),
+        tracker_arn=pulumi.get(__response__, 'tracker_arn'),
+        tracker_name=pulumi.get(__response__, 'tracker_name'),
+        update_time=pulumi.get(__response__, 'update_time')))

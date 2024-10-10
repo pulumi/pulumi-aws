@@ -98,9 +98,6 @@ def get_service(service_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         service_code=pulumi.get(__ret__, 'service_code'),
         service_name=pulumi.get(__ret__, 'service_name'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(service_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -120,4 +117,11 @@ def get_service_output(service_name: Optional[pulumi.Input[str]] = None,
 
     :param str service_name: Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
-    ...
+    __args__ = dict()
+    __args__['serviceName'] = service_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        id=pulumi.get(__response__, 'id'),
+        service_code=pulumi.get(__response__, 'service_code'),
+        service_name=pulumi.get(__response__, 'service_name')))

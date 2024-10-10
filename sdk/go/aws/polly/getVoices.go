@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := polly.GetVoices(ctx, nil, nil)
+//			_, err := polly.GetVoices(ctx, &polly.GetVoicesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
