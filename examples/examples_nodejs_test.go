@@ -580,10 +580,10 @@ func TestRegress3421Update(t *testing.T) {
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
 
-	test.SetConfig("listenerPort", "80")
-	test.Up()
-	test.SetConfig("listenerPort", "81")
-	test.Up()
+	test.SetConfig(t, "listenerPort", "80")
+	test.Up(t)
+	test.SetConfig(t, "listenerPort", "81")
+	test.Up(t)
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
@@ -619,22 +619,22 @@ func TestUpdateImportedLambda(t *testing.T) {
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
 
-	test.SetConfig("runtime", "nodejs18.x")
-	res := test.Up()
+	test.SetConfig(t, "runtime", "nodejs18.x")
+	res := test.Up(t)
 	lambdaName := res.Outputs["lambda_name"]
 	lambdaRole := res.Outputs["lambda_role"]
 
-	secondStack := test.InstallStack("new_stack")
+	secondStack := test.InstallStack(t, "new_stack")
 
 	// Check that we can reimport the lambda.
-	secondStack.SetConfig("lambda_name", lambdaName.Value.(string))
-	secondStack.SetConfig("runtime", "nodejs18.x")
-	secondStack.SetConfig("lambda_role", lambdaRole.Value.(string))
-	secondStack.Up()
+	secondStack.SetConfig(t, "lambda_name", lambdaName.Value.(string))
+	secondStack.SetConfig(t, "runtime", "nodejs18.x")
+	secondStack.SetConfig(t, "lambda_role", lambdaRole.Value.(string))
+	secondStack.Up(t)
 
 	// Check that we can change a property on the lambda
-	secondStack.SetConfig("runtime", "nodejs16.x")
-	secondStack.Up()
+	secondStack.SetConfig(t, "runtime", "nodejs16.x")
+	secondStack.Up(t)
 }
 
 func TestNoCodeLambda(t *testing.T) {
